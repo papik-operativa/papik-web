@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promoción Inmobiliaria | PAPIK · Autopromotor de Casas Passivhaus</title>
+  <meta name="description" content="PAPIK es autopromotor y constructor: compramos solares, construimos viviendas Passivhaus y las vendemos. Sin intermediarios. Vallès, Maresme y Barcelona desde 1994.">
+  <style>
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
+  <style>
+    /* ═══════════════════════════════════
+       VARIABLES & RESET
+    ═══════════════════════════════════ */
+    :root {
+      --green:       #002819;
+      --accent:      #95BBA5;
+      --green-light: #56685E;
+      --green-dark:  #0A1B12;
+      --bg-light:    rgba(86,104,94,0.14);
+      --bg-section:  rgba(86,104,94,0.14);
+      --text:        #002819;
+      --muted:       #56685E;
+      --muted-light: #9FA9A3;
+      --border:      rgba(86,104,94,0.25);
+      --footer-bg:   #07140D;
+      --warm-1:      rgba(86,104,94,0.22);
+      --warm-2:      #9FA9A3;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'TT Firs Neue', Arial, Helvetica, sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      opacity: 0;
+      animation: pageIn .5s ease .1s forwards;
+    }
+    @keyframes pageIn { to { opacity: 1; } }
+
+    h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    a { text-decoration: none; color: inherit; }
+    button, input, select, textarea { font-family: 'TT Firs Neue', sans-serif; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Typography */
+    .t12  { font-size: 12px; line-height: 1.6; }
+    .t14  { font-size: 14px; line-height: 1.6; }
+    .t16  { font-size: 16px; line-height: 1.6; }
+    .t18  { font-size: 18px; line-height: 1.4; }
+    .t24  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.3; }
+    .t42  { font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
+    .t70  { font-size: 70px; line-height: 1.05; }
+    .upper { text-transform: uppercase; }
+    .center { text-align: center; }
+    .color-green  { color: var(--green); }
+    .color-muted  { color: var(--muted); }
+    .color-muted-light { color: var(--muted-light); }
+    .color-white  { color: #fff; }
+    .opacity { opacity: .75; }
+
+    /* Layout */
+    .container { width: 90.625vw; margin: auto; }
+    .spacing, .block-margin { margin-bottom: 80px; }
+
+    /* ═══════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════ */
+    button, .btn {
+      height: 42px;
+      background: #fff;
+      border: 1px solid #fff;
+      border-radius: 21px;
+      padding: 0 28px;
+      cursor: pointer;
+      transition: all .2s ease;
+      font-size: 16px;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    button:hover { background: #000; border-color: #000; color: #fff; }
+    button svg path { transition: fill .2s; }
+    button:hover svg path { fill: #fff; }
+
+    button.btn-dark {
+      background: #000; border-color: #000; color: #fff;
+    }
+    button.btn-dark:hover { background: var(--green); border-color: var(--green); }
+
+    button.btn-outline-white {
+      background: transparent; border-color: rgba(255,255,255,.3); color: #fff;
+    }
+    button.btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); color: #fff; }
+
+    button.btn-up {
+      background: var(--muted); border-color: var(--muted); color: #fff;
+    }
+    button.btn-up:hover { background: #000; border-color: #000; }
+
+    .arrow-svg { display: inline-block; vertical-align: middle; margin-left: 3px; }
+    .link-arrow {
+      display: inline-flex; align-items: center; gap: 4px;
+      color: var(--muted); font-size: 14px; transition: opacity .2s;
+    }
+    .link-arrow:hover { opacity: .6; }
+
+    /* ═══════════════════════════════════
+       PLACEHOLDER IMAGES
+    ═══════════════════════════════════ */
+    .ph { display: block; width: 100%; height: 100%; }
+    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #002819 100%); }
+    .ph-warm-1  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
+    .ph-warm-2  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
+    .ph-warm-3  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
+    .ph-warm-4  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
+    .ph-warm-5  { background: linear-gradient(135deg, #9FA9A3 0%, #9FA9A3 100%); }
+    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #002819 100%); }
+    .ph-green   { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
+    .ph-capital { background: linear-gradient(160deg, #9FA9A3 0%, #0A1B12 100%); }
+    .ph-solar   { background: linear-gradient(160deg, #9FA9A3 0%, #56685E 100%); }
+    .ph-dark    { background: linear-gradient(135deg, #0A1B12 0%, #07140D 100%); }
+    .ph-stone   { background: linear-gradient(160deg, #E7E9E8 0%, #9FA9A3 100%); }
+
+    /* ═══════════════════════════════════
+       HEADER
+    ═══════════════════════════════════ */
+    .header-logo-layer { height: 56px; }
+
+    header.header-top {
+      position: fixed; width: 100%; background: #fff; top: 0;
+      z-index: 999; transition: top .2s linear;
+    }
+    header.header-top.hidden { top: -56px; }
+
+    .header-logo {
+      width: 100%; position: absolute; padding-top: 14px;
+      z-index: 102; background: #fff; top: 0;
+    }
+    .header-logo .container {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .header-logo__content { display: flex; align-items: center; }
+
+    .menu-btn-wrapper {
+      width: 24px; height: 24px; cursor: pointer; position: relative;
+      display: none; margin-right: 5vw;
+    }
+    .menu-btn__burger { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .menu-btn__burger span { display: block; width: 24px; height: 2px; background: #000; margin-bottom: 5px; }
+    .menu-btn__burger span:last-child { margin-bottom: 0; }
+
+    .logo a { display: flex; align-items: center; }
+    .logo svg { display: block; }
+
+    .lang select {
+      -webkit-appearance: none; appearance: none; border: 0; background: transparent;
+      font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
+      cursor: pointer; text-transform: uppercase; padding-right: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 0 center;
+    }
+
+    .header-sticky {
+      position: sticky; background: #fff; width: 100%; top: 0;
+      z-index: 100; margin-top: 56px; height: max-content;
+    }
+    .header-sticky__bar {
+      border-bottom: 1px solid var(--border);
+      height: 52px; padding: 10px 0; background: #fff;
+      position: relative; z-index: 90;
+    }
+    .header-sticky__content {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    nav.menu ul, nav.menu-right ul { display: flex; align-items: center; }
+    nav.menu ul { gap: 30px; }
+    nav.menu-right ul { gap: 20px; }
+    nav.menu li a, nav.menu li span { transition: opacity .2s; cursor: pointer; }
+    nav.menu li:hover > a, nav.menu li:hover > span { opacity: .5; }
+    nav.menu li.active-page > a, nav.menu li.active-page > span { font-weight: 500; }
+    nav.menu-right li { display: flex; align-items: center; cursor: pointer; }
+    nav.menu-right li:hover { opacity: .5; }
+
+    .nav-cta {
+      background: var(--green); color: #fff !important;
+      padding: 0 15px; height: 28px; border-radius: 14px;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12.5px; font-weight: 500; letter-spacing: .01em;
+      transition: background .2s !important;
+      white-space: nowrap; line-height: 1;
+    }
+    .nav-cta svg { flex-shrink: 0; }
+    .nav-cta:hover { background: var(--green-light) !important; opacity: 1 !important; }
+    nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
+    .nav-cta.menu-btn { display: flex; }
+
+    .icon-wrapper {
+      width: 30px; height: 30px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; margin-left: 4px;
+      transition: background .2s;
+    }
+    nav.menu-right li:hover .icon-wrapper { background: #E7E9E8; }
+
+    .form-search-wrapper {
+      position: absolute; width: 90.625vw; top: 0;
+      visibility: hidden; display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .form-search__content {
+      display: flex; margin-left: 55vw; opacity: 0;
+      transition: all .2s linear;
+    }
+    .form-search__content input[type="text"] {
+      -webkit-appearance: none; appearance: none;
+      background: var(--bg-light); height: 40px; border: 0;
+      border-radius: 20px; padding: 0 15px 0 40px;
+      width: 27vw; color: var(--text); font-size: 16px;
+      transition: all .2s linear;
+    }
+    .form-search__content input::placeholder { color: var(--muted-light); }
+    .search-icon-btn {
+      background: #E7E9E8; height: 38px; width: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: absolute; z-index: 10; left: 1px; top: 1px; cursor: pointer;
+      transition: background .3s; border: 0;
+    }
+    .search-icon-btn:hover { background: var(--border); }
+    .btn-close-search {
+      background: var(--bg-light); height: 40px; width: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0; visibility: hidden; border: 0;
+      transition: all .2s linear;
+    }
+    .header-sticky.search-open .header-sticky__content { opacity: 0; }
+    .header-sticky.search-open .header-sticky__bar { height: 66px; }
+    .header-sticky.search-open .form-search-wrapper { visibility: visible; }
+    .header-sticky.search-open .form-search__content { margin-left: 0; opacity: 1; }
+    .header-sticky.search-open .form-search__content input { width: 84vw; }
+    .header-sticky.search-open .btn-close-search { opacity: 1; visibility: visible; transition-delay: .3s; }
+
+    /* ═══════════════════════════════════
+       SUBMENUS
+    ═══════════════════════════════════ */
+    .submenu {
+      width: 100%; left: 0; z-index: 89; background: #fff;
+      padding: 40px 0; border-bottom: 1px solid var(--border);
+      position: absolute; visibility: hidden;
+      min-height: 340px; transition: all .3s ease-in-out;
+      margin-top: -600px;
+    }
+    .submenu.submenu-open { visibility: visible; margin-top: 0; }
+    .submenu__content { display: flex; gap: 5vw; align-items: flex-start; }
+    .submenu__col { flex: 1; }
+    .submenu__col h3 { color: var(--muted-light); font-size: 22px; margin-bottom: 24px; }
+    .submenu__col ul li { padding: 8px 0; font-size: 15px; border-bottom: 1px solid var(--bg-light); }
+    .submenu__col ul li a:hover { opacity: .6; }
+    .submenu__img {
+      width: 26vw; border-radius: 4px; overflow: hidden;
+      height: 16vw; margin-top: 24px;
+    }
+    .submenu__featured { width: 22vw; background: var(--bg-light); padding: 28px; border-radius: 4px; }
+    .submenu__featured h3 { color: var(--muted-light); font-size: 20px; margin-bottom: 16px; }
+    .submenu__featured .feat-title { font-size: 15px; line-height: 1.4; margin-bottom: 8px; }
+    .submenu__featured .feat-link { font-size: 13px; color: var(--muted); }
+
+    .fade-bg {
+      position: fixed; inset: 0; background: rgba(0,0,0,.5);
+      z-index: 70; opacity: 0; visibility: hidden; transition: .3s ease;
+    }
+    body.submenu-open .fade-bg { opacity: 1; visibility: visible; }
+
+    /* ═══════════════════════════════════
+       HERO
+    ═══════════════════════════════════ */
+    .block-hero {
+      width: 100vw; height: 54.6875vw; max-height: calc(100vh - 100px);
+      position: relative; overflow: hidden;
+    }
+    .block-hero__media { position: absolute; inset: 0; }
+    .block-hero__media .ph { position: absolute; inset: 0; }
+    .block-hero__overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background: rgba(10,18,12,.5);
+    }
+    .block-hero__content {
+      position: absolute; inset: 0; z-index: 3;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 0 6vw;
+      padding-bottom: 100px;
+    }
+    .block-hero__eyebrow {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.45); margin-bottom: 24px;
+    }
+    .block-hero__title {
+      color: #fff; font-weight: 300;
+      font-size: clamp(38px, 5.2vw, 76px);
+      line-height: 1.08; max-width: 860px;
+    }
+    .block-hero__sub {
+      color: rgba(255,255,255,.6); font-size: clamp(15px, 1.3vw, 19px);
+      line-height: 1.65; max-width: 560px; margin-top: 22px;
+    }
+    .block-hero__cta {
+      margin-top: 44px;
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+    }
+
+    /* ═══════════════════════════════════
+       STATS BAND
+    ═══════════════════════════════════ */
+    .pat-stats {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+    .pat-stats__inner {
+      display: flex; justify-content: space-between;
+      padding: 28px 0; gap: 12px;
+    }
+    .pat-stat {
+      flex: 1;
+      border-left: 1px solid var(--border);
+      padding-left: 28px;
+    }
+    .pat-stat:first-child { border-left: none; padding-left: 0; }
+    .pat-stat__num {
+      font-size: clamp(26px, 2.8vw, 40px);
+      color: var(--green); font-weight: 300; line-height: 1;
+      margin-bottom: 6px;
+    }
+    .pat-stat__lbl {
+      font-size: 13px; color: var(--muted); line-height: 1.45;
+    }
+
+    /* ═══════════════════════════════════
+       CTA / CONTACTO
+    ═══════════════════════════════════ */
+    .block-cta-inv {
+      padding: 80px 0; background: #fff;
+    }
+    .block-cta-inv__inner {
+      background: var(--green);
+      display: flex; align-items: stretch; overflow: hidden;
+      border-radius: 8px;
+    }
+    .cta-left {
+      flex: 1; padding: 44px 44px;
+    }
+    .cta-left .tag {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); margin-bottom: 20px; display: block;
+    }
+    .cta-left h2 {
+      font-size: clamp(26px, 2.8vw, 40px); color: #fff;
+      line-height: 1.12; margin-bottom: 20px;
+    }
+    .cta-left p {
+      font-size: 16px; color: rgba(255,255,255,.6);
+      line-height: 1.65; margin-bottom: 36px; max-width: 400px;
+    }
+    .cta-confidencial {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: rgba(255,255,255,.35); margin-top: 20px;
+    }
+    .cta-right {
+      width: 42%; background: rgba(255,255,255,.04);
+      padding: 44px 40px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .pat-form label {
+      display: block; font-size: 11px; letter-spacing: .2em;
+      text-transform: uppercase; color: rgba(255,255,255,.35);
+      margin-bottom: 6px; margin-top: 20px;
+    }
+    .pat-form label:first-child { margin-top: 0; }
+    .pat-form input, .pat-form select, .pat-form textarea {
+      width: 100%; background: transparent;
+      border: 0; border-bottom: 1px solid rgba(255,255,255,.2);
+      color: #fff; padding: 8px 0; font-size: 15px;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
+      transition: border-color .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .pat-form input:focus, .pat-form select:focus, .pat-form textarea:focus {
+      border-bottom-color: rgba(255,255,255,.6);
+    }
+    .pat-form input::placeholder, .pat-form textarea::placeholder { color: rgba(255,255,255,.25); }
+    .pat-form select option { background: var(--green); color: #fff; }
+    .pat-form textarea { resize: none; height: 80px; }
+    .pat-form__submit {
+      margin-top: 32px;
+      background: #fff; border-color: #fff; color: var(--green);
+      width: 100%; justify-content: center; font-size: 15px; font-weight: 500;
+    }
+    .pat-form__submit:hover { background: var(--bg-light); border-color: var(--bg-light); color: var(--green); }
+
+    /* ═══════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════ */
+    footer {
+      background: var(--footer-bg); color: #fff;
+      padding: 60px 0 40px;
+    }
+    footer a:hover { opacity: .6; }
+    .footer__content__info {
+      display: flex; justify-content: space-between;
+      gap: 20px; padding-bottom: 60px; flex-wrap: wrap;
+    }
+    .footer__content__info .footer-col { min-width: 120px; }
+    .footer__col-title { font-size: 18px; font-weight: 400; margin-bottom: 20px; }
+    .footer__content__info ul li { margin-bottom: 8px; }
+    .footer__content__info ul li a {
+      color: rgba(255,255,255,.6); font-size: 14px; transition: opacity .2s;
+    }
+    .info-showroom__item { margin-bottom: 24px; }
+    .info-showroom__item:last-child { margin-bottom: 0; }
+    .info-showroom__item h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; font-weight: 400; margin-bottom: 4px; }
+    .info-showroom__item p { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.5; }
+    .info-showroom__item a { color: rgba(255,255,255,.6); font-size: 13px; }
+    .footer__newsletter { max-width: 380px; }
+    .footer__newsletter > p { color: rgba(255,255,255,.6); font-size: 14px; margin-bottom: 20px; }
+    .newsletter-form { position: relative; }
+    .newsletter-form input[type="email"] {
+      width: 100%; background: transparent; border: 0;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+      color: #fff; padding: 8px 36px 8px 0; font-size: 16px;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
+    .newsletter-form button[type="submit"] {
+      position: absolute; right: 0; top: 0; background: transparent;
+      border: 0; height: 36px; width: 30px; display: flex;
+      align-items: center; justify-content: center; cursor: pointer;
+      color: rgba(255,255,255,.7); padding: 0;
+    }
+    .newsletter-form button[type="submit"]:hover { color: #fff; background: transparent; }
+    .footer__rrss { padding-top: 30px; }
+    .footer__rrss > p { font-size: 14px; margin-bottom: 12px; color: rgba(255,255,255,.5); }
+    .rrss__links { display: flex; gap: 20px; }
+    .rrss__links a { color: rgba(255,255,255,.6); font-size: 14px; }
+    .copyright {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      border-top: 1px solid rgba(255,255,255,.08); padding-top: 30px;
+    }
+    .copyright p { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.5; }
+
+    /* ═══════════════════════════════════
+       MOBILE NAV
+    ═══════════════════════════════════ */
+    .mobile-nav {
+      position: fixed; top: 0; left: -90vw; width: 90vw; height: 100vh;
+      background: #fff; z-index: 200; transition: left .3s ease;
+      overflow-y: auto; padding: 0 6vw;
+    }
+    .mobile-nav.open { left: 0; }
+    .mobile-nav__header {
+      height: 56px; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav__close {
+      background: none; border: none; cursor: pointer;
+      font-size: 24px; padding: 0; height: auto; color: var(--text);
+    }
+    .mobile-nav__close:hover { background: none; color: var(--muted); }
+    .mobile-nav ul { padding: 20px 0; }
+    .mobile-nav ul li { border-bottom: 1px solid var(--bg-light); }
+    .mobile-nav ul li a, .mobile-nav ul li span {
+      display: block; padding: 16px 0; font-size: 20px; cursor: pointer;
+    }
+    .mobile-nav ul li.sub-title { font-size: 12px; text-transform: uppercase; color: var(--muted); padding: 20px 0 8px; border-bottom: 0; }
+
+    /* ═══════════════════════════════════
+       PROMO HERO STRIP
+    ═══════════════════════════════════ */
+    .promo-hero-strip {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+    }
+    .promo-strip-item {
+      padding: 18px 28px; background: rgba(0,0,0,.32);
+      border-top: 1px solid rgba(255,255,255,.12);
+      border-right: 1px solid rgba(255,255,255,.08);
+      display: flex; align-items: center; gap: 16px;
+      backdrop-filter: blur(4px);
+      transition: background .2s;
+    }
+    .promo-strip-item:last-child { border-right: none; }
+    .promo-strip-item:hover { background: rgba(0,0,0,.45); }
+    .promo-strip-badge {
+      display: inline-flex; align-items: center;
+      padding: 3px 10px; font-size: 10px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .08em; flex-shrink: 0; white-space:nowrap;
+    }
+    .promo-strip-badge--sold { background: rgba(255,255,255,.2); color: rgba(255,255,255,.9); }
+    .promo-strip-badge--active { background: #9FA9A3; color: var(--green); }
+    .promo-strip-badge--coming { background: rgba(255,255,255,.08); color: rgba(255,255,255,.5); }
+    .promo-strip-name { font-size: 14px; color: #fff; font-weight: 400; line-height: 1.3; }
+    .promo-strip-loc { font-size: 11px; color: rgba(255,255,255,.45); margin-top: 3px; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ═══════════════════════════════════
+       MODEL FLOW
+    ═══════════════════════════════════ */
+    .promo-model { padding: 60px 0; background: var(--bg-section); }
+    .promo-model__header { max-width: 580px; margin-bottom: 40px; }
+    .promo-model__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
+    .promo-model__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.1; margin-bottom: 16px; }
+    .promo-model__sub { font-size: 16px; color: var(--muted); line-height: 1.7; }
+    .promo-model__flow { display: grid; grid-template-columns: 1fr 52px 1fr 52px 1fr; align-items: stretch; }
+    .promo-model__phase { background: #fff; padding: 30px 28px; border-radius: 8px; }
+    .promo-model__connector { display: flex; align-items: center; justify-content: center; background: transparent; }
+    .promo-model__connector svg { opacity: .35; }
+    .promo-model__step { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 16px; display: block; }
+    .promo-model__phase-title { font-size: clamp(20px, 2vw, 28px); color: var(--green); line-height: 1.18; font-weight: 300; margin-bottom: 14px; }
+    .promo-model__phase-text { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 22px; }
+    .promo-model__items { display: flex; flex-direction: column; }
+    .promo-model__item { font-size: 13px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 10px; }
+    .promo-model__item::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--border); flex-shrink:0; position:relative; top:-1px; }
+
+    /* ═══════════════════════════════════
+       TIPOS PROMOCION
+    ═══════════════════════════════════ */
+    .promo-tipos { padding: 80px 0; background: #fff; }
+    .promo-tipos__header { max-width: 560px; margin-bottom: 36px; }
+    .promo-tipos__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
+    .promo-tipos__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.1; }
+    .promo-tipos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .promo-tipo { background: #fff; padding: 36px 32px; border-radius: 8px; }
+    .promo-tipo__num { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 16px; letter-spacing: -.02em; }
+    .promo-tipo__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 12px; display: block; }
+    .promo-tipo__title { font-size: clamp(20px, 2vw, 26px); color: var(--green); line-height: 1.2; font-weight: 300; margin-bottom: 16px; }
+    .promo-tipo__text { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 22px; }
+    .promo-tipo__steps { display: flex; flex-direction: column; }
+    .promo-tipo__step { font-size: 12px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+    .promo-tipo__step-n { font-size: 18px; color: var(--border); font-weight: 300; min-width: 24px; flex-shrink: 0; }
+
+    /* ═══════════════════════════════════
+       ACTIVE PROMOTIONS
+    ═══════════════════════════════════ */
+    .promo-actives { padding: 80px 0; background: var(--bg-section); }
+    .promo-actives__header { margin-bottom: 32px; }
+    .promo-actives__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
+    .promo-actives__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; }
+    .promo-actives-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .promo-active { background: #fff; overflow: hidden; border-radius: 8px; }
+    .promo-active__img { height: 16vw; position: relative; overflow: hidden; }
+    .promo-active__img .ph { position: absolute; inset: 0; height: 100%; }
+    .promo-active__badge { position: absolute; top: 16px; left: 16px; padding: 5px 14px; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+    .promo-active__badge--sold { background: var(--green); color: #fff; }
+    .promo-active__badge--active { background: #9FA9A3; color: var(--green); }
+    .promo-active__badge--coming { background: var(--bg-light); color: var(--muted); }
+    .promo-active__body { padding: 24px; }
+    .promo-active__year { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 12px; }
+    .promo-active__name { font-size: 19px; color: var(--green); line-height: 1.25; margin-bottom: 10px; font-weight: 400; }
+    .promo-active__desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+    .promo-active__specs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .promo-active__spec { font-size: 11px; padding: 3px 10px; background: var(--bg-light); border: 1px solid var(--border); color: var(--muted); }
+
+    /* ═══════════════════════════════════
+       DUAL AUDIENCE
+    ═══════════════════════════════════ */
+    .promo-public__grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .promo-public__bloc { padding: 52px 5vw; }
+    .promo-public__bloc--solar { background: var(--green); }
+    .promo-public__bloc--comprador { background: var(--bg-light); }
+    .promo-public__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+    .promo-public__bloc--solar .promo-public__tag { color: rgba(255,255,255,.4); }
+    .promo-public__bloc--comprador .promo-public__tag { color: var(--muted-light); }
+    .promo-public__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.1; margin-bottom: 20px; font-weight: 300; }
+    .promo-public__bloc--solar .promo-public__title { color: #fff; }
+    .promo-public__bloc--comprador .promo-public__title { color: var(--green); }
+    .promo-public__text { font-size: 16px; line-height: 1.75; margin-bottom: 32px; }
+    .promo-public__bloc--solar .promo-public__text { color: rgba(255,255,255,.6); }
+    .promo-public__bloc--comprador .promo-public__text { color: var(--muted); }
+    .promo-public__list { margin-bottom: 36px; }
+    .promo-public__item { padding: 12px 0; border-bottom: 1px solid; font-size: 14px; display: flex; gap: 14px; align-items: baseline; }
+    .promo-public__bloc--solar .promo-public__item { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.75); }
+    .promo-public__bloc--comprador .promo-public__item { border-color: var(--border); color: var(--muted); }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .menu-btn-wrapper { display: block; }
+      nav.menu, nav.menu-right, .lang { display: none; }
+
+      .t42 { font-size: 24px; }
+      .t70 { font-size: 38px; }
+      .t24 { font-size: 20px; }
+      .container { width: 100%; padding: 0 4.8vw; }
+      .spacing, .block-margin { margin-bottom: 45px; }
+
+      .block-hero { height: 106vw; max-height: 500px; }
+
+      .pat-stats__inner { flex-wrap: wrap; gap: 24px; }
+      .pat-stat { min-width: calc(50% - 12px); }
+      .pat-stat:nth-child(3) { border-left: none; padding-left: 0; }
+
+      .block-cta-inv__inner { flex-direction: column; }
+      .cta-right { width: 100%; padding: 40px 4.8vw 48px; }
+      .cta-left { padding: 48px 4.8vw 40px; }
+
+      .footer__content__info { flex-direction: column; }
+      .footer__newsletter { max-width: 100%; }
+
+      .promo-hero-strip { grid-template-columns: 1fr; }
+      .promo-strip-item { border-right: none; }
+      .promo-model__flow { grid-template-columns: 1fr; }
+      .promo-model__connector { display: none; }
+      .promo-tipos-grid { grid-template-columns: 1fr; }
+      .promo-actives-grid { grid-template-columns: 1fr; }
+      .promo-active__img { height: 62vw; }
+      .promo-public__grid { grid-template-columns: 1fr; }
+      .promo-public__bloc { padding: 56px 4.8vw; }
+    }
+
+    @media (max-width: 600px) {
+      .pat-stat { min-width: 100%; border-left: none; padding-left: 0; }
+    }
+  </style>
+
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     MOBILE NAV OVERLAY
+═══════════════════════════════════ -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__header">
+    <a href="../index.html">
+      <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+      </svg>
+    </a>
+    <button class="mobile-nav__close" id="mobileNavClose">&#x2715;</button>
+  </div>
+  <ul class="t18">
+    <li class="sub-title">Servicios</li>
+    <li><a href="construccio.html">Construcci&#xF3;n</a></li>
+    <li><a href="promocio.html" style="color:var(--green);font-weight:500;">Promoci&#xF3;n Inmobiliaria</a></li>
+    <li><a href="rehabilitacio.html">Rehabilitaci&#xF3;n Energ&#xE9;tica</a></li>
+    <li class="sub-title">Empresa</li>
+    <li><a href="../patrimonis.html">Patrimonios</a></li>
+    <li><a href="../projectes.html">Proyectos</a></li>
+    <li><a href="../blog.html">Blog</a></li>
+    <li><a href="../nosaltres.html">Nosotros</a></li>
+    <li><a href="#contacte">Contacto</a></li>
+    <li><a href="../pressupost.html" style="color:var(--green);font-weight:600;">Pedir presupuesto &#x2192;</a></li>
+  </ul>
+</nav>
+<div class="fade-bg" id="fadeBg"></div>
+
+<!-- ═══════════════════════════════════
+     HEADER
+═══════════════════════════════════ -->
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="logo">
+          <a href="../index.html">
+            <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="location=this.value">
+          <option value="../promocio.html">CA</option>
+          <option value="promocio.html" selected>ES</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════
+     STICKY BAR
+═══════════════════════════════════ -->
+<section class="header-sticky" id="headerSticky">
+  <div class="header-sticky__bar">
+    <div class="container">
+      <div class="header-sticky__content">
+        <nav class="menu t14">
+          <ul>
+            <li><span class="menu-btn" data-menu="construccio">Construcci&#xF3;n</span></li>
+            <li class="active-page"><span class="menu-btn" data-menu="promocio">Promoci&#xF3;n</span></li>
+            <li><span class="menu-btn" data-menu="rehabilitacio">Rehabilitaci&#xF3;n</span></li>
+            <li><span class="menu-btn" data-menu="patrimonis">Patrimonios</span></li>
+                        <li>
+              <a href="blog.html">Blog</a>
+            </li>
+            <li><span class="menu-btn" data-menu="nosaltres">Nosotros</span></li>
+          </ul>
+        </nav>
+        <nav class="menu-right t14">
+          <ul>
+            <li class="btn-search-trigger" id="searchTrigger">
+              Buscar
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </li>
+            <li><a href="../index.html#contacte">Contacto</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/><path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </li>
+            <li><a href="../usuaris.html">Iniciar sesi&#xF3;n</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </li>
+            <li>
+              <span class="nav-cta menu-btn" data-menu="pressupost">
+                Presupuesto
+                <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Search -->
+      <div class="form-search-wrapper" id="searchWrapper">
+        <div class="form-search__content" style="position:relative;">
+          <button class="search-icon-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <form action="/" method="get">
+            <input type="text" name="s" placeholder="Buscar...">
+          </form>
+        </div>
+        <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submenus -->
+  <!-- ─── SUBMENU: Presupuesto ─── -->
+  <div class="submenu" id="sub-pressupost">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Tipo de proyecto</h3>
+          <ul class="t16">
+            <li><a href="../pressupost.html">Obra Nueva Unifamiliar</a></li>
+            <li><a href="../pressupost.html">Edificio Plurifamiliar</a></li>
+            <li><a href="../pressupost.html">Reforma Integral</a></li>
+            <li><a href="../pressupost.html">Rehabilitación Energética</a></li>
+            <li><a href="../pressupost.html">Ampliación y Cambio de Uso</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Estima tu proyecto</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Introduce las características de tu proyecto y obtén una estimación orientativa del coste en menos de un minuto. Sin compromiso, sin registro.</p>
+          <a href="../pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+        <div class="submenu__featured">
+          <h3>Cómo funciona</h3>
+          <p class="feat-title">3 pasos: tipo de proyecto → superficie y materiales → resultado</p>
+          <a href="../pressupost.html" class="feat-link link-arrow">Probar ahora
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="submenu" id="sub-construccio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Construcci&#xF3;n Residencial</h3>
+          <ul class="t16">
+            <li><a href="construccio.html">Obra Nueva</a></li>
+            <li><a href="construccio.html#unifamiliar">Viviendas Unifamiliares</a></li>
+            <li><a href="construccio.html#plurifamiliar">Edificios Plurifamiliares</a></li>
+            <li><a href="construccio.html#ampliacio">Ampliaciones y Plantas &#xC1;ticas</a></li>
+            <li><a href="construccio.html#reforma">Reformas Integrales</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-warm-1" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Nuestro enfoque</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Construimos residencias con calidad artesanal y tecnolog&#xED;a de vanguardia. Sistema Eskimohaus&#xAE; y certificaci&#xF3;n Passivhaus desde 2004.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualidad</h3>
+          <p class="feat-title">Nueva promoci&#xF3;n en Badalona: 24 viviendas con certificaci&#xF3;n A</p>
+          <a href="#" class="feat-link link-arrow">Leer m&#xE1;s <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submenu" id="sub-promocio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Promoci&#xF3;n Inmobiliaria</h3>
+          <ul class="t16">
+            <li><a href="promocio.html#obra-nova">Viviendas de Obra Nueva</a></li>
+            <li><a href="promocio.html#solar">Promociones Privadas</a></li>
+            <li><a href="promocio.html#solar">Colaboraci&#xF3;n Propietarios</a></li>
+            <li><a href="promocio.html#gestio">Gesti&#xF3;n Integral del Proyecto</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-warm-2" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">M&#xE1;xima rentabilidad</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Desde la b&#xFA;squeda del solar hasta la venta de la &#xFA;ltima vivienda.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualidad</h3>
+          <p class="feat-title">Proyecto Eixample: 12 pisos de dise&#xF1;o en el coraz&#xF3;n de Barcelona</p>
+          <a href="#" class="feat-link link-arrow">Leer m&#xE1;s <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submenu" id="sub-rehabilitacio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Rehabilitaci&#xF3;n Energ&#xE9;tica</h3>
+          <ul class="t16">
+            <li><a href="rehabilitacio.html#diagnosi">Certificaci&#xF3;n Energ&#xE9;tica</a></li>
+            <li><a href="rehabilitacio.html#envolupant">Aislamiento de Fachadas</a></li>
+            <li><a href="rehabilitacio.html#instal-lacions">Instalaci&#xF3;n Solar Fotovoltaica</a></li>
+            <li><a href="rehabilitacio.html#subvencions">Ayudas Next Generation</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-green" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Ahorro y confort</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Mejorar la eficiencia energ&#xE9;tica de tu edificio es invertir en el futuro.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualidad</h3>
+          <p class="feat-title">Hasta un 80% de subvenci&#xF3;n para rehabilitar tu fachada</p>
+          <a href="#" class="feat-link link-arrow">Leer m&#xE1;s <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submenu" id="sub-patrimonis">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Inversi&#xF3;n Patrimonial</h3>
+          <ul class="t16">
+            <li><a href="../patrimonis.html#com-funciona">C&#xF3;mo funciona</a></li>
+            <li><a href="../patrimonis.html">Inversores Privados y Family Office</a></li>
+            <li><a href="../patrimonis.html">Co-inversi&#xF3;n y Joint Venture</a></li>
+            <li><a href="../patrimonis.html">Gesti&#xF3;n de Activos y Mantenimiento</a></li>
+            <li><a href="../patrimonis.html#faq">Preguntas frecuentes</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Rentabilidad y seguridad</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Asesoramos a inversores patrimoniales, family offices y fondos de inversi&#xF3;n en la identificaci&#xF3;n, adquisici&#xF3;n y gesti&#xF3;n de activos inmobiliarios residenciales en el Maresme y Barcelon&#xE8;s.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Destacado</h3>
+          <p class="feat-title">Cartera activa: 3 solares disponibles para promoci&#xF3;n plurifamiliar</p>
+          <a href="../patrimonis.html" class="feat-link link-arrow">Conocer m&#xE1;s <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submenu" id="sub-nosaltres">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">PAPIK Group</h3>
+          <ul class="t16">
+            <li><a href="../nosaltres.html">Nuestra historia</a></li>
+            <li><a href="../nosaltres.html#equip">El equipo</a></li>
+            <li><a href="../nosaltres.html#eskimohaus">Sistema Eskimohaus</a></li>
+            <li><a href="../nosaltres.html#valors">Valores y compromiso</a></li>
+            <li><a href="../nosaltres.html#reconeixements">Premios y certificaciones</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Treinta a&#xF1;os de oficio</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">De un taller de carpinter&#xED;a artesanal al grupo constructor de referencia en passivhaus en Catalu&#xF1;a. Hacemos cosas que duran &#x2014; y lo hacemos desde 1994.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Reconocimientos</h3>
+          <p class="feat-title">Premio Excelencia Empresarial &#xB7; Foment del Treball, 2019</p>
+          <a href="../nosaltres.html#reconeixements" class="feat-link link-arrow">Conocer la empresa <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     HERO + PROMO STRIP
+═══════════════════════════════════ -->
+<section class="block-hero">
+  <div class="block-hero__media">
+    <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#07140D 0%,#07140D 50%,#0A1B12 100%);"></div>
+  </div>
+  <div class="block-hero__overlay"></div>
+  <div class="block-hero__content">
+    <p class="block-hero__eyebrow">PROMOTORA &middot; CONSTRUCTORA &middot; VENDEDORA &middot; DESDE 1994</p>
+    <h1 class="block-hero__title">Compramos el solar.<br>Construimos. Vendemos.</h1>
+    <p class="block-hero__sub">Ponemos el capital, el riesgo y el oficio. PAPIK es autopromotor desde 1994: desde la b&#xFA;squeda del suelo hasta la entrega de llaves, todo pasa por nuestro taller de Castellbell.</p>
+    <div class="block-hero__cta">
+      <a href="#promocions"><button>Ver promociones activas <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/></svg></button></a>
+      <a href="#solar"><button class="btn-outline-white">Tengo un solar</button></a>
+    </div>
+  </div>
+
+  <!-- PROMO STRIP -->
+  <div class="promo-hero-strip">
+    <div class="promo-strip-item">
+      <span class="promo-strip-badge promo-strip-badge--sold">Vendido</span>
+      <div>
+        <div class="promo-strip-name">Residencial Les Alzines</div>
+        <div class="promo-strip-loc">Cerdanyola del Vall&#xE9;s &middot; 28 hab.</div>
+      </div>
+    </div>
+    <div class="promo-strip-item">
+      <span class="promo-strip-badge promo-strip-badge--active">En venta</span>
+      <div>
+        <div class="promo-strip-name">Edificio Passivhaus Badalona</div>
+        <div class="promo-strip-loc">Badalona &middot; 24 unidades &middot; 2025</div>
+      </div>
+    </div>
+    <div class="promo-strip-item">
+      <span class="promo-strip-badge promo-strip-badge--coming">Pr&#xF3;ximo</span>
+      <div>
+        <div class="promo-strip-name">Casas en Hilera Granollers</div>
+        <div class="promo-strip-loc">Granollers &middot; 8 unidades &middot; 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     MODEL FLOW
+═══════════════════════════════════ -->
+<section class="promo-model">
+  <div class="container">
+    <div class="promo-model__header">
+      <span class="promo-model__tag">C&#xF3;mo funcionamos</span>
+      <h2 class="promo-model__title">Sin intermediarios desde el primer metro cuadrado</h2>
+      <p class="promo-model__sub">La mayor&#xED;a de promotoras subcontratan la construcci&#xF3;n. PAPIK no. Adquirimos, construimos y vendemos con equipo propio, capital propio y taller propio. El resultado: menos coste, m&#xE1;s calidad y plazos garantizados.</p>
+    </div>
+    <div class="promo-model__flow">
+
+      <!-- Phase 1 -->
+      <div class="promo-model__phase">
+        <span class="promo-model__step">Fase 01</span>
+        <h3 class="promo-model__phase-title">PAPIK<br>Adquiere</h3>
+        <p class="promo-model__phase-text">Identificaci&#xF3;n, compra y gesti&#xF3;n del suelo. El capital es nuestro.</p>
+        <div class="promo-model__items">
+          <div class="promo-model__item">Identificaci&#xF3;n y an&#xE1;lisis de suelo urbano</div>
+          <div class="promo-model__item">Compra directa o acuerdo de colaboraci&#xF3;n</div>
+          <div class="promo-model__item">Estudio de viabilidad y obtenci&#xF3;n de licencias</div>
+          <div class="promo-model__item">PAPIK asume el riesgo financiero al 100%</div>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="promo-model__connector">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="#002819" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="promo-model__phase">
+        <span class="promo-model__step">Fase 02</span>
+        <h3 class="promo-model__phase-title">PAPIK<br>Construye</h3>
+        <p class="promo-model__phase-text">Dise&#xF1;o, prefabricaci&#xF3;n y obra. Todo en nuestro taller de Castellbell.</p>
+        <div class="promo-model__items">
+          <div class="promo-model__item">Dise&#xF1;o arquitect&#xF3;nico integrado</div>
+          <div class="promo-model__item">Prefabricaci&#xF3;n en el taller de Castellbell</div>
+          <div class="promo-model__item">Certificaci&#xF3;n Passivhaus por cada unidad</div>
+          <div class="promo-model__item">Control de coste y plazo directo</div>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="promo-model__connector">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="#002819" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="promo-model__phase">
+        <span class="promo-model__step">Fase 03</span>
+        <h3 class="promo-model__phase-title">PAPIK<br>Vende</h3>
+        <p class="promo-model__phase-text">Comercializaci&#xF3;n directa y acompa&#xF1;amiento hasta la escritura.</p>
+        <div class="promo-model__items">
+          <div class="promo-model__item">Comercializaci&#xF3;n sin agencias externas</div>
+          <div class="promo-model__item">Acompa&#xF1;amiento al comprador hasta la escritura</div>
+          <div class="promo-model__item">Reserva anticipada para inversores</div>
+          <div class="promo-model__item">Garant&#xED;a postventa 10 a&#xF1;os</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats integrados en la misma sección -->
+    <div class="pat-stats__inner" style="margin-top:56px; border-top:1px solid var(--border); padding-top:36px;">
+      <div class="pat-stat">
+        <p class="pat-stat__num">+15M&#x20AC;</p>
+        <p class="pat-stat__lbl">invertidos en promociones propias desde 1994</p>
+      </div>
+      <div class="pat-stat">
+        <p class="pat-stat__num">+300</p>
+        <p class="pat-stat__lbl">viviendas promovidas y entregadas</p>
+      </div>
+      <div class="pat-stat">
+        <p class="pat-stat__num">0</p>
+        <p class="pat-stat__lbl">viviendas sin vender en entrega (100% preventa)</p>
+      </div>
+      <div class="pat-stat">
+        <p class="pat-stat__num">1</p>
+        <p class="pat-stat__lbl">interlocutor de primera piedra a escritura</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     TIPOLOGIAS DE PROMOCION
+═══════════════════════════════════ -->
+<section class="promo-tipos">
+  <div class="container">
+    <div class="promo-tipos__header">
+      <span class="promo-tipos__tag">Tipos de promociones</span>
+      <h2 class="promo-tipos__title">Tres formatos. Un mismo modelo autopromotor.</h2>
+    </div>
+    <div class="promo-tipos-grid">
+
+      <!-- Tipo 01 -->
+      <div class="promo-tipo">
+        <div class="promo-tipo__num">01</div>
+        <span class="promo-tipo__tag">Nuestro origen</span>
+        <h3 class="promo-tipo__title">Vivienda Unifamiliar Eskimohaus&#xAE;</h3>
+        <p class="promo-tipo__text">PAPIK compra el solar, construye con el sistema Eskimohaus&#xAE; y vende la vivienda llave en mano con certificaci&#xF3;n Passivhaus. La casa ligera de madera fabricada en nuestro taller y montada en semanas.</p>
+        <div class="promo-tipo__steps">
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">1</span>PAPIK compra el solar</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">2</span>Dise&#xF1;o y prefabricaci&#xF3;n en el taller</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">3</span>Obra en 4&#x2013;6 meses</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">4</span>Entrega con certificado Passivhaus</div>
+        </div>
+      </div>
+
+      <!-- Tipo 02 -->
+      <div class="promo-tipo">
+        <div class="promo-tipo__num">02</div>
+        <span class="promo-tipo__tag">A escala colectiva</span>
+        <h3 class="promo-tipo__title">Edificio Plurifamiliar y Cooperativas</h3>
+        <p class="promo-tipo__text">PAPIK adquiere un solar urbano calificado, construye un edificio de hasta 6 plantas con el sistema Eskimohaus&#xAE; y comercializa las viviendas directamente, sin intermediarios.</p>
+        <div class="promo-tipo__steps">
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">1</span>PAPIK adquiere solar urbano calificado</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">2</span>Edificio hasta 6 plantas, sistema Eskimohaus&#xAE;</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">3</span>Comercializaci&#xF3;n en pre-construcci&#xF3;n</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">4</span>Entrega con cert. A o Passivhaus</div>
+        </div>
+      </div>
+
+      <!-- Tipo 03 -->
+      <div class="promo-tipo">
+        <div class="promo-tipo__num">03</div>
+        <span class="promo-tipo__tag">Comprar para transformar</span>
+        <h3 class="promo-tipo__title">Rehabilitaci&#xF3;n Integral de Edificios</h3>
+        <p class="promo-tipo__text">PAPIK compra edificios antiguos, realiza una rehabilitaci&#xF3;n integral de la estructura y la envolvente, y vende las unidades rehabilitadas con certificaci&#xF3;n energ&#xE9;tica A o Passivhaus EnerPHit.</p>
+        <div class="promo-tipo__steps">
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">1</span>PAPIK compra edificios obsoletos en el Vall&#xE9;s</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">2</span>Rehabilitaci&#xF3;n integral: estructura + envolvente</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">3</span>Certificaci&#xF3;n energ&#xE9;tica A o Passivhaus EnerPHit</div>
+          <div class="promo-tipo__step"><span class="promo-tipo__step-n">4</span>Venta de unidades rehabilitadas</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PROMOCIONES ACTIVAS
+═══════════════════════════════════ -->
+<section class="promo-actives" id="promocions">
+  <div class="container">
+    <div class="promo-actives__header">
+      <span class="promo-actives__tag">Cartera de promociones</span>
+      <h2 class="promo-actives__title">Promociones activas, vendidas y pr&#xF3;ximas</h2>
+    </div>
+    <div class="promo-actives-grid">
+
+      <!-- Card 1: Vendido -->
+      <div class="promo-active">
+        <div class="promo-active__img">
+          <div class="ph ph-warm-1"></div>
+          <span class="promo-active__badge promo-active__badge--sold">Vendido</span>
+        </div>
+        <div class="promo-active__body">
+          <p class="promo-active__year">Cerdanyola &middot; 2023</p>
+          <h3 class="promo-active__name">Residencial Les Alzines</h3>
+          <p class="promo-active__desc">Promoci&#xF3;n de 28 viviendas Passivhaus Classic en el Vall&#xE9;s Occidental. Construidas con el sistema Eskimohaus&#xAE; de madera. Entregadas 10 meses antes de lo previsto. 100% vendidas en pre-construcci&#xF3;n.</p>
+          <div class="promo-active__specs">
+            <span class="promo-active__spec">Passivhaus Classic</span>
+            <span class="promo-active__spec">28 hab.</span>
+            <span class="promo-active__spec">Cerdanyola</span>
+            <span class="promo-active__spec">Vendido 100%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: En venta -->
+      <div class="promo-active">
+        <div class="promo-active__img">
+          <div class="ph ph-warm-2"></div>
+          <span class="promo-active__badge promo-active__badge--active">En venta</span>
+        </div>
+        <div class="promo-active__body">
+          <p class="promo-active__year">Badalona &middot; 2025</p>
+          <h3 class="promo-active__name">Edificio Passivhaus Badalona</h3>
+          <p class="promo-active__desc">24 viviendas con certificaci&#xF3;n energ&#xE9;tica A+ en un solar en el barrio de La Pau. Construcci&#xF3;n en curso. Entrega prevista T3 2025. Quedan 6 unidades disponibles.</p>
+          <div class="promo-active__specs">
+            <span class="promo-active__spec">Cert. A+</span>
+            <span class="promo-active__spec">24 hab.</span>
+            <span class="promo-active__spec">2&#x2013;4 hab.</span>
+            <span class="promo-active__spec">Desde 280.000&#x20AC;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Próximo -->
+      <div class="promo-active">
+        <div class="promo-active__img">
+          <div class="ph ph-green"></div>
+          <span class="promo-active__badge promo-active__badge--coming">Pr&#xF3;ximo</span>
+        </div>
+        <div class="promo-active__body">
+          <p class="promo-active__year">Granollers &middot; 2026</p>
+          <h3 class="promo-active__name">Casas en Hilera Granollers</h3>
+          <p class="promo-active__desc">8 casas adosadas en hilera con jard&#xED;n privado y certificaci&#xF3;n Passivhaus. Solar ya adquirido. Inicio de obra previsto para T1 2026. Registro de inter&#xE9;s abierto.</p>
+          <div class="promo-active__specs">
+            <span class="promo-active__spec">Passivhaus</span>
+            <span class="promo-active__spec">8 unidades</span>
+            <span class="promo-active__spec">Jard&#xED;n privado</span>
+            <span class="promo-active__spec">Registro de inter&#xE9;s</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     DUAL AUDIENCE
+═══════════════════════════════════ -->
+<section class="promo-public">
+  <div class="promo-public__grid">
+
+    <!-- Left: Solar owners -->
+    <div class="promo-public__bloc promo-public__bloc--solar" id="solar">
+      <span class="promo-public__tag">Ten&#xE9;is un solar o edificio</span>
+      <h2 class="promo-public__title">PAPIK compra o cogestiona</h2>
+      <p class="promo-public__text">Si ten&#xE9;is un solar urbano o un edificio que no rinde, PAPIK puede comprarlo directamente o cogestionarlo: nosotros ponemos el capital, el proyecto y la construcci&#xF3;n; vosotros participáis en el beneficio. Sin riesgo promotor para vosotros.</p>
+      <ul class="promo-public__list">
+        <li class="promo-public__item"><span style="color:rgba(255,255,255,.3);flex-shrink:0;">&#x2014;</span>Valoraci&#xF3;n y estudio de viabilidad sin coste</li>
+        <li class="promo-public__item"><span style="color:rgba(255,255,255,.3);flex-shrink:0;">&#x2014;</span>Compra directa o modelo de colaboraci&#xF3;n sin cesi&#xF3;n de propiedad</li>
+        <li class="promo-public__item"><span style="color:rgba(255,255,255,.3);flex-shrink:0;">&#x2014;</span>Participaci&#xF3;n en beneficios para el propietario cedente</li>
+        <li class="promo-public__item"><span style="color:rgba(255,255,255,.3);flex-shrink:0;">&#x2014;</span>Gesti&#xF3;n de licencias y tramitaci&#xF3;n incluida</li>
+        <li class="promo-public__item"><span style="color:rgba(255,255,255,.3);flex-shrink:0;">&#x2014;</span>Opci&#xF3;n de reserva de unidades para el propietario</li>
+      </ul>
+      <a href="#contacte"><button class="btn-outline-white">Hablar con nuestro equipo &#x2192;</button></a>
+    </div>
+
+    <!-- Right: Buyers -->
+    <div class="promo-public__bloc promo-public__bloc--comprador">
+      <span class="promo-public__tag">Quer&#xE9;is comprar una vivienda PAPIK</span>
+      <h2 class="promo-public__title">La calidad que veis es la que recibiréis</h2>
+      <p class="promo-public__text">Cuando compráis una vivienda PAPIK, no hay intermediarios entre vosotros y quien la ha construido. El mismo equipo que ha diseñado, prefabricado y montado vuestra casa es quien os la entrega y os la garantiza durante 10 años.</p>
+      <ul class="promo-public__list">
+        <li class="promo-public__item"><span style="color:var(--border);flex-shrink:0;">&#x2014;</span>Visitas de obra mensuales programadas</li>
+        <li class="promo-public__item"><span style="color:var(--border);flex-shrink:0;">&#x2014;</span>Personalizaci&#xF3;n de acabados incluida en plano</li>
+        <li class="promo-public__item"><span style="color:var(--border);flex-shrink:0;">&#x2014;</span>Asesoramiento hipotecario gratuito con entidades colaboradoras</li>
+        <li class="promo-public__item"><span style="color:var(--border);flex-shrink:0;">&#x2014;</span>Certificado Passivhaus y manual de uso entregados</li>
+        <li class="promo-public__item"><span style="color:var(--border);flex-shrink:0;">&#x2014;</span>Garant&#xED;a postventa directa con PAPIK</li>
+      </ul>
+      <a href="#promocions"><button class="btn-dark">Registrar inter&#xE9;s en una promoci&#xF3;n</button></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CTA / CONTACTO
+═══════════════════════════════════ -->
+<section class="block-cta-inv" id="contacte">
+  <div class="container">
+    <div class="block-cta-inv__inner">
+      <div class="cta-left">
+        <span class="tag">El primer paso no cuesta nada</span>
+        <h2>Expl&#xED;canos tu inter&#xE9;s</h2>
+        <p>Tanto si buscas una vivienda como si tienes un solar o edificio, cu&#xE9;ntanos tu situaci&#xF3;n. En 48 horas te respondemos con informaci&#xF3;n concreta y sin compromiso.</p>
+        <div class="cta-confidencial">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/><path d="M7 11V7C7 4.2 9.2 2 12 2C14.8 2 17 4.2 17 7V11" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Informaci&#xF3;n tratada de forma confidencial
+        </div>
+      </div>
+      <div class="cta-right">
+        <form class="pat-form">
+          <label for="cta-nom">Nombre y apellidos</label>
+          <input type="text" id="cta-nom" placeholder="Tu nombre">
+
+          <label for="cta-email">Correo electr&#xF3;nico</label>
+          <input type="email" id="cta-email" placeholder="email@ejemplo.com">
+
+          <label for="cta-telefon">Tel&#xE9;fono</label>
+          <input type="tel" id="cta-telefon" placeholder="+34 600 000 000">
+
+          <label for="cta-interes">Me encuentro en la situaci&#xF3;n de...</label>
+          <select id="cta-interes">
+            <option value="">Selecciona una opci&#xF3;n</option>
+            <option value="compra">Quiero comprar una vivienda PAPIK</option>
+            <option value="solar">Tengo un solar para vender o cogestionar</option>
+            <option value="inversor">Soy inversor inmobiliario</option>
+            <option value="promocio">Quiero informaci&#xF3;n sobre una promoci&#xF3;n espec&#xED;fica</option>
+            <option value="otro">Otro</option>
+          </select>
+
+          <label for="cta-missatge">Expl&#xED;canos tu situaci&#xF3;n</label>
+          <textarea id="cta-missatge" placeholder="Describe brevemente tu consulta..."></textarea>
+
+          <button type="submit" class="btn pat-form__submit">Enviar consulta &#x2192;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../nosaltres.html">Qui&#xE9;nes somos</a></li>
+          <li><a href="../projectes.html">Proyectos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer__col-title">Servicios</p>
+        <ul>
+          <li><a href="construccio.html">Construcci&#xF3;n Residencial</a></li>
+          <li><a href="promocio.html">Promoci&#xF3;n Inmobiliaria</a></li>
+          <li><a href="rehabilitacio.html">Rehabilitaci&#xF3;n Energ&#xE9;tica</a></li>
+          <li><a href="../patrimonis.html">Patrimonios &middot; Inversi&#xF3;n Conjunta</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer__col-title">Oficinas</p>
+        <div class="info-showroom__item">
+          <h3>SEDE CENTRAL</h3>
+          <p>Carrer Sort 34<br>08172 Sant Cugat del Vall&#xE9;s<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREO</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Sigue las promociones activas de PAPIK: viviendas Passivhaus nuevas en el Vall&#xE9;s y Maresme.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Tu email">
+          <button type="submit">
+            <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
+          </button>
+        </div>
+        <div class="footer__rrss">
+          <p>S&#xED;guenos</p>
+          <div class="rrss__links">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="copyright">
+      <p>Copyright &copy; 2025 PAPIK Fusters S.L. &ndash; Todos los derechos reservados &middot; papik.cat</p>
+      <div style="display:flex;gap:20px;">
+        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Aviso Legal</a>
+        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Pol&#xED;tica de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── Header hide on scroll ───
+  const headerTop = document.getElementById('headerTop');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const cur = window.scrollY;
+    if (cur > 80 && cur > lastScroll) {
+      headerTop.classList.add('hidden');
+    } else {
+      headerTop.classList.remove('hidden');
+    }
+    lastScroll = cur;
+  }, { passive: true });
+
+  // ─── Submenus ───
+  const fadeBg = document.getElementById('fadeBg');
+  let activeSubmenu = null;
+
+  document.querySelectorAll('.menu-btn[data-menu]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = 'sub-' + btn.dataset.menu;
+      const sub = document.getElementById(id);
+      if (!sub) return;
+      if (activeSubmenu && activeSubmenu !== sub) {
+        activeSubmenu.classList.remove('submenu-open');
+      }
+      sub.classList.toggle('submenu-open');
+      activeSubmenu = sub.classList.contains('submenu-open') ? sub : null;
+      document.body.classList.toggle('submenu-open', !!activeSubmenu);
+    });
+  });
+
+  document.addEventListener('click', () => {
+    if (activeSubmenu) {
+      activeSubmenu.classList.remove('submenu-open');
+      activeSubmenu = null;
+      document.body.classList.remove('submenu-open');
+    }
+  });
+
+  // ─── Search ───
+  const headerSticky = document.getElementById('headerSticky');
+  const searchTrigger = document.getElementById('searchTrigger');
+  const searchClose = document.getElementById('searchClose');
+  searchTrigger.addEventListener('click', () => headerSticky.classList.add('search-open'));
+  searchClose.addEventListener('click', () => headerSticky.classList.remove('search-open'));
+
+  // ─── Mobile nav ───
+  const mobileNav = document.getElementById('mobileNav');
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+
+  burgerBtn.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+    fadeBg.style.opacity = '1';
+    fadeBg.style.visibility = 'visible';
+  });
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    fadeBg.style.opacity = '';
+    fadeBg.style.visibility = '';
+  }
+  mobileNavClose.addEventListener('click', closeMobileNav);
+  fadeBg.addEventListener('click', closeMobileNav);
+</script>
+
+<script src="../cursor.js"></script>
+</body>
+</html>
