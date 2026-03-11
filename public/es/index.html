@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAPIK | Construcció · Promoció · Rehabilitació</title>
-  <meta name="description" content="Construcció residencial de qualitat, promoció immobiliària i rehabilitació energètica a Catalunya. PAPIK.cat">
+  <title>PAPIK | Construcción · Promoción · Rehabilitación</title>
+  <meta name="description" content="Construcción residencial de calidad, promoción inmobiliaria y rehabilitación energética en Cataluña.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -38,8 +38,6 @@
       animation: pageIn .5s ease .1s forwards;
     }
     @keyframes pageIn { to { opacity: 1; } }
-    html { scroll-padding-top: 120px; }
-
 
     h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
     ul { list-style: none; margin: 0; padding: 0; }
@@ -109,8 +107,7 @@
     .link-arrow:hover { opacity: .6; }
 
     /* ═══════════════════════════════════
-       PLACEHOLDER IMAGES (replace with real photos)
-       — gradients that look architectural
+       PLACEHOLDER IMAGES
     ═══════════════════════════════════ */
     .ph { display: block; width: 100%; height: 100%; }
     .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #0E2719 100%); }
@@ -203,7 +200,7 @@
     nav.menu-right li { display: flex; align-items: center; cursor: pointer; }
     nav.menu-right li:hover { opacity: .5; }
 
-    /* ─── Nav CTA pill (Pressupost) ─── */
+    /* ─── Nav CTA pill (Presupuesto) ─── */
     .nav-cta {
       background: var(--green); color: #fff !important;
       padding: 0 15px; height: 28px; border-radius: 14px;
@@ -215,6 +212,7 @@
     .nav-cta svg { flex-shrink: 0; }
     .nav-cta:hover { background: var(--green-light) !important; opacity: 1 !important; }
     nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
+    .nav-cta.menu-btn { display: flex; }
 
     /* ─── Icon wrapper (nav right) ─── */
     .icon-wrapper {
@@ -464,7 +462,7 @@
     .archive-btn:hover { background: #000; color: #fff; }
 
     /* ═══════════════════════════════════
-       PROJECTS / COLUMNS (showrooms)
+       PROJECTS / COLUMNS
     ═══════════════════════════════════ */
     .block-columns { padding-bottom: 80px; }
     .block-columns__title { margin-bottom: 40px; }
@@ -527,7 +525,7 @@
     }
 
     /* ═══════════════════════════════════
-       NEWS / ACTUALITAT
+       NEWS / ACTUALIDAD
     ═══════════════════════════════════ */
     .block-journal { padding-bottom: 0; }
 
@@ -717,148 +715,7 @@
       .news-card__img { height: 56vw; }
       .block-hero__title { font-size: 26px; }
     }
-  
-    /* ═══════════════════════════════════════════════════════
-       PAPIK · MOTION SYSTEM — v1
-       Only transform + opacity → GPU composited, zero reflow
-    ═══════════════════════════════════════════════════════ */
-
-    /* ─── Scroll-reveal base ─────────────────────────────── */
-    .js-ready [data-anim] {
-      opacity: 0;
-      transition: opacity 0.65s cubic-bezier(.22,.68,0,1.05),
-                  transform 0.65s cubic-bezier(.22,.68,0,1.05);
-    }
-    .js-ready [data-anim="fade-up"]    { transform: translateY(30px); }
-    .js-ready [data-anim="fade-left"]  { transform: translateX(-32px); }
-    .js-ready [data-anim="fade-right"] { transform: translateX(32px); }
-    .js-ready [data-anim="fade-scale"] { transform: scale(0.93); }
-    .js-ready [data-anim="fade-in"]    { transform: none; }
-    .js-ready [data-anim].is-visible   { opacity: 1; transform: none; }
-
-    /* ─── Header con fondo al hacer scroll ───────────────── */
-    .header-top {
-      transition: background-color 0.32s ease, box-shadow 0.32s ease;
-    }
-    .header-top.hdr-scrolled {
-      background: rgba(255,255,255,0.97) !important;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 1px 0 rgba(0,0,0,.07);
-    }
-
-    /* ─── Submenú: slide suave en lugar de margin jump ───── */
-    .submenu {
-      transition: opacity 0.22s ease, transform 0.22s ease,
-                  visibility 0.22s ease !important;
-      transform: translateY(-8px) !important;
-      opacity: 0 !important;
-      margin-top: 0 !important;
-      visibility: hidden !important;
-    }
-    .submenu.submenu-open {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-      visibility: visible !important;
-    }
-
-    /* ─── Card hover lift ────────────────────────────────── */
-    .promo-model__phase,
-    .promo-process__step,
-    .promo-guarantee__item,
-    .rehab-wl__step,
-    .const-wl__step,
-    .nextgen-block__card,
-    .tipo-card {
-      transition: transform 0.28s cubic-bezier(.34,1.56,.64,1),
-                  box-shadow 0.28s ease !important;
-    }
-    .promo-model__phase:hover,
-    .promo-process__step:hover,
-    .tipo-card:hover,
-    .nextgen-block__card:hover {
-      transform: translateY(-5px) !important;
-      box-shadow: 0 14px 36px rgba(14,39,25,.10) !important;
-    }
-    .promo-guarantee__item:hover {
-      transform: translateY(-3px) !important;
-      box-shadow: 0 8px 20px rgba(14,39,25,.08) !important;
-    }
-
-    /* ─── Botones ─────────────────────────────────────────── */
-    .btn-cta, .nav-cta, [class*="btn-primary"], [class*="btn-outline"],
-    a.btn, button.btn {
-      transition: transform 0.18s ease, box-shadow 0.18s ease,
-                  background-color 0.22s ease, color 0.22s ease !important;
-    }
-    .btn-cta:hover, [class*="btn-primary"]:hover, .nav-cta:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 20px rgba(14,39,25,.20) !important;
-    }
-    .btn-cta:active, [class*="btn-primary"]:active {
-      transform: scale(0.97) !important;
-      box-shadow: none !important;
-    }
-
-    /* ─── Links con subrayado animado ──────────────────────── */
-    .feat-link, .link-arrow, .submenu__col ul a {
-      background-image: linear-gradient(currentColor, currentColor);
-      background-size: 0% 1px;
-      background-repeat: no-repeat;
-      background-position: 0 100%;
-      padding-bottom: 1px;
-      transition: background-size 0.28s ease, color 0.2s ease !important;
-    }
-    .feat-link:hover, .link-arrow:hover, .submenu__col ul a:hover {
-      background-size: 100% 1px;
-    }
-
-    /* ─── Image zoom en hover ──────────────────────────────── */
-    .submenu__img { overflow: hidden; }
-    .submenu__img > * {
-      transition: transform 0.5s cubic-bezier(.25,.46,.45,.94) !important;
-    }
-    .submenu__col:hover .submenu__img > * { transform: scale(1.07); }
-
-    /* ─── Nav menu items ───────────────────────────────────── */
-    .menu-btn {
-      transition: opacity 0.18s ease;
-      display: inline-block;
-    }
-    .menu-btn:hover { opacity: 0.6; }
-    .nav-cta.menu-btn { display: flex; }
-
-    /* ─── FAQ items: indent hover ──────────────────────────── */
-    .faq-open-item {
-      transition: padding-left 0.22s ease !important;
-    }
-    .faq-open-item:hover { padding-left: 10px; }
-
-    /* ─── Promo process: número se ilumina ─────────────────── */
-    .promo-process__num {
-      transition: color 0.28s ease !important;
-    }
-    .promo-process__step:hover .promo-process__num {
-      color: var(--muted);
-    }
-
-    /* ─── Promo actives: card full hover ───────────────────── */
-    .promo-actives .active-card {
-      transition: transform 0.28s cubic-bezier(.34,1.56,.64,1),
-                  box-shadow 0.28s ease !important;
-    }
-    .promo-actives .active-card:hover {
-      transform: translateY(-4px) !important;
-      box-shadow: 0 12px 30px rgba(14,39,25,.12) !important;
-    }
-
-    /* ─── Reduced motion: desactivar todo ──────────────────── */
-    @media (prefers-reduced-motion: reduce) {
-      .js-ready [data-anim]          { opacity: 1 !important; transform: none !important; }
-      .js-ready [data-anim].is-visible { transition: none !important; }
-    }
-
-    </style>
+  </style>
 </head>
 <body>
 
@@ -867,7 +724,7 @@
 ═══════════════════════════════════ -->
 <nav class="mobile-nav" id="mobileNav">
   <div class="mobile-nav__header">
-    <a href="/">
+    <a href="index.html">
       <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
             <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1
               C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7
@@ -875,12 +732,12 @@
               c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
             <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
             <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-            <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 
+            <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2
               303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
             <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
             <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
               c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-            <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 
+            <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364
               184.4,327.7 184.4,327.7"/>
             <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
               c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
@@ -891,18 +748,18 @@
     <button class="mobile-nav__close" id="mobileNavClose">✕</button>
   </div>
   <ul class="t18">
-    <li class="sub-title">Serveis</li>
-    <li><a href="#construccio">Construcció</a></li>
-    <li><a href="promocio.html">Promoció Immobiliària</a></li>
-    <li><a href="#rehabilitacio">Rehabilitació Energètica</a></li>
+    <li class="sub-title">Servicios</li>
+    <li><a href="#construccio">Construcción</a></li>
+    <li><a href="promocio.html">Promoción Inmobiliaria</a></li>
+    <li><a href="#rehabilitacio">Rehabilitación Energética</a></li>
     <li class="sub-title">Empresa</li>
-    <li><a href="patrimonis.html">Patrimonis</a></li>
-    <li><a href="projectes.html">Projectes</a></li>
+    <li><a href="patrimonis.html">Patrimonios</a></li>
+    <li><a href="projectes.html">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="nosaltres.html">Nosaltres</a></li>
-    <li><a href="#contacte">Contacte</a></li>
-    <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Inicia sessió →</a></li>
-    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Pressupost →</a></li>
+    <li><a href="nosaltres.html">Nosotros</a></li>
+    <li><a href="#contacte">Contacto</a></li>
+    <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Iniciar sesión →</a></li>
+    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Presupuesto →</a></li>
   </ul>
 </nav>
 <div class="fade-bg" id="fadeBg"></div>
@@ -923,7 +780,7 @@
         </div>
         <!-- Logo -->
         <div class="logo">
-          <a href="/">
+          <a href="index.html">
             <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
             <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1
               C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7
@@ -931,12 +788,12 @@
               c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
             <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
             <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-            <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 
+            <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2
               303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
             <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
             <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
               c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-            <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 
+            <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364
               184.4,327.7 184.4,327.7"/>
             <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
               c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
@@ -949,8 +806,8 @@
       <!-- Lang -->
       <div class="lang">
         <select onchange="location=this.value">
-          <option value="/" selected>CA</option>
-          <option value="/es/">ES</option>
+          <option value="../index.html">CA</option>
+          <option value="index.html" selected>ES</option>
         </select>
       </div>
     </div>
@@ -968,22 +825,22 @@
         <nav class="menu t14">
           <ul>
             <li>
-              <span class="menu-btn" data-menu="construccio">Construcció</span>
+              <span class="menu-btn" data-menu="construccio">Construcción</span>
             </li>
             <li>
-              <span class="menu-btn" data-menu="promocio">Promoció</span>
+              <span class="menu-btn" data-menu="promocio">Promoción</span>
             </li>
             <li>
-              <span class="menu-btn" data-menu="rehabilitacio">Rehabilitació</span>
+              <span class="menu-btn" data-menu="rehabilitacio">Rehabilitación</span>
             </li>
             <li>
-              <span class="menu-btn" data-menu="patrimonis">Patrimonis</span>
+              <span class="menu-btn" data-menu="patrimonis">Patrimonios</span>
             </li>
             <li>
               <a href="blog.html">Blog</a>
             </li>
             <li>
-              <span class="menu-btn" data-menu="nosaltres">Nosaltres</span>
+              <span class="menu-btn" data-menu="nosaltres">Nosotros</span>
             </li>
           </ul>
         </nav>
@@ -1001,7 +858,7 @@
               </div>
             </li>
             <li>
-              <a href="#contacte">Contacte</a>
+              <a href="#contacte">Contacto</a>
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
@@ -1010,7 +867,7 @@
               </div>
             </li>
             <li>
-              <a href="usuaris.html">Inicia sessió</a>
+              <a href="usuaris.html">Iniciar sesión</a>
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="8" r="4" stroke="#0E2719" stroke-width="1.5"/>
@@ -1020,7 +877,7 @@
             </li>
             <li>
               <span class="nav-cta menu-btn" data-menu="pressupost">
-                Pressupost
+                Presupuesto
                 <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
               </span>
             </li>
@@ -1035,7 +892,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
           </button>
           <form action="/" method="get">
-            <input type="text" name="s" placeholder="Cerca...">
+            <input type="text" name="s" placeholder="Buscar...">
           </form>
         </div>
         <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
@@ -1045,31 +902,31 @@
     </div>
   </div>
 
-  <!-- ─── SUBMENU: Construcció ─── -->
+  <!-- ─── SUBMENU: Construcción ─── -->
   <div class="submenu" id="sub-construccio">
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24">Construcció Residencial</h3>
+          <h3 class="t24">Construcción Residencial</h3>
           <ul class="t16">
-            <li><a href="construccio.html">Obra Nova</a></li>
-            <li><a href="construccio.html">Habitatges Unifamiliars</a></li>
-            <li><a href="construccio.html">Edificis Plurifamiliars</a></li>
-            <li><a href="construccio.html">Reformes Integrals</a></li>
-            <li><a href="construccio.html">Ampliacions</a></li>
+            <li><a href="construccio.html">Obra Nueva</a></li>
+            <li><a href="construccio.html">Viviendas Unifamiliares</a></li>
+            <li><a href="construccio.html">Edificios Plurifamiliares</a></li>
+            <li><a href="construccio.html">Reformas Integrales</a></li>
+            <li><a href="construccio.html">Ampliaciones</a></li>
           </ul>
           <div class="submenu__img">
             <div class="ph ph-warm-1" style="height:100%;"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">El nostre enfocament</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Construïm residències amb qualitat artesanal i tecnologia d'avantguarda. Cada projecte és únic, dissenyat per durar i adaptat a les necessitats del client.</p>
+          <h3 class="t24">Nuestro enfoque</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Construimos residencias con calidad artesanal y tecnología de vanguardia. Cada proyecto es único, diseñado para durar y adaptado a las necesidades del cliente.</p>
         </div>
         <div class="submenu__featured">
-          <h3>Actualitat</h3>
-          <p class="feat-title">Nova promoció a Badalona: 24 habitatges amb certificació A</p>
-          <a href="#" class="feat-link link-arrow">Llegir més
+          <h3>Actualidad</h3>
+          <p class="feat-title">Nueva promoción en Badalona: 24 viviendas con certificación A</p>
+          <a href="#" class="feat-link link-arrow">Leer más
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1077,30 +934,30 @@
     </div>
   </div>
 
-  <!-- ─── SUBMENU: Promoció ─── -->
+  <!-- ─── SUBMENU: Promoción ─── -->
   <div class="submenu" id="sub-promocio">
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24">Promoció Immobiliària</h3>
+          <h3 class="t24">Promoción Inmobiliaria</h3>
           <ul class="t16">
-            <li><a href="promocio.html">Habitatges d'Obra Nova</a></li>
-            <li><a href="promocio.html">Promocions Privades</a></li>
-            <li><a href="promocio.html">Col·laboració Propietaris</a></li>
-            <li><a href="promocio.html">Gestió Integral del Projecte</a></li>
+            <li><a href="promocio.html">Viviendas de Obra Nueva</a></li>
+            <li><a href="promocio.html">Promociones Privadas</a></li>
+            <li><a href="promocio.html">Colaboración Propietarios</a></li>
+            <li><a href="promocio.html">Gestión Integral del Proyecto</a></li>
           </ul>
           <div class="submenu__img">
             <div class="ph ph-project1" style="height:100%;"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">Màxima rendibilitat</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Des de la cerca de solar fins a la venda del darrer habitatge. Gestionem tot el procés de promoció immobiliària amb transparència i eficiència.</p>
+          <h3 class="t24">Máxima rentabilidad</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Desde la búsqueda del solar hasta la venta de la última vivienda. Gestionamos todo el proceso de promoción inmobiliaria con transparencia y eficiencia.</p>
         </div>
         <div class="submenu__featured">
-          <h3>Actualitat</h3>
-          <p class="feat-title">Projecte Eixample: 12 pisos de disseny al cor de Barcelona</p>
-          <a href="#" class="feat-link link-arrow">Llegir més
+          <h3>Actualidad</h3>
+          <p class="feat-title">Proyecto Eixample: 12 pisos de diseño en el corazón de Barcelona</p>
+          <a href="#" class="feat-link link-arrow">Leer más
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1108,30 +965,31 @@
     </div>
   </div>
 
-  <!-- ─── SUBMENU: Rehabilitació ─── -->
+  <!-- ─── SUBMENU: Rehabilitación ─── -->
   <div class="submenu" id="sub-rehabilitacio">
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="rehabilitacio.html" style="color:inherit;">Rehabilitació Energètica</a></h3>
+          <h3 class="t24">Rehabilitación Energética</h3>
           <ul class="t16">
-            <li><a href="rehabilitacio.html#diagnosi">Diagnosi i certificació energètica</a></li>
-            <li><a href="rehabilitacio.html#envolupant">Aïllament de façanes i cobertes</a></li>
-            <li><a href="rehabilitacio.html#instal-lacions">Instal·lacions i solar fotovoltaica</a></li>
-            <li><a href="rehabilitacio.html#nextgen">Ajudes Next Generation EU</a></li>
+            <li><a href="rehabilitacio.html">Certificación Energética</a></li>
+            <li><a href="rehabilitacio.html">Aislamiento de Fachadas</a></li>
+            <li><a href="rehabilitacio.html">Rehabilitación de Cubiertas</a></li>
+            <li><a href="rehabilitacio.html">Instalación Solar Fotovoltaica</a></li>
+            <li><a href="rehabilitacio.html">Ayudas y Subvenciones Next Generation</a></li>
           </ul>
           <div class="submenu__img">
             <div class="ph ph-green" style="height:100%;"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">Estalvi i confort</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Millorar l'eficiència energètica del teu edifici és invertir en futur. T'acompanyem en tot el procés: diagnosi, projecte, obra i justificació d'ajudes.</p>
+          <h3 class="t24">Ahorro y confort</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Mejorar la eficiencia energética de tu edificio es invertir en el futuro. Te acompañamos en todo el proceso: diagnóstico, proyecto, obra y justificación de ayudas.</p>
         </div>
         <div class="submenu__featured">
-          <h3>Actualitat</h3>
-          <p class="feat-title">Fins a un 80% de subvenció per rehabilitar la teva façana en 2025</p>
-          <a href="#" class="feat-link link-arrow">Llegir més
+          <h3>Actualidad</h3>
+          <p class="feat-title">Hasta un 80% de subvención para rehabilitar tu fachada en 2025</p>
+          <a href="#" class="feat-link link-arrow">Leer más
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1139,31 +997,31 @@
     </div>
   </div>
 
-  <!-- ─── SUBMENU: Patrimonis ─── -->
+  <!-- ─── SUBMENU: Patrimonios ─── -->
   <div class="submenu" id="sub-patrimonis">
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="patrimonis.html" style="color:inherit;">Inversió Patrimonial</a></h3>
+          <h3 class="t24">Inversión Patrimonial</h3>
           <ul class="t16">
-            <li><a href="patrimonis.html">Cartera d'Actius Residencials</a></li>
-            <li><a href="patrimonis.html">Inversors Privats i Family Office</a></li>
-            <li><a href="patrimonis.html">Co-inversió i Joint Venture</a></li>
-            <li><a href="patrimonis.html">Gestió d'Actius i Manteniment</a></li>
-            <li><a href="patrimonis.html">Due Diligence Tècnica</a></li>
+            <li><a href="patrimonis.html">Cartera de Activos Residenciales</a></li>
+            <li><a href="patrimonis.html">Inversores Privados y Family Office</a></li>
+            <li><a href="patrimonis.html">Co-inversión y Joint Venture</a></li>
+            <li><a href="patrimonis.html">Gestión de Activos y Mantenimiento</a></li>
+            <li><a href="patrimonis.html">Due Diligence Técnica</a></li>
           </ul>
           <div class="submenu__img">
             <div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">Rendibilitat i seguretat</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Assessorem inversors patrimonials, family offices i fons d'inversió en la identificació, adquisició i gestió d'actius immobiliaris residencials al Maresme i Barcelonès.</p>
+          <h3 class="t24">Rentabilidad y seguridad</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Asesoramos a inversores patrimoniales, family offices y fondos de inversión en la identificación, adquisición y gestión de activos inmobiliarios residenciales en el Maresme y Barcelonès.</p>
         </div>
         <div class="submenu__featured">
-          <h3>Destacat</h3>
-          <p class="feat-title">Cartera activa: 3 solars disponibles per a promoció plurifamiliar</p>
-          <a href="patrimonis.html" class="feat-link link-arrow">Conèixer més
+          <h3>Destacado</h3>
+          <p class="feat-title">Cartera activa: 3 solares disponibles para promoción plurifamiliar</p>
+          <a href="patrimonis.html" class="feat-link link-arrow">Conocer más
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1171,34 +1029,34 @@
     </div>
   </div>
 
-  <!-- ─── SUBMENU: Pressupost ─── -->
+  <!-- ─── SUBMENU: Presupuesto ─── -->
   <div class="submenu" id="sub-pressupost">
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24">Tipus de projecte</h3>
+          <h3 class="t24">Tipo de proyecto</h3>
           <ul class="t16">
-            <li><a href="pressupost.html">Obra Nova Unifamiliar</a></li>
-            <li><a href="pressupost.html">Edifici Plurifamiliar</a></li>
+            <li><a href="pressupost.html">Obra Nueva Unifamiliar</a></li>
+            <li><a href="pressupost.html">Edificio Plurifamiliar</a></li>
             <li><a href="pressupost.html">Reforma Integral</a></li>
-            <li><a href="pressupost.html">Rehabilitació Energètica</a></li>
-            <li><a href="pressupost.html">Ampliació i Canvi d'Ús</a></li>
+            <li><a href="pressupost.html">Rehabilitación Energética</a></li>
+            <li><a href="pressupost.html">Ampliación y Cambio de Uso</a></li>
           </ul>
           <div class="submenu__img">
             <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">Estima el teu projecte</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Introdueix les característiques del teu projecte i obtén una estimació orientativa del cost en menys d'un minut. Sense compromís, sense registre.</p>
-          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulació
+          <h3 class="t24">Estima tu proyecto</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Introduce las características de tu proyecto y obtén una estimación orientativa del coste en menos de un minuto. Sin compromiso, sin registro.</p>
+          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
             <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
         <div class="submenu__featured">
-          <h3>Com funciona</h3>
-          <p class="feat-title">3 passos: tipus de projecte → superfície i materials → resultat</p>
-          <a href="pressupost.html" class="feat-link link-arrow">Provar ara
+          <h3>Cómo funciona</h3>
+          <p class="feat-title">3 pasos: tipo de proyecto → superficie y materiales → resultado</p>
+          <a href="pressupost.html" class="feat-link link-arrow">Probar ahora
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1206,31 +1064,31 @@
     </div>
   </div>
 
-  <!-- ─── SUBMENU: Nosaltres ─── -->
+  <!-- ─── SUBMENU: Nosotros ─── -->
   <div class="submenu" id="sub-nosaltres">
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="nosaltres.html" style="color:inherit;">PAPIK Group</a></h3>
+          <h3 class="t24">PAPIK Group</h3>
           <ul class="t16">
-            <li><a href="nosaltres.html">La nostra història</a></li>
-            <li><a href="nosaltres.html#equip">L'equip</a></li>
+            <li><a href="nosaltres.html">Nuestra historia</a></li>
+            <li><a href="nosaltres.html#equip">El equipo</a></li>
             <li><a href="nosaltres.html#eskimohaus">Sistema Eskimohaus</a></li>
-            <li><a href="nosaltres.html#valors">Valors i compromís</a></li>
-            <li><a href="nosaltres.html#reconeixements">Premis i certificacions</a></li>
+            <li><a href="nosaltres.html#valors">Valores y compromiso</a></li>
+            <li><a href="nosaltres.html#reconeixements">Premios y certificaciones</a></li>
           </ul>
           <div class="submenu__img">
             <div class="ph" style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">Trenta anys d'ofici</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">D'un taller de fusteria artesanal al grup constructor de referència en passivhaus a Catalunya. Fem coses que duren — i ho fem des del 1994.</p>
+          <h3 class="t24">Treinta años de oficio</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">De un taller de carpintería artesanal al grupo constructor de referencia en passivhaus en Cataluña. Hacemos cosas que duran — y lo hacemos desde 1994.</p>
         </div>
         <div class="submenu__featured">
-          <h3>Reconeixements</h3>
+          <h3>Reconocimientos</h3>
           <p class="feat-title">Premio Excelencia Empresarial · Foment del Treball, 2019</p>
-          <a href="nosaltres.html#reconeixements" class="feat-link link-arrow">Conèixer l'empresa
+          <a href="nosaltres.html#reconeixements" class="feat-link link-arrow">Conocer la empresa
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1250,11 +1108,11 @@
   </div>
   <div class="block-hero__overlay"></div>
   <div class="block-hero__content">
-    <h1 class="block-hero__title">Del projecte<br>a la realitat</h1>
+    <h1 class="block-hero__title">Del proyecto<br>a la realidad</h1>
     <div class="block-hero__cta">
       <a href="#contacte">
         <button>
-          Parla amb nosaltres
+          Habla con nosotros
           <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" fill="none">
             <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/>
           </svg>
@@ -1265,16 +1123,16 @@
 </section>
 
 <!-- ═══════════════════════════════════
-     INFO REPEATABLE — 2 blocs alternats
+     INFO REPEATABLE — 2 bloques alternados
 ═══════════════════════════════════ -->
 <section class="block-info-repeatable" id="construccio">
-  <!-- Bloc 1: Construcció -->
+  <!-- Bloque 1: Construcción -->
   <div class="block-info-repeatable__item bg-warm-1">
     <div class="item__info">
       <div class="item__info__text">
-        <p class="tag">Construcció Residencial</p>
-        <h2 class="big-text">Edificis que<br>expliquen una historia</h2>
-        <p class="text">Construïm habitatges i edificis residencials amb rigor tècnic i sensibilitat arquitectònica. Des de la fonamentació fins al lliurament de claus, cuidem cada detall perquè el resultat final superi les expectatives.</p>
+        <p class="tag">Construcción Residencial</p>
+        <h2 class="big-text">Edificios que<br>cuentan una historia</h2>
+        <p class="text">Construimos viviendas y edificios residenciales con rigor técnico y sensibilidad arquitectónica. Desde la cimentación hasta la entrega de llaves, cuidamos cada detalle para que el resultado final supere las expectativas.</p>
       </div>
       <div class="item__info__link">
         <a class="link-wrapper" href="projectes.html">
@@ -1284,7 +1142,7 @@
             <div><div class="ph ph-stone" style="height:100%;border-radius:50%;"></div></div>
           </div>
           <div style="margin-left:16px;">
-            <p class="t16 color-muted">Veure projectes
+            <p class="t16 color-muted">Ver proyectos
               <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
               </svg>
             </p>
@@ -1297,17 +1155,17 @@
     </div>
   </div>
 
-  <!-- Bloc 2: Rehabilitació -->
+  <!-- Bloque 2: Rehabilitación -->
   <div class="block-info-repeatable__item bg-warm-2" id="rehabilitacio">
     <div class="item__info">
       <div class="item__info__text">
-        <p class="tag" style="color:var(--muted);">Rehabilitació Energètica</p>
-        <h2 class="big-text">Edificis més eficients,<br>consum responsable</h2>
-        <p class="text">La rehabilitació energètica no és una despesa, és una inversió. Millorem l'envolupant del teu edifici, reduïm el consum energètic i t'acompanyem en l'accés a les ajudes Next Generation EU.</p>
+        <p class="tag" style="color:var(--muted);">Rehabilitación Energética</p>
+        <h2 class="big-text">Edificios más eficientes,<br>consumo responsable</h2>
+        <p class="text">La rehabilitación energética no es un gasto, es una inversión. Mejoramos la envolvente de tu edificio, reducimos el consumo energético y te acompañamos en el acceso a las ayudas Next Generation EU.</p>
       </div>
       <div class="item__info__link" style="margin-top:28px;">
         <a class="link-wrapper" href="#rehabilitacio">
-          <p class="t16 color-muted">Saber-ne més
+          <p class="t16 color-muted">Saber más
             <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
             </svg>
           </p>
@@ -1328,16 +1186,16 @@
 <section class="block-services block-margin">
   <div class="container">
     <div class="block-services__content">
-      <!-- Visual GIF/Image panel -->
+      <!-- Visual panel -->
       <div class="services__gif">
         <div class="ph ph-blue services-img-active" id="servicesImg" style="height:29.8vw;border-radius:6px;transition:all .4s;"></div>
       </div>
       <!-- List -->
       <div class="services__list">
-        <p class="label t16">Àrees PAPIK</p>
+        <p class="label t16">Áreas PAPIK</p>
         <ul class="t42">
           <li class="active" data-img="ph-blue">
-            <a href="#construccio">Construcció
+            <a href="#construccio">Construcción
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
                 <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
                 <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
@@ -1352,7 +1210,7 @@
             </a>
           </li>
           <li data-img="ph-project1">
-            <a href="promocio.html">Promoció
+            <a href="promocio.html">Promoción
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
                 <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
                 <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
@@ -1367,7 +1225,7 @@
             </a>
           </li>
           <li data-img="ph-green">
-            <a href="#rehabilitacio">Rehabilitació
+            <a href="#rehabilitacio">Rehabilitación
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
                 <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
                 <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
@@ -1382,7 +1240,7 @@
             </a>
           </li>
           <li data-img="ph-stone">
-            <a href="construccio.html">Obra Nova
+            <a href="construccio.html">Obra Nueva
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
                 <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
                 <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
@@ -1412,7 +1270,7 @@
             </a>
           </li>
           <li data-img="ph-dark">
-            <a href="rehabilitacio.html">Eficiència Energètica
+            <a href="rehabilitacio.html">Eficiencia Energética
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
                 <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
                 <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
@@ -1437,23 +1295,23 @@
 ═══════════════════════════════════ -->
 <section class="block-categories block-margin" id="serveis">
   <div class="container">
-    <h4 class="t42 center block-categories__title">Serveis</h4>
+    <h4 class="t42 center block-categories__title">Servicios</h4>
     <div class="categories-container">
       <a href="#construccio" class="categories__item">
         <div class="ph-cat" style="background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);border-radius:5px;margin-bottom:12px;"></div>
-        <p class="categories__item__title center t24">Construcció</p>
+        <p class="categories__item__title center t24">Construcción</p>
       </a>
       <a href="promocio.html" class="categories__item">
         <div class="ph-cat" style="background:linear-gradient(160deg,#9FA9A3 0%,#0E2719 100%);border-radius:5px;margin-bottom:12px;"></div>
-        <p class="categories__item__title center t24">Promoció</p>
+        <p class="categories__item__title center t24">Promoción</p>
       </a>
       <a href="#rehabilitacio" class="categories__item">
         <div class="ph-cat" style="background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:5px;margin-bottom:12px;"></div>
-        <p class="categories__item__title center t24">Rehabilitació</p>
+        <p class="categories__item__title center t24">Rehabilitación</p>
       </a>
     </div>
     <a href="#contacte" class="archive-btn t16">
-      Demana pressupost
+      Solicitar presupuesto
       <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
       </svg>
     </a>
@@ -1463,21 +1321,21 @@
 <div class="spacing"></div>
 
 <!-- ═══════════════════════════════════
-     PROJECTES (Columns)
+     PROYECTOS (Columns)
 ═══════════════════════════════════ -->
 <section class="block-columns block-margin" id="projectes">
   <div class="container">
-    <h4 class="t42 center block-columns__title">Projectes recents</h4>
+    <h4 class="t42 center block-columns__title">Proyectos recientes</h4>
     <div class="block-columns__repeater">
       <div class="block-columns__item">
         <a href="projectes.html">
           <div class="item__media-col">
             <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%);"></div>
           </div>
-          <h3 class="title t24">Edifici Eixample · Barcelona</h3>
-          <p class="text t16 color-muted">12 habitatges d'obra nova amb certificació energètica A. Disseny contemporani al barri de l'Eixample.</p>
+          <h3 class="title t24">Edificio Eixample · Barcelona</h3>
+          <p class="text t16 color-muted">12 viviendas de obra nueva con certificación energética A. Diseño contemporáneo en el barrio del Eixample.</p>
           <p style="margin-top:12px;">
-            <a href="projectes.html" class="link-arrow t14">Veure projecte
+            <a href="projectes.html" class="link-arrow t14">Ver proyecto
               <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
             </svg>
             </a>
@@ -1490,9 +1348,9 @@
             <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);"></div>
           </div>
           <h3 class="title t24">Casa Unifamiliar · Mataró</h3>
-          <p class="text t16 color-muted">Habitatge unifamiliar aïllat de 280 m² amb piscina i jardí. Rehabilitació energètica completa de façana i coberta.</p>
+          <p class="text t16 color-muted">Vivienda unifamiliar aislada de 280 m² con piscina y jardín. Rehabilitación energética completa de fachada y cubierta.</p>
           <p style="margin-top:12px;">
-            <a href="projectes.html" class="link-arrow t14">Veure projecte
+            <a href="projectes.html" class="link-arrow t14">Ver proyecto
               <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
             </svg>
             </a>
@@ -1510,18 +1368,18 @@
   <div class="container">
     <div class="block-info__content">
       <div class="block-info__text">
-        <h4>Construïm el que<br>tu imagines</h4>
-        <p class="text">Tens el projecte, nosaltres tenim l'experiència. Acompanyem els nostres clients des del primer esbós fins al lliurament de les claus, amb transparència i qualitat garantida.</p>
+        <h4>Construimos lo que<br>tú imaginas</h4>
+        <p class="text">Tienes el proyecto, nosotros tenemos la experiencia. Acompañamos a nuestros clientes desde el primer boceto hasta la entrega de las llaves, con transparencia y calidad garantizada.</p>
         <a href="#contacte">
           <button style="background:#fff;color:#0E2719;border-color:#fff;">
-            Contacta amb nosaltres
+            Contáctanos
             <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/>
             </svg>
           </button>
         </a>
       </div>
       <div class="block-info__image">
-        <div class="ph-circle" style="background:linear-gradient(135deg,#9FA9A3 0%,#0E2719 100%);"></div>
+        <div class="ph-circle" style="background:linear-gradient(135deg,#56685E 0%,#0E2719 100%);"></div>
       </div>
     </div>
   </div>
@@ -1530,13 +1388,13 @@
 <div class="spacing"></div>
 
 <!-- ═══════════════════════════════════
-     ACTUALITAT / JOURNAL
+     ACTUALIDAD / JOURNAL
 ═══════════════════════════════════ -->
 <section class="block-journal block-margin">
   <div class="container">
     <div class="journal-bar">
-      <h5 class="t24">Actualitat</h5>
-      <a href="blog.html" class="link-arrow t16">Totes les notícies
+      <h5 class="t24">Actualidad</h5>
+      <a href="blog.html" class="link-arrow t16">Todas las noticias
         <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
         </svg>
       </a>
@@ -1549,10 +1407,10 @@
           <div class="ph" style="width:43vw;height:27.5vw;border-radius:3px;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);display:block;"></div>
         </div>
         <div class="featured__item__text">
-          <div class="categories t16">Rehabilitació · Ajudes</div>
-          <h3 class="title t42">Next Generation EU: fins al 80% de subvenció per rehabilitar el teu edifici</h3>
-          <p class="desc t16 color-muted">Les ajudes europees per a la rehabilitació energètica d'edificis estan disponibles. T'expliquem com accedir-hi i quin impacte pot tenir en el teu immoble.</p>
-          <time class="date t16">15 febrer 2025</time>
+          <div class="categories t16">Rehabilitación · Ayudas</div>
+          <h3 class="title t42">Next Generation EU: hasta el 80% de subvención para rehabilitar tu edificio</h3>
+          <p class="desc t16 color-muted">Las ayudas europeas para la rehabilitación energética de edificios están disponibles. Te explicamos cómo acceder y qué impacto puede tener en tu inmueble.</p>
+          <time class="date t16">15 febrero 2025</time>
         </div>
       </div>
     </a>
@@ -1568,9 +1426,9 @@
           <div class="ph ph-news1"></div>
         </div>
         <div class="news-text">
-          <p class="category">Promoció</p>
-          <h4>Nova promoció a Badalona: 24 habitatges amb qualitats premium i eficiència A</h4>
-          <time class="t14 color-muted">3 març 2025</time>
+          <p class="category">Promoción</p>
+          <h4>Nueva promoción en Badalona: 24 viviendas con calidades premium y eficiencia A</h4>
+          <time class="t14 color-muted">3 marzo 2025</time>
         </div>
       </a>
       <a href="#" class="news-card">
@@ -1578,9 +1436,9 @@
           <div class="ph ph-news2"></div>
         </div>
         <div class="news-text">
-          <p class="category">Rehabilitació</p>
-          <h4>Rehabilitació de façana a l'Eixample: estalvi del 60% en calefacció</h4>
-          <time class="t14 color-muted">18 febrer 2025</time>
+          <p class="category">Rehabilitación</p>
+          <h4>Rehabilitación de fachada en el Eixample: ahorro del 60% en calefacción</h4>
+          <time class="t14 color-muted">18 febrero 2025</time>
         </div>
       </a>
       <a href="#" class="news-card">
@@ -1588,9 +1446,9 @@
           <div class="ph ph-news3"></div>
         </div>
         <div class="news-text">
-          <p class="category">Construcció</p>
-          <h4>Casa a la muntanya: com vam construir una residència eficient en terreny difícil</h4>
-          <time class="t14 color-muted">5 febrer 2025</time>
+          <p class="category">Construcción</p>
+          <h4>Casa en la montaña: cómo construimos una residencia eficiente en terreno difícil</h4>
+          <time class="t14 color-muted">5 febrero 2025</time>
         </div>
       </a>
     </div>
@@ -1609,48 +1467,48 @@
       <div class="footer-col">
         <p class="footer__col-title">PAPIK</p>
         <ul>
-          <li><a href="#nosaltres">Qui som</a></li>
-          <li><a href="projectes.html">Projectes</a></li>
+          <li><a href="#nosaltres">Quiénes somos</a></li>
+          <li><a href="projectes.html">Proyectos</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="#contacte">Contacte</a></li>
+          <li><a href="#contacte">Contacto</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <p class="footer__col-title">Serveis</p>
+        <p class="footer__col-title">Servicios</p>
         <ul>
-          <li><a href="construccio.html">Construcció Residencial</a></li>
-          <li><a href="promocio.html">Promoció Immobiliària</a></li>
-          <li><a href="rehabilitacio.html">Rehabilitació Energètica</a></li>
-          <li><a href="construccio.html">Obra Nova</a></li>
-          <li><a href="construccio.html">Reformes Integrals</a></li>
-          <li><a href="rehabilitacio.html">Eficiència Energètica</a></li>
+          <li><a href="construccio.html">Construcción Residencial</a></li>
+          <li><a href="promocio.html">Promoción Inmobiliaria</a></li>
+          <li><a href="rehabilitacio.html">Rehabilitación Energética</a></li>
+          <li><a href="construccio.html">Obra Nueva</a></li>
+          <li><a href="construccio.html">Reformas Integrales</a></li>
+          <li><a href="rehabilitacio.html">Eficiencia Energética</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <p class="footer__col-title">Oficines</p>
+        <p class="footer__col-title">Oficinas</p>
         <div class="info-showroom__item">
-          <h3>SEU CENTRAL</h3>
-          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 935 90 60 74</a></p>
+          <h3>SEDE CENTRAL</h3>
+          <p>Carrer Exemple, 123<br>08001 Barcelona<br><a href="tel:935000000">T 935 000 000</a></p>
         </div>
         <div class="info-showroom__item">
-          <h3>CORREU</h3>
-          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+          <h3>DELEGACIÓN</h3>
+          <p>Avinguda Test, 45<br>08300 Mataró<br><a href="tel:937000000">T 937 000 000</a></p>
         </div>
       </div>
 
       <div class="footer__newsletter">
         <p class="footer__col-title" style="font-size:18px;font-weight:400;margin-bottom:20px;">Newsletter</p>
-        <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles. Subscriu-te.</p>
+        <p>Sigue las novedades de PAPIK: proyectos, rehabilitación energética y ayudas disponibles. Suscríbete.</p>
         <div class="newsletter-form">
-          <input type="email" placeholder="El teu email">
+          <input type="email" placeholder="Tu email">
           <button type="submit">
             <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
           </button>
         </div>
         <div class="footer__rrss">
-          <p>Segueix-nos</p>
+          <p>Síguenos</p>
           <div class="rrss__links">
             <a href="#">Instagram</a>
             <a href="#">LinkedIn</a>
@@ -1662,13 +1520,13 @@
     </div>
 
     <div class="copyright">
-      <p>Copyright © 2025 PAPIK SL – Tots els drets reservats<br>papik.cat</p>
+      <p>Copyright © 2026 PAPIK Group – Todos los derechos reservados<br>papik.cat</p>
       <div>
-        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);margin-right:20px;">Avís Legal</a>
-        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);">Política de Privacitat</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);margin-right:20px;">Aviso Legal</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);">Política de Privacidad</a>
       </div>
       <button class="btn-up t14" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-        Amunt
+        Arriba
         <svg width="11" height="12" viewBox="0 0 10.89 12.447"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" transform="translate(0 12.447) rotate(-90)" fill="#fff"/></svg>
       </button>
     </div>
@@ -1808,148 +1666,6 @@
   });
 </script>
 
-<script src="splash.js"></script>
-<script src="cursor.js"></script>
-
-  <!-- ═══════════════════════════════════════════════════════
-       PAPIK · MOTION ENGINE — v1
-       IntersectionObserver + auto-detect + counter + parallax
-  ═══════════════════════════════════════════════════════ -->
-  <script>
-  (function () {
-    'use strict';
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var hasIO   = 'IntersectionObserver' in window;
-
-    /* Marca el DOM como listo para que el CSS aplique opacity:0 */
-    document.documentElement.classList.add('js-ready');
-
-    /* ── Fallback: sin animaciones ── */
-    if (reduced || !hasIO) {
-      document.querySelectorAll('[data-anim]').forEach(function (el) {
-        el.classList.add('is-visible');
-      });
-      return;
-    }
-
-    /* ══ Observer principal ══════════════════════════════════ */
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('is-visible');
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    /* Registrar elementos con data-anim del HTML */
-    document.querySelectorAll('[data-anim]').forEach(function (el) {
-      var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        setTimeout(function(){ el.classList.add('is-visible'); }, 60);
-      } else {
-        io.observe(el);
-      }
-    });
-
-    /* ══ Auto-detección ══════════════════════════════════════ */
-    function mark(el, type, delay) {
-      if (!el || el.hasAttribute('data-anim')) return;
-      el.setAttribute('data-anim', type || 'fade-up');
-      var rect = el.getBoundingClientRect();
-      var inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (inView) {
-        /* Ya visible al cargar: activar con micro-delay para evitar flash */
-        (function(e){ setTimeout(function(){ e.classList.add('is-visible'); }, 60); })(el);
-      } else {
-        if (delay) el.style.transitionDelay = delay + 'ms';
-        io.observe(el);
-      }
-    }
-
-    /* H2 de secciones de contenido */
-    document.querySelectorAll('section:not(.header-sticky) h2').forEach(function (el) {
-      mark(el, 'fade-up');
-    });
-
-    /* Párrafo / sub-título inmediatamente después de h2 */
-    document.querySelectorAll('section:not(.header-sticky) h2 + p, section:not(.header-sticky) h2 + .t16').forEach(function (el) {
-      mark(el, 'fade-up');
-    });
-
-    /* Grids: stagger en hijos directos */
-    [
-      '.promo-process__grid',
-      '.promo-model__flow',
-      '.promo-guarantee__list',
-      '.promo-tipos__grid',
-      '.pat-stats__grid',
-      '.stats-grid',
-      '[class*="rehab-steps"]',
-      '[class*="const-steps"]',
-      '.nextgen-block__cards',
-      '.nextgen-block__body',
-    ].forEach(function (sel) {
-      document.querySelectorAll(sel).forEach(function (container) {
-        Array.from(container.children).forEach(function (child, i) {
-          mark(child, 'fade-up', i * 80);
-        });
-      });
-    });
-
-    /* FAQ items desde la derecha */
-    document.querySelectorAll('.faq-open-item, .pat-faq__item').forEach(function (el, i) {
-      mark(el, 'fade-right', i * 55);
-    });
-
-    /* Secciones de impacto: fade-in sutil */
-    document.querySelectorAll(
-      '.promo-guarantee, .block-cta-inv, .promo-public, .pat-hero, .promo-model__hdr-inner'
-    ).forEach(function (el) {
-      mark(el, 'fade-scale');
-    });
-
-    /* ══ Counter animado ══════════════════════════════════════ */
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var el  = e.target;
-        var raw = el.dataset.raw || el.textContent.trim();
-        el.dataset.raw = raw; /* guardar original */
-        var m = raw.match(/^([\d]+(?:[.,]\d+)?)(.*)$/);
-        if (!m) return;
-        var target = parseFloat(m[1].replace(',', '.'));
-        var suffix = m[2] || '';
-        var isInt  = (m[1].indexOf('.') === -1 && m[1].indexOf(',') === -1);
-        var dur    = 1100, t0 = performance.now();
-        (function step(now) {
-          var p = Math.min((now - t0) / dur, 1);
-          var v = target * (1 - Math.pow(1 - p, 3));
-          el.textContent = (isInt ? Math.round(v) : v.toFixed(1)) + suffix;
-          if (p < 1) requestAnimationFrame(step);
-          else el.textContent = raw;
-        })(t0);
-        cio.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll(
-      '[class*="stat-num"], [class*="stats-val"], [class*="kpi-num"], .stat-big, .pat-stats .num'
-    ).forEach(function (el) { cio.observe(el); });
-
-    /* ══ Header: fondo al hacer scroll ═══════════════════════ */
-    var hdr = document.querySelector('.header-top');
-    if (hdr) {
-      var _scrolled = false;
-      window.addEventListener('scroll', function () {
-        var s = window.scrollY > 60;
-        if (s !== _scrolled) { hdr.classList.toggle('hdr-scrolled', s); _scrolled = s; }
-      }, { passive: true });
-    }
-
-    /* ══ Parallax desactivado — scroll estático ════════════ */
-
-  })();
-  </script>
-
+<script src="../cursor.js"></script>
 </body>
 </html>

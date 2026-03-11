@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAPIK | Construcció · Promoció · Rehabilitació</title>
-  <meta name="description" content="Construcció residencial de qualitat, promoció immobiliària i rehabilitació energètica a Catalunya. PAPIK.cat">
+  <title>Projectes | PAPIK · Construcció · Promoció · Rehabilitació</title>
+  <meta name="description" content="Portfolio de projectes de PAPIK: construcció residencial, promoció immobiliària i rehabilitació energètica a Catalunya.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -58,14 +58,12 @@
     .upper { text-transform: uppercase; }
     .center { text-align: center; }
     .color-green  { color: var(--green); }
-    .color-muted { color: var(--muted); }
+    .color-muted  { color: var(--muted); }
     .color-muted-light { color: var(--muted-light); }
-    .color-white { color: #fff; }
-    .opacity { opacity: .75; }
+    .color-white  { color: #fff; }
 
     /* Layout */
     .container { width: 90.625vw; margin: auto; }
-    .spacing, .block-margin { margin-bottom: 80px; }
 
     /* ═══════════════════════════════════
        BUTTONS
@@ -98,10 +96,6 @@
     }
     button.btn-up:hover { background: #000; border-color: #000; }
 
-    /* Arrow icon (pixel-style like JÒDUL) */
-    .arrow-svg { display: inline-block; vertical-align: middle; margin-left: 3px; }
-
-    /* Link with arrow */
     .link-arrow {
       display: inline-flex; align-items: center; gap: 4px;
       color: var(--muted); font-size: 14px; transition: opacity .2s;
@@ -109,27 +103,9 @@
     .link-arrow:hover { opacity: .6; }
 
     /* ═══════════════════════════════════
-       PLACEHOLDER IMAGES (replace with real photos)
-       — gradients that look architectural
+       PLACEHOLDER IMAGES
     ═══════════════════════════════════ */
     .ph { display: block; width: 100%; height: 100%; }
-    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #0E2719 100%); }
-    .ph-warm-1  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
-    .ph-warm-2  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
-    .ph-warm-3  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
-    .ph-warm-4  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
-    .ph-warm-5  { background: linear-gradient(135deg, #9FA9A3 0%, #9FA9A3 100%); }
-    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #0E2719 100%); }
-    .ph-green   { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
-    .ph-dark    { background: linear-gradient(135deg, #0A1B12 0%, #07140D 100%); }
-    .ph-stone   { background: linear-gradient(160deg, #E7E9E8 0%, #9FA9A3 100%); }
-    .ph-project1 { background: linear-gradient(160deg, #9FA9A3 0%, #0A1B12 100%); }
-    .ph-project2 { background: linear-gradient(160deg, #E7E9E8 0%, #9FA9A3 100%); }
-    .ph-news1   { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
-    .ph-news2   { background: linear-gradient(135deg, #E7E9E8 0%, #56685E 100%); }
-    .ph-news3   { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
-    .ph-col1    { background: linear-gradient(160deg, #0A1B12 0%, #07140D 100%); }
-    .ph-col2    { background: linear-gradient(160deg, #9FA9A3 0%, #56685E 100%); }
 
     /* ═══════════════════════════════════
        HEADER
@@ -212,9 +188,11 @@
       transition: background .2s !important;
       white-space: nowrap; line-height: 1;
     }
-    .nav-cta svg { flex-shrink: 0; }
     .nav-cta:hover { background: var(--green-light) !important; opacity: 1 !important; }
     nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
+
+    /* Active nav link */
+    nav.menu li a.active { font-weight: 500; }
 
     /* ─── Icon wrapper (nav right) ─── */
     .icon-wrapper {
@@ -297,270 +275,6 @@
       z-index: 70; opacity: 0; visibility: hidden; transition: .3s ease;
     }
     body.submenu-open .fade-bg { opacity: 1; visibility: visible; }
-
-    /* ═══════════════════════════════════
-       HERO
-    ═══════════════════════════════════ */
-    .block-hero {
-      width: 100vw; height: 54.6875vw; max-height: calc(100vh - 100px);
-      position: relative; overflow: hidden;
-    }
-
-    .block-hero__media {
-      position: absolute; inset: 0;
-    }
-
-    .block-hero__media .ph { position: absolute; inset: 0; }
-
-    .block-hero__overlay {
-      position: absolute; inset: 0; z-index: 2;
-      background: rgba(26,24,22,.42);
-    }
-
-    .block-hero__content {
-      position: absolute; inset: 0; z-index: 3;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 0 6vw;
-    }
-
-    .block-hero__title {
-      color: #fff; font-weight: 300;
-      font-size: clamp(38px, 5.2vw, 80px);
-      line-height: 1.08; max-width: 860px;
-    }
-
-    .block-hero__cta { margin-top: 48px; }
-
-    /* ═══════════════════════════════════
-       INFO REPEATABLE
-    ═══════════════════════════════════ */
-    .block-info-repeatable {
-      position: relative; z-index: 1;
-    }
-    .block-info-repeatable__item {
-      display: flex; min-height: 37.5vw;
-    }
-
-    .item__info {
-      width: 40%; padding: 4.6875vw;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-
-    .item__info__text .tag {
-      font-size: 12px; text-transform: uppercase;
-      letter-spacing: .12em; margin-bottom: 18px;
-      opacity: .65;
-    }
-
-    .item__info__text .big-text {
-      font-size: clamp(26px, 2.8vw, 40px);
-      line-height: 1.18; font-weight: 300;
-    }
-
-    .item__info__text .text {
-      font-size: 16px; line-height: 1.65;
-      color: var(--muted); margin-top: 20px;
-    }
-
-    .item__media {
-      width: 60%; overflow: hidden; position: relative;
-    }
-
-    .item__media .ph {
-      position: absolute; inset: 0;
-    }
-
-    /* Alternate order */
-    .block-info-repeatable__item:nth-child(even) .item__info { order: 1; }
-    .block-info-repeatable__item:nth-child(even) .item__media { order: 0; }
-
-    /* Bg colors for items */
-    .bg-warm-1 { background: var(--warm-1); }
-    .bg-warm-2 { background: var(--warm-2); }
-
-    /* Link images cluster */
-    .item__info__link { margin-top: 28px; }
-    .item__info__link .link_images {
-      width: 64px; height: 64px; position: relative; display: inline-block;
-    }
-    .item__info__link .link_images > div {
-      width: 36px; height: 36px; border-radius: 50%;
-      position: absolute; top: 0; overflow: hidden; border: 2px solid var(--warm-1);
-    }
-    .item__info__link .link_images > div:nth-child(1) { left: 0; z-index: 3; }
-    .item__info__link .link_images > div:nth-child(2) { left: 16px; z-index: 2; }
-    .item__info__link .link_images > div:nth-child(3) { left: 32px; z-index: 1; }
-    .item__info__link .link_images > div .ph { height: 100%; }
-
-    .link-wrapper {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .link-wrapper:hover { opacity: .7; }
-
-    /* ═══════════════════════════════════
-       SERVICES / DIVISIONS
-    ═══════════════════════════════════ */
-    .block-services { padding: 80px 0; }
-
-    .block-services__content {
-      display: flex; gap: 0; padding-left: 12.96875vw;
-    }
-
-    .services__gif { width: 44.6875vw; flex-shrink: 0; }
-    .services__gif .ph {
-      height: 29.8vw; border-radius: 4px; transition: opacity .3s;
-    }
-
-    .services__list { padding-left: 7.03125vw; display: flex; flex-direction: column; justify-content: center; }
-    .services__list .label { color: var(--green); font-size: 15px; }
-    .services__list ul { margin-top: 16px; }
-
-    .services__list ul li {
-      font-size: clamp(26px, 2.8vw, 40px); line-height: 1.2;
-      padding: 6px 0; color: var(--muted-light); cursor: pointer;
-      display: flex; align-items: center; gap: 10px;
-      transition: color .2s;
-    }
-    .services__list ul li.active { color: var(--green); }
-    .services__list ul li:hover { color: var(--green); }
-    .services__list ul li svg { opacity: 0; transition: opacity .2s; }
-    .services__list ul li.active svg,
-    .services__list ul li:hover svg { opacity: 1; }
-
-    /* ═══════════════════════════════════
-       PRODUCT / SERVICE CATEGORIES GRID
-    ═══════════════════════════════════ */
-    .block-categories {
-      padding: 80px 0; background: var(--bg-light);
-    }
-
-    .block-categories__title { margin-bottom: 60px; }
-
-    .categories-container {
-      width: 100%; display: flex; flex-wrap: wrap;
-      margin: 0 -1.68vw; width: calc(100% + 3.36vw);
-    }
-
-    .categories__item {
-      display: flex; flex-direction: column; align-items: center;
-      width: 27.96vw; margin: 0 1.68vw 45px;
-      cursor: pointer; transition: opacity .2s;
-    }
-    .categories__item:hover { opacity: .6; }
-
-    .categories__item img, .categories__item .ph-cat {
-      width: 100%; height: 17.97vw; object-fit: cover;
-      border-radius: 5px; margin-bottom: 12px;
-    }
-    .categories__item .ph-cat { height: 17.97vw; border-radius: 5px; }
-    .categories__item__title { font-size: 22px; font-weight: 300; }
-
-    .archive-btn {
-      display: block; width: max-content; margin: 10px auto 0;
-      padding: 10px 24px; background: #E7E9E8; border-radius: 24px;
-      font-size: 16px; transition: background .2s, color .2s;
-    }
-    .archive-btn:hover { background: #000; color: #fff; }
-
-    /* ═══════════════════════════════════
-       PROJECTS / COLUMNS (showrooms)
-    ═══════════════════════════════════ */
-    .block-columns { padding-bottom: 80px; }
-    .block-columns__title { margin-bottom: 40px; }
-
-    .block-columns__repeater {
-      display: flex; gap: 20px; flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .block-columns__item {
-      position: relative; width: 49.3%;
-    }
-
-    .block-columns__item .item__media-col {
-      height: 27.5vw; overflow: hidden; position: relative; margin-bottom: 18px;
-    }
-    .block-columns__item .item__media-col .ph {
-      position: absolute; inset: 0; transition: opacity .2s;
-    }
-    .block-columns__item:hover .item__media-col .ph { opacity: .82; }
-    .block-columns__item .title { font-size: 22px; margin-bottom: 8px; }
-    .block-columns__item .text { color: var(--muted); font-size: 15px; line-height: 1.6; }
-
-    /* ═══════════════════════════════════
-       LOGIN / ACCOUNT CARDS
-    ═══════════════════════════════════ */
-    .block-login { padding-bottom: 80px; }
-    .block-login__content { display: flex; gap: 20px; justify-content: center; }
-    .block-login__item {
-      min-height: 130px; width: 43vw; background: var(--bg-light);
-      border: 1px solid var(--border); border-radius: 8px;
-      display: flex; align-items: center; padding: 36px 40px;
-      position: relative; transition: border-color .2s; cursor: pointer;
-    }
-    .block-login__item:hover { border-color: #000; }
-    .block-login__item:nth-child(2) { background: #fff; color: var(--green); }
-    .block-login__item h6 { font-size: 22px; margin-bottom: 12px; }
-    .block-login__item .link_button {
-      display: flex; align-items: center; gap: 4px; font-size: 15px;
-    }
-
-    /* ═══════════════════════════════════
-       CTA / INFO SECTION
-    ═══════════════════════════════════ */
-    .block-info { padding-bottom: 80px; }
-    .block-info__content {
-      border-radius: 8px; padding: 56px 56px 56px 0;
-      display: flex; justify-content: space-between; align-items: center;
-      background: var(--green);
-    }
-    .block-info__text {
-      width: 60%; padding: 0 40px 0 56px;
-    }
-    .block-info__text h4 { color: #fff; font-size: 42px; margin-bottom: 16px; }
-    .block-info__text .text { color: rgba(255,255,255,.75); font-size: 16px; margin-bottom: 36px; }
-    .block-info__image { margin-right: 56px; }
-    .block-info__image .ph-circle {
-      width: 20vw; height: 20vw; border-radius: 50%;
-      max-width: 340px; max-height: 340px;
-    }
-
-    /* ═══════════════════════════════════
-       NEWS / ACTUALITAT
-    ═══════════════════════════════════ */
-    .block-journal { padding-bottom: 0; }
-
-    .journal-bar {
-      display: flex; align-items: baseline;
-      justify-content: space-between; padding-bottom: 28px;
-    }
-
-    /* Featured article */
-    .featured__item__content {
-      display: flex; align-items: center;
-      gap: 40px; margin-top: 40px; justify-content: space-between;
-    }
-    .featured__item__img { flex-shrink: 0; }
-    .featured__item__img .ph { width: 43vw; height: 27.5vw; border-radius: 3px; }
-    .featured__item__text { flex: 1; transition: opacity .2s; }
-    .featured__item__text:hover { opacity: .75; }
-    .featured__item__text .categories { color: var(--muted); font-size: 16px; margin-bottom: 12px; }
-    .featured__item__text .title { font-size: 40px; margin-bottom: 12px; }
-    .featured__item__text .desc { color: var(--muted); font-size: 16px; }
-    .featured__item__text .date { display: block; color: var(--muted); font-size: 15px; margin-top: 12px; }
-
-    /* Small news cards */
-    .other-articles { padding: 80px 0 80px; }
-    .news-grid { display: flex; gap: 30px; margin-top: 10px; }
-    .news-card { flex: 1; cursor: pointer; }
-    .news-card__img { width: 100%; height: 14vw; overflow: hidden; margin-bottom: 16px; border-radius: 3px; }
-    .news-card__img .ph { height: 100%; transition: opacity .2s; }
-    .news-card:hover .news-card__img .ph { opacity: .82; }
-    .news-card .category { font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: .08em; }
-    .news-card h4 { font-size: 18px; line-height: 1.35; margin-bottom: 8px; }
-    .news-card .news-text { transition: opacity .2s; }
-    .news-card:hover .news-text { opacity: .7; }
 
     /* ═══════════════════════════════════
        FOOTER
@@ -650,6 +364,162 @@
     .mobile-nav ul li.sub-title { font-size: 12px; text-transform: uppercase; color: var(--muted); padding: 20px 0 8px; border-bottom: 0; }
 
     /* ═══════════════════════════════════
+       PAGE HERO (breadcrumb + title)
+    ═══════════════════════════════════ */
+    .page-hero {
+      background: var(--bg-light);
+      padding: 52px 0 56px;
+    }
+
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted-light);
+      margin-bottom: 32px;
+    }
+    .breadcrumb a { color: var(--muted-light); transition: opacity .2s; }
+    .breadcrumb a:hover { opacity: .6; }
+    .breadcrumb .sep { opacity: .5; font-size: 11px; }
+
+    .page-hero__title {
+      font-size: clamp(40px, 5.2vw, 72px);
+      line-height: 1.06; font-weight: 300;
+      color: var(--text); margin-bottom: 22px;
+    }
+
+    .page-hero__desc {
+      max-width: 540px;
+      font-size: 16px; line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════
+       FILTER BAR
+    ═══════════════════════════════════ */
+    .filter-bar {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      position: sticky;
+      top: 52px;
+      z-index: 80;
+    }
+
+    .filter-bar__pills {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+
+    .pill {
+      height: 36px; padding: 0 20px; border-radius: 18px;
+      border: 1px solid var(--border); background: transparent;
+      font-size: 14px; color: var(--muted); cursor: pointer;
+      transition: all .2s; font-family: 'DM Sans', sans-serif;
+    }
+    .pill:hover { border-color: var(--green); color: var(--green); background: transparent; }
+    .pill.active {
+      background: var(--green); border-color: var(--green); color: #fff;
+    }
+    .pill.active:hover { background: var(--green-light); border-color: var(--green-light); }
+
+    /* Count badge */
+    .pill__count {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%;
+      font-size: 11px; margin-left: 4px;
+      background: rgba(255,255,255,.25); color: inherit;
+    }
+    .pill:not(.active) .pill__count {
+      background: var(--bg-section);
+    }
+
+    /* ═══════════════════════════════════
+       PROJECTS GRID
+    ═══════════════════════════════════ */
+    .projects-section {
+      padding: 56px 0 80px;
+      background: #fff;
+    }
+
+    .projects-count {
+      font-size: 14px; color: var(--muted-light);
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -14px;
+    }
+
+    .grid-item {
+      width: calc(33.333% - 28px);
+      margin: 0 14px 52px;
+      transition: opacity .25s;
+    }
+
+    .grid-item.hidden { display: none; }
+
+    .grid-item__link { display: block; }
+    .grid-item__link:hover .grid-item__img { transform: scale(1.03); }
+
+    .grid-item__img-wrap {
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .grid-item__img {
+      width: 100%;
+      display: block;
+      transition: transform .45s ease;
+    }
+
+    .grid-item__cat {
+      font-size: 11px; text-transform: uppercase; letter-spacing: .12em;
+      color: var(--muted-light); margin-bottom: 7px;
+    }
+
+    .grid-item__title {
+      font-size: 20px; font-weight: 300;
+      color: var(--text); line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .grid-item__loc {
+      font-size: 14px; color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════
+       CTA STRIP
+    ═══════════════════════════════════ */
+    .block-cta {
+      background: var(--green);
+      padding: 72px 0;
+      text-align: center;
+    }
+
+    .block-cta__label {
+      font-size: 12px; text-transform: uppercase; letter-spacing: .14em;
+      color: rgba(255,255,255,.5); margin-bottom: 20px;
+    }
+
+    .block-cta__title {
+      font-size: clamp(28px, 3.4vw, 48px);
+      font-weight: 300; color: #fff;
+      line-height: 1.15; margin-bottom: 36px;
+      max-width: 700px; margin-left: auto; margin-right: auto;
+    }
+
+    .block-cta .btn-white {
+      background: #fff; border: 1px solid #fff;
+      color: var(--green); height: 46px; padding: 0 32px;
+      border-radius: 23px; font-size: 15px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all .2s; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .block-cta .btn-white:hover { background: transparent; color: #fff; }
+
+    /* ═══════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════ */
     @media (max-width: 900px) {
@@ -661,61 +531,23 @@
       .t42 { font-size: 26px; }
       .t24 { font-size: 20px; }
       .container { width: 100%; padding: 0 4.8vw; }
-      .spacing, .block-margin { margin-bottom: 45px; }
 
-      .block-hero { height: 106vw; max-height: 500px; }
-      .block-hero__title { font-size: 30px; }
+      .filter-bar { top: 46px; }
 
-      .block-info-repeatable__item { flex-wrap: wrap; }
-      .item__info { width: 100%; order: 1 !important; padding: 6vw 4.8vw; }
-      .item__media { width: 100%; order: 0 !important; height: 62vw; }
-
-      .block-services__content { flex-direction: column; padding-left: 0; gap: 30px; }
-      .services__gif { width: 100%; }
-      .services__gif .ph { height: 62vw; }
-      .services__list { padding-left: 0; }
-      .services__list ul li { font-size: 22px; }
-
-      .categories-container { margin: 0; width: 100%; }
-      .categories__item { width: 48%; margin: 0 1% 20px; }
-      .categories__item .ph-cat { height: 30vw; }
-
-      .block-columns__repeater { flex-direction: column; }
-      .block-columns__item { width: 100%; }
-      .block-columns__item .item__media-col { height: 56vw; }
-
-      .block-login__content { flex-direction: column; }
-      .block-login__item { width: 100%; }
-
-      .block-info__content {
-        flex-direction: column; padding: 40px 5vw;
-        text-align: center;
-      }
-      .block-info__text { width: 100%; padding: 0 0 30px; }
-      .block-info__text h4 { font-size: 28px; }
-      .block-info__image { margin: 0; }
-      .block-info__image .ph-circle { width: 50vw; height: 50vw; }
-
-      .featured__item__content { flex-direction: column; }
-      .featured__item__img .ph { width: 100%; height: 56vw; }
-
-      .news-grid { flex-wrap: wrap; gap: 20px; }
-      .news-card { width: calc(50% - 10px); flex: none; }
-      .news-card__img { height: 30vw; }
+      .grid-item { width: calc(50% - 28px); }
 
       .footer__content__info { flex-direction: column; }
       .footer__newsletter { max-width: 100%; }
+    }
 
-      .block-info-repeatable__item:nth-child(even) .item__info { order: 1 !important; }
-      .block-info-repeatable__item:nth-child(even) .item__media { order: 0 !important; }
+    @media (max-width: 600px) {
+      .grid-item { width: calc(100% - 28px); }
+      .page-hero { padding: 36px 0 40px; }
     }
 
     @media (max-width: 520px) {
-      .categories__item { width: 100%; margin: 0 0 20px; }
-      .categories__item .ph-cat { height: 56vw; }
-      .news-card { width: 100%; }
-      .news-card__img { height: 56vw; }
-      .block-hero__title { font-size: 26px; }
+      .filter-bar__pills { gap: 8px; }
+      .pill { height: 32px; font-size: 13px; padding: 0 14px; }
     }
   
     /* ═══════════════════════════════════════════════════════
@@ -867,40 +699,32 @@
 ═══════════════════════════════════ -->
 <nav class="mobile-nav" id="mobileNav">
   <div class="mobile-nav__header">
-    <a href="/">
+    <a href="index.html">
       <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-            <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1
-              C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7
-              C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8
-              c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-            <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-            <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-            <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 
-              303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-            <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-            <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
-              c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-            <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 
-              184.4,327.7 184.4,327.7"/>
-            <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
-              c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-            <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4
-              c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
-          </svg>
+        <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+      </svg>
     </a>
     <button class="mobile-nav__close" id="mobileNavClose">✕</button>
   </div>
   <ul class="t18">
     <li class="sub-title">Serveis</li>
-    <li><a href="#construccio">Construcció</a></li>
-    <li><a href="promocio.html">Promoció Immobiliària</a></li>
-    <li><a href="#rehabilitacio">Rehabilitació Energètica</a></li>
+    <li><a href="index.html#construccio">Construcció</a></li>
+    <li><a href="index.html#promocio">Promoció Immobiliària</a></li>
+    <li><a href="index.html#rehabilitacio">Rehabilitació Energètica</a></li>
     <li class="sub-title">Empresa</li>
     <li><a href="patrimonis.html">Patrimonis</a></li>
-    <li><a href="projectes.html">Projectes</a></li>
+    <li><a href="projectes.html" class="active">Projectes</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="nosaltres.html">Nosaltres</a></li>
-    <li><a href="#contacte">Contacte</a></li>
+    <li><a href="index.html#contacte">Contacte</a></li>
     <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Inicia sessió →</a></li>
     <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Pressupost →</a></li>
   </ul>
@@ -923,34 +747,26 @@
         </div>
         <!-- Logo -->
         <div class="logo">
-          <a href="/">
+          <a href="index.html">
             <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-            <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1
-              C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7
-              C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8
-              c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-            <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-            <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-            <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 
-              303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-            <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-            <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
-              c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-            <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 
-              184.4,327.7 184.4,327.7"/>
-            <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
-              c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-            <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4
-              c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
-          </svg>
+              <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+            </svg>
           </a>
         </div>
       </div>
       <!-- Lang -->
       <div class="lang">
         <select onchange="location=this.value">
-          <option value="/" selected>CA</option>
-          <option value="/es/">ES</option>
+          <option value="projectes.html" selected>CA</option>
+          <option value="es/projectes.html">ES</option>
         </select>
       </div>
     </div>
@@ -983,7 +799,7 @@
               <a href="blog.html">Blog</a>
             </li>
             <li>
-              <span class="menu-btn" data-menu="nosaltres">Nosaltres</span>
+              <a href="nosaltres.html">Nosaltres</a>
             </li>
           </ul>
         </nav>
@@ -1001,7 +817,7 @@
               </div>
             </li>
             <li>
-              <a href="#contacte">Contacte</a>
+              <a href="index.html#contacte">Contacte</a>
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
@@ -1050,16 +866,15 @@
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24">Construcció Residencial</h3>
+          <h3 class="t24"><a href="construccio.html" style="color:inherit;">Construcció Residencial</a></h3>
           <ul class="t16">
-            <li><a href="construccio.html">Obra Nova</a></li>
-            <li><a href="construccio.html">Habitatges Unifamiliars</a></li>
-            <li><a href="construccio.html">Edificis Plurifamiliars</a></li>
-            <li><a href="construccio.html">Reformes Integrals</a></li>
-            <li><a href="construccio.html">Ampliacions</a></li>
+            <li><a href="construccio.html#unifamiliar">Habitatges Unifamiliars</a></li>
+            <li><a href="construccio.html#plurifamiliar">Edificis Plurifamiliars</a></li>
+            <li><a href="construccio.html#ampliacio">Ampliacions i Remuntes</a></li>
+            <li><a href="construccio.html#reforma">Reformes Integrals</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph ph-warm-1" style="height:100%;"></div>
+            <div style="height:100%;background:linear-gradient(135deg,#E7E9E8 0%,#9FA9A3 100%);"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -1082,25 +897,25 @@
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24">Promoció Immobiliària</h3>
+          <h3 class="t24"><a href="promocio.html" style="color:inherit;">Promoció Immobiliària</a></h3>
           <ul class="t16">
-            <li><a href="promocio.html">Habitatges d'Obra Nova</a></li>
-            <li><a href="promocio.html">Promocions Privades</a></li>
-            <li><a href="promocio.html">Col·laboració Propietaris</a></li>
-            <li><a href="promocio.html">Gestió Integral del Projecte</a></li>
+            <li><a href="promocio.html#promocions">Promocions actives</a></li>
+            <li><a href="promocio.html#tipologies">Tipologies de promoció</a></li>
+            <li><a href="promocio.html#solar">Col·laboració propietaris de solar</a></li>
+            <li><a href="promocio.html#faq">Preguntes freqüents</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph ph-project1" style="height:100%;"></div>
+            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#0E2719 100%);"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">Màxima rendibilitat</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Des de la cerca de solar fins a la venda del darrer habitatge. Gestionem tot el procés de promoció immobiliària amb transparència i eficiència.</p>
+          <h3 class="t24">El nostre model</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Desenvolupem promocions residencials sostenibles i eficients. Gestionem tot el procés, des de la recerca de sòl fins al lliurament, amb màxima transparència.</p>
         </div>
         <div class="submenu__featured">
-          <h3>Actualitat</h3>
-          <p class="feat-title">Projecte Eixample: 12 pisos de disseny al cor de Barcelona</p>
-          <a href="#" class="feat-link link-arrow">Llegir més
+          <h3>Disponibles</h3>
+          <p class="feat-title">Edifici Premià de Mar: últimes unitats disponibles</p>
+          <a href="#" class="feat-link link-arrow">Veure promoció
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1121,17 +936,17 @@
             <li><a href="rehabilitacio.html#nextgen">Ajudes Next Generation EU</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph ph-green" style="height:100%;"></div>
+            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#56685E 100%);"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">Estalvi i confort</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Millorar l'eficiència energètica del teu edifici és invertir en futur. T'acompanyem en tot el procés: diagnosi, projecte, obra i justificació d'ajudes.</p>
+          <h3 class="t24">Estalvi garantit</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Reduïm el consum energètic del teu edifici fins a un 60%. T'acompanyem en tot el procés, incloent la tramitació de subvencions europees.</p>
         </div>
         <div class="submenu__featured">
-          <h3>Actualitat</h3>
-          <p class="feat-title">Fins a un 80% de subvenció per rehabilitar la teva façana en 2025</p>
-          <a href="#" class="feat-link link-arrow">Llegir més
+          <h3>Ajudes</h3>
+          <p class="feat-title">Fins a 80.000€ per habitatge en ajudes Next Generation</p>
+          <a href="#" class="feat-link link-arrow">Saber-ne més
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1146,14 +961,12 @@
         <div class="submenu__col">
           <h3 class="t24"><a href="patrimonis.html" style="color:inherit;">Inversió Patrimonial</a></h3>
           <ul class="t16">
-            <li><a href="patrimonis.html">Cartera d'Actius Residencials</a></li>
-            <li><a href="patrimonis.html">Inversors Privats i Family Office</a></li>
-            <li><a href="patrimonis.html">Co-inversió i Joint Venture</a></li>
-            <li><a href="patrimonis.html">Gestió d'Actius i Manteniment</a></li>
-            <li><a href="patrimonis.html">Due Diligence Tècnica</a></li>
+            <li><a href="patrimonis.html#com-funciona">Com funciona</a></li>
+            <li><a href="patrimonis.html#faq">Preguntes freqüents</a></li>
+            <li><a href="patrimonis.html#contacte-inversion">Contacte inversors</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -1185,7 +998,7 @@
             <li><a href="pressupost.html">Ampliació i Canvi d'Ús</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -1211,26 +1024,26 @@
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="nosaltres.html" style="color:inherit;">PAPIK Group</a></h3>
+          <h3 class="t24"><a href="nosaltres.html" style="color:inherit;">L'empresa</a></h3>
           <ul class="t16">
-            <li><a href="nosaltres.html">La nostra història</a></li>
-            <li><a href="nosaltres.html#equip">L'equip</a></li>
-            <li><a href="nosaltres.html#eskimohaus">Sistema Eskimohaus</a></li>
-            <li><a href="nosaltres.html#valors">Valors i compromís</a></li>
-            <li><a href="nosaltres.html#reconeixements">Premis i certificacions</a></li>
+            <li><a href="nosaltres.html">Qui som</a></li>
+            <li><a href="nosaltres.html#equip">El nostre equip</a></li>
+            <li><a href="nosaltres.html#valors">Valors i metodologia</a></li>
+            <li><a href="projectes.html">Projectes realitzats</a></li>
+            <li><a href="nosaltres.html#eskimohaus">Sostenibilitat</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph" style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
+            <div style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
-          <h3 class="t24">Trenta anys d'ofici</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">D'un taller de fusteria artesanal al grup constructor de referència en passivhaus a Catalunya. Fem coses que duren — i ho fem des del 1994.</p>
+          <h3 class="t24">Construïm des del 2008</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Som una empresa de construcció i promoció immobiliària amb base al Maresme. Més de 15 anys d'experiència en obra residencial, rehabilitació i inversió patrimonial.</p>
         </div>
         <div class="submenu__featured">
           <h3>Reconeixements</h3>
-          <p class="feat-title">Premio Excelencia Empresarial · Foment del Treball, 2019</p>
-          <a href="nosaltres.html#reconeixements" class="feat-link link-arrow">Conèixer l'empresa
+          <p class="feat-title">+120 habitatges entregats · Qualificació A en eficiència energètica</p>
+          <a href="index.html#nosaltres" class="feat-link link-arrow">Conèixer l'equip
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1240,391 +1053,207 @@
 </section>
 
 <!-- ═══════════════════════════════════
-     HERO
+     PAGE HERO
 ═══════════════════════════════════ -->
-<div id="content-flex">
-
-<section class="block-hero">
-  <div class="block-hero__media">
-    <div class="ph ph-hero"></div>
-  </div>
-  <div class="block-hero__overlay"></div>
-  <div class="block-hero__content">
-    <h1 class="block-hero__title">Del projecte<br>a la realitat</h1>
-    <div class="block-hero__cta">
-      <a href="#contacte">
-        <button>
-          Parla amb nosaltres
-          <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" fill="none">
-            <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/>
-          </svg>
-        </button>
-      </a>
-    </div>
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="index.html">Inici</a>
+      <span class="sep">›</span>
+      <span>Projectes</span>
+    </nav>
+    <h1 class="page-hero__title">Projectes</h1>
+    <p class="page-hero__desc">Cada obra que lliurem és el resultat d'un procés rigorós, d'un equip compromès i d'una relació de confiança amb el client. Aquí recollim una selecció dels nostres treballs.</p>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════
-     INFO REPEATABLE — 2 blocs alternats
+     FILTER BAR
 ═══════════════════════════════════ -->
-<section class="block-info-repeatable" id="construccio">
-  <!-- Bloc 1: Construcció -->
-  <div class="block-info-repeatable__item bg-warm-1">
-    <div class="item__info">
-      <div class="item__info__text">
-        <p class="tag">Construcció Residencial</p>
-        <h2 class="big-text">Edificis que<br>expliquen una historia</h2>
-        <p class="text">Construïm habitatges i edificis residencials amb rigor tècnic i sensibilitat arquitectònica. Des de la fonamentació fins al lliurament de claus, cuidem cada detall perquè el resultat final superi les expectatives.</p>
-      </div>
-      <div class="item__info__link">
-        <a class="link-wrapper" href="projectes.html">
-          <div class="link_images">
-            <div><div class="ph ph-warm-4" style="height:100%;border-radius:50%;"></div></div>
-            <div><div class="ph ph-warm-5" style="height:100%;border-radius:50%;"></div></div>
-            <div><div class="ph ph-stone" style="height:100%;border-radius:50%;"></div></div>
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-bar__pills">
+      <button class="pill active" data-filter="tot">
+        Tot <span class="pill__count" id="countTot">9</span>
+      </button>
+      <button class="pill" data-filter="residencial">
+        Construcció <span class="pill__count" id="countRes">5</span>
+      </button>
+      <button class="pill" data-filter="promocio">
+        Promoció <span class="pill__count" id="countPro">2</span>
+      </button>
+      <button class="pill" data-filter="rehabilitacio">
+        Rehabilitació <span class="pill__count" id="countReh">2</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     PROJECTS GRID
+═══════════════════════════════════ -->
+<section class="projects-section">
+  <div class="container">
+    <p class="projects-count" id="projectsCount">9 projectes</p>
+
+    <div class="grid" id="projectsGrid">
+
+      <!-- 1 -->
+      <div class="grid-item" data-category="residencial">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:320px;background:linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%);border-radius:4px;"></div>
           </div>
-          <div style="margin-left:16px;">
-            <p class="t16 color-muted">Veure projectes
-              <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
-              </svg>
-            </p>
+          <p class="grid-item__cat">Construcció Residencial</p>
+          <h3 class="grid-item__title">Casa Matadepera</h3>
+          <p class="grid-item__loc">Matadepera · Vallès Occidental</p>
+        </a>
+      </div>
+
+      <!-- 2 -->
+      <div class="grid-item" data-category="residencial">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:260px;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);border-radius:4px;"></div>
           </div>
+          <p class="grid-item__cat">Construcció Residencial</p>
+          <h3 class="grid-item__title">Casa Premià de Mar</h3>
+          <p class="grid-item__loc">Premià de Mar · Maresme</p>
         </a>
       </div>
-    </div>
-    <div class="item__media">
-      <div class="ph ph-warm-1" style="position:absolute;inset:0;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);"></div>
-    </div>
-  </div>
 
-  <!-- Bloc 2: Rehabilitació -->
-  <div class="block-info-repeatable__item bg-warm-2" id="rehabilitacio">
-    <div class="item__info">
-      <div class="item__info__text">
-        <p class="tag" style="color:var(--muted);">Rehabilitació Energètica</p>
-        <h2 class="big-text">Edificis més eficients,<br>consum responsable</h2>
-        <p class="text">La rehabilitació energètica no és una despesa, és una inversió. Millorem l'envolupant del teu edifici, reduïm el consum energètic i t'acompanyem en l'accés a les ajudes Next Generation EU.</p>
-      </div>
-      <div class="item__info__link" style="margin-top:28px;">
-        <a class="link-wrapper" href="#rehabilitacio">
-          <p class="t16 color-muted">Saber-ne més
-            <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
-            </svg>
-          </p>
-        </a>
-      </div>
-    </div>
-    <div class="item__media">
-      <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);"></div>
-    </div>
-  </div>
-</section>
-
-<div class="spacing"></div>
-
-<!-- ═══════════════════════════════════
-     SERVICES / DIVISIONS
-═══════════════════════════════════ -->
-<section class="block-services block-margin">
-  <div class="container">
-    <div class="block-services__content">
-      <!-- Visual GIF/Image panel -->
-      <div class="services__gif">
-        <div class="ph ph-blue services-img-active" id="servicesImg" style="height:29.8vw;border-radius:6px;transition:all .4s;"></div>
-      </div>
-      <!-- List -->
-      <div class="services__list">
-        <p class="label t16">Àrees PAPIK</p>
-        <ul class="t42">
-          <li class="active" data-img="ph-blue">
-            <a href="#construccio">Construcció
-              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
-              </svg>
-            </a>
-          </li>
-          <li data-img="ph-project1">
-            <a href="promocio.html">Promoció
-              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
-              </svg>
-            </a>
-          </li>
-          <li data-img="ph-green">
-            <a href="#rehabilitacio">Rehabilitació
-              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
-              </svg>
-            </a>
-          </li>
-          <li data-img="ph-stone">
-            <a href="construccio.html">Obra Nova
-              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
-              </svg>
-            </a>
-          </li>
-          <li data-img="ph-warm-2">
-            <a href="construccio.html">Reforma Integral
-              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
-              </svg>
-            </a>
-          </li>
-          <li data-img="ph-dark">
-            <a href="rehabilitacio.html">Eficiència Energètica
-              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════
-     CATEGORIES GRID
-═══════════════════════════════════ -->
-<section class="block-categories block-margin" id="serveis">
-  <div class="container">
-    <h4 class="t42 center block-categories__title">Serveis</h4>
-    <div class="categories-container">
-      <a href="#construccio" class="categories__item">
-        <div class="ph-cat" style="background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);border-radius:5px;margin-bottom:12px;"></div>
-        <p class="categories__item__title center t24">Construcció</p>
-      </a>
-      <a href="promocio.html" class="categories__item">
-        <div class="ph-cat" style="background:linear-gradient(160deg,#9FA9A3 0%,#0E2719 100%);border-radius:5px;margin-bottom:12px;"></div>
-        <p class="categories__item__title center t24">Promoció</p>
-      </a>
-      <a href="#rehabilitacio" class="categories__item">
-        <div class="ph-cat" style="background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:5px;margin-bottom:12px;"></div>
-        <p class="categories__item__title center t24">Rehabilitació</p>
-      </a>
-    </div>
-    <a href="#contacte" class="archive-btn t16">
-      Demana pressupost
-      <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
-      </svg>
-    </a>
-  </div>
-</section>
-
-<div class="spacing"></div>
-
-<!-- ═══════════════════════════════════
-     PROJECTES (Columns)
-═══════════════════════════════════ -->
-<section class="block-columns block-margin" id="projectes">
-  <div class="container">
-    <h4 class="t42 center block-columns__title">Projectes recents</h4>
-    <div class="block-columns__repeater">
-      <div class="block-columns__item">
-        <a href="projectes.html">
-          <div class="item__media-col">
-            <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%);"></div>
+      <!-- 3 -->
+      <div class="grid-item" data-category="promocio">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:300px;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div>
           </div>
-          <h3 class="title t24">Edifici Eixample · Barcelona</h3>
-          <p class="text t16 color-muted">12 habitatges d'obra nova amb certificació energètica A. Disseny contemporani al barri de l'Eixample.</p>
-          <p style="margin-top:12px;">
-            <a href="projectes.html" class="link-arrow t14">Veure projecte
-              <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
-            </svg>
-            </a>
-          </p>
+          <p class="grid-item__cat">Promoció Immobiliària</p>
+          <h3 class="grid-item__title">Edifici Plurifamiliar Badalona</h3>
+          <p class="grid-item__loc">Badalona · Barcelonès</p>
         </a>
       </div>
-      <div class="block-columns__item">
-        <a href="projectes.html">
-          <div class="item__media-col">
-            <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);"></div>
+
+      <!-- 4 -->
+      <div class="grid-item" data-category="residencial">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:280px;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
           </div>
-          <h3 class="title t24">Casa Unifamiliar · Mataró</h3>
-          <p class="text t16 color-muted">Habitatge unifamiliar aïllat de 280 m² amb piscina i jardí. Rehabilitació energètica completa de façana i coberta.</p>
-          <p style="margin-top:12px;">
-            <a href="projectes.html" class="link-arrow t14">Veure projecte
-              <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
-            </svg>
-            </a>
-          </p>
+          <p class="grid-item__cat">Construcció Residencial</p>
+          <h3 class="grid-item__title">Edifici Argentona</h3>
+          <p class="grid-item__loc">Argentona · Maresme</p>
         </a>
       </div>
-    </div>
+
+      <!-- 5 -->
+      <div class="grid-item" data-category="rehabilitacio">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:350px;background:linear-gradient(160deg,#E7E9E8 0%,#56685E 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Rehabilitació Energètica</p>
+          <h3 class="grid-item__title">Rehabilitació Cerdanyola</h3>
+          <p class="grid-item__loc">Cerdanyola del Vallès · Vallès Occidental</p>
+        </a>
+      </div>
+
+      <!-- 6 -->
+      <div class="grid-item" data-category="residencial">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:270px;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcció Residencial</p>
+          <h3 class="grid-item__title">Casa Teià</h3>
+          <p class="grid-item__loc">Teià · Maresme</p>
+        </a>
+      </div>
+
+      <!-- 7 -->
+      <div class="grid-item" data-category="rehabilitacio">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:310px;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Rehabilitació Energètica</p>
+          <h3 class="grid-item__title">Reforma Integral Mataró</h3>
+          <p class="grid-item__loc">Mataró · Maresme</p>
+        </a>
+      </div>
+
+      <!-- 8 -->
+      <div class="grid-item" data-category="promocio">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:290px;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Promoció Immobiliària</p>
+          <h3 class="grid-item__title">Edifici El Masnou</h3>
+          <p class="grid-item__loc">El Masnou · Maresme</p>
+        </a>
+      </div>
+
+      <!-- 9 -->
+      <div class="grid-item" data-category="residencial">
+        <a href="#" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:340px;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcció Residencial</p>
+          <h3 class="grid-item__title">Casa Caldes de Montbui</h3>
+          <p class="grid-item__loc">Caldes de Montbui · Vallès Oriental</p>
+        </a>
+      </div>
+
+    </div><!-- end .grid -->
   </div>
 </section>
 
 <!-- ═══════════════════════════════════
-     CTA / INFO SECTION
+     CTA STRIP
 ═══════════════════════════════════ -->
-<section class="block-info block-margin" id="nosaltres">
+<section class="block-cta">
   <div class="container">
-    <div class="block-info__content">
-      <div class="block-info__text">
-        <h4>Construïm el que<br>tu imagines</h4>
-        <p class="text">Tens el projecte, nosaltres tenim l'experiència. Acompanyem els nostres clients des del primer esbós fins al lliurament de les claus, amb transparència i qualitat garantida.</p>
-        <a href="#contacte">
-          <button style="background:#fff;color:#0E2719;border-color:#fff;">
-            Contacta amb nosaltres
-            <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/>
-            </svg>
-          </button>
-        </a>
-      </div>
-      <div class="block-info__image">
-        <div class="ph-circle" style="background:linear-gradient(135deg,#9FA9A3 0%,#0E2719 100%);"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="spacing"></div>
-
-<!-- ═══════════════════════════════════
-     ACTUALITAT / JOURNAL
-═══════════════════════════════════ -->
-<section class="block-journal block-margin">
-  <div class="container">
-    <div class="journal-bar">
-      <h5 class="t24">Actualitat</h5>
-      <a href="blog.html" class="link-arrow t16">Totes les notícies
-        <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+    <p class="block-cta__label">El teu projecte</p>
+    <h2 class="block-cta__title">Tens un projecte en ment?<br>Explica'ns-ho.</h2>
+    <a href="index.html#contacte">
+      <button class="btn-white">
+        Parla amb nosaltres
+        <svg width="12" height="11" viewBox="0 0 12.447 10.89" fill="none">
+          <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
         </svg>
-      </a>
-    </div>
-
-    <!-- Featured article -->
-    <a href="#">
-      <div class="featured__item__content">
-        <div class="featured__item__img">
-          <div class="ph" style="width:43vw;height:27.5vw;border-radius:3px;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);display:block;"></div>
-        </div>
-        <div class="featured__item__text">
-          <div class="categories t16">Rehabilitació · Ajudes</div>
-          <h3 class="title t42">Next Generation EU: fins al 80% de subvenció per rehabilitar el teu edifici</h3>
-          <p class="desc t16 color-muted">Les ajudes europees per a la rehabilitació energètica d'edificis estan disponibles. T'expliquem com accedir-hi i quin impacte pot tenir en el teu immoble.</p>
-          <time class="date t16">15 febrer 2025</time>
-        </div>
-      </div>
+      </button>
     </a>
   </div>
 </section>
-
-<!-- Small news cards -->
-<section class="other-articles">
-  <div class="container">
-    <div class="news-grid">
-      <a href="#" class="news-card">
-        <div class="news-card__img">
-          <div class="ph ph-news1"></div>
-        </div>
-        <div class="news-text">
-          <p class="category">Promoció</p>
-          <h4>Nova promoció a Badalona: 24 habitatges amb qualitats premium i eficiència A</h4>
-          <time class="t14 color-muted">3 març 2025</time>
-        </div>
-      </a>
-      <a href="#" class="news-card">
-        <div class="news-card__img">
-          <div class="ph ph-news2"></div>
-        </div>
-        <div class="news-text">
-          <p class="category">Rehabilitació</p>
-          <h4>Rehabilitació de façana a l'Eixample: estalvi del 60% en calefacció</h4>
-          <time class="t14 color-muted">18 febrer 2025</time>
-        </div>
-      </a>
-      <a href="#" class="news-card">
-        <div class="news-card__img">
-          <div class="ph ph-news3"></div>
-        </div>
-        <div class="news-text">
-          <p class="category">Construcció</p>
-          <h4>Casa a la muntanya: com vam construir una residència eficient en terreny difícil</h4>
-          <time class="t14 color-muted">5 febrer 2025</time>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-</div><!-- end #content-flex -->
 
 <!-- ═══════════════════════════════════
      FOOTER
 ═══════════════════════════════════ -->
-<footer id="contacte">
+<footer>
   <div class="container">
     <div class="footer__content__info color-white">
 
       <div class="footer-col">
         <p class="footer__col-title">PAPIK</p>
         <ul>
-          <li><a href="#nosaltres">Qui som</a></li>
+          <li><a href="index.html#nosaltres">Qui som</a></li>
           <li><a href="projectes.html">Projectes</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="#contacte">Contacte</a></li>
+          <li><a href="index.html#contacte">Contacte</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <p class="footer__col-title">Serveis</p>
         <ul>
-          <li><a href="construccio.html">Construcció Residencial</a></li>
-          <li><a href="promocio.html">Promoció Immobiliària</a></li>
-          <li><a href="rehabilitacio.html">Rehabilitació Energètica</a></li>
-          <li><a href="construccio.html">Obra Nova</a></li>
-          <li><a href="construccio.html">Reformes Integrals</a></li>
-          <li><a href="rehabilitacio.html">Eficiència Energètica</a></li>
+          <li><a href="index.html#construccio">Construcció Residencial</a></li>
+          <li><a href="index.html#promocio">Promoció Immobiliària</a></li>
+          <li><a href="index.html#rehabilitacio">Rehabilitació Energètica</a></li>
+          <li><a href="#">Obra Nova</a></li>
+          <li><a href="#">Reformes Integrals</a></li>
+          <li><a href="#">Eficiència Energètica</a></li>
         </ul>
       </div>
 
@@ -1770,45 +1399,33 @@
   fadeBg.addEventListener('click', closeMobileNav);
   mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
 
-  // ─── Services list hover ───
-  const serviceItems = document.querySelectorAll('.services__list ul li');
-  const servicesImg = document.getElementById('servicesImg');
+  // ─── Filter pills ───
+  const pills = document.querySelectorAll('.pill[data-filter]');
+  const items = document.querySelectorAll('.grid-item[data-category]');
+  const countEl = document.getElementById('projectsCount');
 
-  const imgMap = {
-    'ph-blue':     'linear-gradient(135deg,#56685E 0%,#0E2719 100%)',
-    'ph-project1': 'linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%)',
-    'ph-green':    'linear-gradient(135deg,#9FA9A3 0%,#56685E 100%)',
-    'ph-stone':    'linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%)',
-    'ph-warm-2':   'linear-gradient(135deg,#9FA9A3 0%,#56685E 100%)',
-    'ph-dark':     'linear-gradient(135deg,#0A1B12 0%,#07140D 100%)',
-  };
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
 
-  serviceItems.forEach(li => {
-    li.addEventListener('mouseenter', () => {
-      serviceItems.forEach(i => i.classList.remove('active'));
-      li.classList.add('active');
-      const imgClass = li.dataset.img;
-      if (imgClass && imgMap[imgClass]) {
-        servicesImg.style.background = imgMap[imgClass];
-      }
-    });
-  });
+      const filter = pill.dataset.filter;
+      let visible = 0;
 
-  // ─── Smooth scroll for anchor links ───
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const href = anchor.getAttribute('href');
-      if (href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      items.forEach(item => {
+        if (filter === 'tot' || item.dataset.category === filter) {
+          item.classList.remove('hidden');
+          visible++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      countEl.textContent = visible + ' ' + (visible === 1 ? 'projecte' : 'projectes');
     });
   });
 </script>
 
-<script src="splash.js"></script>
 <script src="cursor.js"></script>
 
   <!-- ═══════════════════════════════════════════════════════
@@ -1946,9 +1563,7 @@
       }, { passive: true });
     }
 
-    /* ══ Parallax desactivado — scroll estático ════════════ */
-
-  })();
+    /* ══ Parallax desactivado — scroll estático ════════════ */)();
   </script>
 
 </body>

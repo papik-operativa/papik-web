@@ -7,7 +7,7 @@ try:
     HAS_PDF2IMAGE = True
 except ImportError:
     HAS_PDF2IMAGE = False
-from flask import Flask, request, jsonify, Response, redirect
+from flask import Flask, request, jsonify, Response
 from datetime import date, timedelta
 from generate_pdf import generar_pdf
 
@@ -1222,11 +1222,6 @@ def _extract_form_from_message(message, step):
         updates['estil_acabats'] = 'estandard'
 
     return updates
-
-
-@app.route('/')
-def index():
-    return redirect('/usuaris.html')
 
 
 @app.route('/municipis')

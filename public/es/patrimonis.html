@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patrimonios | PAPIK · Inversión Conjunta en Real Estate</title>
+  <meta name="description" content="Vehículos de inversión conjunta en proyectos inmobiliarios. Aporta capital o solar y PAPIK pone la construcción. Equipo técnico, jurídico y de inversión a tu lado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════
+       VARIABLES & RESET
+    ═══════════════════════════════════ */
+    :root {
+      --green:       #0E2719;
+      --green-light: #56685E;
+      --green-dark:  #0A1B12;
+      --bg-light:    #E7E9E8;
+      --bg-section:  rgba(159,169,163,0.25);
+      --text:        #0E2719;
+      --muted:       #56685E;
+      --muted-light: #9FA9A3;
+      --border:      rgba(159,169,163,0.5);
+      --footer-bg:   #07140D;
+      --warm-1:      #E7E9E8;
+      --warm-2:      #9FA9A3;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      opacity: 0;
+      animation: pageIn .5s ease .1s forwards;
+    }
+    @keyframes pageIn { to { opacity: 1; } }
+
+    h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    a { text-decoration: none; color: inherit; }
+    button, input, select, textarea { font-family: 'DM Sans', sans-serif; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Typography */
+    .t12  { font-size: 12px; line-height: 1.6; }
+    .t14  { font-size: 14px; line-height: 1.6; }
+    .t16  { font-size: 16px; line-height: 1.6; }
+    .t18  { font-size: 18px; line-height: 1.4; }
+    .t24  { font-size: 24px; line-height: 1.3; }
+    .t42  { font-size: 42px; line-height: 1.15; }
+    .t70  { font-size: 70px; line-height: 1.05; }
+    .upper { text-transform: uppercase; }
+    .center { text-align: center; }
+    .color-green  { color: var(--green); }
+    .color-muted  { color: var(--muted); }
+    .color-muted-light { color: var(--muted-light); }
+    .color-white  { color: #fff; }
+    .opacity { opacity: .75; }
+
+    /* Layout */
+    .container { width: 90.625vw; margin: auto; }
+    .spacing, .block-margin { margin-bottom: 80px; }
+
+    /* ═══════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════ */
+    button, .btn {
+      height: 42px;
+      background: #fff;
+      border: 1px solid #fff;
+      border-radius: 21px;
+      padding: 0 28px;
+      cursor: pointer;
+      transition: all .2s ease;
+      font-size: 16px;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    button:hover { background: #000; border-color: #000; color: #fff; }
+    button svg path { transition: fill .2s; }
+    button:hover svg path { fill: #fff; }
+
+    button.btn-dark {
+      background: #000; border-color: #000; color: #fff;
+    }
+    button.btn-dark:hover { background: var(--green); border-color: var(--green); }
+
+    button.btn-outline-white {
+      background: transparent; border-color: rgba(255,255,255,.3); color: #fff;
+    }
+    button.btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); color: #fff; }
+
+    button.btn-up {
+      background: var(--muted); border-color: var(--muted); color: #fff;
+    }
+    button.btn-up:hover { background: #000; border-color: #000; }
+
+    .arrow-svg { display: inline-block; vertical-align: middle; margin-left: 3px; }
+    .link-arrow {
+      display: inline-flex; align-items: center; gap: 4px;
+      color: var(--muted); font-size: 14px; transition: opacity .2s;
+    }
+    .link-arrow:hover { opacity: .6; }
+
+    /* ═══════════════════════════════════
+       PLACEHOLDER IMAGES
+    ═══════════════════════════════════ */
+    .ph { display: block; width: 100%; height: 100%; }
+    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #0E2719 100%); }
+    .ph-warm-1  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
+    .ph-warm-2  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
+    .ph-warm-3  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
+    .ph-warm-4  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
+    .ph-warm-5  { background: linear-gradient(135deg, #9FA9A3 0%, #9FA9A3 100%); }
+    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #0E2719 100%); }
+    .ph-green   { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
+    .ph-capital { background: linear-gradient(160deg, #9FA9A3 0%, #0A1B12 100%); }
+    .ph-solar   { background: linear-gradient(160deg, #9FA9A3 0%, #56685E 100%); }
+    .ph-dark    { background: linear-gradient(135deg, #0A1B12 0%, #07140D 100%); }
+    .ph-stone   { background: linear-gradient(160deg, #E7E9E8 0%, #9FA9A3 100%); }
+
+    /* ═══════════════════════════════════
+       HEADER
+    ═══════════════════════════════════ */
+    .header-logo-layer { height: 56px; }
+
+    header.header-top {
+      position: fixed; width: 100%; background: #fff; top: 0;
+      z-index: 999; transition: top .2s linear;
+    }
+    header.header-top.hidden { top: -56px; }
+
+    .header-logo {
+      width: 100%; position: absolute; padding-top: 14px;
+      z-index: 102; background: #fff; top: 0;
+    }
+    .header-logo .container {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .header-logo__content { display: flex; align-items: center; }
+
+    .menu-btn-wrapper {
+      width: 24px; height: 24px; cursor: pointer; position: relative;
+      display: none; margin-right: 5vw;
+    }
+    .menu-btn__burger { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .menu-btn__burger span { display: block; width: 24px; height: 2px; background: #000; margin-bottom: 5px; }
+    .menu-btn__burger span:last-child { margin-bottom: 0; }
+
+    .logo a { display: flex; align-items: center; }
+    .logo svg { display: block; }
+
+    .lang select {
+      -webkit-appearance: none; appearance: none; border: 0; background: transparent;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+      cursor: pointer; text-transform: uppercase; padding-right: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230E2719'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 0 center;
+    }
+
+    .header-sticky {
+      position: sticky; background: #fff; width: 100%; top: 0;
+      z-index: 100; margin-top: 56px; height: max-content;
+    }
+    .header-sticky__bar {
+      border-bottom: 1px solid var(--border);
+      height: 52px; padding: 10px 0; background: #fff;
+      position: relative; z-index: 90;
+    }
+    .header-sticky__content {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    nav.menu ul, nav.menu-right ul { display: flex; align-items: center; }
+    nav.menu ul { gap: 30px; }
+    nav.menu-right ul { gap: 20px; }
+    nav.menu li a, nav.menu li span { transition: opacity .2s; cursor: pointer; }
+    nav.menu li:hover > a, nav.menu li:hover > span { opacity: .5; }
+    nav.menu li.active-page > a, nav.menu li.active-page > span { font-weight: 500; }
+    nav.menu-right li { display: flex; align-items: center; cursor: pointer; }
+    nav.menu-right li:hover { opacity: .5; }
+
+    .nav-cta {
+      background: var(--green); color: #fff !important;
+      padding: 0 15px; height: 28px; border-radius: 14px;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12.5px; font-weight: 500; letter-spacing: .01em;
+      transition: background .2s !important;
+      white-space: nowrap; line-height: 1;
+    }
+    .nav-cta svg { flex-shrink: 0; }
+    .nav-cta:hover { background: var(--green-light) !important; opacity: 1 !important; }
+    nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
+    .nav-cta.menu-btn { display: flex; }
+
+    .icon-wrapper {
+      width: 30px; height: 30px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; margin-left: 4px;
+      transition: background .2s;
+    }
+    nav.menu-right li:hover .icon-wrapper { background: #E7E9E8; }
+
+    .form-search-wrapper {
+      position: absolute; width: 90.625vw; top: 0;
+      visibility: hidden; display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .form-search__content {
+      display: flex; margin-left: 55vw; opacity: 0;
+      transition: all .2s linear;
+    }
+    .form-search__content input[type="text"] {
+      -webkit-appearance: none; appearance: none;
+      background: var(--bg-light); height: 40px; border: 0;
+      border-radius: 20px; padding: 0 15px 0 40px;
+      width: 27vw; color: var(--text); font-size: 16px;
+      transition: all .2s linear;
+    }
+    .form-search__content input::placeholder { color: var(--muted-light); }
+    .search-icon-btn {
+      background: #E7E9E8; height: 38px; width: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: absolute; z-index: 10; left: 1px; top: 1px; cursor: pointer;
+      transition: background .3s; border: 0;
+    }
+    .search-icon-btn:hover { background: var(--border); }
+    .btn-close-search {
+      background: var(--bg-light); height: 40px; width: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0; visibility: hidden; border: 0;
+      transition: all .2s linear;
+    }
+    .header-sticky.search-open .header-sticky__content { opacity: 0; }
+    .header-sticky.search-open .header-sticky__bar { height: 66px; }
+    .header-sticky.search-open .form-search-wrapper { visibility: visible; }
+    .header-sticky.search-open .form-search__content { margin-left: 0; opacity: 1; }
+    .header-sticky.search-open .form-search__content input { width: 84vw; }
+    .header-sticky.search-open .btn-close-search { opacity: 1; visibility: visible; transition-delay: .3s; }
+
+    /* ═══════════════════════════════════
+       SUBMENUS
+    ═══════════════════════════════════ */
+    .submenu {
+      width: 100%; left: 0; z-index: 89; background: #fff;
+      padding: 40px 0; border-bottom: 1px solid var(--border);
+      position: absolute; visibility: hidden;
+      min-height: 340px; transition: all .3s ease-in-out;
+      margin-top: -600px;
+    }
+    .submenu.submenu-open { visibility: visible; margin-top: 0; }
+    .submenu__content { display: flex; gap: 5vw; align-items: flex-start; }
+    .submenu__col { flex: 1; }
+    .submenu__col h3 { color: var(--muted-light); font-size: 22px; margin-bottom: 24px; }
+    .submenu__col ul li { padding: 8px 0; font-size: 15px; border-bottom: 1px solid var(--bg-light); }
+    .submenu__col ul li a:hover { opacity: .6; }
+    .submenu__img {
+      width: 26vw; border-radius: 4px; overflow: hidden;
+      height: 16vw; margin-top: 24px;
+    }
+    .submenu__featured { width: 22vw; background: var(--bg-light); padding: 28px; border-radius: 4px; }
+    .submenu__featured h3 { color: var(--muted-light); font-size: 20px; margin-bottom: 16px; }
+    .submenu__featured .feat-title { font-size: 15px; line-height: 1.4; margin-bottom: 8px; }
+    .submenu__featured .feat-link { font-size: 13px; color: var(--muted); }
+
+    .fade-bg {
+      position: fixed; inset: 0; background: rgba(0,0,0,.5);
+      z-index: 70; opacity: 0; visibility: hidden; transition: .3s ease;
+    }
+    body.submenu-open .fade-bg { opacity: 1; visibility: visible; }
+
+    /* ═══════════════════════════════════
+       HERO
+    ═══════════════════════════════════ */
+    .block-hero {
+      width: 100vw; height: 54.6875vw; max-height: calc(100vh - 100px);
+      position: relative; overflow: hidden;
+    }
+    .block-hero__media { position: absolute; inset: 0; }
+    .block-hero__media .ph { position: absolute; inset: 0; }
+    .block-hero__overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background: rgba(10,18,12,.5);
+    }
+    .block-hero__content {
+      position: absolute; inset: 0; z-index: 3;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 0 6vw;
+    }
+    .block-hero__eyebrow {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.45); margin-bottom: 24px;
+    }
+    .block-hero__title {
+      color: #fff; font-weight: 300;
+      font-size: clamp(38px, 5.2vw, 80px);
+      line-height: 1.08; max-width: 860px;
+    }
+    .block-hero__sub {
+      color: rgba(255,255,255,.6); font-size: clamp(15px, 1.3vw, 19px);
+      line-height: 1.65; max-width: 560px; margin-top: 22px;
+    }
+    .block-hero__cta {
+      margin-top: 44px;
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+    }
+
+    /* ═══════════════════════════════════
+       STATS BAND
+    ═══════════════════════════════════ */
+    .pat-stats {
+      background: var(--bg-section);
+      border-bottom: 1px solid var(--border);
+    }
+    .pat-stats__inner {
+      display: flex; justify-content: space-between;
+      padding: 44px 0; gap: 12px;
+    }
+    .pat-stat {
+      flex: 1;
+      border-left: 1px solid var(--border);
+      padding-left: 28px;
+    }
+    .pat-stat:first-child { border-left: none; padding-left: 0; }
+    .pat-stat__num {
+      font-size: clamp(26px, 2.8vw, 42px);
+      color: var(--green); font-weight: 300; line-height: 1;
+      margin-bottom: 6px;
+    }
+    .pat-stat__lbl {
+      font-size: 13px; color: var(--muted); line-height: 1.45;
+    }
+
+    /* ═══════════════════════════════════
+       INFO REPEATABLE
+    ═══════════════════════════════════ */
+    .block-info-repeatable__item {
+      display: flex; min-height: 37.5vw;
+    }
+    .item__info {
+      width: 40%; padding: 4.6875vw;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .item__info__text .tag {
+      font-size: 12px; text-transform: uppercase;
+      letter-spacing: .12em; margin-bottom: 18px; opacity: .65;
+    }
+    .item__info__text .big-text {
+      font-size: clamp(26px, 2.8vw, 40px);
+      line-height: 1.18; font-weight: 300;
+    }
+    .item__info__text .text {
+      font-size: 16px; line-height: 1.65;
+      color: var(--muted); margin-top: 20px;
+    }
+    .item__media {
+      width: 60%; overflow: hidden; position: relative;
+    }
+    .item__media .ph { position: absolute; inset: 0; }
+    .block-info-repeatable__item:nth-child(even) .item__info { order: 1; }
+    .block-info-repeatable__item:nth-child(even) .item__media { order: 0; }
+    .bg-warm-1 { background: var(--warm-1); }
+    .bg-warm-2 { background: var(--warm-2); }
+
+    .item-features { margin-top: 24px; }
+    .item-feature {
+      display: flex; align-items: baseline; gap: 14px;
+      padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,.08);
+      font-size: 14px; color: var(--muted); line-height: 1.5;
+    }
+    .item-feature:first-child { border-top: 1px solid rgba(0,0,0,.08); }
+    .item-feature__dash {
+      color: var(--muted-light); flex-shrink: 0; font-size: 12px;
+    }
+    .item-minim {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid var(--border); padding: 10px 18px;
+      font-size: 13px; color: var(--muted); margin-top: 20px;
+    }
+    .item-minim strong { color: var(--green); font-weight: 500; }
+
+    /* ═══════════════════════════════════
+       PROCESO
+    ═══════════════════════════════════ */
+    .block-process {
+      padding: 80px 0; background: var(--bg-light);
+    }
+    .block-process__header { margin-bottom: 56px; }
+    .block-process__tag {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted-light); margin-bottom: 14px; display: block;
+    }
+    .block-process__title {
+      font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15;
+    }
+    .block-process__intro {
+      font-size: 16px; color: var(--muted); line-height: 1.65;
+      max-width: 540px; margin-top: 14px;
+    }
+    .process-steps {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+    }
+    .process-step {
+      padding: 40px 0; display: flex; gap: 24px; align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+    }
+    .process-step:nth-child(odd)  { padding-right: 5vw; }
+    .process-step:nth-child(even) { padding-left: 5vw; border-left: 1px solid var(--border); }
+    .process-step__num {
+      font-size: clamp(36px, 4vw, 56px);
+      color: var(--border); font-weight: 300;
+      line-height: 1; min-width: 76px; flex-shrink: 0;
+      letter-spacing: -.02em;
+    }
+    .process-step__body { padding-top: 4px; }
+    .process-step__title {
+      font-size: 17px; color: var(--green);
+      margin-bottom: 10px; line-height: 1.3; font-weight: 400;
+    }
+    .process-step__desc {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.65; max-width: 360px;
+    }
+
+    /* ═══════════════════════════════════
+       EQUIPO
+    ═══════════════════════════════════ */
+    .block-equip { padding: 80px 0; }
+    .block-equip__header { margin-bottom: 48px; }
+    .block-equip__tag {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted-light); margin-bottom: 14px; display: block;
+    }
+    .block-equip__title {
+      font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15;
+    }
+    .equip-cols {
+      display: flex; gap: 0;
+      border-top: 1px solid var(--border);
+    }
+    .equip-col {
+      flex: 1; padding: 40px 40px 40px 0;
+      border-right: 1px solid var(--border);
+    }
+    .equip-col:last-child { border-right: none; padding-right: 0; padding-left: 40px; }
+    .equip-col:first-child { padding-left: 0; }
+    .equip-col:not(:first-child):not(:last-child) { padding-left: 40px; }
+    .equip-col__icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--green); display: flex;
+      align-items: center; justify-content: center;
+      margin-bottom: 20px; flex-shrink: 0;
+    }
+    .equip-col__title {
+      font-size: 17px; color: var(--green);
+      margin-bottom: 12px; line-height: 1.3; font-weight: 400;
+    }
+    .equip-col__desc {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.65; margin-bottom: 18px;
+    }
+    .equip-roles {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .equip-roles span {
+      font-size: 11px; padding: 4px 10px;
+      background: var(--bg-light); border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════
+       ESTRUCTURA JURÍDICA
+    ═══════════════════════════════════ */
+    .block-juridic {
+      padding: 80px 0; background: var(--bg-section);
+    }
+    .block-juridic__header { margin-bottom: 48px; }
+    .block-juridic__tag {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted-light); margin-bottom: 14px; display: block;
+    }
+    .block-juridic__title {
+      font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15;
+    }
+    .block-juridic__intro {
+      font-size: 16px; color: var(--muted); line-height: 1.65;
+      max-width: 560px; margin-top: 14px;
+    }
+    .juridic-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .juridic-card {
+      background: #fff; padding: 36px 32px;
+      border: 1px solid var(--border);
+    }
+    .juridic-card__header {
+      display: flex; align-items: center;
+      justify-content: space-between; margin-bottom: 20px;
+    }
+    .juridic-card__num {
+      font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--muted-light);
+    }
+    .juridic-card__tag {
+      font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted-light); padding: 4px 10px;
+      border: 1px solid var(--border);
+    }
+    .juridic-card h3 {
+      font-size: 17px; color: var(--green); line-height: 1.3;
+      margin-bottom: 14px; font-weight: 400;
+    }
+    .juridic-card p {
+      font-size: 14px; color: var(--muted); line-height: 1.65;
+    }
+    .juridic-card__ideal {
+      font-size: 12px; color: var(--muted-light);
+      padding-top: 14px; border-top: 1px solid var(--border);
+      margin-top: 18px; line-height: 1.5;
+    }
+    .juridic-note {
+      font-size: 13px; color: var(--muted-light); line-height: 1.6;
+      margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border);
+    }
+
+    /* ═══════════════════════════════════
+       FAQ
+    ═══════════════════════════════════ */
+    .pat-faq { padding: 80px 0; }
+    .pat-faq__content {
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 8vw; align-items: flex-start;
+    }
+    .pat-faq__left .tag {
+      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted-light); margin-bottom: 16px; display: block;
+    }
+    .pat-faq__left h2 {
+      font-size: clamp(26px, 2.8vw, 40px); line-height: 1.18; margin-bottom: 20px;
+    }
+    .pat-faq__left p {
+      font-size: 15px; color: var(--muted); line-height: 1.65;
+    }
+    .faq-item { border-top: 1px solid var(--border); cursor: pointer; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-item__question {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; font-size: 16px; color: var(--text);
+      user-select: none;
+    }
+    .faq-item__icon {
+      width: 24px; height: 24px; flex-shrink: 0;
+      position: relative; transition: transform .3s;
+    }
+    .faq-item__icon::before, .faq-item__icon::after {
+      content: ''; position: absolute; background: var(--muted-light);
+    }
+    .faq-item__icon::before {
+      width: 12px; height: 1px;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+    .faq-item__icon::after {
+      width: 1px; height: 12px;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      transition: transform .3s, opacity .3s;
+    }
+    .faq-item.open .faq-item__icon::after { transform: translate(-50%,-50%) rotate(90deg); opacity: 0; }
+    .faq-item__answer {
+      font-size: 15px; color: var(--muted); line-height: 1.65;
+      max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s;
+      padding-bottom: 0;
+    }
+    .faq-item.open .faq-item__answer { max-height: 400px; padding-bottom: 20px; }
+
+    /* ═══════════════════════════════════
+       CTA / CONTACTO INVERSORES
+    ═══════════════════════════════════ */
+    .block-cta-inv {
+      padding: 80px 0; background: var(--bg-light);
+    }
+    .block-cta-inv__inner {
+      background: var(--green);
+      display: flex; align-items: stretch; overflow: hidden;
+      border-radius: 6px;
+    }
+    .cta-left {
+      flex: 1; padding: 64px 56px;
+    }
+    .cta-left .tag {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); margin-bottom: 20px; display: block;
+    }
+    .cta-left h2 {
+      font-size: clamp(28px, 3vw, 46px); color: #fff;
+      line-height: 1.12; margin-bottom: 20px;
+    }
+    .cta-left p {
+      font-size: 16px; color: rgba(255,255,255,.6);
+      line-height: 1.65; margin-bottom: 36px; max-width: 400px;
+    }
+    .cta-confidencial {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: rgba(255,255,255,.35); margin-top: 20px;
+    }
+    .cta-right {
+      width: 42%; background: rgba(255,255,255,.04);
+      padding: 64px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .pat-form label {
+      display: block; font-size: 11px; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(255,255,255,.35);
+      margin-bottom: 6px; margin-top: 20px;
+    }
+    .pat-form label:first-child { margin-top: 0; }
+    .pat-form input, .pat-form select, .pat-form textarea {
+      width: 100%; background: transparent;
+      border: 0; border-bottom: 1px solid rgba(255,255,255,.2);
+      color: #fff; padding: 8px 0; font-size: 15px;
+      font-family: 'DM Sans', sans-serif; outline: none;
+      transition: border-color .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .pat-form input:focus, .pat-form select:focus, .pat-form textarea:focus {
+      border-bottom-color: rgba(255,255,255,.6);
+    }
+    .pat-form input::placeholder, .pat-form textarea::placeholder { color: rgba(255,255,255,.25); }
+    .pat-form select option { background: var(--green); color: #fff; }
+    .pat-form textarea { resize: none; height: 80px; }
+    .pat-form__submit {
+      margin-top: 32px;
+      background: #fff; border-color: #fff; color: var(--green);
+      width: 100%; justify-content: center; font-size: 15px; font-weight: 500;
+    }
+    .pat-form__submit:hover { background: var(--bg-light); border-color: var(--bg-light); color: var(--green); }
+
+    /* ═══════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════ */
+    footer {
+      background: var(--footer-bg); color: #fff;
+      padding: 60px 0 40px;
+    }
+    footer a:hover { opacity: .6; }
+    .footer__content__info {
+      display: flex; justify-content: space-between;
+      gap: 20px; padding-bottom: 60px; flex-wrap: wrap;
+    }
+    .footer__content__info .footer-col { min-width: 120px; }
+    .footer__col-title { font-size: 18px; font-weight: 400; margin-bottom: 20px; }
+    .footer__content__info ul li { margin-bottom: 8px; }
+    .footer__content__info ul li a {
+      color: rgba(255,255,255,.6); font-size: 14px; transition: opacity .2s;
+    }
+    .info-showroom__item { margin-bottom: 24px; }
+    .info-showroom__item:last-child { margin-bottom: 0; }
+    .info-showroom__item h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; font-weight: 400; margin-bottom: 4px; }
+    .info-showroom__item p { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.5; }
+    .info-showroom__item a { color: rgba(255,255,255,.6); font-size: 13px; }
+    .footer__newsletter { max-width: 380px; }
+    .footer__newsletter > p { color: rgba(255,255,255,.6); font-size: 14px; margin-bottom: 20px; }
+    .newsletter-form { position: relative; }
+    .newsletter-form input[type="email"] {
+      width: 100%; background: transparent; border: 0;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+      color: #fff; padding: 8px 36px 8px 0; font-size: 16px;
+      font-family: 'DM Sans', sans-serif; outline: none;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
+    .newsletter-form button[type="submit"] {
+      position: absolute; right: 0; top: 0; background: transparent;
+      border: 0; height: 36px; width: 30px; display: flex;
+      align-items: center; justify-content: center; cursor: pointer;
+      color: rgba(255,255,255,.7); padding: 0;
+    }
+    .newsletter-form button[type="submit"]:hover { color: #fff; background: transparent; }
+    .footer__rrss { padding-top: 30px; }
+    .footer__rrss > p { font-size: 14px; margin-bottom: 12px; color: rgba(255,255,255,.5); }
+    .rrss__links { display: flex; gap: 20px; }
+    .rrss__links a { color: rgba(255,255,255,.6); font-size: 14px; }
+    .copyright {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      border-top: 1px solid rgba(255,255,255,.08); padding-top: 30px;
+    }
+    .copyright p { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.5; }
+
+    /* ═══════════════════════════════════
+       MOBILE NAV
+    ═══════════════════════════════════ */
+    .mobile-nav {
+      position: fixed; top: 0; left: -90vw; width: 90vw; height: 100vh;
+      background: #fff; z-index: 200; transition: left .3s ease;
+      overflow-y: auto; padding: 0 6vw;
+    }
+    .mobile-nav.open { left: 0; }
+    .mobile-nav__header {
+      height: 56px; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav__close {
+      background: none; border: none; cursor: pointer;
+      font-size: 24px; padding: 0; height: auto; color: var(--text);
+    }
+    .mobile-nav__close:hover { background: none; color: var(--muted); }
+    .mobile-nav ul { padding: 20px 0; }
+    .mobile-nav ul li { border-bottom: 1px solid var(--bg-light); }
+    .mobile-nav ul li a, .mobile-nav ul li span {
+      display: block; padding: 16px 0; font-size: 20px; cursor: pointer;
+    }
+    .mobile-nav ul li.sub-title { font-size: 12px; text-transform: uppercase; color: var(--muted); padding: 20px 0 8px; border-bottom: 0; }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .menu-btn-wrapper { display: block; }
+      nav.menu, nav.menu-right, .lang { display: none; }
+
+      .t42 { font-size: 26px; }
+      .t70 { font-size: 38px; }
+      .t24 { font-size: 20px; }
+      .container { width: 100%; padding: 0 4.8vw; }
+      .spacing, .block-margin { margin-bottom: 45px; }
+
+      .block-hero { height: 106vw; max-height: 500px; }
+
+      .pat-stats__inner { flex-wrap: wrap; gap: 24px; }
+      .pat-stat { min-width: calc(50% - 12px); }
+      .pat-stat:nth-child(3) { border-left: none; padding-left: 0; }
+
+      .block-info-repeatable__item { flex-wrap: wrap; }
+      .item__info { width: 100%; order: 1 !important; padding: 6vw 4.8vw; }
+      .item__media { width: 100%; order: 0 !important; height: 62vw; }
+
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step:nth-child(even) { border-left: none; padding-left: 0; }
+      .process-step:nth-child(odd)  { padding-right: 0; }
+
+      .equip-cols { flex-direction: column; }
+      .equip-col { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 0 !important; }
+      .equip-col:last-child { border-bottom: none; }
+
+      .juridic-cards { grid-template-columns: 1fr; }
+
+      .pat-faq__content { grid-template-columns: 1fr; }
+
+      .block-cta-inv__inner { flex-direction: column; }
+      .cta-right { width: 100%; padding: 40px 4.8vw 48px; }
+      .cta-left { padding: 48px 4.8vw 40px; }
+
+      .footer__content__info { flex-direction: column; }
+      .footer__newsletter { max-width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .pat-stat { min-width: 100%; border-left: none; padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     MOBILE NAV OVERLAY
+═══════════════════════════════════ -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__header">
+    <a href="index.html">
+      <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+        <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+      </svg>
+    </a>
+    <button class="mobile-nav__close" id="mobileNavClose">✕</button>
+  </div>
+  <ul class="t18">
+    <li class="sub-title">Servicios</li>
+    <li><a href="index.html#construccio">Construcción</a></li>
+    <li><a href="index.html#promocio">Promoción Inmobiliaria</a></li>
+    <li><a href="index.html#rehabilitacio">Rehabilitación Energética</a></li>
+    <li class="sub-title">Empresa</li>
+    <li><a href="patrimonis.html" style="color:var(--green);font-weight:500;">Patrimonios</a></li>
+    <li><a href="projectes.html">Proyectos</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="nosaltres.html">Nosotros</a></li>
+    <li><a href="index.html#contacte">Contacto</a></li>
+    <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Iniciar sesión →</a></li>
+    <li><a href="#contacte-inversion" style="color:var(--green);font-weight:600;">Hablar con inversión →</a></li>
+  </ul>
+</nav>
+<div class="fade-bg" id="fadeBg"></div>
+
+<!-- ═══════════════════════════════════
+     HEADER
+═══════════════════════════════════ -->
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="logo">
+          <a href="index.html">
+            <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+              <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="location=this.value">
+          <option value="../patrimonis.html">CA</option>
+          <option value="patrimonis.html" selected>ES</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════
+     STICKY BAR
+═══════════════════════════════════ -->
+<section class="header-sticky" id="headerSticky">
+  <div class="header-sticky__bar">
+    <div class="container">
+      <div class="header-sticky__content">
+        <nav class="menu t14">
+          <ul>
+            <li><span class="menu-btn" data-menu="construccio">Construcción</span></li>
+            <li><span class="menu-btn" data-menu="promocio">Promoción</span></li>
+            <li><span class="menu-btn" data-menu="rehabilitacio">Rehabilitación</span></li>
+            <li class="active-page"><span class="menu-btn" data-menu="patrimonis">Patrimonios</span></li>
+                        <li>
+              <a href="blog.html">Blog</a>
+            </li>
+            <li><span class="menu-btn" data-menu="nosaltres">Nosotros</span></li>
+          </ul>
+        </nav>
+        <nav class="menu-right t14">
+          <ul>
+            <li class="btn-search-trigger" id="searchTrigger">
+              Buscar
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </li>
+            <li><a href="index.html#contacte">Contacto</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/><path d="M2 6L12 13L22 6" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </li>
+            <li><a href="usuaris.html">Iniciar sesión</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#0E2719" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </li>
+            <li>
+              <span class="nav-cta menu-btn" data-menu="pressupost">
+                Presupuesto
+                <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Search -->
+      <div class="form-search-wrapper" id="searchWrapper">
+        <div class="form-search__content" style="position:relative;">
+          <button class="search-icon-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <form action="/" method="get">
+            <input type="text" name="s" placeholder="Buscar...">
+          </form>
+        </div>
+        <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#0E2719" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submenus -->
+  <!-- ─── SUBMENU: Presupuesto ─── -->
+  <div class="submenu" id="sub-pressupost">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Tipo de proyecto</h3>
+          <ul class="t16">
+            <li><a href="../pressupost.html">Obra Nueva Unifamiliar</a></li>
+            <li><a href="../pressupost.html">Edificio Plurifamiliar</a></li>
+            <li><a href="../pressupost.html">Reforma Integral</a></li>
+            <li><a href="../pressupost.html">Rehabilitación Energética</a></li>
+            <li><a href="../pressupost.html">Ampliación y Cambio de Uso</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Estima tu proyecto</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Introduce las características de tu proyecto y obtén una estimación orientativa del coste en menos de un minuto. Sin compromiso, sin registro.</p>
+          <a href="../pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+        <div class="submenu__featured">
+          <h3>Cómo funciona</h3>
+          <p class="feat-title">3 pasos: tipo de proyecto → superficie y materiales → resultado</p>
+          <a href="../pressupost.html" class="feat-link link-arrow">Probar ahora
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="submenu" id="sub-construccio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Construcción Residencial</h3>
+          <ul class="t16">
+            <li><a href="index.html#obra-nova">Obra Nueva</a></li>
+            <li><a href="index.html#habitatges">Viviendas Unifamiliares</a></li>
+            <li><a href="index.html#plurifamiliars">Edificios Plurifamiliares</a></li>
+            <li><a href="index.html#reforma">Reformas Integrales</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-warm-1" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Nuestro enfoque</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Construimos residencias con calidad artesanal y tecnología de vanguardia.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualidad</h3>
+          <p class="feat-title">Nueva promoción en Badalona: 24 viviendas con certificación A</p>
+          <a href="#" class="feat-link link-arrow">Leer más <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submenu" id="sub-promocio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Promoción Inmobiliaria</h3>
+          <ul class="t16">
+            <li><a href="#">Viviendas de Obra Nueva</a></li>
+            <li><a href="#">Promociones Privadas</a></li>
+            <li><a href="#">Colaboración con Propietarios</a></li>
+            <li><a href="#">Gestión Integral del Proyecto</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-warm-2" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Máxima rentabilidad</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Desde la búsqueda del solar hasta la venta del último piso.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualidad</h3>
+          <p class="feat-title">Proyecto Eixample: 12 pisos de diseño en el corazón de Barcelona</p>
+          <a href="#" class="feat-link link-arrow">Leer más <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submenu" id="sub-rehabilitacio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Rehabilitación Energética</h3>
+          <ul class="t16">
+            <li><a href="#">Certificación Energética</a></li>
+            <li><a href="#">Aislamiento de Fachadas</a></li>
+            <li><a href="#">Instalación Solar Fotovoltaica</a></li>
+            <li><a href="#">Ayudas Next Generation</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-green" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Ahorro y confort</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Mejorar la eficiencia energética de tu edificio es invertir en el futuro.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualidad</h3>
+          <p class="feat-title">Hasta un 80% de subvención para rehabilitar tu fachada</p>
+          <a href="#" class="feat-link link-arrow">Leer más <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ─── SUBMENU: Patrimonios ─── -->
+  <div class="submenu" id="sub-patrimonis">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Inversión Patrimonial</h3>
+          <ul class="t16">
+            <li><a href="patrimonis.html#com-funciona">Cómo funciona</a></li>
+            <li><a href="patrimonis.html">Inversores Privados y Family Office</a></li>
+            <li><a href="patrimonis.html">Co-inversión y Joint Venture</a></li>
+            <li><a href="patrimonis.html">Gestión de Activos y Mantenimiento</a></li>
+            <li><a href="patrimonis.html#faq">Preguntas frecuentes</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Rentabilidad y seguridad</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Asesoramos a inversores patrimoniales, family offices y fondos de inversión en la identificación, adquisición y gestión de activos inmobiliarios residenciales en el Maresme y Barcelonès.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Destacado</h3>
+          <p class="feat-title">Cartera activa: 3 solares disponibles para promoción plurifamiliar</p>
+          <a href="patrimonis.html" class="feat-link link-arrow">Conocer más <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ─── SUBMENU: Nosotros ─── -->
+  <div class="submenu" id="sub-nosaltres">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">PAPIK Group</h3>
+          <ul class="t16">
+            <li><a href="nosaltres.html">Nuestra historia</a></li>
+            <li><a href="nosaltres.html#equip">El equipo</a></li>
+            <li><a href="nosaltres.html#eskimohaus">Sistema Eskimohaus</a></li>
+            <li><a href="nosaltres.html#valors">Valores y compromiso</a></li>
+            <li><a href="nosaltres.html#reconeixements">Premios y certificaciones</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Treinta años de oficio</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">De un taller de carpintería artesanal al grupo constructor de referencia en passivhaus en Cataluña. Hacemos cosas que duran — y lo hacemos desde 1994.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Reconocimientos</h3>
+          <p class="feat-title">Premio Excelencia Empresarial · Foment del Treball, 2019</p>
+          <a href="nosaltres.html#reconeixements" class="feat-link link-arrow">Conocer la empresa <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section class="block-hero">
+  <div class="block-hero__media">
+    <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#07140D 0%,#07140D 50%,#0A1B12 100%);"></div>
+  </div>
+  <div class="block-hero__overlay"></div>
+  <div class="block-hero__content">
+    <p class="block-hero__eyebrow">Patrimonios · Inversión Conjunta</p>
+    <h1 class="block-hero__title">Invierte en real estate<br>con quien ya lo construye</h1>
+    <p class="block-hero__sub">Vehículos de inversión conjunta en proyectos inmobiliarios residenciales en Cataluña. Tú aportas el capital o el solar. PAPIK pone la constructora, el equipo técnico y la gestión integral.</p>
+    <div class="block-hero__cta">
+      <a href="#contacte-inversion">
+        <button>
+          Solicitar reunión privada
+          <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/></svg>
+        </button>
+      </a>
+      <a href="#com-funciona">
+        <button class="btn-outline-white">Cómo funciona</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     STATS
+═══════════════════════════════════ -->
+<section class="pat-stats">
+  <div class="container">
+    <div class="pat-stats__inner">
+      <div class="pat-stat">
+        <p class="pat-stat__num">+15 años</p>
+        <p class="pat-stat__lbl">de experiencia en construcción</p>
+      </div>
+      <div class="pat-stat">
+        <p class="pat-stat__num">+120</p>
+        <p class="pat-stat__lbl">viviendas entregadas</p>
+      </div>
+      <div class="pat-stat">
+        <p class="pat-stat__num">8–14%</p>
+        <p class="pat-stat__lbl">TIR objetivo por proyecto</p>
+      </div>
+      <div class="pat-stat">
+        <p class="pat-stat__num">+30 M€</p>
+        <p class="pat-stat__lbl">volumen gestionado en conjunto</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     MODALIDADES DE INVERSIÓN
+═══════════════════════════════════ -->
+<section class="block-info-repeatable" id="com-funciona">
+
+  <!-- Modalidad A: Aportación de Capital -->
+  <div class="block-info-repeatable__item bg-warm-1">
+    <div class="item__info">
+      <div class="item__info__text">
+        <p class="tag">Modalidad A · Inversor Financiero</p>
+        <h2 class="big-text">Aportación<br>de Capital</h2>
+        <p class="text">El inversor aporta el financiamiento del proyecto. PAPIK aporta la constructora, el proyecto técnico y la gestión completa hasta la venta o explotación del activo.</p>
+        <div class="item-features">
+          <div class="item-feature"><span class="item-feature__dash">—</span>Rentabilidad acordada sobre el capital invertido (TIR objetivo 8–14%)</div>
+          <div class="item-feature"><span class="item-feature__dash">—</span>Participación en sociedad proyecto (SPV) independiente</div>
+          <div class="item-feature"><span class="item-feature__dash">—</span>Acceso a dashboard de obras en tiempo real</div>
+          <div class="item-feature"><span class="item-feature__dash">—</span>Informes financieros periódicos de progreso</div>
+          <div class="item-feature"><span class="item-feature__dash">—</span>Due diligence técnica y jurídica incluida</div>
+        </div>
+      </div>
+      <div>
+        <div class="item-minim">
+          Capital mínimo: <strong>250.000 €</strong>
+        </div>
+      </div>
+    </div>
+    <div class="item__media">
+      <div class="ph ph-capital" style="position:absolute;inset:0;"></div>
+    </div>
+  </div>
+
+  <!-- Modalidad B: Aportación de Solar -->
+  <div class="block-info-repeatable__item bg-warm-2">
+    <div class="item__info">
+      <div class="item__info__text">
+        <p class="tag">Modalidad B · Propietario de Suelo</p>
+        <h2 class="big-text">Aportación<br>de Solar</h2>
+        <p class="text">El propietario aporta el suelo edificable. PAPIK aporta el capital de construcción, el equipo técnico y la promotora. El propietario participa en el beneficio final sin desembolsar nada.</p>
+        <div class="item-features">
+          <div class="item-feature"><span class="item-feature__dash">—</span>El suelo se aporta valorado por tasadora independiente</div>
+          <div class="item-feature"><span class="item-feature__dash">—</span>Participación proporcional en el resultado de la promoción</div>
+          <div class="item-feature"><span class="item-feature__dash">—</span>Sin coste de entrada para el propietario del solar</div>
+          <div class="item-feature"><span class="item-feature__dash">—</span>Estudio de viabilidad gratuito y sin compromiso</div>
+          <div class="item-feature"><span class="item-feature__dash">—</span>Asesoramiento fiscal y jurídico incluido</div>
+        </div>
+      </div>
+      <div>
+        <div class="item-minim">
+          Superficie mínima: <strong>500 m² edificables</strong>
+        </div>
+      </div>
+    </div>
+    <div class="item__media">
+      <div class="ph ph-solar" style="position:absolute;inset:0;"></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════
+     PROCESO
+═══════════════════════════════════ -->
+<section class="block-process">
+  <div class="container">
+    <div class="block-process__header">
+      <span class="block-process__tag">El proceso</span>
+      <h2 class="block-process__title">Del primer contacto<br>a la rentabilidad</h2>
+      <p class="block-process__intro">Cada operación sigue un proceso riguroso y transparente. Trabajamos paso a paso para que ambas partes entiendan los términos y los riesgos antes de comprometerse.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step__num">01</div>
+        <div class="process-step__body">
+          <h4 class="process-step__title">Reunión de confidencialidad</h4>
+          <p class="process-step__desc">Primer contacto privado para conocer la operación. Firmamos NDA y analizamos el encaje mutuo sin ningún compromiso.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">02</div>
+        <div class="process-step__body">
+          <h4 class="process-step__title">Estudio de viabilidad</h4>
+          <p class="process-step__desc">El equipo técnico, de inversión y jurídico elabora un estudio completo: urbanismo, costes, rentabilidad y riesgos del proyecto.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">03</div>
+        <div class="process-step__body">
+          <h4 class="process-step__title">Constitución del vehículo</h4>
+          <p class="process-step__desc">Creamos la sociedad proyecto (SPV), acordamos los pactos de socios, distribución de beneficios y calendario de ejecución.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">04</div>
+        <div class="process-step__body">
+          <h4 class="process-step__title">Ejecución y rendimiento</h4>
+          <p class="process-step__desc">PAPIK dirige la obra y la comercialización. Tú recibes informes periódicos y accedes al dashboard hasta el reparto final.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     EL EQUIPO
+═══════════════════════════════════ -->
+<section class="block-equip">
+  <div class="container">
+    <div class="block-equip__header">
+      <span class="block-equip__tag">El equipo</span>
+      <h2 class="block-equip__title">Tres áreas de expertise<br>trabajando para tu rendimiento</h2>
+    </div>
+    <div class="equip-cols">
+
+      <div class="equip-col">
+        <div class="equip-col__icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 21H21" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M5 21V7L12 3L19 7V21" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="13" width="6" height="8" stroke="#fff" stroke-width="1.5"/></svg>
+        </div>
+        <h3 class="equip-col__title">Equipo Técnico y Construcción</h3>
+        <p class="equip-col__desc">La columna vertebral de cada proyecto. Evaluamos la viabilidad constructiva desde el primer día, gestionamos las licencias y dirigimos la obra con rigor. Garantizamos plazos y calidad.</p>
+        <div class="equip-roles">
+          <span>Arquitectos</span><span>Aparejadores</span><span>Ingenieros</span><span>Jefe de obra</span><span>Diseñadores</span>
+        </div>
+      </div>
+
+      <div class="equip-col">
+        <div class="equip-col__icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2V6M12 18V22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="equip-col__title">Equipo de Inversión y Riesgos</h3>
+        <p class="equip-col__desc">Analizamos cada operación desde una perspectiva financiera rigurosa. Modelizamos los flujos de caja, calculamos el TIR real e identificamos y mitigamos los riesgos de mercado y ejecución.</p>
+        <div class="equip-roles">
+          <span>Analistas de inversión</span><span>Gestores de riesgo</span><span>Valoradores</span><span>Comercializadores</span>
+        </div>
+      </div>
+
+      <div class="equip-col">
+        <div class="equip-col__icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 5H7C5.9 5 5 5.9 5 7V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V7C19 5.9 18.1 5 17 5H15" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="#fff" stroke-width="1.5"/><path d="M9 12H15M9 16H13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="equip-col__title">Equipo Jurídico y Fiscal</h3>
+        <p class="equip-col__desc">Estructuramos cada operación de la manera más eficiente y segura. Redactamos los pactos de socios, asesoramos en la optimización fiscal y velamos por los intereses de todas las partes.</p>
+        <div class="equip-roles">
+          <span>Abogados mercantiles</span><span>Asesores fiscales</span><span>Notarios de confianza</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     ESTRUCTURA JURÍDICA
+═══════════════════════════════════ -->
+<section class="block-juridic">
+  <div class="container">
+    <div class="block-juridic__header">
+      <span class="block-juridic__tag">Transparencia</span>
+      <h2 class="block-juridic__title">Cada operación, su<br>propia estructura jurídica</h2>
+      <p class="block-juridic__intro">El vehículo de inversión se constituye siempre como una entidad independiente —separada de la actividad ordinaria de PAPIK— para garantizar la máxima transparencia y protección para todas las partes.</p>
+    </div>
+    <div class="juridic-cards">
+
+      <div class="juridic-card">
+        <div class="juridic-card__header">
+          <span class="juridic-card__num">01</span>
+          <span class="juridic-card__tag">SL / SPV</span>
+        </div>
+        <h3>Sociedad de Responsabilidad Limitada</h3>
+        <p>Vehículo habitual para joint ventures residenciales. Simple, ágil y con fiscalidad predecible. Separa completamente el riesgo de la operación del patrimonio personal de los socios y permite una contabilidad transparente y auditada.</p>
+        <p class="juridic-card__ideal">Ideal para: aportación de capital o solar con participación activa en las decisiones de promoción</p>
+      </div>
+
+      <div class="juridic-card">
+        <div class="juridic-card__header">
+          <span class="juridic-card__num">02</span>
+          <span class="juridic-card__tag">CB / UTE</span>
+        </div>
+        <h3>Comunidad de Bienes o UTE</h3>
+        <p>Adecuada para operaciones de ciclo corto o menor dimensión cuando se prefiere una estructura menos formal y de constitución más ágil. Fácil de disolver al finalizar la operación sin costes adicionales significativos.</p>
+        <p class="juridic-card__ideal">Ideal para: operaciones puntuales o aportación de solar en proyectos de menor escala</p>
+      </div>
+
+      <div class="juridic-card">
+        <div class="juridic-card__header">
+          <span class="juridic-card__num">03</span>
+          <span class="juridic-card__tag">Deuda estructurada</span>
+        </div>
+        <h3>Préstamo Participativo o Deuda Subordinada</h3>
+        <p>Para inversores que priorizan la seguridad sobre la participación en la gestión. Retorno fijo o variable con garantía hipotecaria sobre el activo. El capital del inversor tiene preferencia de retorno sobre el capital de PAPIK.</p>
+        <p class="juridic-card__ideal">Ideal para: inversores que buscan un retorno previsible con exposición al riesgo limitada</p>
+      </div>
+
+    </div>
+    <p class="juridic-note">El equipo jurídico analiza cada caso y propone la estructura que mejor se adapta a los objetivos del inversor y a la naturaleza de la operación, siempre con independencia de criterio y sin coste de asesoramiento previo.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FAQ
+═══════════════════════════════════ -->
+<section class="pat-faq" id="faq">
+  <div class="container">
+    <div class="pat-faq__content">
+      <div class="pat-faq__left">
+        <span class="tag">Preguntas frecuentes</span>
+        <h2>Todo lo que quieres<br>saber antes de invertir</h2>
+        <p>Sabemos que confiar tu capital o tu solar a un socio requiere claridad. Aquí tienes las respuestas a las preguntas que nos hacen con más frecuencia.</p>
+      </div>
+      <div class="pat-faq__items" id="faqItems">
+
+        <div class="faq-item">
+          <div class="faq-item__question">
+            <span>¿Cuál es el capital mínimo para invertir?</span>
+            <div class="faq-item__icon"></div>
+          </div>
+          <div class="faq-item__answer">El capital mínimo para la modalidad de capital es de 250.000 €. Para aportación de solar, el mínimo es de 500 m² de techo edificable. Estas cifras garantizan que el proyecto sea viable y que la participación del inversor tenga un peso real en la toma de decisiones.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__question">
+            <span>¿Puedo invertir a través de una sociedad o holding?</span>
+            <div class="faq-item__icon"></div>
+          </div>
+          <div class="faq-item__answer">Sí, es la fórmula habitual. La mayoría de nuestros socios invierten a través de sociedades patrimoniales o holdings, lo que permite optimizar la carga fiscal y separar la operación del patrimonio personal. El equipo jurídico te asesorará sobre la estructura óptima en tu caso.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__question">
+            <span>¿Tengo acceso a información sobre la evolución del proyecto?</span>
+            <div class="faq-item__icon"></div>
+          </div>
+          <div class="faq-item__answer">Sí. Como socio tienes acceso al dashboard de seguimiento de obra en tiempo real, disponible en el Área de Clientes de PAPIK. Además, recibirás informes financieros trimestrales y podrás solicitar reuniones de seguimiento con el equipo gestor en cualquier momento.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__question">
+            <span>¿Qué riesgo tengo como inversor de capital?</span>
+            <div class="faq-item__icon"></div>
+          </div>
+          <div class="faq-item__answer">Como en cualquier operación inmobiliaria, existen riesgos de mercado (variación de precios de venta), riesgos de ejecución (plazos) y riesgos normativos. El equipo de riesgos de PAPIK los identifica y mitiga en la fase previa. Además, en operaciones con deuda, el capital del inversor tiene preferencia de retorno sobre el capital de PAPIK.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__question">
+            <span>¿Qué garantía tengo si aporto mi solar?</span>
+            <div class="faq-item__icon"></div>
+          </div>
+          <div class="faq-item__answer">El solar se aporta como capital social a la sociedad proyecto o mediante una permuta regulada notarialmente. Esto garantiza que los derechos del propietario quedan protegidos en todo momento. La valoración del suelo la realiza un tasador independiente homologado, sin intervención de PAPIK en la valoración.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__question">
+            <span>¿Podéis adquirir el solar directamente y sin operación conjunta?</span>
+            <div class="faq-item__icon"></div>
+          </div>
+          <div class="faq-item__answer">Sí. Si el solar es de interés para nuestro pipeline de promoción propia, podemos hacer una oferta directa de compra. En este caso, el propietario recibe el precio íntegro y no participa en el resultado de la promoción. Contáctanos para una valoración sin compromiso.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CTA / CONTACTO INVERSORES
+═══════════════════════════════════ -->
+<section class="block-cta-inv" id="contacte-inversion">
+  <div class="container">
+    <div class="block-cta-inv__inner">
+      <div class="cta-left">
+        <span class="tag">Contacto de inversión</span>
+        <h2>Hablemos de<br>tu operación</h2>
+        <p>Las reuniones de inversión de PAPIK son confidenciales. No hay vínculo ni compromiso hasta que no haya un acuerdo firmado. El primer paso es una conversación.</p>
+        <a href="tel:935000000">
+          <button class="btn-outline-white">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M22 16.92V19.92C22.0011 20.4692 21.7712 20.9936 21.3663 21.3664C20.9614 21.7392 20.4147 21.9281 19.87 21.89C16.7429 21.5528 13.7401 20.4931 11.1 18.8C8.64376 17.3224 6.57401 15.2527 5.09627 12.7965C3.41925 10.1422 2.35938 7.12329 2.02953 3.97952C1.99148 3.43618 2.17944 2.89996 2.54956 2.49588C2.91969 2.09179 3.43994 1.85917 3.98952 1.85C5.1285 1.79874 6.22413 2.4303 6.80952 3.43952L8.31952 6.10952C8.81226 6.93748 8.82048 7.95985 8.33952 8.79L7.46952 10.31C8.87097 12.6701 10.8299 14.629 13.19 16.03L14.71 15.16C15.5402 14.6791 16.5625 14.6873 17.3905 15.1801L20.0605 16.6901C21.0564 17.2591 21.7017 18.3374 21.6605 19.4901" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            935 000 000 · Línea de inversión
+          </button>
+        </a>
+        <div class="cta-confidencial">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><path d="M7 11V7C7 4.8 8.8 3 11 3H13C15.2 3 17 4.8 17 7V11" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Toda la información se trata con estricta confidencialidad
+        </div>
+      </div>
+      <div class="cta-right">
+        <form class="pat-form" onsubmit="return false;">
+          <label>Nombre y apellidos</label>
+          <input type="text" placeholder="Tu nombre">
+
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="correo@empresa.com">
+
+          <label>Teléfono</label>
+          <input type="tel" placeholder="+34 6XX XXX XXX">
+
+          <label>Modalidad de interés</label>
+          <select>
+            <option value="">Selecciona...</option>
+            <option>Aportación de capital</option>
+            <option>Aportación de solar</option>
+            <option>Las dos opciones</option>
+            <option>Venta directa de solar</option>
+          </select>
+
+          <label>Volumen aproximado o descripción del solar</label>
+          <textarea placeholder="Ej: capital disponible ~500k€ · Solar 800m² edificables en Mataró"></textarea>
+
+          <button type="submit" class="btn pat-form__submit">
+            Enviar solicitud
+            <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="nosaltres.html">Quiénes somos</a></li>
+          <li><a href="projectes.html">Proyectos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contacte">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer__col-title">Servicios</p>
+        <ul>
+          <li><a href="index.html#construccio">Construcción Residencial</a></li>
+          <li><a href="index.html#promocio">Promoción Inmobiliaria</a></li>
+          <li><a href="index.html#rehabilitacio">Rehabilitación Energética</a></li>
+          <li><a href="patrimonis.html">Patrimonios · Inversión Conjunta</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer__col-title">Oficinas</p>
+        <div class="info-showroom__item">
+          <h3>SEDE CENTRAL</h3>
+          <p>Carrer Exemple, 123<br>08001 Barcelona<br><a href="tel:935000000">T 935 000 000</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>DELEGACIÓN</h3>
+          <p>Avinguda Test, 45<br>08300 Mataró<br><a href="tel:937000000">T 937 000 000</a></p>
+        </div>
+      </div>
+
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Sigue las novedades de PAPIK: proyectos, rehabilitación energética y ayudas disponibles.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Tu email">
+          <button type="submit">
+            <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
+          </button>
+        </div>
+        <div class="footer__rrss">
+          <p>Síguenos</p>
+          <div class="rrss__links">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2026 PAPIK Group – Todos los derechos reservados<br>papik.cat</p>
+      <div style="display:flex;gap:20px;">
+        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Aviso Legal</a>
+        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── Header hide on scroll ───
+  const headerTop = document.getElementById('headerTop');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const cur = window.scrollY;
+    if (cur > 80 && cur > lastScroll) {
+      headerTop.classList.add('hidden');
+    } else {
+      headerTop.classList.remove('hidden');
+    }
+    lastScroll = cur;
+  }, { passive: true });
+
+  // ─── Submenus ───
+  const fadeBg = document.getElementById('fadeBg');
+  let activeSubmenu = null;
+
+  document.querySelectorAll('.menu-btn[data-menu]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = 'sub-' + btn.dataset.menu;
+      const sub = document.getElementById(id);
+      if (!sub) return;
+      if (activeSubmenu && activeSubmenu !== sub) {
+        activeSubmenu.classList.remove('submenu-open');
+      }
+      sub.classList.toggle('submenu-open');
+      activeSubmenu = sub.classList.contains('submenu-open') ? sub : null;
+      document.body.classList.toggle('submenu-open', !!activeSubmenu);
+    });
+  });
+
+  document.addEventListener('click', () => {
+    if (activeSubmenu) {
+      activeSubmenu.classList.remove('submenu-open');
+      activeSubmenu = null;
+      document.body.classList.remove('submenu-open');
+    }
+  });
+
+  // ─── Search ───
+  const headerSticky = document.getElementById('headerSticky');
+  const searchTrigger = document.getElementById('searchTrigger');
+  const searchClose = document.getElementById('searchClose');
+  searchTrigger.addEventListener('click', () => headerSticky.classList.add('search-open'));
+  searchClose.addEventListener('click', () => headerSticky.classList.remove('search-open'));
+
+  // ─── Mobile nav ───
+  const mobileNav = document.getElementById('mobileNav');
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+
+  burgerBtn.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+    fadeBg.style.opacity = '1';
+    fadeBg.style.visibility = 'visible';
+  });
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    fadeBg.style.opacity = '';
+    fadeBg.style.visibility = '';
+  }
+  mobileNavClose.addEventListener('click', closeMobileNav);
+  fadeBg.addEventListener('click', closeMobileNav);
+
+  // ─── FAQ accordion ───
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-item__question').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+<script src="../cursor.js"></script>
+</body>
+</html>
