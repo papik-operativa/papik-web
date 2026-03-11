@@ -1,4 +1,8 @@
 {
-  "buildCommand": "",
-  "outputDirectory": "public"
+  "regions": ["iad1"],
+  "functions": {
+    "app.py": {
+      "maxDuration": 60
+    }
+  }
 }
