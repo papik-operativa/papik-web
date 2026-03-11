@@ -21,6 +21,7 @@ from reportlab.platypus import (
 )
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfgen.canvas import Canvas as RLCanvas
 from pypdf import PdfReader, PdfWriter
 
 # ── Registre de fonts TT Firs Neue ───────────────────────────────────────────
@@ -63,8 +64,8 @@ ML = 2.25 * cm   # esquerra
 # Ruta del logo oficial (PNG retallat sense marges)
 _LOGO_PATH = os.path.join(_PROJECT_ROOT, 'static', 'logos', 'PAPIK-cropped.png')
 MR = 2.25 * cm   # dreta
-MT = 3.80 * cm   # superior (espai per capçalera + logo)
-MB = 2.50 * cm   # inferior
+MT = 3.20 * cm   # superior (espai per capçalera + logo)
+MB = 2.00 * cm   # inferior
 
 
 # ── Helpers de format ─────────────────────────────────────────────────────────
@@ -94,43 +95,37 @@ def _header_footer(canvas, doc):
     w, h = A4
 
     # ── Capçalera ESQUERRA: logo oficial PAPIK ───────────────────────────
-    logo_h = 1.10 * cm                          # alçada del logo
-    logo_w = logo_h * (536 / 143)               # respecta l'aspect ratio
-    logo_y = h - 0.65 * cm - logo_h             # alineat a la part superior
+    logo_h = 0.85 * cm
+    logo_w = logo_h * (536 / 143)
+    logo_y = h - 0.65 * cm - logo_h
     if os.path.exists(_LOGO_PATH):
         canvas.drawImage(_LOGO_PATH, ML, logo_y, width=logo_w, height=logo_h,
                          mask='auto')
 
-    # ── Capçalera DRETA: dades fiscals ───────────────────────────────────
-    canvas.setFont(_FONT_MEDIUM, 8)
+    # ── Capçalera DRETA: tagline corporatiu (bold, com al document) ──────
+    canvas.setFont(_FONT_MEDIUM, 9.5)
     canvas.setFillColor(GREEN)
-    canvas.drawRightString(w - MR, h - 0.90 * cm, 'Papik Group')
+    canvas.drawRightString(w - MR, h - 0.80 * cm, 'Cases sostenibles,')
+    canvas.drawRightString(w - MR, h - 1.30 * cm, 'naturalment')
 
-    canvas.setFont(_FONT_LIGHT, 7.5)
-    canvas.setFillColor(GRAY)
-    canvas.drawRightString(w - MR, h - 1.45 * cm, 'T. 935 906 074  ·  info@papik.cat  ·  papik.cat')
-    canvas.drawRightString(w - MR, h - 1.95 * cm, 'C/ Sort 34 · 08172 Sant Cugat del Vallès')
-
-    # ── Línia de separació capçalera (SAGE, 1.5pt, com al DOCX) ──────────
-    canvas.setStrokeColor(SAGE)
-    canvas.setLineWidth(1.5)
-    canvas.line(ML, h - 2.50 * cm, w - MR, h - 2.50 * cm)
-
-    # ── Peu de pàgina ──────────────────────────────────────────────────────
-    canvas.setStrokeColor(GRAY_LT)
-    canvas.setLineWidth(0.5)
-    canvas.line(ML, 1.80 * cm, w - MR, 1.80 * cm)
-
-    canvas.setFont(_FONT_REGULAR, 7)
-    canvas.setFillColor(GRAY)
-    canvas.drawString(
-        ML, 1.20 * cm,
-        "Pressupost orientatiu · Vàlid 30 dies des de la data d'emissió  ·  papik.cat"
-    )
-    # Número de pàgina a peu dreta
-    canvas.drawRightString(w - MR, 1.20 * cm, f'Pàgina {doc.page}')
+    # (Peu de pàgina s'afegeix com a overlay amb numeració correcta)
 
     canvas.restoreState()
+
+
+# ── Overlay de número de pàgina ──────────────────────────────────────────────
+def _page_number_overlay(page_num, total_pages):
+    """Crea una pàgina transparent amb 'Pàgina X de Y' al peu."""
+    buf = BytesIO()
+    c = RLCanvas(buf, pagesize=A4)
+    w, h = A4
+    c.setFont(_FONT_LIGHT, 7.5)
+    c.setFillColor(GRAY)
+    c.drawRightString(w - MR, 1.20 * cm, f'Pàgina {page_num} de {total_pages}')
+    c.showPage()
+    c.save()
+    buf.seek(0)
+    return PdfReader(buf).pages[0]
 
 
 # ── Estils de paràgraf ────────────────────────────────────────────────────────
@@ -442,14 +437,25 @@ def generar_pdf(data, result):
             pass  # Si la portada falla, continuem sense ella
 
     # Pàgines 1–5 de la portada (índexs 0–4)
+    pages_before = 0
     for i, page in enumerate(cover_pages):
         if i < 5:
             writer.add_page(page)
+            pages_before += 1
 
     # Pàgines del pressupost generades (s'insereixen aquí)
     budget_buf = _generar_pagines_pressupost(data, result)
     budget_pdf = PdfReader(budget_buf)
-    for page in budget_pdf.pages:
+
+    # Calcular total de pàgines del document final
+    pages_after = max(0, len(cover_pages) - 5)
+    n_budget = len(budget_pdf.pages)
+    total_pages = pages_before + n_budget + pages_after
+
+    # Afegir pàgines del pressupost amb numeració correcta
+    for i, page in enumerate(budget_pdf.pages):
+        overlay = _page_number_overlay(pages_before + 1 + i, total_pages)
+        page.merge_page(overlay)
         writer.add_page(page)
 
     # Pàgines 6–8 de la portada (índexs 5–7)
