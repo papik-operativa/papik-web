@@ -1,0 +1,135 @@
+{
+  "title": "Configurador Pressupost Papik",
+  "fields": [
+    {
+      "id": "1",
+      "type": "number",
+      "label": "Quants m² té la casa?",
+      "description": "Superfície construïda (mínim 120 m²)",
+      "required": "1",
+      "size": "medium",
+      "min": "120",
+      "placeholder": "Ex: 160"
+    },
+    {
+      "id": "2",
+      "type": "radio",
+      "label": "Quantes plantes té la casa?",
+      "required": "1",
+      "choices": [
+        { "label": "1 planta", "value": "1" },
+        { "label": "2 plantes", "value": "2" },
+        { "label": "Més de 2 plantes", "value": "3" }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "radio",
+      "label": "Quants banys vol?",
+      "required": "1",
+      "choices": [
+        { "label": "1 bany", "value": "1" },
+        { "label": "2 banys", "value": "2" },
+        { "label": "3 banys", "value": "3" },
+        { "label": "4 o més banys", "value": "4" }
+      ]
+    },
+    {
+      "id": "4",
+      "type": "radio",
+      "label": "Té garatge?",
+      "required": "1",
+      "choices": [
+        { "label": "Sí", "value": "si" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "id": "5",
+      "type": "number",
+      "label": "Quants m² té el garatge?",
+      "description": "Indica la superfície del garatge",
+      "required": "1",
+      "min": "1",
+      "placeholder": "Ex: 40",
+      "conditional_logic": "1",
+      "conditionals": [
+        {
+          "action": "show",
+          "logic_action": "any",
+          "rules": [
+            { "field": "4", "operator": "is", "value": "si" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "type": "radio",
+      "label": "Vol escala interior?",
+      "required": "1",
+      "choices": [
+        { "label": "Sí (+3.423 €)", "value": "si" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "id": "7",
+      "type": "select",
+      "label": "On es troba l'obra?",
+      "description": "Selecciona el municipi més proper a l'obra",
+      "required": "1",
+      "choices": [
+        { "label": "Sant Cugat del Vallès (0 km)", "value": "0" },
+        { "label": "Rubí (8 km)", "value": "8" },
+        { "label": "Cerdanyola del Vallès (9 km)", "value": "9" },
+        { "label": "Barberà del Vallès (10 km)", "value": "10" },
+        { "label": "Sant Quirze del Vallès (10 km)", "value": "10" },
+        { "label": "Ripollet (13 km)", "value": "13" },
+        { "label": "Sabadell (14 km)", "value": "14" },
+        { "label": "Terrassa (16 km)", "value": "16" },
+        { "label": "Barcelona (19 km)", "value": "19" },
+        { "label": "L'Hospitalet de Llobregat (20 km)", "value": "20" },
+        { "label": "Molins de Rei (22 km)", "value": "22" },
+        { "label": "Martorell (25 km)", "value": "25" },
+        { "label": "Badalona (28 km)", "value": "28" },
+        { "label": "Castelldefels (35 km)", "value": "35" },
+        { "label": "Granollers (38 km)", "value": "38" },
+        { "label": "Sitges (42 km)", "value": "42" },
+        { "label": "Vilafranca del Penedès (45 km)", "value": "45" },
+        { "label": "Mataró (48 km)", "value": "48" },
+        { "label": "Manresa (55 km)", "value": "55" },
+        { "label": "Igualada (60 km)", "value": "60" },
+        { "label": "Altra localització (a consultar)", "value": "-1" }
+      ]
+    },
+    {
+      "id": "8",
+      "type": "name",
+      "label": "Nom i cognoms",
+      "required": "1",
+      "format": "simple",
+      "placeholder": "El teu nom complet"
+    },
+    {
+      "id": "9",
+      "type": "email",
+      "label": "Correu electrònic",
+      "required": "1",
+      "placeholder": "correu@exemple.com"
+    },
+    {
+      "id": "10",
+      "type": "phone",
+      "label": "Telèfon de contacte",
+      "required": "0",
+      "placeholder": "Ex: 612 345 678"
+    }
+  ],
+  "settings": {
+    "form_title": "Configurador Pressupost Papik",
+    "submit_text": "Sol·licitar pressupost",
+    "ajax_submit": "1",
+    "notification_enable": "1"
+  }
+}

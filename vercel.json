@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    { "source": "/municipis", "destination": "/api" },
+    { "source": "/calcular", "destination": "/api" },
+    { "source": "/download-pdf", "destination": "/api" },
+    { "source": "/analitzar-plans", "destination": "/api" },
+    { "source": "/chat-pressupost", "destination": "/api" },
+    { "source": "/chat-configurador", "destination": "/api" }
+  ],
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60
+    }
+  }
+}

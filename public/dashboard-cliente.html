@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area de Client | PAPIK</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="papik-crm.css">
+  <style>
+    /* ── Chatbot styles ─────────────────────────────────────── */
+    .chat-container {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-top: 24px;
+    }
+    .chat-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-header-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .chat-header-icon svg {
+      width: 16px;
+      height: 16px;
+      color: #fff;
+    }
+    .chat-header-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .chat-header-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .chat-messages {
+      max-height: 400px;
+      min-height: 200px;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: var(--bg-light);
+    }
+    .chat-msg {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+    .chat-msg--bot {
+      align-self: flex-start;
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 4px;
+    }
+    .chat-msg--user {
+      align-self: flex-end;
+      background: var(--green);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .chat-msg--typing {
+      align-self: flex-start;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 4px;
+      padding: 12px 20px;
+    }
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .typing-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--muted-light);
+      animation: dotBounce 1.4s ease-in-out infinite both;
+    }
+    .typing-dots span:nth-child(1) { animation-delay: 0s; }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    .chat-input-bar {
+      display: flex;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    .chat-input {
+      flex: 1;
+      border: none;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+    }
+    .chat-input::placeholder {
+      color: var(--muted-light);
+    }
+    .chat-send-btn {
+      background: var(--green);
+      color: #fff;
+      border: none;
+      padding: 0 20px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      transition: background .2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chat-send-btn:hover {
+      background: #1a3a2a;
+    }
+    .chat-send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ── Budget pack cards ───────────────────────────────────── */
+    .pack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .pack-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .pack-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    }
+    .pack-card__header {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .pack-card__name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .pack-card__total {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--green);
+    }
+    .pack-card__toggle {
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--muted);
+      transition: transform .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pack-card__toggle.open {
+      transform: rotate(180deg);
+    }
+    .pack-card__items {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 0;
+    }
+    .pack-card__items.open {
+      display: block;
+    }
+    .pack-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pack-item:last-child {
+      border-bottom: none;
+    }
+    .pack-item__name {
+      color: var(--muted);
+    }
+    .pack-item__value {
+      font-weight: 500;
+    }
+
+    /* ── Budget summary ────────────────────────────────────── */
+    .budget-summary {
+      background: var(--green);
+      color: #fff;
+      border-radius: 10px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .budget-summary__total {
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    .budget-summary__detail {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .budget-summary__item {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+    .budget-summary__item strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 400;
+      opacity: 1;
+    }
+
+    /* ── Timeline ──────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 20px;
+    }
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+    .timeline-item__dot {
+      position: absolute;
+      left: -24px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--border);
+    }
+    .timeline-item__date {
+      font-size: 11px;
+      color: var(--muted-light);
+      margin-bottom: 2px;
+    }
+    .timeline-item__text {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* ── Quick link cards ─────────────────────────────────── */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .quick-link {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-decoration: none;
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .quick-link:hover {
+      border-color: var(--green);
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .quick-link__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(14,39,25,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--green);
+    }
+
+    /* ── Notes card ────────────────────────────────────────── */
+    .note-card {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .note-card__date {
+      font-size: 11px;
+      color: var(--muted-light);
+      margin-bottom: 4px;
+    }
+    .note-card__author {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .note-card__content {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── Team list ─────────────────────────────────────────── */
+    .team-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .team-member__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-section);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+    .team-member__name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .team-member__role {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── Invoice summary banner ────────────────────────────── */
+    .invoice-banner {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .invoice-banner__label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .invoice-banner__amount {
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--error);
+    }
+  </style>
+</head>
+<body data-allowed-roles="cliente,arquitecto,empleado,secretario,admin">
+
+<!-- ── Loading screen ──────────────────────────────────────── -->
+<div id="loading">
+  <div style="text-align:center;padding:80px;color:var(--muted);">
+    <div class="spinner"></div>
+    Carregant...
+  </div>
+</div>
+
+<!-- ── App shell ───────────────────────────────────────────── -->
+<div id="app" class="crm-layout" style="display:none;">
+
+  <!-- Sidebar -->
+  <aside class="crm-sidebar" id="sidebar">
+    <div class="crm-sidebar__logo" id="sidebar-logo"></div>
+    <nav class="crm-sidebar__nav">
+      <div class="nav-section-label">Menu</div>
+      <button class="nav-item" data-section="sec-inici" data-label="Inici">
+        <span class="nav-item__icon" id="icon-home"></span>
+        Inici
+      </button>
+      <button class="nav-item" data-section="sec-projecte" data-label="El meu projecte">
+        <span class="nav-item__icon" id="icon-projecte"></span>
+        El meu projecte
+      </button>
+      <button class="nav-item" data-section="sec-pressupost" data-label="Pressupost">
+        <span class="nav-item__icon" id="icon-pressupost"></span>
+        Pressupost
+      </button>
+      <button class="nav-item" data-section="sec-factures" data-label="Factures">
+        <span class="nav-item__icon" id="icon-factures"></span>
+        Factures
+      </button>
+      <button class="nav-item" data-section="sec-documents" data-label="Documents">
+        <span class="nav-item__icon" id="icon-documents"></span>
+        Documents
+      </button>
+    </nav>
+    <div class="crm-sidebar__footer">
+      <div class="sidebar-user">
+        <div class="sidebar-user__name" id="sidebar-user-name"></div>
+        <div class="sidebar-user__role" id="sidebar-user-role"></div>
+      </div>
+      <button class="sidebar-logout" onclick="papikLogout()">Tancar sessio</button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <div class="crm-main">
+    <div class="crm-topbar">
+      <button class="crm-topbar__hamburger" id="hamburger-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <span class="crm-topbar__title">Inici</span>
+      <div class="crm-topbar__actions">
+        <span id="topbar-user-name" style="font-size:13px;color:var(--muted);"></span>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 1: INICI
+         ════════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-inici">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2 id="welcome-msg">Benvingut/da</h2>
+            <p>Seguiment del teu projecte, documentacio i factures</p>
+          </div>
+        </div>
+
+        <!-- Project summary card -->
+        <div id="inici-project-card" style="display:none;">
+          <div class="kpi-grid" id="inici-kpis"></div>
+        </div>
+
+        <!-- Recent invoices -->
+        <div id="inici-invoices" style="display:none;">
+          <h3 style="font-size:15px;font-weight:400;margin:24px 0 12px;">Factures recents</h3>
+          <div id="inici-invoices-list"></div>
+        </div>
+
+        <!-- Empty state -->
+        <div id="inici-empty" style="display:none;">
+          <div class="empty-state">
+            <div class="empty-state__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+            </div>
+            <h3>Encara no tens cap projecte assignat</h3>
+            <p>Contacta amb PAPIK per comenar.</p>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="quick-links" id="inici-quick-links">
+          <button class="quick-link" onclick="PapikCRM.showSection('sec-projecte')">
+            <div class="quick-link__icon" id="ql-icon-project"></div>
+            Veure projecte
+          </button>
+          <button class="quick-link" onclick="PapikCRM.showSection('sec-pressupost')">
+            <div class="quick-link__icon" id="ql-icon-budget"></div>
+            El meu pressupost
+          </button>
+          <button class="quick-link" onclick="PapikCRM.showSection('sec-factures')">
+            <div class="quick-link__icon" id="ql-icon-invoices"></div>
+            Les meves factures
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 2: EL MEU PROJECTE
+         ════════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-projecte">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2>El meu projecte</h2>
+            <p>Informacio i seguiment del teu projecte</p>
+          </div>
+        </div>
+
+        <!-- Project detail -->
+        <div id="projecte-detail" style="display:none;">
+          <!-- Project header -->
+          <div class="project-detail" style="margin-bottom:24px;">
+            <div class="project-detail__header">
+              <div>
+                <div class="project-detail__title" id="proj-name"></div>
+                <div class="project-detail__address" id="proj-address"></div>
+              </div>
+              <div id="proj-status"></div>
+            </div>
+            <div class="project-detail__body">
+              <div class="form-row" style="margin-bottom:0;">
+                <div>
+                  <span class="text-xs text-muted" style="text-transform:uppercase;letter-spacing:.06em;">DATA INICI</span>
+                  <div style="font-size:14px;margin-top:4px;" id="proj-start-date"></div>
+                </div>
+                <div>
+                  <span class="text-xs text-muted" style="text-transform:uppercase;letter-spacing:.06em;">DATA ESTIMADA FI</span>
+                  <div style="font-size:14px;margin-top:4px;" id="proj-end-date"></div>
+                </div>
+              </div>
+              <div style="margin-top:16px;" id="proj-description"></div>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div style="margin-bottom:24px;">
+            <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Historial d'activitat</h3>
+            <div class="project-detail" style="padding:24px;">
+              <div class="timeline" id="proj-timeline"></div>
+              <div id="proj-timeline-empty" style="display:none;text-align:center;padding:24px;color:var(--muted);font-size:14px;">
+                Encara no hi ha activitat registrada.
+              </div>
+            </div>
+          </div>
+
+          <!-- Public notes -->
+          <div style="margin-bottom:24px;">
+            <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Notes del projecte</h3>
+            <div id="proj-notes"></div>
+            <div id="proj-notes-empty" style="display:none;">
+              <div style="text-align:center;padding:24px;color:var(--muted);font-size:14px;background:#fff;border-radius:10px;border:1px solid var(--border);">
+                No hi ha notes publiques.
+              </div>
+            </div>
+          </div>
+
+          <!-- Team -->
+          <div>
+            <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Equip del projecte</h3>
+            <div class="team-list" id="proj-team"></div>
+            <div id="proj-team-empty" style="display:none;">
+              <div style="text-align:center;padding:24px;color:var(--muted);font-size:14px;background:#fff;border-radius:10px;border:1px solid var(--border);">
+                No hi ha membres assignats.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div id="projecte-empty" style="display:none;">
+          <div class="empty-state">
+            <div class="empty-state__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Encara no tens cap projecte assignat</h3>
+            <p>Contacta amb PAPIK per comenar el teu projecte.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 3: PRESSUPOST
+         ════════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-pressupost">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2>Pressupost</h2>
+            <p>Detall del teu pressupost personalitzat</p>
+          </div>
+        </div>
+
+        <!-- Budget content -->
+        <div id="pressupost-detail" style="display:none;">
+          <!-- Summary banner -->
+          <div class="budget-summary" id="budget-summary"></div>
+
+          <!-- Pack breakdown -->
+          <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Desglossament per packs</h3>
+          <div class="pack-grid" id="budget-packs"></div>
+
+          <!-- Totals breakdown -->
+          <div class="project-detail" style="margin-bottom:24px;">
+            <div class="project-detail__header">
+              <div class="project-detail__title" style="font-size:15px;">Resum de costos</div>
+            </div>
+            <div class="project-detail__body" id="budget-totals"></div>
+          </div>
+
+          <!-- Action buttons -->
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;">
+            <a id="btn-download-pdf" class="btn btn-primary" href="#" target="_blank" style="text-decoration:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Descarregar PDF
+            </a>
+            <a class="btn btn-secondary" href="pressupost.html" style="text-decoration:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Configurar de nou
+            </a>
+          </div>
+
+          <!-- Chatbot -->
+          <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Assessor Virtual PAPIK</h3>
+          <div class="chat-container">
+            <div class="chat-header">
+              <div class="chat-header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              </div>
+              <div>
+                <div class="chat-header-title">Assessor PAPIK</div>
+                <div class="chat-header-subtitle">Pregunta sobre el teu pressupost</div>
+              </div>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+              <div class="chat-msg chat-msg--bot">
+                Hola! Soc l'assistent de PAPIK. Puc respondre preguntes sobre el teu pressupost. Que vols saber?
+              </div>
+            </div>
+            <div class="chat-input-bar">
+              <input type="text" class="chat-input" id="chat-input" placeholder="Escriu la teva pregunta..." autocomplete="off">
+              <button class="chat-send-btn" id="chat-send-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg>
+                Enviar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div id="pressupost-empty" style="display:none;">
+          <div class="empty-state">
+            <div class="empty-state__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+            </div>
+            <h3>Encara no has configurat el teu pressupost</h3>
+            <p>Utilitza el configurador per crear el teu pressupost personalitzat.</p>
+            <a class="btn btn-primary btn-lg" href="pressupost.html" style="text-decoration:none;margin-top:8px;display:inline-flex;">
+              Anar al Configurador
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 4: FACTURES
+         ════════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-factures">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2>Factures</h2>
+            <p>Totes les factures del teu projecte</p>
+          </div>
+        </div>
+
+        <!-- Outstanding banner -->
+        <div class="invoice-banner" id="factures-banner" style="display:none;">
+          <div>
+            <div class="invoice-banner__label">Import pendent de pagament</div>
+          </div>
+          <div class="invoice-banner__amount" id="factures-outstanding"></div>
+        </div>
+
+        <!-- Table -->
+        <div id="factures-table"></div>
+
+        <!-- Empty state -->
+        <div id="factures-empty" style="display:none;">
+          <div class="empty-state">
+            <div class="empty-state__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg>
+            </div>
+            <h3>No tens factures</h3>
+            <p>Les teves factures apareixeran aqui quan siguin emeses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 5: DOCUMENTS
+         ════════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-documents">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2>Documents</h2>
+            <p>Documents compartits del teu projecte</p>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div id="documents-table"></div>
+
+        <!-- Empty state -->
+        <div id="documents-empty" style="display:none;">
+          <div class="empty-state">
+            <div class="empty-state__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+            </div>
+            <h3>No hi ha documents</h3>
+            <p>Els documents del teu projecte apareixeran aqui.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /crm-main -->
+</div><!-- /app -->
+
+<!-- ── Scripts ──────────────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-auth.js"></script>
+<script src="supabase-guard.js"></script>
+<script src="papik-crm.js"></script>
+<script>
+(function () {
+  /* ================================================================
+     CLIENT DASHBOARD — Main Script
+     All text in Catalan. Uses 'var' exclusively.
+     ================================================================ */
+
+  var clientProject = null;
+  var clientInvoices = [];
+  var clientBudgetConfig = null;
+  var clientDocuments = [];
+  var chatConversationId = null;
+
+  /* ── Pack label map (Catalan) ─────────────────────────────────── */
+  var packLabels = {
+    'pack_envolvent':     'Envolvent Termic',
+    'pack_installacions': "Instal\u00B7lacions",
+    'pack_parking':       'Parking i Exteriors',
+    'pack_acabats':       'Acabats Interiors',
+    'transport':          'Transport',
+    'contractacio_externa': "Contractacio"
+  };
+
+  /* ── Item label map (Catalan) ─────────────────────────────────── */
+  var itemLabels = {
+    'finestres': 'Finestres',
+    'estructura_vertical': 'Estructura vertical',
+    'coberta_forjats': 'Coberta i forjats',
+    'porta_entrada': "Porta d'entrada",
+    'grua': 'Grua de muntatge',
+    'telecomunicacions': 'Telecomunicacions',
+    'sanejament_interior': 'Sanejament interior',
+    'electricitat_interior': 'Electricitat interior',
+    'agua_interior': 'Fontaneria interior',
+    'escomeses': 'Escomeses',
+    'preinstallacio_ventilacio': "Preinstal\u00B7lacio ventilacio",
+    'zehnder': 'Sistema Zehnder',
+    'aerotermia': "Aerotermia",
+    'porta_peatonal': 'Porta peatonal',
+    'porta_motoritzada': 'Porta motoritzada',
+    'garatge_estructura': 'Estructura garatge',
+    'porxos_terrasses': 'Porxos i terrasses',
+    'pintura': 'Pintura',
+    'pladur': 'Pladur',
+    'cuina': 'Cuina',
+    'paviments': 'Paviments',
+    'portes_interiors': 'Portes interiors',
+    'estructura_krona': 'Estructura Krona',
+    'banys': 'Banys',
+    'escala': 'Escala',
+    'projecte_arquitectonic': 'Projecte arquitectonic',
+    'seguretat_salut': 'Seguretat i salut',
+    'fonamentacio': 'Fonamentacio'
+  };
+
+  /* ── Format currency helper (European) ────────────────────────── */
+  function fmtCurrency(amount) {
+    if (amount == null) return '0,00 \u20AC';
+    var num = parseFloat(amount);
+    if (isNaN(num)) return '0,00 \u20AC';
+    var parts = num.toFixed(2).split('.');
+    var intPart = parts[0];
+    var decPart = parts[1];
+    var sign = '';
+    if (intPart[0] === '-') {
+      sign = '-';
+      intPart = intPart.substring(1);
+    }
+    var formatted = '';
+    for (var i = intPart.length - 1, count = 0; i >= 0; i--, count++) {
+      if (count > 0 && count % 3 === 0) formatted = '.' + formatted;
+      formatted = intPart[i] + formatted;
+    }
+    return sign + formatted + ',' + decPart + ' \u20AC';
+  }
+
+  /* ── HTML escape ──────────────────────────────────────────────── */
+  function esc(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  /* ── Get initials from a name ─────────────────────────────────── */
+  function initials(name) {
+    if (!name) return '?';
+    var words = name.trim().split(/\s+/);
+    if (words.length >= 2) return (words[0][0] + words[1][0]).toUpperCase();
+    return words[0].substring(0, 2).toUpperCase();
+  }
+
+  /* ================================================================
+     BOOT: Wait for user-ready
+     ================================================================ */
+  document.addEventListener('papik:user-ready', function (e) {
+    var user = e.detail;
+
+    /* ── Set sidebar icons ────────────────────────────────────── */
+    document.getElementById('sidebar-logo').innerHTML = PapikCRM.logoSVG;
+    document.getElementById('icon-home').innerHTML = PapikCRM.icons.home;
+    document.getElementById('icon-projecte').innerHTML = PapikCRM.icons.myproject;
+    document.getElementById('icon-pressupost').innerHTML = PapikCRM.icons.budgets;
+    document.getElementById('icon-factures').innerHTML = PapikCRM.icons.invoices;
+    document.getElementById('icon-documents').innerHTML = PapikCRM.icons.documents;
+
+    /* ── Quick link icons ─────────────────────────────────────── */
+    document.getElementById('ql-icon-project').innerHTML = PapikCRM.icons.myproject;
+    document.getElementById('ql-icon-budget').innerHTML = PapikCRM.icons.budgets;
+    document.getElementById('ql-icon-invoices').innerHTML = PapikCRM.icons.invoices;
+
+    /* ── Set user info ────────────────────────────────────────── */
+    var fullName = (user.firstName || '') + ' ' + (user.lastName || '');
+    document.getElementById('sidebar-user-name').textContent = fullName.trim();
+    document.getElementById('sidebar-user-role').textContent = user.role || 'client';
+    document.getElementById('topbar-user-name').textContent = fullName.trim();
+    document.getElementById('welcome-msg').textContent = 'Benvingut/da, ' + (user.firstName || '');
+
+    /* ── Hamburger toggle ─────────────────────────────────────── */
+    var hamburger = document.getElementById('hamburger-btn');
+    var sidebar = document.getElementById('sidebar');
+    hamburger.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+
+    /* ── Hide loading, show app ───────────────────────────────── */
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('app').style.display = '';
+
+    /* ── Init navigation ──────────────────────────────────────── */
+    PapikCRM.initNav();
+
+    /* ── Load all client data ─────────────────────────────────── */
+    loadClientData(user);
+  });
+
+  /* ================================================================
+     LOAD CLIENT DATA
+     ================================================================ */
+  function loadClientData(user) {
+    var userId = user.id;
+
+    /* ── Fetch project (where client_id = user.id) ────────────── */
+    var projectPromise = PapikCRM.client
+      .from('projects')
+      .select('*')
+      .eq('client_id', userId)
+      .order('created_at', { ascending: false })
+      .limit(1);
+
+    /* ── Fetch invoices ───────────────────────────────────────── */
+    var invoicePromise = PapikCRM.fetchInvoices({ client_id: userId });
+
+    /* ── Fetch budget configs ─────────────────────────────────── */
+    var budgetPromise = PapikCRM.fetchBudgetConfigs(userId);
+
+    Promise.all([projectPromise, invoicePromise, budgetPromise]).then(function (results) {
+      var projRes = results[0];
+      var invoices = results[1];
+      var budgets = results[2];
+
+      clientInvoices = invoices || [];
+      clientBudgetConfig = (budgets && budgets.length > 0) ? budgets[0] : null;
+
+      if (projRes.data && projRes.data.length > 0) {
+        clientProject = projRes.data[0];
+        loadProjectDetails(clientProject.id);
+      } else {
+        clientProject = null;
+      }
+
+      renderInici();
+      renderPressupost();
+      renderFactures();
+      loadDocuments();
+    }).catch(function (err) {
+      console.error('Error loading client data:', err);
+      renderInici();
+      renderPressupost();
+      renderFactures();
+    });
+  }
+
+  /* ── Load project details (members, notes, activity) ──────── */
+  function loadProjectDetails(projectId) {
+    var c = PapikCRM.client;
+
+    var membersP = c.from('project_members')
+      .select('*, profiles:user_id(id, first_name, last_name, role)')
+      .eq('project_id', projectId);
+
+    var notesP = c.from('project_notes')
+      .select('*, profiles:user_id(id, first_name, last_name)')
+      .eq('project_id', projectId)
+      .eq('is_internal', false)
+      .order('created_at', { ascending: false });
+
+    var activityP = c.from('activity_log')
+      .select('*, profiles:user_id(id, first_name, last_name)')
+      .eq('project_id', projectId)
+      .order('created_at', { ascending: false })
+      .limit(20);
+
+    Promise.all([membersP, notesP, activityP]).then(function (results) {
+      var members = (results[0].data || []);
+      var notes = (results[1].data || []);
+      var activity = (results[2].data || []);
+
+      renderProjecte(clientProject, members, notes, activity);
+    }).catch(function (err) {
+      console.error('Error loading project details:', err);
+      renderProjecte(clientProject, [], [], []);
+    });
+  }
+
+  /* ── Load documents ────────────────────────────────────────── */
+  function loadDocuments() {
+    if (!clientProject) {
+      clientDocuments = [];
+      renderDocuments();
+      return;
+    }
+
+    PapikCRM.fetchDocuments({ project_id: clientProject.id }).then(function (docs) {
+      clientDocuments = docs || [];
+      renderDocuments();
+    }).catch(function (err) {
+      console.error('Error loading documents:', err);
+      clientDocuments = [];
+      renderDocuments();
+    });
+  }
+
+  /* ================================================================
+     RENDER: INICI
+     ================================================================ */
+  function renderInici() {
+    var projectCard = document.getElementById('inici-project-card');
+    var invoicesSection = document.getElementById('inici-invoices');
+    var emptyState = document.getElementById('inici-empty');
+
+    if (clientProject) {
+      projectCard.style.display = '';
+      emptyState.style.display = 'none';
+
+      /* ── KPI cards ─────────────────────────────────────────── */
+      var statusLabel = {
+        'draft': 'Esborrany',
+        'in_progress': 'En curs',
+        'completed': 'Completat',
+        'archived': 'Arxivat'
+      };
+      var kpisHtml = '';
+
+      kpisHtml += '<div class="kpi-card">' +
+        '<div class="kpi-card__icon kpi-card__icon--green">' + PapikCRM.icons.myproject + '</div>' +
+        '<div class="kpi-card__label">Projecte</div>' +
+        '<div class="kpi-card__value" style="font-size:20px;">' + esc(clientProject.name || 'Sense nom') + '</div>' +
+        '<div class="kpi-card__desc">' + PapikCRM.statusBadge(clientProject.status) + '</div>' +
+        '</div>';
+
+      kpisHtml += '<div class="kpi-card">' +
+        '<div class="kpi-card__icon kpi-card__icon--blue">' + PapikCRM.icons.myproject + '</div>' +
+        '<div class="kpi-card__label">Adreca</div>' +
+        '<div class="kpi-card__value" style="font-size:16px;">' + esc(clientProject.address || '\u2014') + '</div>' +
+        '</div>';
+
+      if (clientProject.budget_total) {
+        kpisHtml += '<div class="kpi-card">' +
+          '<div class="kpi-card__icon kpi-card__icon--green">' + PapikCRM.icons.budgets + '</div>' +
+          '<div class="kpi-card__label">Pressupost total</div>' +
+          '<div class="kpi-card__value" style="font-size:22px;">' + fmtCurrency(clientProject.budget_total) + '</div>' +
+          '</div>';
+      }
+
+      if (clientInvoices.length > 0) {
+        var paidCount = 0;
+        for (var k = 0; k < clientInvoices.length; k++) {
+          if (clientInvoices[k].status === 'paid') paidCount++;
+        }
+        kpisHtml += '<div class="kpi-card">' +
+          '<div class="kpi-card__icon kpi-card__icon--orange">' + PapikCRM.icons.invoices + '</div>' +
+          '<div class="kpi-card__label">Factures</div>' +
+          '<div class="kpi-card__value">' + clientInvoices.length + '</div>' +
+          '<div class="kpi-card__desc">' + paidCount + ' pagades</div>' +
+          '</div>';
+      }
+
+      document.getElementById('inici-kpis').innerHTML = kpisHtml;
+
+    } else {
+      projectCard.style.display = 'none';
+      emptyState.style.display = '';
+    }
+
+    /* ── Recent invoices (last 3) ───────────────────────────── */
+    if (clientInvoices.length > 0) {
+      invoicesSection.style.display = '';
+      var recentInvoices = clientInvoices.slice(0, 3);
+      var invHtml = '';
+      for (var i = 0; i < recentInvoices.length; i++) {
+        var inv = recentInvoices[i];
+        invHtml += '<div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 20px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">' +
+          '<div>' +
+            '<span style="font-size:14px;font-weight:500;">' + esc(inv.invoice_number || '\u2014') + '</span>' +
+            '<span style="font-size:13px;color:var(--muted);margin-left:12px;">' + PapikCRM.formatDate(inv.issued_date) + '</span>' +
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:12px;">' +
+            '<span style="font-size:14px;font-weight:500;">' + fmtCurrency(inv.total_amount) + '</span>' +
+            PapikCRM.statusBadge(inv.status) +
+          '</div>' +
+        '</div>';
+      }
+      document.getElementById('inici-invoices-list').innerHTML = invHtml;
+    } else {
+      invoicesSection.style.display = 'none';
+    }
+  }
+
+  /* ================================================================
+     RENDER: EL MEU PROJECTE
+     ================================================================ */
+  function renderProjecte(project, members, notes, activity) {
+    var detail = document.getElementById('projecte-detail');
+    var empty = document.getElementById('projecte-empty');
+
+    if (!project) {
+      detail.style.display = 'none';
+      empty.style.display = '';
+      return;
+    }
+
+    detail.style.display = '';
+    empty.style.display = 'none';
+
+    /* ── Project header ──────────────────────────────────────── */
+    document.getElementById('proj-name').textContent = project.name || 'Sense nom';
+    document.getElementById('proj-address').textContent = project.address || '';
+    document.getElementById('proj-status').innerHTML = PapikCRM.statusBadge(project.status);
+    document.getElementById('proj-start-date').textContent = PapikCRM.formatDate(project.start_date);
+    document.getElementById('proj-end-date').textContent = PapikCRM.formatDate(project.estimated_end_date);
+
+    var descEl = document.getElementById('proj-description');
+    if (project.description) {
+      descEl.innerHTML = '<p style="font-size:14px;color:var(--muted);line-height:1.6;margin:0;">' + esc(project.description) + '</p>';
+    } else {
+      descEl.innerHTML = '';
+    }
+
+    /* ── Timeline ────────────────────────────────────────────── */
+    var timelineEl = document.getElementById('proj-timeline');
+    var timelineEmpty = document.getElementById('proj-timeline-empty');
+    if (activity.length > 0) {
+      timelineEl.style.display = '';
+      timelineEmpty.style.display = 'none';
+      var tlHtml = '';
+      for (var t = 0; t < activity.length; t++) {
+        var act = activity[t];
+        var authorName = '';
+        if (act.profiles) {
+          authorName = ((act.profiles.first_name || '') + ' ' + (act.profiles.last_name || '')).trim();
+        }
+        tlHtml += '<div class="timeline-item">' +
+          '<div class="timeline-item__dot"></div>' +
+          '<div class="timeline-item__date">' + PapikCRM.formatDateTime(act.created_at) +
+            (authorName ? ' &mdash; ' + esc(authorName) : '') +
+          '</div>' +
+          '<div class="timeline-item__text">' + esc(act.description || act.activity || '') + '</div>' +
+        '</div>';
+      }
+      timelineEl.innerHTML = tlHtml;
+    } else {
+      timelineEl.style.display = 'none';
+      timelineEmpty.style.display = '';
+    }
+
+    /* ── Public notes ────────────────────────────────────────── */
+    var notesEl = document.getElementById('proj-notes');
+    var notesEmpty = document.getElementById('proj-notes-empty');
+    if (notes.length > 0) {
+      notesEl.style.display = '';
+      notesEmpty.style.display = 'none';
+      var nHtml = '';
+      for (var n = 0; n < notes.length; n++) {
+        var note = notes[n];
+        var noteAuthor = '';
+        if (note.profiles) {
+          noteAuthor = ((note.profiles.first_name || '') + ' ' + (note.profiles.last_name || '')).trim();
+        }
+        nHtml += '<div class="note-card">' +
+          '<div class="note-card__date">' + PapikCRM.formatDateTime(note.created_at) + '</div>' +
+          (noteAuthor ? '<div class="note-card__author">' + esc(noteAuthor) + '</div>' : '') +
+          '<div class="note-card__content">' + esc(note.content || '') + '</div>' +
+        '</div>';
+      }
+      notesEl.innerHTML = nHtml;
+    } else {
+      notesEl.style.display = 'none';
+      notesEmpty.style.display = '';
+    }
+
+    /* ── Team ────────────────────────────────────────────────── */
+    var teamEl = document.getElementById('proj-team');
+    var teamEmpty = document.getElementById('proj-team-empty');
+    if (members.length > 0) {
+      teamEl.style.display = '';
+      teamEmpty.style.display = 'none';
+      var mHtml = '';
+      for (var m = 0; m < members.length; m++) {
+        var member = members[m];
+        var memberName = '';
+        var memberRole = member.role || '';
+        if (member.profiles) {
+          memberName = ((member.profiles.first_name || '') + ' ' + (member.profiles.last_name || '')).trim();
+          if (!memberRole) memberRole = member.profiles.role || '';
+        }
+        mHtml += '<div class="team-member">' +
+          '<div class="team-member__avatar">' + initials(memberName) + '</div>' +
+          '<div>' +
+            '<div class="team-member__name">' + esc(memberName || 'Sense nom') + '</div>' +
+            '<div class="team-member__role">' + esc(memberRole) + '</div>' +
+          '</div>' +
+        '</div>';
+      }
+      teamEl.innerHTML = mHtml;
+    } else {
+      teamEl.style.display = 'none';
+      teamEmpty.style.display = '';
+    }
+  }
+
+  /* ================================================================
+     RENDER: PRESSUPOST
+     ================================================================ */
+  function renderPressupost() {
+    var detail = document.getElementById('pressupost-detail');
+    var empty = document.getElementById('pressupost-empty');
+
+    if (!clientBudgetConfig || !clientBudgetConfig.config_result) {
+      detail.style.display = 'none';
+      empty.style.display = '';
+      return;
+    }
+
+    detail.style.display = '';
+    empty.style.display = 'none';
+
+    var result = clientBudgetConfig.config_result;
+    var input = clientBudgetConfig.config_input || {};
+
+    /* ── Summary banner ──────────────────────────────────────── */
+    var totalPressupost = result.total_pressupost || 0;
+    var m2 = input.m2 || 0;
+    var preuM2 = m2 > 0 ? (totalPressupost / m2) : 0;
+
+    var summaryHtml = '<div class="budget-summary__total">' + fmtCurrency(totalPressupost) + '</div>' +
+      '<div style="font-size:14px;opacity:.7;">Pressupost total (IVA inclos)</div>' +
+      '<div class="budget-summary__detail">' +
+        '<div class="budget-summary__item"><strong>' + fmtCurrency(result.total_sense_iva) + '</strong>Subtotal sense IVA</div>' +
+        '<div class="budget-summary__item"><strong>' + fmtCurrency(result.iva) + '</strong>IVA (10%)</div>' +
+        '<div class="budget-summary__item"><strong>' + m2 + ' m\u00B2</strong>Superficie</div>' +
+        '<div class="budget-summary__item"><strong>' + fmtCurrency(preuM2) + '/m\u00B2</strong>Preu per m\u00B2</div>' +
+      '</div>';
+    document.getElementById('budget-summary').innerHTML = summaryHtml;
+
+    /* ── Pack breakdown ──────────────────────────────────────── */
+    var packsHtml = '';
+    var packKeys = ['pack_envolvent', 'pack_installacions', 'pack_parking', 'pack_acabats'];
+
+    for (var p = 0; p < packKeys.length; p++) {
+      var packKey = packKeys[p];
+      var packData = result[packKey];
+      if (!packData) continue;
+
+      var packTotal = packData.total || 0;
+      var packId = 'pack-' + p;
+
+      packsHtml += '<div class="pack-card">' +
+        '<div class="pack-card__header" onclick="togglePack(\'' + packId + '\')">' +
+          '<div>' +
+            '<div class="pack-card__name">' + esc(packLabels[packKey] || packKey) + '</div>' +
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:12px;">' +
+            '<div class="pack-card__total">' + fmtCurrency(packTotal) + '</div>' +
+            '<div class="pack-card__toggle" id="toggle-' + packId + '">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="pack-card__items" id="items-' + packId + '">';
+
+      /* ── Items ────────────────────────────────────────────── */
+      var keys = Object.keys(packData);
+      for (var j = 0; j < keys.length; j++) {
+        var itemKey = keys[j];
+        if (itemKey === 'total') continue;
+        var itemVal = packData[itemKey];
+        if (itemVal === 0) continue;
+        packsHtml += '<div class="pack-item">' +
+          '<span class="pack-item__name">' + esc(itemLabels[itemKey] || itemKey) + '</span>' +
+          '<span class="pack-item__value">' + fmtCurrency(itemVal) + '</span>' +
+        '</div>';
+      }
+
+      packsHtml += '</div></div>';
+    }
+
+    /* ── Transport pack ──────────────────────────────────────── */
+    if (result.transport && result.transport > 0) {
+      packsHtml += '<div class="pack-card">' +
+        '<div class="pack-card__header">' +
+          '<div class="pack-card__name">' + esc(packLabels['transport']) + '</div>' +
+          '<div class="pack-card__total">' + fmtCurrency(result.transport) + '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    /* ── Contractacio pack ───────────────────────────────────── */
+    var contData = result.contractacio_externa;
+    if (contData) {
+      var contId = 'pack-contractacio';
+      packsHtml += '<div class="pack-card">' +
+        '<div class="pack-card__header" onclick="togglePack(\'' + contId + '\')">' +
+          '<div>' +
+            '<div class="pack-card__name">' + esc(packLabels['contractacio_externa']) + '</div>' +
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:12px;">' +
+            '<div class="pack-card__total">' + fmtCurrency(contData.total) + '</div>' +
+            '<div class="pack-card__toggle" id="toggle-' + contId + '">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="pack-card__items" id="items-' + contId + '">';
+
+      var contKeys = Object.keys(contData);
+      for (var ck = 0; ck < contKeys.length; ck++) {
+        var cKey = contKeys[ck];
+        if (cKey === 'total') continue;
+        var cVal = contData[cKey];
+        if (cVal === 0) continue;
+        packsHtml += '<div class="pack-item">' +
+          '<span class="pack-item__name">' + esc(itemLabels[cKey] || cKey) + '</span>' +
+          '<span class="pack-item__value">' + fmtCurrency(cVal) + '</span>' +
+        '</div>';
+      }
+
+      packsHtml += '</div></div>';
+    }
+
+    document.getElementById('budget-packs').innerHTML = packsHtml;
+
+    /* ── Totals breakdown ────────────────────────────────────── */
+    var totalsHtml = '<div style="display:flex;flex-direction:column;gap:12px;">';
+
+    var pe = result.pack_envolvent || {};
+    var pi = result.pack_installacions || {};
+    var pp = result.pack_parking || {};
+    var pa = result.pack_acabats || {};
+
+    totalsHtml += _totalRow('Envolvent Termic', pe.total);
+    totalsHtml += _totalRow("Instal\u00B7lacions", pi.total);
+    totalsHtml += _totalRow('Parking i Exteriors', pp.total);
+    totalsHtml += _totalRow('Acabats Interiors', pa.total);
+    totalsHtml += _totalRow('Transport', result.transport);
+
+    totalsHtml += '<div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px;">';
+    totalsHtml += _totalRow('Total construccio', result.total_construccio, true);
+    totalsHtml += '</div>';
+
+    if (contData) {
+      totalsHtml += _totalRow('Contractacio externa', contData.total);
+    }
+
+    totalsHtml += '<div style="border-top:2px solid var(--green);padding-top:12px;margin-top:4px;">';
+    totalsHtml += _totalRow('Subtotal sense IVA', result.total_sense_iva, true);
+    totalsHtml += _totalRow('IVA (10%)', result.iva);
+    totalsHtml += '<div style="margin-top:8px;">';
+    totalsHtml += _totalRow('TOTAL PRESSUPOST', result.total_pressupost, true, true);
+    totalsHtml += '</div></div>';
+
+    totalsHtml += '</div>';
+    document.getElementById('budget-totals').innerHTML = totalsHtml;
+
+    /* ── PDF download button ─────────────────────────────────── */
+    var pdfBtn = document.getElementById('btn-download-pdf');
+    if (clientBudgetConfig.pdf_path) {
+      pdfBtn.href = clientBudgetConfig.pdf_path;
+      pdfBtn.style.display = '';
+    } else {
+      pdfBtn.href = '/generar-pdf';
+      pdfBtn.style.display = '';
+    }
+
+    /* ── Init chatbot ────────────────────────────────────────── */
+    initChatbot();
+  }
+
+  function _totalRow(label, amount, bold, highlight) {
+    var style = 'display:flex;justify-content:space-between;padding:4px 0;font-size:14px;';
+    if (bold) style += 'font-weight:500;';
+    if (highlight) style += 'font-size:16px;color:var(--green);';
+    return '<div style="' + style + '">' +
+      '<span>' + esc(label) + '</span>' +
+      '<span>' + fmtCurrency(amount) + '</span>' +
+    '</div>';
+  }
+
+  /* ================================================================
+     RENDER: FACTURES
+     ================================================================ */
+  function renderFactures() {
+    var tableEl = document.getElementById('factures-table');
+    var emptyEl = document.getElementById('factures-empty');
+    var bannerEl = document.getElementById('factures-banner');
+
+    if (clientInvoices.length === 0) {
+      tableEl.style.display = 'none';
+      emptyEl.style.display = '';
+      bannerEl.style.display = 'none';
+      return;
+    }
+
+    tableEl.style.display = '';
+    emptyEl.style.display = 'none';
+
+    /* ── Outstanding amount ──────────────────────────────────── */
+    var outstanding = 0;
+    for (var o = 0; o < clientInvoices.length; o++) {
+      var invStatus = clientInvoices[o].status;
+      if (invStatus === 'sent' || invStatus === 'overdue') {
+        outstanding += parseFloat(clientInvoices[o].total_amount || 0);
+      }
+    }
+
+    if (outstanding > 0) {
+      bannerEl.style.display = '';
+      document.getElementById('factures-outstanding').textContent = fmtCurrency(outstanding);
+    } else {
+      bannerEl.style.display = 'none';
+    }
+
+    /* ── Table ────────────────────────────────────────────────── */
+    PapikCRM.renderTable('factures-table', {
+      columns: [
+        { key: 'invoice_number', label: 'Numero' },
+        {
+          key: 'projects',
+          label: 'Projecte',
+          render: function (val) {
+            if (val && val.name) return esc(val.name);
+            return '\u2014';
+          }
+        },
+        {
+          key: 'total_amount',
+          label: 'Import',
+          render: function (val) {
+            return fmtCurrency(val);
+          }
+        },
+        {
+          key: 'status',
+          label: 'Estat',
+          render: function (val) {
+            return PapikCRM.statusBadge(val);
+          }
+        },
+        {
+          key: 'issued_date',
+          label: 'Data Emissio',
+          render: function (val) {
+            return PapikCRM.formatDate(val);
+          }
+        },
+        {
+          key: 'due_date',
+          label: 'Data Venciment',
+          render: function (val) {
+            return PapikCRM.formatDate(val);
+          }
+        }
+      ],
+      data: clientInvoices,
+      searchKey: 'invoice_number',
+      emptyMessage: 'No hi ha factures.'
+    });
+  }
+
+  /* ================================================================
+     RENDER: DOCUMENTS
+     ================================================================ */
+  function renderDocuments() {
+    var tableEl = document.getElementById('documents-table');
+    var emptyEl = document.getElementById('documents-empty');
+
+    if (clientDocuments.length === 0) {
+      tableEl.style.display = 'none';
+      emptyEl.style.display = '';
+      return;
+    }
+
+    tableEl.style.display = '';
+    emptyEl.style.display = 'none';
+
+    PapikCRM.renderTable('documents-table', {
+      columns: [
+        { key: 'name', label: 'Nom' },
+        {
+          key: 'category',
+          label: 'Categoria',
+          render: function (val) {
+            return esc(val || 'General');
+          }
+        },
+        {
+          key: 'file_size',
+          label: 'Mida',
+          render: function (val) {
+            return PapikCRM.formatFileSize(val);
+          }
+        },
+        {
+          key: 'created_at',
+          label: 'Data',
+          render: function (val) {
+            return PapikCRM.formatDate(val);
+          }
+        },
+        {
+          key: 'file_path',
+          label: 'Accio',
+          render: function (val, row) {
+            if (!val) return '\u2014';
+            return '<button class="btn btn-sm btn-secondary" onclick="downloadDoc(\'' + esc(val) + '\')">Descarregar</button>';
+          }
+        }
+      ],
+      data: clientDocuments,
+      searchKey: 'name',
+      emptyMessage: 'No hi ha documents.'
+    });
+  }
+
+  /* ── Download document ─────────────────────────────────────── */
+  window.downloadDoc = function (filePath) {
+    PapikCRM.getFileUrl(filePath).then(function (url) {
+      if (url) {
+        window.open(url, '_blank');
+      } else {
+        PapikCRM.toast('No s\'ha pogut obtenir l\'URL del document.', 'error');
+      }
+    }).catch(function (err) {
+      PapikCRM.toast('Error descarregant el document.', 'error');
+    });
+  };
+
+  /* ── Toggle pack expand/collapse ───────────────────────────── */
+  window.togglePack = function (packId) {
+    var items = document.getElementById('items-' + packId);
+    var toggle = document.getElementById('toggle-' + packId);
+    if (!items) return;
+
+    if (items.classList.contains('open')) {
+      items.classList.remove('open');
+      if (toggle) toggle.classList.remove('open');
+    } else {
+      items.classList.add('open');
+      if (toggle) toggle.classList.add('open');
+    }
+  };
+
+  /* ================================================================
+     CHATBOT
+     ================================================================ */
+  function initChatbot() {
+    var input = document.getElementById('chat-input');
+    var sendBtn = document.getElementById('chat-send-btn');
+
+    if (!input || !sendBtn) return;
+
+    sendBtn.addEventListener('click', function () {
+      sendChatMessage();
+    });
+
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendChatMessage();
+      }
+    });
+  }
+
+  function sendChatMessage() {
+    var input = document.getElementById('chat-input');
+    var messagesEl = document.getElementById('chat-messages');
+    var sendBtn = document.getElementById('chat-send-btn');
+
+    var message = (input.value || '').trim();
+    if (!message) return;
+
+    /* ── Add user message ────────────────────────────────────── */
+    var userBubble = document.createElement('div');
+    userBubble.className = 'chat-msg chat-msg--user';
+    userBubble.textContent = message;
+    messagesEl.appendChild(userBubble);
+
+    input.value = '';
+    sendBtn.disabled = true;
+
+    /* ── Scroll to bottom ────────────────────────────────────── */
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+
+    /* ── Show typing indicator ───────────────────────────────── */
+    var typingEl = document.createElement('div');
+    typingEl.className = 'chat-msg chat-msg--typing';
+    typingEl.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+    messagesEl.appendChild(typingEl);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+
+    /* ── Build request body ──────────────────────────────────── */
+    var body = {
+      message: message
+    };
+
+    if (chatConversationId) {
+      body.conversation_id = chatConversationId;
+    }
+
+    if (!chatConversationId && clientBudgetConfig) {
+      body.budget_input = clientBudgetConfig.config_input || {};
+      body.budget_result = clientBudgetConfig.config_result || {};
+    }
+
+    /* ── Send to Flask backend ───────────────────────────────── */
+    fetch('/chat-pressupost', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    })
+    .then(function (resp) {
+      return resp.json();
+    })
+    .then(function (data) {
+      /* ── Remove typing indicator ───────────────────────────── */
+      if (typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+
+      if (data.error) {
+        addBotMessage('Ho sento, hi ha hagut un error: ' + (data.error || 'Error desconegut'));
+      } else {
+        var answer = data.answer || "No s'ha pogut obtenir resposta.";
+        if (data.conversation_id) {
+          chatConversationId = data.conversation_id;
+        }
+        addBotMessage(answer);
+      }
+      sendBtn.disabled = false;
+    })
+    .catch(function (err) {
+      if (typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+      addBotMessage("Error de connexio amb l'assessor. Torna-ho a intentar.");
+      sendBtn.disabled = false;
+      console.error('Chat error:', err);
+    });
+  }
+
+  function addBotMessage(text) {
+    var messagesEl = document.getElementById('chat-messages');
+    var botBubble = document.createElement('div');
+    botBubble.className = 'chat-msg chat-msg--bot';
+    botBubble.textContent = text;
+    messagesEl.appendChild(botBubble);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+})();
+</script>
+</body>
+</html>

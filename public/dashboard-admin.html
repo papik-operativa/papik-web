@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | PAPIK</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="papik-crm.css">
+</head>
+<body data-allowed-roles="admin">
+
+<!-- ═══════════════════════════════════════════════════════════
+     LOADING STATE
+     ═══════════════════════════════════════════════════════════ -->
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Carregant...</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN APP
+     ═══════════════════════════════════════════════════════════ -->
+<div id="app" class="crm-layout" style="display:none;">
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside class="crm-sidebar" id="sidebar">
+    <div class="crm-sidebar__logo" id="sidebar-logo"></div>
+    <nav class="crm-sidebar__nav">
+      <div class="nav-section-label">Principal</div>
+      <button class="nav-item active" data-section="sec-inici" data-label="Inici">
+        <span class="nav-item__icon" id="nav-icon-home"></span>
+        Inici
+      </button>
+      <button class="nav-item" data-section="sec-usuaris" data-label="Usuaris">
+        <span class="nav-item__icon" id="nav-icon-users"></span>
+        Usuaris
+      </button>
+      <button class="nav-item" data-section="sec-projectes" data-label="Projectes">
+        <span class="nav-item__icon" id="nav-icon-projects"></span>
+        Projectes
+      </button>
+      <div class="nav-section-label">Finances</div>
+      <button class="nav-item" data-section="sec-factures" data-label="Factures">
+        <span class="nav-item__icon" id="nav-icon-invoices"></span>
+        Factures
+      </button>
+      <button class="nav-item" data-section="sec-pressupostos" data-label="Pressupostos">
+        <span class="nav-item__icon" id="nav-icon-budgets"></span>
+        Pressupostos
+      </button>
+      <div class="nav-section-label">Arxius</div>
+      <button class="nav-item" data-section="sec-documents" data-label="Documents">
+        <span class="nav-item__icon" id="nav-icon-documents"></span>
+        Documents
+      </button>
+    </nav>
+    <div class="crm-sidebar__footer">
+      <div class="sidebar-user">
+        <div class="sidebar-user__name" id="sidebar-user-name"></div>
+        <div class="sidebar-user__role" id="sidebar-user-role"></div>
+      </div>
+      <button class="sidebar-logout" onclick="papikLogout()">Tancar sessio</button>
+    </div>
+  </aside>
+
+  <!-- ─── MAIN AREA ─── -->
+  <div class="crm-main">
+
+    <!-- Top bar -->
+    <header class="crm-topbar" style="border-left-color: var(--role-admin);">
+      <div class="flex gap-12" style="align-items:center;">
+        <button class="crm-topbar__hamburger" id="hamburger-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="crm-topbar__title">Inici</span>
+      </div>
+      <div class="crm-topbar__actions">
+        <span class="text-sm text-muted" id="topbar-user-name"></span>
+        <span class="badge badge-admin">ADMIN</span>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 1: INICI
+         ═══════════════════════════════════════════════════════ -->
+    <div class="crm-section active" id="sec-inici">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2 id="welcome-msg">Benvingut</h2>
+            <p>Panell d'administracio del sistema PAPIK</p>
+          </div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-card__icon kpi-card__icon--green" id="kpi-icon-users"></div>
+            <div class="kpi-card__label">Total Usuaris</div>
+            <div class="kpi-card__value" id="kpi-users">0</div>
+            <div class="kpi-card__desc">Comptes registrats</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__icon kpi-card__icon--blue" id="kpi-icon-projects"></div>
+            <div class="kpi-card__label">Projectes Actius</div>
+            <div class="kpi-card__value" id="kpi-projects">0</div>
+            <div class="kpi-card__desc">En curs actualment</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__icon kpi-card__icon--orange" id="kpi-icon-invoices"></div>
+            <div class="kpi-card__label">Factures Pendents</div>
+            <div class="kpi-card__value" id="kpi-pending-invoices">0</div>
+            <div class="kpi-card__desc">Pendents de cobrament</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__icon kpi-card__icon--purple" id="kpi-icon-revenue"></div>
+            <div class="kpi-card__label">Ingressos Totals</div>
+            <div class="kpi-card__value" id="kpi-revenue" style="font-size:24px;">0,00 &euro;</div>
+            <div class="kpi-card__desc">Factures pagades</div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+          <button class="quick-action" onclick="PapikCRM.showSection('sec-projectes'); setTimeout(function(){ openProjectModal(); }, 200);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Nou Projecte
+          </button>
+          <button class="quick-action" onclick="PapikCRM.showSection('sec-usuaris'); setTimeout(function(){ openUserModal(); }, 200);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            Nou Usuari
+          </button>
+          <button class="quick-action" onclick="PapikCRM.showSection('sec-factures'); setTimeout(function(){ openInvoiceModal(); }, 200);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg>
+            Nova Factura
+          </button>
+        </div>
+
+        <!-- Charts -->
+        <div class="chart-grid mb-32">
+          <div class="chart-card">
+            <div class="chart-card__title">Facturacio mensual</div>
+            <div style="height:260px;"><canvas id="chart-billing"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-card__title">Projectes per estat</div>
+            <div style="height:260px;"><canvas id="chart-projects-status"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="chart-card">
+          <div class="chart-card__title">Activitat recent</div>
+          <div class="activity-feed" id="activity-feed"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 2: USUARIS
+         ═══════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-usuaris">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2>Usuaris</h2>
+            <p>Gestio dels comptes d'usuari del sistema</p>
+          </div>
+          <button class="btn btn-primary" onclick="openUserModal()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Nou Usuari
+          </button>
+        </div>
+
+        <!-- Filters -->
+        <div class="data-table-wrapper">
+          <div class="data-table-toolbar">
+            <input type="text" class="data-table-search" id="users-search" placeholder="Cercar usuaris..." oninput="filterUsersTable()">
+            <select class="data-table-filter" id="users-role-filter" onchange="filterUsersTable()">
+              <option value="">Tots els rols</option>
+              <option value="cliente">Client</option>
+              <option value="arquitecto">Arquitecte</option>
+              <option value="empleado">Empleat</option>
+              <option value="secretario">Secretari</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <table class="data-table" id="users-table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Empresa</th>
+                <th>Actiu</th>
+                <th>Accions</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 3: PROJECTES
+         ═══════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-projectes">
+      <div class="crm-content">
+
+        <!-- Projects List View -->
+        <div id="projects-list-view">
+          <div class="section-header">
+            <div>
+              <h2>Projectes</h2>
+              <p>Gestio de projectes de construccio</p>
+            </div>
+            <button class="btn btn-primary" onclick="openProjectModal()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Nou Projecte
+            </button>
+          </div>
+
+          <div class="data-table-wrapper">
+            <div class="data-table-toolbar">
+              <input type="text" class="data-table-search" id="projects-search" placeholder="Cercar projectes..." oninput="filterProjectsTable()">
+              <select class="data-table-filter" id="projects-status-filter" onchange="filterProjectsTable()">
+                <option value="">Tots els estats</option>
+                <option value="draft">Esborrany</option>
+                <option value="in_progress">En curs</option>
+                <option value="completed">Completat</option>
+                <option value="archived">Arxivat</option>
+              </select>
+            </div>
+            <table class="data-table" id="projects-table">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Client</th>
+                  <th>Estat</th>
+                  <th>Pressupost</th>
+                  <th>Data inici</th>
+                  <th>Accions</th>
+                </tr>
+              </thead>
+              <tbody id="projects-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Project Detail View -->
+        <div id="project-detail-view" style="display:none;">
+          <div class="section-header mb-16">
+            <button class="btn btn-secondary btn-sm" onclick="closeProjectDetail()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12,19 5,12 12,5"/></svg>
+              Tornar
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="openEditProjectModal()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Editar
+            </button>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail__header">
+              <div>
+                <div class="project-detail__title" id="pd-title"></div>
+                <div class="project-detail__address" id="pd-address"></div>
+              </div>
+              <div id="pd-status"></div>
+            </div>
+            <div class="project-detail__body">
+              <!-- Tabs -->
+              <div class="tabs" id="pd-tabs">
+                <button class="tab active" onclick="showProjectTab('pd-tab-info')">Info</button>
+                <button class="tab" onclick="showProjectTab('pd-tab-membres')">Membres</button>
+                <button class="tab" onclick="showProjectTab('pd-tab-documents')">Documents</button>
+                <button class="tab" onclick="showProjectTab('pd-tab-tasques')">Tasques</button>
+                <button class="tab" onclick="showProjectTab('pd-tab-notes')">Notes</button>
+                <button class="tab" onclick="showProjectTab('pd-tab-pressupost')">Pressupost</button>
+              </div>
+
+              <!-- Tab: Info -->
+              <div class="pd-tab active" id="pd-tab-info">
+                <div class="form-row mb-24">
+                  <div>
+                    <div class="text-xs text-muted mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Descripcio</div>
+                    <div id="pd-description" class="text-sm">--</div>
+                  </div>
+                  <div>
+                    <div class="text-xs text-muted mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Client</div>
+                    <div id="pd-client" class="text-sm">--</div>
+                  </div>
+                </div>
+                <div class="form-row mb-24">
+                  <div>
+                    <div class="text-xs text-muted mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Data inici</div>
+                    <div id="pd-start-date" class="text-sm">--</div>
+                  </div>
+                  <div>
+                    <div class="text-xs text-muted mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Data estimada fi</div>
+                    <div id="pd-end-date" class="text-sm">--</div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div>
+                    <div class="text-xs text-muted mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Pressupost total</div>
+                    <div id="pd-budget" class="text-sm fw-500">--</div>
+                  </div>
+                  <div>
+                    <div class="text-xs text-muted mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Data fi real</div>
+                    <div id="pd-actual-end" class="text-sm">--</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab: Membres -->
+              <div class="pd-tab" id="pd-tab-membres" style="display:none;">
+                <div class="flex-between mb-16">
+                  <span class="text-sm text-muted">Membres del projecte</span>
+                  <button class="btn btn-primary btn-sm" onclick="openAddMemberModal()">Afegir membre</button>
+                </div>
+                <div id="pd-members-list"></div>
+              </div>
+
+              <!-- Tab: Documents -->
+              <div class="pd-tab" id="pd-tab-documents" style="display:none;">
+                <div class="flex-between mb-16">
+                  <span class="text-sm text-muted">Documents del projecte</span>
+                  <button class="btn btn-primary btn-sm" onclick="openUploadDocModalProject()">Pujar document</button>
+                </div>
+                <div id="pd-documents-list"></div>
+              </div>
+
+              <!-- Tab: Tasques -->
+              <div class="pd-tab" id="pd-tab-tasques" style="display:none;">
+                <div class="flex-between mb-16">
+                  <span class="text-sm text-muted">Tasques del projecte</span>
+                  <button class="btn btn-primary btn-sm" onclick="openTaskModal()">Nova tasca</button>
+                </div>
+                <div id="pd-tasks-list"></div>
+              </div>
+
+              <!-- Tab: Notes -->
+              <div class="pd-tab" id="pd-tab-notes" style="display:none;">
+                <div class="flex-between mb-16">
+                  <span class="text-sm text-muted">Notes del projecte</span>
+                  <button class="btn btn-primary btn-sm" onclick="openNoteModal()">Nova nota</button>
+                </div>
+                <div id="pd-notes-list"></div>
+              </div>
+
+              <!-- Tab: Pressupost -->
+              <div class="pd-tab" id="pd-tab-pressupost" style="display:none;">
+                <div class="flex-between mb-16">
+                  <span class="text-sm text-muted">Partides del pressupost</span>
+                  <button class="btn btn-primary btn-sm" onclick="openBudgetItemModal()">Nova partida</button>
+                </div>
+                <div id="pd-budget-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 4: FACTURES
+         ═══════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-factures">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2>Factures</h2>
+            <p>Gestio de factures i cobraments</p>
+          </div>
+          <button class="btn btn-primary" onclick="openInvoiceModal()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Nova Factura
+          </button>
+        </div>
+        <div class="data-table-wrapper">
+          <div class="data-table-toolbar">
+            <input type="text" class="data-table-search" id="invoices-search" placeholder="Cercar factures..." oninput="filterInvoicesTable()">
+            <select class="data-table-filter" id="invoices-status-filter" onchange="filterInvoicesTable()">
+              <option value="">Tots els estats</option>
+              <option value="draft">Esborrany</option>
+              <option value="sent">Enviada</option>
+              <option value="paid">Pagada</option>
+              <option value="overdue">Vencuda</option>
+              <option value="cancelled">Cancel-lada</option>
+            </select>
+          </div>
+          <table class="data-table" id="invoices-table">
+            <thead>
+              <tr>
+                <th>Numero</th>
+                <th>Projecte</th>
+                <th>Client</th>
+                <th>Import</th>
+                <th>Estat</th>
+                <th>Data</th>
+                <th>Accions</th>
+              </tr>
+            </thead>
+            <tbody id="invoices-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 5: PRESSUPOSTOS
+         ═══════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-pressupostos">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2>Pressupostos</h2>
+            <p>Partides de pressupost per projecte</p>
+          </div>
+          <button class="btn btn-primary" id="btn-add-budget-section" onclick="openBudgetItemSectionModal()" style="display:none;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Afegir Partida
+          </button>
+        </div>
+
+        <!-- Project selector -->
+        <div class="data-table-wrapper mb-24">
+          <div class="data-table-toolbar">
+            <select class="data-table-filter" id="budget-project-select" onchange="loadBudgetForProject()" style="width:100%;max-width:400px;">
+              <option value="">Seleccionar projecte...</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Budget items table -->
+        <div id="budget-section-content" style="display:none;">
+          <div class="data-table-wrapper">
+            <table class="data-table" id="budget-items-table">
+              <thead>
+                <tr>
+                  <th>Categoria</th>
+                  <th>Descripcio</th>
+                  <th>Quantitat</th>
+                  <th>Preu Unitari</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="budget-items-tbody"></tbody>
+            </table>
+          </div>
+
+          <!-- Category summary -->
+          <div class="chart-card" style="margin-top:20px;">
+            <div class="chart-card__title">Resum per categoria</div>
+            <div id="budget-category-summary"></div>
+          </div>
+        </div>
+
+        <!-- Empty state when no project selected -->
+        <div id="budget-empty-state">
+          <div class="empty-state">
+            <div class="empty-state__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg>
+            </div>
+            <h3>Selecciona un projecte</h3>
+            <p>Tria un projecte per veure les seves partides de pressupost</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 6: DOCUMENTS
+         ═══════════════════════════════════════════════════════ -->
+    <div class="crm-section" id="sec-documents">
+      <div class="crm-content">
+        <div class="section-header">
+          <div>
+            <h2>Documents</h2>
+            <p>Arxius i documentacio dels projectes</p>
+          </div>
+          <button class="btn btn-primary" onclick="openUploadDocModal()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Pujar Document
+          </button>
+        </div>
+        <div class="data-table-wrapper">
+          <div class="data-table-toolbar">
+            <input type="text" class="data-table-search" id="docs-search" placeholder="Cercar documents..." oninput="filterDocsTable()">
+            <div class="flex gap-8">
+              <select class="data-table-filter" id="docs-category-filter" onchange="filterDocsTable()">
+                <option value="">Totes les categories</option>
+                <option value="project">Projecte</option>
+                <option value="internal">Intern</option>
+                <option value="budget">Pressupost</option>
+                <option value="blueprint">Planols</option>
+                <option value="permit">Permisos</option>
+                <option value="other">Altres</option>
+              </select>
+              <select class="data-table-filter" id="docs-project-filter" onchange="filterDocsTable()">
+                <option value="">Tots els projectes</option>
+              </select>
+            </div>
+          </div>
+          <table class="data-table" id="docs-table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Projecte</th>
+                <th>Categoria</th>
+                <th>Mida</th>
+                <th>Pujat per</th>
+                <th>Data</th>
+                <th>Accions</th>
+              </tr>
+            </thead>
+            <tbody id="docs-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /crm-main -->
+</div><!-- /app -->
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODALS
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- Modal: Create/Edit User -->
+<div class="modal-overlay" id="modal-user">
+  <div class="modal">
+    <div class="modal__header">
+      <h3 id="modal-user-title">Nou Usuari</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-user')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-user" onsubmit="return false;">
+        <input type="hidden" name="id">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" name="first_name" class="form-input" required placeholder="Nom">
+          </div>
+          <div class="form-group">
+            <label>Cognoms</label>
+            <input type="text" name="last_name" class="form-input" required placeholder="Cognoms">
+          </div>
+        </div>
+        <div class="form-group" id="user-email-group">
+          <label>Email</label>
+          <input type="email" name="email" class="form-input" required placeholder="correu@exemple.com">
+        </div>
+        <div class="form-group" id="user-password-group">
+          <label>Contrasenya</label>
+          <input type="password" name="password" class="form-input" required placeholder="Minim 6 caracters">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Rol</label>
+            <select name="role" class="form-select" required>
+              <option value="">Seleccionar rol...</option>
+              <option value="cliente">Client</option>
+              <option value="arquitecto">Arquitecte</option>
+              <option value="empleado">Empleat</option>
+              <option value="secretario">Secretari</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="text" name="phone" class="form-input" placeholder="Telefon">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Empresa</label>
+          <input type="text" name="company" class="form-input" placeholder="Empresa">
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-user')">Cancel-lar</button>
+      <button class="btn btn-primary" id="btn-save-user" onclick="saveUser()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Create/Edit Project -->
+<div class="modal-overlay" id="modal-project">
+  <div class="modal modal--lg">
+    <div class="modal__header">
+      <h3 id="modal-project-title">Nou Projecte</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-project')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-project" onsubmit="return false;">
+        <input type="hidden" name="id">
+        <div class="form-group">
+          <label>Nom del projecte</label>
+          <input type="text" name="name" class="form-input" required placeholder="Nom del projecte">
+        </div>
+        <div class="form-group">
+          <label>Descripcio</label>
+          <textarea name="description" class="form-textarea" placeholder="Descripcio del projecte"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Adreca</label>
+          <input type="text" name="address" class="form-input" placeholder="Adreca de l'obra">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Client</label>
+            <select name="client_id" class="form-select" id="project-client-select">
+              <option value="">Seleccionar client...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Estat</label>
+            <select name="status" class="form-select">
+              <option value="draft">Esborrany</option>
+              <option value="in_progress">En curs</option>
+              <option value="completed">Completat</option>
+              <option value="archived">Arxivat</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row cols-3">
+          <div class="form-group">
+            <label>Data inici</label>
+            <input type="date" name="start_date" class="form-input">
+          </div>
+          <div class="form-group">
+            <label>Data estimada fi</label>
+            <input type="date" name="estimated_end_date" class="form-input">
+          </div>
+          <div class="form-group">
+            <label>Pressupost total</label>
+            <input type="number" name="budget_total" class="form-input" step="0.01" placeholder="0,00">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-project')">Cancel-lar</button>
+      <button class="btn btn-primary" onclick="saveProject()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Create/Edit Invoice -->
+<div class="modal-overlay" id="modal-invoice">
+  <div class="modal modal--lg">
+    <div class="modal__header">
+      <h3 id="modal-invoice-title">Nova Factura</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-invoice')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-invoice" onsubmit="return false;">
+        <input type="hidden" name="id">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Numero de factura</label>
+            <input type="text" name="invoice_number" class="form-input" required placeholder="F-2026-001">
+          </div>
+          <div class="form-group">
+            <label>Estat</label>
+            <select name="status" class="form-select">
+              <option value="draft">Esborrany</option>
+              <option value="sent">Enviada</option>
+              <option value="paid">Pagada</option>
+              <option value="overdue">Vencuda</option>
+              <option value="cancelled">Cancel-lada</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Projecte</label>
+            <select name="project_id" class="form-select" id="invoice-project-select">
+              <option value="">Seleccionar projecte...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Client</label>
+            <select name="client_id" class="form-select" id="invoice-client-select">
+              <option value="">Seleccionar client...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row cols-3">
+          <div class="form-group">
+            <label>Import base</label>
+            <input type="number" name="amount" class="form-input" step="0.01" required placeholder="0,00" oninput="calcInvoiceTotal()">
+          </div>
+          <div class="form-group">
+            <label>IVA (import)</label>
+            <input type="number" name="tax_amount" class="form-input" step="0.01" value="0" oninput="calcInvoiceTotal()">
+          </div>
+          <div class="form-group">
+            <label>Total</label>
+            <input type="number" name="total_amount" class="form-input" step="0.01" readonly>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Data emissio</label>
+            <input type="date" name="issued_date" class="form-input">
+          </div>
+          <div class="form-group">
+            <label>Data venciment</label>
+            <input type="date" name="due_date" class="form-input">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Descripcio</label>
+          <textarea name="description" class="form-textarea" placeholder="Descripcio de la factura"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-invoice')">Cancel-lar</button>
+      <button class="btn btn-primary" onclick="saveInvoice()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Upload Document -->
+<div class="modal-overlay" id="modal-upload-doc">
+  <div class="modal">
+    <div class="modal__header">
+      <h3>Pujar Document</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-upload-doc')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-upload-doc" onsubmit="return false;">
+        <div class="form-group">
+          <label>Projecte</label>
+          <select name="project_id" class="form-select" id="upload-project-select" required>
+            <option value="">Seleccionar projecte...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Titol</label>
+          <input type="text" name="title" class="form-input" placeholder="Titol del document">
+        </div>
+        <div class="form-group">
+          <label>Categoria</label>
+          <select name="category" class="form-select">
+            <option value="project">Projecte</option>
+            <option value="internal">Intern</option>
+            <option value="budget">Pressupost</option>
+            <option value="blueprint">Planols</option>
+            <option value="permit">Permisos</option>
+            <option value="other">Altres</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fitxer</label>
+          <input type="file" name="file" class="form-input" required style="padding-top:10px;">
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-upload-doc')">Cancel-lar</button>
+      <button class="btn btn-primary" onclick="uploadDocument()">Pujar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Add Member -->
+<div class="modal-overlay" id="modal-add-member">
+  <div class="modal">
+    <div class="modal__header">
+      <h3>Afegir Membre</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-add-member')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-add-member" onsubmit="return false;">
+        <div class="form-group">
+          <label>Usuari</label>
+          <select name="user_id" class="form-select" id="member-user-select" required>
+            <option value="">Seleccionar usuari...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Rol al projecte</label>
+          <input type="text" name="role_in_project" class="form-input" placeholder="Ex: Arquitecte principal, Cap d'obra...">
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-add-member')">Cancel-lar</button>
+      <button class="btn btn-primary" onclick="addMember()">Afegir</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Add Task -->
+<div class="modal-overlay" id="modal-task">
+  <div class="modal">
+    <div class="modal__header">
+      <h3>Nova Tasca</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-task')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-task" onsubmit="return false;">
+        <div class="form-group">
+          <label>Titol</label>
+          <input type="text" name="title" class="form-input" required placeholder="Titol de la tasca">
+        </div>
+        <div class="form-group">
+          <label>Descripcio</label>
+          <textarea name="description" class="form-textarea" placeholder="Descripcio de la tasca"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prioritat</label>
+            <select name="priority" class="form-select">
+              <option value="low">Baixa</option>
+              <option value="medium" selected>Mitjana</option>
+              <option value="high">Alta</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Estat</label>
+            <select name="status" class="form-select">
+              <option value="pending">Pendent</option>
+              <option value="in_progress">En curs</option>
+              <option value="completed">Completada</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Assignat a</label>
+            <select name="assigned_to" class="form-select" id="task-assignee-select">
+              <option value="">Sense assignar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Data limit</label>
+            <input type="date" name="due_date" class="form-input">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-task')">Cancel-lar</button>
+      <button class="btn btn-primary" onclick="saveTask()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Add Note -->
+<div class="modal-overlay" id="modal-note">
+  <div class="modal">
+    <div class="modal__header">
+      <h3>Nova Nota</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-note')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-note" onsubmit="return false;">
+        <div class="form-group">
+          <label>Contingut</label>
+          <textarea name="content" class="form-textarea" required placeholder="Escriu la teva nota..." style="min-height:140px;"></textarea>
+        </div>
+        <div class="form-group">
+          <label><input type="checkbox" name="is_internal" checked> Nota interna (nomes visible per l'equip)</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-note')">Cancel-lar</button>
+      <button class="btn btn-primary" onclick="saveNote()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Add Budget Item (Project Detail) -->
+<div class="modal-overlay" id="modal-budget-item">
+  <div class="modal">
+    <div class="modal__header">
+      <h3>Nova Partida</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-budget-item')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-budget-item" onsubmit="return false;">
+        <div class="form-group">
+          <label>Categoria</label>
+          <select name="category" class="form-select" required>
+            <option value="">Seleccionar categoria...</option>
+            <option value="estructura">Estructura</option>
+            <option value="tancaments">Tancaments</option>
+            <option value="installacions">Installacions</option>
+            <option value="acabats">Acabats</option>
+            <option value="fusteria">Fusteria</option>
+            <option value="urbanitzacio">Urbanitzacio</option>
+            <option value="honoraris">Honoraris</option>
+            <option value="llicencies">Llicencies</option>
+            <option value="altres">Altres</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Descripcio</label>
+          <input type="text" name="description" class="form-input" placeholder="Descripcio de la partida">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Quantitat</label>
+            <input type="number" name="quantity" class="form-input" step="0.01" value="1">
+          </div>
+          <div class="form-group">
+            <label>Preu unitari</label>
+            <input type="number" name="unit_price" class="form-input" step="0.01" placeholder="0,00">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Notes</label>
+          <textarea name="notes" class="form-textarea" placeholder="Notes addicionals"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-budget-item')">Cancel-lar</button>
+      <button class="btn btn-primary" onclick="saveBudgetItem()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Add Budget Item (Pressupostos Section) -->
+<div class="modal-overlay" id="modal-budget-item-section">
+  <div class="modal">
+    <div class="modal__header">
+      <h3>Nova Partida</h3>
+      <button class="modal__close" onclick="PapikCRM.closeModal('modal-budget-item-section')">&times;</button>
+    </div>
+    <div class="modal__body">
+      <form id="form-budget-item-section" onsubmit="return false;">
+        <div class="form-group">
+          <label>Categoria</label>
+          <select name="category" class="form-select" required>
+            <option value="">Seleccionar categoria...</option>
+            <option value="estructura">Estructura</option>
+            <option value="tancaments">Tancaments</option>
+            <option value="installacions">Installacions</option>
+            <option value="acabats">Acabats</option>
+            <option value="fusteria">Fusteria</option>
+            <option value="urbanitzacio">Urbanitzacio</option>
+            <option value="honoraris">Honoraris</option>
+            <option value="llicencies">Llicencies</option>
+            <option value="altres">Altres</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Descripcio</label>
+          <input type="text" name="description" class="form-input" placeholder="Descripcio de la partida">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Quantitat</label>
+            <input type="number" name="quantity" class="form-input" step="0.01" value="1">
+          </div>
+          <div class="form-group">
+            <label>Preu unitari</label>
+            <input type="number" name="unit_price" class="form-input" step="0.01" placeholder="0,00">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Notes</label>
+          <textarea name="notes" class="form-textarea" placeholder="Notes addicionals"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-secondary" onclick="PapikCRM.closeModal('modal-budget-item-section')">Cancel-lar</button>
+      <button class="btn btn-primary" onclick="saveBudgetItemSection()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+     ═══════════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-auth.js"></script>
+<script src="supabase-guard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="papik-crm.js"></script>
+<script>
+/* ──────────────────────────────────────────────────────────────
+   PAPIK CRM — Admin Dashboard
+   All text in Catalan. Uses 'var' exclusively.
+   ────────────────────────────────────────────────────────────── */
+
+/* ═══════════════ GLOBAL STATE ═══════════════ */
+var allUsers = [];
+var allProjects = [];
+var allInvoices = [];
+var allDocuments = [];
+var currentProjectDetail = null;
+var currentProjectId = null;
+var currentBudgetProjectId = null;
+var currentBudgetItems = [];
+
+/* ═══════════════ CATEGORY LABELS ═══════════════ */
+var categoryLabels = {
+  project: 'Projecte',
+  internal: 'Intern',
+  budget: 'Pressupost',
+  blueprint: 'Planols',
+  permit: 'Permisos',
+  other: 'Altres'
+};
+
+var budgetCategoryLabels = {
+  estructura: 'Estructura',
+  tancaments: 'Tancaments',
+  installacions: 'Installacions',
+  acabats: 'Acabats',
+  fusteria: 'Fusteria',
+  urbanitzacio: 'Urbanitzacio',
+  honoraris: 'Honoraris',
+  llicencies: 'Llicencies',
+  altres: 'Altres'
+};
+
+/* ═══════════════ INIT ON USER READY ═══════════════ */
+document.addEventListener('papik:user-ready', function (e) {
+  var user = e.detail;
+
+  /* Hide loading, show app */
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('app').style.display = '';
+
+  /* Set sidebar logo */
+  document.getElementById('sidebar-logo').innerHTML = PapikCRM.logoSVG;
+
+  /* Set nav icons */
+  document.getElementById('nav-icon-home').innerHTML = PapikCRM.icons.home;
+  document.getElementById('nav-icon-users').innerHTML = PapikCRM.icons.users;
+  document.getElementById('nav-icon-projects').innerHTML = PapikCRM.icons.projects;
+  document.getElementById('nav-icon-invoices').innerHTML = PapikCRM.icons.invoices;
+  document.getElementById('nav-icon-budgets').innerHTML = PapikCRM.icons.budgets;
+  document.getElementById('nav-icon-documents').innerHTML = PapikCRM.icons.documents;
+
+  /* Set KPI icons */
+  document.getElementById('kpi-icon-users').innerHTML = PapikCRM.icons.users;
+  document.getElementById('kpi-icon-projects').innerHTML = PapikCRM.icons.projects;
+  document.getElementById('kpi-icon-invoices').innerHTML = PapikCRM.icons.invoices;
+  document.getElementById('kpi-icon-revenue').innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>';
+
+  /* User info */
+  document.getElementById('sidebar-user-name').textContent = user.firstName + ' ' + user.lastName;
+  document.getElementById('sidebar-user-role').textContent = user.role;
+  document.getElementById('topbar-user-name').textContent = user.firstName + ' ' + user.lastName;
+  document.getElementById('welcome-msg').textContent = 'Benvingut, ' + user.firstName;
+
+  /* Init navigation */
+  PapikCRM.initNav();
+
+  /* Load all data */
+  loadDashboardData();
+});
+
+
+/* ═══════════════════════════════════════════════════════════════
+   DASHBOARD DATA LOADERS
+   ═══════════════════════════════════════════════════════════════ */
+
+async function loadDashboardData() {
+  try {
+    var results = await Promise.all([
+      PapikCRM.fetchUsers(),
+      PapikCRM.fetchProjects(),
+      PapikCRM.fetchInvoices(),
+      PapikCRM.fetchDocuments(),
+      PapikCRM.fetchActivity(15)
+    ]);
+
+    allUsers = results[0];
+    allProjects = results[1];
+    allInvoices = results[2];
+    allDocuments = results[3];
+    var activities = results[4];
+
+    /* KPIs */
+    document.getElementById('kpi-users').textContent = allUsers.length;
+    var activeProjects = allProjects.filter(function (p) { return p.status === 'in_progress'; });
+    document.getElementById('kpi-projects').textContent = activeProjects.length;
+
+    var pendingInvoices = allInvoices.filter(function (i) { return i.status === 'sent' || i.status === 'overdue'; });
+    document.getElementById('kpi-pending-invoices').textContent = pendingInvoices.length;
+
+    var totalRevenue = 0;
+    for (var ri = 0; ri < allInvoices.length; ri++) {
+      if (allInvoices[ri].status === 'paid') {
+        totalRevenue += parseFloat(allInvoices[ri].total_amount || 0);
+      }
+    }
+    document.getElementById('kpi-revenue').textContent = PapikCRM.formatCurrency(totalRevenue);
+
+    /* Activity Feed */
+    renderActivityFeed(activities);
+
+    /* Charts */
+    renderBillingChart();
+    renderProjectsStatusChart();
+
+    /* Tables */
+    renderUsersTable();
+    renderProjectsTable();
+    renderInvoicesTable();
+    renderDocsTable();
+
+    /* Populate selects */
+    populateClientSelects();
+    populateProjectSelects();
+    populateUserSelects();
+
+  } catch (err) {
+    console.error('Error loading dashboard data:', err);
+    PapikCRM.toast('Error carregant dades', 'error');
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ACTIVITY FEED
+   ═══════════════════════════════════════════════════════════════ */
+
+function renderActivityFeed(activities) {
+  var container = document.getElementById('activity-feed');
+  if (!activities || activities.length === 0) {
+    container.innerHTML = '<div class="data-table-empty">No hi ha activitat recent</div>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < activities.length; i++) {
+    var a = activities[i];
+    var userName = (a.profiles && a.profiles.full_name) ? a.profiles.full_name : 'Sistema';
+    html += '<div class="activity-item">';
+    html += '<div class="activity-item__icon">' + PapikCRM.activityIcon(a.activity) + '</div>';
+    html += '<div class="activity-item__content">';
+    html += '<div class="activity-item__text"><strong>' + _escHtml(userName) + '</strong> ' + _escHtml(a.description || a.activity) + '</div>';
+    html += '<div class="activity-item__time">' + PapikCRM.timeAgo(a.created_at) + '</div>';
+    html += '</div></div>';
+  }
+  container.innerHTML = html;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CHARTS
+   ═══════════════════════════════════════════════════════════════ */
+
+function renderBillingChart() {
+  var months = ['Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Des'];
+  var monthlyData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  var currentYear = new Date().getFullYear();
+
+  for (var i = 0; i < allInvoices.length; i++) {
+    var inv = allInvoices[i];
+    if (inv.status === 'paid' && inv.paid_date) {
+      var d = new Date(inv.paid_date);
+      if (d.getFullYear() === currentYear) {
+        monthlyData[d.getMonth()] += parseFloat(inv.total_amount || 0);
+      }
+    } else if (inv.issued_date) {
+      var d2 = new Date(inv.issued_date);
+      if (d2.getFullYear() === currentYear) {
+        monthlyData[d2.getMonth()] += parseFloat(inv.total_amount || 0);
+      }
+    }
+  }
+
+  PapikCRM.createBarChart('chart-billing', months, [
+    { label: 'Facturacio (' + currentYear + ')', data: monthlyData }
+  ]);
+}
+
+function renderProjectsStatusChart() {
+  var statusCounts = { draft: 0, in_progress: 0, completed: 0, archived: 0 };
+  for (var i = 0; i < allProjects.length; i++) {
+    var s = allProjects[i].status;
+    if (statusCounts[s] !== undefined) {
+      statusCounts[s]++;
+    }
+  }
+
+  PapikCRM.createDoughnutChart('chart-projects-status',
+    ['Esborrany', 'En curs', 'Completat', 'Arxivat'],
+    [statusCounts.draft, statusCounts.in_progress, statusCounts.completed, statusCounts.archived],
+    ['#2C4A6E', '#e67e22', '#3a7d44', '#888']
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   USERS SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+function renderUsersTable() {
+  var filtered = getFilteredUsers();
+  var tbody = document.getElementById('users-tbody');
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6" class="data-table-empty">No s\'han trobat usuaris</td></tr>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var u = filtered[i];
+    html += '<tr>';
+    html += '<td>' + _escHtml(u.first_name || '') + ' ' + _escHtml(u.last_name || '') + '</td>';
+    html += '<td class="text-sm text-muted">' + _escHtml(u.email || u.id.slice(0, 8) + '...') + '</td>';
+    html += '<td>' + PapikCRM.roleBadge(u.role) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(u.company || '--') + '</td>';
+    html += '<td>' + (u.is_active ? '<span class="badge badge-completed">Actiu</span>' : '<span class="badge badge-cancelled">Inactiu</span>') + '</td>';
+    html += '<td>';
+    html += '<button class="btn btn-ghost btn-sm" onclick="editUser(\'' + u.id + '\')" title="Editar">Editar</button>';
+    if (u.is_active) {
+      html += '<button class="btn btn-ghost btn-sm" onclick="toggleUserActive(\'' + u.id + '\', false)" title="Desactivar" style="color:var(--error);">Desactivar</button>';
+    } else {
+      html += '<button class="btn btn-ghost btn-sm" onclick="toggleUserActive(\'' + u.id + '\', true)" title="Activar" style="color:var(--success);">Activar</button>';
+    }
+    html += '</td></tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+function getFilteredUsers() {
+  var search = document.getElementById('users-search').value.toLowerCase();
+  var roleFilter = document.getElementById('users-role-filter').value;
+  return allUsers.filter(function (u) {
+    var matchRole = !roleFilter || u.role === roleFilter;
+    var fullName = ((u.first_name || '') + ' ' + (u.last_name || '') + ' ' + (u.email || '') + ' ' + (u.company || '')).toLowerCase();
+    var matchSearch = !search || fullName.indexOf(search) !== -1;
+    return matchRole && matchSearch;
+  });
+}
+
+function filterUsersTable() {
+  renderUsersTable();
+}
+
+function openUserModal(userData) {
+  document.getElementById('modal-user-title').textContent = userData ? 'Editar Usuari' : 'Nou Usuari';
+  PapikCRM.resetForm(document.getElementById('form-user'));
+
+  var emailGroup = document.getElementById('user-email-group');
+  var passwordGroup = document.getElementById('user-password-group');
+
+  if (userData) {
+    PapikCRM.setFormData(document.getElementById('form-user'), userData);
+    emailGroup.style.display = 'none';
+    passwordGroup.style.display = 'none';
+  } else {
+    emailGroup.style.display = '';
+    passwordGroup.style.display = '';
+  }
+  PapikCRM.openModal('modal-user');
+}
+
+function editUser(userId) {
+  var user = null;
+  for (var i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].id === userId) { user = allUsers[i]; break; }
+  }
+  if (!user) return;
+  openUserModal(user);
+}
+
+async function saveUser() {
+  var form = document.getElementById('form-user');
+  var data = PapikCRM.getFormData(form);
+
+  try {
+    if (data.id) {
+      /* Update existing user */
+      var updatePayload = {
+        first_name: data.first_name,
+        last_name: data.last_name,
+        phone: data.phone || null,
+        company: data.company || null
+      };
+      var res = await PapikCRM.client.from('profiles').update(updatePayload).eq('id', data.id);
+      if (res.error) throw res.error;
+      PapikCRM.toast('Usuari actualitzat correctament', 'success');
+      PapikCRM.logActivity('user_updated', 'Usuari actualitzat: ' + data.first_name + ' ' + data.last_name);
+    } else {
+      /* Create new user */
+      if (!data.email || !data.password || !data.role) {
+        PapikCRM.toast('Omple tots els camps obligatoris', 'warning');
+        return;
+      }
+      await papikCreateUser({
+        email: data.email,
+        password: data.password,
+        first_name: data.first_name,
+        last_name: data.last_name,
+        role: data.role,
+        phone: data.phone || null,
+        company: data.company || null
+      });
+      PapikCRM.toast('Usuari creat correctament', 'success');
+      PapikCRM.logActivity('user_created', 'Nou usuari creat: ' + data.first_name + ' ' + data.last_name);
+    }
+
+    PapikCRM.closeModal('modal-user');
+    allUsers = await PapikCRM.fetchUsers();
+    renderUsersTable();
+    populateUserSelects();
+    populateClientSelects();
+    document.getElementById('kpi-users').textContent = allUsers.length;
+  } catch (err) {
+    console.error('Error saving user:', err);
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+async function toggleUserActive(userId, isActive) {
+  var action = isActive ? 'activar' : 'desactivar';
+  PapikCRM.confirm('Segur que vols ' + action + ' aquest usuari?', async function () {
+    try {
+      await papikToggleUserActive(userId, isActive);
+      PapikCRM.toast('Usuari ' + (isActive ? 'activat' : 'desactivat'), 'success');
+      PapikCRM.logActivity('user_updated', 'Usuari ' + (isActive ? 'activat' : 'desactivat'));
+      allUsers = await PapikCRM.fetchUsers();
+      renderUsersTable();
+    } catch (err) {
+      PapikCRM.toast('Error: ' + (err.message || err), 'error');
+    }
+  });
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   PROJECTS SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+function renderProjectsTable() {
+  var filtered = getFilteredProjects();
+  var tbody = document.getElementById('projects-tbody');
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6" class="data-table-empty">No s\'han trobat projectes</td></tr>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var p = filtered[i];
+    var clientName = (p.profiles && p.profiles.full_name) ? p.profiles.full_name : '--';
+    html += '<tr>';
+    html += '<td><a href="#" onclick="viewProjectDetail(\'' + p.id + '\'); return false;" style="color:var(--green);font-weight:500;text-decoration:none;">' + _escHtml(p.name) + '</a></td>';
+    html += '<td class="text-sm">' + _escHtml(clientName) + '</td>';
+    html += '<td>' + PapikCRM.statusBadge(p.status) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatCurrency(p.budget_total) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatDate(p.start_date) + '</td>';
+    html += '<td>';
+    html += '<button class="btn btn-ghost btn-sm" onclick="viewProjectDetail(\'' + p.id + '\')">Veure</button>';
+    html += '<button class="btn btn-ghost btn-sm" onclick="editProject(\'' + p.id + '\')">Editar</button>';
+    html += '<button class="btn btn-ghost btn-sm" onclick="deleteProject(\'' + p.id + '\')" style="color:var(--error);">Eliminar</button>';
+    html += '</td></tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+function getFilteredProjects() {
+  var search = document.getElementById('projects-search').value.toLowerCase();
+  var statusFilter = document.getElementById('projects-status-filter').value;
+  return allProjects.filter(function (p) {
+    var matchStatus = !statusFilter || p.status === statusFilter;
+    var clientName = (p.profiles && p.profiles.full_name) ? p.profiles.full_name : '';
+    var text = (p.name + ' ' + clientName + ' ' + (p.address || '')).toLowerCase();
+    var matchSearch = !search || text.indexOf(search) !== -1;
+    return matchStatus && matchSearch;
+  });
+}
+
+function filterProjectsTable() {
+  renderProjectsTable();
+}
+
+function openProjectModal(projectData) {
+  document.getElementById('modal-project-title').textContent = projectData ? 'Editar Projecte' : 'Nou Projecte';
+  PapikCRM.resetForm(document.getElementById('form-project'));
+  populateClientSelects();
+  if (projectData) {
+    PapikCRM.setFormData(document.getElementById('form-project'), projectData);
+  }
+  PapikCRM.openModal('modal-project');
+}
+
+function editProject(projectId) {
+  var proj = null;
+  for (var i = 0; i < allProjects.length; i++) {
+    if (allProjects[i].id === projectId) { proj = allProjects[i]; break; }
+  }
+  if (!proj) return;
+  openProjectModal(proj);
+}
+
+function openEditProjectModal() {
+  if (!currentProjectDetail || !currentProjectDetail.project) return;
+  openProjectModal(currentProjectDetail.project);
+}
+
+async function saveProject() {
+  var form = document.getElementById('form-project');
+  var data = PapikCRM.getFormData(form);
+
+  try {
+    var payload = {
+      name: data.name,
+      description: data.description || null,
+      address: data.address || null,
+      client_id: data.client_id || null,
+      status: data.status || 'draft',
+      start_date: data.start_date || null,
+      estimated_end_date: data.estimated_end_date || null,
+      budget_total: data.budget_total || null
+    };
+
+    if (data.id) {
+      var res = await PapikCRM.client.from('projects').update(payload).eq('id', data.id);
+      if (res.error) throw res.error;
+      PapikCRM.toast('Projecte actualitzat correctament', 'success');
+      PapikCRM.logActivity('project_updated', 'Projecte actualitzat: ' + data.name, data.id);
+    } else {
+      var res2 = await PapikCRM.client.from('projects').insert(payload).select().single();
+      if (res2.error) throw res2.error;
+      PapikCRM.toast('Projecte creat correctament', 'success');
+      PapikCRM.logActivity('project_created', 'Nou projecte creat: ' + data.name, res2.data.id);
+    }
+
+    PapikCRM.closeModal('modal-project');
+    allProjects = await PapikCRM.fetchProjects();
+    renderProjectsTable();
+    populateProjectSelects();
+
+    var activeProjects = allProjects.filter(function (p) { return p.status === 'in_progress'; });
+    document.getElementById('kpi-projects').textContent = activeProjects.length;
+
+    /* Refresh detail if open */
+    if (currentProjectId && data.id === currentProjectId) {
+      viewProjectDetail(currentProjectId);
+    }
+  } catch (err) {
+    console.error('Error saving project:', err);
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+async function deleteProject(projectId) {
+  PapikCRM.confirm('Segur que vols eliminar aquest projecte? Aquesta accio no es pot desfer.', async function () {
+    try {
+      var res = await PapikCRM.client.from('projects').delete().eq('id', projectId);
+      if (res.error) throw res.error;
+      PapikCRM.toast('Projecte eliminat correctament', 'success');
+      PapikCRM.logActivity('project_updated', 'Projecte eliminat');
+
+      allProjects = await PapikCRM.fetchProjects();
+      renderProjectsTable();
+      populateProjectSelects();
+
+      var activeProjects = allProjects.filter(function (p) { return p.status === 'in_progress'; });
+      document.getElementById('kpi-projects').textContent = activeProjects.length;
+
+      /* Close detail if viewing deleted project */
+      if (currentProjectId === projectId) {
+        closeProjectDetail();
+      }
+    } catch (err) {
+      console.error('Error deleting project:', err);
+      PapikCRM.toast('Error: ' + (err.message || err), 'error');
+    }
+  });
+}
+
+
+/* ═══════════════ PROJECT DETAIL ═══════════════ */
+
+async function viewProjectDetail(projectId) {
+  try {
+    currentProjectId = projectId;
+    currentProjectDetail = await PapikCRM.fetchProjectDetail(projectId);
+    var proj = currentProjectDetail.project;
+    if (!proj) {
+      PapikCRM.toast('Projecte no trobat', 'error');
+      return;
+    }
+
+    document.getElementById('projects-list-view').style.display = 'none';
+    document.getElementById('project-detail-view').style.display = '';
+
+    /* Header */
+    document.getElementById('pd-title').textContent = proj.name;
+    document.getElementById('pd-address').textContent = proj.address || 'Sense adreca';
+    document.getElementById('pd-status').innerHTML = PapikCRM.statusBadge(proj.status);
+
+    /* Info tab */
+    document.getElementById('pd-description').textContent = proj.description || 'Sense descripcio';
+    var clientName = (proj.profiles && proj.profiles.full_name) ? proj.profiles.full_name : '--';
+    document.getElementById('pd-client').textContent = clientName;
+    document.getElementById('pd-start-date').textContent = PapikCRM.formatDate(proj.start_date);
+    document.getElementById('pd-end-date').textContent = PapikCRM.formatDate(proj.estimated_end_date);
+    document.getElementById('pd-budget').textContent = PapikCRM.formatCurrency(proj.budget_total);
+    document.getElementById('pd-actual-end').textContent = PapikCRM.formatDate(proj.actual_end_date);
+
+    /* Members */
+    renderProjectMembers(currentProjectDetail.members);
+
+    /* Documents */
+    renderProjectDocuments(currentProjectDetail.documents);
+
+    /* Tasks */
+    renderProjectTasks(currentProjectDetail.tasks);
+
+    /* Notes */
+    renderProjectNotes(currentProjectDetail.notes);
+
+    /* Budget */
+    renderProjectBudget(currentProjectDetail.budget_items);
+
+    /* Show info tab by default */
+    showProjectTab('pd-tab-info');
+
+  } catch (err) {
+    console.error('Error loading project detail:', err);
+    PapikCRM.toast('Error carregant detall del projecte', 'error');
+  }
+}
+
+function closeProjectDetail() {
+  document.getElementById('project-detail-view').style.display = 'none';
+  document.getElementById('projects-list-view').style.display = '';
+  currentProjectId = null;
+  currentProjectDetail = null;
+}
+
+function showProjectTab(tabId) {
+  var tabs = document.querySelectorAll('.pd-tab');
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].style.display = 'none';
+    tabs[i].classList.remove('active');
+  }
+  var target = document.getElementById(tabId);
+  if (target) {
+    target.style.display = '';
+    target.classList.add('active');
+  }
+
+  var tabButtons = document.querySelectorAll('#pd-tabs .tab');
+  for (var j = 0; j < tabButtons.length; j++) {
+    tabButtons[j].classList.remove('active');
+  }
+  /* Match button to tab */
+  var tabMap = {
+    'pd-tab-info': 0,
+    'pd-tab-membres': 1,
+    'pd-tab-documents': 2,
+    'pd-tab-tasques': 3,
+    'pd-tab-notes': 4,
+    'pd-tab-pressupost': 5
+  };
+  var idx = tabMap[tabId];
+  if (idx !== undefined && tabButtons[idx]) {
+    tabButtons[idx].classList.add('active');
+  }
+}
+
+/* ─── Members ─── */
+function renderProjectMembers(members) {
+  var container = document.getElementById('pd-members-list');
+  if (!members || members.length === 0) {
+    container.innerHTML = '<div class="data-table-empty">No hi ha membres assignats</div>';
+    return;
+  }
+  var html = '<table class="data-table"><thead><tr><th>Nom</th><th>Rol sistema</th><th>Rol projecte</th><th>Accions</th></tr></thead><tbody>';
+  for (var i = 0; i < members.length; i++) {
+    var m = members[i];
+    var name = (m.profiles && m.profiles.full_name) ? m.profiles.full_name : '--';
+    var sysRole = (m.profiles && m.profiles.role) ? m.profiles.role : '--';
+    html += '<tr>';
+    html += '<td>' + _escHtml(name) + '</td>';
+    html += '<td>' + PapikCRM.roleBadge(sysRole) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(m.role_in_project || '--') + '</td>';
+    html += '<td><button class="btn btn-ghost btn-sm" onclick="removeMember(\'' + m.id + '\')" style="color:var(--error);">Treure</button></td>';
+    html += '</tr>';
+  }
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function openAddMemberModal() {
+  PapikCRM.resetForm(document.getElementById('form-add-member'));
+  populateUserSelects();
+  PapikCRM.openModal('modal-add-member');
+}
+
+async function addMember() {
+  var form = document.getElementById('form-add-member');
+  var data = PapikCRM.getFormData(form);
+  if (!data.user_id) { PapikCRM.toast('Selecciona un usuari', 'warning'); return; }
+
+  try {
+    var res = await PapikCRM.client.from('project_members').insert({
+      project_id: currentProjectId,
+      user_id: data.user_id,
+      role_in_project: data.role_in_project || null
+    });
+    if (res.error) throw res.error;
+
+    PapikCRM.toast('Membre afegit correctament', 'success');
+    PapikCRM.logActivity('member_added', 'Membre afegit al projecte', currentProjectId);
+    PapikCRM.closeModal('modal-add-member');
+    viewProjectDetail(currentProjectId);
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+async function removeMember(memberId) {
+  PapikCRM.confirm('Segur que vols treure aquest membre del projecte?', async function () {
+    try {
+      var res = await PapikCRM.client.from('project_members').delete().eq('id', memberId);
+      if (res.error) throw res.error;
+      PapikCRM.toast('Membre tret del projecte', 'success');
+      PapikCRM.logActivity('member_removed', 'Membre tret del projecte', currentProjectId);
+      viewProjectDetail(currentProjectId);
+    } catch (err) {
+      PapikCRM.toast('Error: ' + (err.message || err), 'error');
+    }
+  });
+}
+
+/* ─── Project Documents ─── */
+function renderProjectDocuments(docs) {
+  var container = document.getElementById('pd-documents-list');
+  if (!docs || docs.length === 0) {
+    container.innerHTML = '<div class="data-table-empty">No hi ha documents</div>';
+    return;
+  }
+  var html = '<table class="data-table"><thead><tr><th>Nom</th><th>Categoria</th><th>Mida</th><th>Data</th><th>Accions</th></tr></thead><tbody>';
+  for (var i = 0; i < docs.length; i++) {
+    var d = docs[i];
+    var catLabel = categoryLabels[d.category] || d.category;
+    html += '<tr>';
+    html += '<td class="text-sm">' + _escHtml(d.title) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(catLabel) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatFileSize(d.file_size) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatDate(d.created_at) + '</td>';
+    html += '<td><button class="btn btn-ghost btn-sm" onclick="downloadDoc(\'' + _escHtml(d.file_path) + '\')">Descarregar</button></td>';
+    html += '</tr>';
+  }
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function openUploadDocModalProject() {
+  PapikCRM.resetForm(document.getElementById('form-upload-doc'));
+  populateProjectSelects();
+  /* Pre-select current project */
+  if (currentProjectId) {
+    var sel = document.getElementById('upload-project-select');
+    if (sel) sel.value = currentProjectId;
+  }
+  PapikCRM.openModal('modal-upload-doc');
+}
+
+/* ─── Project Tasks ─── */
+function renderProjectTasks(tasks) {
+  var container = document.getElementById('pd-tasks-list');
+  if (!tasks || tasks.length === 0) {
+    container.innerHTML = '<div class="data-table-empty">No hi ha tasques</div>';
+    return;
+  }
+  var html = '<table class="data-table"><thead><tr><th>Titol</th><th>Prioritat</th><th>Estat</th><th>Assignat a</th><th>Data limit</th><th>Accions</th></tr></thead><tbody>';
+  for (var i = 0; i < tasks.length; i++) {
+    var t = tasks[i];
+    var assignee = (t.profiles && t.profiles.full_name) ? t.profiles.full_name : '--';
+    html += '<tr>';
+    html += '<td class="text-sm">' + _escHtml(t.title) + '</td>';
+    html += '<td>' + PapikCRM.priorityBadge(t.priority) + '</td>';
+    html += '<td>' + PapikCRM.statusBadge(t.status) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(assignee) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatDate(t.due_date) + '</td>';
+    html += '<td>';
+    if (t.status !== 'completed') {
+      html += '<button class="btn btn-ghost btn-sm" onclick="completeTask(\'' + t.id + '\')" style="color:var(--success);">Completar</button>';
+    }
+    html += '</td></tr>';
+  }
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function openTaskModal() {
+  PapikCRM.resetForm(document.getElementById('form-task'));
+  populateUserSelects();
+  PapikCRM.openModal('modal-task');
+}
+
+async function saveTask() {
+  var form = document.getElementById('form-task');
+  var data = PapikCRM.getFormData(form);
+  if (!data.title) { PapikCRM.toast('El titol es obligatori', 'warning'); return; }
+
+  try {
+    var payload = {
+      project_id: currentProjectId,
+      title: data.title,
+      description: data.description || null,
+      priority: data.priority || 'medium',
+      status: data.status || 'pending',
+      assigned_to: data.assigned_to || null,
+      due_date: data.due_date || null,
+      created_by: PapikCRM.user.id
+    };
+    var res = await PapikCRM.client.from('tasks').insert(payload).select().single();
+    if (res.error) throw res.error;
+
+    PapikCRM.toast('Tasca creada correctament', 'success');
+    PapikCRM.logActivity('task_created', 'Nova tasca: ' + data.title, currentProjectId);
+    PapikCRM.closeModal('modal-task');
+    viewProjectDetail(currentProjectId);
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+async function completeTask(taskId) {
+  try {
+    var res = await PapikCRM.client.from('tasks').update({
+      status: 'completed',
+      completed_at: new Date().toISOString()
+    }).eq('id', taskId);
+    if (res.error) throw res.error;
+
+    PapikCRM.toast('Tasca completada', 'success');
+    PapikCRM.logActivity('task_completed', 'Tasca completada', currentProjectId);
+    viewProjectDetail(currentProjectId);
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+/* ─── Project Notes ─── */
+function renderProjectNotes(notes) {
+  var container = document.getElementById('pd-notes-list');
+  if (!notes || notes.length === 0) {
+    container.innerHTML = '<div class="data-table-empty">No hi ha notes</div>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < notes.length; i++) {
+    var n = notes[i];
+    var author = (n.profiles && n.profiles.full_name) ? n.profiles.full_name : 'Desconegut';
+    html += '<div style="padding:16px;background:var(--bg-light);border-radius:8px;margin-bottom:12px;">';
+    html += '<div class="flex-between mb-8">';
+    html += '<span class="text-sm fw-500">' + _escHtml(author) + '</span>';
+    html += '<span class="text-xs text-muted">' + PapikCRM.timeAgo(n.created_at);
+    if (n.is_internal) html += ' &middot; <span style="color:var(--warning);">Interna</span>';
+    html += '</span></div>';
+    html += '<div class="text-sm">' + _escHtml(n.content) + '</div>';
+    html += '</div>';
+  }
+  container.innerHTML = html;
+}
+
+function openNoteModal() {
+  PapikCRM.resetForm(document.getElementById('form-note'));
+  PapikCRM.openModal('modal-note');
+}
+
+async function saveNote() {
+  var form = document.getElementById('form-note');
+  var data = PapikCRM.getFormData(form);
+  if (!data.content) { PapikCRM.toast('El contingut es obligatori', 'warning'); return; }
+
+  try {
+    var payload = {
+      project_id: currentProjectId,
+      author_id: PapikCRM.user.id,
+      content: data.content,
+      is_internal: !!data.is_internal
+    };
+    var res = await PapikCRM.client.from('project_notes').insert(payload);
+    if (res.error) throw res.error;
+
+    PapikCRM.toast('Nota afegida correctament', 'success');
+    PapikCRM.logActivity('note_added', 'Nova nota al projecte', currentProjectId);
+    PapikCRM.closeModal('modal-note');
+    viewProjectDetail(currentProjectId);
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+/* ─── Budget Items (Project Detail Tab) ─── */
+function renderProjectBudget(items) {
+  var container = document.getElementById('pd-budget-list');
+  if (!items || items.length === 0) {
+    container.innerHTML = '<div class="data-table-empty">No hi ha partides</div>';
+    return;
+  }
+  var html = '<table class="data-table"><thead><tr><th>Categoria</th><th>Descripcio</th><th>Quantitat</th><th>Preu Unitari</th><th>Total</th></tr></thead><tbody>';
+  var grandTotal = 0;
+  for (var i = 0; i < items.length; i++) {
+    var b = items[i];
+    var lineTotal = parseFloat(b.total_price || 0) || (parseFloat(b.quantity || 0) * parseFloat(b.unit_price || 0));
+    grandTotal += lineTotal;
+    var catLabel = budgetCategoryLabels[b.category] || b.category;
+    html += '<tr>';
+    html += '<td class="text-sm fw-500">' + _escHtml(catLabel) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(b.description || '--') + '</td>';
+    html += '<td class="text-sm">' + (b.quantity || '--') + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatCurrency(b.unit_price) + '</td>';
+    html += '<td class="text-sm fw-500">' + PapikCRM.formatCurrency(lineTotal) + '</td>';
+    html += '</tr>';
+  }
+  html += '<tr style="background:var(--bg-light);"><td colspan="4" class="text-sm fw-500" style="text-align:right;padding:12px 16px;">TOTAL</td>';
+  html += '<td class="text-sm fw-500" style="padding:12px 16px;">' + PapikCRM.formatCurrency(grandTotal) + '</td></tr>';
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function openBudgetItemModal() {
+  PapikCRM.resetForm(document.getElementById('form-budget-item'));
+  PapikCRM.openModal('modal-budget-item');
+}
+
+async function saveBudgetItem() {
+  var form = document.getElementById('form-budget-item');
+  var data = PapikCRM.getFormData(form);
+  if (!data.category) { PapikCRM.toast('La categoria es obligatoria', 'warning'); return; }
+
+  try {
+    var qty = parseFloat(data.quantity || 1);
+    var price = parseFloat(data.unit_price || 0);
+    var payload = {
+      project_id: currentProjectId,
+      category: data.category,
+      description: data.description || null,
+      quantity: qty,
+      unit_price: price,
+      notes: data.notes || null,
+      created_by: PapikCRM.user.id
+    };
+    var res = await PapikCRM.client.from('budget_items').insert(payload);
+    if (res.error) throw res.error;
+
+    PapikCRM.toast('Partida afegida correctament', 'success');
+    PapikCRM.logActivity('budget_updated', 'Nova partida de pressupost afegida', currentProjectId);
+    PapikCRM.closeModal('modal-budget-item');
+    viewProjectDetail(currentProjectId);
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   INVOICES SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+function renderInvoicesTable() {
+  var filtered = getFilteredInvoices();
+  var tbody = document.getElementById('invoices-tbody');
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" class="data-table-empty">No s\'han trobat factures</td></tr>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var inv = filtered[i];
+    var projectName = (inv.projects && inv.projects.name) ? inv.projects.name : '--';
+    var clientName = (inv.profiles && inv.profiles.full_name) ? inv.profiles.full_name : '--';
+    html += '<tr>';
+    html += '<td class="text-sm fw-500">' + _escHtml(inv.invoice_number || '--') + '</td>';
+    html += '<td class="text-sm">' + _escHtml(projectName) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(clientName) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatCurrency(inv.total_amount) + '</td>';
+    html += '<td>' + PapikCRM.statusBadge(inv.status) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatDate(inv.issued_date) + '</td>';
+    html += '<td>';
+    html += '<button class="btn btn-ghost btn-sm" onclick="editInvoice(\'' + inv.id + '\')">Editar</button>';
+    if (inv.status === 'draft') {
+      html += '<button class="btn btn-ghost btn-sm" onclick="markInvoiceSent(\'' + inv.id + '\')" style="color:var(--info);">Enviar</button>';
+    }
+    if (inv.status === 'sent' || inv.status === 'overdue') {
+      html += '<button class="btn btn-ghost btn-sm" onclick="markInvoicePaid(\'' + inv.id + '\')" style="color:var(--success);">Pagada</button>';
+    }
+    html += '</td></tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+function getFilteredInvoices() {
+  var search = document.getElementById('invoices-search').value.toLowerCase();
+  var statusFilter = document.getElementById('invoices-status-filter').value;
+  return allInvoices.filter(function (inv) {
+    var matchStatus = !statusFilter || inv.status === statusFilter;
+    var projectName = (inv.projects && inv.projects.name) ? inv.projects.name : '';
+    var clientName = (inv.profiles && inv.profiles.full_name) ? inv.profiles.full_name : '';
+    var text = ((inv.invoice_number || '') + ' ' + projectName + ' ' + clientName).toLowerCase();
+    var matchSearch = !search || text.indexOf(search) !== -1;
+    return matchStatus && matchSearch;
+  });
+}
+
+function filterInvoicesTable() {
+  renderInvoicesTable();
+}
+
+function calcInvoiceTotal() {
+  var form = document.getElementById('form-invoice');
+  var amount = parseFloat(form.querySelector('[name="amount"]').value) || 0;
+  var taxAmount = parseFloat(form.querySelector('[name="tax_amount"]').value) || 0;
+  var total = amount + taxAmount;
+  form.querySelector('[name="total_amount"]').value = total.toFixed(2);
+}
+
+function openInvoiceModal(invoiceData) {
+  document.getElementById('modal-invoice-title').textContent = invoiceData ? 'Editar Factura' : 'Nova Factura';
+  PapikCRM.resetForm(document.getElementById('form-invoice'));
+  populateProjectSelects();
+  populateClientSelects();
+  if (invoiceData) {
+    PapikCRM.setFormData(document.getElementById('form-invoice'), invoiceData);
+  } else {
+    /* Set default date */
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('form-invoice').querySelector('[name="issued_date"]').value = today;
+  }
+  PapikCRM.openModal('modal-invoice');
+}
+
+function editInvoice(invoiceId) {
+  var inv = null;
+  for (var i = 0; i < allInvoices.length; i++) {
+    if (allInvoices[i].id === invoiceId) { inv = allInvoices[i]; break; }
+  }
+  if (!inv) return;
+  openInvoiceModal(inv);
+}
+
+async function saveInvoice() {
+  var form = document.getElementById('form-invoice');
+  var data = PapikCRM.getFormData(form);
+
+  if (!data.invoice_number) { PapikCRM.toast('El numero de factura es obligatori', 'warning'); return; }
+
+  try {
+    var amount = parseFloat(data.amount || 0);
+    var taxAmount = parseFloat(data.tax_amount || 0);
+    var totalAmount = parseFloat(data.total_amount) || (amount + taxAmount);
+
+    var payload = {
+      invoice_number: data.invoice_number,
+      project_id: data.project_id || null,
+      client_id: data.client_id || null,
+      amount: amount,
+      tax_amount: taxAmount,
+      total_amount: totalAmount,
+      status: data.status || 'draft',
+      issued_date: data.issued_date || null,
+      due_date: data.due_date || null,
+      description: data.description || null
+    };
+
+    if (data.status === 'paid' && !data.paid_date) {
+      payload.paid_date = new Date().toISOString();
+    }
+
+    if (data.id) {
+      var res = await PapikCRM.client.from('invoices').update(payload).eq('id', data.id);
+      if (res.error) throw res.error;
+      PapikCRM.toast('Factura actualitzada correctament', 'success');
+      PapikCRM.logActivity('invoice_created', 'Factura actualitzada: ' + data.invoice_number, data.project_id);
+    } else {
+      var res2 = await PapikCRM.client.from('invoices').insert(payload).select().single();
+      if (res2.error) throw res2.error;
+      PapikCRM.toast('Factura creada correctament', 'success');
+      PapikCRM.logActivity('invoice_created', 'Nova factura creada: ' + data.invoice_number, data.project_id);
+    }
+
+    PapikCRM.closeModal('modal-invoice');
+    allInvoices = await PapikCRM.fetchInvoices();
+    renderInvoicesTable();
+    updateInvoiceKPIs();
+  } catch (err) {
+    console.error('Error saving invoice:', err);
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+async function markInvoiceSent(invoiceId) {
+  try {
+    var res = await PapikCRM.client.from('invoices').update({ status: 'sent' }).eq('id', invoiceId);
+    if (res.error) throw res.error;
+    PapikCRM.toast('Factura marcada com a enviada', 'success');
+    PapikCRM.logActivity('invoice_created', 'Factura enviada');
+    allInvoices = await PapikCRM.fetchInvoices();
+    renderInvoicesTable();
+    updateInvoiceKPIs();
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+async function markInvoicePaid(invoiceId) {
+  try {
+    var res = await PapikCRM.client.from('invoices').update({
+      status: 'paid',
+      paid_date: new Date().toISOString()
+    }).eq('id', invoiceId);
+    if (res.error) throw res.error;
+    PapikCRM.toast('Factura marcada com a pagada', 'success');
+    PapikCRM.logActivity('invoice_paid', 'Factura pagada');
+    allInvoices = await PapikCRM.fetchInvoices();
+    renderInvoicesTable();
+    updateInvoiceKPIs();
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+function updateInvoiceKPIs() {
+  var pending = allInvoices.filter(function (i) { return i.status === 'sent' || i.status === 'overdue'; });
+  document.getElementById('kpi-pending-invoices').textContent = pending.length;
+
+  var totalRevenue = 0;
+  for (var i = 0; i < allInvoices.length; i++) {
+    if (allInvoices[i].status === 'paid') {
+      totalRevenue += parseFloat(allInvoices[i].total_amount || 0);
+    }
+  }
+  document.getElementById('kpi-revenue').textContent = PapikCRM.formatCurrency(totalRevenue);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   PRESSUPOSTOS SECTION (standalone)
+   ═══════════════════════════════════════════════════════════════ */
+
+async function loadBudgetForProject() {
+  var select = document.getElementById('budget-project-select');
+  var projectId = select.value;
+  var contentEl = document.getElementById('budget-section-content');
+  var emptyEl = document.getElementById('budget-empty-state');
+  var addBtn = document.getElementById('btn-add-budget-section');
+
+  if (!projectId) {
+    contentEl.style.display = 'none';
+    emptyEl.style.display = '';
+    addBtn.style.display = 'none';
+    currentBudgetProjectId = null;
+    currentBudgetItems = [];
+    return;
+  }
+
+  currentBudgetProjectId = projectId;
+  addBtn.style.display = '';
+
+  try {
+    currentBudgetItems = await PapikCRM.fetchBudgetItems(projectId);
+    contentEl.style.display = '';
+    emptyEl.style.display = 'none';
+    renderBudgetSectionTable(currentBudgetItems);
+    renderBudgetCategorySummary(currentBudgetItems);
+  } catch (err) {
+    console.error('Error loading budget items:', err);
+    PapikCRM.toast('Error carregant partides', 'error');
+  }
+}
+
+function renderBudgetSectionTable(items) {
+  var tbody = document.getElementById('budget-items-tbody');
+  if (!items || items.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" class="data-table-empty">No hi ha partides per aquest projecte</td></tr>';
+    return;
+  }
+  var html = '';
+  var grandTotal = 0;
+  for (var i = 0; i < items.length; i++) {
+    var b = items[i];
+    var lineTotal = parseFloat(b.total_price || 0) || (parseFloat(b.quantity || 0) * parseFloat(b.unit_price || 0));
+    grandTotal += lineTotal;
+    var catLabel = budgetCategoryLabels[b.category] || b.category;
+    html += '<tr>';
+    html += '<td class="text-sm fw-500">' + _escHtml(catLabel) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(b.description || '--') + '</td>';
+    html += '<td class="text-sm">' + (b.quantity || '--') + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatCurrency(b.unit_price) + '</td>';
+    html += '<td class="text-sm fw-500">' + PapikCRM.formatCurrency(lineTotal) + '</td>';
+    html += '</tr>';
+  }
+  html += '<tr style="background:var(--bg-light);"><td colspan="4" class="text-sm fw-500" style="text-align:right;padding:12px 16px;">TOTAL</td>';
+  html += '<td class="text-sm fw-500" style="padding:12px 16px;">' + PapikCRM.formatCurrency(grandTotal) + '</td></tr>';
+  tbody.innerHTML = html;
+}
+
+function renderBudgetCategorySummary(items) {
+  var container = document.getElementById('budget-category-summary');
+  if (!items || items.length === 0) {
+    container.innerHTML = '<div class="data-table-empty">No hi ha dades per mostrar</div>';
+    return;
+  }
+
+  /* Group by category */
+  var categories = {};
+  var grandTotal = 0;
+  for (var i = 0; i < items.length; i++) {
+    var b = items[i];
+    var cat = b.category || 'altres';
+    var lineTotal = parseFloat(b.total_price || 0) || (parseFloat(b.quantity || 0) * parseFloat(b.unit_price || 0));
+    if (!categories[cat]) {
+      categories[cat] = { total: 0, count: 0 };
+    }
+    categories[cat].total += lineTotal;
+    categories[cat].count++;
+    grandTotal += lineTotal;
+  }
+
+  var html = '<table class="data-table"><thead><tr><th>Categoria</th><th>Partides</th><th>Total</th><th>%</th></tr></thead><tbody>';
+  var catKeys = Object.keys(categories);
+  catKeys.sort(function (a, b) { return categories[b].total - categories[a].total; });
+
+  for (var j = 0; j < catKeys.length; j++) {
+    var key = catKeys[j];
+    var catData = categories[key];
+    var pct = grandTotal > 0 ? ((catData.total / grandTotal) * 100).toFixed(1) : '0.0';
+    var catLabel = budgetCategoryLabels[key] || key;
+    html += '<tr>';
+    html += '<td class="text-sm fw-500">' + _escHtml(catLabel) + '</td>';
+    html += '<td class="text-sm">' + catData.count + '</td>';
+    html += '<td class="text-sm fw-500">' + PapikCRM.formatCurrency(catData.total) + '</td>';
+    html += '<td class="text-sm">' + pct + '%</td>';
+    html += '</tr>';
+  }
+  html += '<tr style="background:var(--bg-light);">';
+  html += '<td class="text-sm fw-500">TOTAL</td>';
+  html += '<td class="text-sm">' + items.length + '</td>';
+  html += '<td class="text-sm fw-500">' + PapikCRM.formatCurrency(grandTotal) + '</td>';
+  html += '<td class="text-sm">100%</td>';
+  html += '</tr>';
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function openBudgetItemSectionModal() {
+  PapikCRM.resetForm(document.getElementById('form-budget-item-section'));
+  PapikCRM.openModal('modal-budget-item-section');
+}
+
+async function saveBudgetItemSection() {
+  var form = document.getElementById('form-budget-item-section');
+  var data = PapikCRM.getFormData(form);
+  if (!data.category) { PapikCRM.toast('La categoria es obligatoria', 'warning'); return; }
+  if (!currentBudgetProjectId) { PapikCRM.toast('Selecciona un projecte primer', 'warning'); return; }
+
+  try {
+    var qty = parseFloat(data.quantity || 1);
+    var price = parseFloat(data.unit_price || 0);
+    var payload = {
+      project_id: currentBudgetProjectId,
+      category: data.category,
+      description: data.description || null,
+      quantity: qty,
+      unit_price: price,
+      notes: data.notes || null,
+      created_by: PapikCRM.user.id
+    };
+    var res = await PapikCRM.client.from('budget_items').insert(payload);
+    if (res.error) throw res.error;
+
+    PapikCRM.toast('Partida afegida correctament', 'success');
+    PapikCRM.logActivity('budget_updated', 'Nova partida de pressupost afegida', currentBudgetProjectId);
+    PapikCRM.closeModal('modal-budget-item-section');
+    loadBudgetForProject();
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   DOCUMENTS SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+function renderDocsTable() {
+  var filtered = getFilteredDocs();
+  var tbody = document.getElementById('docs-tbody');
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" class="data-table-empty">No s\'han trobat documents</td></tr>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var d = filtered[i];
+    var uploaderName = (d.profiles && d.profiles.full_name) ? d.profiles.full_name : '--';
+    var catLabel = categoryLabels[d.category] || d.category;
+    /* Find project name */
+    var projectName = '--';
+    if (d.project_id) {
+      for (var j = 0; j < allProjects.length; j++) {
+        if (allProjects[j].id === d.project_id) {
+          projectName = allProjects[j].name;
+          break;
+        }
+      }
+    }
+    html += '<tr>';
+    html += '<td class="text-sm">' + _escHtml(d.title) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(projectName) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(catLabel) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatFileSize(d.file_size) + '</td>';
+    html += '<td class="text-sm">' + _escHtml(uploaderName) + '</td>';
+    html += '<td class="text-sm">' + PapikCRM.formatDate(d.created_at) + '</td>';
+    html += '<td><button class="btn btn-ghost btn-sm" onclick="downloadDoc(\'' + _escHtml(d.file_path) + '\')">Descarregar</button></td>';
+    html += '</tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+function getFilteredDocs() {
+  var search = document.getElementById('docs-search').value.toLowerCase();
+  var categoryFilter = document.getElementById('docs-category-filter').value;
+  var projectFilter = document.getElementById('docs-project-filter').value;
+  return allDocuments.filter(function (d) {
+    var matchCategory = !categoryFilter || d.category === categoryFilter;
+    var matchProject = !projectFilter || d.project_id === projectFilter;
+    var text = ((d.title || '') + ' ' + (d.category || '')).toLowerCase();
+    var matchSearch = !search || text.indexOf(search) !== -1;
+    return matchCategory && matchProject && matchSearch;
+  });
+}
+
+function filterDocsTable() {
+  renderDocsTable();
+}
+
+function openUploadDocModal() {
+  PapikCRM.resetForm(document.getElementById('form-upload-doc'));
+  populateProjectSelects();
+  PapikCRM.openModal('modal-upload-doc');
+}
+
+async function uploadDocument() {
+  var form = document.getElementById('form-upload-doc');
+  var data = PapikCRM.getFormData(form);
+  var fileInput = form.querySelector('[name="file"]');
+  var file = fileInput.files && fileInput.files[0];
+
+  if (!data.project_id) { PapikCRM.toast('Selecciona un projecte', 'warning'); return; }
+  if (!file) { PapikCRM.toast('Selecciona un fitxer', 'warning'); return; }
+
+  try {
+    /* Upload file to storage */
+    var timestamp = Date.now();
+    var safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+    var path = data.project_id + '/' + (data.category || 'project') + '/' + timestamp + '_' + safeName;
+
+    var uploadRes = await PapikCRM.client.storage
+      .from('documents')
+      .upload(path, file, { cacheControl: '3600', upsert: false });
+
+    if (uploadRes.error) throw uploadRes.error;
+
+    /* Insert document record with correct column names */
+    var docRes = await PapikCRM.client
+      .from('documents')
+      .insert({
+        project_id: data.project_id,
+        title: data.title || file.name,
+        file_path: path,
+        file_size: file.size,
+        mime_type: file.type || 'application/octet-stream',
+        category: data.category || 'project',
+        uploaded_by: PapikCRM.user.id,
+        description: null,
+        is_internal: false
+      })
+      .select()
+      .single();
+
+    if (docRes.error) throw docRes.error;
+
+    PapikCRM.toast('Document pujat correctament', 'success');
+    PapikCRM.logActivity('document_uploaded', 'Document pujat: ' + (data.title || file.name), data.project_id);
+    PapikCRM.closeModal('modal-upload-doc');
+    allDocuments = await PapikCRM.fetchDocuments();
+    renderDocsTable();
+
+    /* Refresh project detail if open */
+    if (currentProjectId) {
+      viewProjectDetail(currentProjectId);
+    }
+  } catch (err) {
+    console.error('Error uploading document:', err);
+    PapikCRM.toast('Error pujant document: ' + (err.message || err), 'error');
+  }
+}
+
+async function downloadDoc(filePath) {
+  try {
+    var url = await PapikCRM.getFileUrl(filePath);
+    if (url) {
+      window.open(url, '_blank');
+    } else {
+      PapikCRM.toast('No s\'ha pogut obtenir l\'URL del fitxer', 'error');
+    }
+  } catch (err) {
+    PapikCRM.toast('Error: ' + (err.message || err), 'error');
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   POPULATE SELECT HELPERS
+   ═══════════════════════════════════════════════════════════════ */
+
+function populateClientSelects() {
+  var clients = allUsers.filter(function (u) { return u.role === 'cliente'; });
+  var optionsHtml = '<option value="">Seleccionar client...</option>';
+  for (var i = 0; i < clients.length; i++) {
+    var c = clients[i];
+    var name = (c.first_name || '') + ' ' + (c.last_name || '');
+    if (c.company) name += ' (' + c.company + ')';
+    optionsHtml += '<option value="' + c.id + '">' + _escHtml(name) + '</option>';
+  }
+
+  var selects = ['project-client-select', 'invoice-client-select'];
+  for (var s = 0; s < selects.length; s++) {
+    var el = document.getElementById(selects[s]);
+    if (el) el.innerHTML = optionsHtml;
+  }
+}
+
+function populateProjectSelects() {
+  var optionsHtml = '<option value="">Seleccionar projecte...</option>';
+  for (var i = 0; i < allProjects.length; i++) {
+    var p = allProjects[i];
+    optionsHtml += '<option value="' + p.id + '">' + _escHtml(p.name) + '</option>';
+  }
+
+  var selects = ['invoice-project-select', 'upload-project-select', 'docs-project-filter', 'budget-project-select'];
+  for (var s = 0; s < selects.length; s++) {
+    var el = document.getElementById(selects[s]);
+    if (el) el.innerHTML = optionsHtml;
+  }
+}
+
+function populateUserSelects() {
+  var optionsHtml = '<option value="">Seleccionar usuari...</option>';
+  for (var i = 0; i < allUsers.length; i++) {
+    var u = allUsers[i];
+    var name = (u.first_name || '') + ' ' + (u.last_name || '') + ' (' + u.role + ')';
+    optionsHtml += '<option value="' + u.id + '">' + _escHtml(name) + '</option>';
+  }
+
+  var el1 = document.getElementById('member-user-select');
+  if (el1) el1.innerHTML = optionsHtml;
+
+  var el2 = document.getElementById('task-assignee-select');
+  if (el2) el2.innerHTML = '<option value="">Sense assignar</option>' + optionsHtml.replace('<option value="">Seleccionar usuari...</option>', '');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   LOGOUT
+   ═══════════════════════════════════════════════════════════════ */
+
+function papikLogout() {
+  PapikCRM.confirm('Segur que vols tancar la sessio?', async function () {
+    try {
+      await PapikCRM.client.auth.signOut();
+      window.location.href = 'usuaris.html';
+    } catch (err) {
+      window.location.href = 'usuaris.html';
+    }
+  });
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HTML ESCAPE UTILITY
+   ═══════════════════════════════════════════════════════════════ */
+
+function _escHtml(str) {
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+</script>
+</body>
+</html>
