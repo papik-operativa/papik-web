@@ -5,33 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PAPIK | Construcció · Promoció · Rehabilitació</title>
   <meta name="description" content="Construcció residencial de qualitat, promoció immobiliària i rehabilitació energètica a Catalunya. PAPIK.cat">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 
   <style>
     /* ═══════════════════════════════════
        VARIABLES & RESET
     ═══════════════════════════════════ */
     :root {
-      --green:       #0E2719;
+      --green:       #002819;
+      --accent:      #95BBA5;
       --green-light: #56685E;
       --green-dark:  #0A1B12;
-      --bg-light:    #E7E9E8;
-      --bg-section:  rgba(159,169,163,0.25);
-      --text:        #0E2719;
+      --bg-light:    rgba(86,104,94,0.14);
+      --bg-section:  rgba(86,104,94,0.14);
+      --text:        #002819;
       --muted:       #56685E;
       --muted-light: #9FA9A3;
-      --border:      rgba(159,169,163,0.5);
+      --border:      rgba(86,104,94,0.25);
       --footer-bg:   #07140D;
-      --warm-1:      #E7E9E8;
+      --warm-1:      rgba(86,104,94,0.22);
       --warm-2:      #9FA9A3;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
     body, html {
       margin: 0; padding: 0;
-      font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+      font-family: 'TT Firs Neue', Arial, Helvetica, sans-serif;
       color: var(--text);
       overflow-x: hidden;
       opacity: 0;
@@ -44,7 +68,7 @@
     h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
     ul { list-style: none; margin: 0; padding: 0; }
     a { text-decoration: none; color: inherit; }
-    button, input, select, textarea { font-family: 'DM Sans', sans-serif; }
+    button, input, select, textarea { font-family: 'TT Firs Neue', sans-serif; }
     img { max-width: 100%; height: auto; display: block; }
 
     /* Typography */
@@ -52,8 +76,8 @@
     .t14  { font-size: 14px; line-height: 1.6; }
     .t16  { font-size: 16px; line-height: 1.6; }
     .t18  { font-size: 18px; line-height: 1.4; }
-    .t24  { font-size: 24px; line-height: 1.3; }
-    .t42  { font-size: 42px; line-height: 1.15; }
+    .t24  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.3; }
+    .t42  { font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
     .t70  { font-size: 70px; line-height: 1.05; }
     .upper { text-transform: uppercase; }
     .center { text-align: center; }
@@ -113,13 +137,13 @@
        — gradients that look architectural
     ═══════════════════════════════════ */
     .ph { display: block; width: 100%; height: 100%; }
-    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #0E2719 100%); }
+    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #002819 100%); }
     .ph-warm-1  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
     .ph-warm-2  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-warm-3  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-warm-4  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
     .ph-warm-5  { background: linear-gradient(135deg, #9FA9A3 0%, #9FA9A3 100%); }
-    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #0E2719 100%); }
+    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #002819 100%); }
     .ph-green   { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-dark    { background: linear-gradient(135deg, #0A1B12 0%, #07140D 100%); }
     .ph-stone   { background: linear-gradient(160deg, #E7E9E8 0%, #9FA9A3 100%); }
@@ -171,9 +195,9 @@
     /* Lang selector */
     .lang select {
       -webkit-appearance: none; appearance: none; border: 0; background: transparent;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+      font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
       cursor: pointer; text-transform: uppercase; padding-right: 16px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230E2719'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 0 center;
     }
 
@@ -326,7 +350,7 @@
 
     .block-hero__title {
       color: #fff; font-weight: 300;
-      font-size: clamp(38px, 5.2vw, 80px);
+      font-size: clamp(38px, 5.2vw, 76px);
       line-height: 1.08; max-width: 860px;
     }
 
@@ -348,8 +372,8 @@
     }
 
     .item__info__text .tag {
-      font-size: 12px; text-transform: uppercase;
-      letter-spacing: .12em; margin-bottom: 18px;
+      font-size: 11px; text-transform: uppercase;
+      letter-spacing: .2em; margin-bottom: 18px;
       opacity: .65;
     }
 
@@ -409,7 +433,7 @@
 
     .services__gif { width: 44.6875vw; flex-shrink: 0; }
     .services__gif .ph {
-      height: 29.8vw; border-radius: 4px; transition: opacity .3s;
+      height: 29.8vw; border-radius: 8px; transition: opacity .3s;
     }
 
     .services__list { padding-left: 7.03125vw; display: flex; flex-direction: column; justify-content: center; }
@@ -451,9 +475,9 @@
 
     .categories__item img, .categories__item .ph-cat {
       width: 100%; height: 17.97vw; object-fit: cover;
-      border-radius: 5px; margin-bottom: 12px;
+      border-radius: 8px; margin-bottom: 12px;
     }
-    .categories__item .ph-cat { height: 17.97vw; border-radius: 5px; }
+    .categories__item .ph-cat { height: 17.97vw; border-radius: 8px; }
     .categories__item__title { font-size: 22px; font-weight: 300; }
 
     .archive-btn {
@@ -470,16 +494,15 @@
     .block-columns__title { margin-bottom: 40px; }
 
     .block-columns__repeater {
-      display: flex; gap: 20px; flex-wrap: wrap;
-      justify-content: space-between;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
     }
 
     .block-columns__item {
-      position: relative; width: 49.3%;
+      position: relative;
     }
 
     .block-columns__item .item__media-col {
-      height: 27.5vw; overflow: hidden; position: relative; margin-bottom: 18px;
+      height: 18vw; overflow: hidden; position: relative; margin-bottom: 18px; border-radius: 8px;
     }
     .block-columns__item .item__media-col .ph {
       position: absolute; inset: 0; transition: opacity .2s;
@@ -500,7 +523,6 @@
       position: relative; transition: border-color .2s; cursor: pointer;
     }
     .block-login__item:hover { border-color: #000; }
-    .block-login__item:nth-child(2) { background: #fff; color: var(--green); }
     .block-login__item h6 { font-size: 22px; margin-bottom: 12px; }
     .block-login__item .link_button {
       display: flex; align-items: center; gap: 4px; font-size: 15px;
@@ -542,7 +564,7 @@
       gap: 40px; margin-top: 40px; justify-content: space-between;
     }
     .featured__item__img { flex-shrink: 0; }
-    .featured__item__img .ph { width: 43vw; height: 27.5vw; border-radius: 3px; }
+    .featured__item__img .ph { width: 43vw; height: 27.5vw; border-radius: 8px; }
     .featured__item__text { flex: 1; transition: opacity .2s; }
     .featured__item__text:hover { opacity: .75; }
     .featured__item__text .categories { color: var(--muted); font-size: 16px; margin-bottom: 12px; }
@@ -554,10 +576,10 @@
     .other-articles { padding: 80px 0 80px; }
     .news-grid { display: flex; gap: 30px; margin-top: 10px; }
     .news-card { flex: 1; cursor: pointer; }
-    .news-card__img { width: 100%; height: 14vw; overflow: hidden; margin-bottom: 16px; border-radius: 3px; }
+    .news-card__img { width: 100%; height: 14vw; overflow: hidden; margin-bottom: 16px; border-radius: 8px; }
     .news-card__img .ph { height: 100%; transition: opacity .2s; }
     .news-card:hover .news-card__img .ph { opacity: .82; }
-    .news-card .category { font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: .08em; }
+    .news-card .category { font-size: 11px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: .08em; }
     .news-card h4 { font-size: 18px; line-height: 1.35; margin-bottom: 8px; }
     .news-card .news-text { transition: opacity .2s; }
     .news-card:hover .news-text { opacity: .7; }
@@ -602,7 +624,7 @@
       width: 100%; background: transparent; border: 0;
       border-bottom: 1px solid rgba(255,255,255,.35);
       color: #fff; padding: 8px 36px 8px 0; font-size: 16px;
-      font-family: 'DM Sans', sans-serif; outline: none;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
     }
     .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
     .newsletter-form button[type="submit"] {
@@ -658,7 +680,7 @@
       .header-logo__content .lang { display: none; }
 
       .t70 { font-size: 38px; }
-      .t42 { font-size: 26px; }
+      .t42 { font-size: 24px; }
       .t24 { font-size: 20px; }
       .container { width: 100%; padding: 0 4.8vw; }
       .spacing, .block-margin { margin-bottom: 45px; }
@@ -680,8 +702,7 @@
       .categories__item { width: 48%; margin: 0 1% 20px; }
       .categories__item .ph-cat { height: 30vw; }
 
-      .block-columns__repeater { flex-direction: column; }
-      .block-columns__item { width: 100%; }
+      .block-columns__repeater { grid-template-columns: 1fr; }
       .block-columns__item .item__media-col { height: 56vw; }
 
       .block-login__content { flex-direction: column; }
@@ -778,11 +799,11 @@
     .tipo-card:hover,
     .nextgen-block__card:hover {
       transform: translateY(-5px) !important;
-      box-shadow: 0 14px 36px rgba(14,39,25,.10) !important;
+      box-shadow: 0 14px 36px rgba(0,40,25,.10) !important;
     }
     .promo-guarantee__item:hover {
       transform: translateY(-3px) !important;
-      box-shadow: 0 8px 20px rgba(14,39,25,.08) !important;
+      box-shadow: 0 8px 20px rgba(0,40,25,.08) !important;
     }
 
     /* ─── Botones ─────────────────────────────────────────── */
@@ -793,7 +814,7 @@
     }
     .btn-cta:hover, [class*="btn-primary"]:hover, .nav-cta:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 6px 20px rgba(14,39,25,.20) !important;
+      box-shadow: 0 6px 20px rgba(0,40,25,.20) !important;
     }
     .btn-cta:active, [class*="btn-primary"]:active {
       transform: scale(0.97) !important;
@@ -849,7 +870,7 @@
     }
     .promo-actives .active-card:hover {
       transform: translateY(-4px) !important;
-      box-shadow: 0 12px 30px rgba(14,39,25,.12) !important;
+      box-shadow: 0 12px 30px rgba(0,40,25,.12) !important;
     }
 
     /* ─── Reduced motion: desactivar todo ──────────────────── */
@@ -869,22 +890,22 @@
   <div class="mobile-nav__header">
     <a href="/">
       <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-            <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1
+            <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1
               C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7
               C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8
               c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-            <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-            <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-            <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 
+            <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+            <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+            <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 
               303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-            <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-            <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
+            <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+            <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
               c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-            <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 
+            <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 
               184.4,327.7 184.4,327.7"/>
-            <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
+            <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
               c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-            <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4
+            <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4
               c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
           </svg>
     </a>
@@ -925,22 +946,22 @@
         <div class="logo">
           <a href="/">
             <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-            <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1
+            <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1
               C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7
               C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8
               c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-            <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-            <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-            <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 
+            <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+            <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+            <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 
               303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-            <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-            <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
+            <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+            <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
               c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-            <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 
+            <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 
               184.4,327.7 184.4,327.7"/>
-            <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
+            <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3
               c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-            <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4
+            <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4
               c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
           </svg>
           </a>
@@ -995,8 +1016,8 @@
               Buscar
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/>
-                  <path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/>
+                  <path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </li>
@@ -1004,8 +1025,8 @@
               <a href="#contacte">Contacte</a>
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M2 6L12 13L22 6" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </li>
@@ -1013,8 +1034,8 @@
               <a href="usuaris.html">Inicia sessió</a>
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="8" r="4" stroke="#0E2719" stroke-width="1.5"/>
-                  <path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/>
+                  <path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </li>
@@ -1032,14 +1053,14 @@
       <div class="form-search-wrapper" id="searchWrapper">
         <div class="form-search__content" style="position:relative;">
           <button class="search-icon-btn" style="position:absolute;left:1px;top:1px;height:38px;width:38px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
           </button>
           <form action="/" method="get">
             <input type="text" name="s" placeholder="Cerca...">
           </form>
         </div>
         <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#0E2719" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
         </button>
       </div>
     </div>
@@ -1153,7 +1174,7 @@
             <li><a href="patrimonis.html">Due Diligence Tècnica</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -1185,7 +1206,7 @@
             <li><a href="pressupost.html">Ampliació i Canvi d'Ús</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -1256,7 +1277,7 @@
         <button>
           Parla amb nosaltres
           <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" fill="none">
-            <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/>
+            <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/>
           </svg>
         </button>
       </a>
@@ -1339,90 +1360,90 @@
           <li class="active" data-img="ph-blue">
             <a href="#construccio">Construcció
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
               </svg>
             </a>
           </li>
           <li data-img="ph-project1">
             <a href="promocio.html">Promoció
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
               </svg>
             </a>
           </li>
           <li data-img="ph-green">
             <a href="#rehabilitacio">Rehabilitació
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
               </svg>
             </a>
           </li>
           <li data-img="ph-stone">
             <a href="construccio.html">Obra Nova
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
               </svg>
             </a>
           </li>
           <li data-img="ph-warm-2">
             <a href="construccio.html">Reforma Integral
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
               </svg>
             </a>
           </li>
           <li data-img="ph-dark">
             <a href="rehabilitacio.html">Eficiència Energètica
               <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;">
-                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#0E2719"/>
-                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#0E2719"/>
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
               </svg>
             </a>
           </li>
@@ -1444,7 +1465,7 @@
         <p class="categories__item__title center t24">Construcció</p>
       </a>
       <a href="promocio.html" class="categories__item">
-        <div class="ph-cat" style="background:linear-gradient(160deg,#9FA9A3 0%,#0E2719 100%);border-radius:5px;margin-bottom:12px;"></div>
+        <div class="ph-cat" style="background:linear-gradient(160deg,#9FA9A3 0%,#002819 100%);border-radius:5px;margin-bottom:12px;"></div>
         <p class="categories__item__title center t24">Promoció</p>
       </a>
       <a href="#rehabilitacio" class="categories__item">
@@ -1499,6 +1520,21 @@
           </p>
         </a>
       </div>
+      <div class="block-columns__item">
+        <a href="projectes.html">
+          <div class="item__media-col">
+            <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#56685E 0%,#002819 100%);"></div>
+          </div>
+          <h3 class="title t24">Bloc Residencial · Badalona</h3>
+          <p class="text t16 color-muted">Promoció de 24 habitatges d'alta eficiència energètica amb espais comuns i jardí interior.</p>
+          <p style="margin-top:12px;">
+            <a href="projectes.html" class="link-arrow t14">Veure projecte
+              <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+            </svg>
+            </a>
+          </p>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1513,15 +1549,15 @@
         <h4>Construïm el que<br>tu imagines</h4>
         <p class="text">Tens el projecte, nosaltres tenim l'experiència. Acompanyem els nostres clients des del primer esbós fins al lliurament de les claus, amb transparència i qualitat garantida.</p>
         <a href="#contacte">
-          <button style="background:#fff;color:#0E2719;border-color:#fff;">
+          <button style="background:#fff;color:#002819;border-color:#fff;">
             Contacta amb nosaltres
-            <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/>
+            <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/>
             </svg>
           </button>
         </a>
       </div>
       <div class="block-info__image">
-        <div class="ph-circle" style="background:linear-gradient(135deg,#9FA9A3 0%,#0E2719 100%);"></div>
+        <div class="ph-circle" style="background:linear-gradient(135deg,#9FA9A3 0%,#002819 100%);"></div>
       </div>
     </div>
   </div>
@@ -1775,7 +1811,7 @@
   const servicesImg = document.getElementById('servicesImg');
 
   const imgMap = {
-    'ph-blue':     'linear-gradient(135deg,#56685E 0%,#0E2719 100%)',
+    'ph-blue':     'linear-gradient(135deg,#56685E 0%,#002819 100%)',
     'ph-project1': 'linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%)',
     'ph-green':    'linear-gradient(135deg,#9FA9A3 0%,#56685E 100%)',
     'ph-stone':    'linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%)',

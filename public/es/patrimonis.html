@@ -5,33 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patrimonios | PAPIK · Inversión Conjunta en Real Estate</title>
   <meta name="description" content="Vehículos de inversión conjunta en proyectos inmobiliarios. Aporta capital o solar y PAPIK pone la construcción. Equipo técnico, jurídico y de inversión a tu lado.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 
   <style>
     /* ═══════════════════════════════════
        VARIABLES & RESET
     ═══════════════════════════════════ */
     :root {
-      --green:       #0E2719;
+      --green:       #002819;
+      --accent:      #95BBA5;
       --green-light: #56685E;
       --green-dark:  #0A1B12;
-      --bg-light:    #E7E9E8;
-      --bg-section:  rgba(159,169,163,0.25);
-      --text:        #0E2719;
+      --bg-light:    rgba(86,104,94,0.14);
+      --bg-section:  rgba(86,104,94,0.14);
+      --text:        #002819;
       --muted:       #56685E;
       --muted-light: #9FA9A3;
-      --border:      rgba(159,169,163,0.5);
+      --border:      rgba(86,104,94,0.25);
       --footer-bg:   #07140D;
-      --warm-1:      #E7E9E8;
+      --warm-1:      rgba(86,104,94,0.22);
       --warm-2:      #9FA9A3;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
     body, html {
       margin: 0; padding: 0;
-      font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+      font-family: 'TT Firs Neue', Arial, Helvetica, sans-serif;
       color: var(--text);
       overflow-x: hidden;
       opacity: 0;
@@ -42,7 +66,7 @@
     h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
     ul { list-style: none; margin: 0; padding: 0; }
     a { text-decoration: none; color: inherit; }
-    button, input, select, textarea { font-family: 'DM Sans', sans-serif; }
+    button, input, select, textarea { font-family: 'TT Firs Neue', sans-serif; }
     img { max-width: 100%; height: auto; display: block; }
 
     /* Typography */
@@ -50,8 +74,8 @@
     .t14  { font-size: 14px; line-height: 1.6; }
     .t16  { font-size: 16px; line-height: 1.6; }
     .t18  { font-size: 18px; line-height: 1.4; }
-    .t24  { font-size: 24px; line-height: 1.3; }
-    .t42  { font-size: 42px; line-height: 1.15; }
+    .t24  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.3; }
+    .t42  { font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
     .t70  { font-size: 70px; line-height: 1.05; }
     .upper { text-transform: uppercase; }
     .center { text-align: center; }
@@ -112,13 +136,13 @@
        PLACEHOLDER IMAGES
     ═══════════════════════════════════ */
     .ph { display: block; width: 100%; height: 100%; }
-    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #0E2719 100%); }
+    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #002819 100%); }
     .ph-warm-1  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
     .ph-warm-2  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-warm-3  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-warm-4  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
     .ph-warm-5  { background: linear-gradient(135deg, #9FA9A3 0%, #9FA9A3 100%); }
-    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #0E2719 100%); }
+    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #002819 100%); }
     .ph-green   { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-capital { background: linear-gradient(160deg, #9FA9A3 0%, #0A1B12 100%); }
     .ph-solar   { background: linear-gradient(160deg, #9FA9A3 0%, #56685E 100%); }
@@ -158,9 +182,9 @@
 
     .lang select {
       -webkit-appearance: none; appearance: none; border: 0; background: transparent;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+      font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
       cursor: pointer; text-transform: uppercase; padding-right: 16px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230E2719'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 0 center;
     }
 
@@ -299,7 +323,7 @@
     }
     .block-hero__title {
       color: #fff; font-weight: 300;
-      font-size: clamp(38px, 5.2vw, 80px);
+      font-size: clamp(38px, 5.2vw, 76px);
       line-height: 1.08; max-width: 860px;
     }
     .block-hero__sub {
@@ -329,7 +353,7 @@
     }
     .pat-stat:first-child { border-left: none; padding-left: 0; }
     .pat-stat__num {
-      font-size: clamp(26px, 2.8vw, 42px);
+      font-size: clamp(26px, 2.8vw, 40px);
       color: var(--green); font-weight: 300; line-height: 1;
       margin-bottom: 6px;
     }
@@ -349,7 +373,7 @@
     }
     .item__info__text .tag {
       font-size: 12px; text-transform: uppercase;
-      letter-spacing: .12em; margin-bottom: 18px; opacity: .65;
+      letter-spacing: .2em; margin-bottom: 18px; opacity: .65;
     }
     .item__info__text .big-text {
       font-size: clamp(26px, 2.8vw, 40px);
@@ -389,7 +413,7 @@
        PROCESO
     ═══════════════════════════════════ */
     .block-process {
-      padding: 80px 0; background: var(--bg-light);
+      padding: 80px 0; background: #fff;
     }
     .block-process__header { margin-bottom: 56px; }
     .block-process__tag {
@@ -494,18 +518,17 @@
       max-width: 560px; margin-top: 14px;
     }
     .juridic-cards {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
     }
     .juridic-card {
-      background: #fff; padding: 36px 32px;
-      border: 1px solid var(--border);
+      background: #fff; padding: 36px 32px; border-radius: 8px;
     }
     .juridic-card__header {
       display: flex; align-items: center;
       justify-content: space-between; margin-bottom: 20px;
     }
     .juridic-card__num {
-      font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+      font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
       color: var(--muted-light);
     }
     .juridic-card__tag {
@@ -533,62 +556,30 @@
     /* ═══════════════════════════════════
        FAQ
     ═══════════════════════════════════ */
-    .pat-faq { padding: 80px 0; }
-    .pat-faq__content {
-      display: grid; grid-template-columns: 1fr 1.6fr;
-      gap: 8vw; align-items: flex-start;
-    }
-    .pat-faq__left .tag {
-      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--muted-light); margin-bottom: 16px; display: block;
-    }
-    .pat-faq__left h2 {
-      font-size: clamp(26px, 2.8vw, 40px); line-height: 1.18; margin-bottom: 20px;
-    }
-    .pat-faq__left p {
-      font-size: 15px; color: var(--muted); line-height: 1.65;
-    }
-    .faq-item { border-top: 1px solid var(--border); cursor: pointer; }
-    .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-item__question {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 0; font-size: 16px; color: var(--text);
-      user-select: none;
-    }
-    .faq-item__icon {
-      width: 24px; height: 24px; flex-shrink: 0;
-      position: relative; transition: transform .3s;
-    }
-    .faq-item__icon::before, .faq-item__icon::after {
-      content: ''; position: absolute; background: var(--muted-light);
-    }
-    .faq-item__icon::before {
-      width: 12px; height: 1px;
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-    }
-    .faq-item__icon::after {
-      width: 1px; height: 12px;
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      transition: transform .3s, opacity .3s;
-    }
-    .faq-item.open .faq-item__icon::after { transform: translate(-50%,-50%) rotate(90deg); opacity: 0; }
-    .faq-item__answer {
-      font-size: 15px; color: var(--muted); line-height: 1.65;
-      max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s;
-      padding-bottom: 0;
-    }
-    .faq-item.open .faq-item__answer { max-height: 400px; padding-bottom: 20px; }
+    .pat-faq { padding: 80px 0; background: #fff; }
+    .pat-faq__hdr { margin-bottom: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: end; }
+    .pat-faq__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
+    .pat-faq__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.12; }
+    .pat-faq__intro { font-size: 15px; color: var(--muted); line-height: 1.75; }
+    .faq-open-list { border-top: 1px solid var(--border); }
+    .faq-open-item { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6vw; padding: 40px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .faq-open-item__num { font-size: 11px; letter-spacing: .2em; color: var(--accent); margin-bottom: 10px; }
+    .faq-open-item__q { font-size: 18px; color: var(--green); font-weight: 400; line-height: 1.3; }
+    .faq-open-item__a { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .faq-open-item__a ul { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+    .faq-open-item__a ul li { display: flex; gap: 10px; }
+    .faq-open-item__a ul li::before { content: '—'; color: var(--muted-light); flex-shrink: 0; }
 
     /* ═══════════════════════════════════
        CTA / CONTACTO INVERSORES
     ═══════════════════════════════════ */
     .block-cta-inv {
-      padding: 80px 0; background: var(--bg-light);
+      padding: 80px 0; background: #fff;
     }
     .block-cta-inv__inner {
       background: var(--green);
       display: flex; align-items: stretch; overflow: hidden;
-      border-radius: 6px;
+      border-radius: 8px;
     }
     .cta-left {
       flex: 1; padding: 64px 56px;
@@ -598,7 +589,7 @@
       color: rgba(255,255,255,.4); margin-bottom: 20px; display: block;
     }
     .cta-left h2 {
-      font-size: clamp(28px, 3vw, 46px); color: #fff;
+      font-size: clamp(26px, 2.8vw, 40px); color: #fff;
       line-height: 1.12; margin-bottom: 20px;
     }
     .cta-left p {
@@ -615,7 +606,7 @@
       display: flex; flex-direction: column; justify-content: center;
     }
     .pat-form label {
-      display: block; font-size: 11px; letter-spacing: .14em;
+      display: block; font-size: 11px; letter-spacing: .2em;
       text-transform: uppercase; color: rgba(255,255,255,.35);
       margin-bottom: 6px; margin-top: 20px;
     }
@@ -624,7 +615,7 @@
       width: 100%; background: transparent;
       border: 0; border-bottom: 1px solid rgba(255,255,255,.2);
       color: #fff; padding: 8px 0; font-size: 15px;
-      font-family: 'DM Sans', sans-serif; outline: none;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
       transition: border-color .2s;
       -webkit-appearance: none; appearance: none;
     }
@@ -671,7 +662,7 @@
       width: 100%; background: transparent; border: 0;
       border-bottom: 1px solid rgba(255,255,255,.35);
       color: #fff; padding: 8px 36px 8px 0; font-size: 16px;
-      font-family: 'DM Sans', sans-serif; outline: none;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
     }
     .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
     .newsletter-form button[type="submit"] {
@@ -723,7 +714,7 @@
       .menu-btn-wrapper { display: block; }
       nav.menu, nav.menu-right, .lang { display: none; }
 
-      .t42 { font-size: 26px; }
+      .t42 { font-size: 24px; }
       .t70 { font-size: 38px; }
       .t24 { font-size: 20px; }
       .container { width: 100%; padding: 0 4.8vw; }
@@ -749,7 +740,8 @@
 
       .juridic-cards { grid-template-columns: 1fr; }
 
-      .pat-faq__content { grid-template-columns: 1fr; }
+      .pat-faq__hdr { grid-template-columns: 1fr; gap: 20px; }
+      .faq-open-item { grid-template-columns: 1fr; gap: 12px; }
 
       .block-cta-inv__inner { flex-direction: column; }
       .cta-right { width: 100%; padding: 40px 4.8vw 48px; }
@@ -773,15 +765,15 @@
   <div class="mobile-nav__header">
     <a href="index.html">
       <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-        <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-        <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-        <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-        <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-        <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-        <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-        <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-        <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-        <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
       </svg>
     </a>
     <button class="mobile-nav__close" id="mobileNavClose">✕</button>
@@ -797,7 +789,7 @@
     <li><a href="blog.html">Blog</a></li>
     <li><a href="nosaltres.html">Nosotros</a></li>
     <li><a href="index.html#contacte">Contacto</a></li>
-    <li><a href="/usuaris.html" style="color:var(--green-light);font-weight:500;">Iniciar sesión →</a></li>
+    <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Iniciar sesión →</a></li>
     <li><a href="#contacte-inversion" style="color:var(--green);font-weight:600;">Hablar con inversión →</a></li>
   </ul>
 </nav>
@@ -819,15 +811,15 @@
         <div class="logo">
           <a href="index.html">
             <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-              <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-              <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-              <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-              <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-              <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-              <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-              <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-              <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-              <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
             </svg>
           </a>
         </div>
@@ -866,24 +858,24 @@
             <li class="btn-search-trigger" id="searchTrigger">
               Buscar
               <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </li>
             <li><a href="index.html#contacte">Contacto</a>
               <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/><path d="M2 6L12 13L22 6" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/><path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </li>
-            <li><a href="/usuaris.html">Iniciar sesión</a>
+            <li><a href="usuaris.html">Iniciar sesión</a>
               <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#0E2719" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </li>
             <li>
-              <a href="/pressupost.html" class="nav-cta" style="text-decoration:none;">
+              <span class="nav-cta menu-btn" data-menu="pressupost">
                 Presupuesto
                 <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
-              </a>
+              </span>
             </li>
           </ul>
         </nav>
@@ -893,14 +885,14 @@
       <div class="form-search-wrapper" id="searchWrapper">
         <div class="form-search__content" style="position:relative;">
           <button class="search-icon-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
           </button>
           <form action="/" method="get">
             <input type="text" name="s" placeholder="Buscar...">
           </form>
         </div>
         <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#0E2719" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
         </button>
       </div>
     </div>
@@ -921,7 +913,7 @@
             <li><a href="../pressupost.html">Ampliación y Cambio de Uso</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -1030,7 +1022,7 @@
             <li><a href="patrimonis.html">Gestión de Activos y Mantenimiento</a></li>
             <li><a href="patrimonis.html#faq">Preguntas frecuentes</a></li>
           </ul>
-          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div></div>
+          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div></div>
         </div>
         <div class="submenu__col">
           <h3 class="t24">Rentabilidad y seguridad</h3>
@@ -1089,7 +1081,7 @@
       <a href="#contacte-inversion">
         <button>
           Solicitar reunión privada
-          <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/></svg>
+          <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/></svg>
         </button>
       </a>
       <a href="#com-funciona">
@@ -1327,63 +1319,63 @@
 ═══════════════════════════════════ -->
 <section class="pat-faq" id="faq">
   <div class="container">
-    <div class="pat-faq__content">
-      <div class="pat-faq__left">
-        <span class="tag">Preguntas frecuentes</span>
-        <h2>Todo lo que quieres<br>saber antes de invertir</h2>
-        <p>Sabemos que confiar tu capital o tu solar a un socio requiere claridad. Aquí tienes las respuestas a las preguntas que nos hacen con más frecuencia.</p>
+    <div class="pat-faq__hdr">
+      <div>
+        <span class="pat-faq__tag">Preguntas frecuentes</span>
+        <h2 class="pat-faq__title">Todo lo que quieres<br>saber antes de invertir</h2>
       </div>
-      <div class="pat-faq__items" id="faqItems">
+      <p class="pat-faq__intro">Sabemos que confiar tu capital o tu solar a un socio requiere claridad. Aquí tienes las respuestas a las preguntas que nos hacen con más frecuencia.</p>
+    </div>
+    <div class="faq-open-list">
 
-        <div class="faq-item">
-          <div class="faq-item__question">
-            <span>¿Cuál es el capital mínimo para invertir?</span>
-            <div class="faq-item__icon"></div>
-          </div>
-          <div class="faq-item__answer">El capital mínimo para la modalidad de capital es de 250.000 €. Para aportación de solar, el mínimo es de 500 m² de techo edificable. Estas cifras garantizan que el proyecto sea viable y que la participación del inversor tenga un peso real en la toma de decisiones.</div>
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">01</p>
+          <h3 class="faq-open-item__q">¿Cuál es el capital mínimo para invertir?</h3>
         </div>
-
-        <div class="faq-item">
-          <div class="faq-item__question">
-            <span>¿Puedo invertir a través de una sociedad o holding?</span>
-            <div class="faq-item__icon"></div>
-          </div>
-          <div class="faq-item__answer">Sí, es la fórmula habitual. La mayoría de nuestros socios invierten a través de sociedades patrimoniales o holdings, lo que permite optimizar la carga fiscal y separar la operación del patrimonio personal. El equipo jurídico te asesorará sobre la estructura óptima en tu caso.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-item__question">
-            <span>¿Tengo acceso a información sobre la evolución del proyecto?</span>
-            <div class="faq-item__icon"></div>
-          </div>
-          <div class="faq-item__answer">Sí. Como socio tienes acceso al dashboard de seguimiento de obra en tiempo real, disponible en el Área de Clientes de PAPIK. Además, recibirás informes financieros trimestrales y podrás solicitar reuniones de seguimiento con el equipo gestor en cualquier momento.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-item__question">
-            <span>¿Qué riesgo tengo como inversor de capital?</span>
-            <div class="faq-item__icon"></div>
-          </div>
-          <div class="faq-item__answer">Como en cualquier operación inmobiliaria, existen riesgos de mercado (variación de precios de venta), riesgos de ejecución (plazos) y riesgos normativos. El equipo de riesgos de PAPIK los identifica y mitiga en la fase previa. Además, en operaciones con deuda, el capital del inversor tiene preferencia de retorno sobre el capital de PAPIK.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-item__question">
-            <span>¿Qué garantía tengo si aporto mi solar?</span>
-            <div class="faq-item__icon"></div>
-          </div>
-          <div class="faq-item__answer">El solar se aporta como capital social a la sociedad proyecto o mediante una permuta regulada notarialmente. Esto garantiza que los derechos del propietario quedan protegidos en todo momento. La valoración del suelo la realiza un tasador independiente homologado, sin intervención de PAPIK en la valoración.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-item__question">
-            <span>¿Podéis adquirir el solar directamente y sin operación conjunta?</span>
-            <div class="faq-item__icon"></div>
-          </div>
-          <div class="faq-item__answer">Sí. Si el solar es de interés para nuestro pipeline de promoción propia, podemos hacer una oferta directa de compra. En este caso, el propietario recibe el precio íntegro y no participa en el resultado de la promoción. Contáctanos para una valoración sin compromiso.</div>
-        </div>
-
+        <p class="faq-open-item__a">El capital mínimo para la modalidad de capital es de 250.000 €. Para aportación de solar, el mínimo es de 500 m² de techo edificable. Estas cifras garantizan que el proyecto sea viable y que la participación del inversor tenga un peso real en la toma de decisiones.</p>
       </div>
+
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">02</p>
+          <h3 class="faq-open-item__q">¿Puedo invertir a través de una sociedad o holding?</h3>
+        </div>
+        <p class="faq-open-item__a">Sí, es la fórmula habitual. La mayoría de nuestros socios invierten a través de sociedades patrimoniales o holdings, lo que permite optimizar la carga fiscal y separar la operación del patrimonio personal. El equipo jurídico te asesorará sobre la estructura óptima en tu caso.</p>
+      </div>
+
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">03</p>
+          <h3 class="faq-open-item__q">¿Tengo acceso a información sobre la evolución del proyecto?</h3>
+        </div>
+        <p class="faq-open-item__a">Sí. Como socio tienes acceso al dashboard de seguimiento de obra en tiempo real, disponible en el Área de Clientes de PAPIK. Además, recibirás informes financieros trimestrales y podrás solicitar reuniones de seguimiento con el equipo gestor en cualquier momento.</p>
+      </div>
+
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">04</p>
+          <h3 class="faq-open-item__q">¿Qué riesgo tengo como inversor de capital?</h3>
+        </div>
+        <p class="faq-open-item__a">Como en cualquier operación inmobiliaria, existen riesgos de mercado (variación de precios de venta), riesgos de ejecución (plazos) y riesgos normativos. El equipo de riesgos de PAPIK los identifica y mitiga en la fase previa. Además, en operaciones con deuda, el capital del inversor tiene preferencia de retorno sobre el capital de PAPIK.</p>
+      </div>
+
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">05</p>
+          <h3 class="faq-open-item__q">¿Qué garantía tengo si aporto mi solar?</h3>
+        </div>
+        <p class="faq-open-item__a">El solar se aporta como capital social a la sociedad proyecto o mediante una permuta regulada notarialmente. Esto garantiza que los derechos del propietario quedan protegidos en todo momento. La valoración del suelo la realiza un tasador independiente homologado, sin intervención de PAPIK en la valoración.</p>
+      </div>
+
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">06</p>
+          <h3 class="faq-open-item__q">¿Podéis adquirir el solar directamente y sin operación conjunta?</h3>
+        </div>
+        <p class="faq-open-item__a">Sí. Si el solar es de interés para nuestro pipeline de promoción propia, podemos hacer una oferta directa de compra. En este caso, el propietario recibe el precio íntegro y no participa en el resultado de la promoción. Contáctanos para una valoración sin compromiso.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1577,14 +1569,6 @@
   mobileNavClose.addEventListener('click', closeMobileNav);
   fadeBg.addEventListener('click', closeMobileNav);
 
-  // ─── FAQ accordion ───
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-item__question').addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
 </script>
 
 <script src="../cursor.js"></script>

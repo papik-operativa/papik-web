@@ -5,33 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área de Clientes | PAPIK · Construcción · Promoción · Rehabilitación</title>
   <meta name="description" content="Accede a tu espacio de cliente PAPIK: seguimiento de proyectos, documentación y comunicación directa con el equipo.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 
   <style>
     /* ═══════════════════════════════════
        VARIABLES & RESET
     ═══════════════════════════════════ */
     :root {
-      --green:       #0E2719;
+      --green:       #002819;
+      --accent:      #95BBA5;
       --green-light: #56685E;
       --green-dark:  #0A1B12;
-      --bg-light:    #E7E9E8;
-      --bg-section:  rgba(159,169,163,0.25);
-      --text:        #0E2719;
+      --bg-light:    rgba(86,104,94,0.14);
+      --bg-section:  rgba(86,104,94,0.14);
+      --text:        #002819;
       --muted:       #56685E;
       --muted-light: #9FA9A3;
-      --border:      rgba(159,169,163,0.5);
+      --border:      rgba(86,104,94,0.25);
       --footer-bg:   #07140D;
-      --warm-1:      #E7E9E8;
+      --warm-1:      rgba(86,104,94,0.22);
       --warm-2:      #9FA9A3;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
     body, html {
       margin: 0; padding: 0;
-      font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+      font-family: 'TT Firs Neue', Arial, Helvetica, sans-serif;
       color: var(--text);
       overflow-x: hidden;
       opacity: 0;
@@ -42,7 +66,7 @@
     h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
     ul { list-style: none; margin: 0; padding: 0; }
     a { text-decoration: none; color: inherit; }
-    button, input, select, textarea { font-family: 'DM Sans', sans-serif; }
+    button, input, select, textarea { font-family: 'TT Firs Neue', sans-serif; }
     img { max-width: 100%; height: auto; display: block; }
 
     /* Typography */
@@ -50,8 +74,8 @@
     .t14  { font-size: 14px; line-height: 1.6; }
     .t16  { font-size: 16px; line-height: 1.6; }
     .t18  { font-size: 18px; line-height: 1.4; }
-    .t24  { font-size: 24px; line-height: 1.3; }
-    .t42  { font-size: 42px; line-height: 1.15; }
+    .t24  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.3; }
+    .t42  { font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
     .t70  { font-size: 70px; line-height: 1.05; }
     .upper { text-transform: uppercase; }
     .center { text-align: center; }
@@ -124,9 +148,9 @@
     /* Lang selector */
     .lang select {
       -webkit-appearance: none; appearance: none; border: 0; background: transparent;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+      font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
       cursor: pointer; text-transform: uppercase; padding-right: 16px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230E2719'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 0 center;
     }
 
@@ -261,7 +285,7 @@
       width: 100%; background: transparent; border: 0;
       border-bottom: 1px solid rgba(255,255,255,.35);
       color: #fff; padding: 8px 36px 8px 0; font-size: 16px;
-      font-family: 'DM Sans', sans-serif; outline: none;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
     }
     .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
     .newsletter-form button[type="submit"] {
@@ -395,7 +419,7 @@
 
     .account-form-header__label {
       font-size: 11px; text-transform: uppercase;
-      letter-spacing: .14em; color: var(--muted-light); margin-bottom: 12px;
+      letter-spacing: .2em; color: var(--muted-light); margin-bottom: 12px;
     }
 
     .account-form-header__title {
@@ -447,7 +471,7 @@
       background: var(--bg-light); border: 1px solid transparent;
       border-radius: 4px; padding: 0 16px;
       font-size: 15px; color: var(--text);
-      font-family: 'DM Sans', sans-serif; outline: none;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
       transition: border-color .2s, background .2s;
     }
     .form-group input:focus { background: #fff; border-color: var(--green); }
@@ -493,7 +517,7 @@
       nav.menu, nav.menu-right, .lang { display: none; }
       .header-logo__content .lang { display: none; }
       .t70 { font-size: 38px; }
-      .t42 { font-size: 26px; }
+      .t42 { font-size: 24px; }
       .t24 { font-size: 20px; }
       .container { width: 100%; padding: 0 4.8vw; }
 
@@ -522,15 +546,15 @@
   <div class="mobile-nav__header">
     <a href="index.html">
       <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-        <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-        <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-        <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-        <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-        <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-        <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-        <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-        <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-        <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
       </svg>
     </a>
     <button class="mobile-nav__close" id="mobileNavClose">✕</button>
@@ -546,8 +570,8 @@
     <li><a href="blog.html">Blog</a></li>
     <li><a href="nosaltres.html">Nosotros</a></li>
     <li><a href="index.html#contacto">Contacto</a></li>
-    <li><a href="/usuaris.html" class="active" style="color:var(--green);font-weight:500;">Área de Clientes →</a></li>
-    <li><a href="/pressupost.html" style="color:var(--green);font-weight:600;">Presupuesto →</a></li>
+    <li><a href="usuaris.html" class="active" style="color:var(--green);font-weight:500;">Área de Clientes →</a></li>
+    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Presupuesto →</a></li>
   </ul>
 </nav>
 <div class="fade-bg" id="fadeBg"></div>
@@ -570,15 +594,15 @@
         <div class="logo">
           <a href="index.html">
             <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-              <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-              <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-              <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-              <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-              <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-              <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-              <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-              <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-              <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
             </svg>
           </a>
         </div>
@@ -622,8 +646,8 @@
               Buscar
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/>
-                  <path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/>
+                  <path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </li>
@@ -631,8 +655,8 @@
               <a href="index.html#contacto">Contacto</a>
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M2 6L12 13L22 6" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </li>
@@ -650,14 +674,14 @@
       <div class="form-search-wrapper" id="searchWrapper">
         <div class="form-search__content" style="position:relative;">
           <button class="search-icon-btn" style="position:absolute;left:1px;top:1px;height:38px;width:38px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
           </button>
           <form action="/" method="get">
             <input type="text" name="s" placeholder="Buscar...">
           </form>
         </div>
         <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#0E2719" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
         </button>
       </div>
     </div>
@@ -708,7 +732,7 @@
             <li><a href="index.html#reservas">Reservas y Pre-venta</a></li>
           </ul>
           <div class="submenu__img">
-            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#0E2719 100%);"></div>
+            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#002819 100%);"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -771,7 +795,7 @@
             <li><a href="patrimonis.html">Due Diligence Técnica</a></li>
           </ul>
           <div class="submenu__img">
-            <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -796,27 +820,27 @@
         <div class="submenu__col">
           <h3 class="t24">Tipo de proyecto</h3>
           <ul class="t16">
-            <li><a href="/pressupost.html">Obra Nueva Unifamiliar</a></li>
-            <li><a href="/pressupost.html">Edificio Plurifamiliar</a></li>
-            <li><a href="/pressupost.html">Reforma Integral</a></li>
-            <li><a href="/pressupost.html">Rehabilitación Energética</a></li>
-            <li><a href="/pressupost.html">Ampliación y Cambio de Uso</a></li>
+            <li><a href="pressupost.html">Obra Nueva Unifamiliar</a></li>
+            <li><a href="pressupost.html">Edificio Plurifamiliar</a></li>
+            <li><a href="pressupost.html">Reforma Integral</a></li>
+            <li><a href="pressupost.html">Rehabilitación Energética</a></li>
+            <li><a href="pressupost.html">Ampliación y Cambio de Uso</a></li>
           </ul>
           <div class="submenu__img">
-            <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
           <h3 class="t24">Estima tu proyecto</h3>
           <p class="t16" style="color:var(--muted);line-height:1.65;">Introduce las características de tu proyecto y obtén una estimación orientativa del coste en menos de un minuto. Sin compromiso, sin registro.</p>
-          <a href="/pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
+          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
             <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
         <div class="submenu__featured">
           <h3>Cómo funciona</h3>
           <p class="feat-title">3 pasos: tipo de proyecto → superficie y materiales → resultado</p>
-          <a href="/pressupost.html" class="feat-link link-arrow">Probar ahora
+          <a href="pressupost.html" class="feat-link link-arrow">Probar ahora
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>

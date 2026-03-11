@@ -5,33 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rehabilitación Energética | PAPIK · Ayudas Next Generation EU</title>
   <meta name="description" content="Rehabilitación energética de viviendas y edificios. Hasta el 80% de subvención Next Generation EU. PAPIK gestiona todo el trámite: diagnóstico, proyecto, obra y certificación. Sant Cugat del Vallès.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 
   <style>
     /* ═══════════════════════════════════
        VARIABLES & RESET
     ═══════════════════════════════════ */
     :root {
-      --green:       #0E2719;
+      --green:       #002819;
+      --accent:      #95BBA5;
       --green-light: #56685E;
       --green-dark:  #0A1B12;
-      --bg-light:    #E7E9E8;
-      --bg-section:  rgba(159,169,163,0.25);
-      --text:        #0E2719;
+      --bg-light:    rgba(86,104,94,0.14);
+      --bg-section:  rgba(86,104,94,0.14);
+      --text:        #002819;
       --muted:       #56685E;
       --muted-light: #9FA9A3;
-      --border:      rgba(159,169,163,0.5);
+      --border:      rgba(86,104,94,0.25);
       --footer-bg:   #07140D;
-      --warm-1:      #E7E9E8;
+      --warm-1:      rgba(86,104,94,0.22);
       --warm-2:      #9FA9A3;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
     body, html {
       margin: 0; padding: 0;
-      font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+      font-family: 'TT Firs Neue', Arial, Helvetica, sans-serif;
       color: var(--text);
       overflow-x: hidden;
       opacity: 0;
@@ -42,7 +66,7 @@
     h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
     ul { list-style: none; margin: 0; padding: 0; }
     a { text-decoration: none; color: inherit; }
-    button, input, select, textarea { font-family: 'DM Sans', sans-serif; }
+    button, input, select, textarea { font-family: 'TT Firs Neue', sans-serif; }
     img { max-width: 100%; height: auto; display: block; }
 
     /* Typography */
@@ -50,8 +74,8 @@
     .t14  { font-size: 14px; line-height: 1.6; }
     .t16  { font-size: 16px; line-height: 1.6; }
     .t18  { font-size: 18px; line-height: 1.4; }
-    .t24  { font-size: 24px; line-height: 1.3; }
-    .t42  { font-size: 42px; line-height: 1.15; }
+    .t24  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.3; }
+    .t42  { font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
     .t70  { font-size: 70px; line-height: 1.05; }
     .upper { text-transform: uppercase; }
     .center { text-align: center; }
@@ -112,13 +136,13 @@
        PLACEHOLDER IMAGES
     ═══════════════════════════════════ */
     .ph { display: block; width: 100%; height: 100%; }
-    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #0E2719 100%); }
+    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #002819 100%); }
     .ph-warm-1  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
     .ph-warm-2  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-warm-3  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-warm-4  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
     .ph-warm-5  { background: linear-gradient(135deg, #9FA9A3 0%, #9FA9A3 100%); }
-    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #0E2719 100%); }
+    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #002819 100%); }
     .ph-green   { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
     .ph-capital { background: linear-gradient(160deg, #9FA9A3 0%, #0A1B12 100%); }
     .ph-solar   { background: linear-gradient(160deg, #9FA9A3 0%, #56685E 100%); }
@@ -158,9 +182,9 @@
 
     .lang select {
       -webkit-appearance: none; appearance: none; border: 0; background: transparent;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+      font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
       cursor: pointer; text-transform: uppercase; padding-right: 16px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230E2719'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 0 center;
     }
 
@@ -198,6 +222,12 @@
     .nav-cta:hover { background: var(--green-light) !important; opacity: 1 !important; }
     nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
     .nav-cta.menu-btn { display: flex; }
+
+    /* ─── FAQ items: indent hover ──────────────────────────── */
+    .faq-open-item {
+      transition: padding-left 0.22s ease !important;
+    }
+    .faq-open-item:hover { padding-left: 10px; }
 
     .icon-wrapper {
       width: 30px; height: 30px; border-radius: 50%; display: flex;
@@ -299,7 +329,7 @@
     }
     .block-hero__title {
       color: #fff; font-weight: 300;
-      font-size: clamp(38px, 5.2vw, 80px);
+      font-size: clamp(38px, 5.2vw, 76px);
       line-height: 1.08; max-width: 860px;
     }
     .block-hero__sub {
@@ -315,7 +345,7 @@
        PROCESS
     ═══════════════════════════════════ */
     .block-process {
-      padding: 80px 0; background: var(--bg-light);
+      padding: 80px 0; background: #fff;
     }
     .block-process__header { margin-bottom: 36px; }
     .block-process__tag {
@@ -359,12 +389,12 @@
        CTA / CONTACTO
     ═══════════════════════════════════ */
     .block-cta-inv {
-      padding: 80px 0; background: var(--bg-light);
+      padding: 80px 0; background: #fff;
     }
     .block-cta-inv__inner {
       background: var(--green);
       display: flex; align-items: stretch; overflow: hidden;
-      border-radius: 6px;
+      border-radius: 8px;
     }
     .cta-left {
       flex: 1; padding: 44px 44px;
@@ -374,7 +404,7 @@
       color: rgba(255,255,255,.4); margin-bottom: 20px; display: block;
     }
     .cta-left h2 {
-      font-size: clamp(28px, 3vw, 46px); color: #fff;
+      font-size: clamp(26px, 2.8vw, 40px); color: #fff;
       line-height: 1.12; margin-bottom: 20px;
     }
     .cta-left p {
@@ -391,7 +421,7 @@
       display: flex; flex-direction: column; justify-content: center;
     }
     .pat-form label {
-      display: block; font-size: 11px; letter-spacing: .14em;
+      display: block; font-size: 11px; letter-spacing: .2em;
       text-transform: uppercase; color: rgba(255,255,255,.35);
       margin-bottom: 6px; margin-top: 20px;
     }
@@ -400,7 +430,7 @@
       width: 100%; background: transparent;
       border: 0; border-bottom: 1px solid rgba(255,255,255,.2);
       color: #fff; padding: 8px 0; font-size: 15px;
-      font-family: 'DM Sans', sans-serif; outline: none;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
       transition: border-color .2s;
       -webkit-appearance: none; appearance: none;
     }
@@ -447,7 +477,7 @@
       width: 100%; background: transparent; border: 0;
       border-bottom: 1px solid rgba(255,255,255,.35);
       color: #fff; padding: 8px 36px 8px 0; font-size: 16px;
-      font-family: 'DM Sans', sans-serif; outline: none;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
     }
     .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
     .newsletter-form button[type="submit"] {
@@ -493,56 +523,32 @@
     .mobile-nav ul li.sub-title { font-size: 12px; text-transform: uppercase; color: var(--muted); padding: 20px 0 8px; border-bottom: 0; }
 
     /* ═══════════════════════════════════
-       HERO GIANT %
+       STATS BAND
     ═══════════════════════════════════ */
-    .hero-pct-bg {
-      position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
-      font-size: clamp(140px, 20vw, 300px); font-weight: 700;
-      color: rgba(255,255,255,.045); line-height: 1; pointer-events: none;
-      user-select: none; letter-spacing: -.02em; z-index: 2;
-    }
-
-    /* ═══════════════════════════════════
-       IMPACT BAR (replaces stats)
-    ═══════════════════════════════════ */
-    .rehab-impact { background: var(--green); }
-    .rehab-impact__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .rehab-impact__cell {
-      padding: 28px 28px; border-right: 1px solid rgba(255,255,255,.1);
-    }
-    .rehab-impact__cell:last-child { border-right: none; }
-    .rehab-impact__label {
-      font-size: 11px; text-transform: uppercase; letter-spacing: .14em;
-      color: rgba(255,255,255,.4); margin-bottom: 16px;
-    }
-    .rehab-impact__transform { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .rehab-impact__from {
-      font-size: clamp(20px, 2.2vw, 32px); color: rgba(255,255,255,.35); font-weight: 300;
-    }
-    .rehab-impact__arrow { color: rgba(255,255,255,.25); font-size: 20px; }
-    .rehab-impact__to {
-      font-size: clamp(24px, 2.8vw, 42px); color: #fff; font-weight: 300;
-    }
-    .rehab-impact__unit {
-      font-size: 12px; color: rgba(255,255,255,.4); margin-top: 10px;
-    }
+    /* Stats Band */
+    .pat-stats { background: var(--bg-section); border-bottom: 1px solid var(--border); }
+    .pat-stats__inner { display: flex; justify-content: space-between; padding: 28px 0; gap: 12px; }
+    .pat-stat { flex: 1; border-left: 1px solid var(--border); padding-left: 28px; }
+    .pat-stat:first-child { border-left: none; padding-left: 0; }
+    .pat-stat__num { font-size: clamp(26px, 2.8vw, 40px); color: var(--green); font-weight: 300; line-height: 1; margin-bottom: 6px; }
+    .pat-stat__lbl { font-size: 13px; color: var(--muted); line-height: 1.45; }
 
     /* ═══════════════════════════════════
        SERVICES 2x2 GRID
     ═══════════════════════════════════ */
-    .rehab-svcs { }
-    .rehab-svcs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-    .rehab-svc { padding: 40px 36px; }
-    .rehab-svc:nth-child(1) { background: var(--bg-light); }
-    .rehab-svc:nth-child(2) { background: #fff; }
-    .rehab-svc:nth-child(3) { background: #fff; }
-    .rehab-svc:nth-child(4) { background: var(--bg-light); }
+    .rehab-svcs { padding: 80px 0; background: var(--bg-section); }
+    .rehab-svcs__header { margin-bottom: 48px; }
+    .rehab-svcs__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
+    .rehab-svcs__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; }
+    .rehab-svcs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .rehab-svc { padding: 36px 32px; }
+    .rehab-svc { background: #fff; border-radius: 8px; }
     .rehab-svc__num {
       font-size: 44px; font-weight: 300; color: var(--border); line-height: 1;
       margin-bottom: 16px; letter-spacing: -.02em;
     }
     .rehab-svc__tag {
-      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
       color: var(--muted-light); margin-bottom: 12px; display: block;
     }
     .rehab-svc__title {
@@ -562,23 +568,35 @@
     }
 
     /* ═══════════════════════════════════
-       NEXT GEN EU (dark)
+       AJUDES / SUBVENCIONS
     ═══════════════════════════════════ */
-    .nextgen-block { background: var(--green); padding: 56px 0; }
-    .nextgen-block__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: start; }
-    .nextgen-block__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; display: block; }
-    .nextgen-block__title { font-size: clamp(28px, 3vw, 44px); color: #fff; line-height: 1.1; font-weight: 300; margin-bottom: 20px; }
-    .nextgen-block__body { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.75; margin-bottom: 32px; }
-    .nextgen-block__papik { border: 1px solid rgba(255,255,255,.15); padding: 32px; margin-top: 8px; }
-    .nextgen-block__papik h4 { font-size: 14px; color: rgba(255,255,255,.7); font-weight: 400; margin-bottom: 14px; }
-    .nextgen-block__papik ul { display: flex; flex-direction: column; gap: 0; }
-    .nextgen-block__papik li { font-size: 13px; color: rgba(255,255,255,.5); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; gap: 10px; align-items: baseline; }
-    .nextgen-block__papik li::before { content:'→'; color: rgba(255,255,255,.3); flex-shrink:0; }
-    .nextgen-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-    .nextgen-card { background: rgba(255,255,255,.06); padding: 32px 26px; border: 1px solid rgba(255,255,255,.08); }
-    .nextgen-card__pct { font-size: clamp(40px, 4.5vw, 64px); color: #fff; font-weight: 300; line-height: 1; margin-bottom: 8px; letter-spacing: -.02em; }
-    .nextgen-card__prog { font-size: 13px; color: rgba(255,255,255,.6); font-weight: 400; margin-bottom: 12px; }
-    .nextgen-card__desc { font-size: 12px; color: rgba(255,255,255,.4); line-height: 1.65; }
+    .rehab-ajudes { padding: 80px 0; background: #fff; }
+    .rehab-ajudes__header { margin-bottom: 48px; }
+    .rehab-ajudes__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
+    .rehab-ajudes__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; }
+    .rehab-ajudes__sub { font-size: 16px; color: var(--muted); line-height: 1.65; max-width: 540px; margin-top: 14px; }
+    .rehab-ajudes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .rehab-ajuda { background: var(--bg-section); padding: 36px 32px; border-radius: 8px; }
+    .rehab-ajuda__pct { font-size: clamp(48px, 5vw, 72px); font-weight: 300; color: var(--green); line-height: 1; letter-spacing: -.03em; margin-bottom: 16px; }
+    .rehab-ajuda__name { font-size: 15px; color: var(--green); font-weight: 500; margin-bottom: 12px; line-height: 1.3; }
+    .rehab-ajuda__desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .rehab-ajuda--hi { background: var(--green); }
+    .rehab-ajuda--hi .rehab-ajuda__pct { color: #fff; }
+    .rehab-ajuda--hi .rehab-ajuda__name { color: rgba(255,255,255,.6); }
+    .rehab-ajuda--hi .rehab-ajuda__desc { color: rgba(255,255,255,.5); }
+
+    /* ═══════════════════════════════════
+       WHY PAPIK
+    ═══════════════════════════════════ */
+    .rehab-why { padding: 80px 0; background: var(--bg-section); }
+    .rehab-why__header { margin-bottom: 48px; }
+    .rehab-why__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
+    .rehab-why__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; }
+    .rehab-why__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .rehab-why-item { background: #fff; padding: 36px 28px; border-radius: 8px; }
+    .rehab-why-item__icon { font-size: 36px; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 18px; letter-spacing: -.02em; }
+    .rehab-why-item__title { font-size: 16px; color: var(--green); font-weight: 500; margin-bottom: 12px; line-height: 1.3; }
+    .rehab-why-item__desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
     /* ═══════════════════════════════════
        BEFORE/AFTER PROJECTS
@@ -587,13 +605,13 @@
     .rehab-projects__header { margin-bottom: 48px; }
     .rehab-projects__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
     .rehab-projects__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; }
-    .rehab-projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .rehab-project { background: #fff; overflow: hidden; }
+    .rehab-projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .rehab-project { background: #fff; overflow: hidden; border-radius: 8px; }
     .rehab-project__img { height: 18vw; position: relative; overflow: hidden; }
     .rehab-project__img .ph { position: absolute; inset: 0; height: 100%; }
     .rehab-project__badge { position: absolute; top: 16px; right: 16px; background: var(--green); color: #fff; padding: 4px 12px; font-size: 11px; font-weight: 500; }
-    .rehab-project__body { padding: 24px 24px 28px; }
-    .rehab-project__loc { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 12px; }
+    .rehab-project__body { padding: 24px; }
+    .rehab-project__loc { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 12px; }
     .rehab-project__name { font-size: 17px; color: var(--green); font-weight: 400; margin-bottom: 10px; line-height: 1.3; }
     .rehab-project__desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
     .rehab-project__ba-row { display: flex; gap: 2px; margin-top: 4px; }
@@ -605,20 +623,18 @@
     .rehab-project__ba.after .rehab-project__ba-val { color: #fff; }
 
     /* ═══════════════════════════════════
-       FAQ
+       FAQ (always-open numbered grid)
     ═══════════════════════════════════ */
-    .rehab-faq { padding: 80px 0; background: #fff; }
-    .rehab-faq__header { margin-bottom: 48px; }
+    .rehab-faq { padding: 80px 0; background: var(--bg-section); }
+    .rehab-faq__hdr { margin-bottom: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: end; }
     .rehab-faq__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
-    .rehab-faq__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; }
-    .faq-list { border-top: 1px solid var(--border); }
-    .faq-item { border-bottom: 1px solid var(--border); cursor: pointer; }
-    .faq-item__q { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    .faq-item__q-text { font-size: 17px; color: var(--green); line-height: 1.35; font-weight: 400; }
-    .faq-item__toggle { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-section); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--muted); flex-shrink: 0; transition: background .2s; font-weight: 300; }
-    .faq-item.open .faq-item__toggle { background: var(--green); color: #fff; }
-    .faq-item__a { display: none; padding: 0 0 24px; font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 780px; }
-    .faq-item.open .faq-item__a { display: block; }
+    .rehab-faq__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.12; }
+    .rehab-faq__intro { font-size: 15px; color: var(--muted); line-height: 1.75; }
+    .faq-open-list { border-top: 1px solid var(--border); }
+    .faq-open-item { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6vw; padding: 40px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .faq-open-item__num { font-size: 11px; letter-spacing: .2em; color: var(--accent); margin-bottom: 10px; }
+    .faq-open-item__q { font-size: 18px; color: var(--green); font-weight: 400; line-height: 1.3; }
+    .faq-open-item__a { font-size: 14px; color: var(--muted); line-height: 1.8; }
 
     /* ═══════════════════════════════════
        RESPONSIVE
@@ -627,7 +643,7 @@
       .menu-btn-wrapper { display: block; }
       nav.menu, nav.menu-right, .lang { display: none; }
 
-      .t42 { font-size: 26px; }
+      .t42 { font-size: 24px; }
       .t70 { font-size: 38px; }
       .t24 { font-size: 20px; }
       .container { width: 100%; padding: 0 4.8vw; }
@@ -646,19 +662,20 @@
       .process-step:nth-child(even) { border-left: none; padding-left: 0; }
       .process-step:nth-child(odd)  { padding-right: 0; }
 
-      .hero-pct-bg { display: none; }
-      .rehab-impact__grid { grid-template-columns: 1fr 1fr; }
-      .rehab-impact__cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 32px 4.8vw; }
+      .pat-stats__inner { flex-wrap: wrap; gap: 24px; }
+      .pat-stat { min-width: calc(50% - 12px); }
+      .pat-stat:nth-child(3) { border-left: none; padding-left: 0; }
       .rehab-svcs-grid { grid-template-columns: 1fr; }
       .rehab-svc { padding: 40px 4.8vw; }
-      .nextgen-block__inner { grid-template-columns: 1fr; }
-      .nextgen-cards { grid-template-columns: 1fr 1fr; }
+      .rehab-ajudes-grid { grid-template-columns: 1fr; }
+      .faq-open-item { grid-template-columns: 1fr; gap: 12px; }
+      .rehab-faq__hdr { grid-template-columns: 1fr; gap: 20px; }
+      .rehab-why__grid { grid-template-columns: 1fr 1fr; }
       .rehab-projects-grid { grid-template-columns: 1fr; }
       .rehab-project__img { height: 56vw; }
     }
     @media (max-width: 600px) {
-      .rehab-impact__grid { grid-template-columns: 1fr 1fr; }
-      .nextgen-cards { grid-template-columns: 1fr; }
+      .rehab-why__grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -671,15 +688,15 @@
   <div class="mobile-nav__header">
     <a href="../index.html">
       <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-        <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-        <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-        <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-        <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-        <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-        <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-        <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-        <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-        <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
       </svg>
     </a>
     <button class="mobile-nav__close" id="mobileNavClose">&#x2715;</button>
@@ -716,15 +733,15 @@
         <div class="logo">
           <a href="../index.html">
             <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-              <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-              <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-              <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-              <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-              <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-              <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-              <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-              <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-              <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
             </svg>
           </a>
         </div>
@@ -763,24 +780,24 @@
             <li class="btn-search-trigger" id="searchTrigger">
               Buscar
               <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </li>
             <li><a href="../index.html#contacte">Contacto</a>
               <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/><path d="M2 6L12 13L22 6" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/><path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </li>
             <li><a href="../usuaris.html">Iniciar sesión</a>
               <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#0E2719" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </li>
             <li>
-              <a href="/pressupost.html" class="nav-cta" style="text-decoration:none;">
+              <span class="nav-cta menu-btn" data-menu="pressupost">
                 Presupuesto
                 <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
-              </a>
+              </span>
             </li>
           </ul>
         </nav>
@@ -790,14 +807,14 @@
       <div class="form-search-wrapper" id="searchWrapper">
         <div class="form-search__content" style="position:relative;">
           <button class="search-icon-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
           </button>
           <form action="/" method="get">
             <input type="text" name="s" placeholder="Buscar...">
           </form>
         </div>
         <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#0E2719" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
         </button>
       </div>
     </div>
@@ -818,7 +835,7 @@
             <li><a href="../pressupost.html">Ampliación y Cambio de Uso</a></li>
           </ul>
           <div class="submenu__img">
-            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -927,7 +944,7 @@
             <li><a href="../patrimonis.html">Gestión de Activos y Mantenimiento</a></li>
             <li><a href="../patrimonis.html#faq">Preguntas frecuentes</a></li>
           </ul>
-          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div></div>
+          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div></div>
         </div>
         <div class="submenu__col">
           <h3 class="t24">Rentabilidad y seguridad</h3>
@@ -970,65 +987,45 @@
 </section>
 
 <!-- ═══════════════════════════════════
-     1. HERO (with giant 80% background)
+     1. HERO
 ═══════════════════════════════════ -->
 <section class="block-hero">
   <div class="block-hero__media">
     <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#07140D 0%,#07140D 50%,#0A1B12 100%);"></div>
   </div>
   <div class="block-hero__overlay"></div>
-  <div class="hero-pct-bg">80%</div>
   <div class="block-hero__content">
-    <p class="block-hero__eyebrow">REHABILITACIÓN ENERGÉTICA · NEXT GENERATION EU · PASSIVHAUS ENERPHIT</p>
-    <h1 class="block-hero__title">Hasta el 80% de subvención<br>para rehabilitar tu edificio</h1>
-    <p class="block-hero__sub">Gestionamos las ayudas Next Generation EU de principio a fin. Diagnosi energética, proyecto técnico, obra y certificación. No adelantas ni un euro hasta que la subvención esté concedida.</p>
+    <p class="block-hero__eyebrow">Rehabilitación Energética · Passivhaus EnerPHit</p>
+    <h1 class="block-hero__title">Rehabilitamos tu edificio.<br>Tú no adelantas ni un euro.</h1>
+    <p class="block-hero__sub">Diagnóstico, proyecto, subvenciones y obra — todo gestionado por PAPIK.</p>
     <div class="block-hero__cta">
-      <a href="#contacte"><button>Calcular mi subvención <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#0E2719"/></svg></button></a>
-      <a href="#projectes"><button class="btn-outline-white">Ver casos de éxito</button></a>
+      <a href="#contacto"><button>Solicitar diagnóstico gratuito <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/></svg></button></a>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════
-     2. IMPACT BAR
+     2. STATS BAND
 ═══════════════════════════════════ -->
-<section class="rehab-impact">
-  <div class="rehab-impact__grid">
-    <div class="rehab-impact__cell">
-      <p class="rehab-impact__label">Calificación energética</p>
-      <div class="rehab-impact__transform">
-        <span class="rehab-impact__from">E</span>
-        <span class="rehab-impact__arrow">→</span>
-        <span class="rehab-impact__to">A</span>
+<section class="pat-stats">
+  <div class="container">
+    <div class="pat-stats__inner">
+      <div class="pat-stat">
+        <p class="pat-stat__num">30+ años</p>
+        <p class="pat-stat__lbl">de experiencia en eficiencia energética</p>
       </div>
-      <p class="rehab-impact__unit">Mejora lograda en edificios de los 70</p>
-    </div>
-    <div class="rehab-impact__cell">
-      <p class="rehab-impact__label">Consumo calefacción kWh/m²·año</p>
-      <div class="rehab-impact__transform">
-        <span class="rehab-impact__from">180</span>
-        <span class="rehab-impact__arrow">→</span>
-        <span class="rehab-impact__to">18</span>
+      <div class="pat-stat">
+        <p class="pat-stat__num">500+</p>
+        <p class="pat-stat__lbl">proyectos de rehabilitación ejecutados</p>
       </div>
-      <p class="rehab-impact__unit">−90% en rehabilitación integral</p>
-    </div>
-    <div class="rehab-impact__cell">
-      <p class="rehab-impact__label">Coste de obra subvencionado</p>
-      <div class="rehab-impact__transform">
-        <span class="rehab-impact__from">0%</span>
-        <span class="rehab-impact__arrow">→</span>
-        <span class="rehab-impact__to">80%</span>
+      <div class="pat-stat">
+        <p class="pat-stat__num">80%</p>
+        <p class="pat-stat__lbl">de subvención máxima gestionada</p>
       </div>
-      <p class="rehab-impact__unit">Máximo legal programas PREE</p>
-    </div>
-    <div class="rehab-impact__cell">
-      <p class="rehab-impact__label">Importe anticipado por el propietario</p>
-      <div class="rehab-impact__transform">
-        <span class="rehab-impact__from">Coste total</span>
-        <span class="rehab-impact__arrow">→</span>
-        <span class="rehab-impact__to">0€</span>
+      <div class="pat-stat">
+        <p class="pat-stat__num">−90%</p>
+        <p class="pat-stat__lbl">reducción de consumo en rehabilitación integral</p>
       </div>
-      <p class="rehab-impact__unit">Con financiación puente PAPIK</p>
     </div>
   </div>
 </section>
@@ -1036,69 +1033,58 @@
 <!-- ═══════════════════════════════════
      3. SERVICES 2×2 GRID
 ═══════════════════════════════════ -->
-<section class="rehab-svcs" id="diagnosi">
-  <div style="padding:56px 4.6875vw 28px;border-bottom:1px solid var(--border);">
-    <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-light);display:block;margin-bottom:12px;">NUESTROS SERVICIOS DE REHABILITACIÓN</span>
-    <h2 style="font-size:clamp(26px,2.8vw,40px);line-height:1.15;font-weight:300;">Cuatro servicios integrados.<br>Sin burocracia para ti.</h2>
-  </div>
-  <div class="rehab-svcs-grid">
-
-    <div class="rehab-svc">
-      <div class="rehab-svc__num">01</div>
-      <span class="rehab-svc__tag">El punto de partida</span>
-      <h2 class="rehab-svc__title">Diagnóstico Energético Gratuito</h2>
-      <p class="rehab-svc__text">Evaluación completa del estado energético del edificio: envolvente, instalaciones, puentes térmicos e infiltraciones. Resultado: informe de diagnóstico, calificación inicial y estimación del potencial de mejora y subvención aplicable.</p>
-      <ul class="rehab-svc__list">
-        <li class="rehab-svc__item">Auditoría energética certificada</li>
-        <li class="rehab-svc__item">Análisis de puentes térmicos e infiltraciones</li>
-        <li class="rehab-svc__item">Calificación energética inicial (CEX)</li>
-        <li class="rehab-svc__item">Estimación de subvención y coste neto</li>
-        <li class="rehab-svc__item">Informe ejecutivo para comunidad o propietario</li>
-      </ul>
+<section class="rehab-svcs" id="diagnostico">
+  <div class="container">
+    <div class="rehab-svcs__header" data-anim="fade-up">
+      <span class="rehab-svcs__tag">Nuestros servicios</span>
+      <h2 class="rehab-svcs__title">Del diagnóstico a la obra,<br>todo en una sola empresa</h2>
     </div>
-
-    <div class="rehab-svc" id="envolupant">
-      <div class="rehab-svc__num">02</div>
-      <span class="rehab-svc__tag">La envolvente, primero</span>
-      <h2 class="rehab-svc__title">Rehabilitación de Envolvente y Fachada</h2>
-      <p class="rehab-svc__text">Tratamiento térmico completo del edificio: fachada ventilada o SATE, sustitución de carpinterías por triple vidrio sin puente térmico, cubierta ajardinada o con aislamiento en SEC. Es la medida que produce la mayor reducción energética.</p>
-      <ul class="rehab-svc__list">
-        <li class="rehab-svc__item">Fachada ventilada o sistema SATE</li>
-        <li class="rehab-svc__item">Cubierta plana o inclinada con aislamiento SEC</li>
-        <li class="rehab-svc__item">Sustitución de carpinterías por triple vidrio</li>
-        <li class="rehab-svc__item">Puentes térmicos resueltos al 100%</li>
-        <li class="rehab-svc__item">Compatible con Passivhaus EnerPHit</li>
-      </ul>
+    <div class="rehab-svcs-grid">
+      <div class="rehab-svc" data-anim="fade-up">
+        <div class="rehab-svc__num">01</div>
+        <span class="rehab-svc__tag">El punto de partida</span>
+        <h3 class="rehab-svc__title">Diagnóstico Energético Gratuito</h3>
+        <p class="rehab-svc__text">Evaluación completa de la envolvente, instalaciones y puentes térmicos. Informe de diagnóstico con calificación inicial y estimación de subvención.</p>
+        <ul class="rehab-svc__list">
+          <li class="rehab-svc__item">Auditoría energética certificada</li>
+          <li class="rehab-svc__item">Análisis de puentes térmicos e infiltraciones</li>
+          <li class="rehab-svc__item">Estimación de subvención y coste neto</li>
+        </ul>
+      </div>
+      <div class="rehab-svc" id="envolvente" data-anim="fade-up">
+        <div class="rehab-svc__num">02</div>
+        <span class="rehab-svc__tag">La envolvente, primero</span>
+        <h3 class="rehab-svc__title">Fachada, Cubierta y Carpinterías</h3>
+        <p class="rehab-svc__text">Fachada ventilada o SATE, sustitución de carpinterías por triple vidrio y cubierta con aislamiento SEC. La medida con mayor impacto energético.</p>
+        <ul class="rehab-svc__list">
+          <li class="rehab-svc__item">Fachada ventilada o sistema SATE</li>
+          <li class="rehab-svc__item">Sustitución de carpinterías por triple vidrio</li>
+          <li class="rehab-svc__item">Compatible con Passivhaus EnerPHit</li>
+        </ul>
+      </div>
+      <div class="rehab-svc" id="instalaciones" data-anim="fade-up">
+        <div class="rehab-svc__num">03</div>
+        <span class="rehab-svc__tag">Las instalaciones</span>
+        <h3 class="rehab-svc__title">Instalaciones y Renovables</h3>
+        <p class="rehab-svc__text">MVHR, aerotermia y solar fotovoltaica comunitaria. Reduce el consumo hasta un 90% y genera energía propia.</p>
+        <ul class="rehab-svc__list">
+          <li class="rehab-svc__item">Ventilación mecánica con recuperación de calor</li>
+          <li class="rehab-svc__item">Aerotermia para calefacción y ACS</li>
+          <li class="rehab-svc__item">Solar fotovoltaica comunitaria</li>
+        </ul>
+      </div>
+      <div class="rehab-svc" id="subvenciones" data-anim="fade-up">
+        <div class="rehab-svc__num">04</div>
+        <span class="rehab-svc__tag">Sin burocracia</span>
+        <h3 class="rehab-svc__title">Gestión de Subvenciones</h3>
+        <p class="rehab-svc__text">Tramitación al 100% ante IDAE y Generalitat. Solicitud, seguimiento, justificación y cobro. Si es necesario, adelantamos el coste.</p>
+        <ul class="rehab-svc__list">
+          <li class="rehab-svc__item">Programas PREE 5000 y PIREP</li>
+          <li class="rehab-svc__item">Deducciones IRPF adicionales 20–60%</li>
+          <li class="rehab-svc__item">Financiación puente PAPIK</li>
+        </ul>
+      </div>
     </div>
-
-    <div class="rehab-svc" id="instal-lacions">
-      <div class="rehab-svc__num">03</div>
-      <span class="rehab-svc__tag">Las instalaciones</span>
-      <h2 class="rehab-svc__title">Instalaciones y Energías Renovables</h2>
-      <p class="rehab-svc__text">Renovación completa de las instalaciones del edificio: ventilación mecánica con recuperación de calor (MVHR), aerotermia, solar fotovoltaica comunitaria e hidráulica. Reduce el consumo hasta el 90% y genera energía propia.</p>
-      <ul class="rehab-svc__list">
-        <li class="rehab-svc__item">MVHR: ventilación mecánica con recuperación</li>
-        <li class="rehab-svc__item">Aerotermia de alta eficiencia para calefacción y ACS</li>
-        <li class="rehab-svc__item">Solar fotovoltaica comunitaria</li>
-        <li class="rehab-svc__item">Baterías de almacenamiento opcionales</li>
-        <li class="rehab-svc__item">Compatible con redes de calor urbano</li>
-      </ul>
-    </div>
-
-    <div class="rehab-svc" id="subvencions">
-      <div class="rehab-svc__num">04</div>
-      <span class="rehab-svc__tag">Sin burocracia</span>
-      <h2 class="rehab-svc__title">Gestión Integral de Subvenciones</h2>
-      <p class="rehab-svc__text">PAPIK gestiona al 100% toda la tramitación ante el IDAE, la Generalitat de Catalunya y el ayuntamiento. Presentamos la solicitud, hacemos el seguimiento, justificamos y cobramos. Tú no haces ninguna gestión. Y si hace falta, adelantamos el coste.</p>
-      <ul class="rehab-svc__list">
-        <li class="rehab-svc__item">Solicitud programas PREE 5000 y PIREP</li>
-        <li class="rehab-svc__item">Tramitación ante IDAE y Generalitat</li>
-        <li class="rehab-svc__item">Deducciones IRPF adicionales 20–60%</li>
-        <li class="rehab-svc__item">Financiación puente: PAPIK adelanta si hace falta</li>
-        <li class="rehab-svc__item">Justificación técnica y económica final</li>
-      </ul>
-    </div>
-
   </div>
 </section>
 
@@ -1160,49 +1146,64 @@
 </section>
 
 <!-- ═══════════════════════════════════
-     5. NEXT GEN EU BLOCK (dark green)
+     5. AJUDES / SUBVENCIONS
 ═══════════════════════════════════ -->
-<section class="nextgen-block" id="nextgen">
+<section class="rehab-ajudes" id="nextgen">
   <div class="container">
-    <div class="nextgen-block__inner">
-      <div>
-        <span class="nextgen-block__tag">Next Generation EU · Plan de Recuperación</span>
-        <h2 class="nextgen-block__title">Hasta el 80% de subvención.<br>Sin límite de ingresos.</h2>
-        <p class="nextgen-block__body">El Plan de Recuperación, Transformación y Resiliencia (PRTR) destina 6.820 M€ a la rehabilitación de viviendas en España. Cualquier propietario o comunidad puede acceder, independientemente del nivel de ingresos. La clave es actuar ahora: los fondos están disponibles pero el plazo de ejecución es limitado.</p>
-        <div class="nextgen-block__papik">
-          <h4>Lo que PAPIK gestiona al 100%:</h4>
-          <ul>
-            <li>Solicitud a los programas PREE 5000 y PIREP (hasta 80%)</li>
-            <li>Deducción fiscal adicional 20–60% (IRPF/IS)</li>
-            <li>Tramitación ante IDAE, Generalitat y ayuntamiento</li>
-            <li>Documentación técnica, energética y administrativa</li>
-            <li>Financiación puente: PAPIK adelanta el coste si hace falta</li>
-          </ul>
-        </div>
+    <div class="rehab-ajudes__header" data-anim="fade-up">
+      <span class="rehab-ajudes__tag">Next Generation EU · Plan de Recuperación</span>
+      <h2 class="rehab-ajudes__title">Hasta el 80% de subvención.<br>Sin límite de ingresos.</h2>
+      <p class="rehab-ajudes__sub">El PRTR destina 6.820 M€ a rehabilitación de viviendas. Cualquier propietario o comunidad puede acceder. PAPIK gestiona toda la tramitación.</p>
+    </div>
+    <div class="rehab-ajudes-grid">
+      <div class="rehab-ajuda" data-anim="fade-up">
+        <div class="rehab-ajuda__pct">40–65%</div>
+        <p class="rehab-ajuda__name">Programas PREE y PIREP</p>
+        <p class="rehab-ajuda__desc">Subvención directa sobre el coste de obra. Del 40% (mejora del 30% en demanda) al 65% (calificación A o B alcanzada).</p>
       </div>
-      <div>
-        <div class="nextgen-cards">
-          <div class="nextgen-card">
-            <div class="nextgen-card__pct">40%</div>
-            <div class="nextgen-card__prog">Programa Base</div>
-            <p class="nextgen-card__desc">Mejora mínima del 30% en demanda energética</p>
-          </div>
-          <div class="nextgen-card">
-            <div class="nextgen-card__pct">65%</div>
-            <div class="nextgen-card__prog">Programa Avanzado</div>
-            <p class="nextgen-card__desc">Mejora del 45% o calificación A o B</p>
-          </div>
-          <div class="nextgen-card">
-            <div class="nextgen-card__pct">80%</div>
-            <div class="nextgen-card__prog">Programa Máximo</div>
-            <p class="nextgen-card__desc">Rehabilitación integral de edificios completos</p>
-          </div>
-          <div class="nextgen-card">
-            <div class="nextgen-card__pct">60%</div>
-            <div class="nextgen-card__prog">Deducción Fiscal</div>
-            <p class="nextgen-card__desc">Adicional a la subvención en IRPF por mejoras energéticas</p>
-          </div>
-        </div>
+      <div class="rehab-ajuda rehab-ajuda--hi" data-anim="fade-up">
+        <div class="rehab-ajuda__pct">80%</div>
+        <p class="rehab-ajuda__name">Rehabilitación integral</p>
+        <p class="rehab-ajuda__desc">Máximo legal para edificios completos con rehabilitación integral de envolvente e instalaciones. El programa más ambicioso.</p>
+      </div>
+      <div class="rehab-ajuda" data-anim="fade-up">
+        <div class="rehab-ajuda__pct">20–60%</div>
+        <p class="rehab-ajuda__name">Deducciones fiscales IRPF</p>
+        <p class="rehab-ajuda__desc">Adicionales a la subvención. Deducción en IRPF por mejoras energéticas certificadas. Acumulable con ayudas directas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     5b. POR QUÉ PAPIK
+═══════════════════════════════════ -->
+<section class="rehab-why">
+  <div class="container">
+    <div class="rehab-why__header" data-anim="fade-up">
+      <span class="rehab-why__tag">Por qué elegir PAPIK</span>
+      <h2 class="rehab-why__title">Cuatro razones para confiarnos<br>la rehabilitación de tu edificio.</h2>
+    </div>
+    <div class="rehab-why__grid">
+      <div class="rehab-why-item" data-anim="fade-up">
+        <div class="rehab-why-item__icon">01</div>
+        <h3 class="rehab-why-item__title">Diagnóstico gratuito</h3>
+        <p class="rehab-why-item__desc">Análisis completo del edificio en 5 días. Informe de auditoría energética certificada sin coste ni compromiso.</p>
+      </div>
+      <div class="rehab-why-item" data-anim="fade-up">
+        <div class="rehab-why-item__icon">02</div>
+        <h3 class="rehab-why-item__title">Gestión integral al 100%</h3>
+        <p class="rehab-why-item__desc">Tramitamos todas las subvenciones y deducciones fiscales. No realizas ninguna gestión administrativa.</p>
+      </div>
+      <div class="rehab-why-item" data-anim="fade-up">
+        <div class="rehab-why-item__icon">03</div>
+        <h3 class="rehab-why-item__title">Financiación puente</h3>
+        <p class="rehab-why-item__desc">PAPIK adelanta el coste de las obras. Liquidas cuando la subvención llega a tu cuenta. Sin intereses.</p>
+      </div>
+      <div class="rehab-why-item" data-anim="fade-up">
+        <div class="rehab-why-item__icon">04</div>
+        <h3 class="rehab-why-item__title">30 años de experiencia</h3>
+        <p class="rehab-why-item__desc">Pioneros en Passivhaus desde 2004. Una sola empresa, una sola responsabilidad, un solo interlocutor.</p>
       </div>
     </div>
   </div>
@@ -1290,54 +1291,57 @@
 </section>
 
 <!-- ═══════════════════════════════════
-     7. FAQ ACCORDION
+     7. FAQ — siempre visible, numerada
 ═══════════════════════════════════ -->
 <section class="rehab-faq" id="faq">
   <div class="container">
-    <div class="rehab-faq__header">
-      <span class="rehab-faq__tag">Preguntas frecuentes</span>
-      <h2 class="rehab-faq__title">Todo lo que necesitas saber<br>sobre las subvenciones</h2>
+    <div class="rehab-faq__hdr">
+      <div>
+        <span class="rehab-faq__tag">Preguntas frecuentes</span>
+        <h2 class="rehab-faq__title">Todo lo que necesitas saber<br>sobre las subvenciones</h2>
+      </div>
+      <p class="rehab-faq__intro">Respuestas claras y directas sobre las ayudas Next Generation EU, la tramitación y el proceso de rehabilitación con PAPIK.</p>
     </div>
-    <div class="faq-list">
+    <div class="faq-open-list">
 
-      <div class="faq-item">
-        <div class="faq-item__q">
-          <p class="faq-item__q-text">¿Quién puede solicitar las ayudas Next Generation EU?</p>
-          <div class="faq-item__toggle">+</div>
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">01</p>
+          <h3 class="faq-open-item__q">¿Quién puede solicitar las ayudas Next Generation EU?</h3>
         </div>
-        <p class="faq-item__a">Cualquier propietario o comunidad de propietarios de un edificio residencial existente puede solicitar las ayudas del PRTR. No hay límite de ingresos. Las personas físicas, comunidades de propietarios y promotores de alquiler social son los principales beneficiarios. PAPIK identifica exactamente qué programa se aplica a tu situación.</p>
+        <p class="faq-open-item__a">Cualquier propietario o comunidad de propietarios de un edificio residencial existente puede solicitar las ayudas del PRTR. No hay límite de ingresos. Las personas físicas, comunidades de propietarios y promotores de alquiler social son los principales beneficiarios. PAPIK identifica exactamente qué programa se aplica a tu situación.</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-item__q">
-          <p class="faq-item__q-text">¿Tengo que adelantar dinero para las obras?</p>
-          <div class="faq-item__toggle">+</div>
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">02</p>
+          <h3 class="faq-open-item__q">¿Tengo que adelantar dinero para las obras?</h3>
         </div>
-        <p class="faq-item__a">No necesariamente. PAPIK ofrece financiación puente: adelantamos el coste de las obras y vosotros liquidáis una vez la subvención está en vuestra cuenta. No hay intereses ni costes adicionales. Consulta las condiciones, que varían en función del importe del proyecto.</p>
+        <p class="faq-open-item__a">No necesariamente. PAPIK ofrece financiación puente: adelantamos el coste de las obras y vosotros liquidáis una vez la subvención está en vuestra cuenta. No hay intereses ni costes adicionales. Consulta las condiciones, que varían en función del importe del proyecto.</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-item__q">
-          <p class="faq-item__q-text">¿Cuánto tarda el proceso de tramitación?</p>
-          <div class="faq-item__toggle">+</div>
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">03</p>
+          <h3 class="faq-open-item__q">¿Cuánto tarda el proceso de tramitación?</h3>
         </div>
-        <p class="faq-item__a">Desde la solicitud hasta la resolución suelen pasar entre 3 y 6 meses, dependiendo del organismo gestor. El proceso total —desde la primera reunión hasta la certificación final— acostumbra a durar entre 10 y 18 meses.</p>
+        <p class="faq-open-item__a">Desde la solicitud hasta la resolución suelen pasar entre 3 y 6 meses, dependiendo del organismo gestor. El proceso total —desde la primera reunión hasta la certificación final— acostumbra a durar entre 10 y 18 meses.</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-item__q">
-          <p class="faq-item__q-text">¿Mi edificio es demasiado antiguo o está en mal estado?</p>
-          <div class="faq-item__toggle">+</div>
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">04</p>
+          <h3 class="faq-open-item__q">¿Mi edificio es demasiado antiguo o está en mal estado?</h3>
         </div>
-        <p class="faq-item__a">Cuanto más antiguo es el edificio, mayor mejora energética se logra y más subvención se puede obtener. No hay límite de edad. Es necesario que el edificio tenga uso residencial y que se haya construido antes de 2007. Los edificios de los años 60–80 suelen ser los que obtienen resultados más espectaculares.</p>
+        <p class="faq-open-item__a">Cuanto más antiguo es el edificio, mayor mejora energética se logra y más subvención se puede obtener. No hay límite de edad. Es necesario que el edificio tenga uso residencial y que se haya construido antes de 2007. Los edificios de los años 60–80 suelen ser los que obtienen resultados más espectaculares.</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-item__q">
-          <p class="faq-item__q-text">¿Qué ahorro real puedo esperar en la factura?</p>
-          <div class="faq-item__toggle">+</div>
+      <div class="faq-open-item">
+        <div>
+          <p class="faq-open-item__num">05</p>
+          <h3 class="faq-open-item__q">¿Qué ahorro real puedo esperar en la factura?</h3>
         </div>
-        <p class="faq-item__a">Edificios de los años 70 sin aislamiento que pasan a calificación A típicamente ven reducciones del 75–90% en el consumo de calefacción. En rehabilitación parcial (fachada), las reducciones habituales están entre el 40–60%. PAPIK presenta siempre estimaciones detalladas en el informe de diagnóstico.</p>
+        <p class="faq-open-item__a">Edificios de los años 70 sin aislamiento que pasan a calificación A típicamente ven reducciones del 75–90% en el consumo de calefacción. En rehabilitación parcial (fachada), las reducciones habituales están entre el 40–60%. PAPIK presenta siempre estimaciones detalladas en el informe de diagnóstico.</p>
       </div>
 
     </div>
@@ -1533,20 +1537,7 @@
   mobileNavClose.addEventListener('click', closeMobileNav);
   fadeBg.addEventListener('click', closeMobileNav);
 
-  // ─── FAQ Accordion ───
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-item__toggle').textContent = '+';
-      });
-      if (!isOpen) {
-        item.classList.add('open');
-        item.querySelector('.faq-item__toggle').textContent = '−';
-      }
-    });
-  });
+  // FAQ siempre visible — no necesita JS
 </script>
 
 <script src="../cursor.js"></script>

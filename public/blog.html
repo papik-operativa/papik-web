@@ -5,33 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | PAPIK · Construcció · Promoció · Rehabilitació</title>
   <meta name="description" content="Articles i novetats sobre construcció, rehabilitació energètica i promoció immobiliària a Catalunya.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 
   <style>
     /* ═══════════════════════════════════
        VARIABLES & RESET
     ═══════════════════════════════════ */
     :root {
-      --green:       #0E2719;
+      --green:       #002819;
+      --accent:      #95BBA5;
       --green-light: #56685E;
       --green-dark:  #0A1B12;
-      --bg-light:    #E7E9E8;
-      --bg-section:  rgba(159,169,163,0.25);
-      --text:        #0E2719;
+      --bg-light:    rgba(86,104,94,0.14);
+      --bg-section:  rgba(86,104,94,0.14);
+      --text:        #002819;
       --muted:       #56685E;
       --muted-light: #9FA9A3;
-      --border:      rgba(159,169,163,0.5);
+      --border:      rgba(86,104,94,0.25);
       --footer-bg:   #07140D;
-      --warm-1:      #E7E9E8;
+      --warm-1:      rgba(86,104,94,0.22);
       --warm-2:      #9FA9A3;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
     body, html {
       margin: 0; padding: 0;
-      font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+      font-family: 'TT Firs Neue', Arial, Helvetica, sans-serif;
       color: var(--text);
       overflow-x: hidden;
       opacity: 0;
@@ -44,7 +68,7 @@
     h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
     ul { list-style: none; margin: 0; padding: 0; }
     a { text-decoration: none; color: inherit; }
-    button, input, select, textarea { font-family: 'DM Sans', sans-serif; }
+    button, input, select, textarea { font-family: 'TT Firs Neue', sans-serif; }
     img { max-width: 100%; height: auto; display: block; }
 
     /* Typography */
@@ -52,8 +76,8 @@
     .t14  { font-size: 14px; line-height: 1.6; }
     .t16  { font-size: 16px; line-height: 1.6; }
     .t18  { font-size: 18px; line-height: 1.4; }
-    .t24  { font-size: 24px; line-height: 1.3; }
-    .t42  { font-size: 42px; line-height: 1.15; }
+    .t24  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.3; }
+    .t42  { font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
     .t70  { font-size: 70px; line-height: 1.05; }
     .upper { text-transform: uppercase; }
     .center { text-align: center; }
@@ -147,9 +171,9 @@
     /* Lang selector */
     .lang select {
       -webkit-appearance: none; appearance: none; border: 0; background: transparent;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+      font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
       cursor: pointer; text-transform: uppercase; padding-right: 16px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230E2719'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 0 center;
     }
 
@@ -316,7 +340,7 @@
       width: 100%; background: transparent; border: 0;
       border-bottom: 1px solid rgba(255,255,255,.35);
       color: #fff; padding: 8px 36px 8px 0; font-size: 16px;
-      font-family: 'DM Sans', sans-serif; outline: none;
+      font-family: 'TT Firs Neue', sans-serif; outline: none;
     }
     .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
     .newsletter-form button[type="submit"] {
@@ -381,7 +405,7 @@
     .breadcrumb .sep { opacity: .5; font-size: 11px; }
 
     .page-hero__title {
-      font-size: clamp(40px, 5.2vw, 72px);
+      font-size: clamp(38px, 5.2vw, 76px);
       line-height: 1.06; font-weight: 300;
       color: var(--text); margin-bottom: 22px;
     }
@@ -412,7 +436,7 @@
       height: 36px; padding: 0 20px; border-radius: 18px;
       border: 1px solid var(--border); background: transparent;
       font-size: 14px; color: var(--muted); cursor: pointer;
-      transition: all .2s; font-family: 'DM Sans', sans-serif;
+      transition: all .2s; font-family: 'TT Firs Neue', sans-serif;
     }
     .pill:hover { border-color: var(--green); color: var(--green); background: transparent; }
     .pill.active {
@@ -434,18 +458,18 @@
     /* ═══════════════════════════════════
        BLOG GRID
     ═══════════════════════════════════ */
-    .blog-section { padding: 56px 0 80px; background: #fff; }
+    .blog-section { padding: 80px 0; background: #fff; }
     .blog-count { font-size: 14px; color: var(--muted-light); margin-bottom: 40px; }
     .blog-grid { display: flex; flex-wrap: wrap; margin: 0 -14px; }
     .blog-card { width: calc(33.333% - 28px); margin: 0 14px 52px; transition: opacity .25s; }
     .blog-card.hidden { display: none; }
     .blog-card__link { display: block; text-decoration: none; color: inherit; }
     .blog-card__link:hover .blog-card__img { transform: scale(1.03); }
-    .blog-card__img-wrap { overflow: hidden; border-radius: 4px; margin-bottom: 16px; height: 220px; }
+    .blog-card__img-wrap { overflow: hidden; border-radius: 8px; margin-bottom: 16px; height: 220px; }
     .blog-card__img { width: 100%; height: 100%; display: block; transition: transform .45s ease; }
     .blog-card__cat {
-      display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: .12em;
-      color: #fff; background: var(--green); padding: 3px 10px; border-radius: 3px; margin-bottom: 10px;
+      display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: .2em;
+      color: #fff; background: var(--green); padding: 3px 10px; border-radius: 4px; margin-bottom: 10px;
     }
     .blog-card__title { font-size: 20px; font-weight: 300; color: var(--text); line-height: 1.25; margin-bottom: 8px; }
     .blog-card__excerpt {
@@ -465,12 +489,12 @@
     }
 
     .block-cta__label {
-      font-size: 12px; text-transform: uppercase; letter-spacing: .14em;
+      font-size: 12px; text-transform: uppercase; letter-spacing: .2em;
       color: rgba(255,255,255,.5); margin-bottom: 20px;
     }
 
     .block-cta__title {
-      font-size: clamp(28px, 3.4vw, 48px);
+      font-size: clamp(26px, 2.8vw, 40px);
       font-weight: 300; color: #fff;
       line-height: 1.15; margin-bottom: 36px;
       max-width: 700px; margin-left: auto; margin-right: auto;
@@ -482,7 +506,7 @@
       border-radius: 23px; font-size: 15px;
       display: inline-flex; align-items: center; gap: 8px;
       transition: all .2s; cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'TT Firs Neue', sans-serif;
     }
     .block-cta .btn-white:hover { background: transparent; color: #fff; }
 
@@ -495,7 +519,7 @@
       .header-logo__content .lang { display: none; }
 
       .t70 { font-size: 38px; }
-      .t42 { font-size: 26px; }
+      .t42 { font-size: 24px; }
       .t24 { font-size: 20px; }
       .container { width: 100%; padding: 0 4.8vw; }
 
@@ -578,11 +602,11 @@
     .tipo-card:hover,
     .nextgen-block__card:hover {
       transform: translateY(-5px) !important;
-      box-shadow: 0 14px 36px rgba(14,39,25,.10) !important;
+      box-shadow: 0 14px 36px rgba(0,40,25,.10) !important;
     }
     .promo-guarantee__item:hover {
       transform: translateY(-3px) !important;
-      box-shadow: 0 8px 20px rgba(14,39,25,.08) !important;
+      box-shadow: 0 8px 20px rgba(0,40,25,.08) !important;
     }
 
     /* ─── Botones ─────────────────────────────────────────── */
@@ -593,7 +617,7 @@
     }
     .btn-cta:hover, [class*="btn-primary"]:hover, .nav-cta:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 6px 20px rgba(14,39,25,.20) !important;
+      box-shadow: 0 6px 20px rgba(0,40,25,.20) !important;
     }
     .btn-cta:active, [class*="btn-primary"]:active {
       transform: scale(0.97) !important;
@@ -649,7 +673,7 @@
     }
     .promo-actives .active-card:hover {
       transform: translateY(-4px) !important;
-      box-shadow: 0 12px 30px rgba(14,39,25,.12) !important;
+      box-shadow: 0 12px 30px rgba(0,40,25,.12) !important;
     }
 
     /* ─── Reduced motion: desactivar todo ──────────────────── */
@@ -669,15 +693,15 @@
   <div class="mobile-nav__header">
     <a href="index.html">
       <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-        <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-        <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-        <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-        <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-        <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-        <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-        <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-        <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-        <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
       </svg>
     </a>
     <button class="mobile-nav__close" id="mobileNavClose">&#10005;</button>
@@ -717,15 +741,15 @@
         <div class="logo">
           <a href="index.html">
             <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-              <path fill="#0E2719" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-              <path fill="#0E2719" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-              <path fill="#0E2719" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-              <polygon fill="#0E2719" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-              <polygon fill="#0E2719" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-              <path fill="#0E2719" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-              <polygon fill="#0E2719" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-              <path fill="#0E2719" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-              <path fill="#0E2719" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
             </svg>
           </a>
         </div>
@@ -779,8 +803,8 @@
               Buscar
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/>
-                  <path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/>
+                  <path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </li>
@@ -788,8 +812,8 @@
               <a href="index.html#contacte">Contacte</a>
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M2 6L12 13L22 6" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </li>
@@ -797,16 +821,16 @@
               <a href="usuaris.html">Inicia sessió</a>
               <div class="icon-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="8" r="4" stroke="#0E2719" stroke-width="1.5"/>
-                  <path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/>
+                  <path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
               </div>
             </li>
             <li>
-              <a href="pressupost.html" class="nav-cta" style="text-decoration:none;">
+              <span class="nav-cta menu-btn" data-menu="pressupost">
                 Pressupost
                 <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
-              </a>
+              </span>
             </li>
           </ul>
         </nav>
@@ -816,14 +840,14 @@
       <div class="form-search-wrapper" id="searchWrapper">
         <div class="form-search__content" style="position:relative;">
           <button class="search-icon-btn" style="position:absolute;left:1px;top:1px;height:38px;width:38px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#0E2719" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#0E2719" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
           </button>
           <form action="/" method="get">
             <input type="text" name="s" placeholder="Cerca...">
           </form>
         </div>
         <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#0E2719" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
         </button>
       </div>
     </div>
@@ -873,7 +897,7 @@
             <li><a href="promocio.html#faq">Preguntes freqüents</a></li>
           </ul>
           <div class="submenu__img">
-            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#0E2719 100%);"></div>
+            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#002819 100%);"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -934,7 +958,7 @@
             <li><a href="patrimonis.html#contacte-inversion">Contacte inversors</a></li>
           </ul>
           <div class="submenu__img">
-            <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -966,7 +990,7 @@
             <li><a href="pressupost.html">Ampliació i Canvi d'Ús</a></li>
           </ul>
           <div class="submenu__img">
-            <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);border-radius:4px;"></div>
+            <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
           </div>
         </div>
         <div class="submenu__col">
@@ -1106,7 +1130,7 @@
       <div class="blog-card" data-category="construccio" data-anim="fade-up">
         <a href="#" class="blog-card__link">
           <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(160deg,#56685E 0%,#0E2719 100%);"></div>
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#56685E 0%,#002819 100%);"></div>
           </div>
           <span class="blog-card__cat">Construcció</span>
           <h3 class="blog-card__title">Construir en terreny difícil: la nostra experiència a la muntanya</h3>
@@ -1138,7 +1162,7 @@
       <div class="blog-card" data-category="promocio" data-anim="fade-up">
         <a href="#" class="blog-card__link">
           <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(145deg,#9FA9A3 0%,#0E2719 100%);"></div>
+            <div class="blog-card__img" style="background:linear-gradient(145deg,#9FA9A3 0%,#002819 100%);"></div>
           </div>
           <span class="blog-card__cat">Promoció</span>
           <h3 class="blog-card__title">Com triar un pis d'obra nova: 5 criteris essencials</h3>
