@@ -1,15 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/municipis", "destination": "/api" },
-    { "source": "/calcular", "destination": "/api" },
-    { "source": "/download-pdf", "destination": "/api" },
-    { "source": "/analitzar-plans", "destination": "/api" },
-    { "source": "/chat-pressupost", "destination": "/api" },
-    { "source": "/chat-configurador", "destination": "/api" }
-  ],
   "functions": {
     "api/index.py": {
       "maxDuration": 60
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/municipis", "destination": "/api/index" },
+    { "source": "/calcular", "destination": "/api/index" },
+    { "source": "/download-pdf", "destination": "/api/index" },
+    { "source": "/analitzar-plans", "destination": "/api/index" },
+    { "source": "/chat-pressupost", "destination": "/api/index" },
+    { "source": "/chat-configurador", "destination": "/api/index" }
+  ]
 }
