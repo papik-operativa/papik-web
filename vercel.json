@@ -15,6 +15,41 @@
       "permanent": true
     },
     {
+      "source": "/maresme",
+      "destination": "/comarques/maresme",
+      "permanent": true
+    },
+    {
+      "source": "/garraf",
+      "destination": "/comarques/garraf",
+      "permanent": true
+    },
+    {
+      "source": "/valles-occidental",
+      "destination": "/comarques/valles-occidental",
+      "permanent": true
+    },
+    {
+      "source": "/es/maresme",
+      "destination": "/es/comarcas/maresme",
+      "permanent": true
+    },
+    {
+      "source": "/es/garraf",
+      "destination": "/es/comarcas/garraf",
+      "permanent": true
+    },
+    {
+      "source": "/es/valles-occidental",
+      "destination": "/es/comarcas/valles-occidental",
+      "permanent": true
+    },
+    {
+      "source": "/en/valles-occidental",
+      "destination": "/en/regions/valles-occidental",
+      "permanent": true
+    },
+    {
       "source": "/es/inicio",
       "destination": "/es",
       "permanent": true

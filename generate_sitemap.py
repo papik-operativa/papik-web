@@ -35,6 +35,7 @@ EXCLUDE_FILENAMES = {
     "dashboard-cliente.html",
     "_t.html",
     "cookie-banner.html",
+    "404.html",
 }
 
 # Directories under /public to walk. Missing dirs are silently skipped.
@@ -49,6 +50,7 @@ WALK_DIRS = [
     "en/areas",
     "en/regions",
     "en/retrofit",
+    "en/projects",
 ]
 
 # Regex helpers
@@ -106,8 +108,10 @@ def classify(canonical_url: str, file_path: Path) -> Tuple[float, str]:
     if last.startswith("article-"):
         return 0.7, "monthly"
 
-    # Project pages (projecte-/proyecto-)
+    # Project pages (projecte-/proyecto-) and EN /projects/* pages
     if last.startswith("projecte-") or last.startswith("proyecto-"):
+        return 0.6, "monthly"
+    if "/en/projects/" in canonical_url:
         return 0.6, "monthly"
 
     # Legal pages
@@ -243,10 +247,12 @@ def parse_html(file_path: Path,
     canonical: Optional[str] = (
         canonical_match.group(1).strip() if canonical_match else None
     )
+    if canonical:
+        canonical = _normalize_domain(canonical)
 
     hreflang: Dict[str, str] = {}
     for lang, href in RE_HREFLANG.findall(text):
-        hreflang[lang.strip().lower()] = href.strip()
+        hreflang[lang.strip().lower()] = _normalize_domain(href.strip())
 
     fallback_used = False
     if not canonical:
@@ -272,6 +278,17 @@ def parse_html(file_path: Path,
         "lastmod": lastmod,
         "fallback_used": fallback_used,
     }
+
+
+def _normalize_domain(url: str) -> str:
+    """Force the canonical domain (https://papik.cat) on any sitemap URL."""
+    if not url:
+        return url
+    return (
+        url.replace("https://www.papik.cat", DOMAIN)
+           .replace("http://www.papik.cat", DOMAIN)
+           .replace("http://papik.cat", DOMAIN)
+    )
 
 
 def _normalize_iso_date(raw: str) -> str:

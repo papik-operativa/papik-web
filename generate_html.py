@@ -1319,9 +1319,16 @@ def asset_prefix(page: Page) -> str:
     return "../" * (page.out_depth - 1)
 
 
+def lang_root(lang: str) -> str:
+    """Absolute URL prefix for a given language root (CA at /, ES at /es/, EN at /en/)."""
+    if lang == "ca":
+        return "/"
+    return f"/{lang}/"
+
+
 def header_html(page: Page) -> str:
     pref = asset_prefix(page)
-    home_href = pref + "index.html"
+    home_href = lang_root(page.lang)
     return f'''<header class="header-top" id="headerTop">
   <div class="header-logo-layer"></div>
   <div class="header-logo">
@@ -1400,33 +1407,33 @@ FOOTER_BY_LANG = {
         "blog_url": "blog.html", "nosaltres_url": "about.html",
         "projectes_url": "projects.html",
         "legal_url": "legal-notice.html", "privacy_url": "privacy-policy.html",
-        "cookies_url": "cookies-policy.html",
+        "cookies_url": "cookie-policy.html",
     },
 }
 
 
 def footer_html(page: Page) -> str:
     f = FOOTER_BY_LANG[page.lang]
-    pref = asset_prefix(page)
+    root = lang_root(page.lang)
     return f'''<footer>
   <div class="container">
     <div class="footer__content__info color-white">
       <div class="footer-col">
         <p class="footer__col-title">{f["papik"]}</p>
         <ul>
-          <li><a href="{pref}{f["nosaltres_url"]}">{f["qui_som"]}</a></li>
-          <li><a href="{pref}{f["projectes_url"]}">{f["projects"]}</a></li>
-          <li><a href="{pref}{f["blog_url"]}">{f["blog"]}</a></li>
+          <li><a href="{root}{f["nosaltres_url"]}">{f["qui_som"]}</a></li>
+          <li><a href="{root}{f["projectes_url"]}">{f["projects"]}</a></li>
+          <li><a href="{root}{f["blog_url"]}">{f["blog"]}</a></li>
           <li><a href="#contacte">{f["contact"]}</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <p class="footer__col-title">{f["services"]}</p>
         <ul>
-          <li><a href="{pref}{f["construccio_url"]}">{f["construction"]}</a></li>
-          <li><a href="{pref}{f["promocio_url"]}">{f["promotion"]}</a></li>
-          <li><a href="{pref}{f["rehabilitacio_url"]}">{f["retrofit"]}</a></li>
-          <li><a href="{pref}{f["patrimonis_url"]}">{f["wealth"]}</a></li>
+          <li><a href="{root}{f["construccio_url"]}">{f["construction"]}</a></li>
+          <li><a href="{root}{f["promocio_url"]}">{f["promotion"]}</a></li>
+          <li><a href="{root}{f["rehabilitacio_url"]}">{f["retrofit"]}</a></li>
+          <li><a href="{root}{f["patrimonis_url"]}">{f["wealth"]}</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1460,9 +1467,9 @@ def footer_html(page: Page) -> str:
     <div class="copyright">
       <p>{f["copyright"]}</p>
       <div class="legal" style="display:flex;gap:20px;">
-        <a href="{pref}{f["legal_url"]}">{f["legal"]}</a>
-        <a href="{pref}{f["privacy_url"]}">{f["privacy"]}</a>
-        <a href="{pref}{f["cookies_url"]}">{f["cookies_link"]}</a>
+        <a href="{root}{f["legal_url"]}">{f["legal"]}</a>
+        <a href="{root}{f["privacy_url"]}">{f["privacy"]}</a>
+        <a href="{root}{f["cookies_url"]}">{f["cookies_link"]}</a>
       </div>
     </div>
   </div>
@@ -1577,8 +1584,7 @@ def render_breadcrumb(page: Page) -> str:
     if page.page_type == "homepage":
         return ""
     label_home = {"ca": "Inici", "es": "Inicio", "en": "Home"}[page.lang]
-    pref = asset_prefix(page)
-    home_href = pref + "index.html"
+    home_href = lang_root(page.lang)
     here = html.escape(page.meta.h1 or page.meta.title or page.slug.replace("-", " ").title())
     return f'''<nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="{home_href}">{label_home}</a>
@@ -1866,6 +1872,50 @@ def collect_sources() -> list[tuple[Path, str]]:
     return out
 
 
+def reconcile_hreflang(pages: list[Page]) -> None:
+    """Fill in missing hreflang entries by inspecting siblings.
+
+    The CA/ES articles were authored before EN existed, so their meta blocks
+    only declare CA+ES (and an x-default). Now EN exists and *its* meta block
+    correctly declares all three siblings. We use that to back-fill the older
+    CA/ES pages: if EN page X declares CA sibling Y and ES sibling Z, then
+    Y must declare EN sibling X and Z must declare EN sibling X.
+    """
+    # Index by canonical URL
+    by_canonical: dict[str, Page] = {}
+    for p in pages:
+        if p.meta.canonical:
+            by_canonical[p.meta.canonical.rstrip("/")] = p
+
+    # Cross-reference: for every (page, hreflang_entry) pair, ensure the
+    # target page declares the source page as its sibling for the source's lang.
+    changed = True
+    iterations = 0
+    while changed and iterations < 4:
+        changed = False
+        iterations += 1
+        for p in pages:
+            for code, url in list(p.meta.hreflang.items()):
+                if code in ("x-default",):
+                    continue
+                target = by_canonical.get(url.rstrip("/"))
+                if target is None:
+                    continue
+                # target should declare p.lang -> p.canonical
+                if p.lang not in target.meta.hreflang and p.meta.canonical:
+                    target.meta.hreflang[p.lang] = p.meta.canonical
+                    changed = True
+                # target should also declare its self-canonical for its own lang
+                if target.lang not in target.meta.hreflang and target.meta.canonical:
+                    target.meta.hreflang[target.lang] = target.meta.canonical
+                    changed = True
+
+    # Final pass: ensure every page declares its own self-canonical hreflang
+    for p in pages:
+        if p.meta.canonical and p.lang not in p.meta.hreflang:
+            p.meta.hreflang[p.lang] = p.meta.canonical
+
+
 def build_pages() -> tuple[list[Page], list[tuple[Path, str]]]:
     pages: list[Page] = []
     errors: list[tuple[Path, str]] = []
@@ -1889,6 +1939,7 @@ def build_pages() -> tuple[list[Page], list[tuple[Path, str]]]:
             pages.append(page)
         except Exception as e:
             errors.append((src, f"{type(e).__name__}: {e}"))
+    reconcile_hreflang(pages)
     return pages, errors
 
 
