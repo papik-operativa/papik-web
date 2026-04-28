@@ -1,0 +1,33 @@
+{
+  "_doc": "Schema BreadcrumbList per a totes les pagines internes. Ajuda al SERP a mostrar 'Home > Categoria > Pagina' enlloc de la URL crua. Universal — totes les pagines (excepte homepage) haurien de tenir-lo.",
+
+  "_examples_per_page_type": {
+    "service_page": "Inici > Construccio",
+    "subpage": "Inici > Rehabilitacio > Comunitats",
+    "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+    "article_blog": "Inici > Blog > [Titular article]",
+    "project_fitxa": "Inici > Projectes > [Nom projecte]"
+  },
+
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inici",
+      "item": "https://papik.cat/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{PARENT_SECTION_NAME}}",
+      "item": "{{PARENT_SECTION_URL}}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{CURRENT_PAGE_NAME}}"
+    }
+  ]
+}

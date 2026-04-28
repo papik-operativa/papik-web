@@ -1,0 +1,39 @@
+{
+  "_doc": "Schema Article per a cada peca de blog (/article-*). Inclou author, publisher, datePublished, dateModified, image, articleSection, wordCount, inLanguage. Critic per a E-E-A-T (Experience-Expertise-Authoritativeness-Trustworthiness). El sistema actual de papik.cat NO mostra autor ni dates als articles — corregir aixo es prioritat S4.",
+
+  "_replace_before_publish": [
+    "{{ARTICLE_HEADLINE}}", "{{ARTICLE_DESCRIPTION}}", "{{ARTICLE_URL}}",
+    "{{HERO_IMAGE_URL}}", "{{DATE_PUBLISHED}}", "{{DATE_MODIFIED}}",
+    "{{ARTICLE_SECTION}}", "{{WORD_COUNT}}", "{{LANGUAGE}}",
+    "{{AUTHOR_NAME}}", "{{AUTHOR_URL}}"
+  ],
+
+  "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ARTICLE_HEADLINE}}",
+  "description": "{{ARTICLE_DESCRIPTION}}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{HERO_IMAGE_URL}}",
+    "width": 1200,
+    "height": 630
+  },
+  "datePublished": "{{DATE_PUBLISHED}}",
+  "dateModified": "{{DATE_MODIFIED}}",
+  "author": {
+    "@type": "Organization",
+    "name": "PAPIK Group",
+    "url": "https://papik.cat"
+  },
+  "publisher": { "@id": "https://papik.cat/#org" },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ARTICLE_URL}}"
+  },
+  "articleSection": "{{ARTICLE_SECTION}}",
+  "wordCount": "{{WORD_COUNT}}",
+  "inLanguage": "{{LANGUAGE}}",
+  "isAccessibleForFree": true
+}

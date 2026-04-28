@@ -1,0 +1,47 @@
+{
+  "_doc": "Schema FAQPage per al bloc de preguntes frequents de qualsevol pagina. Pot anar a homepage, servei, landing, article, etc. Si una pagina te FAQ, ha de tenir aquest schema — Google mostra rich result expandible al SERP que augmenta CTR significativament.",
+  "_quality_rules": [
+    "Cada pregunta ha de ser una frase completa amb interrogant",
+    "Resposta entre 50-300 paraules ideal — masa curta es debil, massa llarga no es renderitza",
+    "No repetir keyword stuffing al text de la pregunta",
+    "La FAQ ha de ser visible al usuari, no nomes al schema (Google ho verifica)"
+  ],
+
+  "_example_filled": {
+    "@type": "Question",
+    "name": "Quina majoria necessita la junta de propietaris per aprovar la rehabilitació amb subvenció Next Generation?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Per a millores energètiques que aprofitin subvencions públiques, la Llei 49/1960 de Propietat Horitzontal (article 17.2) estableix la majoria de tres cinquenes parts dels propietaris i les seves quotes. En alguns supòsits aplica majoria simple. Cada cas concret ha de ser revisat amb l'administrador de finques i la documentació jurídica de la comunitat."
+    }
+  },
+
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{QUESTION_1}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ANSWER_1}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{QUESTION_2}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ANSWER_2}}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{{QUESTION_3}}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ANSWER_3}}"
+      }
+    }
+  ]
+}

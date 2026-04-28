@@ -1,0 +1,35 @@
+old_url,type,new_url,reason,priority,implemented_in
+/es/inicio,301,/es,Drop redundant /inicio segment in ES homepage path,P0,vercel.json
+/productes-alta-eficiencia-energetica,301,/construccio,Old service hub consolidated to flat structure,P0,vercel.json
+/productes-alta-eficiencia-energetica/construccio,301,/construccio,Service flattening,P0,vercel.json
+/productes-alta-eficiencia-energetica/rehabilitacions,301,/rehabilitacio,Service flattening,P0,vercel.json
+/productes-alta-eficiencia-energetica/cases-eskimohaus,301,/construccio,Eskimohaus folded into Construccio (anchor section),P0,vercel.json
+/productes-alta-eficiencia-energetica/ampliacions-i-remuntes,301,/construccio,Ampliacions folded into Construccio,P0,vercel.json
+/pressupost-casa-passiva-passivhaus-ecologica,301,/pressupost,Configurator URL unification (CA),P0,vercel.json
+/pressupost-gratuit,301,/pressupost,Configurator URL unification (CA),P0,vercel.json
+/es/presupuesto,301,/es/pressupost,Configurator URL unification (ES),P0,vercel.json
+/es/presupuesto-gratuito,301,/es/pressupost,Configurator URL unification (ES),P0,vercel.json
+/diari,301,/butlleti,Newsletter URL unification,P1,vercel.json
+/inscripcio,301,/butlleti,Newsletter URL unification,P1,vercel.json
+/bustia,301,/butlleti,Newsletter URL unification,P1,vercel.json
+/es/diario,301,/es/butlleti,Newsletter URL unification (ES),P1,vercel.json
+/es/boletin-de-noticias,301,/es/butlleti,Newsletter URL unification (ES),P1,vercel.json
+/com-construir-la-teva-casa,301,/com-construim-la-teva-casa,Near-duplicate page consolidation,P1,vercel.json
+/llistat-de-projectes-actius,301,/projectes,Active-projects view folded into projects index,P1,vercel.json
+/es/lista-de-proyectos-activos,301,/es/projectes,Active-projects view folded (ES),P1,vercel.json
+/especialistes-en-cases-passives-a-catalunya,301,/construccio,Long-tail SEO landing → service page,P1,vercel.json
+/annex-la-finestra-que-no-veus,301,/blog,Standalone landing → blog hub,P2,vercel.json
+/es/llega-la-ventilacion-inteligente-la-vanguardia,301,/es/premsa,Already broken on live; map to ES press hub to recover external link from La Vanguardia,P0,vercel.json
+/es/papik-group-asume-nueva-identidad-manteniendo-30-anos-de-recorrido-en-construccion-de-casas-sostenibles,301,/es/empresa,Already broken on live; recover Cantabria Económica external link,P0,vercel.json
+/category/*,301,/blog,WordPress category archives → blog hub,P0,vercel.json
+/es/category/*,301,/es/blog,WordPress category archives ES → blog ES,P0,vercel.json
+/tipusprojecte/*,301,/projectes,WordPress project taxonomy → projects index,P0,vercel.json
+/es/tipoproyecto/*,301,/es/projectes,WordPress project taxonomy ES,P0,vercel.json
+/author/*,301,/empresa,WordPress author archives → about page,P0,vercel.json
+/es/author/*,301,/es/empresa,WordPress author archives ES,P0,vercel.json
+/wp-admin/*,301,/,WordPress admin paths blocked,P0,vercel.json
+/wp-login.php,301,/,WordPress login blocked,P0,vercel.json
+/feed,301,/blog,WordPress RSS feed → blog,P1,vercel.json
+/es/feed,301,/es/blog,WordPress RSS feed ES,P1,vercel.json
+/projectes/<live-slug>/,301-or-rewrite,/<new-slug-or-clean-url>,Per-project mapping (38 CA + 36 ES = 74 total). Generate via script in S2 from live sitemap diff.,P0,S2-script
+/<live-article-slug>/,301-or-rewrite,/<new-article-slug>,Per-article mapping (87 CA + 84 ES = 171 total). Generate via script in S2 from live sitemap diff.,P0,S2-script

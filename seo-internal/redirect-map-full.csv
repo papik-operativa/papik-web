@@ -1,0 +1,347 @@
+old_url,action,new_url_or_file,language,priority,notes
+# === HOMEPAGES & ROOT ===
+/,rewrite,/index.html,ca,P1,Homepage CA preserved
+/es/,rewrite,/es/index.html,es,P1,Homepage ES preserved
+/es/inicio/,301,/es,es,P0,Drop redundant /inicio segment (already in vercel.json)
+# === PAGE SITEMAP - SERVICE & COMPANY HUBS ===
+/empresa/,301,/nosaltres,ca,P1,Old company page consolidated
+/es/quienes-somos/,301,/es/nosotros,es,P1,Old company page ES consolidated (rename pending)
+/contacte/,301,/nosaltres#contacte,ca,P1,Contact folded into nosaltres
+/es/contacto/,301,/es/nosotros#contacto,es,P1,Contact folded into nosotros (rename pending)
+/com-construim-la-teva-casa/,rewrite,/construccio,ca,P1,Process page consolidated into construccio service
+/com-construir-la-teva-casa/,301,/com-construim-la-teva-casa,ca,P2,Near-duplicate (already in vercel.json)
+/es/como-construimos-tu-casa/,301,/es/construccion,es,P1,Process page ES consolidated
+/galeria/,301,/projectes,ca,P1,Old gallery folded into projectes index
+/es/galeria/,301,/es/proyectos,es,P1,Old gallery ES folded into projectes
+/professional/,301,/usuaris,ca,P2,Pro area folded into usuaris login
+/es/profesional/,301,/es/usuaris,es,P2,Pro area ES folded into usuaris login
+/planifica-trucada/,301,/pressupost#contact,ca,P2,Phone-call CTA folded into pressupost
+/gracies/,deprecate,/,ca,P2,Thank-you page no equivalent (return to home)
+/gracies_visita/,deprecate,/,ca,P2,Visit thank-you no equivalent
+/accedir-al-contingut/,deprecate,/,ca,P2,Gated-content placeholder no equivalent
+# === LEGAL ===
+/avis-legal/,rewrite,/avis-legal,ca,P2,Legal page (to-create-S4 or noindex)
+/es/aviso-legal/,rewrite,/es/aviso-legal,es,P2,Legal page ES (to-create-S4)
+/politica-de-privacitat/,rewrite,/politica-de-privacitat,ca,P2,Privacy CA (to-create-S4)
+/es/politica-de-privacidad/,rewrite,/es/politica-de-privacidad,es,P2,Privacy ES (to-create-S4)
+/politica-de-cookies/,rewrite,/politica-de-cookies,ca,P2,Cookies CA (to-create-S4)
+/es/politica-de-cookies/,rewrite,/es/politica-de-cookies,es,P2,Cookies ES (to-create-S4)
+# === PAGES - CONFIGURATOR & TOOLS (already in vercel.json) ===
+/pressupost-gratuit/,301,/pressupost,ca,P0,Configurator URL unification (in vercel.json)
+/pressupost-casa-passiva-passivhaus-ecologica/,301,/pressupost,ca,P0,Configurator URL unification (in vercel.json)
+/es/presupuesto/,301,/es/pressupost,es,P0,Configurator URL unification (in vercel.json - rename pending)
+/es/presupuesto-gratuito/,301,/es/pressupost,es,P0,Configurator URL unification (in vercel.json)
+# === PAGES - NEWSLETTER (already in vercel.json) ===
+/diari/,301,/butlleti,ca,P1,Newsletter URL unification (in vercel.json)
+/inscripcio/,301,/butlleti,ca,P1,Newsletter URL unification (in vercel.json)
+/bustia/,301,/butlleti,ca,P1,Newsletter URL unification (in vercel.json)
+/es/diario/,301,/es/butlleti,es,P1,Newsletter URL unification ES (in vercel.json)
+/es/boletin-de-noticias/,301,/es/butlleti,es,P1,Newsletter URL unification ES (in vercel.json)
+# === PAGES - SERVICE LANDINGS (already in vercel.json) ===
+/productes-alta-eficiencia-energetica/,301,/construccio,ca,P0,Service hub flattened (in vercel.json)
+/productes-alta-eficiencia-energetica/cases-eskimohaus/,301,/construccio,ca,P0,Eskimohaus folded (in vercel.json)
+/productes-alta-eficiencia-energetica/rehabilitacions/,301,/rehabilitacio,ca,P0,Rehab service flat (in vercel.json)
+/productes-alta-eficiencia-energetica/ampliacions-i-remuntes/,301,/construccio,ca,P0,Ampliacions folded (in vercel.json)
+/es/que-hacemos/,301,/es/construccion,es,P0,Service hub ES flattened
+/es/que-hacemos/casas-eskimohaus/,301,/es/construccion,es,P0,Eskimohaus ES folded
+/es/que-hacemos/rehabilitaciones/,301,/es/rehabilitacion,es,P0,Rehab service ES flat
+/es/que-hacemos/ampliaciones-y-remontas/,301,/es/construccion,es,P0,Ampliacions ES folded
+/especialistes-en-cases-passives-a-catalunya/,301,/construccio,ca,P1,SEO landing absorbed (in vercel.json)
+/es/casas-pasivas-cataluna/,301,/es/construccion,es,P1,SEO landing ES absorbed
+/llistat-de-projectes-actius/,301,/projectes,ca,P1,Active projects folded (in vercel.json)
+/es/lista-de-proyectos-activos/,301,/es/proyectos,es,P1,Active projects ES folded (in vercel.json)
+/blog/,rewrite,/blog,ca,P1,Blog hub preserved
+/es/blog/,rewrite,/es/blog,es,P1,Blog hub ES preserved
+/annex-la-finestra-que-no-veus/,301,/blog,ca,P2,Standalone landing folded (in vercel.json)
+# === PROJECTS CA - REWRITES TO PRESERVE /projectes/<slug>/ PUBLIC URLS ===
+/projectes/,rewrite,/projectes.html,ca,P1,Projects index preserved
+/projectes/k-alzina/,rewrite,/projecte-k-alzina.html,ca,P0,Slug match
+/projectes/k-aragai-una-casa-passiva-amb-vista-al-mediterrani/,rewrite,/projecte-k-aragai.html,ca,P0,Slug shortened (was long-form CA title)
+/projectes/k-argentona/,rewrite,/projecte-k-argentona.html,ca,P0,Slug match
+/projectes/k-begues/,rewrite,/projecte-k-begues.html,ca,P0,Slug match
+/projectes/k-bellindret/,rewrite,/projecte-k-bellindret.html,ca,P0,Slug match
+/projectes/k-botigues/,rewrite,/projecte-k-botigues.html,ca,P0,Slug match
+/projectes/k-calonge/,rewrite,/projecte-k-calonge.html,ca,P0,Slug match
+/projectes/k-cim/,rewrite,/projecte-k-cim.html,ca,P0,Slug match
+/projectes/k-codines/,rewrite,/projecte-k-codines.html,ca,P0,Slug match
+/projectes/k-denbas/,rewrite,/projecte-k-denbas.html,ca,P0,Slug match
+/projectes/k-gorgs/,rewrite,/projecte-k-gorgs.html,ca,P0,Slug match
+/projectes/k-hostalets/,rewrite,/projecte-k-hostalets.html,ca,P0,Slug match
+/projectes/k-igualada/,rewrite,/projecte-k-igualada.html,ca,P0,Slug match
+/projectes/k-iturbi/,rewrite,/projecte-k-iturbi.html,ca,P0,Slug match (Bellaterra anchor)
+/projectes/k-lamassa/,rewrite,/projecte-k-lamassa.html,ca,P0,Slug match
+/projectes/llavaneras/,rewrite,/projecte-k-llavaneres.html,ca,P0,Slug rename (live=llavaneras es legacy; new=k-llavaneres)
+/projectes/k-malats/,rewrite,/projecte-k-malats.html,ca,P0,Slug match
+/projectes/k-marges/,rewrite,/projecte-k-marges.html,ca,P0,Slug match
+/projectes/k-maristany/,rewrite,/projecte-k-maristany.html,ca,P0,Slug match
+/projectes/k-matadepera/,rewrite,/projecte-k-matadepera.html,ca,P0,Slug match
+/projectes/k-merla/,rewrite,/projecte-k-merla.html,ca,P0,Slug match
+/projectes/k-mogent/,rewrite,/projecte-k-mogent.html,ca,P0,Slug match
+/projectes/k-orio/,rewrite,/projecte-k-orio.html,ca,P0,Slug match
+/projectes/k-premia-casa-passiva/,rewrite,/projecte-k-premia.html,ca,P0,Slug shortened
+/projectes/k-valldor/,rewrite,/projecte-k-vallor.html,ca,P0,Slug rename (k-valldor -> k-vallor with apagada-2025 brand)
+/projectes/casa-eficient-a-la-floresta/,rewrite,/projecte-la-floresta.html,ca,P0,Slug rebranded to la-floresta (1r CLT case study)
+/projectes/moianes/,rewrite,/projecte-moianes.html,ca,P0,Slug match
+/projectes/fornells/,rewrite,/projecte-fornells.html,ca,P0,Slug match
+/projectes/arboc/,rewrite,/projecte-arboc.html,ca,P0,Slug match
+/projectes/passivrooms/,rewrite,/projecte-passivrooms.html,ca,P0,Slug match
+/projectes/segona-casa-passiva-a-catalunya/,rewrite,/projecte-passivpalau.html,ca,P0,Old descriptive slug -> passivpalau brand
+/projectes/primera-casa-certificada-passivhaus-sant-cugat/,rewrite,/projecte-k-del-carril.html,ca,P0,Old descriptive slug -> k-del-carril brand
+/projectes/ampliacio-a-valldoreix-alta-eficiencia/,rewrite,/projecte-ampliacio-valldoreix.html,ca,P0,Slug shortened
+/projectes/rehabilitacio-a-valldoreix/,rewrite,/projecte-rehabilitacio-valldoreix.html,ca,P0,Slug normalised (drop the article)
+/projectes/remunta-a-sant-cugat/,rewrite,/projecte-remunta-sant-cugat.html,ca,P0,Slug normalised
+/projectes/remunta-en-valldoreix/,rewrite,/projecte-remunta-valldoreix.html,ca,P0,Slug normalised (was castellanisme remunta-en)
+/projectes/k-colombia/,deprecate,/projectes,ca,P2,Project no longer in catalogue (orphan)
+# === PROJECTS ES - REWRITES TO PRESERVE /es/proyectos/<slug>/ PUBLIC URLS ===
+/es/proyectos/k-alzina/,rewrite,/es/proyecto-k-alzina.html,es,P0,Slug match
+/es/proyectos/k-aragai/,rewrite,/es/proyecto-k-aragai.html,es,P0,Slug match
+/es/proyectos/k-argentona/,rewrite,/es/proyecto-k-argentona.html,es,P0,Slug match
+/es/proyectos/k-begues/,rewrite,/es/proyecto-k-begues.html,es,P0,Slug match
+/es/proyectos/k-bellindret/,rewrite,/es/proyecto-k-bellindret.html,es,P0,Slug match
+/es/proyectos/k-botigues/,rewrite,/es/proyecto-k-botigues.html,es,P0,Slug match
+/es/proyectos/k-calonge/,rewrite,/es/proyecto-k-calonge.html,es,P0,Slug match
+/es/proyectos/k-cim/,rewrite,/es/proyecto-k-cim.html,es,P0,Slug match
+/es/proyectos/k-codines/,rewrite,/es/proyecto-k-codines.html,es,P0,Slug match
+/es/proyectos/k-denbas/,rewrite,/es/proyecto-k-denbas.html,es,P0,Slug match
+/es/proyectos/k-gorgs/,rewrite,/es/proyecto-k-gorgs.html,es,P0,Slug match
+/es/proyectos/k-hostalets/,rewrite,/es/proyecto-k-hostalets.html,es,P0,Slug match
+/es/proyectos/k-igualada/,rewrite,/es/proyecto-k-igualada.html,es,P0,Slug match
+/es/proyectos/k-iturbi/,rewrite,/es/proyecto-k-iturbi.html,es,P0,Slug match
+/es/proyectos/k-lamassa/,rewrite,/es/proyecto-k-lamassa.html,es,P0,Slug match
+/es/proyectos/llavaneras/,rewrite,/es/proyecto-k-llavaneres.html,es,P0,Slug rename (legacy llavaneras -> k-llavaneres)
+/es/proyectos/k-malats/,rewrite,/es/proyecto-k-malats.html,es,P0,Slug match
+/es/proyectos/k-marges/,rewrite,/es/proyecto-k-marges.html,es,P0,Slug match
+/es/proyectos/k-maristany/,rewrite,/es/proyecto-k-maristany.html,es,P0,Slug match
+/es/proyectos/k-matadepera/,rewrite,/es/proyecto-k-matadepera.html,es,P0,Slug match
+/es/proyectos/k-merla/,rewrite,/es/proyecto-k-merla.html,es,P0,Slug match
+/es/proyectos/k-mogent/,rewrite,/es/proyecto-k-mogent.html,es,P0,Slug match
+/es/proyectos/k-orio/,rewrite,/es/proyecto-k-orio.html,es,P0,Slug match
+/es/proyectos/k-premia/,rewrite,/es/proyecto-k-premia.html,es,P0,Slug match
+/es/proyectos/k-valldor/,rewrite,/es/proyecto-k-vallor.html,es,P0,Slug rename (k-valldor -> k-vallor)
+/es/proyectos/k-passivrooms/,rewrite,/es/proyecto-passivrooms.html,es,P0,Slug normalised (drop k- prefix)
+/es/proyectos/casa-pasiva-en-la-floresta/,rewrite,/es/proyecto-la-floresta.html,es,P0,Slug rebranded
+/es/proyectos/moianes/,rewrite,/es/proyecto-moianes.html,es,P0,Slug match
+/es/proyectos/fornells/,rewrite,/es/proyecto-fornells.html,es,P0,Slug match
+/es/proyectos/arboc/,rewrite,/es/proyecto-arboc.html,es,P0,Slug match
+/es/proyectos/2a-casa-pasiva-de-cataluna/,rewrite,/es/proyecto-passivpalau.html,es,P0,Old descriptive slug -> passivpalau brand
+/es/proyectos/k-del-carril-1a-casa-certificada-passivhaus-de-sant-cugat/,rewrite,/es/proyecto-k-del-carril.html,es,P0,Long brand slug shortened
+/es/proyectos/ampliacion-en-valldoreix/,rewrite,/es/proyecto-ampliacio-valldoreix.html,es,P0,Slug shortened (CA-base for project IDs)
+/es/proyectos/rehabilitacion-en-valldoreix/,rewrite,/es/proyecto-rehabilitacio-valldoreix.html,es,P0,Slug normalised (CA-base)
+/es/proyectos/remonta-en-sant-cugat/,rewrite,/es/proyecto-remunta-sant-cugat.html,es,P0,Slug normalised (CA-base)
+/es/proyectos/remonta-en-valldoreix/,rewrite,/es/proyecto-remunta-valldoreix.html,es,P0,Slug normalised
+# === BLOG ARTICLES CA - REWRITES (live keyword-slug -> new article-slug) ===
+/tres-cases-que-tenien-electricitat-durant-lapagada-de-2025/,rewrite,/article-apagada-2025.html,ca,P0,Apagada-2025 hero (high backlink potential)
+/una-casa-sostenible-a-les-faldes-del-montseny/,rewrite,/article-casa-montseny.html,ca,P1,Case-study article
+/hipoteca-energetica/,rewrite,/article-hipoteca-energetica.html,ca,P0,Hipoteca-energetica keyword (cuts to /hipoteca-energetica - we keep at slug)
+/la-hipoteca-energetica/,rewrite,/article-hipoteca-energetica.html,ca,P1,Older variant slug consolidated
+/les-innovacions-passivhaus/,rewrite,/article-innovacions-passivhaus.html,ca,P1,Article match
+/construccio-sostenible-amb-materials-sostenibles/,rewrite,/article-materials-sostenibles.html,ca,P1,Article match
+/la-petjada-ecologica-de-construir-casa-teva/,rewrite,/article-petjada-ecologica.html,ca,P1,Article match
+/passivhaus-i-sostenibilitat-com-minimitzar-la-petjada-ecologica/,301,/article-petjada-ecologica,ca,P2,Near-duplicate -> consolidate to single petjada article
+/calcular-pressupost-de-construccio-duna-casa-passiva/,rewrite,/article-pressupost-casa-passiva.html,ca,P1,Article match (configurator funnel)
+/els-cinc-principis-passivhaus/,rewrite,/article-principis-passivhaus.html,ca,P0,Cornerstone article
+/que-es-lestandard-passivhaus/,301,/article-principis-passivhaus,ca,P1,Companion article -> consolidate
+/la-revolucio-de-la-fusta-com-una-nova-tecnica-ens-obre-les-portes-cap-a-cases-de-fusta-superresistents/,rewrite,/article-revolucio-fusta.html,ca,P1,Long slug shortened
+/per-que-es-respira-millor-en-una-casa-passivhaus-la-qualitat-de-laire-interior-i-la-ventilacio-controlada/,rewrite,/article-ventilacio-passivhaus.html,ca,P1,Long slug shortened
+/tecnologies-clau-en-la-construccio-duna-casa-passivhaus/,rewrite,/article-tecnologies-passivhaus.html,ca,P1,Slug normalised
+/lestanquitat-a-laire-es-el-secret-mes-ben-guardat/,301,/article-tecnologies-passivhaus,ca,P2,Folded into tech article (blower-door subsection)
+/el-test-blower-door/,301,/article-tecnologies-passivhaus,ca,P2,Folded into tech article
+/anunci-construccio-cases-eskimohaus-catalunya/,301,/construccio,ca,P2,Old promo announcement -> service page
+/cases-de-fusta-i-reduccio-de-co%e2%82%82/,301,/article-revolucio-fusta,ca,P1,Wood-CO2 piece consolidated
+/la-piramide-del-co2/,301,/article-petjada-ecologica,ca,P2,CO2 pyramid folded into petjada
+/normativa-eudr-i-certificacio-fsc-cases-de-fusta-sostenible/,301,/article-revolucio-fusta,ca,P1,FSC/EUDR folded into wood revolution piece
+/masterclass-gratuita-com-construir-una-casa-sostenible/,301,/pressupost,ca,P2,Old lead-magnet -> configurator
+# Press releases CA
+# (Live sitemap exposes none of the new ksandal/ponsa/sabadell press releases - they are new content)
+# WordPress legacy posts CA (older / pre-2020) - all 301 to nearest hub
+/article-a-el-punt-avui/,301,/blog,ca,P2,Press piece -> blog
+/origen-i-significat-de-passivhaus/,301,/article-principis-passivhaus,ca,P2,Definition piece -> principles cornerstone
+/puertas-abiertas-en-passiv-palau/,301,/projecte-passivpalau,ca,P2,Open-house event -> project page
+/inauguracio-i-portes-obertes-a-mira-sol/,301,/projectes,ca,P2,Old open-house -> projects index
+/prioritats-a-lhora-de-de-fer-te-la-teva-casa-a-mida/,301,/construccio,ca,P2,Editorial -> construccio
+/papik-cases-passives-reconeguda-per-la-seva-excellencia-empresarial/,301,/nosaltres,ca,P2,Award news -> nosaltres
+/jornada-de-portes-obertes-a-valldor/,301,/projecte-k-vallor,ca,P2,Open-house Valldor -> k-vallor project
+/jornada-de-portes-obertes/,301,/blog,ca,P2,Generic open-house landing
+/4a-conferencia-espanyola-passivhaus/,301,/blog,ca,P2,Conference 2014 -> blog
+/resum-de-la-4a-conferencia-passivhaus/,301,/blog,ca,P2,Conference recap
+/certificacio-energetica-obligatoria/,301,/article-tecnologies-passivhaus,ca,P2,Certification piece -> tech article
+/guia-sant-cugat-mobil/,301,/blog,ca,P2,Sant Cugat mobile guide
+/certificat-fsc/,301,/article-revolucio-fusta,ca,P2,FSC piece -> wood
+/arquitectura-i-cases-de-fusta/,301,/article-revolucio-fusta,ca,P2,Wood architecture -> wood
+/certificacio-energetica-en-edificacio-per-llei/,301,/article-tecnologies-passivhaus,ca,P2,Energy cert -> tech
+/phpp-arriba-a-la-seva-versio-8/,301,/article-tecnologies-passivhaus,ca,P2,PHPP v8 -> tech
+/lletra-petita-energia-a-la-llar/,301,/blog,ca,P2,TV3 mention -> blog
+/premis-passive-house-2014/,301,/blog,ca,P2,Awards 2014
+/un-hotel-passivhaus-2/,301,/blog,ca,P2,Hotel passivhaus
+/temple-milenari-construit-amb-fusta/,301,/article-revolucio-fusta,ca,P2,Millennial wood temple
+/5e-congreso-passivhaus-espana/,301,/blog,ca,P2,5th congress
+/5e-congres-passivhaus-online/,301,/blog,ca,P2,5th congress online
+/passivpalau-plantejament-del-client/,301,/projecte-passivpalau,ca,P2,PassivPalau client brief -> project
+/arriba-la-ventilacio-intel%c2%b7ligent-la-vanguardia/,301,/article-ventilacio-passivhaus,ca,P0,La Vanguardia backlink (preserve link equity)
+/presentacio-de-la-sisena-conferencia-espanyola-passivhaus-6ceph/,301,/blog,ca,P2,6th conference announce
+/passivpalau-projecte-definitiu-i-resultats-phpp/,301,/projecte-passivpalau,ca,P2,PassivPalau project final -> project
+/primera-academia-destiu-passivhaus-a-catalunya/,301,/blog,ca,P2,Summer academy 2017
+/entrevista-a-leconomic/,301,/blog,ca,P2,Press interview
+/jornades-nzeb-passivhaus-projectes-actuals-en-catalunya/,301,/blog,ca,P2,nZEB jornades
+/aposta-pel-clima-en-construmat-2015/,301,/blog,ca,P2,Construmat 2015
+/passivhaus-a-girona/,301,/blog,ca,P2,Girona piece
+/alex-de-rijke-en-la-contra-de-la-vanguardia/,301,/article-revolucio-fusta,ca,P2,De Rijke wood interview
+/divulgacio-sobre-passivhaus-a-girona/,301,/blog,ca,P2,Girona divulgation
+/don-prove-la-contaminacio-per-co2/,301,/article-petjada-ecologica,ca,P2,CO2 contamination
+/beneficis-i-ajudes-a-cases-passives-a-lestranger/,301,/blog,ca,P2,Foreign passive house grants
+/25-anys-de-la-primera-casa-passiva-passivhaus/,301,/blog,ca,P2,25th anniversary
+/estrenem-nova-imatge/,301,/nosaltres,ca,P2,Brand refresh
+/aillament-termic/,301,/article-tecnologies-passivhaus,ca,P2,Thermal insulation -> tech
+/inauguracio-de-la-primera-casa-certificada-passivhaus-de-sant-cugat-del-valles/,301,/projecte-k-del-carril,ca,P0,K-del-Carril open day (Sant Cugat anchor backlinks)
+/entrevista-al-diari-de-sant-cugat/,301,/blog,ca,P2,Press interview Sant Cugat
+/refugis-nuclears-passivhaus/,301,/blog,ca,P2,Nuclear shelters article
+/primera-casa-passivhaus-de-sant-cugat-del-valles/,301,/projecte-k-del-carril,ca,P0,Sant Cugat first PH (high-equity URL)
+/casa-passiva/,301,/construccio,ca,P1,Generic /casa-passiva landing -> service page
+/comprar-o-construir-una-casa/,301,/construccio,ca,P2,Buy-vs-build editorial -> service
+/jornada-de-portes-obertes-a-llinars-del-valles/,301,/projecte-k-mogent,ca,P2,Llinars open day -> k-mogent
+/abiertas-las-inscripciones-al-3er-concurso-iberamericano-passivhaus/,301,/blog,ca,P2,Iberamerican PH contest
+/remunta-a-sant-cugat-del-valles/,301,/projecte-remunta-sant-cugat,ca,P1,Remunta SC project article
+/inici-de-la-construccio-casa-passiva/,301,/construccio,ca,P2,Construction kickoff -> service
+/ampliacio-rehabilitacio-de-90m2/,301,/rehabilitacio,ca,P2,90m2 rehab editorial
+/segunda-casa-pasiva-en-cataluna/,301,/projecte-passivpalau,ca,P1,2nd PH Catalonia -> passivpalau
+/la-fusta-un-material-sostenible/,301,/article-revolucio-fusta,ca,P2,Wood as sustainable material
+/comportament-de-lestandard-passivhaus-a-lestiu-mediterrani/,301,/article-tecnologies-passivhaus,ca,P2,Mediterranean summer behaviour
+/passivhaus-a-espanya-2013/,301,/blog,ca,P2,Spain 2013 piece
+/gratacels-de-fusta/,301,/article-revolucio-fusta,ca,P2,Wood skyscrapers
+/las-casas-passives-passivhaus-es-mereixen-un-cop-de-ma/,301,/article-hipoteca-energetica,ca,P2,Subsidies plea -> hipoteca
+/el-passivhaus-presente-en-barcelona-building-construmat-2017/,301,/blog,ca,P2,Construmat 2017
+/entrevista-a-beteve/,301,/blog,ca,P2,beTV interview
+/pineda-58-estudi-previ-casa-passiva/,301,/projecte-passivpalau,ca,P2,Pineda 58 (early PassivPalau name) -> project
+/enciclopedia-de-la-fusta-per-a-iphone/,301,/article-revolucio-fusta,ca,P2,Wood encyclopaedia app
+/construmat-a-tve/,301,/blog,ca,P2,Construmat on TVE
+/video-construmat/,301,/blog,ca,P2,Construmat video
+# === BLOG ARTICLES ES - REWRITES (live keyword-slug -> new article-slug) ===
+/es/tres-casas-que-tenian-electricidad-en-el-apagon-de-2025/,rewrite,/es/article-apagon-2025.html,es,P0,Apagon-2025 hero
+/es/una-casa-sostenible-en-las-faldas-del-montseny/,rewrite,/es/article-casa-montseny.html,es,P1,Case-study ES
+/es/hipoteca-energetica/,rewrite,/es/article-hipoteca-energetica.html,es,P0,Hipoteca energetica ES
+/es/la-hipoteca-energetica/,rewrite,/es/article-hipoteca-energetica.html,es,P1,Older variant ES
+/es/las-innovaciones-que-estan-revolucionando-la-construccion-passivhaus/,rewrite,/es/article-innovaciones-passivhaus.html,es,P1,Innovaciones ES
+/es/materiales-sostenibles-que-dan-vida-a-la-construccion-sostenible/,rewrite,/es/article-materiales-sostenibles.html,es,P1,Materiales ES
+/es/la-huella-ecologica-de-construir-y-vivir-en-tu-casa/,rewrite,/es/article-huella-ecologica.html,es,P1,Huella ES
+/es/passivhaus-y-sostenibilidad-como-minimizar-la-huella-ecologica/,301,/es/article-huella-ecologica,es,P2,Near-duplicate consolidate
+/es/presupuesto-de-construccion-de-una-casa/,rewrite,/es/article-presupuesto-casa-pasiva.html,es,P1,Presupuesto article ES
+/es/los-cinco-principios-del-passivhaus/,rewrite,/es/article-principios-passivhaus.html,es,P0,Cornerstone ES
+/es/que-es-el-estandar-passivhaus/,301,/es/article-principios-passivhaus,es,P1,Companion -> cornerstone
+/es/la-revolucion-de-la-madera-como-una-nueva-tecnica-abre-puertas-hacia-las-casas-de-madera-superresistentes/,rewrite,/es/article-revolucion-madera.html,es,P1,Long slug shortened ES
+/es/por-que-elegir-una-casa-passivhaus-ventajas-para-la-salud-y-el-confort/,rewrite,/es/article-ventilacion-passivhaus.html,es,P1,Mapped to closest topic (ventilation/IAQ)
+/es/como-las-casas-passivhaus-reducen-las-facturas-de-energia/,301,/es/article-hipoteca-energetica,es,P1,Energy bills -> hipoteca energetica
+/es/tecnologias-clave-en-la-construccion-de-una-casa-passivhaus/,rewrite,/es/article-tecnologias-passivhaus.html,es,P1,Tecnologias ES
+/es/estanqueidad-en-el-aire-es-el-secreto-casa-pasiva/,301,/es/article-tecnologias-passivhaus,es,P2,Air-tightness -> tech ES
+/es/el-test-blower-door/,301,/es/article-tecnologias-passivhaus,es,P2,Blower door -> tech ES
+/es/anuncio-construccion-casas-eskimohaus-cataluna/,301,/es/construccion,es,P2,Old promo -> service
+/es/de-donde-sale-al-contaminacion-de-co2/,301,/es/article-huella-ecologica,es,P2,CO2 source -> huella
+/es/la-piramide-del-co%e2%82%82/,301,/es/article-huella-ecologica,es,P2,CO2 pyramid -> huella
+/es/reduccion-de-co%e2%82%82/,301,/es/article-revolucion-madera,es,P2,Wood CO2 reduction -> wood
+/es/normativa-eudr-certificacion-fsc-casas-de-madera-sostenible/,301,/es/article-revolucion-madera,es,P1,FSC/EUDR ES -> wood
+/es/llega-la-ventilacion-inteligente-la-vanguardia/,301,/es/article-ventilacion-passivhaus,es,P0,La Vanguardia backlink (override of placeholder /es/premsa in vercel.json - prefers article)
+# WordPress legacy ES posts -> nearest hub
+/es/articulo-diario-el-punt-avui/,301,/es/blog,es,P2,Punt Avui press
+/es/video-construmat/,301,/es/blog,es,P2,Construmat video
+/es/aislamiento-termico/,301,/es/article-tecnologias-passivhaus,es,P2,Thermal insulation
+/es/4a-conferencia-espanola-passivhaus/,301,/es/blog,es,P2,4th conference
+/es/seguimiento-de-la-4a-conferncia-passivhaus-espana/,301,/es/blog,es,P2,4th conference recap
+/es/ampliacion-de-90m2/,301,/es/rehabilitacion,es,P2,90m2 rehab editorial
+/es/certificacion-energetica-obligatoria/,301,/es/article-tecnologias-passivhaus,es,P2,Energy cert ES
+/es/origen-y-significado-de-passivhaus/,301,/es/article-principios-passivhaus,es,P2,Definition ES
+/es/certificado-fsc/,301,/es/article-revolucion-madera,es,P2,FSC -> wood ES
+/es/arquitectura-y-casa-de-madera/,301,/es/article-revolucion-madera,es,P2,Wood architecture ES
+/es/casa-pasiva/,301,/es/construccion,es,P1,Generic landing ES
+/es/certificacion-enregetica-en-edificios-por-ley/,301,/es/article-tecnologias-passivhaus,es,P2,Energy cert (typo) ES
+/es/guia-sant-cugat-movil/,301,/es/blog,es,P2,Sant Cugat mobile ES
+/es/phpp-llega-a-su-version-8/,301,/es/article-tecnologias-passivhaus,es,P2,PHPP v8 ES
+/es/premios-passive-house-2014/,301,/es/blog,es,P2,PH awards 2014 ES
+/es/un-hotel-passivhaus/,301,/es/blog,es,P2,Hotel ES
+/es/templo-de-madera-milenario/,301,/es/article-revolucion-madera,es,P2,Wood temple ES
+/es/rascacielos-de-madera/,301,/es/article-revolucion-madera,es,P2,Wood skyscrapers ES
+/es/5o-congreso-passivhaus-online/,301,/es/blog,es,P2,5th congress online ES
+/es/5o-congreso-passivhaus-espana/,301,/es/blog,es,P2,5th congress ES
+/es/passivpalau-planteamiento-del-cliente/,301,/es/proyecto-passivpalau,es,P2,PassivPalau client brief ES
+/es/presentacion-de-la-sexta-conferencia-espanola-passivhaus-6ceph/,301,/es/blog,es,P2,6th conference ES
+/es/passivpalau-proyecto-definitivo-y-phpp/,301,/es/proyecto-passivpalau,es,P2,PassivPalau final ES
+/es/primer-campo-de-verano-passivhaus-en-espana/,301,/es/blog,es,P2,Summer academy ES
+/es/entrevista-en-el-diari-de-sant-cugat/,301,/es/blog,es,P2,Sant Cugat interview ES
+/es/entrevista-en-el-diario-leconomic/,301,/es/blog,es,P2,L'Economic interview ES
+/es/jornada-nzeb-passivhaus-proyectos-actuales-en-cataluna/,301,/es/blog,es,P2,nZEB jornada ES
+/es/alex-de-rijke-en-la-contra-de-la-vanguardia-2/,301,/es/article-revolucion-madera,es,P2,De Rijke ES
+/es/apuesta-por-el-clima-en-construmat-2015/,301,/es/blog,es,P2,Construmat 2015 ES
+/es/puertas-abiertas-en-passiv-palau/,301,/es/proyecto-passivpalau,es,P2,Open day PassivPalau ES
+/es/passivhaus-en-gerona/,301,/es/blog,es,P2,Girona ES
+/es/divulgacion-sobre-passivhaus-en-gerona/,301,/es/blog,es,P2,Girona divulgation ES
+/es/llevamos-el-passivhaus-a-gerona/,301,/es/blog,es,P2,Girona ES
+/es/finalistas-3er-concurso-iberoamericano-passivhaus/,301,/es/blog,es,P2,Iberamerican finalists ES
+/es/beneficios-y-ayudas-a-casas-pasivas-fuera-de-espana/,301,/es/blog,es,P2,Foreign grants ES
+/es/refugios-nucleares-passivhaus/,301,/es/blog,es,P2,Nuclear shelters ES
+/es/25-anos-de-la-primera-casa-pasiva-passivhaus/,301,/es/blog,es,P2,25th anniversary ES
+/es/inauguracion-de-la-primera-casa-pasiva-certificada-passivhaus-de-sant-cugat-del-valles/,301,/es/proyecto-k-del-carril,es,P0,Sant Cugat first PH ES (high-equity)
+/es/papik-cases-passives-reconocida-por-su-excelencia-empresarial/,301,/es/nosotros,es,P2,Award news ES
+/es/prioridades-a-la-hora-de-hacer-tu-casa-a-medida/,301,/es/construccion,es,P2,Editorial -> service ES
+/es/jornada-de-puertas-abiertas-en-valldor/,301,/es/proyecto-k-vallor,es,P2,Open day Valldor ES
+/es/comprar-o-contruir-una-casa/,301,/es/construccion,es,P2,Buy-vs-build ES (typo in slug)
+/es/estrenamos-nueva-imagen/,301,/es/nosotros,es,P2,Brand refresh ES
+/es/inauguracion-y-puertas-abiertas-en-mira-sol/,301,/es/proyectos,es,P2,Mira Sol open day ES
+/es/abiertas-las-inscripciones-al-3er-concurso-iberamericano-passivhaus/,301,/es/blog,es,P2,Iberamerican contest ES
+/es/jornada-de-puertas-abiertas-en-llinars-del-valles/,301,/es/proyecto-k-mogent,es,P2,Llinars open day ES -> k-mogent
+/es/primera-casa-passivhaus-de-sant-cugat-del-valles-2/,301,/es/proyecto-k-del-carril,es,P0,Sant Cugat 1st PH ES
+/es/madera-un-material-sostenible/,301,/es/article-revolucion-madera,es,P2,Wood material ES
+/es/vota-en-los-premios-green-building-solutions-awards-2015/,301,/es/blog,es,P2,Awards 2015 ES
+/vota-en-los-premios-green-building-solutions-awards-2015/,301,/blog,ca,P2,Awards 2015 (mis-categorised root post)
+/es/remonta-en-sant-cugat-del-valles/,301,/es/proyecto-remunta-sant-cugat,es,P1,Remunta SC ES
+/es/inicio-construccion-casa-pasiva/,301,/es/construccion,es,P2,Construction kickoff ES
+/es/jornada-de-portes-obertes/,301,/es/blog,es,P2,Open day generic ES
+/es/papik-group-asume-nueva-identidad-manteniendo-30-anos-de-recorrido-en-construccion-de-casas-sostenibles/,301,/es/nosotros,es,P0,Cantabria Economica backlink (override vercel.json /es/empresa to /es/nosotros after rename)
+# === WORDPRESS TAXONOMIES - DEPRECATE (already in vercel.json catch-all) ===
+/category/uncategorized-ca/,deprecate,/blog,ca,P0,WP taxonomy (catch-all in vercel.json)
+/category/curiosidades/,deprecate,/blog,ca,P0,WP taxonomy
+/category/tecnologia/,deprecate,/blog,ca,P0,WP taxonomy
+/category/aislamiento/,deprecate,/blog,ca,P0,WP taxonomy
+/category/prensa/,deprecate,/blog,ca,P0,WP taxonomy
+/category/passivhaus/,deprecate,/blog,ca,P0,WP taxonomy
+/category/portfolio/,deprecate,/blog,ca,P0,WP taxonomy
+/category/energia/,deprecate,/blog,ca,P0,WP taxonomy
+/category/casa-pasiva/,deprecate,/blog,ca,P0,WP taxonomy
+/category/arquitectura/,deprecate,/blog,ca,P0,WP taxonomy
+/category/casa-madera/,deprecate,/blog,ca,P0,WP taxonomy
+/category/passive-house/,deprecate,/blog,ca,P0,WP taxonomy
+/category/aillament/,deprecate,/blog,ca,P0,WP taxonomy
+/category/curiositats/,deprecate,/blog,ca,P0,WP taxonomy
+/category/premsa/,deprecate,/blog,ca,P0,WP taxonomy
+/category/casa-passiva/,deprecate,/blog,ca,P0,WP taxonomy
+/category/portfoli/,deprecate,/blog,ca,P0,WP taxonomy
+/category/aquitectura/,deprecate,/blog,ca,P0,WP taxonomy (note typo aquitectura)
+/category/casa-fusta/,deprecate,/blog,ca,P0,WP taxonomy
+/category/esdeveniments/,deprecate,/blog,ca,P0,WP taxonomy
+/category/casa-sostenible/,deprecate,/blog,ca,P0,WP taxonomy
+/es/category/sin-categorizar/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/aislamiento-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/passivhaus-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/curiosidades-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/tecnologia-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/casa-pasiva-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/arquitectura-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/energia-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/casa-madera-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/passive-house-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/casa-passiva-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/premsa-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/casa-madera-es-2/,deprecate,/es/blog,es,P0,WP taxonomy duplicate
+/es/category/aislamiento-es-2/,deprecate,/es/blog,es,P0,WP taxonomy duplicate
+/es/category/curiosidades-es-2/,deprecate,/es/blog,es,P0,WP taxonomy duplicate
+/es/category/casa-sostenible-es/,deprecate,/es/blog,es,P0,WP taxonomy ES
+/es/category/portfolio-es-2/,deprecate,/es/blog,es,P0,WP taxonomy duplicate
+/tipusprojecte/ampliacio-remonta/,deprecate,/projectes,ca,P0,WP project taxonomy (catch-all)
+/tipusprojecte/rehabilitacio/,deprecate,/projectes,ca,P0,WP project taxonomy
+/tipusprojecte/eskimohaus/,deprecate,/projectes,ca,P0,WP project taxonomy
+/tipusprojecte/passivhaus/,deprecate,/projectes,ca,P0,WP project taxonomy
+/es/tipoproyecto/eskimohaus-es/,deprecate,/es/proyectos,es,P0,WP project taxonomy ES
+/es/tipoproyecto/passivhaus-es/,deprecate,/es/proyectos,es,P0,WP project taxonomy ES
+/es/tipoproyecto/rehabilitacion/,deprecate,/es/proyectos,es,P0,WP project taxonomy ES
+/es/tipoproyecto/ampliacion-remonta/,deprecate,/es/proyectos,es,P0,WP project taxonomy ES
+/author/papik/,deprecate,/nosaltres,ca,P0,WP author archive
+/author/m_disseny/,deprecate,/nosaltres,ca,P0,WP author archive
+/author/miguelluzerta-es/,deprecate,/nosaltres,ca,P0,WP author archive
+/author/nico-gibert/,deprecate,/nosaltres,ca,P0,WP author archive

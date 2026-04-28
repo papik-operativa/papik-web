@@ -1,0 +1,51 @@
+{
+  "_doc": "Schema Service per a cada pagina d'unitat de negoci (/construccio, /promocio, /rehabilitacio, /patrimonis). Adaptar 'name', 'description', 'serviceType', 'url' segons unitat. Mantenir 'provider' apuntant a #org per consolidar autoritat al graph.",
+  "_examples_per_unit": {
+    "construccio": {
+      "name": "Construcció de cases Passivhaus",
+      "serviceType": "Custom passive house construction",
+      "description": "Construïm cases unifamiliars i plurifamiliars sota l'estàndard Passivhaus. De zero a clau en mà."
+    },
+    "promocio": {
+      "name": "Promoció immobiliària sostenible",
+      "serviceType": "Real estate development with passive house standards",
+      "description": "Desenvolupem promocions de cases passives. Comprem el solar, construïm i venem el producte acabat clau en mà."
+    },
+    "rehabilitacio": {
+      "name": "Rehabilitació energètica integral",
+      "serviceType": "Energy retrofit including subsidy management",
+      "description": "Transformem habitatges existents en cases eficients. Gestionem les ajudes Next Generation EU integralment."
+    },
+    "patrimonis": {
+      "name": "Construcció i coinversió per a inversors patrimonials",
+      "serviceType": "Real estate development partnership for family offices",
+      "description": "Acompanyem patrimonis consolidats en projectes immobiliaris sostenibles, cas a cas i en vehicles privats."
+    }
+  },
+
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{SERVICE_NAME}}",
+  "serviceType": "{{SERVICE_TYPE}}",
+  "description": "{{SERVICE_DESCRIPTION}}",
+  "url": "{{SERVICE_URL}}",
+  "provider": { "@id": "https://papik.cat/#org" },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Catalunya" },
+    { "@type": "AdministrativeArea", "name": "Illes Balears" },
+    { "@type": "Country", "name": "Andorra" }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Residential customers and investors"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "{{SERVICE_NAME}} - tipologies",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "{{SUBSERVICE_1}}" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "{{SUBSERVICE_2}}" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "{{SUBSERVICE_3}}" } }
+    ]
+  }
+}

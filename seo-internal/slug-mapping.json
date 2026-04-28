@@ -1,0 +1,568 @@
+{
+  "_meta": {
+    "description": "Registre de mapeig de slugs CA <-> ES <-> EN per al nou build PAPIK. Font de veritat per a hreflang automatic + sitemap generation. Mantenir actualitzat si es renomenen pagines.",
+    "version": "1.0",
+    "updated": "2026-04-27",
+    "domain": "https://papik.cat",
+    "languages": ["ca", "es", "en"],
+    "default_language": "ca",
+    "url_strategy": "vercel cleanUrls=true serveix /<slug> des de /<slug>.html"
+  },
+
+  "_pending_renames": {
+    "description": "Renames pendents que el dev ha d'aplicar a S3 per coherencia idiomatica. Slugs ES haurien d'estar en castella, no catala.",
+    "renames_es": [
+      { "from": "es/construccio.html", "to": "es/construccion.html" },
+      { "from": "es/promocio.html", "to": "es/promocion.html" },
+      { "from": "es/rehabilitacio.html", "to": "es/rehabilitacion.html" },
+      { "from": "es/patrimonis.html", "to": "es/patrimonios.html" },
+      { "from": "es/nosaltres.html", "to": "es/nosotros.html" },
+      { "from": "es/projectes.html", "to": "es/proyectos.html" },
+      { "from": "es/usuaris.html", "to": "es/usuarios.html" },
+      { "from": "es/pressupost.html", "to": "es/presupuesto.html" }
+    ],
+    "note": "Aplicar abans del 1 juny. Ajustar slug-mapping.json en consequencia."
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "type": "homepage",
+      "priority": 1.0,
+      "changefreq": "weekly",
+      "ca": "/",
+      "es": "/es/",
+      "en": "/en/",
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+
+    {
+      "id": "construccio",
+      "type": "service",
+      "priority": 0.9,
+      "changefreq": "monthly",
+      "ca": "/construccio",
+      "es": "/es/construccion",
+      "en": "/en/construction",
+      "exists": { "ca": true, "es": "rename-pending", "en": false }
+    },
+    {
+      "id": "promocio",
+      "type": "service",
+      "priority": 0.9,
+      "changefreq": "monthly",
+      "ca": "/promocio",
+      "es": "/es/promocion",
+      "en": "/en/development",
+      "exists": { "ca": true, "es": "rename-pending", "en": false }
+    },
+    {
+      "id": "rehabilitacio",
+      "type": "service",
+      "priority": 0.9,
+      "changefreq": "monthly",
+      "ca": "/rehabilitacio",
+      "es": "/es/rehabilitacion",
+      "en": "/en/retrofit",
+      "exists": { "ca": true, "es": "rename-pending", "en": false }
+    },
+    {
+      "id": "patrimonis",
+      "type": "service",
+      "priority": 0.9,
+      "changefreq": "monthly",
+      "ca": "/patrimonis",
+      "es": "/es/patrimonios",
+      "en": "/en/wealth",
+      "exists": { "ca": true, "es": "rename-pending", "en": false }
+    },
+    {
+      "id": "rehabilitacio-comunitats",
+      "type": "subpage",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/rehabilitacio/comunitats",
+      "es": "/es/rehabilitacion/comunidades",
+      "en": "/en/retrofit/communities",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4"
+    },
+
+    {
+      "id": "nosaltres",
+      "type": "company",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/nosaltres",
+      "es": "/es/nosotros",
+      "en": "/en/about",
+      "exists": { "ca": true, "es": "rename-pending", "en": false }
+    },
+    {
+      "id": "qualitats",
+      "type": "company",
+      "priority": 0.6,
+      "changefreq": "monthly",
+      "ca": "/qualitats",
+      "es": "/es/calidades",
+      "en": "/en/qualities",
+      "exists": { "ca": true, "es": false, "en": false },
+      "status": "es-and-en-pending"
+    },
+    {
+      "id": "projectes",
+      "type": "index",
+      "priority": 0.9,
+      "changefreq": "weekly",
+      "ca": "/projectes",
+      "es": "/es/proyectos",
+      "en": "/en/projects",
+      "exists": { "ca": true, "es": "rename-pending", "en": false }
+    },
+    {
+      "id": "blog",
+      "type": "index",
+      "priority": 0.9,
+      "changefreq": "weekly",
+      "ca": "/blog",
+      "es": "/es/blog",
+      "en": "/en/blog",
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "pressupost",
+      "type": "tool",
+      "priority": 0.9,
+      "changefreq": "monthly",
+      "ca": "/pressupost",
+      "es": "/es/presupuesto",
+      "en": "/en/budget",
+      "exists": { "ca": true, "es": "rename-pending", "en": false }
+    },
+
+    {
+      "id": "premsa",
+      "type": "authority-hub",
+      "priority": 0.7,
+      "changefreq": "monthly",
+      "ca": "/premsa",
+      "es": "/es/prensa",
+      "en": "/en/press",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4"
+    },
+    {
+      "id": "certificacions",
+      "type": "authority-hub",
+      "priority": 0.7,
+      "changefreq": "monthly",
+      "ca": "/certificacions",
+      "es": "/es/certificaciones",
+      "en": "/en/certifications",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4"
+    },
+
+    {
+      "id": "zones-valles-occidental",
+      "type": "geo-hub",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/zones/valles-occidental",
+      "es": "/es/zonas/valles-occidental",
+      "en": "/en/areas/valles-occidental",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4"
+    },
+    {
+      "id": "zones-sant-cugat",
+      "type": "geo-landing",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/zones/sant-cugat-del-valles",
+      "es": "/es/zonas/sant-cugat-del-valles",
+      "en": "/en/areas/sant-cugat-del-valles",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "copy-ready-html-pending",
+      "tier": 1,
+      "note": "Copy CA+ES+EN llest a seo-internal/copy/. HTML pendent build pre-launch."
+    },
+    {
+      "id": "zones-sant-quirze",
+      "type": "geo-landing",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/zones/sant-quirze-del-valles",
+      "es": "/es/zonas/sant-quirze-del-valles",
+      "en": "/en/areas/sant-quirze-del-valles",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "copy-ready-html-pending",
+      "tier": 1,
+      "note": "Copy CA+ES+EN llest a seo-internal/copy/. HTML pendent build pre-launch."
+    },
+    {
+      "id": "zones-bellaterra",
+      "type": "geo-landing",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/zones/bellaterra",
+      "es": "/es/zonas/bellaterra",
+      "en": "/en/areas/bellaterra",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "copy-ready-html-pending",
+      "tier": 1,
+      "note": "Copy CA+ES+EN llest a seo-internal/copy/. HTML pendent build pre-launch."
+    },
+    {
+      "id": "zones-matadepera",
+      "type": "geo-landing",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/zones/matadepera",
+      "es": "/es/zonas/matadepera",
+      "en": "/en/areas/matadepera",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "copy-ready-html-pending",
+      "tier": 1,
+      "note": "Copy CA+ES+EN llest a seo-internal/copy/. HTML pendent build pre-launch."
+    },
+    {
+      "id": "zones-maresme",
+      "type": "geo-hub",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/zones/maresme",
+      "es": "/es/zonas/maresme",
+      "en": "/en/areas/maresme",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4"
+    },
+    {
+      "id": "zones-argentona",
+      "type": "geo-landing",
+      "priority": 0.7,
+      "changefreq": "monthly",
+      "ca": "/zones/argentona",
+      "es": "/es/zonas/argentona",
+      "en": "/en/areas/argentona",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4",
+      "tier": 1
+    },
+    {
+      "id": "zones-llavaneres",
+      "type": "geo-landing",
+      "priority": 0.7,
+      "changefreq": "monthly",
+      "ca": "/zones/sant-andreu-de-llavaneres",
+      "es": "/es/zonas/sant-andreu-de-llavaneres",
+      "en": "/en/areas/sant-andreu-de-llavaneres",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4",
+      "tier": 1
+    },
+    {
+      "id": "zones-mataro",
+      "type": "geo-landing",
+      "priority": 0.7,
+      "changefreq": "monthly",
+      "ca": "/zones/mataro",
+      "es": "/es/zonas/mataro",
+      "en": "/en/areas/mataro",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4",
+      "tier": 1
+    },
+    {
+      "id": "zones-premia",
+      "type": "geo-landing",
+      "priority": 0.7,
+      "changefreq": "monthly",
+      "ca": "/zones/premia",
+      "es": "/es/zonas/premia",
+      "en": "/en/areas/premia",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4",
+      "tier": 1
+    },
+    {
+      "id": "zones-garraf",
+      "type": "geo-hub",
+      "priority": 0.8,
+      "changefreq": "monthly",
+      "ca": "/zones/garraf",
+      "es": "/es/zonas/garraf",
+      "en": "/en/areas/garraf",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4"
+    },
+    {
+      "id": "zones-vilanova",
+      "type": "geo-landing",
+      "priority": 0.7,
+      "changefreq": "monthly",
+      "ca": "/zones/vilanova-i-la-geltru",
+      "es": "/es/zonas/vilanova-i-la-geltru",
+      "en": "/en/areas/vilanova-i-la-geltru",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4",
+      "tier": 1
+    },
+    {
+      "id": "zones-sitges",
+      "type": "geo-landing",
+      "priority": 0.7,
+      "changefreq": "monthly",
+      "ca": "/zones/sitges",
+      "es": "/es/zonas/sitges",
+      "en": "/en/areas/sitges",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4",
+      "tier": 1,
+      "note": "EN especialment rellevant per a comunitat internacional Sitges"
+    },
+    {
+      "id": "zones-sant-pere-de-ribes",
+      "type": "geo-landing",
+      "priority": 0.6,
+      "changefreq": "monthly",
+      "ca": "/zones/sant-pere-de-ribes",
+      "es": "/es/zonas/sant-pere-de-ribes",
+      "en": "/en/areas/sant-pere-de-ribes",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "to-create-S4",
+      "tier": 1
+    },
+
+    {
+      "id": "article-apagada-2025",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-apagada-2025",
+      "es": "/es/article-apagon-2025",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-casa-montseny",
+      "type": "article",
+      "priority": 0.6,
+      "changefreq": "yearly",
+      "ca": "/article-casa-montseny",
+      "es": "/es/article-casa-montseny",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-hipoteca-energetica",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-hipoteca-energetica",
+      "es": "/es/article-hipoteca-energetica",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-innovacions-passivhaus",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-innovacions-passivhaus",
+      "es": "/es/article-innovaciones-passivhaus",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-materials-sostenibles",
+      "type": "article",
+      "priority": 0.6,
+      "changefreq": "yearly",
+      "ca": "/article-materials-sostenibles",
+      "es": "/es/article-materiales-sostenibles",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-petjada-ecologica",
+      "type": "article",
+      "priority": 0.6,
+      "changefreq": "yearly",
+      "ca": "/article-petjada-ecologica",
+      "es": "/es/article-huella-ecologica",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-pressupost-casa-passiva",
+      "type": "article",
+      "priority": 0.8,
+      "changefreq": "yearly",
+      "ca": "/article-pressupost-casa-passiva",
+      "es": "/es/article-presupuesto-casa-pasiva",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-principis-passivhaus",
+      "type": "article",
+      "priority": 0.8,
+      "changefreq": "yearly",
+      "ca": "/article-principis-passivhaus",
+      "es": "/es/article-principios-passivhaus",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-revolucio-fusta",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-revolucio-fusta",
+      "es": "/es/article-revolucion-madera",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-sostenibilitat-passivhaus",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-sostenibilitat-passivhaus",
+      "es": "/es/article-sostenibilidad-passivhaus",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-tecnologies-passivhaus",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-tecnologies-passivhaus",
+      "es": "/es/article-tecnologias-passivhaus",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-ventilacio-passivhaus",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-ventilacio-passivhaus",
+      "es": "/es/article-ventilacion-passivhaus",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-nota-premsa-papik-ksandal",
+      "type": "press-release",
+      "priority": 0.5,
+      "changefreq": "yearly",
+      "ca": "/article-nota-premsa-papik-ksandal",
+      "es": "/es/article-nota-prensa-papik-ksandal",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-nota-premsa-papik-ponsa",
+      "type": "press-release",
+      "priority": 0.5,
+      "changefreq": "yearly",
+      "ca": "/article-nota-premsa-papik-ponsa",
+      "es": "/es/article-nota-prensa-papik-ponsa",
+      "en": null,
+      "exists": { "ca": true, "es": true, "en": false }
+    },
+    {
+      "id": "article-nota-premsa-papik-sabadell",
+      "type": "press-release",
+      "priority": 0.5,
+      "changefreq": "yearly",
+      "ca": "/article-nota-premsa-papik-sabadell",
+      "es": "/es/article-nota-prensa-papik-sabadell",
+      "en": null,
+      "exists": { "ca": true, "es": false, "en": false },
+      "note": "ES traduccio (copy) llest a translations/es/articles/article-nota-prensa-papik-sabadell-es.md. HTML pendent build."
+    },
+
+    {
+      "id": "article-derribar-construir-passos",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-derribar-construir-passos",
+      "es": "/es/article-derribar-construir-pasos",
+      "en": null,
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "v1.1-pending-build",
+      "note": "Article pillar TOFU/MOFU del cluster Bellaterra. Copy CA + ES llest. HTML pendent build."
+    },
+    {
+      "id": "article-llicencia-derribo-cerdanyola-bellaterra",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-llicencia-derribo-cerdanyola-bellaterra",
+      "es": "/es/article-licencia-derribo-cerdanyola-bellaterra",
+      "en": null,
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "v1.1-pending-build",
+      "note": "Article BOFU hyperlocal del cluster Bellaterra. Copy CA + ES llest. HTML pendent build."
+    },
+    {
+      "id": "article-substituir-vs-rehabilitar",
+      "type": "article",
+      "priority": 0.7,
+      "changefreq": "yearly",
+      "ca": "/article-substituir-vs-rehabilitar",
+      "es": "/es/article-sustituir-vs-rehabilitar",
+      "en": null,
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "v1.1-pending-build",
+      "note": "Article comparatiu MOFU del cluster Bellaterra. Copy CA + ES llest. HTML pendent build."
+    },
+
+    { "id": "projecte-ampliacio-valldoreix", "type": "project", "priority": 0.7, "ca": "/projecte-ampliacio-valldoreix", "es": "/es/proyecto-ampliacio-valldoreix", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Valldoreix (Sant Cugat)" },
+    { "id": "projecte-arboc", "type": "project", "priority": 0.7, "ca": "/projecte-arboc", "es": "/es/proyecto-arboc", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "L'Arboc (Baix Penedes)" },
+    { "id": "projecte-fornells", "type": "project", "priority": 0.7, "ca": "/projecte-fornells", "es": "/es/proyecto-fornells", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Fornells de la Selva (Girones)" },
+    { "id": "projecte-k-alzina", "type": "project", "priority": 0.7, "ca": "/projecte-k-alzina", "es": "/es/proyecto-k-alzina", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Santa Maria de Palautordera" },
+    { "id": "projecte-k-aragai", "type": "project", "priority": 0.7, "ca": "/projecte-k-aragai", "es": "/es/proyecto-k-aragai", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Vilanova i la Geltru (Garraf)" },
+    { "id": "projecte-k-argentona", "type": "project", "priority": 0.7, "ca": "/projecte-k-argentona", "es": "/es/proyecto-k-argentona", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Argentona (Maresme)" },
+    { "id": "projecte-k-begues", "type": "project", "priority": 0.7, "ca": "/projecte-k-begues", "es": "/es/proyecto-k-begues", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Begues (Baix Llobregat)" },
+    { "id": "projecte-k-bellindret", "type": "project", "priority": 0.7, "ca": "/projecte-k-bellindret", "es": "/es/proyecto-k-bellindret", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Cugat del Valles" },
+    { "id": "projecte-k-botigues", "type": "project", "priority": 0.7, "ca": "/projecte-k-botigues", "es": "/es/proyecto-k-botigues", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Castelldefels" },
+    { "id": "projecte-k-calonge", "type": "project", "priority": 0.7, "ca": "/projecte-k-calonge", "es": "/es/proyecto-k-calonge", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Calonge (Baix Emporda)" },
+    { "id": "projecte-k-cim", "type": "project", "priority": 0.7, "ca": "/projecte-k-cim", "es": "/es/proyecto-k-cim", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Castellar del Valles" },
+    { "id": "projecte-k-codines", "type": "project", "priority": 0.8, "ca": "/projecte-k-codines", "es": "/es/proyecto-k-codines", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Feliu de Codines (Valles Oriental)", "note": "Apagada 2025 hero" },
+    { "id": "projecte-k-del-carril", "type": "project", "priority": 0.8, "ca": "/projecte-k-del-carril", "es": "/es/proyecto-k-del-carril", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Cugat del Valles", "note": "1a Passivhaus certificada Sant Cugat" },
+    { "id": "projecte-k-denbas", "type": "project", "priority": 0.7, "ca": "/projecte-k-denbas", "es": "/es/proyecto-k-denbas", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Privat d'en Bas (Garrotxa)" },
+    { "id": "projecte-k-gorgs", "type": "project", "priority": 0.7, "ca": "/projecte-k-gorgs", "es": "/es/proyecto-k-gorgs", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Barbera del Valles" },
+    { "id": "projecte-k-hostalets", "type": "project", "priority": 0.7, "ca": "/projecte-k-hostalets", "es": "/es/proyecto-k-hostalets", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Els Hostalets de Balenya (Osona)" },
+    { "id": "projecte-k-igualada", "type": "project", "priority": 0.7, "ca": "/projecte-k-igualada", "es": "/es/proyecto-k-igualada", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Igualada (Anoia)" },
+    { "id": "projecte-k-iturbi", "type": "project", "priority": 0.8, "ca": "/projecte-k-iturbi", "es": "/es/proyecto-k-iturbi", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Bellaterra (Cerdanyola)", "note": "Cas Bellaterra anchor" },
+    { "id": "projecte-k-lamassa", "type": "project", "priority": 0.7, "ca": "/projecte-k-lamassa", "es": "/es/proyecto-k-lamassa", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Igualada zona (Anoia)" },
+    { "id": "projecte-k-llavaneres", "type": "project", "priority": 0.8, "ca": "/projecte-k-llavaneres", "es": "/es/proyecto-k-llavaneres", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Andreu de Llavaneres (Maresme)", "note": "1a Passivhaus Plus Catalunya + apagada 2025" },
+    { "id": "projecte-k-malats", "type": "project", "priority": 0.7, "ca": "/projecte-k-malats", "es": "/es/proyecto-k-malats", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Andreu (Barcelona ciutat)" },
+    { "id": "projecte-k-marges", "type": "project", "priority": 0.7, "ca": "/projecte-k-marges", "es": "/es/proyecto-k-marges", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Cugat del Valles centre", "note": "1r Inuit Rehabilitacions" },
+    { "id": "projecte-k-maristany", "type": "project", "priority": 0.7, "ca": "/projecte-k-maristany", "es": "/es/proyecto-k-maristany", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Poblenou (Barcelona ciutat)" },
+    { "id": "projecte-k-matadepera", "type": "project", "priority": 0.8, "ca": "/projecte-k-matadepera", "es": "/es/proyecto-k-matadepera", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Matadepera (Valles Occ.)" },
+    { "id": "projecte-k-merla", "type": "project", "priority": 0.7, "ca": "/projecte-k-merla", "es": "/es/proyecto-k-merla", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Cugat del Valles" },
+    { "id": "projecte-k-mogent", "type": "project", "priority": 0.7, "ca": "/projecte-k-mogent", "es": "/es/proyecto-k-mogent", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Llinars del Valles (Valles Oriental)" },
+    { "id": "projecte-k-orio", "type": "project", "priority": 0.7, "ca": "/projecte-k-orio", "es": "/es/proyecto-k-orio", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Corbera del Llobregat" },
+    { "id": "projecte-k-premia", "type": "project", "priority": 0.7, "ca": "/projecte-k-premia", "es": "/es/proyecto-k-premia", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Premia (Maresme - verificar Mar/Dalt)" },
+    { "id": "projecte-k-vallor", "type": "project", "priority": 0.8, "ca": "/projecte-k-vallor", "es": "/es/proyecto-k-vallor", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Valldoreix (Sant Cugat)", "note": "K-Vall d'Or - Promocio - Apagada 2025" },
+    { "id": "projecte-la-floresta", "type": "project", "priority": 0.8, "ca": "/projecte-la-floresta", "es": "/es/proyecto-la-floresta", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "La Floresta (Sant Cugat)", "note": "1r CLT + cellulosa" },
+    { "id": "projecte-moianes", "type": "project", "priority": 0.7, "ca": "/projecte-moianes", "es": "/es/proyecto-moianes", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Moianes" },
+    { "id": "projecte-passivpalau", "type": "project", "priority": 0.8, "ca": "/projecte-passivpalau", "es": "/es/proyecto-passivpalau", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Palau-solita i Plegamans (presumed)", "note": "2a Passivhaus certificada Catalunya" },
+    { "id": "projecte-passivrooms", "type": "project", "priority": 0.7, "ca": "/projecte-passivrooms", "es": "/es/proyecto-passivrooms", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Vilanova i la Geltru (Garraf)", "note": "Brand correcte: Passive Rooms (amb espai), slug es manté passivrooms" },
+    { "id": "projecte-rehabilitacio-valldoreix", "type": "project", "priority": 0.7, "ca": "/projecte-rehabilitacio-valldoreix", "es": "/es/proyecto-rehabilitacio-valldoreix", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Valldoreix (Sant Cugat)" },
+    { "id": "projecte-remunta-sant-cugat", "type": "project", "priority": 0.7, "ca": "/projecte-remunta-sant-cugat", "es": "/es/proyecto-remunta-sant-cugat", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Sant Cugat del Valles" },
+    { "id": "projecte-remunta-valldoreix", "type": "project", "priority": 0.7, "ca": "/projecte-remunta-valldoreix", "es": "/es/proyecto-remunta-valldoreix", "en": null, "exists": { "ca": true, "es": true, "en": false }, "location": "Valldoreix (Sant Cugat)" }
+  ],
+
+  "noindex": [
+    { "id": "dashboard-cliente", "ca": "/dashboard-cliente", "es": "/es/dashboard-cliente", "reason": "Internal user dashboard, not for indexing" },
+    { "id": "usuaris", "ca": "/usuaris", "es": "/es/usuarios", "reason": "Login page, not for indexing" }
+  ]
+}

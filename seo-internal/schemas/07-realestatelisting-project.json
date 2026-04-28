@@ -1,0 +1,78 @@
+{
+  "_doc": "Schema RealEstateListing/CreativeWork per a cada fitxa de projecte (/projecte-*). Sustitueix la falta actual de schema en els projectes del sitio live. Permet rich snippets als SERPs amb dades estructurades del projecte (m2, ubicacio, classe energetica, etc.).",
+
+  "_replace_before_publish": [
+    "{{PROJECT_NAME}}", "{{PROJECT_DESCRIPTION}}", "{{PROJECT_URL}}",
+    "{{HERO_IMAGE_URL}}", "{{LOCATION_LOCALITY}}",
+    "{{YEAR}}", "{{SQUARE_METERS}}", "{{ENERGY_CLASS}}",
+    "{{PASSIVHAUS_LEVEL}}", "{{HEATING_DEMAND}}", "{{AIRTIGHTNESS}}"
+  ],
+
+  "_data_to_extract_from_each_project_fitxa": [
+    "Localitat (sense direccio exacta — privacitat)",
+    "Any de finalitzacio",
+    "m2 construits",
+    "Classe energetica final (A, B, ...)",
+    "Nivel Passivhaus si aplica (Standard, Plus, Premium, Classic)",
+    "Demanda calefaccio (kWh/m²·a) si publicat",
+    "Hermeticitat n50 (h⁻¹) si publicat"
+  ],
+
+  "_example_filled_k_iturbi": {
+    "name": "K-Iturbi",
+    "description": "Habitatge unifamiliar a Bellaterra construit amb entramat lleuger de fusta i sistema Eskimohaus, certificat sota l'estandard Passivhaus.",
+    "address": { "addressLocality": "Bellaterra (Cerdanyola del Vallès)" },
+    "energyEfficiencyScale": "A",
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "Standard", "value": "Passivhaus Certified" },
+      { "@type": "PropertyValue", "name": "Sistema constructiu", "value": "Eskimohaus" }
+    ]
+  },
+
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "{{PROJECT_NAME}}",
+  "description": "{{PROJECT_DESCRIPTION}}",
+  "url": "{{PROJECT_URL}}",
+  "image": "{{HERO_IMAGE_URL}}",
+  "creator": { "@id": "https://papik.cat/#org" },
+  "dateCreated": "{{YEAR}}",
+  "locationCreated": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{LOCATION_LOCALITY}}",
+      "addressCountry": "ES"
+    }
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Superfície construïda",
+      "value": "{{SQUARE_METERS}}",
+      "unitCode": "MTK"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Classe energètica",
+      "value": "{{ENERGY_CLASS}}"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Nivel Passivhaus",
+      "value": "{{PASSIVHAUS_LEVEL}}"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Demanda calefacció",
+      "value": "{{HEATING_DEMAND}}",
+      "unitText": "kWh/m²·a"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Hermeticitat n50",
+      "value": "{{AIRTIGHTNESS}}",
+      "unitText": "h⁻¹"
+    }
+  ]
+}

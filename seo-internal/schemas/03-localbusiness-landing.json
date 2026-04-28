@@ -1,0 +1,56 @@
+{
+  "_doc": "Schema LocalBusiness per a cada landing geografica (/zones/sant-cugat, /zones/bellaterra, /zones/matadepera, etc.). El GeoCircle indica que servim un radi al voltant del municipi. Adaptar municipi, coordenades i radi per cada landing.",
+  "_geocircle_radius_recommendation": "8000-10000 metres per municipis del Valles. 12000-15000 per a Sitges (mes diversificat).",
+
+  "_municipi_coordinates_reference": {
+    "sant-cugat-del-valles": { "lat": "41.473", "lon": "2.083" },
+    "sant-quirze-del-valles": { "lat": "41.532", "lon": "2.082" },
+    "bellaterra": { "lat": "41.503", "lon": "2.099" },
+    "matadepera": { "lat": "41.598", "lon": "2.027" },
+    "argentona": { "lat": "41.555", "lon": "2.402" },
+    "sant-andreu-de-llavaneres": { "lat": "41.572", "lon": "2.485" },
+    "mataro": { "lat": "41.540", "lon": "2.444" },
+    "premia-de-mar": { "lat": "41.491", "lon": "2.362" },
+    "vilanova-i-la-geltru": { "lat": "41.224", "lon": "1.726" },
+    "sitges": { "lat": "41.236", "lon": "1.811" },
+    "sant-pere-de-ribes": { "lat": "41.260", "lon": "1.770" }
+  },
+
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://papik.cat/zones/{{MUNICIPI_SLUG}}#localbusiness",
+  "name": "PAPIK Group · {{MUNICIPI_NAME}}",
+  "description": "Construcció i rehabilitació Passivhaus a {{MUNICIPI_NAME}}.",
+  "url": "https://papik.cat/zones/{{MUNICIPI_SLUG}}",
+  "image": "{{MUNICIPI_HERO_IMAGE}}",
+  "parentOrganization": { "@id": "https://papik.cat/#org" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Carrer Sort 34",
+    "addressLocality": "Sant Cugat del Vallès",
+    "postalCode": "08172",
+    "addressRegion": "Barcelona",
+    "addressCountry": "ES"
+  },
+  "telephone": "+34935906074",
+  "email": "info@papik.cat",
+  "areaServed": {
+    "@type": "GeoCircle",
+    "name": "{{MUNICIPI_NAME}} i rodalies",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "{{LATITUDE}}",
+      "longitude": "{{LONGITUDE}}"
+    },
+    "geoRadius": "{{RADIUS_METERS}}"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "priceRange": "€€€"
+}
