@@ -1,1 +1,1609 @@
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.papik.cat"
+        }
+      ],
+      "destination": "https://papik.cat/$1",
+      "permanent": true
+    },
+    {
+      "source": "/es/inicio",
+      "destination": "/es",
+      "permanent": true
+    },
+    {
+      "source": "/es/inicio/",
+      "destination": "/es",
+      "permanent": true
+    },
+    {
+      "source": "/productes-alta-eficiencia-energetica",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/productes-alta-eficiencia-energetica/construccio",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/productes-alta-eficiencia-energetica/rehabilitacions",
+      "destination": "/rehabilitacio",
+      "permanent": true
+    },
+    {
+      "source": "/productes-alta-eficiencia-energetica/cases-eskimohaus",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/productes-alta-eficiencia-energetica/ampliacions-i-remuntes",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/productes-alta-eficiencia-energetica/:path*",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/pressupost-casa-passiva-passivhaus-ecologica",
+      "destination": "/pressupost",
+      "permanent": true
+    },
+    {
+      "source": "/pressupost-gratuit",
+      "destination": "/pressupost",
+      "permanent": true
+    },
+    {
+      "source": "/es/presupuesto-gratuito",
+      "destination": "/es/presupuesto",
+      "permanent": true
+    },
+    {
+      "source": "/diari",
+      "destination": "/butlleti",
+      "permanent": true
+    },
+    {
+      "source": "/inscripcio",
+      "destination": "/butlleti",
+      "permanent": true
+    },
+    {
+      "source": "/bustia",
+      "destination": "/butlleti",
+      "permanent": true
+    },
+    {
+      "source": "/es/diario",
+      "destination": "/es/boletin",
+      "permanent": true
+    },
+    {
+      "source": "/es/boletin-de-noticias",
+      "destination": "/es/boletin",
+      "permanent": true
+    },
+    {
+      "source": "/com-construir-la-teva-casa",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/llistat-de-projectes-actius",
+      "destination": "/projectes",
+      "permanent": true
+    },
+    {
+      "source": "/es/lista-de-proyectos-activos",
+      "destination": "/es/proyectos",
+      "permanent": true
+    },
+    {
+      "source": "/especialistes-en-cases-passives-a-catalunya",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/annex-la-finestra-que-no-veus",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/llega-la-ventilacion-inteligente-la-vanguardia",
+      "destination": "/es/article-ventilacion-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/papik-group-asume-nueva-identidad-manteniendo-30-anos-de-recorrido-en-construccion-de-casas-sostenibles",
+      "destination": "/es/nosotros",
+      "permanent": true
+    },
+    {
+      "source": "/category/:slug*",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/category/:slug*",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/tipusprojecte/:slug*",
+      "destination": "/projectes",
+      "permanent": true
+    },
+    {
+      "source": "/es/tipoproyecto/:slug*",
+      "destination": "/es/proyectos",
+      "permanent": true
+    },
+    {
+      "source": "/author/:slug*",
+      "destination": "/nosaltres",
+      "permanent": true
+    },
+    {
+      "source": "/es/author/:slug*",
+      "destination": "/es/nosotros",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/feed",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-botigues",
+      "destination": "/projecte-k-botigues",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-bellindret",
+      "destination": "/projecte-k-bellindret",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-alzina",
+      "destination": "/projecte-k-alzina",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-cim",
+      "destination": "/projecte-k-cim",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-calonge",
+      "destination": "/projecte-k-calonge",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/passivrooms",
+      "destination": "/projecte-passivrooms",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-maristany",
+      "destination": "/projecte-k-maristany",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-marges",
+      "destination": "/projecte-k-marges",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-lamassa",
+      "destination": "/projecte-k-lamassa",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-merla",
+      "destination": "/projecte-k-merla",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-valldor",
+      "destination": "/projecte-k-vallor",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-denbas",
+      "destination": "/projecte-k-denbas",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-mogent",
+      "destination": "/projecte-k-mogent",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/remunta-a-sant-cugat",
+      "destination": "/projecte-remunta-sant-cugat",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/remunta-en-valldoreix",
+      "destination": "/projecte-remunta-valldoreix",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/segona-casa-passiva-a-catalunya",
+      "destination": "/projecte-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/llavaneras",
+      "destination": "/projecte-k-llavaneres",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/rehabilitacio-a-valldoreix",
+      "destination": "/projecte-rehabilitacio-valldoreix",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/moianes",
+      "destination": "/projecte-moianes",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/fornells",
+      "destination": "/projecte-fornells",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/primera-casa-certificada-passivhaus-sant-cugat",
+      "destination": "/projecte-k-del-carril",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-aragai-una-casa-passiva-amb-vista-al-mediterrani",
+      "destination": "/projecte-k-aragai",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-codines",
+      "destination": "/projecte-k-codines",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/ampliacio-a-valldoreix-alta-eficiencia",
+      "destination": "/projecte-ampliacio-valldoreix",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/casa-eficient-a-la-floresta",
+      "destination": "/projecte-la-floresta",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-hostalets",
+      "destination": "/projecte-k-hostalets",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-malats",
+      "destination": "/projecte-k-malats",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-begues",
+      "destination": "/projecte-k-begues",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-gorgs",
+      "destination": "/projecte-k-gorgs",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-iturbi",
+      "destination": "/projecte-k-iturbi",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-orio",
+      "destination": "/projecte-k-orio",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/arboc",
+      "destination": "/projecte-arboc",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-premia-casa-passiva",
+      "destination": "/projecte-k-premia",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-argentona",
+      "destination": "/projecte-k-argentona",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-matadepera",
+      "destination": "/projecte-k-matadepera",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-igualada",
+      "destination": "/projecte-k-igualada",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/k-colombia",
+      "destination": "/projectes",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-botigues",
+      "destination": "/es/proyecto-k-botigues",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-bellindret",
+      "destination": "/es/proyecto-k-bellindret",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-alzina",
+      "destination": "/es/proyecto-k-alzina",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-marges",
+      "destination": "/es/proyecto-k-marges",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-calonge",
+      "destination": "/es/proyecto-k-calonge",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-cim",
+      "destination": "/es/proyecto-k-cim",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-lamassa",
+      "destination": "/es/proyecto-k-lamassa",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-denbas",
+      "destination": "/es/proyecto-k-denbas",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-merla",
+      "destination": "/es/proyecto-k-merla",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-valldor",
+      "destination": "/es/proyecto-k-vallor",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/remonta-en-sant-cugat",
+      "destination": "/es/proyecto-remunta-sant-cugat",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/2a-casa-pasiva-de-cataluna",
+      "destination": "/es/proyecto-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/llavaneras",
+      "destination": "/es/proyecto-k-llavaneres",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/rehabilitacion-en-valldoreix",
+      "destination": "/es/proyecto-rehabilitacio-valldoreix",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/moianes",
+      "destination": "/es/proyecto-moianes",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/fornells",
+      "destination": "/es/proyecto-fornells",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-del-carril-1a-casa-certificada-passivhaus-de-sant-cugat",
+      "destination": "/es/proyecto-k-del-carril",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-aragai",
+      "destination": "/es/proyecto-k-aragai",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-codines",
+      "destination": "/es/proyecto-k-codines",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-passivrooms",
+      "destination": "/es/proyecto-passivrooms",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-mogent",
+      "destination": "/es/proyecto-k-mogent",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/ampliacion-en-valldoreix",
+      "destination": "/es/proyecto-ampliacio-valldoreix",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/remonta-en-valldoreix",
+      "destination": "/es/proyecto-remunta-valldoreix",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/casa-pasiva-en-la-floresta",
+      "destination": "/es/proyecto-la-floresta",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-hostalets",
+      "destination": "/es/proyecto-k-hostalets",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-malats",
+      "destination": "/es/proyecto-k-malats",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-maristany",
+      "destination": "/es/proyecto-k-maristany",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-begues",
+      "destination": "/es/proyecto-k-begues",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-gorgs",
+      "destination": "/es/proyecto-k-gorgs",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-iturbi",
+      "destination": "/es/proyecto-k-iturbi",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-orio",
+      "destination": "/es/proyecto-k-orio",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/arboc",
+      "destination": "/es/proyecto-arboc",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-premia",
+      "destination": "/es/proyecto-k-premia",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-argentona",
+      "destination": "/es/proyecto-k-argentona",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-matadepera",
+      "destination": "/es/proyecto-k-matadepera",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/k-igualada",
+      "destination": "/es/proyecto-k-igualada",
+      "permanent": true
+    },
+    {
+      "source": "/projectes/:slug*",
+      "destination": "/projectes",
+      "permanent": true
+    },
+    {
+      "source": "/es/proyectos/:slug*",
+      "destination": "/es/proyectos",
+      "permanent": true
+    },
+    {
+      "source": "/els-cinc-principis-passivhaus",
+      "destination": "/article-principis-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/que-es-lestandard-passivhaus",
+      "destination": "/article-principis-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/les-innovacions-passivhaus",
+      "destination": "/article-innovacions-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/tecnologies-clau-en-la-construccio-duna-casa-passivhaus",
+      "destination": "/article-tecnologies-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/per-que-es-respira-millor-en-una-casa-passivhaus-la-qualitat-de-laire-interior-i-la-ventilacio-controlada",
+      "destination": "/article-ventilacio-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/arriba-la-ventilacio-intel%c2%b7ligent-la-vanguardia",
+      "destination": "/article-ventilacio-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/passivhaus-i-sostenibilitat-com-minimitzar-la-petjada-ecologica",
+      "destination": "/article-sostenibilitat-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/la-petjada-ecologica-de-construir-casa-teva",
+      "destination": "/article-petjada-ecologica",
+      "permanent": true
+    },
+    {
+      "source": "/construccio-sostenible-amb-materials-sostenibles",
+      "destination": "/article-materials-sostenibles",
+      "permanent": true
+    },
+    {
+      "source": "/calcular-pressupost-de-construccio-duna-casa-passiva",
+      "destination": "/article-pressupost-casa-passiva",
+      "permanent": true
+    },
+    {
+      "source": "/hipoteca-energetica",
+      "destination": "/article-hipoteca-energetica",
+      "permanent": true
+    },
+    {
+      "source": "/la-hipoteca-energetica",
+      "destination": "/article-hipoteca-energetica",
+      "permanent": true
+    },
+    {
+      "source": "/tres-cases-que-tenien-electricitat-durant-lapagada-de-2025",
+      "destination": "/article-apagada-2025",
+      "permanent": true
+    },
+    {
+      "source": "/una-casa-sostenible-a-les-faldes-del-montseny",
+      "destination": "/article-casa-montseny",
+      "permanent": true
+    },
+    {
+      "source": "/la-revolucio-de-la-fusta-com-una-nova-tecnica-ens-obre-les-portes-cap-a-cases-de-fusta-superresistents",
+      "destination": "/article-revolucio-fusta",
+      "permanent": true
+    },
+    {
+      "source": "/es/los-cinco-principios-del-passivhaus",
+      "destination": "/es/article-principios-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/que-es-el-estandar-passivhaus",
+      "destination": "/es/article-principios-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/las-innovaciones-que-estan-revolucionando-la-construccion-passivhaus",
+      "destination": "/es/article-innovaciones-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/tecnologias-clave-en-la-construccion-de-una-casa-passivhaus",
+      "destination": "/es/article-tecnologias-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/per-que-es-respira-millor-en-una-casa-passivhaus-la-qualitat-de-laire-interior-i-la-ventilacio-controlada",
+      "destination": "/es/article-ventilacion-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/passivhaus-y-sostenibilidad-como-minimizar-la-huella-ecologica",
+      "destination": "/es/article-sostenibilidad-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/la-huella-ecologica-de-construir-y-vivir-en-tu-casa",
+      "destination": "/es/article-huella-ecologica",
+      "permanent": true
+    },
+    {
+      "source": "/es/materiales-sostenibles-que-dan-vida-a-la-construccion-sostenible",
+      "destination": "/es/article-materiales-sostenibles",
+      "permanent": true
+    },
+    {
+      "source": "/es/presupuesto-de-construccion-de-una-casa",
+      "destination": "/es/article-presupuesto-casa-pasiva",
+      "permanent": true
+    },
+    {
+      "source": "/es/hipoteca-energetica",
+      "destination": "/es/article-hipoteca-energetica",
+      "permanent": true
+    },
+    {
+      "source": "/es/la-hipoteca-energetica",
+      "destination": "/es/article-hipoteca-energetica",
+      "permanent": true
+    },
+    {
+      "source": "/es/tres-casas-que-tenian-electricidad-en-el-apagon-de-2025",
+      "destination": "/es/article-apagon-2025",
+      "permanent": true
+    },
+    {
+      "source": "/es/una-casa-sostenible-en-las-faldas-del-montseny",
+      "destination": "/es/article-casa-montseny",
+      "permanent": true
+    },
+    {
+      "source": "/es/la-revolucion-de-la-madera-como-una-nueva-tecnica-abre-puertas-hacia-las-casas-de-madera-superresistentes",
+      "destination": "/es/article-revolucion-madera",
+      "permanent": true
+    },
+    {
+      "source": "/jornada-de-portes-obertes",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/lestanquitat-a-laire-es-el-secret-mes-ben-guardat",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/el-test-blower-door",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/anunci-construccio-cases-eskimohaus-catalunya",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/cases-de-fusta-i-reduccio-de-co%e2%82%82",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/la-piramide-del-co2",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/normativa-eudr-i-certificacio-fsc-cases-de-fusta-sostenible",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/masterclass-gratuita-com-construir-una-casa-sostenible",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/construmat-a-tve",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/enciclopedia-de-la-fusta-per-a-iphone",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/passivhaus-a-espanya-2013",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/gratacels-de-fusta",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/las-casas-passives-passivhaus-es-mereixen-un-cop-de-ma",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/el-passivhaus-presente-en-barcelona-building-construmat-2017",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/entrevista-a-beteve",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pineda-58-estudi-previ-casa-passiva",
+      "destination": "/projecte-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/segunda-casa-pasiva-en-cataluna",
+      "destination": "/projecte-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/la-fusta-un-material-sostenible",
+      "destination": "/article-materials-sostenibles",
+      "permanent": true
+    },
+    {
+      "source": "/comportament-de-lestandard-passivhaus-a-lestiu-mediterrani",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/article-a-el-punt-avui",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/origen-i-significat-de-passivhaus",
+      "destination": "/article-principis-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/puertas-abiertas-en-passiv-palau",
+      "destination": "/projecte-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/inauguracio-i-portes-obertes-a-mira-sol",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/prioritats-a-lhora-de-de-fer-te-la-teva-casa-a-mida",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/papik-cases-passives-reconeguda-per-la-seva-excellencia-empresarial",
+      "destination": "/nosaltres",
+      "permanent": true
+    },
+    {
+      "source": "/jornada-de-portes-obertes-a-valldor",
+      "destination": "/projecte-k-vallor",
+      "permanent": true
+    },
+    {
+      "source": "/4a-conferencia-espanyola-passivhaus",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/resum-de-la-4a-conferencia-passivhaus",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/certificacio-energetica-obligatoria",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/guia-sant-cugat-mobil",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/certificat-fsc",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/arquitectura-i-cases-de-fusta",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/certificacio-energetica-en-edificacio-per-llei",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/phpp-arriba-a-la-seva-versio-8",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/lletra-petita-energia-a-la-llar",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/premis-passive-house-2014",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/un-hotel-passivhaus-2",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/temple-milenari-construit-amb-fusta",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/5e-congreso-passivhaus-espana",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/5e-congres-passivhaus-online",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/passivpalau-plantejament-del-client",
+      "destination": "/projecte-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/presentacio-de-la-sisena-conferencia-espanyola-passivhaus-6ceph",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/passivpalau-projecte-definitiu-i-resultats-phpp",
+      "destination": "/projecte-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/primera-academia-destiu-passivhaus-a-catalunya",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/entrevista-a-leconomic",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/jornades-nzeb-passivhaus-projectes-actuals-en-catalunya",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/aposta-pel-clima-en-construmat-2015",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/passivhaus-a-girona",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/alex-de-rijke-en-la-contra-de-la-vanguardia",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/divulgacio-sobre-passivhaus-a-girona",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/don-prove-la-contaminacio-per-co2",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/beneficis-i-ajudes-a-cases-passives-a-lestranger",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/25-anys-de-la-primera-casa-passiva-passivhaus",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/estrenem-nova-imatge",
+      "destination": "/nosaltres",
+      "permanent": true
+    },
+    {
+      "source": "/aillament-termic",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/inauguracio-de-la-primera-casa-certificada-passivhaus-de-sant-cugat-del-valles",
+      "destination": "/projecte-k-del-carril",
+      "permanent": true
+    },
+    {
+      "source": "/entrevista-al-diari-de-sant-cugat",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/refugis-nuclears-passivhaus",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/primera-casa-passivhaus-de-sant-cugat-del-valles",
+      "destination": "/projecte-k-del-carril",
+      "permanent": true
+    },
+    {
+      "source": "/casa-passiva",
+      "destination": "/construccio",
+      "permanent": true
+    },
+    {
+      "source": "/comprar-o-construir-una-casa",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/jornada-de-portes-obertes-a-llinars-del-valles",
+      "destination": "/projecte-k-mogent",
+      "permanent": true
+    },
+    {
+      "source": "/abiertas-las-inscripciones-al-3er-concurso-iberamericano-passivhaus",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/vota-en-los-premios-green-building-solutions-awards-2015",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/remunta-a-sant-cugat-del-valles",
+      "destination": "/projecte-remunta-sant-cugat",
+      "permanent": true
+    },
+    {
+      "source": "/inici-de-la-construccio-casa-passiva",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/ampliacio-rehabilitacio-de-90m2",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/video-construmat",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/jornada-de-portes-obertes",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/estanqueidad-en-el-aire-es-el-secreto-casa-pasiva",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/el-test-blower-door",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/anuncio-construccion-casas-eskimohaus-cataluna",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/de-donde-sale-al-contaminacion-de-co2",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/la-piramide-del-co%e2%82%82",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/reduccion-de-co%e2%82%82",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/normativa-eudr-certificacion-fsc-casas-de-madera-sostenible",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/como-las-casas-passivhaus-reducen-las-facturas-de-energia",
+      "destination": "/es/article-presupuesto-casa-pasiva",
+      "permanent": true
+    },
+    {
+      "source": "/es/como-las-casas-passivhaus-reducen-las-facturas-de-energia",
+      "destination": "/es/article-presupuesto-casa-pasiva",
+      "permanent": true
+    },
+    {
+      "source": "/por-que-elegir-una-casa-passivhaus-ventajas-para-la-salud-y-el-confort",
+      "destination": "/es/article-principios-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/por-que-elegir-una-casa-passivhaus-ventajas-para-la-salud-y-el-confort",
+      "destination": "/es/article-principios-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/construmat-en-tve",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/enciclopedia-madera-iphone",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/lletra-petita-energia-a-la-llar-tv3",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/passivhaus-en-espana-2013",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/las-casas-pasivas-passivhaus-se-merecen-una-ayuda",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/el-passivhaus-presente-en-barcelona-building-construmat-2017",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/entrevista-en-beteve",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/video-construmat",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/passivpalau-estudio-previo-casa-pasiva",
+      "destination": "/es/proyecto-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/es/segunda-casa-pasiva-en-cataluna",
+      "destination": "/es/proyecto-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/es/articulo-diario-el-punt-avui",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/aislamiento-termico",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/4a-conferencia-espanola-passivhaus",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/seguimiento-de-la-4a-conferncia-passivhaus-espana",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/ampliacion-de-90m2",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/certificacion-energetica-obligatoria",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/origen-y-significado-de-passivhaus",
+      "destination": "/es/article-principios-passivhaus",
+      "permanent": true
+    },
+    {
+      "source": "/es/certificado-fsc",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/arquitectura-y-casa-de-madera",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/casa-pasiva",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/certificacion-enregetica-en-edificios-por-ley",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/guia-sant-cugat-movil",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/phpp-llega-a-su-version-8",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/premios-passive-house-2014",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/un-hotel-passivhaus",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/templo-de-madera-milenario",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/rascacielos-de-madera",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/5o-congreso-passivhaus-online",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/5o-congreso-passivhaus-espana",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/passivpalau-planteamiento-del-cliente",
+      "destination": "/es/proyecto-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/es/presentacion-de-la-sexta-conferencia-espanola-passivhaus-6ceph",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/passivpalau-proyecto-definitivo-y-phpp",
+      "destination": "/es/proyecto-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/es/primer-campo-de-verano-passivhaus-en-espana",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/entrevista-en-el-diari-de-sant-cugat",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/entrevista-en-el-diario-leconomic",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/jornada-nzeb-passivhaus-proyectos-actuales-en-cataluna",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/alex-de-rijke-en-la-contra-de-la-vanguardia-2",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/apuesta-por-el-clima-en-construmat-2015",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/puertas-abiertas-en-passiv-palau",
+      "destination": "/es/proyecto-passivpalau",
+      "permanent": true
+    },
+    {
+      "source": "/es/passivhaus-en-gerona",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/divulgacion-sobre-passivhaus-en-gerona",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/llevamos-el-passivhaus-a-gerona",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/finalistas-3er-concurso-iberoamericano-passivhaus",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/abiertas-las-inscripciones-al-3er-concurso-iberamericano-passivhaus",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/beneficios-y-ayudas-a-casas-pasivas-fuera-de-espana",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/refugios-nucleares-passivhaus",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/25-anos-de-la-primera-casa-pasiva-passivhaus",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/inauguracion-de-la-primera-casa-pasiva-certificada-passivhaus-de-sant-cugat-del-valles",
+      "destination": "/es/proyecto-k-del-carril",
+      "permanent": true
+    },
+    {
+      "source": "/es/papik-cases-passives-reconocida-por-su-excelencia-empresarial",
+      "destination": "/es/nosotros",
+      "permanent": true
+    },
+    {
+      "source": "/es/prioridades-a-la-hora-de-hacer-tu-casa-a-medida",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/jornada-de-puertas-abiertas-en-valldor",
+      "destination": "/es/proyecto-k-vallor",
+      "permanent": true
+    },
+    {
+      "source": "/es/comprar-o-contruir-una-casa",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/estrenamos-nueva-imagen",
+      "destination": "/es/nosotros",
+      "permanent": true
+    },
+    {
+      "source": "/es/inauguracion-y-puertas-abiertas-en-mira-sol",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/jornada-de-puertas-abiertas-en-llinars-del-valles",
+      "destination": "/es/proyecto-k-mogent",
+      "permanent": true
+    },
+    {
+      "source": "/es/primera-casa-passivhaus-de-sant-cugat-del-valles-2",
+      "destination": "/es/proyecto-k-del-carril",
+      "permanent": true
+    },
+    {
+      "source": "/es/madera-un-material-sostenible",
+      "destination": "/es/article-materiales-sostenibles",
+      "permanent": true
+    },
+    {
+      "source": "/es/vota-en-los-premios-green-building-solutions-awards-2015",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/remonta-en-sant-cugat-del-valles",
+      "destination": "/es/proyecto-remunta-sant-cugat",
+      "permanent": true
+    },
+    {
+      "source": "/es/inicio-construccion-casa-pasiva",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/empresa",
+      "destination": "/nosaltres",
+      "permanent": true
+    },
+    {
+      "source": "/contacte",
+      "destination": "/pressupost",
+      "permanent": true
+    },
+    {
+      "source": "/planifica-trucada",
+      "destination": "/pressupost",
+      "permanent": true
+    },
+    {
+      "source": "/galeria",
+      "destination": "/projectes",
+      "permanent": true
+    },
+    {
+      "source": "/gracies",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gracies_visita",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/accedir-al-contingut",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/professional",
+      "destination": "/nosaltres",
+      "permanent": true
+    },
+    {
+      "source": "/es/quienes-somos",
+      "destination": "/es/nosotros",
+      "permanent": true
+    },
+    {
+      "source": "/es/contacto",
+      "destination": "/es/presupuesto",
+      "permanent": true
+    },
+    {
+      "source": "/es/galeria",
+      "destination": "/es/proyectos",
+      "permanent": true
+    },
+    {
+      "source": "/es/casas-pasivas-cataluna",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/que-hacemos",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/que-hacemos/construccion",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/que-hacemos/casas-eskimohaus",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/que-hacemos/rehabilitaciones",
+      "destination": "/es/rehabilitacion",
+      "permanent": true
+    },
+    {
+      "source": "/es/que-hacemos/promociones",
+      "destination": "/es/promocion",
+      "permanent": true
+    },
+    {
+      "source": "/es/que-hacemos/ampliaciones-y-remontas",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/que-hacemos/:path*",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/como-construimos-tu-casa",
+      "destination": "/es/construccion",
+      "permanent": true
+    },
+    {
+      "source": "/es/profesional",
+      "destination": "/es/nosotros",
+      "permanent": true
+    },
+    {
+      "source": "/:slug*/feed",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/:slug*/feed",
+      "destination": "/es/blog",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/_seo/comment",
+      "destination": "/_seo/comment-block-not-served"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow, max-image-preview:large"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js|woff|woff2|ttf|otf|eot)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(jpg|jpeg|png|gif|webp|avif|svg|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(pdf)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/dashboard-cliente",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}

@@ -255,7 +255,10 @@ def _generar_pagines_pressupost(data, result):
         ('Ubicació del terreny',     muni),
         ('Superfície construïda',    f'{m2} m²'),
         ('Nombre de plantes',        plantes_map.get(plantes, plantes)),
-        ('Banys',                    banys),
+        ('Banys',                    f"{banys} ({vd.get('bany_label', '—')})"),
+        ('Coberta',                  vd.get('coberta_label', '—')),
+        ('Façana',                   vd.get('facana_label', '—')),
+        ('Paviment',                 vd.get('paviment_label', '—')),
         ('Eficiència energètica',    energia_map.get(data.get('energia_prioritat', ''), '—')),
         ('Sistema de climatització', clima_map.get(data.get('climatitzacio', ''), '—')),
         ("Qualitat de l'aire",       aire_map.get(data.get('qualitat_aire', ''), '—')),
@@ -281,14 +284,19 @@ def _generar_pagines_pressupost(data, result):
     story.append(Spacer(1, 0.80 * cm))
 
     # ── PACK ENVOLVENT TÈRMIC ─────────────────────────────────────────────
-    story.append(_section('PACK ENVOLVENT TÈRMIC', [
+    envolvent_rows = [
         _line("Estructura vertical",             pe['estructura_vertical']),
-        _line("Coberta i forjats",               pe['coberta_forjats']),
+        _line(f"Coberta i forjats ({vd.get('coberta_label', '')})", pe['coberta_forjats']),
         _line("Finestres d'alta eficiència",     pe['finestres']),
+    ]
+    if pe.get('increment_facana', 0) > 0:
+        envolvent_rows.append(_line(f"Increment façana ({vd.get('facana_label', '')})", pe['increment_facana']))
+    envolvent_rows.extend([
         _line("Porta d'entrada",                 pe['porta_entrada']),
         _line("Grua de muntatge",                pe['grua']),
         _line("SUBTOTAL PACK ENVOLVENT",         pe['total'], subtotal=True),
-    ]))
+    ])
+    story.append(_section('PACK ENVOLVENT TÈRMIC', envolvent_rows))
 
     # ── PACK INSTAL·LACIONS ───────────────────────────────────────────────
     inst_rows = [
@@ -300,10 +308,24 @@ def _generar_pagines_pressupost(data, result):
         _line("Pre-instal·lació de ventilació",  pi['preinstallacio_ventilacio']),
     ]
     if pi.get('zehnder', 0) > 0:
-        inst_rows.append(_line("Sistema de recuperació de calor", pi['zehnder']))
+        inst_rows.append(_line("Sistema de recuperació de calor (Zehnder)", pi['zehnder']))
     if pi.get('aerotermia', 0) > 0:
         aero_label = vd.get('aerotermia_label', 'Aerotèrmia')
         inst_rows.append(_line(aero_label, pi['aerotermia']))
+    if pi.get('fan_coils', 0) > 0:
+        n_fc = vd.get('num_fan_coils', 0)
+        inst_rows.append(_line(f"Fan coils climatització ({n_fc} ud)", pi['fan_coils']))
+    if pi.get('llar_foc', 0) > 0:
+        inst_rows.append(_line("Llar de foc / xemeneia", pi['llar_foc']))
+    if pi.get('solar', 0) > 0:
+        inst_rows.append(_line("Plaques solars fotovoltaiques (~4 kWp)", pi['solar']))
+    if pi.get('persianes', 0) > 0:
+        n_fin = vd.get('num_finestres', 0)
+        inst_rows.append(_line(f"Persianes motoritzades ({n_fin} ud)", pi['persianes']))
+    if pi.get('membrana_rado', 0) > 0:
+        inst_rows.append(_line("Membrana anti-radó", pi['membrana_rado']))
+    if pi.get('domotica', 0) > 0:
+        inst_rows.append(_line("Domòtica Loxone", pi['domotica']))
     inst_rows.append(_line("SUBTOTAL PACK INSTAL·LACIONS", pi['total'], subtotal=True))
     story.append(_section("PACK INSTAL·LACIONS", inst_rows))
 
@@ -326,16 +348,18 @@ def _generar_pagines_pressupost(data, result):
     # ── PACK ACABATS INTERIORS ────────────────────────────────────────────
     m2_pav   = vd.get('m2_paviment_calculat', '—')
     n_portes = vd.get('num_portes_calculat', '—')
+    pav_label = vd.get('paviment_label', '')
+    bany_label = vd.get('bany_label', '')
     acabat_rows = [
         _line("Pintura interior",                 pa['pintura']),
         _line("Pladur",                           pa['pladur']),
-        _line("Cuina equipada",                   pa['cuina']),
-        _line(f"Paviments ({m2_pav} m²)",         pa['paviments']),
+        _line("Cuina completa equipada",          pa['cuina']),
+        _line(f"Paviments {pav_label} ({m2_pav} m²)", pa['paviments']),
         _line(f"Portes interiors ({n_portes} u)", pa['portes_interiors']),
     ]
     if pa.get('estructura_krona', 0) > 0:
         acabat_rows.append(_line("Disseny d'interiors personalitzat", pa['estructura_krona']))
-    acabat_rows.append(_line(f"Banys ({banys} u)", pa['banys']))
+    acabat_rows.append(_line(f"Banys {bany_label} ({banys} u)", pa['banys']))
     if pa.get('escala', 0) > 0:
         acabat_rows.append(_line("Escala interior", pa['escala']))
     acabat_rows.append(_line("SUBTOTAL PACK ACABATS INTERIORS", pa['total'], subtotal=True))
@@ -352,7 +376,7 @@ def _generar_pagines_pressupost(data, result):
     m2_fon = vd.get('m2_fonamentacio_calculat', '—')
     story.append(_section("HONORARIS I GESTIÓ TÈCNICA", [
         _line("Projecte arquitectònic (10,5% s/cost construcció)", ce['projecte_arquitectonic']),
-        _line("Coordinació de seguretat i salut (2%)",             ce['seguretat_salut']),
+        _line("Coordinació de seguretat i salut (1,75%)",           ce['seguretat_salut']),
         _line(f"Fonamentació ({m2_fon} m² × 396 €/m²)",           ce['fonamentacio']),
         _line("SUBTOTAL HONORARIS I GESTIÓ",                       ce['total'], subtotal=True),
     ]))

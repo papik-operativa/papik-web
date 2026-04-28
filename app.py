@@ -11,7 +11,7 @@ from flask import Flask, request, jsonify, Response, redirect
 from datetime import date, timedelta
 from generate_pdf import generar_pdf
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='public', static_url_path='')
 
 # Distàncies aproximades (km per carretera) des de Sant Cugat del Vallès
 MUNICIPIS_KM = {
@@ -86,7 +86,10 @@ def calcular_km(municipi):
 
 
 def derivar_variables(data):
-    """Deriva variables tècniques de les respostes del qüestionari de vida."""
+    """
+    Deriva variables tècniques de les respostes del qüestionari.
+    Actualitzat amb dades reals de 14 projectes Papik (2024-2025).
+    """
     m2      = float(data.get('m2', 160))
     plantes = str(data.get('plantes', '2'))
     banys   = int(data.get('num_banys', 2))
@@ -95,7 +98,10 @@ def derivar_variables(data):
     m2_paviment     = round(m2 * 0.91)                         # 91% superfície útil
     num_portes      = max(4, round(m2 / 22)) + banys           # ~1/22m² + 1 per bany
     m2_fonamentacio = m2                                        # coherent amb referència doc
-    escala          = plantes != '1'                            # auto: >1 planta → escala
+
+    # ── Escala ← plantes + tipus ──────────────────────────────────────────
+    tipus_escala = data.get('tipus_escala', 'no' if plantes == '1' else 'fusta')
+    escala       = plantes != '1' and tipus_escala != 'no'
 
     # ── Finestres ← prioritat energètica ──────────────────────────────────
     energia = data.get('energia_prioritat', 'equilibri')
@@ -121,9 +127,23 @@ def derivar_variables(data):
     m2_garatge   = float(data.get('m2_garatge', 0)) if garatge else 0.0
 
     # ── Pòrxos ────────────────────────────────────────────────────────────
-    porxos_resp = data.get('porxos', 'no')
-    porxos      = porxos_resp not in ('no', '', None, False)
-    m2_porxos   = float(data.get('m2_porxos', 0)) if porxos else 0.0
+    m2_porxos = float(data.get('m2_porxos', 0) or 0)
+    porxos    = m2_porxos > 0
+
+    # ── Nous camps del formulari (14 projectes reals) ─────────────────────
+    nivell_bany      = data.get('nivell_bany', 'alt')              # estandar / alt / premium
+    tipus_coberta    = data.get('tipus_coberta', 'teula')          # teula / plana / xapa
+    tipus_facana     = data.get('tipus_facana', 'sate')            # sate / ventilada / suro / accoya
+    tipus_paviment   = data.get('tipus_paviment', 'ceramic')       # formigo / ceramic / parquet
+    vol_solar        = data.get('plaques_solars', 'no') == 'si'
+    vol_persianes    = data.get('persianes', 'no') == 'si'
+    vol_fan_coils    = data.get('fan_coils', 'no') == 'si'
+    vol_llar_foc     = data.get('llar_foc', 'no') == 'si'
+    vol_rado         = data.get('membrana_rado', 'no') == 'si'
+    vol_domotica     = data.get('domotica', 'no') == 'si'
+
+    # ── Nombre finestres estimat (per persianes) ──────────────────────────
+    num_finestres = max(4, round(m2 / 16))  # ~1 finestra cada 16 m² (real: 8-14 finestres)
 
     # ── Km ← municipi ─────────────────────────────────────────────────────
     municipi = data.get('municipi', '')
@@ -133,6 +153,7 @@ def derivar_variables(data):
         m2=m2, plantes=plantes, num_banys=banys,
         m2_paviment=m2_paviment, num_portes=num_portes,
         m2_fonamentacio=m2_fonamentacio, escala=escala,
+        tipus_escala=tipus_escala,
         finestres=finestres, aerotermia=aerotermia,
         zehnder=zehnder, krona=krona,
         garatge=garatge, m2_garatge=m2_garatge,
@@ -142,10 +163,26 @@ def derivar_variables(data):
         climatitzacio=clima,
         qualitat_aire=data.get('qualitat_aire', 'important'),
         estil_acabats=data.get('estil_acabats', 'alta_qualitat'),
+        # Noves variables derivades dels 14 projectes reals
+        nivell_bany=nivell_bany,
+        tipus_coberta=tipus_coberta,
+        tipus_facana=tipus_facana,
+        tipus_paviment=tipus_paviment,
+        vol_solar=vol_solar,
+        vol_persianes=vol_persianes,
+        vol_fan_coils=vol_fan_coils,
+        vol_llar_foc=vol_llar_foc,
+        vol_rado=vol_rado,
+        vol_domotica=vol_domotica,
+        num_finestres=num_finestres,
     )
 
 
 def calculate_budget(data):
+    """
+    Calcula el pressupost complet basant-se en dades reals de 14 projectes Papik.
+    Fórmules actualitzades amb ratios corregits (2024-2025).
+    """
     v = derivar_variables(data)
     m2              = v['m2']
     plantes         = v['plantes']
@@ -154,6 +191,7 @@ def calculate_budget(data):
     num_portes      = v['num_portes']
     m2_fonamentacio = v['m2_fonamentacio']
     escala          = v['escala']
+    tipus_escala    = v['tipus_escala']
     finestres       = v['finestres']
     aerotermia      = v['aerotermia']
     zehnder         = v['zehnder']
@@ -164,63 +202,169 @@ def calculate_budget(data):
     m2_porxos       = v['m2_porxos']
     km              = v['km']
 
-    # Preus finestres (€/m² de finestra)
+    # Noves variables dels 14 projectes reals
+    nivell_bany    = v['nivell_bany']
+    tipus_coberta  = v['tipus_coberta']
+    tipus_facana   = v['tipus_facana']
+    tipus_paviment = v['tipus_paviment']
+    vol_solar      = v['vol_solar']
+    vol_persianes  = v['vol_persianes']
+    vol_fan_coils  = v['vol_fan_coils']
+    vol_llar_foc   = v['vol_llar_foc']
+    vol_rado       = v['vol_rado']
+    vol_domotica   = v['vol_domotica']
+    num_finestres  = v['num_finestres']
+
+    # Preus finestres (€/m² de finestra) — validats amb projectes reals
     preu_finestres      = {'ecovenS70': 18.53, 'ecovenS82': 22.00,
                            'ventaclimVMM74': 28.00, 'ventaclimSupercomfort': 35.00
                            }.get(finestres, 18.53)
     preu_base_finestres = 18.53
 
-    # ── Pack Envolvent Tèrmic ──────────────────────────────────────────────
+    # ══════════════════════════════════════════════════════════════════════
+    # PACK ENVOLVENT TÈRMIC — Ratios corregits (reals: 50.3/29.4/17.8%)
+    # ══════════════════════════════════════════════════════════════════════
     rate = {'1': 820.0, '2': 984.4}.get(plantes, 1050.0)
-    m2_finestres       = m2 * 0.109
+    m2_finestres        = m2 * 0.109
     suplement_finestres = (preu_finestres - preu_base_finestres) * m2_finestres
     cost_porta_entrada  = 2245.00
-    cost_grua           = 450.00
+    # Grua: variable 450-900 EUR segons m2 (real: Fuster 450, Fondo 640, Bohemis 900)
+    cost_grua           = min(900.0, max(450.0, 450.0 + (m2 - 120) * 2.5))
     base_variable       = rate * m2
-    cost_estructura     = base_variable * 0.546
-    cost_coberta        = base_variable * 0.312
-    cost_finestres      = base_variable * 0.142 + suplement_finestres
-    pack_envolvent      = base_variable + suplement_finestres + cost_porta_entrada + cost_grua
+    # Ratios corregits dels 14 projectes reals (abans: 54.6/31.2/14.2)
+    cost_estructura     = base_variable * 0.503
+    cost_coberta        = base_variable * 0.294
+    cost_finestres      = base_variable * 0.178 + suplement_finestres
 
-    # ── Pack Instal·lacions ────────────────────────────────────────────────
+    # Increment per tipus de coberta (base = teula)
+    increment_coberta = {
+        'teula': 0.0,
+        'plana': base_variable * 0.015,    # plana: +1.5% (impermeabilització addicional)
+        'xapa':  base_variable * -0.020,   # xapa: -2% (més econòmica)
+    }.get(tipus_coberta, 0.0)
+    cost_coberta += increment_coberta
+
+    # Increment per tipus de façana (base = SATE)
+    increment_facana = {
+        'sate':      0.0,
+        'ventilada': 28.0 * m2,    # +28 €/m² façana ventilada amb llistons (real: Fondo, Pere IV)
+        'suro':      22.0 * m2,    # +22 €/m² suro natural
+        'accoya':    45.0 * m2,    # +45 €/m² fusta Accoya alta durada
+    }.get(tipus_facana, 0.0)
+
+    pack_envolvent = (cost_estructura + cost_coberta + cost_finestres
+                      + cost_porta_entrada + cost_grua + increment_facana)
+
+    # ══════════════════════════════════════════════════════════════════════
+    # PACK INSTAL·LACIONS — Validat amb 14 projectes reals
+    # ══════════════════════════════════════════════════════════════════════
     cost_teleco        = 1989.00
     cost_sanejament    = 1621.00
     cost_electricitat  = 48.0 * m2
     cost_agua          = 37.5 * m2
     cost_escomeses     = 8578.00
     cost_ventilacio    = 1985.00
-    cost_zehnder       = 8910.00 if zehnder else 0.0
-    cost_aerotermia    = {'acs': 2870.00, 'acs_calefaccio': 10976.00}.get(aerotermia, 0.0)
-    pack_installacions = (cost_teleco + cost_sanejament + cost_electricitat + cost_agua
-                          + cost_escomeses + cost_ventilacio + cost_zehnder + cost_aerotermia)
 
-    # ── Pack Parking i Exteriors ───────────────────────────────────────────
+    # Zehnder: variable segons mida (real: Q350=8910, Q450=9639)
+    if zehnder:
+        cost_zehnder = 8910.00 if m2 <= 180 else 9639.00
+    else:
+        cost_zehnder = 0.0
+
+    # Aerotèrmia: Panasonic Aquarea (real: ACS=2870, ACS+Calef=10976)
+    cost_aerotermia = {'acs': 2870.00, 'acs_calefaccio': 10976.00}.get(aerotermia, 0.0)
+
+    # Fan coils — 996 €/ud (real: Bohemis, Fuster, Mirasol)
+    num_fan_coils  = max(2, round(m2 / 40)) if vol_fan_coils else 0
+    cost_fan_coils = 996.0 * num_fan_coils
+
+    # Llar de foc — 3,200 € (real: Collsuspina, Pere IV, Fondo)
+    cost_llar_foc = 3200.0 if vol_llar_foc else 0.0
+
+    # Plaques solars — ~4 kWp instal·lació completa (real: Sant Boi 5403 kWh/any)
+    cost_solar = 6500.0 if vol_solar else 0.0
+
+    # Persianes motoritzades Griesser — 650 €/ud (real: Collsuspina, Bohemis)
+    cost_persianes = 650.0 * num_finestres if vol_persianes else 0.0
+
+    # Membrana anti-radó — 12 €/m² (real: Fuster, Santa Coloma zona II)
+    cost_rado = 12.0 * m2 if vol_rado else 0.0
+
+    # Domòtica Loxone — 8,500 € base + 25 €/m² (real: projectes premium)
+    cost_domotica = (8500.0 + 25.0 * m2) if vol_domotica else 0.0
+
+    pack_installacions = (cost_teleco + cost_sanejament + cost_electricitat + cost_agua
+                          + cost_escomeses + cost_ventilacio + cost_zehnder + cost_aerotermia
+                          + cost_fan_coils + cost_llar_foc + cost_solar + cost_persianes
+                          + cost_rado + cost_domotica)
+
+    # ══════════════════════════════════════════════════════════════════════
+    # PACK PARKING I EXTERIORS — Preus corregits
+    # ══════════════════════════════════════════════════════════════════════
     cost_porta_peatonal    = 544.00 if garatge else 0.0
-    cost_porta_motoritzada = 2850.00 if garatge else 0.0
+    # Porta motoritzada corregida: 2450 € (real: Hörmann LPU 67, projectes reals)
+    cost_porta_motoritzada = 2450.00 if garatge else 0.0
     cost_garatge_estructura = 998.0 * m2_garatge
     cost_porxos_calc        = 577.0 * m2_porxos
     pack_parking = (cost_porta_peatonal + cost_porta_motoritzada
                     + cost_garatge_estructura + cost_porxos_calc)
 
-    # ── Pack Acabats Interiors ─────────────────────────────────────────────
-    cost_pintura          = 19.5 * m2
-    cost_pladur           = 99.0 * m2
-    cost_cuina            = 61.2 * m2
-    cost_paviments        = 49.0 * m2_paviment
+    # ══════════════════════════════════════════════════════════════════════
+    # PACK ACABATS INTERIORS — Fórmules corregides amb dades reals
+    # ══════════════════════════════════════════════════════════════════════
+    cost_pintura = 19.5 * m2
+    cost_pladur  = 99.0 * m2
+
+    # Cuina: lump sum (real: 0-14669 €, mitjana 13234 €, NO proporcional a m²)
+    acabats_cuina = data.get('estil_acabats', 'alta_qualitat')
+    cost_cuina = {
+        'funcional':     10500.00,   # cuina funcional bàsica
+        'alta_qualitat': 13234.00,   # cuina completa equipada (mitjana reals)
+        'exclusiu':      16500.00,   # cuina premium amb electrodomèstics gamma alta
+    }.get(acabats_cuina, 13234.00)
+
+    # Paviments: variable segons tipus (real: formigó 42 €/m², ceràmic 49 €/m², parquet 68 €/m²)
+    preu_paviment = {
+        'formigo': 42.0,
+        'ceramic': 49.0,
+        'parquet': 68.0,
+    }.get(tipus_paviment, 49.0)
+    cost_paviments = preu_paviment * m2_paviment
+
     cost_portes_interiors = 495.0 * num_portes
     cost_krona            = 245.0 * num_portes if krona else 0.0
-    cost_banys            = 3952.62 * num_banys
-    cost_escala           = 3423.0 if escala else 0.0
+
+    # Banys: variable segons nivell (real: 1545-9928 €, NO preu únic)
+    preu_bany = {
+        'estandar': 2800.00,   # sanitaris Roca bàsics, griferia estàndard
+        'alt':      4500.00,   # Roca ONA, Tres Study, rajola qualitat (mitjana reals)
+        'premium':  7500.00,   # banyera exempta, disseny exclusiu, mosaic
+    }.get(nivell_bany, 4500.00)
+    cost_banys = preu_bany * num_banys
+
+    # Escala: variable segons tipus (real: fusta 3423, metàl·lica 4800)
+    if escala:
+        cost_escala = {
+            'fusta':     3423.0,
+            'metallica': 4800.0,
+        }.get(tipus_escala, 3423.0)
+    else:
+        cost_escala = 0.0
+
     pack_acabats = (cost_pintura + cost_pladur + cost_cuina + cost_paviments
                     + cost_portes_interiors + cost_krona + cost_banys + cost_escala)
 
-    # ── Transport ──────────────────────────────────────────────────────────
+    # ══════════════════════════════════════════════════════════════════════
+    # TRANSPORT — Sense canvis (validat)
+    # ══════════════════════════════════════════════════════════════════════
     cost_transport = 95.0 * km
 
-    # ── Totals ────────────────────────────────────────────────────────────
+    # ══════════════════════════════════════════════════════════════════════
+    # TOTALS — Seguretat corregida a 1.75% (real: 1.5-2%, mitjana 1.75%)
+    # ══════════════════════════════════════════════════════════════════════
     total_construccio  = pack_envolvent + pack_installacions + pack_parking + pack_acabats + cost_transport
     cost_projecte      = 0.0 if data.get('te_projecte') else total_construccio * 0.105
-    cost_seguretat     = total_construccio * 0.02
+    cost_seguretat     = total_construccio * 0.0175   # Corregit: 1.75% (real: 1.5-2%)
     cost_fonamentacio  = 396.0 * m2_fonamentacio
     total_contractacio = cost_projecte + cost_seguretat + cost_fonamentacio
     total_sense_iva    = total_construccio + total_contractacio
@@ -243,6 +387,10 @@ def calculate_budget(data):
         'acs':           'Aerotèrmia ACS',
         'acs_calefaccio': 'Aerotèrmia ACS + Calefacció',
     }
+    coberta_labels = {'teula': 'Teula àrab/mixta', 'plana': 'Plana (grava/transitable)', 'xapa': 'Xapa metàl·lica'}
+    facana_labels  = {'sate': 'SATE arrebossat', 'ventilada': 'Façana ventilada (fusta)', 'suro': 'Suro natural', 'accoya': 'Fusta Accoya'}
+    paviment_labels = {'formigo': 'Formigó polit', 'ceramic': 'Ceràmic/Gres', 'parquet': 'Parquet fusta'}
+    bany_labels = {'estandar': 'Estàndard', 'alt': 'Alt (Roca ONA)', 'premium': 'Premium exclusiu'}
 
     return {
         'variables_derivades': {
@@ -257,11 +405,19 @@ def calculate_budget(data):
             'zehnder':                zehnder,
             'escala':                 escala,
             'krona':                  krona,
+            # Noves etiquetes per al PDF
+            'coberta_label':          coberta_labels.get(tipus_coberta, tipus_coberta),
+            'facana_label':           facana_labels.get(tipus_facana, tipus_facana),
+            'paviment_label':         paviment_labels.get(tipus_paviment, tipus_paviment),
+            'bany_label':             bany_labels.get(nivell_bany, nivell_bany),
+            'num_finestres':          num_finestres,
+            'num_fan_coils':          num_fan_coils,
         },
         'pack_envolvent': {
-            'finestres':         r(cost_finestres),
             'estructura_vertical': r(cost_estructura),
             'coberta_forjats':   r(cost_coberta),
+            'finestres':         r(cost_finestres),
+            'increment_facana':  r(increment_facana),
             'porta_entrada':     r(cost_porta_entrada),
             'grua':              r(cost_grua),
             'total':             r(pack_envolvent),
@@ -275,6 +431,12 @@ def calculate_budget(data):
             'preinstallacio_ventilacio': r(cost_ventilacio),
             'zehnder':                 r(cost_zehnder),
             'aerotermia':              r(cost_aerotermia),
+            'fan_coils':               r(cost_fan_coils),
+            'llar_foc':                r(cost_llar_foc),
+            'solar':                   r(cost_solar),
+            'persianes':               r(cost_persianes),
+            'membrana_rado':           r(cost_rado),
+            'domotica':                r(cost_domotica),
             'total':                   r(pack_installacions),
         },
         'pack_parking': {
@@ -314,6 +476,8 @@ def calculate_budget(data):
 # ── Anàlisi de plànols amb GPT-4o Vision — Pipeline optimitzat ───────────────
 # Configura la clau API abans d'iniciar el servidor:
 #   export OPENAI_API_KEY="sk-proj-..."
+# IMPORTANT: NEVER hardcode the API key in source code. Use environment variables only.
+# If running locally, create a .env file (gitignored) and load it via python-dotenv.
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
 
 # Factor de conversió sq ft → m²
@@ -654,7 +818,7 @@ Your task: extract technical data and return ONLY a valid JSON object. No explan
 
 @app.route('/analitzar-plans', methods=['POST'])
 def analitzar_plans():
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = OPENAI_API_KEY or os.getenv("OPENAI_API_KEY")
     if not api_key:
         return jsonify({'error': 'OPENAI_API_KEY no configurada al servidor. '
                                  'Executa: export OPENAI_API_KEY="sk-proj-..."'}), 503
@@ -1270,8 +1434,10 @@ def download_pdf():
 
 
 if __name__ == '__main__':
+    import os as _os
+    _port = int(_os.environ.get('PORT', '5001'))
     print('\n' + '=' * 47)
     print('  PAPIK · Configurador de Pressupostos v2')
-    print('  Servidor: http://localhost:5001')
+    print(f'  Servidor: http://localhost:{_port}')
     print('=' * 47 + '\n')
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=_port)
