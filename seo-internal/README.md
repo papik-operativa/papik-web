@@ -2,9 +2,9 @@
 
 > **Document d'entrada al projecte SEO de PAPIK Group · web nova llançament 1 juny 2026.**
 >
-> Llegeix aquest document primer si arribes nou al projecte. T'orienta a través dels 90+ artefactes generats durant la fase de planificació + estructuració + producció (S1-S4) i et dóna un mapa clar de què hi ha, com s'usa i en quin ordre.
+> Llegeix aquest document primer si arribes nou al projecte. T'orienta a través dels 100+ artefactes generats durant la fase de planificació + estructuració + producció + neteja (S1-S5 + Wave 1-4) i et dóna un mapa clar de què hi ha, com s'usa i en quin ordre.
 >
-> Última revisió · 28 abril 2026 · v1.2
+> Última revisió · 29 abril 2026 · v1.3 (post-Wave-4)
 
 ---
 
@@ -23,6 +23,8 @@ L'objectiu d'aquest projecte és **no perdre cap equity SEO** durant la migraci�
 | **S3** (12-18 mai) · implementació tècnica | sitemap, robots, schemas, hreflang, vercel.json, generate_html.py | ✅ Complet |
 | **S4** (19-25 mai) · contingut + traduccions | Copy v1.1 (CA · ES · EN) + legal placeholders | ✅ Complet |
 | **S5** (26-31 mai) · QA pre-launch | qa-script.py · legal review · runbook | ✅ Complet (placeholders pending counsel) |
+| **Wave 1-3** · projects + Tier-2 + perf | 36 project pages tri-lingual · 5 Tier-2 landings · performance pass | ✅ Complet |
+| **Wave 4** · final cleanup | Orphan removal · schema enrichment · hreflang completion · launch docs | ✅ Complet |
 | **1 juny** · LAUNCH | Switchover · GSC submit · anuncis | 🎯 |
 
 ---
@@ -31,24 +33,32 @@ L'objectiu d'aquest projecte és **no perdre cap equity SEO** durant la migraci�
 
 | Fase | Status | Owner | Notes |
 |---|---|---|---|
-| Style guide v1.1 | ✅ Done | Editorial | Ampliat a v1.2 amb taxonomia slugs, hreflang, parity, privacy v2, cross-linking, metadata |
-| Copy CA v1.1 | ✅ Done | Editorial | 28 fitxers (homepage + 5 unitats + comunitats + 5 landings + 1 comarca + 18 articles) |
+| Style guide | ✅ Done | Editorial | v1.3 amb taxonomia slugs, hreflang, parity, privacy v2, cross-linking, metadata, project pages, Tier-2, performance, robots |
+| Copy CA v1.1 | ✅ Done | Editorial | 28 fitxers (homepage + 5 unitats + comunitats + 14 landings + 3 comarques + 18 articles + 3 legal) |
 | Copy ES | ✅ Done | Translation | 28 fitxers paritat amb CA · slug ES propi (proyectos, presupuesto, etc.) |
-| Copy EN | ✅ Done | Translation | 26 fitxers · semantic slugs (areas/, regions/, articles/) · adaptació cultural |
-| Legal placeholders CA/ES/EN (3+3+3) | ⚠ Placeholders done | Counsel review pending | NIF, adreça i inventari real de cookies pendents |
+| Copy EN | ✅ Done | Translation | 26 fitxers · semantic slugs (areas/, projects/, articles/) · adaptació cultural |
+| Legal placeholders CA/ES/EN (3+3+3) | ⚠ Placeholders done | Counsel review pending | NIF, adreça i inventari real de cookies pendents (vegeu asset-handoff-spec.md) |
 | Tier 1 landings (4) | ✅ Done | Content | Sant Cugat · Sant Quirze · Bellaterra · Matadepera |
-| Tier 2 landings (5) | ✅ Done | Content | Argentona · Castellar · Llavaneres · Sitges · Vilanova |
+| Tier 2 landings (10) | ✅ Done | Content | Argentona · Castellar · Llavaneres · Sitges · Vilanova · Cabrils · Alella · Premià de Dalt · Tiana · Cerdanyola |
 | Comarcal hubs (3) | ✅ Done | Content | Vallès Occidental · Maresme · Garraf |
 | Articles tri-lingual (18) | ✅ Done | Content | Tots existeixen a CA + ES + EN sense excepcions |
-| HTML build (`generate_html.py`) | ✅ Done | Dev | Genera públic/ amb hreflang i schemas inyectats |
+| Project pages tri-lingual (36) | ✅ Done | Content | 36 fitxes a CA + ES + EN (108 URLs) · vegeu §3.6 |
+| Hubs tri-lingual | ✅ Done | Content | blog · projectes · 404 |
+| HTML build (`generate_html.py`) | ✅ Done | Dev | 268+ pàgines · hreflang i schemas inyectats |
 | vercel.json amb 301 redirects | ✅ Done | Dev | 245+ entries · `vercel.json.candidate` promogut a producció |
-| sitemap.xml · regenerat | ✅ Done | Dev | `generate_sitemap.py` actualitzat post-renames |
-| Schemas JSON-LD (7 templates) | ✅ Done | Dev | Inyectats segons matrix per tipus de pàgina |
-| QA script (`qa-script.py`) | ✅ Done | Dev | qa-findings.json generat · 0 P0 confirmat |
-| Cookie banner | ⚠ In progress | Dev | Script + CSS pendents inventari real cookies |
+| sitemap.xml · regenerat | ✅ Done | Dev | 255 URLs · `generate_sitemap.py` actualitzat post-renames |
+| Schemas JSON-LD (7 templates) | ✅ Done | Dev | 253 schemas inyectats i validats (100%) segons matrix per tipus de pàgina |
+| Hreflang completeness | ✅ Done | Dev | 95%+ post-Wave-3 |
+| QA script (`qa-script.py`) | ✅ Done | Dev | qa-findings.json generat · 0 P0 · 0 P1 confirmat |
+| Internal linking | ✅ Done | Dev | 39 → 0 orphans post-Wave-4 |
+| Performance pass | ✅ Done | Dev | defer/async, lazy load, preload CSS+font, no Google Fonts |
+| Robots.txt | ✅ Done | Dev | AI scrapers blocked (GPTBot, ClaudeBot, PerplexityBot, CCBot, Bytespider, Google-Extended) |
+| Cookie banner | ⚠ Script ready | Dev | Script + CSS desplegats · pendent inventari real post-staging-scan |
 | Forms backend | ⚠ Placeholders | Dev | Endpoints declarats · backend pendent |
-| Counsel sign-off (6 docs) | 🔴 Blocked | Legal | Patrimonis · Comunitats LPH · Ponsa · Sabadell · 3 legal pages |
-| Launch 1 juny 2026 | 🎯 Scheduled | All | Vegeu deployment-runbook.md |
+| Asset handoff (images, NIF, cookies, consents) | ⚠ Pending | User | Vegeu `asset-handoff-spec.md` |
+| Counsel sign-off (8 docs) | 🔴 Blocked | Legal | 3 legal pages · Patrimonis · Comunitats LPH · Rehabilitacio NGEU · Ponsa · Sabadell · Hipoteca energètica |
+| Manual browser QA (Lighthouse, axe, mobile, RR) | ⚠ Pending | Editorial | Post-staging-deploy · vegeu `going-live-checklist.md` T-7 |
+| Launch 1 juny 2026 | 🎯 Scheduled | All | Vegeu `going-live-checklist.md` |
 
 ---
 
@@ -61,13 +71,16 @@ Tots els artefactes interns viuen a `/Users/trisfisas/Desktop/CÓDIGO/papik-web/
 | Fitxer | Què és | Quan es consulta |
 |---|---|---|
 | `README.md` | **Aquest document** · mapa global del projecte | Sempre primer |
-| `style-guide-editorial.md` | Manual d'estil editorial · veu, tono, regles · v1.2 | Abans de qualsevol redacció |
-| `deployment-runbook.md` | Runbook operatiu del llançament 1 juny 2026 | T-7 → T+7 |
+| `style-guide-editorial.md` | Manual d'estil editorial · veu, tono, regles · v1.3 | Abans de qualsevol redacció |
+| `deployment-runbook.md` | Runbook operatiu base del llançament 1 juny 2026 | T-7 → T+7 (vegeu també `going-live-checklist.md`) |
+| `going-live-checklist.md` | **Playbook operatiu post-Wave-4** · T-7 → T-0 → T+7 amb checkboxes per owner | Setmana del llançament |
+| `asset-handoff-spec.md` | **Spec d'assets** · imatges, OG, NIF, cookies, consents, counsel | Pre-launch · usuari + counsel |
+| `wave-4-cleanup-report.md` | Report del pas final de neteja | Una vegada · post-Wave-4 |
 | `redirect-map.csv` | 33 redirects 301 explícits · S1 | S3 · implementació |
 | `redirect-map-full.csv` | 331 entries (108 rewrites + 169 × 301 + 54 deprecate) | S3 · implementació |
 | `vercel-rewrites-snippet.json` | Snippet producció-ready amb 94 rewrites + 158 redirects | Mergeed a vercel.json |
-| `slug-mapping.json` | Registre canònic CA↔ES↔EN · 78 entries | Permanent · base de hreflang i sitemap |
-| `audit-articles-existents.md` | Auditoria SEO + tono dels 15 articles existents | S4 · rewrite priorit zat |
+| `slug-mapping.json` | Registre canònic CA↔ES↔EN · 78+ entries | Permanent · base de hreflang i sitemap |
+| `audit-articles-existents.md` | Auditoria SEO + tono dels 15 articles existents | S4 · rewrite prioritzat |
 
 ### 3.2 · Reports generats (S3-S5)
 
@@ -116,6 +129,25 @@ Tots els reports viuen a l'arrel de `seo-internal/`:
 | 05 | FAQPage | Qualsevol pàgina amb FAQ |
 | 06 | BreadcrumbList | Tota pàgina excepte homepage |
 | 07 | RealEstateListing project | Cada `/projecte-*` |
+
+### 3.6 · Estat taxonòmic consolidat (post-Wave-4)
+
+| Tipus | CA | ES | EN | Total URLs |
+|---|---|---|---|---|
+| Homepage | 1 | 1 | 1 | 3 |
+| Service pages (4 unitats + comunitats) | 5 | 5 | 5 | 15 |
+| Sobre / Premsa / Certificacions | 3 | 3 | 3 | 9 |
+| Tier-1 landings | 4 | 4 | 4 | 12 |
+| Tier-2 landings | 10 | 10 | 10 | 30 |
+| Comarcal hubs | 3 | 3 | 3 | 9 |
+| Articles | 18 | 18 | 18 | 54 |
+| Project pages | 36 | 36 | 36 | 108 |
+| Hubs (blog, projectes, 404) | 3 | 3 | 3 | 9 |
+| Legal (avís legal, privacitat, cookies) | 3 | 3 | 3 | 9 |
+| Configurador / pressupost | 1 | 1 | 1 | 3 |
+| **Total HTML pages** | **~87** | **~87** | **~87** | **268+** |
+
+Sitemap publicat: 255 URLs (alguns hubs i pàgines internes excluses per `noindex`).
 
 ### 3.5 · Copy v1.1 · estat consolidat
 
@@ -288,9 +320,10 @@ Formes correctes (vegeu glossari a `style-guide-editorial.md` §13):
 | 1.0 | 27 abril 2026 | Document inicial · post-S2 |
 | 1.1 | 27 abril 2026 | Update post style-guide v1.1 (em-dash, registre adult, prosa) |
 | 1.2 | 28 abril 2026 | Post-S5 · status badges · paritat tri-lingual · comptes finals · pointer al deployment-runbook |
+| 1.3 | 29 abril 2026 | Post-Wave-4 · 268 HTML pages · taula taxonòmica completa · pointers a `asset-handoff-spec.md`, `going-live-checklist.md`, `wave-4-cleanup-report.md` |
 
 ---
 
 ## 9. Final · resum d'una línia
 
-**Tots els blockers de codi, contingut i tècnica resolts · només resten counsel sign-off (6 docs), assets reals (imatges, NIF, cookies) i smoke tests previs al 1 juny · vegeu `deployment-runbook.md`.**
+**Tots els blockers de codi, contingut i tècnica resolts (268 HTML pages, 253 schemas vàlids, 0 orphans, 95%+ hreflang) · només resten counsel sign-off (8 docs), assets reals (imatges, NIF, cookies, consents) i 5 validacions manuals al navegador previs al 1 juny · vegeu `going-live-checklist.md` i `asset-handoff-spec.md`.**

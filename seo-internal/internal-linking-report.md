@@ -2,23 +2,23 @@
 Generated: 2026-04-29
 
 ## Summary
-- Total pages analyzed: 255
-- Total internal links: 5069
-- Orphans (0 in-links): 27
-- Weakly-linked (1-2 in-links): 85
-- Average outbound internal links per page: 19.9
+- Total pages analyzed: 278
+- Total internal links: 5647
+- Orphans (0 in-links): 44
+- Weakly-linked (1-2 in-links): 90
+- Average outbound internal links per page: 20.3
 
 ## Top 10 most-linked-to pages
-1. `index.html` — 909 in-links
-2. `es/index.html` — 257 in-links
-3. `en/index.html` — 220 in-links
-4. `projectes.html` — 184 in-links
-5. `es/proyectos.html` — 172 in-links
-6. `construccio.html` — 146 in-links
-7. `en/projects.html` — 146 in-links
-8. `es/construccion.html` — 133 in-links
-9. `en/construction.html` — 126 in-links
-10. `rehabilitacio.html` — 123 in-links
+1. `index.html` — 1006 in-links
+2. `es/index.html` — 275 in-links
+3. `en/index.html` — 230 in-links
+4. `projectes.html` — 193 in-links
+5. `es/proyectos.html` — 181 in-links
+6. `en/projects.html` — 177 in-links
+7. `construccio.html` — 156 in-links
+8. `es/construccion.html` — 143 in-links
+9. `rehabilitacio.html` — 135 in-links
+10. `en/construction.html` — 132 in-links
 
 ## Top 10 pages with most outbound links
 1. `es/projectes.html` — 100 out-links
@@ -27,50 +27,67 @@ Generated: 2026-04-29
 4. `nosaltres.html` — 58 out-links
 5. `es/nosotros.html` — 57 out-links
 6. `es/presupuesto.html` — 57 out-links
-7. `es/proyectos.html` — 50 out-links
-8. `projectes.html` — 50 out-links
-9. `blog.html` — 49 out-links
-10. `en/projects.html` — 49 out-links
+7. `en/projects.html` — 50 out-links
+8. `es/proyectos.html` — 50 out-links
+9. `projectes.html` — 50 out-links
+10. `blog.html` — 49 out-links
 
 ## Orphans by language
-### CA (9)
+### CA (16)
+- `article-guia-subvencions-ngeu-catalunya.html`
+- `article-passivhaus-mediterrania.html`
+- `comarques/anoia.html`
+- `comarques/baix-emporda.html`
+- `comarques/baix-llobregat.html`
 - `comarques/garraf.html`
-- `comunitats.html`
+- `comarques/osona.html`
 - `zones/alella.html`
 - `zones/cabrils.html`
 - `zones/cerdanyola-del-valles.html`
 - `zones/matadepera.html`
 - `zones/premia-de-dalt.html`
+- `zones/sant-pere-de-ribes.html`
 - `zones/tiana.html`
 - `zones/vilanova-i-la-geltru.html`
+- `zones/vilassar-de-mar.html`
 
-### ES (9)
+### ES (17)
+- `es/about.html`
+- `es/article-guia-subvenciones-ngeu-cataluna.html`
+- `es/article-passivhaus-mediterranea.html`
+- `es/comarcas/anoia.html`
+- `es/comarcas/baix-emporda.html`
+- `es/comarcas/baix-llobregat.html`
 - `es/comarcas/garraf.html`
-- `es/comunidades.html`
+- `es/comarcas/osona.html`
 - `es/zonas/alella.html`
 - `es/zonas/cabrils.html`
 - `es/zonas/cerdanyola-del-valles.html`
 - `es/zonas/matadepera.html`
 - `es/zonas/premia-de-dalt.html`
+- `es/zonas/sant-pere-de-ribes.html`
 - `es/zonas/tiana.html`
 - `es/zonas/vilanova-i-la-geltru.html`
+- `es/zonas/vilassar-de-mar.html`
 
-### EN (9)
+### EN (11)
 - `en/areas/alella.html`
 - `en/areas/cabrils.html`
 - `en/areas/cerdanyola-del-valles.html`
 - `en/areas/matadepera.html`
 - `en/areas/premia-de-dalt.html`
+- `en/areas/sant-pere-de-ribes.html`
 - `en/areas/tiana.html`
 - `en/areas/vilanova-i-la-geltru.html`
+- `en/areas/vilassar-de-mar.html`
+- `en/article-ngeu-subsidies-guide-catalonia.html`
 - `en/regions/garraf.html`
-- `en/retrofit/communities.html`
 
 ## Cross-language balance check
-- CA orphans: 9, ES orphans: 9, EN orphans: 9
+- CA orphans: 16, ES orphans: 17, EN orphans: 11
 
 ### Pages with imbalanced cross-language link profile
-- (none detected with threshold max>=3 / min=0)
+- `about.html` — CA=1, EN=103, ES=0
 
 ## Generic anchor texts (improvement candidates)
 - `es/nosotros.html` → `index.html` anchor: "Leer más"
@@ -81,39 +98,6 @@ Generated: 2026-04-29
 - `es/usuaris.html` → `index.html` anchor: "Saber más"
 - `nosaltres.html` → `index.html` anchor: "Llegir més"
 - `usuaris.html` → `index.html` anchor: "Llegir més"
-
-## Broken internal HTML links (target file not found)
-- `en/areas/alella.html` → `/en/about.html`
-- `en/areas/argentona.html` → `/en/about.html`
-- `en/areas/bellaterra.html` → `/en/about.html`
-- `en/areas/cabrils.html` → `/en/about.html`
-- `en/areas/castellar-del-valles.html` → `/en/about.html`
-- `en/areas/cerdanyola-del-valles.html` → `/en/about.html`
-- `en/areas/matadepera.html` → `/en/about.html`
-- `en/areas/premia-de-dalt.html` → `/en/about.html`
-- `en/areas/sant-andreu-de-llavaneres.html` → `/en/about.html`
-- `en/areas/sant-cugat-del-valles.html` → `/en/about.html`
-- `en/areas/sant-quirze-del-valles.html` → `/en/about.html`
-- `en/areas/sitges.html` → `/en/about.html`
-- `en/areas/tiana.html` → `/en/about.html`
-- `en/areas/vilanova-i-la-geltru.html` → `/en/about.html`
-- `en/article-blackout-2025.html` → `/en/about.html`
-- `en/article-demolish-and-rebuild-steps.html` → `/en/about.html`
-- `en/article-demolition-permit-cerdanyola-bellaterra.html` → `/en/about.html`
-- `en/article-ecological-footprint.html` → `/en/about.html`
-- `en/article-green-mortgage.html` → `/en/about.html`
-- `en/article-ksandal-press-release.html` → `/en/about.html`
-- `en/article-montseny-house.html` → `/en/about.html`
-- `en/article-passivhaus-budget.html` → `/en/about.html`
-- `en/article-passivhaus-innovations.html` → `/en/about.html`
-- `en/article-passivhaus-principles.html` → `/en/about.html`
-- `en/article-passivhaus-sustainability.html` → `/en/about.html`
-- `en/article-passivhaus-technologies.html` → `/en/about.html`
-- `en/article-passivhaus-ventilation.html` → `/en/about.html`
-- `en/article-ponsa-press-release.html` → `/en/about.html`
-- `en/article-replace-vs-retrofit.html` → `/en/about.html`
-- `en/article-sabadell-press-release.html` → `/en/about.html`
-- ... and 123 more
 
 ## Recommendations
 1. Add contextual links from the relevant hub pages (blog.html, projectes.html, construccio.html, rehabilitacio.html) to every orphan article and project, in all three languages.

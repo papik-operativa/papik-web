@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://papik.cat/es/article-innovaciones-passivhaus">
 <link rel="alternate" hreflang="ca" href="https://papik.cat/article-innovacions-passivhaus">
 <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-innovaciones-passivhaus">
-<link rel="alternate" hreflang="en" href="https://papik.cat/en/article-innovacions-passivhaus">
+<link rel="alternate" hreflang="en" href="https://papik.cat/en/article-passivhaus-innovations">
 <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-innovacions-passivhaus">
 <meta property="article:published_time" content="[FECHA REAL]">
 <meta property="article:author" content="PAPIK Group">

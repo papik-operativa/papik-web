@@ -92,12 +92,19 @@ def url_to_path(url: str) -> Optional[Path]:
     if not rel or rel.endswith("/"):
         rel = (rel or "") + "index.html"
     candidate = PUBLIC / rel
-    if candidate.exists():
-        return candidate
+    # Prefer .html sibling over a directory match (Vercel cleanUrls=true serves
+    # /en/retrofit.html for /en/retrofit; the /en/retrofit/ directory only
+    # holds nested children like /en/retrofit/communities.html).
     if not rel.endswith(".html"):
         alt = PUBLIC / (rel + ".html")
-        if alt.exists():
+        if alt.is_file():
             return alt
+    if candidate.is_file():
+        return candidate
+    if candidate.is_dir():
+        idx = candidate / "index.html"
+        if idx.is_file():
+            return idx
     return None
 
 

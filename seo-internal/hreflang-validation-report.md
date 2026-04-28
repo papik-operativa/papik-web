@@ -3,13 +3,13 @@
 Generated: 2026-04-29
 
 ## Summary
-- Total HTML pages: 256
-- Pages with full triplet (CA + ES + EN + x-default): 245 (95.7%)
-- Pages missing 1 sibling: 2
-- Pages missing 2+ siblings: 0
-- Pages with no hreflang at all: 9
-- Bidirectional inconsistencies: 5
-- Dead alternate URLs (404 targets): 54
+- Total HTML pages: 279
+- Pages with full triplet (CA + ES + EN + x-default): 271 (97.1%)
+- Pages missing 1 sibling: 6
+- Pages missing 2+ siblings: 1
+- Pages with no hreflang at all: 1
+- Bidirectional inconsistencies: 0
+- Dead alternate URLs (404 targets): 61
 - x-default issues: 0
 
 ## Errors by category
@@ -17,27 +17,24 @@ Generated: 2026-04-29
 ### Missing siblings (asymmetric triplets)
 - `/en/budget.html` missing: x-default
 - `/es/article-derribar-construir-pasos.html` missing: en
+- `/es/nosotros.html` missing: en
+- `/es/usuaris.html` missing: en
+- `/nosaltres.html` missing: en
+- `/usuaris.html` missing: en
+- `/qualitats.html` missing: en, es
 - `/cookie-banner.html` has NO hreflang tags at all
-- `/es/nosotros.html` has NO hreflang tags at all
-- `/es/presupuesto.html` has NO hreflang tags at all
-- `/es/projectes.html` has NO hreflang tags at all
-- `/es/usuaris.html` has NO hreflang tags at all
-- `/nosaltres.html` has NO hreflang tags at all
-- `/pressupost.html` has NO hreflang tags at all
-- `/qualitats.html` has NO hreflang tags at all
-- `/usuaris.html` has NO hreflang tags at all
 
 ### Bidirectional inconsistencies
-- `/en/article-passivhaus-innovations.html` -> `es` -> `/es/article-innovaciones-passivhaus.html`, but partner returns `https://papik.cat/en/article-innovacions-passivhaus`
-- `/en/budget.html` -> `ca` -> `/pressupost.html`, but partner returns `<missing>`
-- `/en/budget.html` -> `es` -> `/es/presupuesto.html`, but partner returns `<missing>`
-- `/es/rehabilitacion.html` -> `en` -> `/en/retrofit`, but partner returns `<missing>`
-- `/rehabilitacio.html` -> `en` -> `/en/retrofit`, but partner returns `<missing>`
+- (none)
 
 ### Dead alternates (target file does not exist)
 - `/article-derribar-construir-passos.html` `hreflang="ca"` -> https://papik.cat/article-derribar-casa-antiga-construir-nova-passos (404)
 - `/article-derribar-construir-passos.html` `hreflang="es"` -> https://papik.cat/es/article-derribar-casa-antigua-construir-nueva-pasos (404)
 - `/article-derribar-construir-passos.html` `hreflang="x-default"` -> https://papik.cat/article-derribar-casa-antiga-construir-nova-passos (404)
+- `/comarques/anoia.html` `hreflang="en"` -> https://papik.cat/en/regions/anoia (404)
+- `/comarques/baix-emporda.html` `hreflang="en"` -> https://papik.cat/en/regions/baix-emporda (404)
+- `/comarques/baix-llobregat.html` `hreflang="en"` -> https://papik.cat/en/regions/baix-llobregat (404)
+- `/comarques/osona.html` `hreflang="en"` -> https://papik.cat/en/regions/osona (404)
 - `/comunitats.html` `hreflang="ca"` -> https://papik.cat/rehabilitacio/comunitats (404)
 - `/comunitats.html` `hreflang="es"` -> https://papik.cat/es/rehabilitacion/comunidades (404)
 - `/comunitats.html` `hreflang="x-default"` -> https://papik.cat/rehabilitacio/comunitats (404)
@@ -61,7 +58,10 @@ Generated: 2026-04-29
 - `/en/retrofit/communities.html` `hreflang="x-default"` -> https://papik.cat/rehabilitacio/comunitats (404)
 - `/es/article-derribar-construir-pasos.html` `hreflang="ca"` -> https://papik.cat/article-derribar-casa-antiga-construir-nova-passos (404)
 - `/es/article-derribar-construir-pasos.html` `hreflang="x-default"` -> https://papik.cat/article-derribar-casa-antiga-construir-nova-passos (404)
-- `/es/article-innovaciones-passivhaus.html` `hreflang="en"` -> https://papik.cat/en/article-innovacions-passivhaus (404)
+- `/es/comarcas/anoia.html` `hreflang="en"` -> https://papik.cat/en/regions/anoia (404)
+- `/es/comarcas/baix-emporda.html` `hreflang="en"` -> https://papik.cat/en/regions/baix-emporda (404)
+- `/es/comarcas/baix-llobregat.html` `hreflang="en"` -> https://papik.cat/en/regions/baix-llobregat (404)
+- `/es/comarcas/osona.html` `hreflang="en"` -> https://papik.cat/en/regions/osona (404)
 - `/es/comunidades.html` `hreflang="ca"` -> https://papik.cat/rehabilitacio/comunitats (404)
 - `/es/comunidades.html` `hreflang="es"` -> https://papik.cat/es/rehabilitacion/comunidades (404)
 - `/es/comunidades.html` `hreflang="x-default"` -> https://papik.cat/rehabilitacio/comunitats (404)
