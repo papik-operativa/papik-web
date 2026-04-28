@@ -1258,7 +1258,18 @@ def build_jsonld(page: Page) -> str:
     if page.page_type == "homepage":
         s = load_schema("01-organization-homepage.json")
         if s:
-            schemas.append(fill_placeholders(s, common))
+            filled = fill_placeholders(s, common)
+            # Pin inLanguage to the page's primary language so JSON-LD aligns
+            # with <html lang>. The schema source still lists all three for
+            # documentation, but each emitted index gets one primary code.
+            lang_code_map = {"ca": "ca-ES", "es": "es-ES", "en": "en-US"}
+            primary = lang_code_map.get(page.lang, "ca-ES")
+            graph = filled.get("@graph") if isinstance(filled, dict) else None
+            if isinstance(graph, list):
+                for node in graph:
+                    if isinstance(node, dict) and node.get("@type") == "WebSite":
+                        node["inLanguage"] = primary
+            schemas.append(filled)
     elif page.page_type == "service":
         s = load_schema("02-service.json")
         if s:
