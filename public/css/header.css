@@ -1,0 +1,254 @@
+/* ═══════════════════════════════════════════════════════════
+   PAPIK · HEADER SYSTEM — SINGLE SOURCE OF TRUTH
+   Reference: usuaris.html (inline <style>)
+   Included by every HTML page AFTER inline <style> so that
+   all header/submenu/mobile-nav visuals are byte-identical
+   across the whole site. Do NOT inline header overrides.
+═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   HEADER
+═══════════════════════════════════ */
+.header-logo-layer { height: 72px; }
+
+header.header-top {
+  position: fixed; width: 100%; background: #fff; top: 0;
+  z-index: 999; transition: top .2s linear, background-color 0.32s ease, box-shadow 0.32s ease;
+}
+header.header-top.hidden { top: -72px; }
+
+.header-top.hdr-scrolled {
+  background: rgba(255,255,255,0.97) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(0,0,0,.07);
+}
+
+.header-logo {
+  width: 100%; position: absolute; padding: 22px 0;
+  z-index: 102; background: #fff; top: 0;
+}
+.header-logo .container {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.header-logo__content { display: flex; align-items: center; }
+
+/* Burger menu (mobile) */
+.menu-btn-wrapper {
+  width: 24px; height: 24px; cursor: pointer; position: relative;
+  display: none; margin-right: 5vw;
+}
+.menu-btn__burger { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.menu-btn__burger span { display: block; width: 24px; height: 2px; background: var(--green); margin-bottom: 5px; }
+.menu-btn__burger span:last-child { margin-bottom: 0; }
+
+/* PAPIK Logo */
+.logo a { display: flex; align-items: center; }
+.logo svg { display: block; }
+
+/* Lang selector */
+.lang select {
+  -webkit-appearance: none; appearance: none; border: 0; background: transparent;
+  font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
+  cursor: pointer; text-transform: uppercase; padding-right: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 0 center;
+}
+
+/* ─── Sticky bar ─── */
+.header-sticky {
+  position: sticky; background: #fff; width: 100%; top: 0;
+  z-index: 100; margin-top: 72px; height: max-content;
+}
+.header-sticky__bar {
+  border-bottom: 1px solid var(--border);
+  height: 52px; padding: 10px 0; background: #fff;
+  position: relative; z-index: 90;
+}
+.header-sticky__content {
+  display: flex; justify-content: space-between; align-items: center;
+}
+nav.menu ul, nav.menu-right ul { display: flex; align-items: center; }
+nav.menu ul { gap: 30px; }
+nav.menu-right ul { gap: 20px; }
+nav.menu li a, nav.menu li span { transition: opacity .2s; cursor: pointer; }
+nav.menu li:hover > a, nav.menu li:hover > span { opacity: .5; }
+nav.menu-right li { display: flex; align-items: center; cursor: pointer; }
+nav.menu-right li:hover { opacity: .5; }
+
+/* ─── Nav CTA (Pressupost) — compact variant of the unified button ───
+   Same criteria as site-wide CTAs: square (radius 0), TT Firs Neue,
+   500 weight, .02em tracking, filled green. Size reduced to fit the
+   52px sticky bar. Mirrors .btn-accent visually. */
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green); color: #fff !important;
+  border: 1px solid var(--green);
+  padding: 9px 18px; border-radius: 0;
+  font-family: var(--ff-sans);
+  font-size: 13px; font-weight: 500; letter-spacing: .02em;
+  line-height: 1; white-space: nowrap; text-decoration: none;
+  transition: background .3s var(--ease-paper),
+              border-color .3s var(--ease-paper),
+              transform .3s var(--ease-paper);
+}
+.nav-cta svg { flex-shrink: 0; transition: transform .3s var(--ease-paper); }
+.nav-cta:hover {
+  background: var(--green-dark) !important;
+  border-color: var(--green-dark);
+  opacity: 1 !important;
+  transform: translateY(-1px);
+}
+.nav-cta:hover svg { transform: translateX(4px); }
+nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
+
+/* Active nav link */
+nav.menu li a.active { font-weight: var(--fw-medium); }
+
+/* ─── Icon wrapper (nav right) ─── */
+.icon-wrapper {
+  width: 30px; height: 30px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; margin-left: 4px;
+  transition: background .2s;
+}
+nav.menu-right li:hover .icon-wrapper { background: #E7E9E8; }
+
+/* ─── Search form ─── */
+.form-search-wrapper {
+  position: absolute; width: 90.625vw; top: 0;
+  visibility: hidden; display: flex; align-items: center;
+  justify-content: space-between;
+}
+.form-search__content {
+  display: flex; margin-left: 55vw; opacity: 0; transition: all .2s linear;
+}
+.form-search__content input[type="text"] {
+  -webkit-appearance: none; appearance: none;
+  background: var(--bg-light); height: 40px; border: 0;
+  border-radius: 20px; padding: 0 15px 0 40px;
+  width: 27vw; color: var(--text); font-size: 16px; transition: all .2s linear;
+}
+.form-search__content input::placeholder { color: var(--muted-light); }
+.search-icon-btn {
+  background: #E7E9E8; height: 38px; width: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: absolute; z-index: 10; left: 1px; top: 1px; cursor: pointer;
+  transition: background .3s; border: 0;
+}
+.search-icon-btn:hover { background: var(--border); color: var(--text); }
+.btn-close-search {
+  background: var(--bg-light); height: 40px; width: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; visibility: hidden; border: 0; transition: all .2s linear;
+}
+.header-sticky.search-open .header-sticky__content { opacity: 0; }
+.header-sticky.search-open .header-sticky__bar { height: 66px; }
+.header-sticky.search-open .form-search-wrapper { visibility: visible; }
+.header-sticky.search-open .form-search__content { margin-left: 0; opacity: 1; }
+.header-sticky.search-open .form-search__content input { width: 84vw; }
+.header-sticky.search-open .btn-close-search { opacity: 1; visibility: visible; transition-delay: .3s; }
+
+/* ═══════════════════════════════════
+   SUBMENUS
+═══════════════════════════════════ */
+.submenu {
+  width: 100%; left: 0; z-index: 89; background: #fff;
+  padding: 40px 0; border-bottom: 1px solid var(--border);
+  position: absolute;
+  min-height: 340px;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease !important;
+  transform: translateY(-8px) !important;
+  opacity: 0 !important;
+  margin-top: 0 !important;
+  visibility: hidden !important;
+}
+.submenu.submenu-open {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+}
+.submenu__content { display: flex; gap: 5vw; align-items: flex-start; }
+.submenu__col { flex: 1; }
+.submenu__col h3 { color: var(--muted-light); font-size: 22px; margin-bottom: 24px; }
+.submenu__col ul li { padding: 8px 0; font-size: 15px; border-bottom: 1px solid var(--bg-light); }
+.submenu__col ul li a:hover { opacity: .6; }
+.submenu__img {
+  width: 26vw; border-radius: 4px; overflow: hidden;
+  height: 16vw; margin-top: 24px;
+}
+.submenu__img > * {
+  transition: transform 0.5s cubic-bezier(.25,.46,.45,.94) !important;
+}
+.submenu__col:hover .submenu__img > * { transform: scale(1.07); }
+.submenu__featured { width: 22vw; background: var(--bg-light); padding: 28px; border-radius: 4px; }
+.submenu__featured h3 { color: var(--muted-light); font-size: 20px; margin-bottom: 16px; }
+.submenu__featured .feat-title { font-size: 15px; line-height: 1.4; margin-bottom: 8px; }
+.submenu__featured .feat-link { font-size: 13px; color: var(--muted); }
+
+/* ─── Submenu links: underline animation ─── */
+.submenu__col ul a,
+.feat-link,
+.link-arrow {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  padding-bottom: 1px;
+  transition: background-size 0.28s ease, color 0.2s ease !important;
+}
+.submenu__col ul a:hover,
+.feat-link:hover,
+.link-arrow:hover {
+  background-size: 100% 1px;
+}
+
+.fade-bg {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  z-index: 70; opacity: 0; visibility: hidden; transition: .3s ease;
+}
+body.submenu-open .fade-bg { opacity: 1; visibility: visible; }
+
+/* ─── Nav menu items (button-style spans) ─── */
+.menu-btn {
+  transition: opacity 0.18s ease;
+  display: inline-block;
+}
+.menu-btn:hover { opacity: 0.6; }
+.nav-cta.menu-btn { display: flex; }
+
+/* ═══════════════════════════════════
+   MOBILE NAV OVERLAY
+═══════════════════════════════════ */
+.mobile-nav {
+  position: fixed; top: 0; left: -90vw; width: 90vw; height: 100vh;
+  background: #fff; z-index: 200; transition: left .3s ease;
+  overflow-y: auto; padding: 0 6vw;
+}
+.mobile-nav.open { left: 0; }
+.mobile-nav__header {
+  height: 56px; display: flex; align-items: center;
+  justify-content: space-between; border-bottom: 1px solid var(--border);
+}
+.mobile-nav__close {
+  background: none; border: none; cursor: pointer;
+  font-size: 24px; padding: 0; height: auto; color: var(--text);
+}
+.mobile-nav__close:hover { background: none; color: var(--muted); }
+.mobile-nav ul { padding: 20px 0; }
+.mobile-nav ul li { border-bottom: 1px solid var(--bg-light); }
+.mobile-nav ul li a, .mobile-nav ul li span {
+  display: block; padding: 16px 0; font-size: 20px; cursor: pointer;
+}
+.mobile-nav ul li.sub-title {
+  font-size: 12px; text-transform: uppercase; color: var(--muted);
+  padding: 20px 0 8px; border-bottom: 0;
+}
+
+/* ═══════════════════════════════════
+   HEADER RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 900px) {
+  .menu-btn-wrapper { display: block; }
+  nav.menu, nav.menu-right, .lang { display: none; }
+  .header-logo__content .lang { display: none; }
+}

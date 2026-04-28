@@ -1,0 +1,40 @@
+# PAPIK Group - papik.cat
+# Production robots.txt
+
+User-agent: *
+Allow: /
+
+# Internal pages not for indexing
+Disallow: /dashboard-cliente
+Disallow: /es/dashboard-cliente
+Disallow: /usuaris
+Disallow: /es/usuarios
+
+# WordPress legacy paths (defensive — site is now static)
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /xmlrpc.php
+Disallow: /?author=
+
+# Search and filter parameters (avoid indexing duplicates)
+Disallow: /*?s=
+Disallow: /*?p=
+Disallow: /*?utm_
+Disallow: /*?ref=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+# Allow CSS, JS, images for proper rendering (Google needs these)
+Allow: /css/
+Allow: /js/
+Allow: /img/
+Allow: /fonts/
+
+# Sitemaps
+Sitemap: https://papik.cat/sitemap.xml
+
+# Crawl-delay relaxed - we want fast indexation post-launch
+# (Google ignores Crawl-delay; Bing/Yandex respect it)
+Crawl-delay: 1

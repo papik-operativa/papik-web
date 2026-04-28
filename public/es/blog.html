@@ -143,7 +143,7 @@
     header.header-top.hidden { top: -56px; }
 
     .header-logo {
-      width: 100%; position: absolute; padding-top: 14px;
+      width: 100%; position: absolute; padding-top: 22px;
       z-index: 102; background: #fff; top: 0;
     }
 
@@ -683,8 +683,47 @@
     }
 
     </style>
+  <!-- PAPIK:SHARED-HEADER-CSS -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+  <meta property="og:title" content="Blog | PAPIK · Construcción · Promoción · Rehabilitación">
+  <meta property="og:description" content="Artículos y novedadic sobre construcción, rehabilitación energética y promoción inmobiliaria en Cataluña.">
+  <meta property="og:url" content="https://papik.cat/es/blog">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog | PAPIK · Construcción · Promoción · Rehabilitación">
+  <meta name="twitter:description" content="Artículos y novedadic sobre construcción, rehabilitación energética y promoción inmobiliaria en Cataluña.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
 </head>
 <body>
+<!-- PAPIK · Cookie consent banner snippet
+     Inject at the start of <body>. The text shown is a CA fallback;
+     cookie-banner.js localises it in place using the page's <html lang>. -->
+<aside id="papik-cc-banner"
+       class="papik-cc"
+       role="region"
+       aria-label="Avís de galetes"
+       hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">
+        Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te
+        publicitat relacionada amb les teves preferències. Pots acceptar-les totes,
+        rebutjar-les totes o configurar-les.
+      </p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
 
 <!-- ═══════════════════════════════════
      MOBILE NAV OVERLAY
@@ -712,13 +751,13 @@
     <li><a href="index.html#promocio">Promoción Inmobiliaria</a></li>
     <li><a href="index.html#rehabilitacio">Rehabilitación Energética</a></li>
     <li class="sub-title">Empresa</li>
-    <li><a href="patrimonis.html">Patrimonios</a></li>
+    <li><a href="patrimonios.html">Patrimonios</a></li>
     <li><a href="projectes.html">Proyectos</a></li>
     <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="nosaltres.html">Nosotros</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
     <li><a href="index.html#contacte">Contacto</a></li>
     <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Iniciar sesión &rarr;</a></li>
-    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Pressupost &rarr;</a></li>
+    <li><a href="presupuesto.html" style="color:var(--green);font-weight:600;">Pressupost &rarr;</a></li>
   </ul>
 </nav>
 <div class="fade-bg" id="fadeBg"></div>
@@ -791,7 +830,7 @@
               <a href="blog.html" class="active">Blog</a>
             </li>
             <li>
-              <a href="nosaltres.html">Nosotros</a>
+              <a href="nosotros.html">Nosotros</a>
             </li>
           </ul>
         </nav>
@@ -799,15 +838,6 @@
         <!-- Right nav -->
         <nav class="menu-right t14">
           <ul>
-            <li class="btn-search-trigger" id="searchTrigger">
-              Buscar
-              <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/>
-                  <path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-            </li>
             <li>
               <a href="index.html#contacte">Contacto</a>
               <div class="icon-wrapper">
@@ -858,12 +888,12 @@
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="construccio.html" style="color:inherit;">Construcción Residencial</a></h3>
+          <h3 class="t24"><a href="construccion.html" style="color:inherit;">Construcción Residencial</a></h3>
           <ul class="t16">
-            <li><a href="construccio.html#unifamiliar">Viviendas Unifamiliares</a></li>
-            <li><a href="construccio.html#plurifamiliar">Edificios Plurifamiliares</a></li>
-            <li><a href="construccio.html#ampliacio">Ampliaciones y Recrecimientos</a></li>
-            <li><a href="construccio.html#reforma">Reformas Integrales</a></li>
+            <li><a href="construccion.html#unifamiliar">Viviendas Unifamiliares</a></li>
+            <li><a href="construccion.html#plurifamiliar">Edificios Plurifamiliares</a></li>
+            <li><a href="construccion.html#ampliacio">Ampliaciones y Recrecimientos</a></li>
+            <li><a href="construccion.html#reforma">Reformas Integrales</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(135deg,#E7E9E8 0%,#9FA9A3 100%);"></div>
@@ -889,12 +919,12 @@
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="promocio.html" style="color:inherit;">Promoción Inmobiliaria</a></h3>
+          <h3 class="t24"><a href="promocion.html" style="color:inherit;">Promoción Inmobiliaria</a></h3>
           <ul class="t16">
-            <li><a href="promocio.html#promocions">Promociones activas</a></li>
-            <li><a href="promocio.html#tipologies">Tipologías de promoción</a></li>
-            <li><a href="promocio.html#solar">Colaboración propietarios de solar</a></li>
-            <li><a href="promocio.html#faq">Preguntas frecuentes</a></li>
+            <li><a href="promocion.html#promocions">Promociones activas</a></li>
+            <li><a href="promocion.html#tipologies">Tipologías de promoción</a></li>
+            <li><a href="promocion.html#solar">Colaboración propietarios de solar</a></li>
+            <li><a href="promocion.html#faq">Preguntas frecuentes</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#002819 100%);"></div>
@@ -920,12 +950,12 @@
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="rehabilitacio.html" style="color:inherit;">Rehabilitación Energética</a></h3>
+          <h3 class="t24"><a href="rehabilitacion.html" style="color:inherit;">Rehabilitación Energética</a></h3>
           <ul class="t16">
-            <li><a href="rehabilitacio.html#diagnosi">Diagnosis y certificación energética</a></li>
-            <li><a href="rehabilitacio.html#envolupant">Aislamiento de fachadas y cubiertas</a></li>
-            <li><a href="rehabilitacio.html#instal-lacions">Instalaciones y solar fotovoltaica</a></li>
-            <li><a href="rehabilitacio.html#nextgen">Ayudas Next Generation EU</a></li>
+            <li><a href="rehabilitacion.html#diagnosi">Diagnosis y certificación energética</a></li>
+            <li><a href="rehabilitacion.html#envolupant">Aislamiento de fachadas y cubiertas</a></li>
+            <li><a href="rehabilitacion.html#instal-lacions">Instalaciones y solar fotovoltaica</a></li>
+            <li><a href="rehabilitacion.html#nextgen">Ayudas Next Generation EU</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#56685E 100%);"></div>
@@ -951,11 +981,11 @@
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="patrimonis.html" style="color:inherit;">Inversión Patrimonial</a></h3>
+          <h3 class="t24"><a href="patrimonios.html" style="color:inherit;">Inversión Patrimonial</a></h3>
           <ul class="t16">
-            <li><a href="patrimonis.html#com-funciona">Cómo funciona</a></li>
-            <li><a href="patrimonis.html#faq">Preguntas frecuentes</a></li>
-            <li><a href="patrimonis.html#contacte-inversion">Contacto inversores</a></li>
+            <li><a href="patrimonios.html#com-funciona">Cómo funciona</a></li>
+            <li><a href="patrimonios.html#faq">Preguntas frecuentes</a></li>
+            <li><a href="patrimonios.html#contacte-inversion">Contacto inversores</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
@@ -968,7 +998,7 @@
         <div class="submenu__featured">
           <h3>Destacado</h3>
           <p class="feat-title">Cartera activa: 3 solares disponibles para promoción plurifamiliar</p>
-          <a href="patrimonis.html" class="feat-link link-arrow">Conocer más
+          <a href="patrimonios.html" class="feat-link link-arrow">Conocer más
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -983,11 +1013,11 @@
         <div class="submenu__col">
           <h3 class="t24">Tipo de proyecto</h3>
           <ul class="t16">
-            <li><a href="pressupost.html">Obra Nueva Unifamiliar</a></li>
-            <li><a href="pressupost.html">Edificio Plurifamiliar</a></li>
-            <li><a href="pressupost.html">Reforma Integral</a></li>
-            <li><a href="pressupost.html">Rehabilitación Energética</a></li>
-            <li><a href="pressupost.html">Ampliación y Cambio de Uso</a></li>
+            <li><a href="presupuesto.html">Obra Nueva Unifamiliar</a></li>
+            <li><a href="presupuesto.html">Edificio Plurifamiliar</a></li>
+            <li><a href="presupuesto.html">Reforma Integral</a></li>
+            <li><a href="presupuesto.html">Rehabilitación Energética</a></li>
+            <li><a href="presupuesto.html">Ampliación y Cambio de Uso</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
@@ -996,14 +1026,14 @@
         <div class="submenu__col">
           <h3 class="t24">Estima tu proyecto</h3>
           <p class="t16" style="color:var(--muted);line-height:1.65;">Introduce las características de tu proyecto y obtén una estimación orientativa del coste en menos de un minuto. Sin compromiso, sin registro.</p>
-          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
+          <a href="presupuesto.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
             <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
         <div class="submenu__featured">
           <h3>Cómo funciona</h3>
           <p class="feat-title">3 pasos: tipus de projecte &rarr; superficie y materiales &rarr; resultado</p>
-          <a href="pressupost.html" class="feat-link link-arrow">Probar ahora
+          <a href="presupuesto.html" class="feat-link link-arrow">Probar ahora
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1016,13 +1046,13 @@
     <div class="container">
       <div class="submenu__content">
         <div class="submenu__col">
-          <h3 class="t24"><a href="nosaltres.html" style="color:inherit;">La empresa</a></h3>
+          <h3 class="t24"><a href="nosotros.html" style="color:inherit;">La empresa</a></h3>
           <ul class="t16">
-            <li><a href="nosaltres.html">Quiénes somos</a></li>
-            <li><a href="nosaltres.html#equip">Nuestro equipo</a></li>
-            <li><a href="nosaltres.html#valors">Valores y metodología</a></li>
+            <li><a href="nosotros.html">Quiénes somos</a></li>
+            <li><a href="nosotros.html#equip">Nuestro equipo</a></li>
+            <li><a href="nosotros.html#valors">Valores y metodología</a></li>
             <li><a href="projectes.html">Proyectos realizados</a></li>
-            <li><a href="nosaltres.html#eskimohaus">Sostenibilidad</a></li>
+            <li><a href="nosotros.html#eskimohaus">Sostenibilidad</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
@@ -1066,22 +1096,22 @@
   <div class="container">
     <div class="filter-bar__pills">
       <button class="pill active" data-filter="todo">
-        Todo <span class="pill__count">8</span>
+        Todo <span class="pill__count">13</span>
       </button>
       <button class="pill" data-filter="construccion">
-        Construcción <span class="pill__count">2</span>
+        Construcción <span class="pill__count">4</span>
       </button>
-      <button class="pill" data-filter="promocion">
-        Promoción <span class="pill__count">2</span>
+      <button class="pill" data-filter="sostenibilidad">
+        Sostenibilidad <span class="pill__count">3</span>
       </button>
-      <button class="pill" data-filter="rehabilitacion">
-        Rehabilitación <span class="pill__count">2</span>
+      <button class="pill" data-filter="eficiencia">
+        Eficiencia <span class="pill__count">2</span>
       </button>
-      <button class="pill" data-filter="patrimonios">
-        Patrimonios <span class="pill__count">1</span>
+      <button class="pill" data-filter="innovacion">
+        Innovación <span class="pill__count">2</span>
       </button>
-      <button class="pill" data-filter="tendencias">
-        Tendencias <span class="pill__count">1</span>
+      <button class="pill" data-filter="salud">
+        Salud <span class="pill__count">1</span>
       </button>
     </div>
   </div>
@@ -1092,133 +1122,243 @@
 ═══════════════════════════════════ -->
 <section class="blog-section">
   <div class="container">
-    <p class="blog-count" id="blogCount">8 artículos</p>
+    <p class="blog-count" id="blogCount">14 artículos</p>
     <div class="blog-grid" id="blogGrid">
 
-      <div class="blog-card" data-category="rehabilitacion" data-anim="fade-up">
-        <a href="#" class="blog-card__link">
+      <!-- 0. NOTA DE PRENSA: K-SANDAL Collserola -->
+      <div class="blog-card" data-category="empresa" data-anim="fade-up">
+        <a href="article-nota-prensa-papik-ksandal.html" class="blog-card__link">
           <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%);"></div>
+            <div class="blog-card__img" style="background:url('../img/foto-ksandal.jpg') center/cover no-repeat;"></div>
           </div>
-          <span class="blog-card__cat">Rehabilitación</span>
-          <h3 class="blog-card__title">Next Generation EU: cómo acceder a las ayudas para rehabilitar tu edificio</h3>
-          <p class="blog-card__excerpt">Las subvenciones europeas cubren hasta el 80% del coste de rehabilitación energética. Te explicamos los requisitos, plazos y pasos para solicitarlas.</p>
+          <span class="blog-card__cat">Nota de prensa</span>
+          <h2 class="blog-card__title">PAPIK Group lanza K-SANDAL, la nueva promoción de vivienda pasiva en el Parc de Collserola</h2>
+          <p class="blog-card__excerpt">Dos viviendas unifamiliares adosadas Passivhaus en La Floresta, con terreno rústico anexo de bosque mediterráneo de uso privado exclusivo en el Parc Natural de Collserola.</p>
           <div class="blog-card__meta">
-            <time>15 febrer 2025</time>
-            <span class="sep">&middot;</span>
-            <span>6 min lectura</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="blog-card" data-category="promocion" data-anim="fade-up">
-        <a href="#" class="blog-card__link">
-          <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(135deg,#E7E9E8 0%,#56685E 100%);"></div>
-          </div>
-          <span class="blog-card__cat">Promoción</span>
-          <h3 class="blog-card__title">Nueva promoción en Badalona: 24 viviendas con certificación energética A</h3>
-          <p class="blog-card__excerpt">Presentamos nuestra nueva promoción plurifamiliar con 24 viviendas de alta eficiencia energética, diseñadas para un confort excepcional.</p>
-          <div class="blog-card__meta">
-            <time>3 març 2025</time>
-            <span class="sep">&middot;</span>
-            <span>4 min lectura</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="blog-card" data-category="construccion" data-anim="fade-up">
-        <a href="#" class="blog-card__link">
-          <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(160deg,#56685E 0%,#002819 100%);"></div>
-          </div>
-          <span class="blog-card__cat">Construcción</span>
-          <h3 class="blog-card__title">Construir en terreno difícil: nuestra experiencia en la montaña</h3>
-          <p class="blog-card__excerpt">Cómo resolvimos los retos de una obra en pendiente pronunciada, logrando una residencia que aprovecha el desnivel y minimiza el impacto ambiental.</p>
-          <div class="blog-card__meta">
-            <time>5 febrer 2025</time>
+            <time>abril 2025</time>
             <span class="sep">&middot;</span>
             <span>7 min lectura</span>
           </div>
         </a>
       </div>
 
-      <div class="blog-card" data-category="rehabilitacion" data-anim="fade-up">
-        <a href="#" class="blog-card__link">
+      <!-- 1. NOTA DE PRENSA: Acuerdo PAPIK-Ponsa -->
+      <div class="blog-card" data-category="empresa" data-anim="fade-up">
+        <a href="article-nota-prensa-papik-ponsa.html" class="blog-card__link">
           <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(135deg,#E7E9E8 0%,#9FA9A3 100%);"></div>
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#002819 0%,#95BBA5 100%);"></div>
           </div>
-          <span class="blog-card__cat">Rehabilitación</span>
-          <h3 class="blog-card__title">Rehabilitación de fachada en el Eixample: ahorro del 60% en calefacción</h3>
-          <p class="blog-card__excerpt">Un caso de éxito de rehabilitación de la envolvente térmica que ha transformado el confort y el gasto energético de un edificio centenario.</p>
+          <span class="blog-card__cat">Nota de prensa</span>
+          <h3 class="blog-card__title">PAPIK Group firma un acuerdo estratégico con la familia Ponsa para proyectos de 2M&euro; anuales</h3>
+          <p class="blog-card__excerpt">El acuerdo abarca la gestión integral de proyectos inmobiliarios en ubicaciones premium de Barcelona, Maresme y Garraf, reforzando la división de Patrimonios del grupo.</p>
           <div class="blog-card__meta">
-            <time>18 gener 2025</time>
+            <time>19 marzo 2026</time>
             <span class="sep">&middot;</span>
             <span>5 min lectura</span>
           </div>
         </a>
       </div>
 
-      <div class="blog-card" data-category="promocion" data-anim="fade-up">
-        <a href="#" class="blog-card__link">
-          <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(145deg,#9FA9A3 0%,#002819 100%);"></div>
-          </div>
-          <span class="blog-card__cat">Promoción</span>
-          <h3 class="blog-card__title">Cómo elegir un piso de obra nueva: 5 criterios esenciales</h3>
-          <p class="blog-card__excerpt">Ubicación, eficiencia energética, calidades, comunidad y precio. Analizamos los factores clave para tomar la mejor decisión a la hora de comprar.</p>
-          <div class="blog-card__meta">
-            <time>25 desembre 2024</time>
-            <span class="sep">&middot;</span>
-            <span>5 min lectura</span>
-          </div>
-        </a>
-      </div>
-
+      <!-- 1. Tecnologías Passivhaus 2026 -->
       <div class="blog-card" data-category="construccion" data-anim="fade-up">
-        <a href="#" class="blog-card__link">
+        <a href="article-tecnologias-passivhaus.html" class="blog-card__link">
           <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(170deg,#0A1B12 0%,#07140D 100%);"></div>
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);"></div>
           </div>
           <span class="blog-card__cat">Construcción</span>
-          <h3 class="blog-card__title">Passivhaus en el Maresme: nuestra primera casa certificada</h3>
-          <p class="blog-card__excerpt">Hem assolit la certificació Passivhaus en una vivenda unifamiliar. Expliquem el procés, els materials i els resultados de consum energètic.</p>
+          <h3 class="blog-card__title">Tecnologías clave en la construcción de una casa Passivhaus en 2026</h3>
+          <p class="blog-card__excerpt">Aerogeles, ventilación inteligente, ventanas de última generación y domótica predictiva: las tecnologías que definen la construcción pasiva actual.</p>
           <div class="blog-card__meta">
-            <time>10 desembre 2024</time>
+            <time>12 febrero 2026</time>
+            <span class="sep">&middot;</span>
+            <span>12 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 2. Presupuesto casa pasiva -->
+      <div class="blog-card" data-category="construccion" data-anim="fade-up">
+        <a href="article-presupuesto-casa-pasiva.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#56685E 0%,#002819 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Construcción</span>
+          <h3 class="blog-card__title">Cómo calcular el presupuesto de construcción de una casa pasiva</h3>
+          <p class="blog-card__excerpt">Desglosamos todas las partidas: terreno, proyecto arquitectónico, licencias, urbanización y construcción. Una guía completa para planificar tu inversión.</p>
+          <div class="blog-card__meta">
+            <time>19 noviembre 2025</time>
+            <span class="sep">&middot;</span>
+            <span>15 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 3. Innovaciones Passivhaus -->
+      <div class="blog-card" data-category="innovacion" data-anim="fade-up">
+        <a href="article-innovaciones-passivhaus.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Innovación</span>
+          <h3 class="blog-card__title">Las innovaciones que están revolucionando la construcción Passivhaus</h3>
+          <p class="blog-card__excerpt">Aislantes naturales, ventilación con recuperación de frío, ventanas inteligentes y domótica avanzada: las novedades que transforman la vivienda pasiva.</p>
+          <div class="blog-card__meta">
+            <time>27 octubre 2025</time>
             <span class="sep">&middot;</span>
             <span>8 min lectura</span>
           </div>
         </a>
       </div>
 
-      <div class="blog-card" data-category="patrimonios" data-anim="fade-up">
-        <a href="#" class="blog-card__link">
+      <!-- 4. Materiales sostenibles -->
+      <div class="blog-card" data-category="sostenibilidad" data-anim="fade-up">
+        <a href="article-materiales-sostenibles.html" class="blog-card__link">
           <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(160deg,#E7E9E8 0%,#56685E 100%);"></div>
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#002819 0%,#95BBA5 100%);"></div>
           </div>
-          <span class="blog-card__cat">Patrimonios</span>
-          <h3 class="blog-card__title">Inversión inmobiliaria en el Maresme: rentabilidadic y oportunidadic 2025</h3>
-          <p class="blog-card__excerpt">Analizamos el mercado residencial del Maresme y el Barcelonès para inversores patrimoniales. Tendencias, precios y zonas con más potencial.</p>
+          <span class="blog-card__cat">Sostenibilidad</span>
+          <h3 class="blog-card__title">Materiales sostenibles que dan vida a la construcción sostenible</h3>
+          <p class="blog-card__excerpt">Madera certificada FSC, aislantes naturales, materiales reciclados y construcción modular: los pilares de una casa respetuosa con el medio ambiente.</p>
           <div class="blog-card__meta">
-            <time>20 novembre 2024</time>
+            <time>21 octubre 2025</time>
+            <span class="sep">&middot;</span>
+            <span>9 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 5. Casa Montseny -->
+      <div class="blog-card" data-category="construccion" data-anim="fade-up">
+        <a href="article-casa-montseny.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#56685E 0%,#0A1B12 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Proyectos</span>
+          <h3 class="blog-card__title">Una casa sostenible a los pies del Montseny</h3>
+          <p class="blog-card__excerpt">K-Alzina: 180 m² de diseño bioclimático en forma de L, estructura de madera y un balance de CO₂ negativo que marca la diferencia.</p>
+          <div class="blog-card__meta">
+            <time>13 octubre 2025</time>
+            <span class="sep">&middot;</span>
+            <span>5 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 6. Huella ecológica -->
+      <div class="blog-card" data-category="sostenibilidad" data-anim="fade-up">
+        <a href="article-huella-ecologica.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#0A1B12 0%,#56685E 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Sostenibilidad</span>
+          <h3 class="blog-card__title">La huella ecológica de construir y vivir en tu casa</h3>
+          <p class="blog-card__excerpt">Hormigón vs. madera, consumo anual e impacto a 50 años: las cifras reales de la huella de carbono en la construcción y el uso de una vivienda.</p>
+          <div class="blog-card__meta">
+            <time>26 septiembre 2025</time>
+            <span class="sep">&middot;</span>
+            <span>10 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 7. Sostenibilidad Passivhaus -->
+      <div class="blog-card" data-category="sostenibilidad" data-anim="fade-up">
+        <a href="article-sostenibilidad-passivhaus.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#95BBA5 0%,#002819 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Sostenibilidad</span>
+          <h3 class="blog-card__title">Passivhaus y sostenibilidad: cómo minimizar la huella ecológica</h3>
+          <p class="blog-card__excerpt">Arquitectura bioclimática, materiales ecológicos y eficiencia energética: la sinergia perfecta entre el estándar Passivhaus y la construcción sostenible.</p>
+          <div class="blog-card__meta">
+            <time>11 junio 2025</time>
+            <span class="sep">&middot;</span>
+            <span>7 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 8. Ventilación Passivhaus -->
+      <div class="blog-card" data-category="salud" data-anim="fade-up">
+        <a href="article-ventilacion-passivhaus.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#002819 0%,#9FA9A3 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Salud</span>
+          <h3 class="blog-card__title">¿Por qué se respira mejor en una casa Passivhaus?</h3>
+          <p class="blog-card__excerpt">Ventilación mecánica con recuperación de calor, filtros F7 y aire interior más limpio que el exterior: la ciencia detrás del confort respiratorio.</p>
+          <div class="blog-card__meta">
+            <time>16 mayo 2025</time>
+            <span class="sep">&middot;</span>
+            <span>8 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 9. Apagón 2025 -->
+      <div class="blog-card" data-category="eficiencia" data-anim="fade-up">
+        <a href="article-apagon-2025.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#07140D 0%,#56685E 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Eficiencia</span>
+          <h3 class="blog-card__title">Cuando todo se apagó, tres casas seguían encendidas</h3>
+          <p class="blog-card__excerpt">El apagón del 28 de abril de 2025 dejó millones de hogares sin luz. Tres casas autosuficientes continuaron funcionando con normalidad.</p>
+          <div class="blog-card__meta">
+            <time>29 abril 2025</time>
             <span class="sep">&middot;</span>
             <span>6 min lectura</span>
           </div>
         </a>
       </div>
 
-      <div class="blog-card" data-category="tendencias" data-anim="fade-up">
-        <a href="#" class="blog-card__link">
+      <!-- 10. Hipoteca energética -->
+      <div class="blog-card" data-category="eficiencia" data-anim="fade-up">
+        <a href="article-hipoteca-energetica.html" class="blog-card__link">
           <div class="blog-card__img-wrap">
-            <div class="blog-card__img" style="background:linear-gradient(135deg,#56685E 0%,#0A1B12 100%);"></div>
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#56685E 0%,#95BBA5 100%);"></div>
           </div>
-          <span class="blog-card__cat">Tendencias</span>
-          <h3 class="blog-card__title">Tendencias en arquitectura residencial sostenible para 2025</h3>
-          <p class="blog-card__excerpt">Materiales bio-based, construcción industrializada, edificios de consumo casi nulo: las tendencias que marcarán la construcción residencial.</p>
+          <span class="blog-card__cat">Eficiencia</span>
+          <h3 class="blog-card__title">¿Qué es la hipoteca energética?</h3>
+          <p class="blog-card__excerpt">El coste oculto de climatizar tu casa: cómo una casa Passivhaus puede reducir hasta el 90% tu gasto energético anual.</p>
           <div class="blog-card__meta">
-            <time>5 novembre 2024</time>
+            <time>11 abril 2025</time>
             <span class="sep">&middot;</span>
-            <span>7 min lectura</span>
+            <span>8 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 11. Revolución de la madera -->
+      <div class="blog-card" data-category="innovacion" data-anim="fade-up">
+        <a href="article-revolucion-madera.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Innovación</span>
+          <h3 class="blog-card__title">La revolución de la madera: por qué construimos con madera y qué nos depara el futuro</h3>
+          <p class="blog-card__excerpt">Por qué PAPIK construye con estructura de madera, qué hemos aprendido en más de 15 años y cómo la ciencia abre nuevas posibilidades para la madera estructural.</p>
+          <div class="blog-card__meta">
+            <time>28 marzo 2025</time>
+            <span class="sep">&middot;</span>
+            <span>9 min lectura</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 12. Principios Passivhaus -->
+      <div class="blog-card" data-category="construccion" data-anim="fade-up">
+        <a href="article-principios-passivhaus.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#002819 0%,#07140D 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Construcción</span>
+          <h3 class="blog-card__title">Los cinco principios del Passivhaus</h3>
+          <p class="blog-card__excerpt">Aislamiento, ventanas, hermeticidad, puentes térmicos y ventilación: los fundamentos que hacen posible una casa con un consumo energético hasta un 75-90% inferior.</p>
+          <div class="blog-card__meta">
+            <time>15 febrero 2025</time>
+            <span class="sep">&middot;</span>
+            <span>9 min lectura</span>
           </div>
         </a>
       </div>
@@ -1277,11 +1417,11 @@
       <div class="footer-col">
         <p class="footer__col-title">Oficinas</p>
         <div class="info-showroom__item">
-          <h3>SEU CENTRAL</h3>
+          <h3>SEDE CENTRAL</h3>
           <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 935 90 60 74</a></p>
         </div>
         <div class="info-showroom__item">
-          <h3>CORREU</h3>
+          <h3>CORREO</h3>
           <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
         </div>
       </div>
@@ -1578,6 +1718,8 @@
 
     /* ══ Parallax desactivado — scroll estático ════════════ */)();
   </script>
+  <script src="/js/cookie-banner.js" defer></script>
+  <script src="/js/forms.js" defer></script>
 
 </body>
 </html>

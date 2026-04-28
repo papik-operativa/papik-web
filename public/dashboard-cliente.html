@@ -3,1647 +3,1983 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Area de Client | PAPIK</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="papik-crm.css">
+  <title>Espai Client | PAPIK</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- ═══════════════════════════════════
+       FONTS
+  ═══════════════════════════════════ -->
   <style>
-    /* ── Chatbot styles ─────────────────────────────────────── */
-    .chat-container {
-      background: #fff;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      margin-top: 24px;
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Light.woff') format('woff');
+      font-weight: 300; font-style: normal; font-display: swap;
     }
-    .chat-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Regular.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
     }
-    .chat-header-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .chat-header-icon svg {
-      width: 16px;
-      height: 16px;
-      color: #fff;
-    }
-    .chat-header-title {
-      font-size: 15px;
-      font-weight: 500;
-    }
-    .chat-header-subtitle {
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .chat-messages {
-      max-height: 400px;
-      min-height: 200px;
-      overflow-y: auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      background: var(--bg-light);
-    }
-    .chat-msg {
-      max-width: 80%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.5;
-      word-wrap: break-word;
-    }
-    .chat-msg--bot {
-      align-self: flex-start;
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-bottom-left-radius: 4px;
-    }
-    .chat-msg--user {
-      align-self: flex-end;
-      background: var(--green);
-      color: #fff;
-      border-bottom-right-radius: 4px;
-    }
-    .chat-msg--typing {
-      align-self: flex-start;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-bottom-left-radius: 4px;
-      padding: 12px 20px;
-    }
-    .typing-dots {
-      display: flex;
-      gap: 4px;
-      align-items: center;
-    }
-    .typing-dots span {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--muted-light);
-      animation: dotBounce 1.4s ease-in-out infinite both;
-    }
-    .typing-dots span:nth-child(1) { animation-delay: 0s; }
-    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes dotBounce {
-      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-      40% { transform: scale(1); opacity: 1; }
-    }
-    .chat-input-bar {
-      display: flex;
-      border-top: 1px solid var(--border);
-      background: #fff;
-    }
-    .chat-input {
-      flex: 1;
-      border: none;
-      padding: 14px 16px;
-      font-size: 14px;
-      font-family: inherit;
-      outline: none;
-      background: transparent;
-      color: var(--text);
-    }
-    .chat-input::placeholder {
-      color: var(--muted-light);
-    }
-    .chat-send-btn {
-      background: var(--green);
-      color: #fff;
-      border: none;
-      padding: 0 20px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      transition: background .2s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .chat-send-btn:hover {
-      background: #1a3a2a;
-    }
-    .chat-send-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    /* ── Budget pack cards ───────────────────────────────────── */
-    .pack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .pack-card {
-      background: #fff;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: box-shadow .2s;
-    }
-    .pack-card:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,.06);
-    }
-    .pack-card__header {
-      padding: 16px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-    }
-    .pack-card__name {
-      font-size: 14px;
-      font-weight: 500;
-    }
-    .pack-card__total {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--green);
-    }
-    .pack-card__toggle {
-      width: 24px;
-      height: 24px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      color: var(--muted);
-      transition: transform .2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .pack-card__toggle.open {
-      transform: rotate(180deg);
-    }
-    .pack-card__items {
-      display: none;
-      border-top: 1px solid var(--border);
-      padding: 0;
-    }
-    .pack-card__items.open {
-      display: block;
-    }
-    .pack-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 20px;
-      font-size: 13px;
-      border-bottom: 1px solid var(--border);
-    }
-    .pack-item:last-child {
-      border-bottom: none;
-    }
-    .pack-item__name {
-      color: var(--muted);
-    }
-    .pack-item__value {
-      font-weight: 500;
-    }
-
-    /* ── Budget summary ────────────────────────────────────── */
-    .budget-summary {
-      background: var(--green);
-      color: #fff;
-      border-radius: 10px;
-      padding: 28px;
-      margin-bottom: 24px;
-    }
-    .budget-summary__total {
-      font-size: 36px;
-      font-weight: 300;
-      margin-bottom: 8px;
-    }
-    .budget-summary__detail {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-    .budget-summary__item {
-      font-size: 13px;
-      opacity: 0.8;
-    }
-    .budget-summary__item strong {
-      display: block;
-      font-size: 18px;
-      font-weight: 400;
-      opacity: 1;
-    }
-
-    /* ── Timeline ──────────────────────────────────────────── */
-    .timeline {
-      position: relative;
-      padding-left: 28px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px;
-      top: 4px;
-      bottom: 4px;
-      width: 2px;
-      background: var(--border);
-    }
-    .timeline-item {
-      position: relative;
-      padding-bottom: 20px;
-    }
-    .timeline-item:last-child {
-      padding-bottom: 0;
-    }
-    .timeline-item__dot {
-      position: absolute;
-      left: -24px;
-      top: 4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--green);
-      border: 2px solid #fff;
-      box-shadow: 0 0 0 2px var(--border);
-    }
-    .timeline-item__date {
-      font-size: 11px;
-      color: var(--muted-light);
-      margin-bottom: 2px;
-    }
-    .timeline-item__text {
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    /* ── Quick link cards ─────────────────────────────────── */
-    .quick-links {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .quick-link {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
-      text-decoration: none;
-      color: var(--text);
-      cursor: pointer;
-      transition: border-color .2s, box-shadow .2s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-family: inherit;
-    }
-    .quick-link:hover {
-      border-color: var(--green);
-      box-shadow: 0 2px 8px rgba(0,0,0,.04);
-    }
-    .quick-link__icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: rgba(14,39,25,.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--green);
-    }
-
-    /* ── Notes card ────────────────────────────────────────── */
-    .note-card {
-      background: #fff;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      padding: 16px 20px;
-      margin-bottom: 12px;
-    }
-    .note-card__date {
-      font-size: 11px;
-      color: var(--muted-light);
-      margin-bottom: 4px;
-    }
-    .note-card__author {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-    .note-card__content {
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    /* ── Team list ─────────────────────────────────────────── */
-    .team-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 12px;
-    }
-    .team-member {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
-    .team-member__avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--bg-section);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--green);
-      flex-shrink: 0;
-    }
-    .team-member__name {
-      font-size: 14px;
-      font-weight: 500;
-    }
-    .team-member__role {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* ── Invoice summary banner ────────────────────────────── */
-    .invoice-banner {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .invoice-banner__label {
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .invoice-banner__amount {
-      font-size: 24px;
-      font-weight: 300;
-      color: var(--error);
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+           url('fonts/TT_Firs_Neue_Medium.woff') format('woff');
+      font-weight: 500; font-style: normal; font-display: swap;
     }
   </style>
+
+  <!-- ═══════════════════════════════════
+       DASHBOARD CSS — REDESIGNED
+  ═══════════════════════════════════ -->
+  <style>
+    /* ─── Variables & Reset ─── */
+    :root {
+      --green:       #002819;
+      --accent:      #95BBA5;
+      --green-light: #56685E;
+      --green-dark:  #0A1B12;
+      --bg-light:    rgba(86,104,94,0.14);
+      --text:        #002819;
+      --muted:       #56685E;
+      --muted-light: #9FA9A3;
+      --border:      rgba(86,104,94,0.25);
+
+      --dash-sidebar-w: 68px;
+      --dash-topbar-h:  64px;
+      --dash-mobile-nav-h: 62px;
+      --dash-card-radius: 14px;
+      --dash-card-shadow: 0 1px 4px rgba(0,40,25,.04), 0 2px 8px rgba(0,40,25,.03);
+      --dash-card-shadow-hover: 0 8px 28px rgba(0,40,25,.07);
+      --dash-success:    #166534;
+      --dash-success-bg: #f0fdf4;
+      --dash-warning:    #92400e;
+      --dash-warning-bg: #fffbeb;
+      --dash-error:      #991b1b;
+      --dash-error-bg:   #fef2f2;
+      --dash-transition: cubic-bezier(.22,.68,0,1.05);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'TT Firs Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      color: var(--text);
+      background: #f5f6f5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    a { text-decoration: none; color: inherit; }
+    button, input, select, textarea { font-family: inherit; border: none; outline: none; background: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .t12  { font-size: 12px; line-height: 1.6; }
+    .t14  { font-size: 14px; line-height: 1.6; }
+    .t16  { font-size: 16px; line-height: 1.6; }
+    .t18  { font-size: 18px; line-height: 1.4; }
+    .t24  { font-size: clamp(20px, 2vw, 28px); line-height: 1.3; }
+    .t42  { font-size: clamp(24px, 2.5vw, 36px); line-height: 1.15; }
+    .upper { text-transform: uppercase; letter-spacing: 0.12em; }
+    .fw500 { font-weight: 500; }
+    .color-muted { color: var(--muted); }
+    .color-muted-light { color: var(--muted-light); }
+
+    /* ─── Loading State ─── */
+    .dash-loading {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #f5f6f5;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity .4s ease, visibility .4s ease;
+    }
+    .dash-loading.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .dash-loading__spinner {
+      width: 36px; height: 36px;
+      border: 2.5px solid var(--border);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── Sidebar (Icon-only, 68px) ─── */
+    .dash-sidebar {
+      position: fixed; top: 0; left: 0;
+      width: var(--dash-sidebar-w);
+      height: 100vh;
+      background: #fff;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center;
+      z-index: 200;
+      transition: transform .3s var(--dash-transition);
+      padding: 16px 0;
+    }
+    .dash-sidebar__logo {
+      margin-bottom: 28px;
+      flex-shrink: 0;
+    }
+    .dash-sidebar__nav {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; gap: 4px;
+      width: 100%;
+      padding: 0 10px;
+      overflow-y: auto;
+    }
+    .dash-sidebar__item {
+      position: relative;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 14px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s var(--dash-transition);
+      flex-shrink: 0;
+    }
+    .dash-sidebar__item:hover {
+      background: var(--bg-light); color: var(--text);
+    }
+    .dash-sidebar__item--active {
+      background: var(--green); color: #fff;
+    }
+    .dash-sidebar__item--active:hover {
+      background: var(--green); color: #fff;
+    }
+    .dash-sidebar__item svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .dash-sidebar__item span.dash-sidebar__label { display: none; }
+
+    /* Tooltip on hover */
+    .dash-sidebar__item::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: calc(100% + 12px); top: 50%;
+      transform: translateY(-50%);
+      background: var(--green-dark);
+      color: #fff;
+      font-size: 12px; font-weight: 400;
+      padding: 5px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0; visibility: hidden;
+      pointer-events: none;
+      transition: opacity .15s, visibility .15s;
+      z-index: 999;
+    }
+    .dash-sidebar__item:hover::after {
+      opacity: 1; visibility: visible;
+    }
+
+    /* Sidebar badge */
+    .dash-sidebar__badge {
+      position: absolute; top: 4px; right: 4px;
+      min-width: 18px; height: 18px;
+      background: var(--dash-error); color: #fff;
+      border-radius: 9px; font-size: 10px; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 4px;
+    }
+
+    .dash-sidebar__footer {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 4px;
+      padding: 12px 10px 0;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      margin-top: auto;
+    }
+    .dash-sidebar__footer .dash-sidebar__item {
+      width: 48px; height: 48px;
+    }
+
+    /* Sidebar overlay for tablet */
+    .dash-sidebar-overlay {
+      display: none; position: fixed; inset: 0; z-index: 199;
+      background: rgba(0,0,0,.3); opacity: 0;
+      transition: opacity .3s;
+    }
+    .dash-sidebar-overlay.visible { display: block; opacity: 1; }
+
+    /* ─── Top Bar ─── */
+    .dash-topbar {
+      position: fixed; top: 0; left: var(--dash-sidebar-w); right: 0;
+      height: var(--dash-topbar-h);
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+      z-index: 300;
+      gap: 20px;
+    }
+    .dash-topbar__left {
+      display: flex; align-items: center; gap: 14px;
+      flex-shrink: 0;
+    }
+    .dash-topbar__menu-btn {
+      display: none; cursor: pointer; padding: 6px;
+      color: var(--text);
+    }
+    .dash-topbar__menu-btn svg { display: block; }
+    .dash-topbar__title {
+      font-size: 18px; font-weight: 500; color: var(--text);
+    }
+    .dash-topbar__subtitle {
+      font-size: 12px; color: var(--muted-light);
+      margin-top: 1px;
+    }
+    .dash-topbar__project-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px;
+      background: var(--bg-light); border-radius: 20px;
+      font-size: 12px; color: var(--muted); font-weight: 400;
+      margin-left: 14px;
+    }
+    .dash-topbar__project-pill svg { width: 13px; height: 13px; }
+
+    /* Search input in center */
+    .dash-topbar__center {
+      flex: 1; max-width: 400px;
+      display: flex; align-items: center;
+    }
+    .dash-topbar__search {
+      width: 100%; height: 40px;
+      padding: 0 16px 0 42px;
+      background: #f5f6f5;
+      border: 1px solid transparent;
+      border-radius: 21px;
+      font-size: 13px; color: var(--text);
+      transition: all .2s;
+    }
+    .dash-topbar__search:focus {
+      background: #fff;
+      border-color: var(--border);
+    }
+    .dash-topbar__search-wrap {
+      position: relative; width: 100%;
+    }
+    .dash-topbar__search-icon {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted-light);
+      pointer-events: none;
+    }
+    .dash-topbar__search-icon svg { width: 16px; height: 16px; display: block; }
+
+    .dash-topbar__right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .dash-topbar__notif-btn {
+      position: relative; cursor: pointer;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: background .2s;
+      color: var(--text);
+    }
+    .dash-topbar__notif-btn:hover { background: var(--bg-light); }
+    .dash-topbar__notif-btn svg { width: 20px; height: 20px; }
+    .dash-topbar__badge {
+      position: absolute; top: 4px; right: 4px;
+      min-width: 17px; height: 17px;
+      background: var(--dash-error); color: #fff;
+      border-radius: 9px; font-size: 10px; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 4px;
+    }
+    .dash-topbar__user {
+      display: flex; align-items: center; gap: 10px;
+      cursor: pointer; padding: 4px 10px 4px 4px;
+      border-radius: 24px; transition: background .2s;
+      position: relative;
+    }
+    .dash-topbar__user:hover { background: var(--bg-light); }
+    .dash-topbar__avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .dash-topbar__username { font-size: 14px; font-weight: 400; color: var(--text); }
+    .dash-topbar__chevron { color: var(--muted-light); display: flex; align-items: center; }
+    .dash-topbar__chevron svg { width: 16px; height: 16px; }
+
+    /* User dropdown */
+    .dash-user-dropdown {
+      position: absolute; top: 50px; right: 0;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 0; min-width: 180px;
+      box-shadow: 0 8px 30px rgba(0,40,25,.1);
+      opacity: 0; visibility: hidden; transform: translateY(-6px);
+      transition: all .2s ease; z-index: 400;
+    }
+    .dash-user-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dash-user-dropdown__item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px; font-size: 14px; cursor: pointer;
+      color: var(--text); transition: background .15s; width: 100%;
+    }
+    .dash-user-dropdown__item:hover { background: var(--bg-light); }
+    .dash-user-dropdown__item svg { width: 16px; height: 16px; opacity: .6; }
+    .dash-user-dropdown__divider { height: 1px; background: var(--border); margin: 4px 0; }
+
+    /* Hide PAPIK text logo in topbar (not needed, logo is in sidebar) */
+    .dash-topbar__logo { display: none; }
+    .dash-topbar__divider { display: none; }
+    .dash-topbar__label { display: none; }
+
+    /* ─── Main Content ─── */
+    .dash-main {
+      margin-left: var(--dash-sidebar-w);
+      margin-top: var(--dash-topbar-h);
+      min-height: calc(100vh - var(--dash-topbar-h));
+      padding: 36px 40px 56px;
+    }
+    .dash-main__inner { max-width: 980px; margin: 0 auto; }
+
+    /* ─── Sections ─── */
+    .dash-section { display: none; animation: fadeIn .35s ease; }
+    .dash-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .dash-section__title { font-weight: 400; margin-bottom: 6px; }
+    .dash-section__desc { margin-bottom: 32px; }
+
+    /* ─── Cards ─── */
+    .dash-card {
+      background: #fff;
+      border: 1px solid rgba(86,104,94,.08);
+      border-radius: var(--dash-card-radius);
+      box-shadow: var(--dash-card-shadow);
+      transition: box-shadow .25s var(--dash-transition);
+    }
+    .dash-card:hover { box-shadow: var(--dash-card-shadow-hover); }
+    .dash-card__header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid rgba(86,104,94,.06);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .dash-card__body { padding: 24px; }
+
+    /* ─── Welcome Section ─── */
+    .dash-welcome {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 24px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .dash-welcome__greeting p { margin-bottom: 4px; }
+    .dash-welcome__name { font-weight: 300; }
+    .dash-welcome__project {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 8px; padding: 6px 14px;
+      background: var(--bg-light); border-radius: 20px;
+      font-size: 13px; color: var(--muted); font-weight: 400;
+    }
+    .dash-welcome__project svg { width: 14px; height: 14px; }
+
+    .dash-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-bottom: 32px;
+    }
+    .dash-stat {
+      background: #fff; border: 1px solid rgba(86,104,94,.08);
+      border-radius: var(--dash-card-radius);
+      padding: 24px; text-align: center;
+      box-shadow: var(--dash-card-shadow);
+      transition: box-shadow .25s var(--dash-transition);
+    }
+    .dash-stat:hover { box-shadow: var(--dash-card-shadow-hover); }
+    .dash-stat__value {
+      display: block; font-size: 28px; font-weight: 500;
+      color: var(--green); line-height: 1.2; margin-bottom: 6px;
+    }
+    .dash-stat__label {
+      font-size: 12px; color: var(--muted-light); text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Energy / Passive House Card ─── */
+    .dash-energy { overflow: hidden; }
+    .dash-energy__header-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;
+      background: var(--dash-success-bg); color: var(--dash-success);
+    }
+    .dash-energy__header-badge svg { width: 13px; height: 13px; }
+    .dash-energy__grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    }
+    .dash-energy__metric {
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(86,104,94,.06);
+      border-right: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-energy__metric:nth-child(2n) { border-right: none; }
+    .dash-energy__metric:nth-last-child(-n+2) { border-bottom: none; }
+    .dash-energy__metric-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted-light); margin-bottom: 6px;
+    }
+    .dash-energy__metric-value {
+      font-size: 22px; font-weight: 500; color: var(--green); line-height: 1.2;
+    }
+    .dash-energy__metric-value span { font-size: 13px; font-weight: 400; color: var(--muted); }
+    .dash-energy__metric-sub {
+      font-size: 11px; color: var(--muted-light); margin-top: 4px;
+    }
+    .dash-energy__comparison {
+      padding: 20px 24px; border-top: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-energy__comparison-title {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted-light); margin-bottom: 14px;
+    }
+    .dash-energy__bar-row {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+    }
+    .dash-energy__bar-row:last-child { margin-bottom: 0; }
+    .dash-energy__bar-label {
+      font-size: 12px; color: var(--muted); width: 100px; flex-shrink: 0;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .dash-energy__bar-track {
+      flex: 1; height: 8px; background: rgba(86,104,94,.08);
+      border-radius: 4px; overflow: hidden; position: relative;
+    }
+    .dash-energy__bar-fill {
+      height: 100%; border-radius: 4px; transition: width .8s var(--dash-transition);
+    }
+    .dash-energy__bar-fill--green { background: var(--green); }
+    .dash-energy__bar-fill--muted { background: var(--muted-light); }
+    .dash-energy__bar-fill--warning { background: #d97706; }
+    .dash-energy__bar-amount {
+      font-size: 12px; font-weight: 500; color: var(--text); width: 65px;
+      text-align: right; flex-shrink: 0;
+    }
+    .dash-energy__cert {
+      display: flex; align-items: center; gap: 14px; padding: 18px 24px;
+      border-top: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-energy__cert-badge {
+      width: 44px; height: 44px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700; flex-shrink: 0;
+    }
+    .dash-energy__cert-badge--a { background: #065f46; color: #fff; }
+    .dash-energy__cert-info { flex: 1; }
+    .dash-energy__cert-title { font-size: 13px; font-weight: 500; }
+    .dash-energy__cert-sub { font-size: 12px; color: var(--muted-light); }
+    .dash-energy__savings {
+      padding: 18px 24px; border-top: 1px solid rgba(86,104,94,.06);
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(22,101,52,.03);
+    }
+    .dash-energy__savings-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--dash-success-bg); color: var(--dash-success);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .dash-energy__savings-icon svg { width: 18px; height: 18px; }
+    .dash-energy__savings-text { font-size: 13px; color: var(--text); }
+    .dash-energy__savings-text strong { font-weight: 500; color: var(--dash-success); }
+
+    /* ─── Next Milestone ─── */
+    .dash-milestone__content {
+      display: flex; align-items: center; gap: 20px;
+    }
+    .dash-milestone__icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: var(--bg-light); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dash-milestone__icon svg { width: 22px; height: 22px; color: var(--green); }
+    .dash-milestone__info { flex: 1; }
+    .dash-milestone__phase { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
+    .dash-milestone__date { font-size: 13px; color: var(--muted); }
+    .dash-milestone__countdown {
+      font-size: 22px; font-weight: 500; color: var(--green);
+      white-space: nowrap;
+    }
+
+    /* ─── Activity Feed ─── */
+    .dash-activity__item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 0; border-bottom: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-activity__item:last-child { border-bottom: none; }
+    .dash-activity__dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); margin-top: 6px; flex-shrink: 0;
+    }
+    .dash-activity__text { font-size: 14px; color: var(--text); flex: 1; }
+    .dash-activity__time { font-size: 12px; color: var(--muted-light); white-space: nowrap; }
+
+    /* ─── Phases Timeline ─── */
+    .dash-phases__overall { margin-bottom: 32px; }
+    .dash-phases__bar {
+      height: 8px; background: rgba(86,104,94,.1);
+      border-radius: 4px; overflow: hidden; margin-bottom: 8px;
+    }
+    .dash-phases__bar-fill {
+      height: 100%; background: var(--green);
+      border-radius: 4px; transition: width .6s var(--dash-transition);
+    }
+
+    .dash-phases__timeline { position: relative; padding-left: 32px; }
+    .dash-phases__timeline::before {
+      content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px;
+      width: 2px; background: rgba(86,104,94,.15);
+    }
+    .dash-phases__node {
+      position: relative; padding: 16px 0 28px;
+    }
+    .dash-phases__node:last-child { padding-bottom: 0; }
+    .dash-phases__dot {
+      position: absolute; left: -32px; top: 18px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #fff; border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 500; color: var(--muted-light);
+      z-index: 1;
+    }
+    .dash-phases__node--completed .dash-phases__dot {
+      background: var(--green); border-color: var(--green); color: #fff;
+    }
+    .dash-phases__node--active .dash-phases__dot {
+      background: #fff; border-color: var(--green); color: var(--green);
+      animation: pulseRing 2s ease-in-out infinite;
+    }
+    @keyframes pulseRing { 0%,100%{ box-shadow:0 0 0 0 rgba(0,40,25,.2); } 50%{ box-shadow:0 0 0 6px rgba(0,40,25,0); } }
+    .dash-phases__node--blocked .dash-phases__dot {
+      border-color: var(--dash-error); color: var(--dash-error);
+    }
+    .dash-phases__content { padding-left: 8px; }
+    .dash-phases__name { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+    .dash-phases__desc { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .dash-phases__meta {
+      display: flex; gap: 20px; font-size: 12px; color: var(--muted-light);
+      margin-bottom: 10px;
+    }
+    .dash-phases__meta span { display: flex; align-items: center; gap: 4px; }
+    .dash-phases__meta svg { width: 13px; height: 13px; }
+    .dash-phases__progress-bar {
+      height: 5px; background: rgba(86,104,94,.1);
+      border-radius: 3px; overflow: hidden; max-width: 260px;
+    }
+    .dash-phases__progress-fill {
+      height: 100%; background: var(--accent);
+      border-radius: 3px; transition: width .6s ease;
+    }
+    .dash-phases__node--completed .dash-phases__progress-fill { background: var(--green); }
+    .dash-phases__progress-text { font-size: 11px; color: var(--muted-light); margin-top: 4px; }
+
+    /* ─── Documents ─── */
+    .dash-docs__tabs {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .dash-docs__tab {
+      padding: 7px 16px; border-radius: 21px;
+      font-size: 13px; font-weight: 400; cursor: pointer;
+      background: rgba(86,104,94,.08); color: var(--muted);
+      transition: all .2s var(--dash-transition);
+    }
+    .dash-docs__tab:hover { background: rgba(86,104,94,.14); }
+    .dash-docs__tab--active {
+      background: var(--green); color: #fff; font-weight: 500;
+    }
+    .dash-docs__list { display: flex; flex-direction: column; }
+    .dash-docs__file {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(86,104,94,.06);
+      transition: background .15s;
+    }
+    .dash-docs__file:hover { background: rgba(86,104,94,.03); }
+    .dash-docs__file:last-child { border-bottom: none; }
+    .dash-docs__file-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 500; text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .dash-docs__file-icon--pdf { background: #fef2f2; color: #991b1b; }
+    .dash-docs__file-icon--img { background: #eff6ff; color: #1e40af; }
+    .dash-docs__file-icon--doc { background: #f0fdf4; color: #166534; }
+    .dash-docs__file-icon--other { background: var(--bg-light); color: var(--muted); }
+    .dash-docs__file-info { flex: 1; min-width: 0; }
+    .dash-docs__file-title {
+      font-size: 14px; font-weight: 400; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .dash-docs__file-meta { font-size: 12px; color: var(--muted-light); margin-top: 2px; }
+    .dash-docs__download {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .15s;
+      color: var(--muted); flex-shrink: 0;
+    }
+    .dash-docs__download:hover { background: var(--bg-light); color: var(--green); }
+    .dash-docs__download svg { width: 18px; height: 18px; }
+
+    /* ─── Empty State ─── */
+    .dash-empty {
+      text-align: center; padding: 48px 20px;
+      color: var(--muted-light);
+    }
+    .dash-empty svg { width: 48px; height: 48px; margin: 0 auto 12px; opacity: .3; }
+    .dash-empty p { font-size: 14px; }
+
+    /* ─── Finance ─── */
+    .dash-finance__overview {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; margin-bottom: 24px;
+    }
+    .dash-finance__amount {
+      padding: 24px; text-align: center;
+      border-right: 1px solid rgba(86,104,94,.08);
+    }
+    .dash-finance__amount:last-child { border-right: none; }
+    .dash-finance__amount-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted-light); margin-bottom: 6px;
+    }
+    .dash-finance__amount-value { font-size: 24px; font-weight: 500; color: var(--green); }
+    .dash-finance__bar-wrapper { padding: 0 24px 20px; }
+
+    .dash-invoice {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-invoice:last-child { border-bottom: none; }
+    .dash-invoice__info { flex: 1; min-width: 0; }
+    .dash-invoice__number { font-size: 14px; font-weight: 500; }
+    .dash-invoice__desc {
+      font-size: 13px; color: var(--muted); margin-top: 2px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .dash-invoice__amount { font-size: 15px; font-weight: 500; text-align: right; margin-right: 12px; }
+    .dash-invoice__status {
+      font-size: 11px; font-weight: 500; padding: 3px 10px;
+      border-radius: 12px; white-space: nowrap;
+    }
+    .dash-invoice__status--paid { background: var(--dash-success-bg); color: var(--dash-success); }
+    .dash-invoice__status--sent,
+    .dash-invoice__status--draft { background: var(--bg-light); color: var(--muted); }
+    .dash-invoice__status--overdue { background: var(--dash-error-bg); color: var(--dash-error); }
+
+    /* ─── Team ─── */
+    .dash-team__grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .dash-team__member {
+      background: #fff; border: 1px solid rgba(86,104,94,.08);
+      border-radius: var(--dash-card-radius);
+      padding: 24px; display: flex; flex-direction: column; align-items: center;
+      text-align: center; box-shadow: var(--dash-card-shadow);
+      transition: box-shadow .25s var(--dash-transition);
+    }
+    .dash-team__member:hover { box-shadow: var(--dash-card-shadow-hover); }
+    .dash-team__avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 500; margin-bottom: 12px;
+    }
+    .dash-team__name { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+    .dash-team__role { font-size: 13px; color: var(--muted); margin-bottom: 4px; text-transform: capitalize; }
+    .dash-team__email { font-size: 12px; color: var(--muted-light); margin-bottom: 14px; }
+    .dash-team__msg-btn {
+      padding: 7px 20px; border-radius: 21px; font-size: 13px; font-weight: 500;
+      background: var(--bg-light); color: var(--green); cursor: pointer;
+      transition: all .2s var(--dash-transition);
+    }
+    .dash-team__msg-btn:hover { background: var(--green); color: #fff; }
+
+    /* ─── Messages / Chat ─── */
+    .dash-chat { display: flex; flex-direction: column; height: calc(100vh - var(--dash-topbar-h) - 160px); min-height: 400px; }
+    .dash-chat__messages {
+      flex: 1; overflow-y: auto; padding: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .dash-chat__bubble { max-width: 75%; padding: 12px 16px; border-radius: 14px; }
+    .dash-chat__bubble--them {
+      align-self: flex-start;
+      background: #fff; border: 1px solid rgba(86,104,94,.1);
+      border-bottom-left-radius: 4px;
+    }
+    .dash-chat__bubble--me {
+      align-self: flex-end;
+      background: var(--green); color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .dash-chat__sender { font-size: 11px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
+    .dash-chat__text { font-size: 14px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+    .dash-chat__bubble--me .dash-chat__text { color: #fff; }
+    .dash-chat__time { font-size: 11px; margin-top: 6px; opacity: .5; }
+    .dash-chat__input-area {
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px 24px; border-top: 1px solid rgba(86,104,94,.1);
+      background: #fff;
+    }
+    .dash-chat__input {
+      flex: 1; height: 44px; padding: 0 16px;
+      background: #f5f6f5; border: 1px solid var(--border);
+      border-radius: 22px; font-size: 14px;
+      transition: border-color .2s;
+    }
+    .dash-chat__input:focus { border-color: var(--green); background: #fff; }
+    .dash-chat__send {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: opacity .2s; flex-shrink: 0;
+    }
+    .dash-chat__send:hover { opacity: .85; }
+    .dash-chat__send svg { width: 18px; height: 18px; }
+
+    /* ─── Notifications Panel ─── */
+    .dash-notif-panel {
+      position: fixed; top: var(--dash-topbar-h); right: 16px;
+      width: 360px; max-height: 480px;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 14px; box-shadow: 0 12px 40px rgba(0,40,25,.12);
+      z-index: 500; overflow: hidden;
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: all .2s ease;
+    }
+    .dash-notif-panel.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dash-notif-panel__header {
+      padding: 16px 20px; border-bottom: 1px solid rgba(86,104,94,.08);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .dash-notif-panel__header h3 { font-size: 15px; font-weight: 500; }
+    .dash-notif-panel__mark-read {
+      font-size: 12px; color: var(--green); cursor: pointer;
+      font-weight: 500;
+    }
+    .dash-notif-panel__mark-read:hover { text-decoration: underline; }
+    .dash-notif-panel__list { overflow-y: auto; max-height: 400px; }
+    .dash-notif__item {
+      display: flex; gap: 12px; padding: 14px 20px;
+      border-bottom: 1px solid rgba(86,104,94,.04);
+      cursor: pointer; transition: background .15s;
+    }
+    .dash-notif__item:hover { background: rgba(86,104,94,.03); }
+    .dash-notif__item--unread { background: rgba(86,104,94,.04); }
+    .dash-notif__icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 14px;
+    }
+    .dash-notif__icon--phase { background: #eff6ff; color: #1e40af; }
+    .dash-notif__icon--doc { background: var(--dash-success-bg); color: var(--dash-success); }
+    .dash-notif__icon--msg { background: #f0fdf4; color: var(--green); }
+    .dash-notif__icon--invoice { background: var(--dash-warning-bg); color: var(--dash-warning); }
+    .dash-notif__icon--general { background: var(--bg-light); color: var(--muted); }
+    .dash-notif__body { flex: 1; min-width: 0; }
+    .dash-notif__title { font-size: 13px; font-weight: 400; color: var(--text); }
+    .dash-notif__item--unread .dash-notif__title { font-weight: 500; }
+    .dash-notif__time { font-size: 11px; color: var(--muted-light); margin-top: 2px; }
+
+    /* ─── Mobile Bottom Nav ─── */
+    .dash-mobile-nav {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0;
+      height: var(--dash-mobile-nav-h);
+      background: #fff; border-top: 1px solid var(--border);
+      z-index: 300;
+      justify-content: space-around; align-items: center;
+    }
+    .dash-mobile-nav__item {
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      cursor: pointer; color: var(--muted-light); transition: color .18s;
+      position: relative; padding: 4px 12px; background: none;
+    }
+    .dash-mobile-nav__item svg { width: 22px; height: 22px; }
+    .dash-mobile-nav__item span { font-size: 10px; font-weight: 500; }
+    .dash-mobile-nav__item--active { color: var(--green); }
+    .dash-mobile-nav__badge {
+      position: absolute; top: 0; right: 4px;
+      min-width: 16px; height: 16px;
+      background: var(--dash-error); color: #fff;
+      border-radius: 8px; font-size: 9px; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 4px;
+    }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .dash-topbar {
+        left: 0;
+        padding: 0 16px;
+      }
+      .dash-topbar__menu-btn { display: flex; }
+      .dash-topbar__username { display: none; }
+      .dash-topbar__center { display: none; }
+      .dash-topbar__project-pill { display: none; }
+      .dash-sidebar {
+        transform: translateX(-100%);
+        width: 250px;
+        align-items: flex-start;
+        padding: 16px;
+      }
+      .dash-sidebar.open { transform: translateX(0); }
+      .dash-sidebar.open .dash-sidebar__nav {
+        align-items: flex-start;
+        padding: 0;
+      }
+      .dash-sidebar.open .dash-sidebar__item {
+        width: 100%; height: auto;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 11px 14px;
+        border-radius: 8px;
+      }
+      .dash-sidebar.open .dash-sidebar__item span.dash-sidebar__label {
+        display: inline;
+        font-size: 14px;
+      }
+      .dash-sidebar.open .dash-sidebar__item::after { display: none; }
+      .dash-sidebar.open .dash-sidebar__footer {
+        align-items: flex-start;
+      }
+      .dash-sidebar.open .dash-sidebar__footer .dash-sidebar__item {
+        width: 100%; height: auto;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 11px 14px;
+      }
+      .dash-sidebar.open .dash-sidebar__footer .dash-sidebar__item span.dash-sidebar__label {
+        display: inline;
+        font-size: 13px;
+      }
+      .dash-main { margin-left: 0; padding: 24px 20px 48px; }
+      .dash-stats { grid-template-columns: repeat(2, 1fr); }
+      .dash-finance__overview { grid-template-columns: 1fr; }
+      .dash-finance__amount { border-right: none; border-bottom: 1px solid rgba(86,104,94,.08); }
+      .dash-finance__amount:last-child { border-bottom: none; }
+      .dash-notif-panel { right: 8px; width: calc(100vw - 16px); max-width: 380px; }
+    }
+
+    @media (max-width: 600px) {
+      .dash-sidebar { display: none; }
+      .dash-sidebar-overlay { display: none !important; }
+      .dash-topbar__menu-btn { display: none; }
+      .dash-mobile-nav { display: flex; }
+      .dash-main {
+        padding: 20px 16px calc(var(--dash-mobile-nav-h) + 16px);
+      }
+      .dash-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .dash-stat { padding: 16px; }
+      .dash-stat__value { font-size: 22px; }
+      .dash-welcome__name { font-size: 24px; }
+      .dash-team__grid { grid-template-columns: 1fr; }
+      .dash-chat { height: calc(100vh - var(--dash-topbar-h) - var(--dash-mobile-nav-h) - 80px); }
+      .dash-chat__bubble { max-width: 88%; }
+      .dash-phases__meta { flex-direction: column; gap: 4px; }
+      .dash-energy__grid { grid-template-columns: 1fr; }
+      .dash-energy__metric { border-right: none !important; }
+      .dash-energy__bar-label { width: 80px; font-size: 11px; }
+      .dash-energy__bar-amount { width: 55px; font-size: 11px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+  <!-- PAPIK:SHARED-HEADER-CSS -->
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
 </head>
-<body data-allowed-roles="cliente,arquitecto,empleado,secretario,admin">
-
-<!-- ── Loading screen ──────────────────────────────────────── -->
-<div id="loading">
-  <div style="text-align:center;padding:80px;color:var(--muted);">
-    <div class="spinner"></div>
-    Carregant...
+<body>
+<!-- PAPIK · Cookie consent banner snippet
+     Inject at the start of <body>. The text shown is a CA fallback;
+     cookie-banner.js localises it in place using the page's <html lang>. -->
+<aside id="papik-cc-banner"
+       class="papik-cc"
+       role="region"
+       aria-label="Avís de galetes"
+       hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">
+        Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te
+        publicitat relacionada amb les teves preferències. Pots acceptar-les totes,
+        rebutjar-les totes o configurar-les.
+      </p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
   </div>
-</div>
+</aside>
 
-<!-- ── App shell ───────────────────────────────────────────── -->
-<div id="app" class="crm-layout" style="display:none;">
+  <!-- ═══════════════════════════════════
+       LOADING STATE
+  ═══════════════════════════════════ -->
+  <div class="dash-loading" id="loadingScreen">
+    <div class="dash-loading__spinner"></div>
+  </div>
 
-  <!-- Sidebar -->
-  <aside class="crm-sidebar" id="sidebar">
-    <div class="crm-sidebar__logo" id="sidebar-logo"></div>
-    <nav class="crm-sidebar__nav">
-      <div class="nav-section-label">Menu</div>
-      <button class="nav-item" data-section="sec-inici" data-label="Inici">
-        <span class="nav-item__icon" id="icon-home"></span>
-        Inici
+  <!-- ═══════════════════════════════════
+       SIDEBAR (Icon-only, 68px)
+  ═══════════════════════════════════ -->
+  <div class="dash-sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="dash-sidebar" id="sidebar">
+    <div class="dash-sidebar__logo">
+      <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="18" fill="#002819"/><text x="18" y="23" text-anchor="middle" fill="#fff" font-family="TT Firs Neue,sans-serif" font-size="16" font-weight="500">P</text></svg>
+    </div>
+    <nav class="dash-sidebar__nav">
+      <button class="dash-sidebar__item dash-sidebar__item--active" data-section="overview" data-tooltip="Resum">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="dash-sidebar__label">Resum</span>
       </button>
-      <button class="nav-item" data-section="sec-projecte" data-label="El meu projecte">
-        <span class="nav-item__icon" id="icon-projecte"></span>
-        El meu projecte
+      <button class="dash-sidebar__item" data-section="phases" data-tooltip="Fases de l'obra">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="dash-sidebar__label">Fases de l'obra</span>
       </button>
-      <button class="nav-item" data-section="sec-pressupost" data-label="Pressupost">
-        <span class="nav-item__icon" id="icon-pressupost"></span>
-        Pressupost
+      <button class="dash-sidebar__item" data-section="documents" data-tooltip="Documents">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+        <span class="dash-sidebar__label">Documents</span>
       </button>
-      <button class="nav-item" data-section="sec-factures" data-label="Factures">
-        <span class="nav-item__icon" id="icon-factures"></span>
-        Factures
+      <button class="dash-sidebar__item" data-section="finance" data-tooltip="Finances">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        <span class="dash-sidebar__label">Finances</span>
       </button>
-      <button class="nav-item" data-section="sec-documents" data-label="Documents">
-        <span class="nav-item__icon" id="icon-documents"></span>
-        Documents
+      <button class="dash-sidebar__item" data-section="team" data-tooltip="Equip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span class="dash-sidebar__label">Equip</span>
+      </button>
+      <button class="dash-sidebar__item" data-section="messages" data-tooltip="Missatges">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <span class="dash-sidebar__label">Missatges</span>
+        <span class="dash-sidebar__badge" id="msgBadge" style="display:none;">0</span>
       </button>
     </nav>
-    <div class="crm-sidebar__footer">
-      <div class="sidebar-user">
-        <div class="sidebar-user__name" id="sidebar-user-name"></div>
-        <div class="sidebar-user__role" id="sidebar-user-role"></div>
-      </div>
-      <button class="sidebar-logout" onclick="papikLogout()">Tancar sessio</button>
+    <div class="dash-sidebar__footer">
+      <a class="dash-sidebar__item" href="index.html" data-tooltip="Tornar al web">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <span class="dash-sidebar__label">Tornar al web</span>
+      </a>
+      <button class="dash-sidebar__item" onclick="papikLogout()" data-tooltip="Tancar sessió">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span class="dash-sidebar__label">Tancar sessió</span>
+      </button>
     </div>
   </aside>
 
-  <!-- Main content -->
-  <div class="crm-main">
-    <div class="crm-topbar">
-      <button class="crm-topbar__hamburger" id="hamburger-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <!-- ═══════════════════════════════════
+       TOP BAR
+  ═══════════════════════════════════ -->
+  <header class="dash-topbar">
+    <div class="dash-topbar__left">
+      <button class="dash-topbar__menu-btn" id="sidebarToggle" aria-label="Obrir menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <span class="crm-topbar__title">Inici</span>
-      <div class="crm-topbar__actions">
-        <span id="topbar-user-name" style="font-size:13px;color:var(--muted);"></span>
+      <div>
+        <div class="dash-topbar__title">Espai Client</div>
+        <div class="dash-topbar__subtitle">El teu projecte de construcció</div>
+      </div>
+      <div class="dash-topbar__project-pill" id="welcomeProject">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        <span id="projectName">—</span>
       </div>
     </div>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 1: INICI
-         ════════════════════════════════════════════════════════ -->
-    <div class="crm-section" id="sec-inici">
-      <div class="crm-content">
-        <div class="section-header">
-          <div>
-            <h2 id="welcome-msg">Benvingut/da</h2>
-            <p>Seguiment del teu projecte, documentacio i factures</p>
-          </div>
+    <div class="dash-topbar__center">
+      <div class="dash-topbar__search-wrap">
+        <div class="dash-topbar__search-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
+        <input type="text" class="dash-topbar__search" placeholder="Cercar documents, fases...">
+      </div>
+    </div>
 
-        <!-- Project summary card -->
-        <div id="inici-project-card" style="display:none;">
-          <div class="kpi-grid" id="inici-kpis"></div>
-        </div>
-
-        <!-- Recent invoices -->
-        <div id="inici-invoices" style="display:none;">
-          <h3 style="font-size:15px;font-weight:400;margin:24px 0 12px;">Factures recents</h3>
-          <div id="inici-invoices-list"></div>
-        </div>
-
-        <!-- Empty state -->
-        <div id="inici-empty" style="display:none;">
-          <div class="empty-state">
-            <div class="empty-state__icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-            </div>
-            <h3>Encara no tens cap projecte assignat</h3>
-            <p>Contacta amb PAPIK per comenar.</p>
-          </div>
-        </div>
-
-        <!-- Quick links -->
-        <div class="quick-links" id="inici-quick-links">
-          <button class="quick-link" onclick="PapikCRM.showSection('sec-projecte')">
-            <div class="quick-link__icon" id="ql-icon-project"></div>
-            Veure projecte
-          </button>
-          <button class="quick-link" onclick="PapikCRM.showSection('sec-pressupost')">
-            <div class="quick-link__icon" id="ql-icon-budget"></div>
-            El meu pressupost
-          </button>
-          <button class="quick-link" onclick="PapikCRM.showSection('sec-factures')">
-            <div class="quick-link__icon" id="ql-icon-invoices"></div>
-            Les meves factures
+    <div class="dash-topbar__right">
+      <button class="dash-topbar__notif-btn" id="notifToggle" aria-label="Notificacions">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        <span class="dash-topbar__badge" id="notifBadge" style="display:none;">0</span>
+      </button>
+      <div class="dash-topbar__user" id="userMenuBtn">
+        <span class="dash-topbar__avatar" id="userAvatar"></span>
+        <span class="dash-topbar__username" id="userName"></span>
+        <span class="dash-topbar__chevron">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="dash-user-dropdown" id="userDropdown">
+          <a class="dash-user-dropdown__item" href="index.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            Tornar al web
+          </a>
+          <div class="dash-user-dropdown__divider"></div>
+          <button class="dash-user-dropdown__item" onclick="papikLogout()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Tancar sessió
           </button>
         </div>
       </div>
     </div>
+  </header>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 2: EL MEU PROJECTE
-         ════════════════════════════════════════════════════════ -->
-    <div class="crm-section" id="sec-projecte">
-      <div class="crm-content">
-        <div class="section-header">
-          <div>
-            <h2>El meu projecte</h2>
-            <p>Informacio i seguiment del teu projecte</p>
-          </div>
-        </div>
-
-        <!-- Project detail -->
-        <div id="projecte-detail" style="display:none;">
-          <!-- Project header -->
-          <div class="project-detail" style="margin-bottom:24px;">
-            <div class="project-detail__header">
-              <div>
-                <div class="project-detail__title" id="proj-name"></div>
-                <div class="project-detail__address" id="proj-address"></div>
-              </div>
-              <div id="proj-status"></div>
-            </div>
-            <div class="project-detail__body">
-              <div class="form-row" style="margin-bottom:0;">
-                <div>
-                  <span class="text-xs text-muted" style="text-transform:uppercase;letter-spacing:.06em;">DATA INICI</span>
-                  <div style="font-size:14px;margin-top:4px;" id="proj-start-date"></div>
-                </div>
-                <div>
-                  <span class="text-xs text-muted" style="text-transform:uppercase;letter-spacing:.06em;">DATA ESTIMADA FI</span>
-                  <div style="font-size:14px;margin-top:4px;" id="proj-end-date"></div>
-                </div>
-              </div>
-              <div style="margin-top:16px;" id="proj-description"></div>
-            </div>
-          </div>
-
-          <!-- Timeline -->
-          <div style="margin-bottom:24px;">
-            <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Historial d'activitat</h3>
-            <div class="project-detail" style="padding:24px;">
-              <div class="timeline" id="proj-timeline"></div>
-              <div id="proj-timeline-empty" style="display:none;text-align:center;padding:24px;color:var(--muted);font-size:14px;">
-                Encara no hi ha activitat registrada.
-              </div>
-            </div>
-          </div>
-
-          <!-- Public notes -->
-          <div style="margin-bottom:24px;">
-            <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Notes del projecte</h3>
-            <div id="proj-notes"></div>
-            <div id="proj-notes-empty" style="display:none;">
-              <div style="text-align:center;padding:24px;color:var(--muted);font-size:14px;background:#fff;border-radius:10px;border:1px solid var(--border);">
-                No hi ha notes publiques.
-              </div>
-            </div>
-          </div>
-
-          <!-- Team -->
-          <div>
-            <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Equip del projecte</h3>
-            <div class="team-list" id="proj-team"></div>
-            <div id="proj-team-empty" style="display:none;">
-              <div style="text-align:center;padding:24px;color:var(--muted);font-size:14px;background:#fff;border-radius:10px;border:1px solid var(--border);">
-                No hi ha membres assignats.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Empty state -->
-        <div id="projecte-empty" style="display:none;">
-          <div class="empty-state">
-            <div class="empty-state__icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <h3>Encara no tens cap projecte assignat</h3>
-            <p>Contacta amb PAPIK per comenar el teu projecte.</p>
-          </div>
-        </div>
+  <!-- ═══════════════════════════════════
+       NOTIFICATIONS PANEL
+  ═══════════════════════════════════ -->
+  <div class="dash-notif-panel" id="notifPanel">
+    <div class="dash-notif-panel__header">
+      <h3>Notificacions</h3>
+      <button class="dash-notif-panel__mark-read" id="markAllRead">Marcar tot com a llegit</button>
+    </div>
+    <div class="dash-notif-panel__list" id="notifList">
+      <div class="dash-empty" id="notifEmpty">
+        <p>Cap notificació pendent</p>
       </div>
     </div>
+  </div>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 3: PRESSUPOST
-         ════════════════════════════════════════════════════════ -->
-    <div class="crm-section" id="sec-pressupost">
-      <div class="crm-content">
-        <div class="section-header">
-          <div>
-            <h2>Pressupost</h2>
-            <p>Detall del teu pressupost personalitzat</p>
+  <!-- ═══════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════ -->
+  <main class="dash-main">
+    <div class="dash-main__inner">
+
+      <!-- ──── OVERVIEW ──── -->
+      <section class="dash-section active" id="sec-overview">
+        <div class="dash-welcome">
+          <div class="dash-welcome__greeting">
+            <p class="t12 upper color-muted-light">Benvingut al teu espai</p>
+            <h1 class="dash-welcome__name t42" id="welcomeName">Hola</h1>
           </div>
         </div>
 
-        <!-- Budget content -->
-        <div id="pressupost-detail" style="display:none;">
-          <!-- Summary banner -->
-          <div class="budget-summary" id="budget-summary"></div>
+        <div class="dash-stats">
+          <div class="dash-stat">
+            <span class="dash-stat__value" id="statProgress">—</span>
+            <span class="dash-stat__label">Progrés global</span>
+          </div>
+          <div class="dash-stat">
+            <span class="dash-stat__value" id="statPhase">—</span>
+            <span class="dash-stat__label">Fase actual</span>
+          </div>
+          <div class="dash-stat">
+            <span class="dash-stat__value" id="statDays">—</span>
+            <span class="dash-stat__label">Dies restants</span>
+          </div>
+          <div class="dash-stat">
+            <span class="dash-stat__value" id="statDocs">0</span>
+            <span class="dash-stat__label">Documents</span>
+          </div>
+        </div>
 
-          <!-- Pack breakdown -->
-          <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Desglossament per packs</h3>
-          <div class="pack-grid" id="budget-packs"></div>
-
-          <!-- Totals breakdown -->
-          <div class="project-detail" style="margin-bottom:24px;">
-            <div class="project-detail__header">
-              <div class="project-detail__title" style="font-size:15px;">Resum de costos</div>
+        <!-- Next Milestone -->
+        <div class="dash-card" style="margin-bottom:20px;">
+          <div class="dash-card__header"><h3 class="t14 fw500">Propera fita</h3></div>
+          <div class="dash-card__body">
+            <div class="dash-milestone__content" id="milestoneContent">
+              <div class="dash-milestone__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div class="dash-milestone__info">
+                <div class="dash-milestone__phase" id="milestonePhase">—</div>
+                <div class="dash-milestone__date" id="milestoneDate">—</div>
+              </div>
+              <div class="dash-milestone__countdown" id="milestoneCountdown">—</div>
             </div>
-            <div class="project-detail__body" id="budget-totals"></div>
+          </div>
+        </div>
+
+        <!-- Energy / Passive House Data -->
+        <div class="dash-card dash-energy" style="margin-bottom:20px;" id="energyCard">
+          <div class="dash-card__header">
+            <h3 class="t14 fw500">La teva casa passiva</h3>
+            <span class="dash-energy__header-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              Passivhaus
+            </span>
           </div>
 
-          <!-- Action buttons -->
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;">
-            <a id="btn-download-pdf" class="btn btn-primary" href="#" target="_blank" style="text-decoration:none;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Descarregar PDF
-            </a>
-            <a class="btn btn-secondary" href="pressupost.html" style="text-decoration:none;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-              Configurar de nou
-            </a>
+          <!-- Key metrics grid -->
+          <div class="dash-energy__grid">
+            <div class="dash-energy__metric">
+              <div class="dash-energy__metric-label">Demanda calefacció</div>
+              <div class="dash-energy__metric-value" id="energyHeating">15 <span>kWh/m²·any</span></div>
+              <div class="dash-energy__metric-sub">Límit Passivhaus: ≤ 15 kWh/m²·any</div>
+            </div>
+            <div class="dash-energy__metric">
+              <div class="dash-energy__metric-label">Demanda refrigeració</div>
+              <div class="dash-energy__metric-value" id="energyCooling">12 <span>kWh/m²·any</span></div>
+              <div class="dash-energy__metric-sub">Límit Passivhaus: ≤ 15 kWh/m²·any</div>
+            </div>
+            <div class="dash-energy__metric">
+              <div class="dash-energy__metric-label">Consum energia primària</div>
+              <div class="dash-energy__metric-value" id="energyPrimary">42 <span>kWh/m²·any</span></div>
+              <div class="dash-energy__metric-sub">Límit Passivhaus: ≤ 120 kWh/m²·any</div>
+            </div>
+            <div class="dash-energy__metric">
+              <div class="dash-energy__metric-label">Estanqueitat (n50)</div>
+              <div class="dash-energy__metric-value" id="energyAirtight">0.6 <span>ren/h</span></div>
+              <div class="dash-energy__metric-sub">Límit Passivhaus: ≤ 0.6 ren/h</div>
+            </div>
           </div>
 
-          <!-- Chatbot -->
-          <h3 style="font-size:15px;font-weight:400;margin-bottom:16px;">Assessor Virtual PAPIK</h3>
-          <div class="chat-container">
-            <div class="chat-header">
-              <div class="chat-header-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <!-- Comparison bars -->
+          <div class="dash-energy__comparison">
+            <div class="dash-energy__comparison-title">Consum anual estimat vs. habitatge convencional</div>
+            <div class="dash-energy__bar-row">
+              <span class="dash-energy__bar-label">La teva casa</span>
+              <div class="dash-energy__bar-track">
+                <div class="dash-energy__bar-fill dash-energy__bar-fill--green" id="energyBarYours" style="width:12%"></div>
               </div>
-              <div>
-                <div class="chat-header-title">Assessor PAPIK</div>
-                <div class="chat-header-subtitle">Pregunta sobre el teu pressupost</div>
-              </div>
+              <span class="dash-energy__bar-amount" id="energyAmountYours">~420 €</span>
             </div>
-            <div class="chat-messages" id="chat-messages">
-              <div class="chat-msg chat-msg--bot">
-                Hola! Soc l'assistent de PAPIK. Puc respondre preguntes sobre el teu pressupost. Que vols saber?
+            <div class="dash-energy__bar-row">
+              <span class="dash-energy__bar-label">Casa estandard</span>
+              <div class="dash-energy__bar-track">
+                <div class="dash-energy__bar-fill dash-energy__bar-fill--muted" style="width:60%"></div>
               </div>
+              <span class="dash-energy__bar-amount">~2.100 €</span>
             </div>
-            <div class="chat-input-bar">
-              <input type="text" class="chat-input" id="chat-input" placeholder="Escriu la teva pregunta..." autocomplete="off">
-              <button class="chat-send-btn" id="chat-send-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg>
-                Enviar
+            <div class="dash-energy__bar-row">
+              <span class="dash-energy__bar-label">Casa antiga</span>
+              <div class="dash-energy__bar-track">
+                <div class="dash-energy__bar-fill dash-energy__bar-fill--warning" style="width:100%"></div>
+              </div>
+              <span class="dash-energy__bar-amount">~3.500 €</span>
+            </div>
+          </div>
+
+          <!-- Certificate -->
+          <div class="dash-energy__cert">
+            <div class="dash-energy__cert-badge dash-energy__cert-badge--a">A</div>
+            <div class="dash-energy__cert-info">
+              <div class="dash-energy__cert-title">Certificat energètic: Classe A</div>
+              <div class="dash-energy__cert-sub">Emissions CO₂: 3.2 kg/m²·any — Qualificació màxima</div>
+            </div>
+          </div>
+
+          <!-- Savings highlight -->
+          <div class="dash-energy__savings">
+            <div class="dash-energy__savings-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="dash-energy__savings-text">
+              Estalvi estimat de <strong>~1.680 €/any</strong> respecte una casa convencional. Amortització del sobrecost en <strong>~8 anys</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="dash-card">
+          <div class="dash-card__header"><h3 class="t14 fw500">Activitat recent</h3></div>
+          <div class="dash-card__body" id="activityFeed">
+            <div class="dash-empty"><p>Encara no hi ha activitat registrada.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──── PHASES ──── -->
+      <section class="dash-section" id="sec-phases">
+        <h2 class="dash-section__title t24">Fases de l'obra</h2>
+        <p class="dash-section__desc t14 color-muted">Seguiment detallat de cada fase de construcció del teu projecte.</p>
+        <div class="dash-phases__overall">
+          <div class="dash-phases__bar"><div class="dash-phases__bar-fill" id="overallBar" style="width:0%"></div></div>
+          <span class="t14 color-muted" id="overallPercent">0% completat</span>
+        </div>
+        <div class="dash-phases__timeline" id="phasesTimeline"></div>
+      </section>
+
+      <!-- ──── DOCUMENTS ──── -->
+      <section class="dash-section" id="sec-documents">
+        <h2 class="dash-section__title t24">Documents</h2>
+        <p class="dash-section__desc t14 color-muted">Tots els documents del teu projecte organitzats per categoria.</p>
+        <div class="dash-docs__tabs" id="docTabs">
+          <button class="dash-docs__tab dash-docs__tab--active" data-cat="all">Tots</button>
+          <button class="dash-docs__tab" data-cat="contract">Contractes</button>
+          <button class="dash-docs__tab" data-cat="permit">Llicències</button>
+          <button class="dash-docs__tab" data-cat="blueprint">Plànols</button>
+          <button class="dash-docs__tab" data-cat="report">Memòries</button>
+          <button class="dash-docs__tab" data-cat="certificate">Certificats</button>
+          <button class="dash-docs__tab" data-cat="photo">Fotos</button>
+        </div>
+        <div class="dash-card">
+          <div class="dash-docs__list" id="docList"></div>
+          <div class="dash-empty" id="docEmpty" style="display:none;">
+            <p>Encara no hi ha documents en aquesta categoria.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──── FINANCE ──── -->
+      <section class="dash-section" id="sec-finance">
+        <h2 class="dash-section__title t24">Finances</h2>
+        <p class="dash-section__desc t14 color-muted">Estat econòmic del teu projecte, factures i pagaments.</p>
+        <div class="dash-card" style="margin-bottom:24px;">
+          <div class="dash-finance__overview">
+            <div class="dash-finance__amount">
+              <div class="dash-finance__amount-label">Pressupost total</div>
+              <div class="dash-finance__amount-value" id="budgetTotal">—</div>
+            </div>
+            <div class="dash-finance__amount">
+              <div class="dash-finance__amount-label">Pagat</div>
+              <div class="dash-finance__amount-value" id="budgetPaid" style="color:var(--dash-success)">—</div>
+            </div>
+            <div class="dash-finance__amount">
+              <div class="dash-finance__amount-label">Pendent</div>
+              <div class="dash-finance__amount-value" id="budgetPending" style="color:var(--dash-warning)">—</div>
+            </div>
+          </div>
+          <div class="dash-finance__bar-wrapper">
+            <div class="dash-phases__bar"><div class="dash-phases__bar-fill" id="paymentBar" style="width:0%; background:var(--dash-success);"></div></div>
+            <span class="t12 color-muted" id="paymentPercent">0% del pressupost abonat</span>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card__header"><h3 class="t14 fw500">Factures</h3></div>
+          <div id="invoiceList"></div>
+          <div class="dash-empty" id="invoiceEmpty" style="display:none;"><p>Encara no hi ha factures.</p></div>
+        </div>
+      </section>
+
+      <!-- ──── TEAM ──── -->
+      <section class="dash-section" id="sec-team">
+        <h2 class="dash-section__title t24">El teu equip</h2>
+        <p class="dash-section__desc t14 color-muted">L'equip de professionals assignats al teu projecte.</p>
+        <div class="dash-team__grid" id="teamGrid"></div>
+        <div class="dash-empty" id="teamEmpty" style="display:none;"><p>Encara no hi ha membres assignats.</p></div>
+      </section>
+
+      <!-- ──── MESSAGES ──── -->
+      <section class="dash-section" id="sec-messages">
+        <h2 class="dash-section__title t24" style="margin-bottom:16px;">Missatges</h2>
+        <div class="dash-card" style="overflow:hidden;">
+          <div class="dash-chat">
+            <div class="dash-chat__messages" id="chatMessages">
+              <div class="dash-empty" id="chatEmpty"><p>Envia el primer missatge al teu equip.</p></div>
+            </div>
+            <div class="dash-chat__input-area">
+              <input type="text" class="dash-chat__input" id="chatInput" placeholder="Escriu un missatge..." maxlength="2000">
+              <button class="dash-chat__send" id="chatSend" aria-label="Enviar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               </button>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Empty state -->
-        <div id="pressupost-empty" style="display:none;">
-          <div class="empty-state">
-            <div class="empty-state__icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
-            </div>
-            <h3>Encara no has configurat el teu pressupost</h3>
-            <p>Utilitza el configurador per crear el teu pressupost personalitzat.</p>
-            <a class="btn btn-primary btn-lg" href="pressupost.html" style="text-decoration:none;margin-top:8px;display:inline-flex;">
-              Anar al Configurador
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
+  </main>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 4: FACTURES
-         ════════════════════════════════════════════════════════ -->
-    <div class="crm-section" id="sec-factures">
-      <div class="crm-content">
-        <div class="section-header">
-          <div>
-            <h2>Factures</h2>
-            <p>Totes les factures del teu projecte</p>
-          </div>
-        </div>
+  <!-- ═══════════════════════════════════
+       MOBILE BOTTOM NAV
+  ═══════════════════════════════════ -->
+  <nav class="dash-mobile-nav" id="mobileNav">
+    <button class="dash-mobile-nav__item dash-mobile-nav__item--active" data-section="overview">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Resum</span>
+    </button>
+    <button class="dash-mobile-nav__item" data-section="phases">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Fases</span>
+    </button>
+    <button class="dash-mobile-nav__item" data-section="documents">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+      <span>Docs</span>
+    </button>
+    <button class="dash-mobile-nav__item" data-section="finance">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <span>Finances</span>
+    </button>
+    <button class="dash-mobile-nav__item" data-section="messages">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span>Xat</span>
+      <span class="dash-mobile-nav__badge" id="mobileMsgBadge" style="display:none;">0</span>
+    </button>
+  </nav>
 
-        <!-- Outstanding banner -->
-        <div class="invoice-banner" id="factures-banner" style="display:none;">
-          <div>
-            <div class="invoice-banner__label">Import pendent de pagament</div>
-          </div>
-          <div class="invoice-banner__amount" id="factures-outstanding"></div>
-        </div>
+  <!-- ═══════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="dashboard-guard.js"></script>
+  <script>
+  // ══════════════════════════════════════════════
+  // PAPIK Client Dashboard — Main Logic
+  // ══════════════════════════════════════════════
 
-        <!-- Table -->
-        <div id="factures-table"></div>
+  var sb, currentProject, currentUser;
 
-        <!-- Empty state -->
-        <div id="factures-empty" style="display:none;">
-          <div class="empty-state">
-            <div class="empty-state__icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg>
-            </div>
-            <h3>No tens factures</h3>
-            <p>Les teves factures apareixeran aqui quan siguin emeses.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 5: DOCUMENTS
-         ════════════════════════════════════════════════════════ -->
-    <div class="crm-section" id="sec-documents">
-      <div class="crm-content">
-        <div class="section-header">
-          <div>
-            <h2>Documents</h2>
-            <p>Documents compartits del teu projecte</p>
-          </div>
-        </div>
-
-        <!-- Table -->
-        <div id="documents-table"></div>
-
-        <!-- Empty state -->
-        <div id="documents-empty" style="display:none;">
-          <div class="empty-state">
-            <div class="empty-state__icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-            </div>
-            <h3>No hi ha documents</h3>
-            <p>Els documents del teu projecte apareixeran aqui.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /crm-main -->
-</div><!-- /app -->
-
-<!-- ── Scripts ──────────────────────────────────────────────── -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-auth.js"></script>
-<script src="supabase-guard.js"></script>
-<script src="papik-crm.js"></script>
-<script>
-(function () {
-  /* ================================================================
-     CLIENT DASHBOARD — Main Script
-     All text in Catalan. Uses 'var' exclusively.
-     ================================================================ */
-
-  var clientProject = null;
-  var clientInvoices = [];
-  var clientBudgetConfig = null;
-  var clientDocuments = [];
-  var chatConversationId = null;
-
-  /* ── Pack label map (Catalan) ─────────────────────────────────── */
-  var packLabels = {
-    'pack_envolvent':     'Envolvent Termic',
-    'pack_installacions': "Instal\u00B7lacions",
-    'pack_parking':       'Parking i Exteriors',
-    'pack_acabats':       'Acabats Interiors',
-    'transport':          'Transport',
-    'contractacio_externa': "Contractacio"
+  // ─── Phase display names (Catalan) ───
+  var PHASE_NAMES = {
+    projecte:      'Projecte',
+    llicencia:     'Llicència',
+    fonamentacio:  'Fonamentació',
+    estructura:    'Estructura',
+    tancaments:    'Tancaments',
+    installacions: 'Instal\u00b7lacions',
+    acabats:       'Acabats',
+    entrega:       'Entrega'
+  };
+  var PHASE_DESCRIPTIONS = {
+    projecte:      'Redacció del projecte executiu',
+    llicencia:     'Tramitació de la llicència d\'obres',
+    fonamentacio:  'Execució de la fonamentació',
+    estructura:    'Construcció de l\'estructura',
+    tancaments:    'Tancaments, coberta i fusteria',
+    installacions: 'Electricitat, fontaneria i climatització',
+    acabats:       'Paviments, pintura i equipament',
+    entrega:       'Revisió final i entrega de claus'
   };
 
-  /* ── Item label map (Catalan) ─────────────────────────────────── */
-  var itemLabels = {
-    'finestres': 'Finestres',
-    'estructura_vertical': 'Estructura vertical',
-    'coberta_forjats': 'Coberta i forjats',
-    'porta_entrada': "Porta d'entrada",
-    'grua': 'Grua de muntatge',
-    'telecomunicacions': 'Telecomunicacions',
-    'sanejament_interior': 'Sanejament interior',
-    'electricitat_interior': 'Electricitat interior',
-    'agua_interior': 'Fontaneria interior',
-    'escomeses': 'Escomeses',
-    'preinstallacio_ventilacio': "Preinstal\u00B7lacio ventilacio",
-    'zehnder': 'Sistema Zehnder',
-    'aerotermia': "Aerotermia",
-    'porta_peatonal': 'Porta peatonal',
-    'porta_motoritzada': 'Porta motoritzada',
-    'garatge_estructura': 'Estructura garatge',
-    'porxos_terrasses': 'Porxos i terrasses',
-    'pintura': 'Pintura',
-    'pladur': 'Pladur',
-    'cuina': 'Cuina',
-    'paviments': 'Paviments',
-    'portes_interiors': 'Portes interiors',
-    'estructura_krona': 'Estructura Krona',
-    'banys': 'Banys',
-    'escala': 'Escala',
-    'projecte_arquitectonic': 'Projecte arquitectonic',
-    'seguretat_salut': 'Seguretat i salut',
-    'fonamentacio': 'Fonamentacio'
+  // ─── Auth ready callback ───
+  window.onPapikReady = async function(user) {
+    sb = window._papikClient;
+    currentUser = user;
+
+    try {
+      // 1. Load project
+      var pm = await sb.from('project_members')
+        .select('project_id, role_in_project, projects(*)')
+        .eq('user_id', user.id)
+        .limit(1);
+
+      if (!pm.data || pm.data.length === 0) {
+        showNoprojectState();
+        return;
+      }
+
+      currentProject = pm.data[0].projects;
+      var projectId = currentProject.id;
+
+      // 2. Parallel fetch all data
+      var results = await Promise.all([
+        sb.from('project_phases').select('*').eq('project_id', projectId).order('sort_order'),
+        sb.from('documents').select('*').eq('project_id', projectId).eq('is_internal', false).order('created_at', { ascending: false }),
+        sb.from('invoices').select('*').eq('client_id', user.id).order('issued_date', { ascending: false }),
+        sb.from('project_members').select('user_id, role_in_project, profiles(first_name, last_name, role, email, phone)').eq('project_id', projectId),
+        sb.from('messages').select('*, sender:profiles(first_name, last_name, role)').eq('project_id', projectId).order('created_at', { ascending: true }).limit(200),
+        sb.from('notifications').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).limit(50),
+        sb.from('activity_log').select('*').eq('project_id', projectId).order('created_at', { ascending: false }).limit(10)
+      ]);
+
+      var phases   = results[0].data || [];
+      var docs     = results[1].data || [];
+      var invoices = results[2].data || [];
+      var team     = results[3].data || [];
+      var messages = results[4].data || [];
+      var notifs   = results[5].data || [];
+      var activity = results[6].data || [];
+
+      // 3. Render everything
+      renderTopBar(user);
+      renderWelcome(user, currentProject, phases, docs);
+      renderEnergyData(currentProject);
+      renderMilestone(phases);
+      renderActivity(activity);
+      renderPhases(phases);
+      renderDocuments(docs);
+      renderFinance(invoices, currentProject.budget_total);
+      renderTeam(team);
+      renderMessages(messages);
+      renderNotifications(notifs);
+
+      // 4. Setup navigation
+      setupNavigation();
+
+      // 5. Setup realtime
+      setupRealtimeMessages(projectId);
+      setupRealtimeNotifications(user.id);
+
+      // 6. Setup interactions
+      setupChatSend(projectId);
+      setupDocTabs(docs);
+
+    } catch (err) {
+      console.error('Dashboard error:', err);
+    }
+
+    // Hide loading
+    document.getElementById('loadingScreen').classList.add('hidden');
   };
 
-  /* ── Format currency helper (European) ────────────────────────── */
-  function fmtCurrency(amount) {
-    if (amount == null) return '0,00 \u20AC';
-    var num = parseFloat(amount);
-    if (isNaN(num)) return '0,00 \u20AC';
-    var parts = num.toFixed(2).split('.');
-    var intPart = parts[0];
-    var decPart = parts[1];
-    var sign = '';
-    if (intPart[0] === '-') {
-      sign = '-';
-      intPart = intPart.substring(1);
+  // ══════════════════════════════════════════════
+  // RENDER FUNCTIONS
+  // ══════════════════════════════════════════════
+
+  function renderTopBar(user) {
+    var initials = ((user.first_name || '')[0] || '') + ((user.last_name || '')[0] || '');
+    document.getElementById('userAvatar').textContent = initials.toUpperCase() || '?';
+    document.getElementById('userName').textContent = user.first_name || user.email;
+  }
+
+  function renderWelcome(user, project, phases, docs) {
+    document.getElementById('welcomeName').textContent = 'Hola, ' + (user.first_name || 'Client');
+    document.getElementById('projectName').textContent = project.name;
+
+    // Stats
+    var totalProgress = phases.length ? Math.round(phases.reduce(function(s,p){ return s+p.progress; },0) / phases.length) : 0;
+    document.getElementById('statProgress').textContent = totalProgress + '%';
+
+    var activePhase = phases.find(function(p){ return p.status === 'in_progress'; });
+    document.getElementById('statPhase').textContent = activePhase ? PHASE_NAMES[activePhase.phase] : '—';
+
+    if (project.estimated_end_date) {
+      var daysLeft = Math.ceil((new Date(project.estimated_end_date) - new Date()) / 86400000);
+      document.getElementById('statDays').textContent = daysLeft > 0 ? daysLeft : '0';
     }
-    var formatted = '';
-    for (var i = intPart.length - 1, count = 0; i >= 0; i--, count++) {
-      if (count > 0 && count % 3 === 0) formatted = '.' + formatted;
-      formatted = intPart[i] + formatted;
+
+    document.getElementById('statDocs').textContent = docs.length;
+  }
+
+  function renderEnergyData(project) {
+    // Energy data based on project configuration (passive house standards)
+    // These values come from the project's energy study / Passivhaus certification
+    // For now we use realistic defaults for a Passivhaus in Mediterranean climate
+    var m2 = parseFloat(project.m2_total) || 180;
+
+    // Passive house metrics (realistic for Catalunya climate)
+    var heating = 15;     // kWh/m²·year (Passivhaus limit)
+    var cooling = 12;     // kWh/m²·year
+    var primary = 42;     // kWh/m²·year total primary energy
+    var airtight = 0.6;   // n50 renovations/hour
+
+    // Annual costs comparison (electricity ~0.15€/kWh avg)
+    var costPassive = Math.round(primary * m2 * 0.13);       // ~420€/year for passive
+    var costStandard = Math.round(120 * m2 * 0.13);          // ~2100€/year standard
+    var costOld = Math.round(200 * m2 * 0.13);               // ~3500€/year old building
+
+    var savings = costStandard - costPassive;
+    var extraCost = m2 * 85; // ~85€/m² premium for Passivhaus
+    var payback = Math.round(extraCost / savings);
+
+    // Update metrics if project has specific data
+    var heatingEl = document.getElementById('energyHeating');
+    if (heatingEl) heatingEl.innerHTML = heating + ' <span>kWh/m²·any</span>';
+    var coolingEl = document.getElementById('energyCooling');
+    if (coolingEl) coolingEl.innerHTML = cooling + ' <span>kWh/m²·any</span>';
+    var primaryEl = document.getElementById('energyPrimary');
+    if (primaryEl) primaryEl.innerHTML = primary + ' <span>kWh/m²·any</span>';
+    var airtightEl = document.getElementById('energyAirtight');
+    if (airtightEl) airtightEl.innerHTML = airtight + ' <span>ren/h</span>';
+
+    // Update comparison bars with calculated values
+    var maxCost = costOld;
+    var barYours = document.getElementById('energyBarYours');
+    if (barYours) barYours.style.width = Math.round((costPassive / maxCost) * 100) + '%';
+    var amountYours = document.getElementById('energyAmountYours');
+    if (amountYours) amountYours.textContent = '~' + costPassive.toLocaleString('ca-ES') + ' €';
+
+    // Update savings text
+    var savingsText = document.querySelector('.dash-energy__savings-text');
+    if (savingsText) {
+      savingsText.innerHTML = 'Estalvi estimat de <strong>~' + savings.toLocaleString('ca-ES') + ' €/any</strong> respecte una casa convencional. Amortització del sobrecost passiu en <strong>~' + payback + ' anys</strong>.';
     }
-    return sign + formatted + ',' + decPart + ' \u20AC';
   }
 
-  /* ── HTML escape ──────────────────────────────────────────────── */
-  function esc(str) {
-    if (str == null) return '';
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+  function renderMilestone(phases) {
+    var next = phases.find(function(p) { return p.status === 'in_progress' || p.status === 'pending'; });
+    if (!next) {
+      document.getElementById('milestonePhase').textContent = 'Projecte completat!';
+      document.getElementById('milestoneDate').textContent = 'Enhorabona';
+      document.getElementById('milestoneCountdown').textContent = '🎉';
+      return;
+    }
+    document.getElementById('milestonePhase').textContent = PHASE_NAMES[next.phase];
+    if (next.estimated_end_date) {
+      document.getElementById('milestoneDate').textContent = 'Data estimada: ' + formatDate(next.estimated_end_date);
+      var days = Math.ceil((new Date(next.estimated_end_date) - new Date()) / 86400000);
+      document.getElementById('milestoneCountdown').textContent = days > 0 ? days + 'd' : 'Avui';
+    } else {
+      document.getElementById('milestoneDate').textContent = 'Data per confirmar';
+      document.getElementById('milestoneCountdown').textContent = '—';
+    }
   }
 
-  /* ── Get initials from a name ─────────────────────────────────── */
-  function initials(name) {
-    if (!name) return '?';
-    var words = name.trim().split(/\s+/);
-    if (words.length >= 2) return (words[0][0] + words[1][0]).toUpperCase();
-    return words[0].substring(0, 2).toUpperCase();
+  function renderActivity(activity) {
+    var container = document.getElementById('activityFeed');
+    if (!activity.length) return;
+    container.innerHTML = activity.map(function(a) {
+      return '<div class="dash-activity__item">' +
+        '<div class="dash-activity__dot"></div>' +
+        '<div class="dash-activity__text">' + escapeHtml(a.description || a.activity) + '</div>' +
+        '<div class="dash-activity__time">' + timeAgo(a.created_at) + '</div>' +
+      '</div>';
+    }).join('');
   }
 
-  /* ================================================================
-     BOOT: Wait for user-ready
-     ================================================================ */
-  document.addEventListener('papik:user-ready', function (e) {
-    var user = e.detail;
+  function renderPhases(phases) {
+    var total = phases.length ? Math.round(phases.reduce(function(s,p){ return s+p.progress; },0) / phases.length) : 0;
+    document.getElementById('overallBar').style.width = total + '%';
+    document.getElementById('overallPercent').textContent = total + '% completat';
 
-    /* ── Set sidebar icons ────────────────────────────────────── */
-    document.getElementById('sidebar-logo').innerHTML = PapikCRM.logoSVG;
-    document.getElementById('icon-home').innerHTML = PapikCRM.icons.home;
-    document.getElementById('icon-projecte').innerHTML = PapikCRM.icons.myproject;
-    document.getElementById('icon-pressupost').innerHTML = PapikCRM.icons.budgets;
-    document.getElementById('icon-factures').innerHTML = PapikCRM.icons.invoices;
-    document.getElementById('icon-documents').innerHTML = PapikCRM.icons.documents;
+    var html = phases.map(function(p, i) {
+      var statusClass = p.status === 'completed' ? ' dash-phases__node--completed' :
+                        p.status === 'in_progress' ? ' dash-phases__node--active' :
+                        p.status === 'blocked' ? ' dash-phases__node--blocked' : '';
+      var dotContent = p.status === 'completed' ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : (i + 1);
 
-    /* ── Quick link icons ─────────────────────────────────────── */
-    document.getElementById('ql-icon-project').innerHTML = PapikCRM.icons.myproject;
-    document.getElementById('ql-icon-budget').innerHTML = PapikCRM.icons.budgets;
-    document.getElementById('ql-icon-invoices').innerHTML = PapikCRM.icons.invoices;
+      return '<div class="dash-phases__node' + statusClass + '">' +
+        '<div class="dash-phases__dot">' + dotContent + '</div>' +
+        '<div class="dash-phases__content">' +
+          '<div class="dash-phases__name">' + PHASE_NAMES[p.phase] + '</div>' +
+          '<div class="dash-phases__desc">' + (p.notes || PHASE_DESCRIPTIONS[p.phase] || '') + '</div>' +
+          '<div class="dash-phases__meta">' +
+            (p.start_date ? '<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Inici: ' + formatDate(p.start_date) + '</span>' : '') +
+            (p.estimated_end_date ? '<span>Fi estimat: ' + formatDate(p.estimated_end_date) + '</span>' : '') +
+            (p.actual_end_date ? '<span style="color:var(--dash-success)">Completat: ' + formatDate(p.actual_end_date) + '</span>' : '') +
+          '</div>' +
+          '<div class="dash-phases__progress-bar"><div class="dash-phases__progress-fill" style="width:' + p.progress + '%"></div></div>' +
+          '<div class="dash-phases__progress-text">' + p.progress + '% completat</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
 
-    /* ── Set user info ────────────────────────────────────────── */
-    var fullName = (user.firstName || '') + ' ' + (user.lastName || '');
-    document.getElementById('sidebar-user-name').textContent = fullName.trim();
-    document.getElementById('sidebar-user-role').textContent = user.role || 'client';
-    document.getElementById('topbar-user-name').textContent = fullName.trim();
-    document.getElementById('welcome-msg').textContent = 'Benvingut/da, ' + (user.firstName || '');
+    document.getElementById('phasesTimeline').innerHTML = html;
+  }
 
-    /* ── Hamburger toggle ─────────────────────────────────────── */
-    var hamburger = document.getElementById('hamburger-btn');
+  function renderDocuments(docs) {
+    renderDocList(docs);
+  }
+
+  function renderDocList(docs) {
+    var container = document.getElementById('docList');
+    var empty = document.getElementById('docEmpty');
+    if (!docs.length) { container.innerHTML = ''; empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+
+    container.innerHTML = docs.map(function(d) {
+      var ext = (d.file_path || '').split('.').pop().toLowerCase();
+      var iconClass = ['pdf'].indexOf(ext) >= 0 ? 'pdf' : ['jpg','jpeg','png','webp'].indexOf(ext) >= 0 ? 'img' : ['doc','docx'].indexOf(ext) >= 0 ? 'doc' : 'other';
+      var size = d.file_size ? formatSize(d.file_size) : '';
+
+      return '<div class="dash-docs__file" data-category="' + (d.category || 'other') + '">' +
+        '<div class="dash-docs__file-icon dash-docs__file-icon--' + iconClass + '">' + ext.toUpperCase().substring(0,4) + '</div>' +
+        '<div class="dash-docs__file-info">' +
+          '<div class="dash-docs__file-title">' + escapeHtml(d.title) + '</div>' +
+          '<div class="dash-docs__file-meta">' + [size, formatDate(d.created_at)].filter(Boolean).join(' · ') + '</div>' +
+        '</div>' +
+        '<button class="dash-docs__download" onclick="downloadDoc(\'' + escapeHtml(d.file_path) + '\',\'' + escapeHtml(d.title) + '\')" title="Descarregar">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+        '</button>' +
+      '</div>';
+    }).join('');
+  }
+
+  function setupDocTabs(allDocs) {
+    document.getElementById('docTabs').addEventListener('click', function(e) {
+      var tab = e.target.closest('.dash-docs__tab');
+      if (!tab) return;
+      document.querySelectorAll('.dash-docs__tab').forEach(function(t) { t.classList.remove('dash-docs__tab--active'); });
+      tab.classList.add('dash-docs__tab--active');
+      var cat = tab.dataset.cat;
+      var filtered = cat === 'all' ? allDocs : allDocs.filter(function(d) { return d.category === cat; });
+      renderDocList(filtered);
+    });
+  }
+
+  function renderFinance(invoices, budgetTotal) {
+    var budget = parseFloat(budgetTotal) || 0;
+    var paid = invoices.reduce(function(s,inv) { return inv.status === 'paid' ? s + parseFloat(inv.total_amount || 0) : s; }, 0);
+    var pending = budget - paid;
+
+    document.getElementById('budgetTotal').textContent = formatCurrency(budget);
+    document.getElementById('budgetPaid').textContent = formatCurrency(paid);
+    document.getElementById('budgetPending').textContent = formatCurrency(pending > 0 ? pending : 0);
+
+    var pct = budget > 0 ? Math.round((paid / budget) * 100) : 0;
+    document.getElementById('paymentBar').style.width = pct + '%';
+    document.getElementById('paymentPercent').textContent = pct + '% del pressupost abonat';
+
+    var invContainer = document.getElementById('invoiceList');
+    var invEmpty = document.getElementById('invoiceEmpty');
+    if (!invoices.length) { invEmpty.style.display = 'block'; return; }
+    invEmpty.style.display = 'none';
+
+    var statusLabels = { paid: 'Pagada', sent: 'Pendent', draft: 'Esborrany', overdue: 'Vençuda', cancelled: 'Cancel·lada' };
+    invContainer.innerHTML = invoices.map(function(inv) {
+      var statusCls = inv.status === 'paid' ? 'paid' : inv.status === 'overdue' ? 'overdue' : 'sent';
+      return '<div class="dash-invoice">' +
+        '<div class="dash-invoice__info">' +
+          '<div class="dash-invoice__number">' + escapeHtml(inv.invoice_number || '—') + '</div>' +
+          '<div class="dash-invoice__desc">' + escapeHtml(inv.description || '') + '</div>' +
+        '</div>' +
+        '<div class="dash-invoice__amount">' + formatCurrency(inv.total_amount) + '</div>' +
+        '<span class="dash-invoice__status dash-invoice__status--' + statusCls + '">' + (statusLabels[inv.status] || inv.status) + '</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderTeam(team) {
+    var grid = document.getElementById('teamGrid');
+    var empty = document.getElementById('teamEmpty');
+    // Filter out the current user from team view
+    var members = team.filter(function(m) { return m.user_id !== currentUser.id && m.profiles; });
+    if (!members.length) { empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+
+    var roleLabels = { arquitecto: 'Arquitecte', empleado: 'Cap d\'obra', secretario: 'Administració', admin: 'Direcció', viewer: 'Col·laborador' };
+
+    grid.innerHTML = members.map(function(m) {
+      var p = m.profiles;
+      var initials = ((p.first_name || '')[0] || '') + ((p.last_name || '')[0] || '');
+      var displayRole = roleLabels[m.role_in_project] || roleLabels[p.role] || m.role_in_project;
+      return '<div class="dash-team__member">' +
+        '<div class="dash-team__avatar">' + initials.toUpperCase() + '</div>' +
+        '<div class="dash-team__name">' + escapeHtml((p.first_name || '') + ' ' + (p.last_name || '')) + '</div>' +
+        '<div class="dash-team__role">' + displayRole + '</div>' +
+        '<div class="dash-team__email">' + escapeHtml(p.email || '') + '</div>' +
+        '<button class="dash-team__msg-btn" onclick="navigateTo(\'messages\')">Missatge</button>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderMessages(messages) {
+    var container = document.getElementById('chatMessages');
+    var empty = document.getElementById('chatEmpty');
+    if (!messages.length) { empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+
+    container.innerHTML = messages.map(function(m) {
+      var isMe = m.sender_id === currentUser.id;
+      var senderName = m.sender ? (m.sender.first_name || '') + ' ' + (m.sender.last_name || '') : '';
+      var senderRole = m.sender ? m.sender.role : '';
+      return '<div class="dash-chat__bubble dash-chat__bubble--' + (isMe ? 'me' : 'them') + '">' +
+        (!isMe ? '<div class="dash-chat__sender">' + escapeHtml(senderName) + (senderRole ? ' · ' + senderRole : '') + '</div>' : '') +
+        '<div class="dash-chat__text">' + escapeHtml(m.content) + '</div>' +
+        '<div class="dash-chat__time">' + formatDateTime(m.created_at) + '</div>' +
+      '</div>';
+    }).join('');
+
+    // Scroll to bottom
+    setTimeout(function() { container.scrollTop = container.scrollHeight; }, 100);
+  }
+
+  function renderNotifications(notifs) {
+    var list = document.getElementById('notifList');
+    var badge = document.getElementById('notifBadge');
+    var unread = notifs.filter(function(n) { return !n.is_read; });
+
+    if (unread.length > 0) {
+      badge.textContent = unread.length;
+      badge.style.display = 'flex';
+    }
+
+    if (!notifs.length) return;
+    document.getElementById('notifEmpty').style.display = 'none';
+
+    var iconMap = {
+      phase_changed: 'phase', document_uploaded: 'doc', message_received: 'msg',
+      invoice_created: 'invoice', payment_reminder: 'invoice', general: 'general'
+    };
+    var iconSymbols = { phase: '⏱', doc: '📄', msg: '💬', invoice: '💰', general: '🔔' };
+
+    list.innerHTML = notifs.map(function(n) {
+      var iconType = iconMap[n.type] || 'general';
+      return '<div class="dash-notif__item' + (!n.is_read ? ' dash-notif__item--unread' : '') + '" data-id="' + n.id + '" onclick="markNotifRead(\'' + n.id + '\')">' +
+        '<div class="dash-notif__icon dash-notif__icon--' + iconType + '">' + iconSymbols[iconType] + '</div>' +
+        '<div class="dash-notif__body">' +
+          '<div class="dash-notif__title">' + escapeHtml(n.title) + '</div>' +
+          '<div class="dash-notif__time">' + timeAgo(n.created_at) + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // ══════════════════════════════════════════════
+  // NAVIGATION
+  // ══════════════════════════════════════════════
+
+  function setupNavigation() {
+    // Sidebar clicks
+    document.querySelectorAll('.dash-sidebar__item[data-section]').forEach(function(item) {
+      item.addEventListener('click', function() { navigateTo(this.dataset.section); closeSidebar(); });
+    });
+    // Mobile nav clicks
+    document.querySelectorAll('.dash-mobile-nav__item[data-section]').forEach(function(item) {
+      item.addEventListener('click', function() { navigateTo(this.dataset.section); });
+    });
+    // Sidebar toggle
+    document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
+    document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
+    // Notifications toggle
+    document.getElementById('notifToggle').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('notifPanel').classList.toggle('open');
+      document.getElementById('userDropdown').classList.remove('open');
+    });
+    // User menu toggle
+    document.getElementById('userMenuBtn').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('userDropdown').classList.toggle('open');
+      document.getElementById('notifPanel').classList.remove('open');
+    });
+    // Close dropdowns on outside click
+    document.addEventListener('click', function() {
+      document.getElementById('notifPanel').classList.remove('open');
+      document.getElementById('userDropdown').classList.remove('open');
+    });
+    // Mark all notifications read
+    document.getElementById('markAllRead').addEventListener('click', markAllNotifsRead);
+  }
+
+  function navigateTo(sectionName) {
+    // Hide all sections
+    document.querySelectorAll('.dash-section').forEach(function(s) { s.classList.remove('active'); });
+    // Show target
+    var target = document.getElementById('sec-' + sectionName);
+    if (target) target.classList.add('active');
+    // Update sidebar active
+    document.querySelectorAll('.dash-sidebar__item[data-section]').forEach(function(i) {
+      i.classList.toggle('dash-sidebar__item--active', i.dataset.section === sectionName);
+    });
+    // Update mobile nav active
+    document.querySelectorAll('.dash-mobile-nav__item[data-section]').forEach(function(i) {
+      i.classList.toggle('dash-mobile-nav__item--active', i.dataset.section === sectionName);
+    });
+    // Scroll to top
+    window.scrollTo(0, 0);
+  }
+
+  function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
-    hamburger.addEventListener('click', function () {
-      sidebar.classList.toggle('open');
-    });
+    var overlay = document.getElementById('sidebarOverlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('visible');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('visible');
+  }
 
-    /* ── Hide loading, show app ───────────────────────────────── */
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('app').style.display = '';
+  // ══════════════════════════════════════════════
+  // CHAT / MESSAGES
+  // ══════════════════════════════════════════════
 
-    /* ── Init navigation ──────────────────────────────────────── */
-    PapikCRM.initNav();
+  function setupChatSend(projectId) {
+    var input = document.getElementById('chatInput');
+    var btn = document.getElementById('chatSend');
 
-    /* ── Load all client data ─────────────────────────────────── */
-    loadClientData(user);
-  });
-
-  /* ================================================================
-     LOAD CLIENT DATA
-     ================================================================ */
-  function loadClientData(user) {
-    var userId = user.id;
-
-    /* ── Fetch project (where client_id = user.id) ────────────── */
-    var projectPromise = PapikCRM.client
-      .from('projects')
-      .select('*')
-      .eq('client_id', userId)
-      .order('created_at', { ascending: false })
-      .limit(1);
-
-    /* ── Fetch invoices ───────────────────────────────────────── */
-    var invoicePromise = PapikCRM.fetchInvoices({ client_id: userId });
-
-    /* ── Fetch budget configs ─────────────────────────────────── */
-    var budgetPromise = PapikCRM.fetchBudgetConfigs(userId);
-
-    Promise.all([projectPromise, invoicePromise, budgetPromise]).then(function (results) {
-      var projRes = results[0];
-      var invoices = results[1];
-      var budgets = results[2];
-
-      clientInvoices = invoices || [];
-      clientBudgetConfig = (budgets && budgets.length > 0) ? budgets[0] : null;
-
-      if (projRes.data && projRes.data.length > 0) {
-        clientProject = projRes.data[0];
-        loadProjectDetails(clientProject.id);
-      } else {
-        clientProject = null;
-      }
-
-      renderInici();
-      renderPressupost();
-      renderFactures();
-      loadDocuments();
-    }).catch(function (err) {
-      console.error('Error loading client data:', err);
-      renderInici();
-      renderPressupost();
-      renderFactures();
+    btn.addEventListener('click', function() { sendMessage(projectId); });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(projectId); }
     });
   }
 
-  /* ── Load project details (members, notes, activity) ──────── */
-  function loadProjectDetails(projectId) {
-    var c = PapikCRM.client;
-
-    var membersP = c.from('project_members')
-      .select('*, profiles:user_id(id, first_name, last_name, role)')
-      .eq('project_id', projectId);
-
-    var notesP = c.from('project_notes')
-      .select('*, profiles:user_id(id, first_name, last_name)')
-      .eq('project_id', projectId)
-      .eq('is_internal', false)
-      .order('created_at', { ascending: false });
-
-    var activityP = c.from('activity_log')
-      .select('*, profiles:user_id(id, first_name, last_name)')
-      .eq('project_id', projectId)
-      .order('created_at', { ascending: false })
-      .limit(20);
-
-    Promise.all([membersP, notesP, activityP]).then(function (results) {
-      var members = (results[0].data || []);
-      var notes = (results[1].data || []);
-      var activity = (results[2].data || []);
-
-      renderProjecte(clientProject, members, notes, activity);
-    }).catch(function (err) {
-      console.error('Error loading project details:', err);
-      renderProjecte(clientProject, [], [], []);
-    });
-  }
-
-  /* ── Load documents ────────────────────────────────────────── */
-  function loadDocuments() {
-    if (!clientProject) {
-      clientDocuments = [];
-      renderDocuments();
-      return;
-    }
-
-    PapikCRM.fetchDocuments({ project_id: clientProject.id }).then(function (docs) {
-      clientDocuments = docs || [];
-      renderDocuments();
-    }).catch(function (err) {
-      console.error('Error loading documents:', err);
-      clientDocuments = [];
-      renderDocuments();
-    });
-  }
-
-  /* ================================================================
-     RENDER: INICI
-     ================================================================ */
-  function renderInici() {
-    var projectCard = document.getElementById('inici-project-card');
-    var invoicesSection = document.getElementById('inici-invoices');
-    var emptyState = document.getElementById('inici-empty');
-
-    if (clientProject) {
-      projectCard.style.display = '';
-      emptyState.style.display = 'none';
-
-      /* ── KPI cards ─────────────────────────────────────────── */
-      var statusLabel = {
-        'draft': 'Esborrany',
-        'in_progress': 'En curs',
-        'completed': 'Completat',
-        'archived': 'Arxivat'
-      };
-      var kpisHtml = '';
-
-      kpisHtml += '<div class="kpi-card">' +
-        '<div class="kpi-card__icon kpi-card__icon--green">' + PapikCRM.icons.myproject + '</div>' +
-        '<div class="kpi-card__label">Projecte</div>' +
-        '<div class="kpi-card__value" style="font-size:20px;">' + esc(clientProject.name || 'Sense nom') + '</div>' +
-        '<div class="kpi-card__desc">' + PapikCRM.statusBadge(clientProject.status) + '</div>' +
-        '</div>';
-
-      kpisHtml += '<div class="kpi-card">' +
-        '<div class="kpi-card__icon kpi-card__icon--blue">' + PapikCRM.icons.myproject + '</div>' +
-        '<div class="kpi-card__label">Adreca</div>' +
-        '<div class="kpi-card__value" style="font-size:16px;">' + esc(clientProject.address || '\u2014') + '</div>' +
-        '</div>';
-
-      if (clientProject.budget_total) {
-        kpisHtml += '<div class="kpi-card">' +
-          '<div class="kpi-card__icon kpi-card__icon--green">' + PapikCRM.icons.budgets + '</div>' +
-          '<div class="kpi-card__label">Pressupost total</div>' +
-          '<div class="kpi-card__value" style="font-size:22px;">' + fmtCurrency(clientProject.budget_total) + '</div>' +
-          '</div>';
-      }
-
-      if (clientInvoices.length > 0) {
-        var paidCount = 0;
-        for (var k = 0; k < clientInvoices.length; k++) {
-          if (clientInvoices[k].status === 'paid') paidCount++;
-        }
-        kpisHtml += '<div class="kpi-card">' +
-          '<div class="kpi-card__icon kpi-card__icon--orange">' + PapikCRM.icons.invoices + '</div>' +
-          '<div class="kpi-card__label">Factures</div>' +
-          '<div class="kpi-card__value">' + clientInvoices.length + '</div>' +
-          '<div class="kpi-card__desc">' + paidCount + ' pagades</div>' +
-          '</div>';
-      }
-
-      document.getElementById('inici-kpis').innerHTML = kpisHtml;
-
-    } else {
-      projectCard.style.display = 'none';
-      emptyState.style.display = '';
-    }
-
-    /* ── Recent invoices (last 3) ───────────────────────────── */
-    if (clientInvoices.length > 0) {
-      invoicesSection.style.display = '';
-      var recentInvoices = clientInvoices.slice(0, 3);
-      var invHtml = '';
-      for (var i = 0; i < recentInvoices.length; i++) {
-        var inv = recentInvoices[i];
-        invHtml += '<div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 20px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">' +
-          '<div>' +
-            '<span style="font-size:14px;font-weight:500;">' + esc(inv.invoice_number || '\u2014') + '</span>' +
-            '<span style="font-size:13px;color:var(--muted);margin-left:12px;">' + PapikCRM.formatDate(inv.issued_date) + '</span>' +
-          '</div>' +
-          '<div style="display:flex;align-items:center;gap:12px;">' +
-            '<span style="font-size:14px;font-weight:500;">' + fmtCurrency(inv.total_amount) + '</span>' +
-            PapikCRM.statusBadge(inv.status) +
-          '</div>' +
-        '</div>';
-      }
-      document.getElementById('inici-invoices-list').innerHTML = invHtml;
-    } else {
-      invoicesSection.style.display = 'none';
-    }
-  }
-
-  /* ================================================================
-     RENDER: EL MEU PROJECTE
-     ================================================================ */
-  function renderProjecte(project, members, notes, activity) {
-    var detail = document.getElementById('projecte-detail');
-    var empty = document.getElementById('projecte-empty');
-
-    if (!project) {
-      detail.style.display = 'none';
-      empty.style.display = '';
-      return;
-    }
-
-    detail.style.display = '';
-    empty.style.display = 'none';
-
-    /* ── Project header ──────────────────────────────────────── */
-    document.getElementById('proj-name').textContent = project.name || 'Sense nom';
-    document.getElementById('proj-address').textContent = project.address || '';
-    document.getElementById('proj-status').innerHTML = PapikCRM.statusBadge(project.status);
-    document.getElementById('proj-start-date').textContent = PapikCRM.formatDate(project.start_date);
-    document.getElementById('proj-end-date').textContent = PapikCRM.formatDate(project.estimated_end_date);
-
-    var descEl = document.getElementById('proj-description');
-    if (project.description) {
-      descEl.innerHTML = '<p style="font-size:14px;color:var(--muted);line-height:1.6;margin:0;">' + esc(project.description) + '</p>';
-    } else {
-      descEl.innerHTML = '';
-    }
-
-    /* ── Timeline ────────────────────────────────────────────── */
-    var timelineEl = document.getElementById('proj-timeline');
-    var timelineEmpty = document.getElementById('proj-timeline-empty');
-    if (activity.length > 0) {
-      timelineEl.style.display = '';
-      timelineEmpty.style.display = 'none';
-      var tlHtml = '';
-      for (var t = 0; t < activity.length; t++) {
-        var act = activity[t];
-        var authorName = '';
-        if (act.profiles) {
-          authorName = ((act.profiles.first_name || '') + ' ' + (act.profiles.last_name || '')).trim();
-        }
-        tlHtml += '<div class="timeline-item">' +
-          '<div class="timeline-item__dot"></div>' +
-          '<div class="timeline-item__date">' + PapikCRM.formatDateTime(act.created_at) +
-            (authorName ? ' &mdash; ' + esc(authorName) : '') +
-          '</div>' +
-          '<div class="timeline-item__text">' + esc(act.description || act.activity || '') + '</div>' +
-        '</div>';
-      }
-      timelineEl.innerHTML = tlHtml;
-    } else {
-      timelineEl.style.display = 'none';
-      timelineEmpty.style.display = '';
-    }
-
-    /* ── Public notes ────────────────────────────────────────── */
-    var notesEl = document.getElementById('proj-notes');
-    var notesEmpty = document.getElementById('proj-notes-empty');
-    if (notes.length > 0) {
-      notesEl.style.display = '';
-      notesEmpty.style.display = 'none';
-      var nHtml = '';
-      for (var n = 0; n < notes.length; n++) {
-        var note = notes[n];
-        var noteAuthor = '';
-        if (note.profiles) {
-          noteAuthor = ((note.profiles.first_name || '') + ' ' + (note.profiles.last_name || '')).trim();
-        }
-        nHtml += '<div class="note-card">' +
-          '<div class="note-card__date">' + PapikCRM.formatDateTime(note.created_at) + '</div>' +
-          (noteAuthor ? '<div class="note-card__author">' + esc(noteAuthor) + '</div>' : '') +
-          '<div class="note-card__content">' + esc(note.content || '') + '</div>' +
-        '</div>';
-      }
-      notesEl.innerHTML = nHtml;
-    } else {
-      notesEl.style.display = 'none';
-      notesEmpty.style.display = '';
-    }
-
-    /* ── Team ────────────────────────────────────────────────── */
-    var teamEl = document.getElementById('proj-team');
-    var teamEmpty = document.getElementById('proj-team-empty');
-    if (members.length > 0) {
-      teamEl.style.display = '';
-      teamEmpty.style.display = 'none';
-      var mHtml = '';
-      for (var m = 0; m < members.length; m++) {
-        var member = members[m];
-        var memberName = '';
-        var memberRole = member.role || '';
-        if (member.profiles) {
-          memberName = ((member.profiles.first_name || '') + ' ' + (member.profiles.last_name || '')).trim();
-          if (!memberRole) memberRole = member.profiles.role || '';
-        }
-        mHtml += '<div class="team-member">' +
-          '<div class="team-member__avatar">' + initials(memberName) + '</div>' +
-          '<div>' +
-            '<div class="team-member__name">' + esc(memberName || 'Sense nom') + '</div>' +
-            '<div class="team-member__role">' + esc(memberRole) + '</div>' +
-          '</div>' +
-        '</div>';
-      }
-      teamEl.innerHTML = mHtml;
-    } else {
-      teamEl.style.display = 'none';
-      teamEmpty.style.display = '';
-    }
-  }
-
-  /* ================================================================
-     RENDER: PRESSUPOST
-     ================================================================ */
-  function renderPressupost() {
-    var detail = document.getElementById('pressupost-detail');
-    var empty = document.getElementById('pressupost-empty');
-
-    if (!clientBudgetConfig || !clientBudgetConfig.config_result) {
-      detail.style.display = 'none';
-      empty.style.display = '';
-      return;
-    }
-
-    detail.style.display = '';
-    empty.style.display = 'none';
-
-    var result = clientBudgetConfig.config_result;
-    var input = clientBudgetConfig.config_input || {};
-
-    /* ── Summary banner ──────────────────────────────────────── */
-    var totalPressupost = result.total_pressupost || 0;
-    var m2 = input.m2 || 0;
-    var preuM2 = m2 > 0 ? (totalPressupost / m2) : 0;
-
-    var summaryHtml = '<div class="budget-summary__total">' + fmtCurrency(totalPressupost) + '</div>' +
-      '<div style="font-size:14px;opacity:.7;">Pressupost total (IVA inclos)</div>' +
-      '<div class="budget-summary__detail">' +
-        '<div class="budget-summary__item"><strong>' + fmtCurrency(result.total_sense_iva) + '</strong>Subtotal sense IVA</div>' +
-        '<div class="budget-summary__item"><strong>' + fmtCurrency(result.iva) + '</strong>IVA (10%)</div>' +
-        '<div class="budget-summary__item"><strong>' + m2 + ' m\u00B2</strong>Superficie</div>' +
-        '<div class="budget-summary__item"><strong>' + fmtCurrency(preuM2) + '/m\u00B2</strong>Preu per m\u00B2</div>' +
-      '</div>';
-    document.getElementById('budget-summary').innerHTML = summaryHtml;
-
-    /* ── Pack breakdown ──────────────────────────────────────── */
-    var packsHtml = '';
-    var packKeys = ['pack_envolvent', 'pack_installacions', 'pack_parking', 'pack_acabats'];
-
-    for (var p = 0; p < packKeys.length; p++) {
-      var packKey = packKeys[p];
-      var packData = result[packKey];
-      if (!packData) continue;
-
-      var packTotal = packData.total || 0;
-      var packId = 'pack-' + p;
-
-      packsHtml += '<div class="pack-card">' +
-        '<div class="pack-card__header" onclick="togglePack(\'' + packId + '\')">' +
-          '<div>' +
-            '<div class="pack-card__name">' + esc(packLabels[packKey] || packKey) + '</div>' +
-          '</div>' +
-          '<div style="display:flex;align-items:center;gap:12px;">' +
-            '<div class="pack-card__total">' + fmtCurrency(packTotal) + '</div>' +
-            '<div class="pack-card__toggle" id="toggle-' + packId + '">' +
-              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="pack-card__items" id="items-' + packId + '">';
-
-      /* ── Items ────────────────────────────────────────────── */
-      var keys = Object.keys(packData);
-      for (var j = 0; j < keys.length; j++) {
-        var itemKey = keys[j];
-        if (itemKey === 'total') continue;
-        var itemVal = packData[itemKey];
-        if (itemVal === 0) continue;
-        packsHtml += '<div class="pack-item">' +
-          '<span class="pack-item__name">' + esc(itemLabels[itemKey] || itemKey) + '</span>' +
-          '<span class="pack-item__value">' + fmtCurrency(itemVal) + '</span>' +
-        '</div>';
-      }
-
-      packsHtml += '</div></div>';
-    }
-
-    /* ── Transport pack ──────────────────────────────────────── */
-    if (result.transport && result.transport > 0) {
-      packsHtml += '<div class="pack-card">' +
-        '<div class="pack-card__header">' +
-          '<div class="pack-card__name">' + esc(packLabels['transport']) + '</div>' +
-          '<div class="pack-card__total">' + fmtCurrency(result.transport) + '</div>' +
-        '</div>' +
-      '</div>';
-    }
-
-    /* ── Contractacio pack ───────────────────────────────────── */
-    var contData = result.contractacio_externa;
-    if (contData) {
-      var contId = 'pack-contractacio';
-      packsHtml += '<div class="pack-card">' +
-        '<div class="pack-card__header" onclick="togglePack(\'' + contId + '\')">' +
-          '<div>' +
-            '<div class="pack-card__name">' + esc(packLabels['contractacio_externa']) + '</div>' +
-          '</div>' +
-          '<div style="display:flex;align-items:center;gap:12px;">' +
-            '<div class="pack-card__total">' + fmtCurrency(contData.total) + '</div>' +
-            '<div class="pack-card__toggle" id="toggle-' + contId + '">' +
-              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="pack-card__items" id="items-' + contId + '">';
-
-      var contKeys = Object.keys(contData);
-      for (var ck = 0; ck < contKeys.length; ck++) {
-        var cKey = contKeys[ck];
-        if (cKey === 'total') continue;
-        var cVal = contData[cKey];
-        if (cVal === 0) continue;
-        packsHtml += '<div class="pack-item">' +
-          '<span class="pack-item__name">' + esc(itemLabels[cKey] || cKey) + '</span>' +
-          '<span class="pack-item__value">' + fmtCurrency(cVal) + '</span>' +
-        '</div>';
-      }
-
-      packsHtml += '</div></div>';
-    }
-
-    document.getElementById('budget-packs').innerHTML = packsHtml;
-
-    /* ── Totals breakdown ────────────────────────────────────── */
-    var totalsHtml = '<div style="display:flex;flex-direction:column;gap:12px;">';
-
-    var pe = result.pack_envolvent || {};
-    var pi = result.pack_installacions || {};
-    var pp = result.pack_parking || {};
-    var pa = result.pack_acabats || {};
-
-    totalsHtml += _totalRow('Envolvent Termic', pe.total);
-    totalsHtml += _totalRow("Instal\u00B7lacions", pi.total);
-    totalsHtml += _totalRow('Parking i Exteriors', pp.total);
-    totalsHtml += _totalRow('Acabats Interiors', pa.total);
-    totalsHtml += _totalRow('Transport', result.transport);
-
-    totalsHtml += '<div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px;">';
-    totalsHtml += _totalRow('Total construccio', result.total_construccio, true);
-    totalsHtml += '</div>';
-
-    if (contData) {
-      totalsHtml += _totalRow('Contractacio externa', contData.total);
-    }
-
-    totalsHtml += '<div style="border-top:2px solid var(--green);padding-top:12px;margin-top:4px;">';
-    totalsHtml += _totalRow('Subtotal sense IVA', result.total_sense_iva, true);
-    totalsHtml += _totalRow('IVA (10%)', result.iva);
-    totalsHtml += '<div style="margin-top:8px;">';
-    totalsHtml += _totalRow('TOTAL PRESSUPOST', result.total_pressupost, true, true);
-    totalsHtml += '</div></div>';
-
-    totalsHtml += '</div>';
-    document.getElementById('budget-totals').innerHTML = totalsHtml;
-
-    /* ── PDF download button ─────────────────────────────────── */
-    var pdfBtn = document.getElementById('btn-download-pdf');
-    if (clientBudgetConfig.pdf_path) {
-      pdfBtn.href = clientBudgetConfig.pdf_path;
-      pdfBtn.style.display = '';
-    } else {
-      pdfBtn.href = '/generar-pdf';
-      pdfBtn.style.display = '';
-    }
-
-    /* ── Init chatbot ────────────────────────────────────────── */
-    initChatbot();
-  }
-
-  function _totalRow(label, amount, bold, highlight) {
-    var style = 'display:flex;justify-content:space-between;padding:4px 0;font-size:14px;';
-    if (bold) style += 'font-weight:500;';
-    if (highlight) style += 'font-size:16px;color:var(--green);';
-    return '<div style="' + style + '">' +
-      '<span>' + esc(label) + '</span>' +
-      '<span>' + fmtCurrency(amount) + '</span>' +
-    '</div>';
-  }
-
-  /* ================================================================
-     RENDER: FACTURES
-     ================================================================ */
-  function renderFactures() {
-    var tableEl = document.getElementById('factures-table');
-    var emptyEl = document.getElementById('factures-empty');
-    var bannerEl = document.getElementById('factures-banner');
-
-    if (clientInvoices.length === 0) {
-      tableEl.style.display = 'none';
-      emptyEl.style.display = '';
-      bannerEl.style.display = 'none';
-      return;
-    }
-
-    tableEl.style.display = '';
-    emptyEl.style.display = 'none';
-
-    /* ── Outstanding amount ──────────────────────────────────── */
-    var outstanding = 0;
-    for (var o = 0; o < clientInvoices.length; o++) {
-      var invStatus = clientInvoices[o].status;
-      if (invStatus === 'sent' || invStatus === 'overdue') {
-        outstanding += parseFloat(clientInvoices[o].total_amount || 0);
-      }
-    }
-
-    if (outstanding > 0) {
-      bannerEl.style.display = '';
-      document.getElementById('factures-outstanding').textContent = fmtCurrency(outstanding);
-    } else {
-      bannerEl.style.display = 'none';
-    }
-
-    /* ── Table ────────────────────────────────────────────────── */
-    PapikCRM.renderTable('factures-table', {
-      columns: [
-        { key: 'invoice_number', label: 'Numero' },
-        {
-          key: 'projects',
-          label: 'Projecte',
-          render: function (val) {
-            if (val && val.name) return esc(val.name);
-            return '\u2014';
-          }
-        },
-        {
-          key: 'total_amount',
-          label: 'Import',
-          render: function (val) {
-            return fmtCurrency(val);
-          }
-        },
-        {
-          key: 'status',
-          label: 'Estat',
-          render: function (val) {
-            return PapikCRM.statusBadge(val);
-          }
-        },
-        {
-          key: 'issued_date',
-          label: 'Data Emissio',
-          render: function (val) {
-            return PapikCRM.formatDate(val);
-          }
-        },
-        {
-          key: 'due_date',
-          label: 'Data Venciment',
-          render: function (val) {
-            return PapikCRM.formatDate(val);
-          }
-        }
-      ],
-      data: clientInvoices,
-      searchKey: 'invoice_number',
-      emptyMessage: 'No hi ha factures.'
-    });
-  }
-
-  /* ================================================================
-     RENDER: DOCUMENTS
-     ================================================================ */
-  function renderDocuments() {
-    var tableEl = document.getElementById('documents-table');
-    var emptyEl = document.getElementById('documents-empty');
-
-    if (clientDocuments.length === 0) {
-      tableEl.style.display = 'none';
-      emptyEl.style.display = '';
-      return;
-    }
-
-    tableEl.style.display = '';
-    emptyEl.style.display = 'none';
-
-    PapikCRM.renderTable('documents-table', {
-      columns: [
-        { key: 'name', label: 'Nom' },
-        {
-          key: 'category',
-          label: 'Categoria',
-          render: function (val) {
-            return esc(val || 'General');
-          }
-        },
-        {
-          key: 'file_size',
-          label: 'Mida',
-          render: function (val) {
-            return PapikCRM.formatFileSize(val);
-          }
-        },
-        {
-          key: 'created_at',
-          label: 'Data',
-          render: function (val) {
-            return PapikCRM.formatDate(val);
-          }
-        },
-        {
-          key: 'file_path',
-          label: 'Accio',
-          render: function (val, row) {
-            if (!val) return '\u2014';
-            return '<button class="btn btn-sm btn-secondary" onclick="downloadDoc(\'' + esc(val) + '\')">Descarregar</button>';
-          }
-        }
-      ],
-      data: clientDocuments,
-      searchKey: 'name',
-      emptyMessage: 'No hi ha documents.'
-    });
-  }
-
-  /* ── Download document ─────────────────────────────────────── */
-  window.downloadDoc = function (filePath) {
-    PapikCRM.getFileUrl(filePath).then(function (url) {
-      if (url) {
-        window.open(url, '_blank');
-      } else {
-        PapikCRM.toast('No s\'ha pogut obtenir l\'URL del document.', 'error');
-      }
-    }).catch(function (err) {
-      PapikCRM.toast('Error descarregant el document.', 'error');
-    });
-  };
-
-  /* ── Toggle pack expand/collapse ───────────────────────────── */
-  window.togglePack = function (packId) {
-    var items = document.getElementById('items-' + packId);
-    var toggle = document.getElementById('toggle-' + packId);
-    if (!items) return;
-
-    if (items.classList.contains('open')) {
-      items.classList.remove('open');
-      if (toggle) toggle.classList.remove('open');
-    } else {
-      items.classList.add('open');
-      if (toggle) toggle.classList.add('open');
-    }
-  };
-
-  /* ================================================================
-     CHATBOT
-     ================================================================ */
-  function initChatbot() {
-    var input = document.getElementById('chat-input');
-    var sendBtn = document.getElementById('chat-send-btn');
-
-    if (!input || !sendBtn) return;
-
-    sendBtn.addEventListener('click', function () {
-      sendChatMessage();
-    });
-
-    input.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        sendChatMessage();
-      }
-    });
-  }
-
-  function sendChatMessage() {
-    var input = document.getElementById('chat-input');
-    var messagesEl = document.getElementById('chat-messages');
-    var sendBtn = document.getElementById('chat-send-btn');
-
-    var message = (input.value || '').trim();
-    if (!message) return;
-
-    /* ── Add user message ────────────────────────────────────── */
-    var userBubble = document.createElement('div');
-    userBubble.className = 'chat-msg chat-msg--user';
-    userBubble.textContent = message;
-    messagesEl.appendChild(userBubble);
+  async function sendMessage(projectId) {
+    var input = document.getElementById('chatInput');
+    var content = input.value.trim();
+    if (!content) return;
 
     input.value = '';
-    sendBtn.disabled = true;
 
-    /* ── Scroll to bottom ────────────────────────────────────── */
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-
-    /* ── Show typing indicator ───────────────────────────────── */
-    var typingEl = document.createElement('div');
-    typingEl.className = 'chat-msg chat-msg--typing';
-    typingEl.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-    messagesEl.appendChild(typingEl);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-
-    /* ── Build request body ──────────────────────────────────── */
-    var body = {
-      message: message
-    };
-
-    if (chatConversationId) {
-      body.conversation_id = chatConversationId;
-    }
-
-    if (!chatConversationId && clientBudgetConfig) {
-      body.budget_input = clientBudgetConfig.config_input || {};
-      body.budget_result = clientBudgetConfig.config_result || {};
-    }
-
-    /* ── Send to Flask backend ───────────────────────────────── */
-    fetch('/chat-pressupost', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    })
-    .then(function (resp) {
-      return resp.json();
-    })
-    .then(function (data) {
-      /* ── Remove typing indicator ───────────────────────────── */
-      if (typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
-
-      if (data.error) {
-        addBotMessage('Ho sento, hi ha hagut un error: ' + (data.error || 'Error desconegut'));
-      } else {
-        var answer = data.answer || "No s'ha pogut obtenir resposta.";
-        if (data.conversation_id) {
-          chatConversationId = data.conversation_id;
-        }
-        addBotMessage(answer);
-      }
-      sendBtn.disabled = false;
-    })
-    .catch(function (err) {
-      if (typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
-      addBotMessage("Error de connexio amb l'assessor. Torna-ho a intentar.");
-      sendBtn.disabled = false;
-      console.error('Chat error:', err);
+    var result = await sb.from('messages').insert({
+      project_id: projectId,
+      sender_id: currentUser.id,
+      content: content
     });
+
+    if (result.error) {
+      console.error('Send message error:', result.error);
+      input.value = content; // Restore on error
+    }
   }
 
-  function addBotMessage(text) {
-    var messagesEl = document.getElementById('chat-messages');
-    var botBubble = document.createElement('div');
-    botBubble.className = 'chat-msg chat-msg--bot';
-    botBubble.textContent = text;
-    messagesEl.appendChild(botBubble);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
+  function appendMessage(msg) {
+    var container = document.getElementById('chatMessages');
+    var empty = document.getElementById('chatEmpty');
+    if (empty) empty.style.display = 'none';
+
+    var isMe = msg.sender_id === currentUser.id;
+    var senderName = '', senderRole = '';
+
+    // For realtime messages we may not have sender info - fetch if needed
+    var div = document.createElement('div');
+    div.className = 'dash-chat__bubble dash-chat__bubble--' + (isMe ? 'me' : 'them');
+    div.innerHTML =
+      (!isMe ? '<div class="dash-chat__sender">' + escapeHtml(msg.sender_name || 'Equip') + '</div>' : '') +
+      '<div class="dash-chat__text">' + escapeHtml(msg.content) + '</div>' +
+      '<div class="dash-chat__time">' + formatDateTime(msg.created_at) + '</div>';
+
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
   }
 
-})();
-</script>
+  // ══════════════════════════════════════════════
+  // REALTIME SUBSCRIPTIONS
+  // ══════════════════════════════════════════════
+
+  function setupRealtimeMessages(projectId) {
+    sb.channel('messages-' + projectId)
+      .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'messages',
+        filter: 'project_id=eq.' + projectId
+      }, function(payload) {
+        appendMessage(payload.new);
+        if (payload.new.sender_id !== currentUser.id) {
+          incrementBadge('msgBadge');
+          incrementBadge('mobileMsgBadge');
+        }
+      })
+      .subscribe();
+  }
+
+  function setupRealtimeNotifications(userId) {
+    sb.channel('notifs-' + userId)
+      .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'notifications',
+        filter: 'user_id=eq.' + userId
+      }, function(payload) {
+        prependNotification(payload.new);
+        incrementBadge('notifBadge');
+      })
+      .subscribe();
+  }
+
+  function prependNotification(notif) {
+    var list = document.getElementById('notifList');
+    var empty = document.getElementById('notifEmpty');
+    if (empty) empty.style.display = 'none';
+
+    var iconMap = { phase_changed: 'phase', document_uploaded: 'doc', message_received: 'msg', invoice_created: 'invoice', general: 'general' };
+    var iconSymbols = { phase: '⏱', doc: '📄', msg: '💬', invoice: '💰', general: '🔔' };
+    var iconType = iconMap[notif.type] || 'general';
+
+    var div = document.createElement('div');
+    div.className = 'dash-notif__item dash-notif__item--unread';
+    div.dataset.id = notif.id;
+    div.onclick = function() { markNotifRead(notif.id); };
+    div.innerHTML =
+      '<div class="dash-notif__icon dash-notif__icon--' + iconType + '">' + iconSymbols[iconType] + '</div>' +
+      '<div class="dash-notif__body">' +
+        '<div class="dash-notif__title">' + escapeHtml(notif.title) + '</div>' +
+        '<div class="dash-notif__time">Ara</div>' +
+      '</div>';
+
+    list.insertBefore(div, list.firstChild);
+  }
+
+  // ══════════════════════════════════════════════
+  // NOTIFICATIONS ACTIONS
+  // ══════════════════════════════════════════════
+
+  async function markNotifRead(id) {
+    await sb.from('notifications').update({ is_read: true }).eq('id', id);
+    var item = document.querySelector('.dash-notif__item[data-id="' + id + '"]');
+    if (item) item.classList.remove('dash-notif__item--unread');
+    decrementBadge('notifBadge');
+  }
+
+  async function markAllNotifsRead() {
+    await sb.from('notifications').update({ is_read: true }).eq('user_id', currentUser.id).eq('is_read', false);
+    document.querySelectorAll('.dash-notif__item--unread').forEach(function(el) { el.classList.remove('dash-notif__item--unread'); });
+    document.getElementById('notifBadge').style.display = 'none';
+  }
+
+  // ══════════════════════════════════════════════
+  // DOCUMENT DOWNLOAD
+  // ══════════════════════════════════════════════
+
+  async function downloadDoc(filePath, fileName) {
+    var result = await sb.storage.from('documents').download(filePath);
+    if (result.data) {
+      var url = URL.createObjectURL(result.data);
+      var a = document.createElement('a');
+      a.href = url; a.download = fileName || 'document';
+      document.body.appendChild(a); a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } else {
+      console.error('Download error:', result.error);
+    }
+  }
+
+  // ══════════════════════════════════════════════
+  // NO PROJECT STATE
+  // ══════════════════════════════════════════════
+
+  function showNoprojectState() {
+    renderTopBar(currentUser);
+    document.querySelector('.dash-main__inner').innerHTML =
+      '<div style="text-align:center; padding:80px 20px;">' +
+        '<h2 class="t24" style="margin-bottom:12px;">Encara no tens cap projecte assignat</h2>' +
+        '<p class="t16 color-muted" style="margin-bottom:24px;">Contacta amb PAPIK per iniciar el teu projecte de construcció.</p>' +
+        '<a href="index.html" style="display:inline-block; padding:12px 28px; background:var(--green); color:#fff; border-radius:24px; font-size:14px; font-weight:500;">Tornar al web</a>' +
+      '</div>';
+    document.getElementById('loadingScreen').classList.add('hidden');
+  }
+
+  // ══════════════════════════════════════════════
+  // UTILITY FUNCTIONS
+  // ══════════════════════════════════════════════
+
+  function formatDate(d) {
+    if (!d) return '';
+    var date = new Date(d);
+    return date.toLocaleDateString('ca-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  }
+
+  function formatDateTime(d) {
+    if (!d) return '';
+    var date = new Date(d);
+    return date.toLocaleDateString('ca-ES', { day: '2-digit', month: '2-digit' }) + ' ' +
+           date.toLocaleTimeString('ca-ES', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function formatCurrency(n) {
+    var num = parseFloat(n) || 0;
+    return num.toLocaleString('ca-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  function formatSize(bytes) {
+    var b = parseInt(bytes);
+    if (b < 1024) return b + ' B';
+    if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
+    return (b / 1048576).toFixed(1) + ' MB';
+  }
+
+  function timeAgo(dateStr) {
+    var now = new Date();
+    var date = new Date(dateStr);
+    var diff = Math.floor((now - date) / 1000);
+    if (diff < 60) return 'Ara';
+    if (diff < 3600) return Math.floor(diff / 60) + ' min';
+    if (diff < 86400) return Math.floor(diff / 3600) + ' h';
+    if (diff < 604800) return Math.floor(diff / 86400) + ' d';
+    return formatDate(dateStr);
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function incrementBadge(id) {
+    var badge = document.getElementById(id);
+    if (!badge) return;
+    var count = parseInt(badge.textContent || '0') + 1;
+    badge.textContent = count;
+    badge.style.display = 'flex';
+  }
+
+  function decrementBadge(id) {
+    var badge = document.getElementById(id);
+    if (!badge) return;
+    var count = Math.max(0, parseInt(badge.textContent || '0') - 1);
+    badge.textContent = count;
+    if (count === 0) badge.style.display = 'none';
+  }
+
+  </script>
+  <script src="/js/cookie-banner.js" defer></script>
+  <script src="/js/forms.js" defer></script>
 </body>
 </html>

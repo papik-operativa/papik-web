@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una casa sostenible a les faldes del Montseny | PAPIK</title>
+  <meta name="description" content="K-Alzina: habitatge Passivhaus de 180 m² amb estructura de fusta FSC al Parc Natural del Montseny. Balanç de carboni positiu i 0,35 ACH al blower-door.">
+
+  <link rel="canonical" href="https://papik.cat/article-casa-montseny">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-casa-montseny">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-casa-montseny">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/article-montseny-house">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-casa-montseny">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Una casa sostenible a les faldes del Montseny | PAPIK">
+  <meta property="og:description" content="K-Alzina: habitatge Passivhaus de 180 m² amb estructura de fusta FSC al Parc Natural del Montseny. Balanç de carboni positiu i 0,35 ACH al blower-door.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/article-casa-montseny">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="ca_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Una casa sostenible a les faldes del Montseny | PAPIK">
+  <meta name="twitter:description" content="K-Alzina: habitatge Passivhaus de 180 m² amb estructura de fusta FSC al Parc Natural del Montseny. Balanç de carboni positiu i 0,35 ACH al blower-door.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Una casa sostenible a les faldes del Montseny | PAPIK",
+    "description": "K-Alzina: habitatge Passivhaus de 180 m² amb estructura de fusta FSC al Parc Natural del Montseny. Balanç de carboni positiu i 0,35 ACH al blower-door.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://papik.cat/article-casa-montseny"
+    },
+    "articleSection": "Casos i projectes",
+    "wordCount": "1378",
+    "inLanguage": "ca",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Una casa sostenible a les faldes del Montseny"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/article-casa-montseny" selected>CA</option>
+          <option value="https://papik.cat/es/article-casa-montseny">ES</option>
+          <option value="https://papik.cat/en/article-montseny-house">EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Inici</a>
+        <span class="sep">·</span>
+        <span>Una casa sostenible a les faldes del Montseny</span>
+      </nav>
+    <h1 class="hero__title">Una casa sostenible a les faldes del Montseny</h1>
+    <p class="hero__subtitle">K-Alzina: habitatge Passivhaus de 180 m² amb estructura de fusta FSC al Parc Natural del Montseny. Balanç de carboni positiu i 0,35 ACH al blower-door.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>El repte: permisos, accés i clima</h2>
+<p>El primer obstacle va ser administratiu. Construir dins del perímetre del Parc Natural exigeix informes ambientals específics, limitacions d'alçada i volumetria, restriccions cromàtiques per als acabats exteriors, i un pla de gestió de residus d'obra aprovat pel parc. El procés de llicència va ser substancialment més llarg que el d'un projecte urbà equivalent.</p>
+<p>L'accés a la parcel·la va plantejar el segon repte. El camí d'entrada, estret i amb revolts tancats, limitava la mida dels vehicles de transport. Això va condicionar tota la planificació: els elements prefabricats de l'entramat havien de tenir dimensions compatibles amb camions de mida mitjana, i l'acopi de materials s'havia de fer per fases per no ocupar terreny natural fora de la zona d'obra autoritzada.</p>
+<p>El clima del Montseny va completar el quadre. Les temperatures hivernals baixen regularment per sota dels 0 graus, amb puntes de menys cinc o menys set graus en episodis freds. A l'estiu, la combinació de calor i humitat exigeix una envolupant que gestioni bé el vapor d'aigua. El disseny havia de funcionar simultàniament als dos extrems.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Disseny: orientació i forma al servei del clima</h2>
+<p>El projecte arquitectònic, obra de l'estudi Arquitir, parteix d'una planta en forma de L que abraça el terreny i genera un pati orientat a sud. La disposició respon a criteris tèrmics concrets. Maximitza la captació solar passiva a l'hivern (el sol baix entra profundament a les estances principals), mentre que les ales de l'edifici protegeixen el pati dels vents dominants del nord.</p>
+<p>Les obertures s'han calculat amb el PHPP (Passive House Planning Package) per equilibrar guanys solars i risc de sobreescalfament. A la façana sud, les finestres de gran format incorporen proteccions solars exteriors mòbils (porticons corredissos de làrix) que bloquegen el sol d'estiu sense renunciar a les vistes. A les façanes est i oest les obertures són més contingudes per minimitzar guanys no desitjats a les tardes d'estiu.</p>
+<blockquote><p>Al Montseny el repte no és només mantenir la casa calenta a l'hivern. La combinació de calor i humitat a l'estiu obliga a un disseny que respiri sense perdre estanquitat. Cada detall constructiu està pensat per als dos extrems.</p></blockquote>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Estructura i materials: fusta FSC de dalt a baix</h2>
+<p>L'esquelet de K-Alzina és íntegrament de fusta certificada FSC, amb un sistema d'entramat lleuger d'avet que combina resistència estructural i eficiència tèrmica. La certificació FSC era un requisit no negociable, coherent amb la ubicació al parc natural: cada peça de fusta prové de forests gestionades de manera responsable, amb traçabilitat completa de la cadena de custòdia.</p>
+<p>L'envolupant tèrmica combina aïllament de suro expandit a l'exterior (SATE de 8 cm) amb cel·lulosa insuflada a les cavitats de l'entramat (16 cm). La combinació ha permès assolir uns valors U exigents: 0,15 W/m²K als murs exteriors, 0,12 W/m²K a la coberta, 0,18 W/m²K a la solera i una mitjana de 0,85 W/m²K a les finestres de fusta-alumini amb triple vidre.</p>
+<p>La façana ventilada combina llistons de fusta de làrix a les zones de dia amb un acabat SATE blanc a les zones de nit, un contrast cromàtic acceptat dins de les indicacions del parc. A l'interior, els paraments de cartró-guix pintat conviuen amb parets de fusta laminada vista, un recurs que aporta calidesa i reforça la connexió amb el material protagonista.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Rendiment energètic: les dades</h2>
+<p>El rendiment energètic de K-Alzina ha quedat validat per mesures i certificació. El test blower-door va donar un resultat de 0,35 ACH a 50 Pa, molt per sota del límit Passivhaus de 0,6 ACH. La xifra reflecteix una execució acurada de la barrera d'estanquitat, amb atenció particular als passos d'instal·lacions i a les juntes entre panells.</p>
+<p>La demanda de calefacció calculada amb PHPP se situa en 14 kWh/m²·a, i la de refrigeració en 11 kWh/m²·a. Ambdues compleixen el límit Passivhaus de 15 kWh/m²·a per a cada ús. La ventilació mecànica controlada, resolta amb un equip Zehnder ComfoAir Q350, recupera més del 90% de l'energia de l'aire d'extracció, prestació determinant en els mesos freds del Montseny.</p>
+<p>L'habitatge no utilitza gas. La climatització es resol amb una bomba de calor aerotèrmica que cobreix calefacció, refrigeració i aigua calenta sanitària. La instal·lació fotovoltaica, amb emmagatzematge en bateries, permet cobrir una part significativa del consum elèctric anual.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Balanç de carboni: què diuen les xifres</h2>
+<p>Un dels aspectes que fa singular K-Alzina és el seu balanç de carboni favorable. Segons el càlcul d'anàlisi de cicle de vida (ACV) i comparat amb una construcció convencional equivalent de formigó i obra de fàbrica, el projecte ha estalviat 23,90 tones de CO₂ d'emissions de construcció. A més, la fusta estructural utilitzada ha absorbit i emmagatzema 41,82 tones de CO₂ atmosfèric, seguint la metodologia de les declaracions ambientals de producte (EPD) del sector fusta.</p>
+<p>El balanç net és, per tant, netament favorable. En lloc d'emetre desenes de tones de carboni com faria una construcció convencional, K-Alzina actua com un embornal: l'edifici reté més CO₂ del que ha generat el procés de construir-lo.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Connectar interior i exterior</h2>
+<p>Un dels principis rectors del projecte és la dissolució gradual del límit entre l'espai habitable i el paisatge. Les grans obertures de la façana sud emmarquen les vistes cap al Montseny i inunden de llum natural les estances principals. El porxo cobert, situat a la intersecció de les dues ales de la L, funciona com una sala d'estar a l'aire lliure durant bona part de l'any.</p>
+<p>El tractament del terreny immediat reforça la integració. Jardins de plantes autòctones de baix manteniment hídric substitueixen la gespa convencional, i un sistema de recollida d'aigües pluvials alimenta el reg per degoteig. L'objectiu, a mitjà termini, és que el jardí es confongui amb el bosc circumdant.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Què fa K-Alzina diferent dels altres projectes PAPIK</h2>
+<p>Cada projecte té les seves singularitats, però K-Alzina es distingeix per diversos motius. Respecte al K-Llavaneres (198 m², el primer Passivhaus de la casa) o al K-Codines (212,75 m²), K-Alzina va ser el primer projecte amb les restriccions d'un parc natural, amb tot el que això implica en logística, materials vistos des de l'exterior i gestió de residus.</p>
+<p>També va ser el projecte on vam consolidar el sistema de protecció solar passiva amb porticons corredissos, una solució mantinguda en projectes posteriors com el K-Valld'Or (280 m²). I va confirmar que el sistema constructiu funciona en condicions climàtiques severes: si l'entramat lleuger i l'envolupant Passivhaus funcionen al Montseny, funcionen a qualsevol punt de Catalunya.</p>
+<blockquote><p>K-Alzina va ser la prova que construir en un entorn protegit no significa renunciar a res. Significa fer-ho millor, amb més atenció al detall i més respecte pel lloc.</p></blockquote>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CIERRE</h2>
+<p>Per als propietaris, el resultat és un habitatge on la temperatura interior es manté estable tot l'any sense intervencions constants, on l'aire és net i renovat gràcies a la VMC, i on les factures energètiques representen una fracció del que pagarien en una casa convencional de la mateixa superfície. K-Alzina demostra que construir al Montseny de manera responsable no és una utopia: és una qüestió de saber com fer-ho.</p>
+<p>Si està valorant un projecte amb requisits ambientals exigents, podem analitzar el seu cas concret. Configurar el pressupost del seu projecte: papik.cat/pressupost.</p>
+<p><strong>Llegiu també:</strong></p>
+<p><a href="/article-tecnologies-passivhaus">Tecnologies Passivhaus aplicades a clima mediterrani</a></p>
+<p><a href="/article-materials-sostenibles">Materials sostenibles: fusta, suro, cel·lulosa</a></p>
+<p><a href="/construccio">Construcció residencial Eskimohaus®</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="nosaltres.html">Qui som</a></li>
+          <li><a href="projectes.html">Projectes</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacte</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Serveis</p>
+        <ul>
+          <li><a href="construccio.html">Construcció Residencial</a></li>
+          <li><a href="promocio.html">Promoció Immobiliària</a></li>
+          <li><a href="rehabilitacio.html">Rehabilitació Energètica</a></li>
+          <li><a href="patrimonis.html">Patrimonis · Inversió Conjunta</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficines</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREU</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="El teu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Segueix-nos</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – Tots els drets reservats · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="avis-legal.html">Avís Legal</a>
+        <a href="politica-privacitat.html">Política de Privacitat</a>
+        <a href="politica-cookies.html">Galetes</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/forms.js" defer></script>
+</body>
+</html>

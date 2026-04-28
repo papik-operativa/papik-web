@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PassivPalau | Passivhaus Certificat | PAPIK</title>
+  <meta name="description" content="La segona casa passiva certificada de Catalunya. PassivPalau va ser un projecte pioner que va demostrar la viabilitat del Passivhaus en clima mediterrani. Amb u">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <style>
+    /* projecte template page-specific */
+    .article-hero { padding: 44px 0 28px; background: var(--bg-light); }
+    .article-hero .breadcrumb { margin-bottom: 24px; }
+    .article-hero__title { font-size: clamp(28px, 3.4vw, 48px); font-weight: var(--fw-light); line-height: 1.1; color: var(--text); margin: 8px 0 16px; max-width: 880px; }
+    .article-hero__meta { display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted-light); font-size: 14px; align-items: center; }
+    .article-hero__meta .sep { width: 4px; height: 4px; background: var(--muted-light); border-radius: 50%; opacity: .5; display: inline-block; }
+
+    .cover { width: 100%; height: 50vh; min-height: 320px; max-height: 520px; background: var(--green-dark); }
+    .cover__img { width: 100%; height: 100%; background-size: cover; background-position: center; }
+
+    .proj-grid { display: grid; grid-template-columns: 280px 1fr; gap: 64px; }
+    @media (max-width: 900px) { .proj-grid { grid-template-columns: 1fr; gap: 16px; } }
+    .proj-grid__head h2 { font-size: clamp(20px, 2vw, 28px); font-weight: var(--fw-light); color: var(--text); }
+    .proj-grid__head .num { color: var(--muted-light); font-weight: var(--fw-regular); margin-right: 8px; }
+
+    .proj-fitxa { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px 32px; }
+    @media (max-width: 600px) { .proj-fitxa { grid-template-columns: 1fr; } }
+    .proj-fitxa__row { border-bottom: 1px solid var(--border); padding-bottom: 14px; }
+    .proj-fitxa__lbl { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted-light); margin-bottom: 6px; }
+    .proj-fitxa__val { font-size: 18px; color: var(--text); font-weight: var(--fw-regular); }
+    .proj-fitxa__hi {
+      grid-column: 1 / -1;
+      background: var(--bg-light); border-radius: var(--r-lg);
+      padding: 22px 26px; display: flex; align-items: baseline; gap: 16px;
+    }
+    .proj-fitxa__hi-num { font-size: clamp(36px, 4vw, 56px); font-weight: var(--fw-light); color: var(--green); line-height: 1; }
+    .proj-fitxa__hi-lbl { color: var(--muted); font-size: 14px; }
+
+    .proj-lead { font-size: 18px; color: var(--text); line-height: 1.55; max-width: 760px; }
+    .proj-body p { color: var(--muted); font-size: 16px; line-height: 1.75; margin-bottom: 18px; }
+  </style>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PassivPalau | Passivhaus Certificat | PAPIK">
+  <meta property="og:description" content="La segona casa passiva certificada de Catalunya. PassivPalau va ser un projecte pioner que va demostrar la viabilitat del Passivhaus en clima mediterrani. Amb u">
+  <meta property="og:image" content="https://www.papik.cat/img/og/og-passivpalau.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.papik.cat/projecte-passivpalau.html">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="ca_ES">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PassivPalau | Passivhaus Certificat | PAPIK">
+  <meta name="twitter:description" content="La segona casa passiva certificada de Catalunya. PassivPalau va ser un projecte pioner que va demostrar la viabilitat del Passivhaus en clima mediterrani. Amb u">
+  <meta name="twitter:image" content="https://www.papik.cat/img/og/og-passivpalau.jpg">
+  
+
+  
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "RealEstateListing",
+      "name": "PassivPalau | Passivhaus Certificat | PAPIK",
+      "description": "La segona casa passiva certificada de Catalunya. PassivPalau va ser un projecte pioner que va demostrar la viabilitat del Passivhaus en clima mediterrani. Amb u",
+      "url": "",
+      "inLanguage": "ca-ES",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PAPIK Group",
+        "url": "https://papik.cat"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inici",
+          "item": "https://papik.cat/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projectes",
+          "item": "https://papik.cat/projectes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "PassivPalau"
+        }
+      ]
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+  <meta name="theme-color" content="#002819">
+</head>
+
+<body>
+<!-- PAPIK · Cookie consent banner snippet
+     Inject at the start of <body>. The text shown is a CA fallback;
+     cookie-banner.js localises it in place using the page's <html lang>. -->
+<aside id="papik-cc-banner"
+       class="papik-cc"
+       role="region"
+       aria-label="Avís de galetes"
+       hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">
+        Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te
+        publicitat relacionada amb les teves preferències. Pots acceptar-les totes,
+        rebutjar-les totes o configurar-les.
+      </p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<!-- MOBILE NAV OVERLAY -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__header">
+    <a href="index.html">
+      <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+      </svg>
+    </a>
+    <button class="mobile-nav__close" id="mobileNavClose">&#10005;</button>
+  </div>
+  <ul class="t18">
+    <li class="sub-title">Serveis</li>
+    <li><a href="index.html#construccio">Construcció</a></li>
+    <li><a href="index.html#promocio">Promoció Immobiliària</a></li>
+    <li><a href="index.html#rehabilitacio">Rehabilitació Energètica</a></li>
+    <li><a href="patrimonis.html">Patrimonis</a></li>
+    <li class="sub-title">Empresa</li>
+    <li><a href="projectes.html">Projectes</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="nosaltres.html">Nosaltres</a></li>
+    <li><a href="index.html#contacte">Contacte</a></li>
+    <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Inicia sessió &rarr;</a></li>
+    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Pressupost &rarr;</a></li>
+  </ul>
+</nav>
+<div class="fade-bg" id="fadeBg"></div>
+
+<!-- HEADER -->
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="logo">
+          <a href="index.html">
+            <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="location=this.value">
+          <option value="projecte-passivpalau.html" selected>CA</option>
+          <option value="es/proyecto-passivpalau.html">ES</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STICKY BAR -->
+<section class="header-sticky" id="headerSticky">
+  <div class="header-sticky__bar">
+    <div class="container">
+      <div class="header-sticky__content">
+        <nav class="menu t14">
+          <ul>
+            <li><span class="menu-btn" data-menu="construccio">Construcció</span></li>
+            <li><span class="menu-btn" data-menu="promocio">Promoció</span></li>
+            <li><span class="menu-btn" data-menu="rehabilitacio">Rehabilitació</span></li>
+            <li><span class="menu-btn" data-menu="patrimonis">Patrimonis</span></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="nosaltres.html">Nosaltres</a></li>
+          </ul>
+        </nav>
+        <nav class="menu-right t14">
+          <ul>
+            <li>
+              <a href="usuaris.html">Inicia sessió</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/>
+                  <path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </li>
+            <li>
+              <span class="nav-cta menu-btn" data-menu="pressupost">
+                Pressupost
+                <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="form-search-wrapper" id="searchWrapper">
+        <div class="form-search__content" style="position:relative;">
+          <button class="search-icon-btn" style="position:absolute;left:1px;top:1px;height:38px;width:38px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <form action="/" method="get">
+            <input type="text" name="s" placeholder="Cerca...">
+          </form>
+        </div>
+        <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Construcció -->
+  <div class="submenu" id="sub-construccio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="construccio.html" style="color:inherit;">Construcció Residencial</a></h3>
+          <ul class="t16">
+            <li><a href="construccio.html#unifamiliar">Habitatges Unifamiliars</a></li>
+            <li><a href="construccio.html#plurifamiliar">Edificis Plurifamiliars</a></li>
+            <li><a href="construccio.html#ampliacio">Ampliacions i Remuntes</a></li>
+            <li><a href="construccio.html#reforma">Reformes Integrals</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(135deg,#E7E9E8 0%,#9FA9A3 100%);"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">El nostre enfocament</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Construïm residències amb qualitat artesanal i tecnologia d'avantguarda. Cada projecte és únic, dissenyat per durar i adaptat a les necessitats del client.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualitat</h3>
+          <p class="feat-title">Nova promoció a Badalona: 24 habitatges amb certificació A</p>
+          <a href="#" class="feat-link link-arrow">Llegir més
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Promoció -->
+  <div class="submenu" id="sub-promocio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="promocio.html" style="color:inherit;">Promoció Immobiliària</a></h3>
+          <ul class="t16">
+            <li><a href="promocio.html#promocions">Promocions actives</a></li>
+            <li><a href="promocio.html#tipologies">Tipologies de promoció</a></li>
+            <li><a href="promocio.html#solar">Col·laboració propietaris de solar</a></li>
+            <li><a href="promocio.html#faq">Preguntes freqüents</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#002819 100%);"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">El nostre model</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Desenvolupem promocions residencials sostenibles i eficients. Gestionem tot el procés, des de la recerca de sòl fins al lliurament, amb màxima transparència.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Disponibles</h3>
+          <p class="feat-title">Edifici Premià de Mar: últimes unitats disponibles</p>
+          <a href="#" class="feat-link link-arrow">Veure promoció
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Rehabilitació -->
+  <div class="submenu" id="sub-rehabilitacio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="rehabilitacio.html" style="color:inherit;">Rehabilitació Energètica</a></h3>
+          <ul class="t16">
+            <li><a href="rehabilitacio.html#diagnosi">Diagnosi i certificació energètica</a></li>
+            <li><a href="rehabilitacio.html#envolupant">Aïllament de façanes i cobertes</a></li>
+            <li><a href="rehabilitacio.html#instal-lacions">Instal·lacions i solar fotovoltaica</a></li>
+            <li><a href="rehabilitacio.html#nextgen">Ajudes Next Generation EU</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#56685E 100%);"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Estalvi garantit</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Reduïm el consum energètic del teu edifici fins a un 60%. T'acompanyem en tot el procés, incloent la tramitació de subvencions europees.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Ajudes</h3>
+          <p class="feat-title">Fins a 80.000&euro; per habitatge en ajudes Next Generation</p>
+          <a href="#" class="feat-link link-arrow">Saber-ne més
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Patrimonis -->
+  <div class="submenu" id="sub-patrimonis">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="patrimonis.html" style="color:inherit;">Inversió Patrimonial</a></h3>
+          <ul class="t16">
+            <li><a href="patrimonis.html#com-funciona">Com funciona</a></li>
+            <li><a href="patrimonis.html#faq">Preguntes freqüents</a></li>
+            <li><a href="patrimonis.html#contacte-inversion">Contacte inversors</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Rendibilitat i seguretat</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Assessorem inversors patrimonials, family offices i fons d'inversió en la identificació, adquisició i gestió d'actius immobiliaris residencials al Maresme i Barcelonès.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Destacat</h3>
+          <p class="feat-title">Cartera activa: 3 solars disponibles per a promoció plurifamiliar</p>
+          <a href="patrimonis.html" class="feat-link link-arrow">Conèixer més
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Pressupost -->
+  <div class="submenu" id="sub-pressupost">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Tipus de projecte</h3>
+          <ul class="t16">
+            <li><a href="pressupost.html">Obra Nova Unifamiliar</a></li>
+            <li><a href="pressupost.html">Edifici Plurifamiliar</a></li>
+            <li><a href="pressupost.html">Reforma Integral</a></li>
+            <li><a href="pressupost.html">Rehabilitació Energètica</a></li>
+            <li><a href="pressupost.html">Ampliació i Canvi d'Ús</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Estima el teu projecte</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Introdueix les característiques del teu projecte i obtén una estimació orientativa del cost en menys d'un minut. Sense compromís, sense registre.</p>
+          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulació
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+        <div class="submenu__featured">
+          <h3>Com funciona</h3>
+          <p class="feat-title">3 passos: tipus de projecte &rarr; superfície i materials &rarr; resultat</p>
+          <a href="pressupost.html" class="feat-link link-arrow">Provar ara
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Nosaltres -->
+  <div class="submenu" id="sub-nosaltres">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="nosaltres.html" style="color:inherit;">L'empresa</a></h3>
+          <ul class="t16">
+            <li><a href="nosaltres.html">Qui som</a></li>
+            <li><a href="nosaltres.html#equip">El nostre equip</a></li>
+            <li><a href="nosaltres.html#valors">Valors i metodologia</a></li>
+            <li><a href="projectes.html">Projectes realitzats</a></li>
+            <li><a href="nosaltres.html#eskimohaus">Sostenibilitat</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Construïm des del 2008</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Som una empresa de construcció i promoció immobiliària amb base al Maresme. Més de 15 anys d'experiència en obra residencial, rehabilitació i inversió patrimonial.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Reconeixements</h3>
+          <p class="feat-title">+120 habitatges entregats &middot; Qualificació A en eficiència energètica</p>
+          <a href="index.html#nosaltres" class="feat-link link-arrow">Conèixer l'equip
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="project-page">
+
+<!-- PROJECT HERO -->
+<section class="article-hero">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="index.html">Inici</a>
+      <span class="sep">›</span>
+      <a href="projectes.html">Projectes</a>
+      <span class="sep">›</span>
+      <span>PassivPalau</span>
+    </nav>
+    <span class="tag-pill tag-pill--solid">Passivhaus Certificat</span>
+    <h1 class="article-hero__title" data-reveal-words>PassivPalau</h1>
+    <div class="article-hero__meta">
+      <span>Palau-solità i Plegamans</span>
+      <span class="sep"></span>
+      <span>2014</span>
+      <span class="sep"></span>
+      <span>130 m²</span>
+    </div>
+  </div>
+</section>
+
+<!-- COVER -->
+<div class="cover"><div class="cover__img" style="background-image:linear-gradient(160deg,#0A1B12 0%,#002819 100%);"></div></div>
+
+<!-- DESCRIPCIÓ -->
+<section class="section">
+  <div class="container">
+    <div class="proj-grid">
+      <div class="proj-grid__head">
+        <h2><span class="num">00</span>Descripció</h2>
+      </div>
+      <div class="proj-body">
+        <p class="proj-lead">La segona casa passiva certificada de Catalunya. PassivPalau va ser un projecte pioner que va demostrar la viabilitat del Passivhaus en clima mediterrani. Amb un Blower Door de 0,24 h⁻¹ —menys de la meitat del límit exigit—, el nivell d'hermeticitat aconseguit va ser excepcional.</p>
+        <p style="margin-top:18px;">El sistema de ventilació Zehnder amb recuperació de calor, una estufa de llenya hermètica com a suport, captació d'aigües pluvials i il·luminació LED integral van completar un habitatge amb un cost energètic anual de 588 €. El retorn de la inversió addicional respecte a la construcció convencional es va estimar en sis anys.</p>
+        <p>Vam construir PassivPalau en quatre mesos, demostrant que la construcció amb entramats lleugers de fusta no només és més sostenible sinó també més ràpida que els mètodes convencionals.</p>
+        <blockquote class="blockquote-accent" style="margin-top:24px;">
+          Blower Door 0,24 h⁻¹ — menys de la meitat del límit Passivhaus. Cost energètic anual: 588 €.
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FITXA -->
+<section class="section section--light">
+  <div class="container">
+    <div class="proj-grid">
+      <div class="proj-grid__head">
+        <h2><span class="num">01</span>Fitxa tècnica</h2>
+      </div>
+      <div class="proj-fitxa">
+        <div class="proj-fitxa__hi">
+          <span class="proj-fitxa__hi-num">130 m²</span>
+          <span class="proj-fitxa__hi-lbl">superfície construïda</span>
+        </div>
+        <div class="proj-fitxa__row"><span class="proj-fitxa__lbl">Superfície</span><span class="proj-fitxa__val">130 m²</span></div>
+        <div class="proj-fitxa__row"><span class="proj-fitxa__lbl">Any</span><span class="proj-fitxa__val">2014</span></div>
+        <div class="proj-fitxa__row"><span class="proj-fitxa__lbl">Blower Door</span><span class="proj-fitxa__val">0,24 h⁻¹</span></div>
+        <div class="proj-fitxa__row"><span class="proj-fitxa__lbl">Temps construcció</span><span class="proj-fitxa__val">4 mesos</span></div>
+        <div class="proj-fitxa__row"><span class="proj-fitxa__lbl">Cost electricitat</span><span class="proj-fitxa__val">500 €/any</span></div>
+        <div class="proj-fitxa__row"><span class="proj-fitxa__lbl">Cost ACS</span><span class="proj-fitxa__val">88 €/any</span></div>
+        <div class="proj-fitxa__row"><span class="proj-fitxa__lbl">Retorn inversió</span><span class="proj-fitxa__val">6 anys</span></div>
+        <div class="proj-fitxa__row"><span class="proj-fitxa__lbl">Certificació</span><span class="proj-fitxa__val">Passivhaus</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="tag-pill" style="margin-bottom:14px;">Altres projectes</span>
+        <h2 class="section-header__title">Continua explorant</h2>
+      </div>
+      <a href="projectes.html" class="link-arrow">Veure tots els projectes
+        <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+      </a>
+    </div>
+    <div class="card-grid">
+      <div class="card" data-anim="fade-up">
+        <a class="card__link" href="projecte-k-alzina.html">
+          <div class="card__img-wrap" style="background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);"></div>
+          <div class="card__body">
+            <span class="card__cat">Eskimohaus · Passivhaus</span>
+            <h3 class="card__title">K-Alzina</h3>
+            <p class="card__excerpt">Habitatge unifamiliar al Maresme amb estructura de fusta i CO₂ negatiu.</p>
+            <div class="card__meta"><span>Santa Maria de Palautordera</span></div>
+          </div>
+          <div class="card__spotlight"></div>
+        </a>
+      </div>
+      <div class="card" data-anim="fade-up">
+        <a class="card__link" href="projecte-k-vallor.html">
+          <div class="card__img-wrap" style="background:linear-gradient(160deg,#002819 0%,#56685E 100%);"></div>
+          <div class="card__body">
+            <span class="card__cat">Passivhaus Plus · Promoció</span>
+            <h3 class="card__title">K-Vall d'Or</h3>
+            <p class="card__excerpt">Promoció Passivhaus Plus a Valldoreix amb sistema fotovoltaic integrat.</p>
+            <div class="card__meta"><span>Valldoreix</span></div>
+          </div>
+          <div class="card__spotlight"></div>
+        </a>
+      </div>
+      <div class="card" data-anim="fade-up">
+        <a class="card__link" href="projecte-k-llavaneres.html">
+          <div class="card__img-wrap" style="background:linear-gradient(160deg,#56685E 0%,#0A1B12 100%);"></div>
+          <div class="card__body">
+            <span class="card__cat">Passivhaus Plus</span>
+            <h3 class="card__title">K-Llavaneres</h3>
+            <p class="card__excerpt">Primera casa autosuficient cert. Passivhaus Plus a Catalunya.</p>
+            <div class="card__meta"><span>Maresme</span></div>
+          </div>
+          <div class="card__spotlight"></div>
+        </a>
+      </div>
+    </div>
+    <div style="margin-top:48px;">
+      <a href="projectes.html" class="link-arrow">
+        <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="transform:rotate(180deg);"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+        Tornar als Projectes
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="block-cta">
+  <div class="container">
+    <p class="block-cta__label">Tens un projecte?</p>
+    <h2 class="block-cta__title">Parla amb nosaltres del teu</h2>
+    <a href="index.html#contacte"><button class="btn-white">Contactar
+      <svg width="12" height="11" viewBox="0 0 12.447 10.89" fill="none"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+    </button></a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="index.html#nosaltres">Qui som</a></li>
+          <li><a href="projectes.html">Projectes</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contacte">Contacte</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Serveis</p>
+        <ul>
+          <li><a href="index.html#construccio">Construcció Residencial</a></li>
+          <li><a href="index.html#promocio">Promoció Immobiliària</a></li>
+          <li><a href="index.html#rehabilitacio">Rehabilitació Energètica</a></li>
+          <li><a href="#">Obra Nova</a></li>
+          <li><a href="#">Reformes Integrals</a></li>
+          <li><a href="#">Eficiència Energètica</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficines</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 935 90 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREU</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title" style="font-size:18px;font-weight:400;margin-bottom:20px;">Newsletter</p>
+        <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles. Subscriu-te.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="El teu email">
+          <button type="submit">
+            <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
+          </button>
+        </div>
+        <div class="footer__rrss">
+          <p>Segueix-nos</p>
+          <div class="rrss__links">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright &copy; 2025 PAPIK SL &ndash; Tots els drets reservats<br>papik.cat</p>
+      <div>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);margin-right:20px;">Avís Legal</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);">Política de Privacitat</a>
+      </div>
+      <button class="btn-up t14" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        Amunt
+        <svg width="11" height="12" viewBox="0 0 10.89 12.447"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" transform="translate(0 12.447) rotate(-90)" fill="#fff"/></svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="js/header.js" defer></script>
+<script src="js/motion.js" defer></script>
+<script src="cursor.js"></script>
+  <script src="/js/cookie-banner.js" defer></script>
+  <script src="/js/forms.js" defer></script>
+
+</body>
+</html>

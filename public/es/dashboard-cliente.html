@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espacio Cliente | PAPIK</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- ═══════════════════════════════════
+       FONTS
+  ═══════════════════════════════════ -->
+  <style>
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Light.woff') format('woff');
+      font-weight: 300; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Regular.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'TT Firs Neue';
+      src: url('../fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+           url('../fonts/TT_Firs_Neue_Medium.woff') format('woff');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+  </style>
+
+  <!-- ═══════════════════════════════════
+       DASHBOARD CSS — REDESIGNED
+  ═══════════════════════════════════ -->
+  <style>
+    /* ─── Variables & Reset ─── */
+    :root {
+      --green:       #002819;
+      --accent:      #95BBA5;
+      --green-light: #56685E;
+      --green-dark:  #0A1B12;
+      --bg-light:    rgba(86,104,94,0.14);
+      --text:        #002819;
+      --muted:       #56685E;
+      --muted-light: #9FA9A3;
+      --border:      rgba(86,104,94,0.25);
+
+      --dash-sidebar-w: 68px;
+      --dash-topbar-h:  64px;
+      --dash-mobile-nav-h: 62px;
+      --dash-card-radius: 14px;
+      --dash-card-shadow: 0 1px 4px rgba(0,40,25,.04), 0 2px 8px rgba(0,40,25,.03);
+      --dash-card-shadow-hover: 0 8px 28px rgba(0,40,25,.07);
+      --dash-success:    #166534;
+      --dash-success-bg: #f0fdf4;
+      --dash-warning:    #92400e;
+      --dash-warning-bg: #fffbeb;
+      --dash-error:      #991b1b;
+      --dash-error-bg:   #fef2f2;
+      --dash-transition: cubic-bezier(.22,.68,0,1.05);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'TT Firs Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      color: var(--text);
+      background: #f5f6f5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    a { text-decoration: none; color: inherit; }
+    button, input, select, textarea { font-family: inherit; border: none; outline: none; background: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .t12  { font-size: 12px; line-height: 1.6; }
+    .t14  { font-size: 14px; line-height: 1.6; }
+    .t16  { font-size: 16px; line-height: 1.6; }
+    .t18  { font-size: 18px; line-height: 1.4; }
+    .t24  { font-size: clamp(20px, 2vw, 28px); line-height: 1.3; }
+    .t42  { font-size: clamp(24px, 2.5vw, 36px); line-height: 1.15; }
+    .upper { text-transform: uppercase; letter-spacing: 0.12em; }
+    .fw500 { font-weight: 500; }
+    .color-muted { color: var(--muted); }
+    .color-muted-light { color: var(--muted-light); }
+
+    /* ─── Loading State ─── */
+    .dash-loading {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #f5f6f5;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity .4s ease, visibility .4s ease;
+    }
+    .dash-loading.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .dash-loading__spinner {
+      width: 36px; height: 36px;
+      border: 2.5px solid var(--border);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── Sidebar (Icon-only, 68px) ─── */
+    .dash-sidebar {
+      position: fixed; top: 0; left: 0;
+      width: var(--dash-sidebar-w);
+      height: 100vh;
+      background: #fff;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center;
+      z-index: 200;
+      transition: transform .3s var(--dash-transition);
+      padding: 16px 0;
+    }
+    .dash-sidebar__logo {
+      margin-bottom: 28px;
+      flex-shrink: 0;
+    }
+    .dash-sidebar__nav {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; gap: 4px;
+      width: 100%;
+      padding: 0 10px;
+      overflow-y: auto;
+    }
+    .dash-sidebar__item {
+      position: relative;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 14px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s var(--dash-transition);
+      flex-shrink: 0;
+    }
+    .dash-sidebar__item:hover {
+      background: var(--bg-light); color: var(--text);
+    }
+    .dash-sidebar__item--active {
+      background: var(--green); color: #fff;
+    }
+    .dash-sidebar__item--active:hover {
+      background: var(--green); color: #fff;
+    }
+    .dash-sidebar__item svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .dash-sidebar__item span.dash-sidebar__label { display: none; }
+
+    /* Tooltip on hover */
+    .dash-sidebar__item::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: calc(100% + 12px); top: 50%;
+      transform: translateY(-50%);
+      background: var(--green-dark);
+      color: #fff;
+      font-size: 12px; font-weight: 400;
+      padding: 5px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0; visibility: hidden;
+      pointer-events: none;
+      transition: opacity .15s, visibility .15s;
+      z-index: 999;
+    }
+    .dash-sidebar__item:hover::after {
+      opacity: 1; visibility: visible;
+    }
+
+    /* Sidebar badge */
+    .dash-sidebar__badge {
+      position: absolute; top: 4px; right: 4px;
+      min-width: 18px; height: 18px;
+      background: var(--dash-error); color: #fff;
+      border-radius: 9px; font-size: 10px; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 4px;
+    }
+
+    .dash-sidebar__footer {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 4px;
+      padding: 12px 10px 0;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      margin-top: auto;
+    }
+    .dash-sidebar__footer .dash-sidebar__item {
+      width: 48px; height: 48px;
+    }
+
+    /* Sidebar overlay for tablet */
+    .dash-sidebar-overlay {
+      display: none; position: fixed; inset: 0; z-index: 199;
+      background: rgba(0,0,0,.3); opacity: 0;
+      transition: opacity .3s;
+    }
+    .dash-sidebar-overlay.visible { display: block; opacity: 1; }
+
+    /* ─── Top Bar ─── */
+    .dash-topbar {
+      position: fixed; top: 0; left: var(--dash-sidebar-w); right: 0;
+      height: var(--dash-topbar-h);
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+      z-index: 300;
+      gap: 20px;
+    }
+    .dash-topbar__left {
+      display: flex; align-items: center; gap: 14px;
+      flex-shrink: 0;
+    }
+    .dash-topbar__menu-btn {
+      display: none; cursor: pointer; padding: 6px;
+      color: var(--text);
+    }
+    .dash-topbar__menu-btn svg { display: block; }
+    .dash-topbar__title {
+      font-size: 18px; font-weight: 500; color: var(--text);
+    }
+    .dash-topbar__subtitle {
+      font-size: 12px; color: var(--muted-light);
+      margin-top: 1px;
+    }
+    .dash-topbar__project-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px;
+      background: var(--bg-light); border-radius: 20px;
+      font-size: 12px; color: var(--muted); font-weight: 400;
+      margin-left: 14px;
+    }
+    .dash-topbar__project-pill svg { width: 13px; height: 13px; }
+
+    /* Search input in center */
+    .dash-topbar__center {
+      flex: 1; max-width: 400px;
+      display: flex; align-items: center;
+    }
+    .dash-topbar__search {
+      width: 100%; height: 40px;
+      padding: 0 16px 0 42px;
+      background: #f5f6f5;
+      border: 1px solid transparent;
+      border-radius: 21px;
+      font-size: 13px; color: var(--text);
+      transition: all .2s;
+    }
+    .dash-topbar__search:focus {
+      background: #fff;
+      border-color: var(--border);
+    }
+    .dash-topbar__search-wrap {
+      position: relative; width: 100%;
+    }
+    .dash-topbar__search-icon {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted-light);
+      pointer-events: none;
+    }
+    .dash-topbar__search-icon svg { width: 16px; height: 16px; display: block; }
+
+    .dash-topbar__right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .dash-topbar__notif-btn {
+      position: relative; cursor: pointer;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: background .2s;
+      color: var(--text);
+    }
+    .dash-topbar__notif-btn:hover { background: var(--bg-light); }
+    .dash-topbar__notif-btn svg { width: 20px; height: 20px; }
+    .dash-topbar__badge {
+      position: absolute; top: 4px; right: 4px;
+      min-width: 17px; height: 17px;
+      background: var(--dash-error); color: #fff;
+      border-radius: 9px; font-size: 10px; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 4px;
+    }
+    .dash-topbar__user {
+      display: flex; align-items: center; gap: 10px;
+      cursor: pointer; padding: 4px 10px 4px 4px;
+      border-radius: 24px; transition: background .2s;
+      position: relative;
+    }
+    .dash-topbar__user:hover { background: var(--bg-light); }
+    .dash-topbar__avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .dash-topbar__username { font-size: 14px; font-weight: 400; color: var(--text); }
+    .dash-topbar__chevron { color: var(--muted-light); display: flex; align-items: center; }
+    .dash-topbar__chevron svg { width: 16px; height: 16px; }
+
+    /* User dropdown */
+    .dash-user-dropdown {
+      position: absolute; top: 50px; right: 0;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 0; min-width: 180px;
+      box-shadow: 0 8px 30px rgba(0,40,25,.1);
+      opacity: 0; visibility: hidden; transform: translateY(-6px);
+      transition: all .2s ease; z-index: 400;
+    }
+    .dash-user-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dash-user-dropdown__item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px; font-size: 14px; cursor: pointer;
+      color: var(--text); transition: background .15s; width: 100%;
+    }
+    .dash-user-dropdown__item:hover { background: var(--bg-light); }
+    .dash-user-dropdown__item svg { width: 16px; height: 16px; opacity: .6; }
+    .dash-user-dropdown__divider { height: 1px; background: var(--border); margin: 4px 0; }
+
+    /* Hide PAPIK text logo in topbar (not needed, logo is in sidebar) */
+    .dash-topbar__logo { display: none; }
+    .dash-topbar__divider { display: none; }
+    .dash-topbar__label { display: none; }
+
+    /* ─── Main Content ─── */
+    .dash-main {
+      margin-left: var(--dash-sidebar-w);
+      margin-top: var(--dash-topbar-h);
+      min-height: calc(100vh - var(--dash-topbar-h));
+      padding: 36px 40px 56px;
+    }
+    .dash-main__inner { max-width: 980px; margin: 0 auto; }
+
+    /* ─── Sections ─── */
+    .dash-section { display: none; animation: fadeIn .35s ease; }
+    .dash-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .dash-section__title { font-weight: 400; margin-bottom: 6px; }
+    .dash-section__desc { margin-bottom: 32px; }
+
+    /* ─── Cards ─── */
+    .dash-card {
+      background: #fff;
+      border: 1px solid rgba(86,104,94,.08);
+      border-radius: var(--dash-card-radius);
+      box-shadow: var(--dash-card-shadow);
+      transition: box-shadow .25s var(--dash-transition);
+    }
+    .dash-card:hover { box-shadow: var(--dash-card-shadow-hover); }
+    .dash-card__header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid rgba(86,104,94,.06);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .dash-card__body { padding: 24px; }
+
+    /* ─── Welcome Section ─── */
+    .dash-welcome {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 24px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .dash-welcome__greeting p { margin-bottom: 4px; }
+    .dash-welcome__name { font-weight: 300; }
+    .dash-welcome__project {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 8px; padding: 6px 14px;
+      background: var(--bg-light); border-radius: 20px;
+      font-size: 13px; color: var(--muted); font-weight: 400;
+    }
+    .dash-welcome__project svg { width: 14px; height: 14px; }
+
+    .dash-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-bottom: 32px;
+    }
+    .dash-stat {
+      background: #fff; border: 1px solid rgba(86,104,94,.08);
+      border-radius: var(--dash-card-radius);
+      padding: 24px; text-align: center;
+      box-shadow: var(--dash-card-shadow);
+      transition: box-shadow .25s var(--dash-transition);
+    }
+    .dash-stat:hover { box-shadow: var(--dash-card-shadow-hover); }
+    .dash-stat__value {
+      display: block; font-size: 28px; font-weight: 500;
+      color: var(--green); line-height: 1.2; margin-bottom: 6px;
+    }
+    .dash-stat__label {
+      font-size: 12px; color: var(--muted-light); text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Energy / Passive House Card ─── */
+    .dash-energy { overflow: hidden; }
+    .dash-energy__header-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;
+      background: var(--dash-success-bg); color: var(--dash-success);
+    }
+    .dash-energy__header-badge svg { width: 13px; height: 13px; }
+    .dash-energy__grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    }
+    .dash-energy__metric {
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(86,104,94,.06);
+      border-right: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-energy__metric:nth-child(2n) { border-right: none; }
+    .dash-energy__metric:nth-last-child(-n+2) { border-bottom: none; }
+    .dash-energy__metric-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted-light); margin-bottom: 6px;
+    }
+    .dash-energy__metric-value {
+      font-size: 22px; font-weight: 500; color: var(--green); line-height: 1.2;
+    }
+    .dash-energy__metric-value span { font-size: 13px; font-weight: 400; color: var(--muted); }
+    .dash-energy__metric-sub {
+      font-size: 11px; color: var(--muted-light); margin-top: 4px;
+    }
+    .dash-energy__comparison {
+      padding: 20px 24px; border-top: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-energy__comparison-title {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted-light); margin-bottom: 14px;
+    }
+    .dash-energy__bar-row {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+    }
+    .dash-energy__bar-row:last-child { margin-bottom: 0; }
+    .dash-energy__bar-label {
+      font-size: 12px; color: var(--muted); width: 100px; flex-shrink: 0;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .dash-energy__bar-track {
+      flex: 1; height: 8px; background: rgba(86,104,94,.08);
+      border-radius: 4px; overflow: hidden; position: relative;
+    }
+    .dash-energy__bar-fill {
+      height: 100%; border-radius: 4px; transition: width .8s var(--dash-transition);
+    }
+    .dash-energy__bar-fill--green { background: var(--green); }
+    .dash-energy__bar-fill--muted { background: var(--muted-light); }
+    .dash-energy__bar-fill--warning { background: #d97706; }
+    .dash-energy__bar-amount {
+      font-size: 12px; font-weight: 500; color: var(--text); width: 65px;
+      text-align: right; flex-shrink: 0;
+    }
+    .dash-energy__cert {
+      display: flex; align-items: center; gap: 14px; padding: 18px 24px;
+      border-top: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-energy__cert-badge {
+      width: 44px; height: 44px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700; flex-shrink: 0;
+    }
+    .dash-energy__cert-badge--a { background: #065f46; color: #fff; }
+    .dash-energy__cert-info { flex: 1; }
+    .dash-energy__cert-title { font-size: 13px; font-weight: 500; }
+    .dash-energy__cert-sub { font-size: 12px; color: var(--muted-light); }
+    .dash-energy__savings {
+      padding: 18px 24px; border-top: 1px solid rgba(86,104,94,.06);
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(22,101,52,.03);
+    }
+    .dash-energy__savings-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--dash-success-bg); color: var(--dash-success);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .dash-energy__savings-icon svg { width: 18px; height: 18px; }
+    .dash-energy__savings-text { font-size: 13px; color: var(--text); }
+    .dash-energy__savings-text strong { font-weight: 500; color: var(--dash-success); }
+
+    /* ─── Next Milestone ─── */
+    .dash-milestone__content {
+      display: flex; align-items: center; gap: 20px;
+    }
+    .dash-milestone__icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: var(--bg-light); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dash-milestone__icon svg { width: 22px; height: 22px; color: var(--green); }
+    .dash-milestone__info { flex: 1; }
+    .dash-milestone__phase { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
+    .dash-milestone__date { font-size: 13px; color: var(--muted); }
+    .dash-milestone__countdown {
+      font-size: 22px; font-weight: 500; color: var(--green);
+      white-space: nowrap;
+    }
+
+    /* ─── Activity Feed ─── */
+    .dash-activity__item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 0; border-bottom: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-activity__item:last-child { border-bottom: none; }
+    .dash-activity__dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); margin-top: 6px; flex-shrink: 0;
+    }
+    .dash-activity__text { font-size: 14px; color: var(--text); flex: 1; }
+    .dash-activity__time { font-size: 12px; color: var(--muted-light); white-space: nowrap; }
+
+    /* ─── Phases Timeline ─── */
+    .dash-phases__overall { margin-bottom: 32px; }
+    .dash-phases__bar {
+      height: 8px; background: rgba(86,104,94,.1);
+      border-radius: 4px; overflow: hidden; margin-bottom: 8px;
+    }
+    .dash-phases__bar-fill {
+      height: 100%; background: var(--green);
+      border-radius: 4px; transition: width .6s var(--dash-transition);
+    }
+
+    .dash-phases__timeline { position: relative; padding-left: 32px; }
+    .dash-phases__timeline::before {
+      content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px;
+      width: 2px; background: rgba(86,104,94,.15);
+    }
+    .dash-phases__node {
+      position: relative; padding: 16px 0 28px;
+    }
+    .dash-phases__node:last-child { padding-bottom: 0; }
+    .dash-phases__dot {
+      position: absolute; left: -32px; top: 18px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #fff; border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 500; color: var(--muted-light);
+      z-index: 1;
+    }
+    .dash-phases__node--completed .dash-phases__dot {
+      background: var(--green); border-color: var(--green); color: #fff;
+    }
+    .dash-phases__node--active .dash-phases__dot {
+      background: #fff; border-color: var(--green); color: var(--green);
+      animation: pulseRing 2s ease-in-out infinite;
+    }
+    @keyframes pulseRing { 0%,100%{ box-shadow:0 0 0 0 rgba(0,40,25,.2); } 50%{ box-shadow:0 0 0 6px rgba(0,40,25,0); } }
+    .dash-phases__node--blocked .dash-phases__dot {
+      border-color: var(--dash-error); color: var(--dash-error);
+    }
+    .dash-phases__content { padding-left: 8px; }
+    .dash-phases__name { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+    .dash-phases__desc { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .dash-phases__meta {
+      display: flex; gap: 20px; font-size: 12px; color: var(--muted-light);
+      margin-bottom: 10px;
+    }
+    .dash-phases__meta span { display: flex; align-items: center; gap: 4px; }
+    .dash-phases__meta svg { width: 13px; height: 13px; }
+    .dash-phases__progress-bar {
+      height: 5px; background: rgba(86,104,94,.1);
+      border-radius: 3px; overflow: hidden; max-width: 260px;
+    }
+    .dash-phases__progress-fill {
+      height: 100%; background: var(--accent);
+      border-radius: 3px; transition: width .6s ease;
+    }
+    .dash-phases__node--completed .dash-phases__progress-fill { background: var(--green); }
+    .dash-phases__progress-text { font-size: 11px; color: var(--muted-light); margin-top: 4px; }
+
+    /* ─── Documents ─── */
+    .dash-docs__tabs {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .dash-docs__tab {
+      padding: 7px 16px; border-radius: 21px;
+      font-size: 13px; font-weight: 400; cursor: pointer;
+      background: rgba(86,104,94,.08); color: var(--muted);
+      transition: all .2s var(--dash-transition);
+    }
+    .dash-docs__tab:hover { background: rgba(86,104,94,.14); }
+    .dash-docs__tab--active {
+      background: var(--green); color: #fff; font-weight: 500;
+    }
+    .dash-docs__list { display: flex; flex-direction: column; }
+    .dash-docs__file {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(86,104,94,.06);
+      transition: background .15s;
+    }
+    .dash-docs__file:hover { background: rgba(86,104,94,.03); }
+    .dash-docs__file:last-child { border-bottom: none; }
+    .dash-docs__file-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 500; text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .dash-docs__file-icon--pdf { background: #fef2f2; color: #991b1b; }
+    .dash-docs__file-icon--img { background: #eff6ff; color: #1e40af; }
+    .dash-docs__file-icon--doc { background: #f0fdf4; color: #166534; }
+    .dash-docs__file-icon--other { background: var(--bg-light); color: var(--muted); }
+    .dash-docs__file-info { flex: 1; min-width: 0; }
+    .dash-docs__file-title {
+      font-size: 14px; font-weight: 400; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .dash-docs__file-meta { font-size: 12px; color: var(--muted-light); margin-top: 2px; }
+    .dash-docs__download {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .15s;
+      color: var(--muted); flex-shrink: 0;
+    }
+    .dash-docs__download:hover { background: var(--bg-light); color: var(--green); }
+    .dash-docs__download svg { width: 18px; height: 18px; }
+
+    /* ─── Empty State ─── */
+    .dash-empty {
+      text-align: center; padding: 48px 20px;
+      color: var(--muted-light);
+    }
+    .dash-empty svg { width: 48px; height: 48px; margin: 0 auto 12px; opacity: .3; }
+    .dash-empty p { font-size: 14px; }
+
+    /* ─── Finance ─── */
+    .dash-finance__overview {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; margin-bottom: 24px;
+    }
+    .dash-finance__amount {
+      padding: 24px; text-align: center;
+      border-right: 1px solid rgba(86,104,94,.08);
+    }
+    .dash-finance__amount:last-child { border-right: none; }
+    .dash-finance__amount-label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted-light); margin-bottom: 6px;
+    }
+    .dash-finance__amount-value { font-size: 24px; font-weight: 500; color: var(--green); }
+    .dash-finance__bar-wrapper { padding: 0 24px 20px; }
+
+    .dash-invoice {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(86,104,94,.06);
+    }
+    .dash-invoice:last-child { border-bottom: none; }
+    .dash-invoice__info { flex: 1; min-width: 0; }
+    .dash-invoice__number { font-size: 14px; font-weight: 500; }
+    .dash-invoice__desc {
+      font-size: 13px; color: var(--muted); margin-top: 2px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .dash-invoice__amount { font-size: 15px; font-weight: 500; text-align: right; margin-right: 12px; }
+    .dash-invoice__status {
+      font-size: 11px; font-weight: 500; padding: 3px 10px;
+      border-radius: 12px; white-space: nowrap;
+    }
+    .dash-invoice__status--paid { background: var(--dash-success-bg); color: var(--dash-success); }
+    .dash-invoice__status--sent,
+    .dash-invoice__status--draft { background: var(--bg-light); color: var(--muted); }
+    .dash-invoice__status--overdue { background: var(--dash-error-bg); color: var(--dash-error); }
+
+    /* ─── Team ─── */
+    .dash-team__grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .dash-team__member {
+      background: #fff; border: 1px solid rgba(86,104,94,.08);
+      border-radius: var(--dash-card-radius);
+      padding: 24px; display: flex; flex-direction: column; align-items: center;
+      text-align: center; box-shadow: var(--dash-card-shadow);
+      transition: box-shadow .25s var(--dash-transition);
+    }
+    .dash-team__member:hover { box-shadow: var(--dash-card-shadow-hover); }
+    .dash-team__avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 500; margin-bottom: 12px;
+    }
+    .dash-team__name { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+    .dash-team__role { font-size: 13px; color: var(--muted); margin-bottom: 4px; text-transform: capitalize; }
+    .dash-team__email { font-size: 12px; color: var(--muted-light); margin-bottom: 14px; }
+    .dash-team__msg-btn {
+      padding: 7px 20px; border-radius: 21px; font-size: 13px; font-weight: 500;
+      background: var(--bg-light); color: var(--green); cursor: pointer;
+      transition: all .2s var(--dash-transition);
+    }
+    .dash-team__msg-btn:hover { background: var(--green); color: #fff; }
+
+    /* ─── Messages / Chat ─── */
+    .dash-chat { display: flex; flex-direction: column; height: calc(100vh - var(--dash-topbar-h) - 160px); min-height: 400px; }
+    .dash-chat__messages {
+      flex: 1; overflow-y: auto; padding: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .dash-chat__bubble { max-width: 75%; padding: 12px 16px; border-radius: 14px; }
+    .dash-chat__bubble--them {
+      align-self: flex-start;
+      background: #fff; border: 1px solid rgba(86,104,94,.1);
+      border-bottom-left-radius: 4px;
+    }
+    .dash-chat__bubble--me {
+      align-self: flex-end;
+      background: var(--green); color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .dash-chat__sender { font-size: 11px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
+    .dash-chat__text { font-size: 14px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+    .dash-chat__bubble--me .dash-chat__text { color: #fff; }
+    .dash-chat__time { font-size: 11px; margin-top: 6px; opacity: .5; }
+    .dash-chat__input-area {
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px 24px; border-top: 1px solid rgba(86,104,94,.1);
+      background: #fff;
+    }
+    .dash-chat__input {
+      flex: 1; height: 44px; padding: 0 16px;
+      background: #f5f6f5; border: 1px solid var(--border);
+      border-radius: 22px; font-size: 14px;
+      transition: border-color .2s;
+    }
+    .dash-chat__input:focus { border-color: var(--green); background: #fff; }
+    .dash-chat__send {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: opacity .2s; flex-shrink: 0;
+    }
+    .dash-chat__send:hover { opacity: .85; }
+    .dash-chat__send svg { width: 18px; height: 18px; }
+
+    /* ─── Notifications Panel ─── */
+    .dash-notif-panel {
+      position: fixed; top: var(--dash-topbar-h); right: 16px;
+      width: 360px; max-height: 480px;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 14px; box-shadow: 0 12px 40px rgba(0,40,25,.12);
+      z-index: 500; overflow: hidden;
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: all .2s ease;
+    }
+    .dash-notif-panel.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dash-notif-panel__header {
+      padding: 16px 20px; border-bottom: 1px solid rgba(86,104,94,.08);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .dash-notif-panel__header h3 { font-size: 15px; font-weight: 500; }
+    .dash-notif-panel__mark-read {
+      font-size: 12px; color: var(--green); cursor: pointer;
+      font-weight: 500;
+    }
+    .dash-notif-panel__mark-read:hover { text-decoration: underline; }
+    .dash-notif-panel__list { overflow-y: auto; max-height: 400px; }
+    .dash-notif__item {
+      display: flex; gap: 12px; padding: 14px 20px;
+      border-bottom: 1px solid rgba(86,104,94,.04);
+      cursor: pointer; transition: background .15s;
+    }
+    .dash-notif__item:hover { background: rgba(86,104,94,.03); }
+    .dash-notif__item--unread { background: rgba(86,104,94,.04); }
+    .dash-notif__icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 14px;
+    }
+    .dash-notif__icon--phase { background: #eff6ff; color: #1e40af; }
+    .dash-notif__icon--doc { background: var(--dash-success-bg); color: var(--dash-success); }
+    .dash-notif__icon--msg { background: #f0fdf4; color: var(--green); }
+    .dash-notif__icon--invoice { background: var(--dash-warning-bg); color: var(--dash-warning); }
+    .dash-notif__icon--general { background: var(--bg-light); color: var(--muted); }
+    .dash-notif__body { flex: 1; min-width: 0; }
+    .dash-notif__title { font-size: 13px; font-weight: 400; color: var(--text); }
+    .dash-notif__item--unread .dash-notif__title { font-weight: 500; }
+    .dash-notif__time { font-size: 11px; color: var(--muted-light); margin-top: 2px; }
+
+    /* ─── Mobile Bottom Nav ─── */
+    .dash-mobile-nav {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0;
+      height: var(--dash-mobile-nav-h);
+      background: #fff; border-top: 1px solid var(--border);
+      z-index: 300;
+      justify-content: space-around; align-items: center;
+    }
+    .dash-mobile-nav__item {
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      cursor: pointer; color: var(--muted-light); transition: color .18s;
+      position: relative; padding: 4px 12px; background: none;
+    }
+    .dash-mobile-nav__item svg { width: 22px; height: 22px; }
+    .dash-mobile-nav__item span { font-size: 10px; font-weight: 500; }
+    .dash-mobile-nav__item--active { color: var(--green); }
+    .dash-mobile-nav__badge {
+      position: absolute; top: 0; right: 4px;
+      min-width: 16px; height: 16px;
+      background: var(--dash-error); color: #fff;
+      border-radius: 8px; font-size: 9px; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 4px;
+    }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .dash-topbar {
+        left: 0;
+        padding: 0 16px;
+      }
+      .dash-topbar__menu-btn { display: flex; }
+      .dash-topbar__username { display: none; }
+      .dash-topbar__center { display: none; }
+      .dash-topbar__project-pill { display: none; }
+      .dash-sidebar {
+        transform: translateX(-100%);
+        width: 250px;
+        align-items: flex-start;
+        padding: 16px;
+      }
+      .dash-sidebar.open { transform: translateX(0); }
+      .dash-sidebar.open .dash-sidebar__nav {
+        align-items: flex-start;
+        padding: 0;
+      }
+      .dash-sidebar.open .dash-sidebar__item {
+        width: 100%; height: auto;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 11px 14px;
+        border-radius: 8px;
+      }
+      .dash-sidebar.open .dash-sidebar__item span.dash-sidebar__label {
+        display: inline;
+        font-size: 14px;
+      }
+      .dash-sidebar.open .dash-sidebar__item::after { display: none; }
+      .dash-sidebar.open .dash-sidebar__footer {
+        align-items: flex-start;
+      }
+      .dash-sidebar.open .dash-sidebar__footer .dash-sidebar__item {
+        width: 100%; height: auto;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 11px 14px;
+      }
+      .dash-sidebar.open .dash-sidebar__footer .dash-sidebar__item span.dash-sidebar__label {
+        display: inline;
+        font-size: 13px;
+      }
+      .dash-main { margin-left: 0; padding: 24px 20px 48px; }
+      .dash-stats { grid-template-columns: repeat(2, 1fr); }
+      .dash-finance__overview { grid-template-columns: 1fr; }
+      .dash-finance__amount { border-right: none; border-bottom: 1px solid rgba(86,104,94,.08); }
+      .dash-finance__amount:last-child { border-bottom: none; }
+      .dash-notif-panel { right: 8px; width: calc(100vw - 16px); max-width: 380px; }
+    }
+
+    @media (max-width: 600px) {
+      .dash-sidebar { display: none; }
+      .dash-sidebar-overlay { display: none !important; }
+      .dash-topbar__menu-btn { display: none; }
+      .dash-mobile-nav { display: flex; }
+      .dash-main {
+        padding: 20px 16px calc(var(--dash-mobile-nav-h) + 16px);
+      }
+      .dash-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .dash-stat { padding: 16px; }
+      .dash-stat__value { font-size: 22px; }
+      .dash-welcome__name { font-size: 24px; }
+      .dash-team__grid { grid-template-columns: 1fr; }
+      .dash-chat { height: calc(100vh - var(--dash-topbar-h) - var(--dash-mobile-nav-h) - 80px); }
+      .dash-chat__bubble { max-width: 88%; }
+      .dash-phases__meta { flex-direction: column; gap: 4px; }
+      .dash-energy__grid { grid-template-columns: 1fr; }
+      .dash-energy__metric { border-right: none !important; }
+      .dash-energy__bar-label { width: 80px; font-size: 11px; }
+      .dash-energy__bar-amount { width: 55px; font-size: 11px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+  <!-- PAPIK:SHARED-HEADER-CSS -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+</head>
+<body>
+<!-- PAPIK · Cookie consent banner snippet
+     Inject at the start of <body>. The text shown is a CA fallback;
+     cookie-banner.js localises it in place using the page's <html lang>. -->
+<aside id="papik-cc-banner"
+       class="papik-cc"
+       role="region"
+       aria-label="Avís de galetes"
+       hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">
+        Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te
+        publicitat relacionada amb les teves preferències. Pots acceptar-les totes,
+        rebutjar-les totes o configurar-les.
+      </p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+  <!-- ═══════════════════════════════════
+       LOADING STATE
+  ═══════════════════════════════════ -->
+  <div class="dash-loading" id="loadingScreen">
+    <div class="dash-loading__spinner"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       SIDEBAR (Icon-only, 68px)
+  ═══════════════════════════════════ -->
+  <div class="dash-sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="dash-sidebar" id="sidebar">
+    <div class="dash-sidebar__logo">
+      <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="18" fill="#002819"/><text x="18" y="23" text-anchor="middle" fill="#fff" font-family="TT Firs Neue,sans-serif" font-size="16" font-weight="500">P</text></svg>
+    </div>
+    <nav class="dash-sidebar__nav">
+      <button class="dash-sidebar__item dash-sidebar__item--active" data-section="overview" data-tooltip="Resumen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="dash-sidebar__label">Resumen</span>
+      </button>
+      <button class="dash-sidebar__item" data-section="phases" data-tooltip="Fases de la obra">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="dash-sidebar__label">Fases de la obra</span>
+      </button>
+      <button class="dash-sidebar__item" data-section="documents" data-tooltip="Documentos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+        <span class="dash-sidebar__label">Documentos</span>
+      </button>
+      <button class="dash-sidebar__item" data-section="finance" data-tooltip="Finanzas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        <span class="dash-sidebar__label">Finanzas</span>
+      </button>
+      <button class="dash-sidebar__item" data-section="team" data-tooltip="Equipo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span class="dash-sidebar__label">Equipo</span>
+      </button>
+      <button class="dash-sidebar__item" data-section="messages" data-tooltip="Mensajes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <span class="dash-sidebar__label">Mensajes</span>
+        <span class="dash-sidebar__badge" id="msgBadge" style="display:none;">0</span>
+      </button>
+    </nav>
+    <div class="dash-sidebar__footer">
+      <a class="dash-sidebar__item" href="index.html" data-tooltip="Volver a la web">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <span class="dash-sidebar__label">Volver a la web</span>
+      </a>
+      <button class="dash-sidebar__item" onclick="papikLogout()" data-tooltip="Cerrar sesión">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span class="dash-sidebar__label">Cerrar sesión</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════
+       TOP BAR
+  ═══════════════════════════════════ -->
+  <header class="dash-topbar">
+    <div class="dash-topbar__left">
+      <button class="dash-topbar__menu-btn" id="sidebarToggle" aria-label="Abrir menú">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div>
+        <div class="dash-topbar__title">Espacio Cliente</div>
+        <div class="dash-topbar__subtitle">Tu proyecto de construcción</div>
+      </div>
+      <div class="dash-topbar__project-pill" id="welcomeProject">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        <span id="projectName">—</span>
+      </div>
+    </div>
+
+    <div class="dash-topbar__center">
+      <div class="dash-topbar__search-wrap">
+        <div class="dash-topbar__search-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <input type="text" class="dash-topbar__search" placeholder="Buscar documentos, fases...">
+      </div>
+    </div>
+
+    <div class="dash-topbar__right">
+      <button class="dash-topbar__notif-btn" id="notifToggle" aria-label="Notificaciones">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        <span class="dash-topbar__badge" id="notifBadge" style="display:none;">0</span>
+      </button>
+      <div class="dash-topbar__user" id="userMenuBtn">
+        <span class="dash-topbar__avatar" id="userAvatar"></span>
+        <span class="dash-topbar__username" id="userName"></span>
+        <span class="dash-topbar__chevron">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <div class="dash-user-dropdown" id="userDropdown">
+          <a class="dash-user-dropdown__item" href="index.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            Volver a la web
+          </a>
+          <div class="dash-user-dropdown__divider"></div>
+          <button class="dash-user-dropdown__item" onclick="papikLogout()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════
+       NOTIFICATIONS PANEL
+  ═══════════════════════════════════ -->
+  <div class="dash-notif-panel" id="notifPanel">
+    <div class="dash-notif-panel__header">
+      <h3>Notificaciones</h3>
+      <button class="dash-notif-panel__mark-read" id="markAllRead">Marcar todo como leído</button>
+    </div>
+    <div class="dash-notif-panel__list" id="notifList">
+      <div class="dash-empty" id="notifEmpty">
+        <p>Sin notificaciones pendientes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════ -->
+  <main class="dash-main">
+    <div class="dash-main__inner">
+
+      <!-- ──── OVERVIEW ──── -->
+      <section class="dash-section active" id="sec-overview">
+        <div class="dash-welcome">
+          <div class="dash-welcome__greeting">
+            <p class="t12 upper color-muted-light">Bienvenido a tu espacio</p>
+            <h1 class="dash-welcome__name t42" id="welcomeName">Hola</h1>
+          </div>
+        </div>
+
+        <div class="dash-stats">
+          <div class="dash-stat">
+            <span class="dash-stat__value" id="statProgress">—</span>
+            <span class="dash-stat__label">Progreso global</span>
+          </div>
+          <div class="dash-stat">
+            <span class="dash-stat__value" id="statPhase">—</span>
+            <span class="dash-stat__label">Fase actual</span>
+          </div>
+          <div class="dash-stat">
+            <span class="dash-stat__value" id="statDays">—</span>
+            <span class="dash-stat__label">Días restantes</span>
+          </div>
+          <div class="dash-stat">
+            <span class="dash-stat__value" id="statDocs">0</span>
+            <span class="dash-stat__label">Documentos</span>
+          </div>
+        </div>
+
+        <!-- Next Milestone -->
+        <div class="dash-card" style="margin-bottom:20px;">
+          <div class="dash-card__header"><h3 class="t14 fw500">Próximo hito</h3></div>
+          <div class="dash-card__body">
+            <div class="dash-milestone__content" id="milestoneContent">
+              <div class="dash-milestone__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div class="dash-milestone__info">
+                <div class="dash-milestone__phase" id="milestonePhase">—</div>
+                <div class="dash-milestone__date" id="milestoneDate">—</div>
+              </div>
+              <div class="dash-milestone__countdown" id="milestoneCountdown">—</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Energy / Passive House Data -->
+        <div class="dash-card dash-energy" style="margin-bottom:20px;" id="energyCard">
+          <div class="dash-card__header">
+            <h3 class="t14 fw500">Tu casa pasiva</h3>
+            <span class="dash-energy__header-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              Passivhaus
+            </span>
+          </div>
+
+          <!-- Key metrics grid -->
+          <div class="dash-energy__grid">
+            <div class="dash-energy__metric">
+              <div class="dash-energy__metric-label">Demanda calefacción</div>
+              <div class="dash-energy__metric-value" id="energyHeating">15 <span>kWh/m²·any</span></div>
+              <div class="dash-energy__metric-sub">Límite Passivhaus: ≤ 15 kWh/m²·any</div>
+            </div>
+            <div class="dash-energy__metric">
+              <div class="dash-energy__metric-label">Demanda refrigeración</div>
+              <div class="dash-energy__metric-value" id="energyCooling">12 <span>kWh/m²·any</span></div>
+              <div class="dash-energy__metric-sub">Límite Passivhaus: ≤ 15 kWh/m²·any</div>
+            </div>
+            <div class="dash-energy__metric">
+              <div class="dash-energy__metric-label">Consumo energía primaria</div>
+              <div class="dash-energy__metric-value" id="energyPrimary">42 <span>kWh/m²·any</span></div>
+              <div class="dash-energy__metric-sub">Límite Passivhaus: ≤ 120 kWh/m²·any</div>
+            </div>
+            <div class="dash-energy__metric">
+              <div class="dash-energy__metric-label">Estanqueidad (n50)</div>
+              <div class="dash-energy__metric-value" id="energyAirtight">0.6 <span>ren/h</span></div>
+              <div class="dash-energy__metric-sub">Límite Passivhaus: ≤ 0.6 ren/h</div>
+            </div>
+          </div>
+
+          <!-- Comparison bars -->
+          <div class="dash-energy__comparison">
+            <div class="dash-energy__comparison-title">Consumo anual estimado vs. vivienda convencional</div>
+            <div class="dash-energy__bar-row">
+              <span class="dash-energy__bar-label">Tu casa</span>
+              <div class="dash-energy__bar-track">
+                <div class="dash-energy__bar-fill dash-energy__bar-fill--green" id="energyBarYours" style="width:12%"></div>
+              </div>
+              <span class="dash-energy__bar-amount" id="energyAmountYours">~420 €</span>
+            </div>
+            <div class="dash-energy__bar-row">
+              <span class="dash-energy__bar-label">Casa estándar</span>
+              <div class="dash-energy__bar-track">
+                <div class="dash-energy__bar-fill dash-energy__bar-fill--muted" style="width:60%"></div>
+              </div>
+              <span class="dash-energy__bar-amount">~2.100 €</span>
+            </div>
+            <div class="dash-energy__bar-row">
+              <span class="dash-energy__bar-label">Casa antigua</span>
+              <div class="dash-energy__bar-track">
+                <div class="dash-energy__bar-fill dash-energy__bar-fill--warning" style="width:100%"></div>
+              </div>
+              <span class="dash-energy__bar-amount">~3.500 €</span>
+            </div>
+          </div>
+
+          <!-- Certificate -->
+          <div class="dash-energy__cert">
+            <div class="dash-energy__cert-badge dash-energy__cert-badge--a">A</div>
+            <div class="dash-energy__cert-info">
+              <div class="dash-energy__cert-title">Certificado energético: Clase A</div>
+              <div class="dash-energy__cert-sub">Emisiones CO₂: 3.2 kg/m²·any — Calificación máxima</div>
+            </div>
+          </div>
+
+          <!-- Savings highlight -->
+          <div class="dash-energy__savings">
+            <div class="dash-energy__savings-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="dash-energy__savings-text">
+              Ahorro estimado de <strong>~1.680 €/año</strong> respecto a una casa convencional. Amortización del sobrecoste en <strong>~8 años</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="dash-card">
+          <div class="dash-card__header"><h3 class="t14 fw500">Actividad reciente</h3></div>
+          <div class="dash-card__body" id="activityFeed">
+            <div class="dash-empty"><p>Aún no hay actividad registrada.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──── PHASES ──── -->
+      <section class="dash-section" id="sec-phases">
+        <h2 class="dash-section__title t24">Fases de la obra</h2>
+        <p class="dash-section__desc t14 color-muted">Seguimiento detallado de cada fase de construcción de tu proyecto.</p>
+        <div class="dash-phases__overall">
+          <div class="dash-phases__bar"><div class="dash-phases__bar-fill" id="overallBar" style="width:0%"></div></div>
+          <span class="t14 color-muted" id="overallPercent">0% completado</span>
+        </div>
+        <div class="dash-phases__timeline" id="phasesTimeline"></div>
+      </section>
+
+      <!-- ──── DOCUMENTS ──── -->
+      <section class="dash-section" id="sec-documents">
+        <h2 class="dash-section__title t24">Documentos</h2>
+        <p class="dash-section__desc t14 color-muted">Todos los documentos de tu proyecto organizados por categoría.</p>
+        <div class="dash-docs__tabs" id="docTabs">
+          <button class="dash-docs__tab dash-docs__tab--active" data-cat="all">Todos</button>
+          <button class="dash-docs__tab" data-cat="contract">Contratos</button>
+          <button class="dash-docs__tab" data-cat="permit">Licencias</button>
+          <button class="dash-docs__tab" data-cat="blueprint">Planos</button>
+          <button class="dash-docs__tab" data-cat="report">Memorias</button>
+          <button class="dash-docs__tab" data-cat="certificate">Certificados</button>
+          <button class="dash-docs__tab" data-cat="photo">Fotos</button>
+        </div>
+        <div class="dash-card">
+          <div class="dash-docs__list" id="docList"></div>
+          <div class="dash-empty" id="docEmpty" style="display:none;">
+            <p>Aún no hay documentos en esta categoría.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──── FINANCE ──── -->
+      <section class="dash-section" id="sec-finance">
+        <h2 class="dash-section__title t24">Finanzas</h2>
+        <p class="dash-section__desc t14 color-muted">Estado económico de tu proyecto, facturas y pagos.</p>
+        <div class="dash-card" style="margin-bottom:24px;">
+          <div class="dash-finance__overview">
+            <div class="dash-finance__amount">
+              <div class="dash-finance__amount-label">Presupuesto total</div>
+              <div class="dash-finance__amount-value" id="budgetTotal">—</div>
+            </div>
+            <div class="dash-finance__amount">
+              <div class="dash-finance__amount-label">Pagado</div>
+              <div class="dash-finance__amount-value" id="budgetPaid" style="color:var(--dash-success)">—</div>
+            </div>
+            <div class="dash-finance__amount">
+              <div class="dash-finance__amount-label">Pendiente</div>
+              <div class="dash-finance__amount-value" id="budgetPending" style="color:var(--dash-warning)">—</div>
+            </div>
+          </div>
+          <div class="dash-finance__bar-wrapper">
+            <div class="dash-phases__bar"><div class="dash-phases__bar-fill" id="paymentBar" style="width:0%; background:var(--dash-success);"></div></div>
+            <span class="t12 color-muted" id="paymentPercent">0% del presupuesto abonado</span>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card__header"><h3 class="t14 fw500">Facturas</h3></div>
+          <div id="invoiceList"></div>
+          <div class="dash-empty" id="invoiceEmpty" style="display:none;"><p>Aún no hay facturas.</p></div>
+        </div>
+      </section>
+
+      <!-- ──── TEAM ──── -->
+      <section class="dash-section" id="sec-team">
+        <h2 class="dash-section__title t24">Tu equipo</h2>
+        <p class="dash-section__desc t14 color-muted">El equipo de profesionales asignados a tu proyecto.</p>
+        <div class="dash-team__grid" id="teamGrid"></div>
+        <div class="dash-empty" id="teamEmpty" style="display:none;"><p>Aún no hay miembros asignados.</p></div>
+      </section>
+
+      <!-- ──── MESSAGES ──── -->
+      <section class="dash-section" id="sec-messages">
+        <h2 class="dash-section__title t24" style="margin-bottom:16px;">Mensajes</h2>
+        <div class="dash-card" style="overflow:hidden;">
+          <div class="dash-chat">
+            <div class="dash-chat__messages" id="chatMessages">
+              <div class="dash-empty" id="chatEmpty"><p>Envía el primer mensaje a tu equipo.</p></div>
+            </div>
+            <div class="dash-chat__input-area">
+              <input type="text" class="dash-chat__input" id="chatInput" placeholder="Escribe un mensaje..." maxlength="2000">
+              <button class="dash-chat__send" id="chatSend" aria-label="Enviar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════
+       MOBILE BOTTOM NAV
+  ═══════════════════════════════════ -->
+  <nav class="dash-mobile-nav" id="mobileNav">
+    <button class="dash-mobile-nav__item dash-mobile-nav__item--active" data-section="overview">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Resumen</span>
+    </button>
+    <button class="dash-mobile-nav__item" data-section="phases">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Fases</span>
+    </button>
+    <button class="dash-mobile-nav__item" data-section="documents">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+      <span>Docs</span>
+    </button>
+    <button class="dash-mobile-nav__item" data-section="finance">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <span>Finanzas</span>
+    </button>
+    <button class="dash-mobile-nav__item" data-section="messages">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span>Chat</span>
+      <span class="dash-mobile-nav__badge" id="mobileMsgBadge" style="display:none;">0</span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../dashboard-guard.js"></script>
+  <script>
+  // ══════════════════════════════════════════════
+  // PAPIK Client Dashboard — Main Logic
+  // ══════════════════════════════════════════════
+
+  var sb, currentProject, currentUser;
+
+  // ─── Phase display names (Spanish) ───
+  var PHASE_NAMES = {
+    projecte:      'Proyecto',
+    llicencia:     'Licencia',
+    fonamentacio:  'Cimentación',
+    estructura:    'Estructura',
+    tancaments:    'Cerramientos',
+    installacions: 'Instalaciones',
+    acabats:       'Acabados',
+    entrega:       'Entrega'
+  };
+  var PHASE_DESCRIPTIONS = {
+    projecte:      'Redacción del proyecto ejecutivo',
+    llicencia:     'Tramitación de la licencia de obras',
+    fonamentacio:  'Ejecución de la cimentación',
+    estructura:    'Construcción de la estructura',
+    tancaments:    'Cerramientos, cubierta y carpintería',
+    installacions: 'Electricidad, fontanería y climatización',
+    acabats:       'Pavimentos, pintura y equipamiento',
+    entrega:       'Revisión final y entrega de llaves'
+  };
+
+  // ─── Auth ready callback ───
+  window.onPapikReady = async function(user) {
+    sb = window._papikClient;
+    currentUser = user;
+
+    try {
+      // 1. Load project
+      var pm = await sb.from('project_members')
+        .select('project_id, role_in_project, projects(*)')
+        .eq('user_id', user.id)
+        .limit(1);
+
+      if (!pm.data || pm.data.length === 0) {
+        showNoprojectState();
+        return;
+      }
+
+      currentProject = pm.data[0].projects;
+      var projectId = currentProject.id;
+
+      // 2. Parallel fetch all data
+      var results = await Promise.all([
+        sb.from('project_phases').select('*').eq('project_id', projectId).order('sort_order'),
+        sb.from('documents').select('*').eq('project_id', projectId).eq('is_internal', false).order('created_at', { ascending: false }),
+        sb.from('invoices').select('*').eq('client_id', user.id).order('issued_date', { ascending: false }),
+        sb.from('project_members').select('user_id, role_in_project, profiles(first_name, last_name, role, email, phone)').eq('project_id', projectId),
+        sb.from('messages').select('*, sender:profiles(first_name, last_name, role)').eq('project_id', projectId).order('created_at', { ascending: true }).limit(200),
+        sb.from('notifications').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).limit(50),
+        sb.from('activity_log').select('*').eq('project_id', projectId).order('created_at', { ascending: false }).limit(10)
+      ]);
+
+      var phases   = results[0].data || [];
+      var docs     = results[1].data || [];
+      var invoices = results[2].data || [];
+      var team     = results[3].data || [];
+      var messages = results[4].data || [];
+      var notifs   = results[5].data || [];
+      var activity = results[6].data || [];
+
+      // 3. Render everything
+      renderTopBar(user);
+      renderWelcome(user, currentProject, phases, docs);
+      renderEnergyData(currentProject);
+      renderMilestone(phases);
+      renderActivity(activity);
+      renderPhases(phases);
+      renderDocuments(docs);
+      renderFinance(invoices, currentProject.budget_total);
+      renderTeam(team);
+      renderMessages(messages);
+      renderNotifications(notifs);
+
+      // 4. Setup navigation
+      setupNavigation();
+
+      // 5. Setup realtime
+      setupRealtimeMessages(projectId);
+      setupRealtimeNotifications(user.id);
+
+      // 6. Setup interactions
+      setupChatSend(projectId);
+      setupDocTabs(docs);
+
+    } catch (err) {
+      console.error('Dashboard error:', err);
+    }
+
+    // Hide loading
+    document.getElementById('loadingScreen').classList.add('hidden');
+  };
+
+  // ══════════════════════════════════════════════
+  // RENDER FUNCTIONS
+  // ══════════════════════════════════════════════
+
+  function renderTopBar(user) {
+    var initials = ((user.first_name || '')[0] || '') + ((user.last_name || '')[0] || '');
+    document.getElementById('userAvatar').textContent = initials.toUpperCase() || '?';
+    document.getElementById('userName').textContent = user.first_name || user.email;
+  }
+
+  function renderWelcome(user, project, phases, docs) {
+    document.getElementById('welcomeName').textContent = 'Hola, ' + (user.first_name || 'Cliente');
+    document.getElementById('projectName').textContent = project.name;
+
+    // Stats
+    var totalProgress = phases.length ? Math.round(phases.reduce(function(s,p){ return s+p.progress; },0) / phases.length) : 0;
+    document.getElementById('statProgress').textContent = totalProgress + '%';
+
+    var activePhase = phases.find(function(p){ return p.status === 'in_progress'; });
+    document.getElementById('statPhase').textContent = activePhase ? PHASE_NAMES[activePhase.phase] : '—';
+
+    if (project.estimated_end_date) {
+      var daysLeft = Math.ceil((new Date(project.estimated_end_date) - new Date()) / 86400000);
+      document.getElementById('statDays').textContent = daysLeft > 0 ? daysLeft : '0';
+    }
+
+    document.getElementById('statDocs').textContent = docs.length;
+  }
+
+  function renderEnergyData(project) {
+    // Energy data based on project configuration (passive house standards)
+    // These values come from the project's energy study / Passivhaus certification
+    // For now we use realistic defaults for a Passivhaus in Mediterranean climate
+    var m2 = parseFloat(project.m2_total) || 180;
+
+    // Passive house metrics (realistic for Catalunya climate)
+    var heating = 15;     // kWh/m²·year (Passivhaus limit)
+    var cooling = 12;     // kWh/m²·year
+    var primary = 42;     // kWh/m²·year total primary energy
+    var airtight = 0.6;   // n50 renovations/hour
+
+    // Annual costs comparison (electricity ~0.15€/kWh avg)
+    var costPassive = Math.round(primary * m2 * 0.13);       // ~420€/year for passive
+    var costStandard = Math.round(120 * m2 * 0.13);          // ~2100€/year standard
+    var costOld = Math.round(200 * m2 * 0.13);               // ~3500€/year old building
+
+    var savings = costStandard - costPassive;
+    var extraCost = m2 * 85; // ~85€/m² premium for Passivhaus
+    var payback = Math.round(extraCost / savings);
+
+    // Update metrics if project has specific data
+    var heatingEl = document.getElementById('energyHeating');
+    if (heatingEl) heatingEl.innerHTML = heating + ' <span>kWh/m²·any</span>';
+    var coolingEl = document.getElementById('energyCooling');
+    if (coolingEl) coolingEl.innerHTML = cooling + ' <span>kWh/m²·any</span>';
+    var primaryEl = document.getElementById('energyPrimary');
+    if (primaryEl) primaryEl.innerHTML = primary + ' <span>kWh/m²·any</span>';
+    var airtightEl = document.getElementById('energyAirtight');
+    if (airtightEl) airtightEl.innerHTML = airtight + ' <span>ren/h</span>';
+
+    // Update comparison bars with calculated values
+    var maxCost = costOld;
+    var barYours = document.getElementById('energyBarYours');
+    if (barYours) barYours.style.width = Math.round((costPassive / maxCost) * 100) + '%';
+    var amountYours = document.getElementById('energyAmountYours');
+    if (amountYours) amountYours.textContent = '~' + costPassive.toLocaleString('es-ES') + ' €';
+
+    // Update savings text
+    var savingsText = document.querySelector('.dash-energy__savings-text');
+    if (savingsText) {
+      savingsText.innerHTML = 'Ahorro estimado de <strong>~' + savings.toLocaleString('es-ES') + ' €/año</strong> respecto a una casa convencional. Amortización del sobrecoste pasivo en <strong>~' + payback + ' años</strong>.';
+    }
+  }
+
+  function renderMilestone(phases) {
+    var next = phases.find(function(p) { return p.status === 'in_progress' || p.status === 'pending'; });
+    if (!next) {
+      document.getElementById('milestonePhase').textContent = '¡Proyecto completado!';
+      document.getElementById('milestoneDate').textContent = 'Enhorabuena';
+      document.getElementById('milestoneCountdown').textContent = '🎉';
+      return;
+    }
+    document.getElementById('milestonePhase').textContent = PHASE_NAMES[next.phase];
+    if (next.estimated_end_date) {
+      document.getElementById('milestoneDate').textContent = 'Fecha estimada: ' + formatDate(next.estimated_end_date);
+      var days = Math.ceil((new Date(next.estimated_end_date) - new Date()) / 86400000);
+      document.getElementById('milestoneCountdown').textContent = days > 0 ? days + 'd' : 'Hoy';
+    } else {
+      document.getElementById('milestoneDate').textContent = 'Fecha por confirmar';
+      document.getElementById('milestoneCountdown').textContent = '—';
+    }
+  }
+
+  function renderActivity(activity) {
+    var container = document.getElementById('activityFeed');
+    if (!activity.length) return;
+    container.innerHTML = activity.map(function(a) {
+      return '<div class="dash-activity__item">' +
+        '<div class="dash-activity__dot"></div>' +
+        '<div class="dash-activity__text">' + escapeHtml(a.description || a.activity) + '</div>' +
+        '<div class="dash-activity__time">' + timeAgo(a.created_at) + '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderPhases(phases) {
+    var total = phases.length ? Math.round(phases.reduce(function(s,p){ return s+p.progress; },0) / phases.length) : 0;
+    document.getElementById('overallBar').style.width = total + '%';
+    document.getElementById('overallPercent').textContent = total + '% completado';
+
+    var html = phases.map(function(p, i) {
+      var statusClass = p.status === 'completed' ? ' dash-phases__node--completed' :
+                        p.status === 'in_progress' ? ' dash-phases__node--active' :
+                        p.status === 'blocked' ? ' dash-phases__node--blocked' : '';
+      var dotContent = p.status === 'completed' ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : (i + 1);
+
+      return '<div class="dash-phases__node' + statusClass + '">' +
+        '<div class="dash-phases__dot">' + dotContent + '</div>' +
+        '<div class="dash-phases__content">' +
+          '<div class="dash-phases__name">' + PHASE_NAMES[p.phase] + '</div>' +
+          '<div class="dash-phases__desc">' + (p.notes || PHASE_DESCRIPTIONS[p.phase] || '') + '</div>' +
+          '<div class="dash-phases__meta">' +
+            (p.start_date ? '<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Inicio: ' + formatDate(p.start_date) + '</span>' : '') +
+            (p.estimated_end_date ? '<span>Fin estimado: ' + formatDate(p.estimated_end_date) + '</span>' : '') +
+            (p.actual_end_date ? '<span style="color:var(--dash-success)">Completado: ' + formatDate(p.actual_end_date) + '</span>' : '') +
+          '</div>' +
+          '<div class="dash-phases__progress-bar"><div class="dash-phases__progress-fill" style="width:' + p.progress + '%"></div></div>' +
+          '<div class="dash-phases__progress-text">' + p.progress + '% completado</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    document.getElementById('phasesTimeline').innerHTML = html;
+  }
+
+  function renderDocuments(docs) {
+    renderDocList(docs);
+  }
+
+  function renderDocList(docs) {
+    var container = document.getElementById('docList');
+    var empty = document.getElementById('docEmpty');
+    if (!docs.length) { container.innerHTML = ''; empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+
+    container.innerHTML = docs.map(function(d) {
+      var ext = (d.file_path || '').split('.').pop().toLowerCase();
+      var iconClass = ['pdf'].indexOf(ext) >= 0 ? 'pdf' : ['jpg','jpeg','png','webp'].indexOf(ext) >= 0 ? 'img' : ['doc','docx'].indexOf(ext) >= 0 ? 'doc' : 'other';
+      var size = d.file_size ? formatSize(d.file_size) : '';
+
+      return '<div class="dash-docs__file" data-category="' + (d.category || 'other') + '">' +
+        '<div class="dash-docs__file-icon dash-docs__file-icon--' + iconClass + '">' + ext.toUpperCase().substring(0,4) + '</div>' +
+        '<div class="dash-docs__file-info">' +
+          '<div class="dash-docs__file-title">' + escapeHtml(d.title) + '</div>' +
+          '<div class="dash-docs__file-meta">' + [size, formatDate(d.created_at)].filter(Boolean).join(' · ') + '</div>' +
+        '</div>' +
+        '<button class="dash-docs__download" onclick="downloadDoc(\'' + escapeHtml(d.file_path) + '\',\'' + escapeHtml(d.title) + '\')" title="Descargar">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+        '</button>' +
+      '</div>';
+    }).join('');
+  }
+
+  function setupDocTabs(allDocs) {
+    document.getElementById('docTabs').addEventListener('click', function(e) {
+      var tab = e.target.closest('.dash-docs__tab');
+      if (!tab) return;
+      document.querySelectorAll('.dash-docs__tab').forEach(function(t) { t.classList.remove('dash-docs__tab--active'); });
+      tab.classList.add('dash-docs__tab--active');
+      var cat = tab.dataset.cat;
+      var filtered = cat === 'all' ? allDocs : allDocs.filter(function(d) { return d.category === cat; });
+      renderDocList(filtered);
+    });
+  }
+
+  function renderFinance(invoices, budgetTotal) {
+    var budget = parseFloat(budgetTotal) || 0;
+    var paid = invoices.reduce(function(s,inv) { return inv.status === 'paid' ? s + parseFloat(inv.total_amount || 0) : s; }, 0);
+    var pending = budget - paid;
+
+    document.getElementById('budgetTotal').textContent = formatCurrency(budget);
+    document.getElementById('budgetPaid').textContent = formatCurrency(paid);
+    document.getElementById('budgetPending').textContent = formatCurrency(pending > 0 ? pending : 0);
+
+    var pct = budget > 0 ? Math.round((paid / budget) * 100) : 0;
+    document.getElementById('paymentBar').style.width = pct + '%';
+    document.getElementById('paymentPercent').textContent = pct + '% del presupuesto abonado';
+
+    var invContainer = document.getElementById('invoiceList');
+    var invEmpty = document.getElementById('invoiceEmpty');
+    if (!invoices.length) { invEmpty.style.display = 'block'; return; }
+    invEmpty.style.display = 'none';
+
+    var statusLabels = { paid: 'Pagada', sent: 'Pendiente', draft: 'Borrador', overdue: 'Vencida', cancelled: 'Cancelada' };
+    invContainer.innerHTML = invoices.map(function(inv) {
+      var statusCls = inv.status === 'paid' ? 'paid' : inv.status === 'overdue' ? 'overdue' : 'sent';
+      return '<div class="dash-invoice">' +
+        '<div class="dash-invoice__info">' +
+          '<div class="dash-invoice__number">' + escapeHtml(inv.invoice_number || '—') + '</div>' +
+          '<div class="dash-invoice__desc">' + escapeHtml(inv.description || '') + '</div>' +
+        '</div>' +
+        '<div class="dash-invoice__amount">' + formatCurrency(inv.total_amount) + '</div>' +
+        '<span class="dash-invoice__status dash-invoice__status--' + statusCls + '">' + (statusLabels[inv.status] || inv.status) + '</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderTeam(team) {
+    var grid = document.getElementById('teamGrid');
+    var empty = document.getElementById('teamEmpty');
+    // Filter out the current user from team view
+    var members = team.filter(function(m) { return m.user_id !== currentUser.id && m.profiles; });
+    if (!members.length) { empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+
+    var roleLabels = { arquitecto: 'Arquitecto', empleado: 'Jefe de obra', secretario: 'Administración', admin: 'Dirección', viewer: 'Colaborador' };
+
+    grid.innerHTML = members.map(function(m) {
+      var p = m.profiles;
+      var initials = ((p.first_name || '')[0] || '') + ((p.last_name || '')[0] || '');
+      var displayRole = roleLabels[m.role_in_project] || roleLabels[p.role] || m.role_in_project;
+      return '<div class="dash-team__member">' +
+        '<div class="dash-team__avatar">' + initials.toUpperCase() + '</div>' +
+        '<div class="dash-team__name">' + escapeHtml((p.first_name || '') + ' ' + (p.last_name || '')) + '</div>' +
+        '<div class="dash-team__role">' + displayRole + '</div>' +
+        '<div class="dash-team__email">' + escapeHtml(p.email || '') + '</div>' +
+        '<button class="dash-team__msg-btn" onclick="navigateTo(\'messages\')">Mensaje</button>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderMessages(messages) {
+    var container = document.getElementById('chatMessages');
+    var empty = document.getElementById('chatEmpty');
+    if (!messages.length) { empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+
+    container.innerHTML = messages.map(function(m) {
+      var isMe = m.sender_id === currentUser.id;
+      var senderName = m.sender ? (m.sender.first_name || '') + ' ' + (m.sender.last_name || '') : '';
+      var senderRole = m.sender ? m.sender.role : '';
+      return '<div class="dash-chat__bubble dash-chat__bubble--' + (isMe ? 'me' : 'them') + '">' +
+        (!isMe ? '<div class="dash-chat__sender">' + escapeHtml(senderName) + (senderRole ? ' · ' + senderRole : '') + '</div>' : '') +
+        '<div class="dash-chat__text">' + escapeHtml(m.content) + '</div>' +
+        '<div class="dash-chat__time">' + formatDateTime(m.created_at) + '</div>' +
+      '</div>';
+    }).join('');
+
+    // Scroll to bottom
+    setTimeout(function() { container.scrollTop = container.scrollHeight; }, 100);
+  }
+
+  function renderNotifications(notifs) {
+    var list = document.getElementById('notifList');
+    var badge = document.getElementById('notifBadge');
+    var unread = notifs.filter(function(n) { return !n.is_read; });
+
+    if (unread.length > 0) {
+      badge.textContent = unread.length;
+      badge.style.display = 'flex';
+    }
+
+    if (!notifs.length) return;
+    document.getElementById('notifEmpty').style.display = 'none';
+
+    var iconMap = {
+      phase_changed: 'phase', document_uploaded: 'doc', message_received: 'msg',
+      invoice_created: 'invoice', payment_reminder: 'invoice', general: 'general'
+    };
+    var iconSymbols = { phase: '⏱', doc: '📄', msg: '💬', invoice: '💰', general: '🔔' };
+
+    list.innerHTML = notifs.map(function(n) {
+      var iconType = iconMap[n.type] || 'general';
+      return '<div class="dash-notif__item' + (!n.is_read ? ' dash-notif__item--unread' : '') + '" data-id="' + n.id + '" onclick="markNotifRead(\'' + n.id + '\')">' +
+        '<div class="dash-notif__icon dash-notif__icon--' + iconType + '">' + iconSymbols[iconType] + '</div>' +
+        '<div class="dash-notif__body">' +
+          '<div class="dash-notif__title">' + escapeHtml(n.title) + '</div>' +
+          '<div class="dash-notif__time">' + timeAgo(n.created_at) + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // ══════════════════════════════════════════════
+  // NAVIGATION
+  // ══════════════════════════════════════════════
+
+  function setupNavigation() {
+    // Sidebar clicks
+    document.querySelectorAll('.dash-sidebar__item[data-section]').forEach(function(item) {
+      item.addEventListener('click', function() { navigateTo(this.dataset.section); closeSidebar(); });
+    });
+    // Mobile nav clicks
+    document.querySelectorAll('.dash-mobile-nav__item[data-section]').forEach(function(item) {
+      item.addEventListener('click', function() { navigateTo(this.dataset.section); });
+    });
+    // Sidebar toggle
+    document.getElementById('sidebarToggle').addEventListener('click', toggleSidebar);
+    document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
+    // Notifications toggle
+    document.getElementById('notifToggle').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('notifPanel').classList.toggle('open');
+      document.getElementById('userDropdown').classList.remove('open');
+    });
+    // User menu toggle
+    document.getElementById('userMenuBtn').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('userDropdown').classList.toggle('open');
+      document.getElementById('notifPanel').classList.remove('open');
+    });
+    // Close dropdowns on outside click
+    document.addEventListener('click', function() {
+      document.getElementById('notifPanel').classList.remove('open');
+      document.getElementById('userDropdown').classList.remove('open');
+    });
+    // Mark all notifications read
+    document.getElementById('markAllRead').addEventListener('click', markAllNotifsRead);
+  }
+
+  function navigateTo(sectionName) {
+    // Hide all sections
+    document.querySelectorAll('.dash-section').forEach(function(s) { s.classList.remove('active'); });
+    // Show target
+    var target = document.getElementById('sec-' + sectionName);
+    if (target) target.classList.add('active');
+    // Update sidebar active
+    document.querySelectorAll('.dash-sidebar__item[data-section]').forEach(function(i) {
+      i.classList.toggle('dash-sidebar__item--active', i.dataset.section === sectionName);
+    });
+    // Update mobile nav active
+    document.querySelectorAll('.dash-mobile-nav__item[data-section]').forEach(function(i) {
+      i.classList.toggle('dash-mobile-nav__item--active', i.dataset.section === sectionName);
+    });
+    // Scroll to top
+    window.scrollTo(0, 0);
+  }
+
+  function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebarOverlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('visible');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('visible');
+  }
+
+  // ══════════════════════════════════════════════
+  // CHAT / MESSAGES
+  // ══════════════════════════════════════════════
+
+  function setupChatSend(projectId) {
+    var input = document.getElementById('chatInput');
+    var btn = document.getElementById('chatSend');
+
+    btn.addEventListener('click', function() { sendMessage(projectId); });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(projectId); }
+    });
+  }
+
+  async function sendMessage(projectId) {
+    var input = document.getElementById('chatInput');
+    var content = input.value.trim();
+    if (!content) return;
+
+    input.value = '';
+
+    var result = await sb.from('messages').insert({
+      project_id: projectId,
+      sender_id: currentUser.id,
+      content: content
+    });
+
+    if (result.error) {
+      console.error('Send message error:', result.error);
+      input.value = content; // Restore on error
+    }
+  }
+
+  function appendMessage(msg) {
+    var container = document.getElementById('chatMessages');
+    var empty = document.getElementById('chatEmpty');
+    if (empty) empty.style.display = 'none';
+
+    var isMe = msg.sender_id === currentUser.id;
+    var senderName = '', senderRole = '';
+
+    // For realtime messages we may not have sender info - fetch if needed
+    var div = document.createElement('div');
+    div.className = 'dash-chat__bubble dash-chat__bubble--' + (isMe ? 'me' : 'them');
+    div.innerHTML =
+      (!isMe ? '<div class="dash-chat__sender">' + escapeHtml(msg.sender_name || 'Equipo') + '</div>' : '') +
+      '<div class="dash-chat__text">' + escapeHtml(msg.content) + '</div>' +
+      '<div class="dash-chat__time">' + formatDateTime(msg.created_at) + '</div>';
+
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  // ══════════════════════════════════════════════
+  // REALTIME SUBSCRIPTIONS
+  // ══════════════════════════════════════════════
+
+  function setupRealtimeMessages(projectId) {
+    sb.channel('messages-' + projectId)
+      .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'messages',
+        filter: 'project_id=eq.' + projectId
+      }, function(payload) {
+        appendMessage(payload.new);
+        if (payload.new.sender_id !== currentUser.id) {
+          incrementBadge('msgBadge');
+          incrementBadge('mobileMsgBadge');
+        }
+      })
+      .subscribe();
+  }
+
+  function setupRealtimeNotifications(userId) {
+    sb.channel('notifs-' + userId)
+      .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'notifications',
+        filter: 'user_id=eq.' + userId
+      }, function(payload) {
+        prependNotification(payload.new);
+        incrementBadge('notifBadge');
+      })
+      .subscribe();
+  }
+
+  function prependNotification(notif) {
+    var list = document.getElementById('notifList');
+    var empty = document.getElementById('notifEmpty');
+    if (empty) empty.style.display = 'none';
+
+    var iconMap = { phase_changed: 'phase', document_uploaded: 'doc', message_received: 'msg', invoice_created: 'invoice', general: 'general' };
+    var iconSymbols = { phase: '⏱', doc: '📄', msg: '💬', invoice: '💰', general: '🔔' };
+    var iconType = iconMap[notif.type] || 'general';
+
+    var div = document.createElement('div');
+    div.className = 'dash-notif__item dash-notif__item--unread';
+    div.dataset.id = notif.id;
+    div.onclick = function() { markNotifRead(notif.id); };
+    div.innerHTML =
+      '<div class="dash-notif__icon dash-notif__icon--' + iconType + '">' + iconSymbols[iconType] + '</div>' +
+      '<div class="dash-notif__body">' +
+        '<div class="dash-notif__title">' + escapeHtml(notif.title) + '</div>' +
+        '<div class="dash-notif__time">Ara</div>' +
+      '</div>';
+
+    list.insertBefore(div, list.firstChild);
+  }
+
+  // ══════════════════════════════════════════════
+  // NOTIFICATIONS ACTIONS
+  // ══════════════════════════════════════════════
+
+  async function markNotifRead(id) {
+    await sb.from('notifications').update({ is_read: true }).eq('id', id);
+    var item = document.querySelector('.dash-notif__item[data-id="' + id + '"]');
+    if (item) item.classList.remove('dash-notif__item--unread');
+    decrementBadge('notifBadge');
+  }
+
+  async function markAllNotifsRead() {
+    await sb.from('notifications').update({ is_read: true }).eq('user_id', currentUser.id).eq('is_read', false);
+    document.querySelectorAll('.dash-notif__item--unread').forEach(function(el) { el.classList.remove('dash-notif__item--unread'); });
+    document.getElementById('notifBadge').style.display = 'none';
+  }
+
+  // ══════════════════════════════════════════════
+  // DOCUMENT DOWNLOAD
+  // ══════════════════════════════════════════════
+
+  async function downloadDoc(filePath, fileName) {
+    var result = await sb.storage.from('documents').download(filePath);
+    if (result.data) {
+      var url = URL.createObjectURL(result.data);
+      var a = document.createElement('a');
+      a.href = url; a.download = fileName || 'document';
+      document.body.appendChild(a); a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } else {
+      console.error('Download error:', result.error);
+    }
+  }
+
+  // ══════════════════════════════════════════════
+  // NO PROJECT STATE
+  // ══════════════════════════════════════════════
+
+  function showNoprojectState() {
+    renderTopBar(currentUser);
+    document.querySelector('.dash-main__inner').innerHTML =
+      '<div style="text-align:center; padding:80px 20px;">' +
+        '<h2 class="t24" style="margin-bottom:12px;">Aún no tienes ningún proyecto asignado</h2>' +
+        '<p class="t16 color-muted" style="margin-bottom:24px;">Contacta con PAPIK para iniciar tu proyecto de construcción.</p>' +
+        '<a href="index.html" style="display:inline-block; padding:12px 28px; background:var(--green); color:#fff; border-radius:24px; font-size:14px; font-weight:500;">Volver a la web</a>' +
+      '</div>';
+    document.getElementById('loadingScreen').classList.add('hidden');
+  }
+
+  // ══════════════════════════════════════════════
+  // UTILITY FUNCTIONS
+  // ══════════════════════════════════════════════
+
+  function formatDate(d) {
+    if (!d) return '';
+    var date = new Date(d);
+    return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  }
+
+  function formatDateTime(d) {
+    if (!d) return '';
+    var date = new Date(d);
+    return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' }) + ' ' +
+           date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function formatCurrency(n) {
+    var num = parseFloat(n) || 0;
+    return num.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  function formatSize(bytes) {
+    var b = parseInt(bytes);
+    if (b < 1024) return b + ' B';
+    if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
+    return (b / 1048576).toFixed(1) + ' MB';
+  }
+
+  function timeAgo(dateStr) {
+    var now = new Date();
+    var date = new Date(dateStr);
+    var diff = Math.floor((now - date) / 1000);
+    if (diff < 60) return 'Ahora';
+    if (diff < 3600) return Math.floor(diff / 60) + ' min';
+    if (diff < 86400) return Math.floor(diff / 3600) + ' h';
+    if (diff < 604800) return Math.floor(diff / 86400) + ' d';
+    return formatDate(dateStr);
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function incrementBadge(id) {
+    var badge = document.getElementById(id);
+    if (!badge) return;
+    var count = parseInt(badge.textContent || '0') + 1;
+    badge.textContent = count;
+    badge.style.display = 'flex';
+  }
+
+  function decrementBadge(id) {
+    var badge = document.getElementById(id);
+    if (!badge) return;
+    var count = Math.max(0, parseInt(badge.textContent || '0') - 1);
+    badge.textContent = count;
+    if (count === 0) badge.style.display = 'none';
+  }
+
+  </script>
+  <script src="/js/cookie-banner.js" defer></script>
+  <script src="/js/forms.js" defer></script>
+</body>
+</html>

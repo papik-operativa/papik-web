@@ -1,0 +1,87 @@
+/* ═══════════════════════════════════════════════════════════
+   PAPIK · DESIGN TOKENS
+   Single source of truth for colors, typography, and spacing
+   based on the Blog design system.
+═══════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: url('../fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
+       url('../fonts/TT_Firs_Neue_Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: url('../fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
+       url('../fonts/TT_Firs_Neue_Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: url('../fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
+       url('../fonts/TT_Firs_Neue_Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ─── Palette ─── */
+  --green:       #002819;
+  --green-light: #56685E;
+  --green-dark:  #0A1B12;
+  --accent:      #95BBA5;
+  --accent-soft: rgba(149,187,165,0.12);
+  --accent-soft-hover: rgba(149,187,165,0.18);
+
+  /* Surfaces */
+  --bg-light:    rgba(86,104,94,0.14);
+  --bg-section:  rgba(86,104,94,0.14);
+  --footer-bg:   #07140D;
+
+  /* Text */
+  --text:        #002819;
+  --muted:       #56685E;
+  --muted-light: #9FA9A3;
+
+  /* Borders */
+  --border:      rgba(86,104,94,0.25);
+  --border-soft: rgba(86,104,94,0.12);
+
+  /* Warm neutrals (existing) */
+  --warm-1:      rgba(86,104,94,0.22);
+  --warm-2:      #9FA9A3;
+
+  /* ─── Typography ─── */
+  --ff-sans: 'TT Firs Neue', Arial, Helvetica, sans-serif;
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+
+  /* ─── Radii ─── */
+  --r-xs:   4px;
+  --r-sm:   6px;
+  --r-md:   8px;
+  --r-lg:   10px;
+  --r-xl:   12px;
+  --r-pill: 21px;
+  --r-full: 9999px;
+
+  /* ─── Shadows ─── */
+  --sh-btn-hover: 0 6px 20px rgba(0,40,25,.20);
+  --sh-card-hover: 0 16px 40px rgba(0,40,25,.10);
+  --sh-card-hover-sm: 0 12px 30px rgba(0,40,25,.12);
+
+  /* ─── Transitions ─── */
+  --ease-anim: cubic-bezier(.22,.68,0,1.05);
+  --ease-img: cubic-bezier(.25,.46,.45,.94);
+  --ease-bounce: cubic-bezier(.34,1.56,.64,1);
+  --t-fast: .18s;
+  --t-base: .22s;
+  --t-slow: .35s;
+  --t-anim: .65s;
+}

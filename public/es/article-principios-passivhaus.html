@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los cinco principios del Passivhaus | PAPIK</title>
+  <meta name="description" content="Aislamiento continuo, hermeticidad, eliminación de puentes térmicos, ventilación con recuperación y ventanas de altas prestaciones: los cinco fundamentos PHI que definen una casa Passivhaus.">
+
+  <link rel="canonical" href="https://papik.cat/es/article-principios-passivhaus">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-principis-passivhaus">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-principios-passivhaus">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/article-passivhaus-principles">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-principis-passivhaus">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Los cinco principios del Passivhaus | PAPIK">
+  <meta property="og:description" content="Aislamiento continuo, hermeticidad, eliminación de puentes térmicos, ventilación con recuperación y ventanas de altas prestaciones: los cinco fundamentos PHI que definen una casa Passivhaus.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/es/article-principios-passivhaus">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Los cinco principios del Passivhaus | PAPIK">
+  <meta name="twitter:description" content="Aislamiento continuo, hermeticidad, eliminación de puentes térmicos, ventilación con recuperación y ventanas de altas prestaciones: los cinco fundamentos PHI que definen una casa Passivhaus.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Los cinco principios del Passivhaus | PAPIK",
+    "description": "Aislamiento continuo, hermeticidad, eliminación de puentes térmicos, ventilación con recuperación y ventanas de altas prestaciones: los cinco fundamentos PHI que definen una casa Passivhaus.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://papik.cat/es/article-principios-passivhaus"
+    },
+    "articleSection": "Tecnología Passivhaus",
+    "wordCount": "2122",
+    "inLanguage": "es",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inicio",
+        "item": "https://papik.cat/es/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Los cinco principios del Passivhaus"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="../index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/article-principis-passivhaus">CA</option>
+          <option value="https://papik.cat/es/article-principios-passivhaus" selected>ES</option>
+          <option value="https://papik.cat/en/article-passivhaus-principles">EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Inicio</a>
+        <span class="sep">·</span>
+        <span>Los cinco principios del Passivhaus</span>
+      </nav>
+    <h1 class="hero__title">Los cinco principios del Passivhaus</h1>
+    <p class="hero__subtitle">Aislamiento continuo, hermeticidad, eliminación de puentes térmicos, ventilación con recuperación y ventanas de altas prestaciones: los cinco fundamentos PHI que definen una casa Passivhaus.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Aislamiento térmico continuo</h2>
+<p>El aislamiento es la primera línea de defensa contra las pérdidas energéticas. En una casa Passivhaus, la envolvente completa (paredes, cubierta y solera) incorpora espesores de aislamiento muy superiores a los de una construcción que se limita a cumplir el Código Técnico de la Edificación. Mientras el CTE exige transmitancias térmicas (valores U) de entre 0,35 y 0,56 W/m²K para muros según la zona climática, una Passivhaus trabaja habitualmente con valores de entre 0,12 y 0,15 W/m²K en muros y por debajo de 0,12 W/m²K en cubiertas.</p>
+<p>El concepto clave es la continuidad. El aislamiento debe envolver la estructura sin interrupciones, porque cada interrupción se convierte en un punto de pérdida localizada que degrada el rendimiento global. En el sistema constructivo Eskimohaus® de PAPIK, la envolvente integra entre 20 y 30 centímetros de aislamiento total repartidos entre la cavidad estructural de entramado ligero de madera y una capa exterior continua. Los materiales habituales son celulosa insuflada, fibra de madera y lana mineral de alta densidad, escogidos en cada proyecto según la geometría, la orientación y las exigencias higrotérmicas. Para obra rehabilitada, donde el sistema SATE permite conseguir continuidad exterior sin perder superficie interior, la lógica es la misma: cada centímetro está calculado para maximizar la eficiencia del sistema, no para cumplir un mínimo normativo.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Hermeticidad de la envolvente</h2>
+<p>La hermeticidad es la capacidad de la envolvente para bloquear las infiltraciones de aire no controladas. No significa que la casa sea una caja cerrada, sino que el aire entra y sale exclusivamente a través del sistema de ventilación mecánica controlada, no por rendijas, juntas mal selladas o pasos de instalaciones resueltos de forma deficiente. Una construcción convencional puede tener tasas de renovación de aire involuntarias (n50) de entre 8 y 15 h⁻¹, mientras que el estándar Passivhaus exige valores inferiores a 0,6 h⁻¹.</p>
+<p>La verificación se realiza con el test blower-door, que despresuriza la vivienda a 50 Pa y mide la fuga de aire. Si el resultado no cumple el umbral, no se certifica el proyecto. En los proyectos de PAPIK los resultados se sitúan habitualmente entre 0,3 y 0,5 h⁻¹, bastante por debajo del límite, gracias a una disciplina de estanqueidad que se aplica desde el primer detalle constructivo. Membranas herméticas continuas entre estructura y revestimiento, cintas específicas para juntas y pasos de instalaciones, cajas herméticas para enchufes en paredes exteriores, y una resolución cuidadosa de cada encuentro entre muro y cubierta. La fabricación en taller de los elementos de entramado permite integrar las membranas en condiciones controladas, lo que mejora la calidad del sellado respecto a una ejecución a la intemperie.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Eliminación de puentes térmicos</h2>
+<p>Un puente térmico es cualquier punto de la envolvente donde la resistencia térmica es inferior al resto. La consecuencia son pérdidas de calor localizadas, descensos de temperatura superficial interior y, a menudo, condensaciones con riesgo de aparición de moho. En una construcción convencional, los puentes térmicos más habituales aparecen en los cantos de forjado, en los dinteles de ventanas, en las esquinas y en los encuentros entre muro y cubierta.</p>
+<p>En Passivhaus, estos puntos críticos se eliminan durante la fase de diseño, no se resuelven sobre la marcha durante la obra. Cada detalle constructivo se modela con software de simulación térmica bidimensional (THERM o similar) para verificar que el coeficiente de transmisión lineal (Ψ) sea inferior a 0,01 W/mK. En el sistema de entramado ligero de madera de PAPIK, la continuidad geométrica del aislamiento exterior es relativamente sencilla de conseguir, ya que el aislamiento envuelve toda la estructura sin interrupciones y los encuentros se resuelven con piezas específicas de baja conductividad. El resultado es una envolvente térmicamente homogénea, sin puntos fríos, donde la temperatura superficial interior se mantiene uniforme en todas las paredes. Esta uniformidad elimina la sensación de frío radiante que tantas casas convencionales sufren cerca de los muros exteriores, y es uno de los factores que más contribuye al confort percibido.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Ventilación mecánica con recuperación de calor</h2>
+<p>Una vivienda hermética necesita ventilación mecánica controlada. Sin ella, la calidad del aire interior se deteriora y aparecen problemas de humedad. Este principio es el que cierra el círculo del sistema Passivhaus: un equipo de ventilación mecánica con recuperación de calor extrae el aire viciado de cocina, baños y locales húmedos e introduce aire fresco filtrado en salas y dormitorios, con un intercambiador que transfiere la energía térmica del aire saliente al aire entrante sin mezclar los flujos.</p>
+<p>La eficiencia de recuperación de los equipos actuales se sitúa entre el 85% y el 92%, con consumos eléctricos modestos en funcionamiento normal. En los proyectos de PAPIK utilizamos habitualmente Zehnder, referente europeo en ventilación residencial, con dimensionado según la geometría de la vivienda y el número de usuarios previstos. El sistema incorpora filtros F7 que retienen polen, partículas finas y contaminantes, motivo por el cual la calidad del aire interior de una Passivhaus es sensiblemente mejor que la de cualquier casa con ventilación natural por ventana. El usuario tiene aire renovado constantemente a temperatura ambiente, sin corrientes ni cambios bruscos, y con una humedad relativa estable durante todo el año. Muchos de nuestros clientes con alergias o asma reportan una mejora notable de los síntomas desde los primeros meses de uso.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Ventanas de altas prestaciones</h2>
+<p>Las ventanas son el punto débil térmico de cualquier envolvente. En una construcción convencional pueden tener un U-value de entre 2,5 y 3,5 W/m²K, lo que las convierte en responsables de hasta un 25% de las pérdidas de calor. El estándar Passivhaus exige un Uw (transmitancia de la ventana completa, marco más vidrio) inferior a 0,85 W/m²K, valor que en los proyectos de PAPIK situamos habitualmente entre 0,70 y 0,80 W/m²K.</p>
+<p>La tecnología que lo hace posible combina varios elementos integrados: triple vidrio con cámaras de argón o criptón entre vidrios, tratamiento low-e en los vidrios para reducir radiación térmica, separadores de baja conductividad (en lugar de los metálicos tradicionales) y marcos aislados de madera, madera-aluminio o PVC de alta gama con múltiples cámaras. La instalación es tan crítica como la ventana misma: la hoja se sitúa dentro del plano de aislamiento del muro para evitar puentes térmicos en el perímetro del marco, y el sellado hermético se integra con el resto de la envolvente. El factor solar (g-value) se modula según la orientación de cada hueco: más alto en las fachadas norte para maximizar la captación de luz, más bajo en las fachadas sur y oeste para controlar la ganancia solar en verano, hecho que en el clima de Cataluña tiene un peso específico más relevante que en latitudes centroeuropeas.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Por qué los cinco principios funcionan como sistema</h2>
+<p>Los cinco principios no funcionan de manera aislada. Lo que permite alcanzar reducciones del consumo del 75% al 90% es su integración en un sistema coherente, donde cada principio refuerza a los demás. Una casa con un aislamiento excelente pero hermeticidad insuficiente pierde la energía térmica por infiltraciones descontroladas, anulando buena parte de la inversión en aislamiento. Una envolvente bien aislada con puentes térmicos no resueltos genera condensaciones interiores a pesar del rendimiento teórico correcto. Una hermeticidad alta sin ventilación mecánica deteriora la calidad del aire interior y provoca problemas de humedad. Ventanas convencionales en una envolvente de altas prestaciones desplazan el problema pero no lo resuelven.</p>
+<p>El estándar PHI exige los cinco porque es el conjunto el que produce el resultado, no ninguno de ellos por separado. La certificación formal del Instituto de Darmstadt verifica que el proyecto modelado con PHPP (Passive House Planning Package) cumple los umbrales de demanda energética, y que la ejecución en obra lo confirma con el blower-door final. Para una rehabilitación profunda, el estándar equivalente es EnerPHit, con umbrales adaptados a las limitaciones geométricas inherentes a la intervención sobre edificio existente.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>El contexto mediterráneo: protección solar como sexto eje</h2>
+<p>El estándar Passivhaus nació en el centro de Europa, donde el reto principal es el frío invernal. En el clima mediterráneo, los veranos cálidos suelen ser el factor limitante, motivo por el cual en los proyectos de PAPIK la protección solar se trata con el mismo rigor que cualquiera de los cinco principios. Voladizos calculados para bloquear el sol alto de verano y dejar pasar el sol bajo de invierno, persianas exteriores orientables, vidrios con factor solar controlado por orientación y, cuando es viable, vegetación de hoja caduca en fachadas sur y oeste. El estudio de sombras se realiza desde la fase de anteproyecto con datos climáticos locales reales, y la simulación horaria de las 8.760 horas del año permite validar el comportamiento estival antes de llegar a obra.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Qué supone para el cliente final</h2>
+<p>Una casa que integra correctamente los cinco principios mantiene la temperatura interior dentro de un rango estrecho de 19 a 25 grados durante todo el año, con intervención mínima de los sistemas de climatización. Renueva el aire constantemente sin corrientes ni pérdidas energéticas. La factura energética anual se reduce entre un 75% y un 90% respecto a una construcción convencional equivalente. La revalorización de mercado se sitúa, según estudios del sector inmobiliario, entre el 15% y el 25% por encima de una vivienda clase E o F equivalente.</p>
+<p>El sobrecoste respecto a una construcción convencional de calidad similar se sitúa habitualmente entre el 10% y el 15%, sobrecoste que se recupera a lo largo de la vida útil del edificio a través del ahorro energético acumulado. Para un proyecto residencial unifamiliar en el Maresme o en el Vallés, la decisión no es si una Passivhaus tiene sentido económico. Es si usted quiere vivir en una casa que ofrece este nivel de confort y previsibilidad, porque el rendimiento está documentado al milímetro desde la fase de diseño.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Preguntas frecuentes</h2>
+<h3>¿Hace falta certificar formalmente para obtener estos beneficios?</h3>
+<p>No. Los cinco principios aportan valor térmico y de confort independientemente de la certificación formal. La certificación del Instituto de Darmstadt es una decisión adicional que añade coste de tramitación y validación de terceros. Muchos clientes de PAPIK optan por construir según el estándar sin tramitar el certificado oficial.</p>
+<h3>¿Se puede aplicar a una rehabilitación?</h3>
+<p>Sí. El equivalente para rehabilitación es EnerPHit, con umbrales adaptados a las limitaciones geométricas de un edificio existente. El sistema SATE permite conseguir aislamiento continuo exterior sin reducir superficie interior, y los cinco principios se aplican con la misma lógica.</p>
+<h3>¿Qué diferencia real aporta el blower-door?</h3>
+<p>Es la diferencia entre una casa que cumple Passivhaus en proyecto y una casa que lo cumple en la realidad. Sin verificación con blower-door no hay hermeticidad verificable, y sin hermeticidad verificable buena parte de la inversión en aislamiento se degrada operativamente.</p>
+<h3>¿Qué equipo de VRC recomiendan?</h3>
+<p>En PAPIK utilizamos habitualmente Zehnder por su combinación de prestaciones, durabilidad y soporte técnico europeo. El dimensionado se hace por proyecto, no por catálogo.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CIERRE</h2>
+<p>Si usted está valorando un proyecto residencial nuevo o una rehabilitación profunda y quiere entender cómo aplicar estos cinco principios a su caso concreto, una evaluación técnica orientativa permite definir el planteamiento adecuado al solar, al programa y al presupuesto.</p>
+<p>Configurar el presupuesto de mi proyecto: papik.cat/pressupost.</p>
+<p><strong>Lea también:</strong></p>
+<p><a href="/es/construccion">Construcción residencial Passivhaus</a></p>
+<p><a href="/es/article-tecnologias-passivhaus">Cinco tecnologías clave del Passivhaus 2026</a></p>
+<p><a href="/es/article-innovaciones-passivhaus">Innovaciones Passivhaus 2026: membranas, PCM, BIPV</a></p>
+<p><a href="/es/article-materiales-sostenibles">Materiales sostenibles: madera, corcho, celulosa</a></p>
+<p><a href="/es/article-ventilacion-passivhaus">¿Por qué se respira mejor en una casa Passivhaus?</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../nosotros.html">Quiénes somos</a></li>
+          <li><a href="../proyectos.html">Proyectos</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Servicios</p>
+        <ul>
+          <li><a href="../construccion.html">Construcción Residencial</a></li>
+          <li><a href="../promocion.html">Promoción Inmobiliaria</a></li>
+          <li><a href="../rehabilitacion.html">Rehabilitación Energética</a></li>
+          <li><a href="../patrimonios.html">Patrimonios · Inversión Conjunta</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficinas</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREO</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Sigue las novedades de PAPIK: proyectos, rehabilitación energética y ayudas disponibles.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Tu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Síguenos</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – Todos los derechos reservados · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="../aviso-legal.html">Aviso Legal</a>
+        <a href="../politica-privacidad.html">Política de Privacidad</a>
+        <a href="../politica-cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/cookie-banner.js" defer></script>
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

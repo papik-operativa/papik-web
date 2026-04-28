@@ -1,0 +1,391 @@
+/* ════════════════════════════════════════════════════════════════
+   PAPIK · Cookie Banner styles (AEPD compliant, WCAG AA)
+   - Equal-weight Accept / Reject / Configure
+   - Sticky bottom on mobile, modal-card on desktop
+   - Uses brand tokens from tokens.css with neutral fallbacks
+════════════════════════════════════════════════════════════════ */
+
+/* Brand-aware fallbacks (tokens.css already defines --green, --accent…) */
+:root {
+  --cc-bg:        #ffffff;
+  --cc-fg:        var(--text, #002819);
+  --cc-muted:     var(--muted, #56685E);
+  --cc-border:    var(--border, rgba(86,104,94,0.25));
+  --cc-primary:   var(--green, #002819);
+  --cc-primary-fg:#ffffff;
+  --cc-accent:    var(--accent, #95BBA5);
+  --cc-shadow:    0 -8px 30px rgba(0, 40, 25, 0.12);
+}
+
+.papik-cc-no-scroll { overflow: hidden; }
+
+/* ─── Banner ─────────────────────────────────────────────────── */
+#papik-cc-banner[hidden] { display: none !important; }
+
+#papik-cc-banner {
+  position: fixed;
+  z-index: 9998;
+  left: 0; right: 0; bottom: 0;
+  background: var(--cc-bg);
+  color: var(--cc-fg);
+  border-top: 1px solid var(--cc-border);
+  box-shadow: var(--cc-shadow);
+  font-family: var(--ff-sans, system-ui, sans-serif);
+  padding: 18px 20px calc(18px + env(safe-area-inset-bottom));
+  animation: cc-rise .35s cubic-bezier(.22,.68,0,1.05) both;
+}
+
+@keyframes cc-rise {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.papik-cc-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.papik-cc-copy { flex: 1 1 320px; min-width: 280px; }
+
+.papik-cc-copy h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 6px;
+  color: var(--cc-primary);
+  letter-spacing: -0.01em;
+}
+
+.papik-cc-copy p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--cc-muted);
+  margin: 0;
+}
+
+.papik-cc-copy a {
+  color: var(--cc-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ─── Buttons (equal visual weight, no dark patterns) ────────── */
+.papik-cc-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 0 1 auto;
+}
+
+.papik-cc-btn {
+  appearance: none;
+  border: 1px solid var(--cc-primary);
+  background: var(--cc-bg);
+  color: var(--cc-primary);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  padding: 10px 18px;
+  border-radius: var(--r-pill, 21px);
+  cursor: pointer;
+  min-width: 130px;
+  min-height: 44px; /* WCAG target size */
+  transition: background var(--t-base,.22s) ease, color var(--t-base,.22s) ease, transform var(--t-base,.22s) ease;
+}
+
+.papik-cc-btn:hover { background: var(--cc-primary); color: var(--cc-primary-fg); }
+.papik-cc-btn:focus-visible {
+  outline: 2px solid var(--cc-accent);
+  outline-offset: 2px;
+}
+.papik-cc-btn:active { transform: translateY(1px); }
+
+.papik-cc-btn--primary {
+  background: var(--cc-primary);
+  color: var(--cc-primary-fg);
+}
+.papik-cc-btn--primary:hover { background: var(--green-dark, #0A1B12); }
+
+.papik-cc-btn--ghost { /* equal weight as outline */ }
+
+/* ─── Footer "Cookies" link ──────────────────────────────────── */
+.papik-cc-footer-link {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  opacity: .7;
+}
+.papik-cc-footer-link:hover { opacity: 1; }
+
+/* ─── Modal ──────────────────────────────────────────────────── */
+.papik-cc-modal[hidden] { display: none !important; }
+.papik-cc-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-sans, system-ui, sans-serif);
+  padding: 16px;
+}
+.papik-cc-modal__backdrop {
+  position: absolute; inset: 0;
+  background: rgba(0, 40, 25, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.papik-cc-modal__panel {
+  position: relative;
+  background: var(--cc-bg);
+  color: var(--cc-fg);
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--r-xl, 12px);
+  padding: 28px 28px 24px;
+  box-shadow: 0 24px 60px rgba(0, 40, 25, 0.25);
+}
+.papik-cc-modal__close {
+  position: absolute; top: 12px; right: 14px;
+  background: transparent; border: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--cc-muted);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.papik-cc-modal__close:hover { color: var(--cc-primary); background: var(--accent-soft, rgba(149,187,165,0.12)); }
+.papik-cc-modal__close:focus-visible { outline: 2px solid var(--cc-accent); outline-offset: 2px; }
+
+.papik-cc-modal__title {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--cc-primary);
+  letter-spacing: -0.01em;
+}
+
+/* Categories */
+.papik-cc-cats {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: flex; flex-direction: column;
+  gap: 14px;
+}
+.papik-cc-cat {
+  border: 1px solid var(--cc-border);
+  border-radius: var(--r-md, 8px);
+  padding: 14px 16px;
+}
+.papik-cc-cat__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.papik-cc-cat__label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--cc-primary);
+}
+.papik-cc-cat__desc {
+  font-size: 0.825rem;
+  color: var(--cc-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Toggle */
+.papik-cc-toggle { position: relative; display: inline-block; width: 44px; height: 24px; flex: 0 0 auto; }
+.papik-cc-toggle input {
+  position: absolute; inset: 0;
+  opacity: 0; width: 100%; height: 100%;
+  margin: 0; cursor: pointer;
+}
+.papik-cc-toggle input:disabled { cursor: not-allowed; }
+.papik-cc-toggle__track {
+  position: absolute; inset: 0;
+  background: var(--cc-border);
+  border-radius: 999px;
+  transition: background var(--t-base,.22s) ease;
+}
+.papik-cc-toggle__track::after {
+  content: '';
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform var(--t-base,.22s) ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.papik-cc-toggle input:checked + .papik-cc-toggle__track { background: var(--cc-primary); }
+.papik-cc-toggle input:checked + .papik-cc-toggle__track::after { transform: translateX(20px); }
+.papik-cc-toggle input:focus-visible + .papik-cc-toggle__track {
+  outline: 2px solid var(--cc-accent); outline-offset: 2px;
+}
+.papik-cc-toggle input:disabled + .papik-cc-toggle__track { opacity: .55; }
+
+.papik-cc-modal__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.papik-cc-modal__actions .papik-cc-btn { flex: 1 1 auto; min-width: 120px; }
+
+/* ─── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .papik-cc-inner { flex-direction: column; align-items: stretch; }
+  .papik-cc-actions { width: 100%; }
+  .papik-cc-actions .papik-cc-btn { flex: 1 1 0; min-width: 0; }
+  .papik-cc-modal__panel { padding: 22px 18px 18px; }
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  #papik-cc-banner { animation: none; }
+  .papik-cc-toggle__track::after,
+  .papik-cc-toggle input:checked + .papik-cc-toggle__track,
+  .papik-cc-btn { transition: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   PAPIK · Form skeletons (newsletter / contact / presupuesto-lite)
+   Lightweight, brand-aware, accessible. Lives here so a single CSS
+   include covers both consent + forms.
+════════════════════════════════════════════════════════════════ */
+.papik-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: var(--ff-sans, system-ui, sans-serif);
+  color: var(--text, #002819);
+  max-width: 640px;
+}
+.papik-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.papik-form__row--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.papik-form__row--inline > .papik-form__row { flex: 1 1 240px; }
+
+.papik-form label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--green, #002819);
+}
+
+.papik-form input[type="text"],
+.papik-form input[type="email"],
+.papik-form input[type="tel"],
+.papik-form select,
+.papik-form textarea {
+  font: inherit;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border, rgba(86,104,94,0.25));
+  background: #fff;
+  color: var(--text, #002819);
+  border-radius: var(--r-sm, 6px);
+  transition: border-color var(--t-base,.22s) ease, box-shadow var(--t-base,.22s) ease;
+}
+.papik-form textarea { min-height: 120px; resize: vertical; }
+
+.papik-form input:focus,
+.papik-form select:focus,
+.papik-form textarea:focus {
+  outline: none;
+  border-color: var(--green, #002819);
+  box-shadow: 0 0 0 3px var(--accent-soft, rgba(149,187,165,0.18));
+}
+
+.papik-form .is-invalid {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.12);
+}
+
+.papik-form__error {
+  margin: 0;
+  color: #c0392b;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.papik-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.8125rem;
+  color: var(--muted, #56685E);
+  font-weight: 400;
+}
+.papik-form__consent input { margin-top: 3px; flex: 0 0 auto; }
+.papik-form__consent a { color: var(--green, #002819); text-decoration: underline; }
+
+.papik-form__submit {
+  align-self: flex-start;
+  appearance: none;
+  border: 1px solid var(--green, #002819);
+  background: var(--green, #002819);
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  padding: 12px 22px;
+  border-radius: var(--r-pill, 21px);
+  cursor: pointer;
+  min-height: 44px;
+  transition: background var(--t-base,.22s) ease, transform var(--t-base,.22s) ease;
+}
+.papik-form__submit:hover { background: var(--green-dark, #0A1B12); }
+.papik-form__submit:focus-visible { outline: 2px solid var(--accent, #95BBA5); outline-offset: 2px; }
+.papik-form__submit:disabled { opacity: .6; cursor: progress; }
+
+.papik-form__status {
+  padding: 10px 12px;
+  border-radius: var(--r-sm, 6px);
+  font-size: 0.875rem;
+}
+.papik-form__status[data-kind="error"] {
+  background: rgba(192,57,43,0.08);
+  color: #8e2a1f;
+  border: 1px solid rgba(192,57,43,0.35);
+}
+
+.papik-form__success {
+  padding: 14px 16px;
+  border-radius: var(--r-md, 8px);
+  background: var(--accent-soft, rgba(149,187,165,0.18));
+  color: var(--green, #002819);
+  border: 1px solid var(--accent, #95BBA5);
+  font-family: var(--ff-sans, system-ui, sans-serif);
+}
+
+/* Newsletter: inline email + button on wide screens */
+.papik-form--newsletter {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
+}
+.papik-form--newsletter .papik-form__row { flex: 1 1 220px; min-width: 200px; }
+.papik-form--newsletter .papik-form__consent { flex: 1 1 100%; }
+.papik-form--newsletter .papik-form__submit { align-self: stretch; }
+@media (max-width: 540px) {
+  .papik-form--newsletter { flex-direction: column; }
+  .papik-form--newsletter .papik-form__submit { align-self: stretch; width: 100%; }
+}

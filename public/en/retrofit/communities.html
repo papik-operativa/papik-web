@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy retrofit for homeowner associations · PAPIK</title>
+  <meta name="description" content="Technical partner of property administrators for the energy retrofit of multi-family residential buildings. End-to-end management of Programa 3 NGEU subsidies.">
+
+  <link rel="canonical" href="https://papik.cat/en/retrofit/communities">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/rehabilitacio/comunitats">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/rehabilitacion/comunidades">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/retrofit/communities">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/rehabilitacio/comunitats">
+
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Energy retrofit for homeowner associations · PAPIK">
+  <meta property="og:description" content="Technical partner of property administrators for the energy retrofit of multi-family residential buildings. End-to-end management of Programa 3 NGEU subsidies.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-comunitats.jpg">
+  <meta property="og:url" content="https://papik.cat/en/retrofit/communities">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Energy retrofit for homeowner associations · PAPIK">
+  <meta name="twitter:description" content="Technical partner of property administrators for the energy retrofit of multi-family residential buildings. End-to-end management of Programa 3 NGEU subsidies.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-comunitats.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Home",
+        "item": "https://papik.cat/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Energy retrofit for homeowner associations"
+      }
+    ]
+  },
+  {
+    "_quality_rules": [
+      "Cada pregunta ha de ser una frase completa amb interrogant",
+      "Resposta entre 50-300 paraules ideal — masa curta es debil, massa llarga no es renderitza",
+      "No repetir keyword stuffing al text de la pregunta",
+      "La FAQ ha de ser visible al usuari, no nomes al schema (Google ho verifica)"
+    ],
+    "_example_filled": {
+      "@type": "Question",
+      "name": "Quina majoria necessita la junta de propietaris per aprovar la rehabilitació amb subvenció Next Generation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Per a millores energètiques que aprofitin subvencions públiques, la Llei 49/1960 de Propietat Horitzontal (article 17.2) estableix la majoria de tres cinquenes parts dels propietaris i les seves quotes. En alguns supòsits aplica majoria simple. Cada cas concret ha de ser revisat amb l'administrador de finques i la documentació jurídica de la comunitat."
+      }
+    },
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "{{QUESTION_1}}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ANSWER_1}}"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "{{QUESTION_2}}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ANSWER_2}}"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "{{QUESTION_3}}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ANSWER_3}}"
+        }
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--community">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="../../index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/rehabilitacio/comunitats">CA</option>
+          <option value="https://papik.cat/es/rehabilitacion/comunidades">ES</option>
+          <option value="https://papik.cat/en/retrofit/communities" selected>EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="sep">·</span>
+        <span>Energy retrofit for homeowner associations</span>
+      </nav>
+    <h1 class="hero__title">Energy retrofit for homeowner associations</h1>
+    <p class="hero__subtitle">Technical partner of property administrators for the energy retrofit of multi-family residential buildings. End-to-end management of Programa 3 NGEU subsidies.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>HERO BLOCK · direct to the property administrator</h2>
+<p>``` TECHNICAL PARTNER OF PROPERTY ADMINISTRATORS</p>
+<p>Energy retrofit for homeowner associations</p>
+<p>We are the delegated technical department of property administrators (managing agents). Project, works and end-to-end management of Next Generation subsidies for your building.</p>
+<p>[Button 1] I am a property administrator · Request a meeting  → [Button 2] I am a board president or resident · Request a free diagnostic  → ```</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 1 · WHY HOMEOWNER ASSOCIATIONS CHOOSE PAPIK · 4 REASONS</h2>
+<p>``` Why work with PAPIK</p>
+<p>Four concrete reasons, all verifiable.</p>
+<p>```</p>
+<h3>Card 1 · DELEGATED TECHNICAL DEPARTMENT</h3>
+<p>``<code> We are the technical department specialised in energy retrofit for your property administrator. You retain the relationship with the building and the residents; we contribute the project, the works and the management of NGEU subsidies. </code>``</p>
+<h3>Card 2 · END-TO-END SUBSIDY MANAGEMENT</h3>
+<p>``<code> We process every form, every justification and every certificate before the public administration. Your homeowner association does not need to file anything with any agency. You receive the process closed. </code>``</p>
+<h3>Card 3 · MATERIALS READY FOR THE ASSOCIATION VOTE</h3>
+<p>``<code> We prepare a visual dossier with projected savings per dwelling and a breakdown of the expected subsidy per resident. You present it at the homeowner association meeting with professional materials signed by PAPIK as technical supplier. </code>``</p>
+<h3>Card 4 · VERIFIABLE TRACK RECORD</h3>
+<p>``<code> Thirty years building and retrofitting in Catalonia. Documented retrofitted buildings. Each case can be referenced under NDA for associations that request it during the evaluation phase. </code>``</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 2 · PROGRAMA 3 NGEU · KEY EDUCATIONAL BLOCK</h2>
+<p>``` What Programa 3 is and why it is the opportunity for your homeowner association</p>
+<p>Educational block, public information, legal basis cited. ```</p>
+<h3>2.1 What Programa 3 NGEU is</h3>
+<p>``<code> Programa 3 of the Next Generation EU funds finances the energy retrofit of existing residential buildings. It is the programme with the highest subsidy percentages available for homeowner associations. </code>``</p>
+<h3>2.2 What % of subsidy your homeowner association can obtain</h3>
+<p>``<code> Subsidy percentages vary according to the energy savings achieved. A retrofit with savings between 30 and 45% qualifies for 40% of the eligible cost. A retrofit with savings between 45 and 60% qualifies for 65%. A retrofit with savings above 60% qualifies for 80%. These ranges are based on the regulatory framework currently in force, and each case is assessed individually based on the specific project and the building's initial consumption. </code>``</p>
+<h3>2.3 What requirements the building must meet</h3>
+<p>``<code> Eligibility depends on several requirements converging. The building must be an existing collective residential building. It must meet a minimum age according to current regulations (indicatively prior to 2008, with exceptions). It requires an association vote with the corresponding legal majority. It must meet the minimum energy savings targets required by the programme. The Building Technical Inspection (ITE) must be in force or already filed. </code>``</p>
+<h3>2.4 Current deadline</h3>
+<p>``<code> Programa 3 currently has 31 December 2026 as its horizon, with previous extensions already applied. Our recommendation is to verify the deadline in force for each specific project to guarantee applicability. </code>``</p>
+<h3>2.5 Quorum required at the association vote</h3>
+<p>``<code> For energy improvements that draw on public subsidies, the Spanish Horizontal Property Act (Ley 49/1960), article 17.2, requires a three-fifths majority quorum of owners and of their participation quotas. In some cases a simple majority applies. Each specific case must be reviewed with the property administrator and the association's legal documentation. </code>``</p>
+<p>``<code> Want to estimate the subsidy for your building? → Subsidy calculator  (link to /en/retrofit · calculator) </code>``</p>
+<p>⚠ NOTE TO COPYWRITER: this block must be updated with every regulatory change. Policy: quarterly review or change in less than 7 days if BOE publishes a modification.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 3 · TYPES OF INTERVENTION IN HOMEOWNER ASSOCIATIONS</h2>
+<p>``` Typical interventions in multi-family buildings</p>
+<p>Six interventions, combinable depending on the case.</p>
+<p>```</p>
+<p>``<code> Typical interventions in multi-family buildings cover six main areas. External thermal insulation of the facade (SATE) is the most common and the highest-impact one: it can reduce energy consumption per dwelling by between 30 and 50% depending on the initial condition. The replacement of common windows is concentrated in stairwells, lobbies and shared terraces. Roof insulation is especially relevant in buildings with a top floor suffering high heat losses. Replacing the communal boiler with an aerothermal system combines savings on the shared utility bill with a transition away from fossil fuel. Photovoltaic installation on the roof powers shared services (lift, lighting, common areas). Full retrofit of the building envelope combines all of the above and makes it possible to reach the maximum 80% subsidy if the minimum required energy savings are achieved. </code>``</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 4 · THE PROCESS · 6 PHASES</h2>
+<p>``` Six phases · you make the decisions, we run the operations</p>
+<p>```</p>
+<p>``` 01 · FIRST MEETING With you (the property administrator) or with the board. We explore feasibility with no commitment and no cost.</p>
+<p>──────────────</p>
+<p>02 · FREE ENERGY DIAGNOSTIC Technical visit to the building. Blower-door test, thermography, current energy certificate. No cost, no commitment.</p>
+<p>──────────────</p>
+<p>03 · TECHNICAL PROPOSAL + SUBSIDY ESTIMATE Detailed document including the technical project, itemised budget, estimated subsidy per dwelling and projected savings.</p>
+<p>──────────────</p>
+<p>04 · PRESENTATION AT THE ASSOCIATION VOTE We prepare visual and technical materials for the vote. If you wish, we attend the homeowner association meeting to address residents' questions.</p>
+<p>──────────────</p>
+<p>05 · EXECUTION AND NGEU MANAGEMENT If the association approves, we sign the contract, begin the works and handle all the subsidy paperwork.</p>
+<p>──────────────</p>
+<p>06 · HANDOVER + FINAL JUSTIFICATION Post-works energy certificate, justification before the public administration, payment of the subsidy to the owners. ```</p>
+<p>``<code> You (the property administrator) or the board only make the strategic decisions. The operational side is on us. </code>``</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 5 · SUB-SECTION "I AM A PROPERTY ADMINISTRATOR"</h2>
+<p>```</p>
+<p>Your delegated technical department for energy retrofit</p>
+<p>We work with chartered property administrators as a specialised technical supplier. You are our client; the homeowner associations you manage are the end beneficiaries. When you spot a building with retrofit potential, we help you prepare it and defend it at the association vote, always under your direction and preserving your relationship with the building.</p>
+<p>What we offer property administrators</p>
+<p>Our collaboration model with property administrators includes free diagnostics for the buildings you refer to us, technical projects and itemised budgets under your direction, professional materials for the homeowner association meeting (signed by PAPIK as technical supplier, never co-branded), annual training for your team on the current NGEU framework (one to two sessions per year), periodic meetings to coordinate your portfolio of buildings, and transparent reporting on the progress of each project. The relationship is built as a permanent professional collaboration, not as a one-off sale.</p>
+<p>Request a meeting to define collaboration  → ```</p>
+<p>⚠ INTERNAL NOTE: PAPIK does NOT operate with co-branding or shared marks with property administrators. Always pure PAPIK identity in materials and presentations. The property administrator is our client, not a co-brand.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 6 · SUB-SECTION "I AM A PRESIDENT, BOARD MEMBER OR RESIDENT"</h2>
+<p>``` Want to put this on the table at your homeowner association?</p>
+<p>If you believe your building could benefit from a retrofit with a Next Generation subsidy, we can help you present the idea correctly to the homeowner association meeting and to your property administrator. Our involvement is discreet: we offer a free diagnostic of the building without the association having to take on any prior commitment, introductory materials you can show to your property administrator and to the board, and our attendance at the association vote if the association explicitly requests it.</p>
+<p>Request a diagnostic for my building  →</p>
+<p>· Yes, with an action plan already underway · Yes, but we have not acted yet · No, this is the first time I hear about it · I do not know</p>
+<p>Request diagnostic  → ```</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 7 · ANONYMISED HOMEOWNER ASSOCIATION CASES</h2>
+<p>``` Three recent cases in homeowner associations</p>
+<p>No building or address identified. Documentation available under NDA during the evaluation phase.</p>
+<p>```</p>
+<p>``` MULTI-FAMILY BUILDING FROM THE 1970s Vallès Occidental · 12 dwellings + commercial units Intervention: SATE plus windows plus communal aerothermal system. Result: energy class moves from E to A. Consumption savings 65%. Subsidy obtained in the 60-70% range over eligible cost.</p>
+<p>──────────────</p>
+<p>MULTI-FAMILY BUILDING FROM THE 1990s Maresme · 8 dwellings Intervention: facade insulation plus windows plus boiler to aerothermal. Result: energy class moves from D to A. Consumption savings 55%. Subsidy obtained in the 50-60% range.</p>
+<p>──────────────</p>
+<p>PROTECTED HISTORIC BUILDING (19th century) Barcelonès · 6 dwellings Intervention: interior insulation compatible with heritage protection plus high-efficiency windows respecting the original aesthetic. Result: energy class moves from E to C. Consumption savings 40%. Subsidy obtained in the 40-50% range (heritage-adapted programme). ```</p>
+<p>⚠ Each case defensible internally under NDA. No building name, no address, no identifiable photo.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 8 · FAQ · 9 QUESTIONS</h2>
+<p>``` Frequently asked questions</p>
+<p>```</p>
+<p>``` Q · What majority does the association vote need to approve a retrofit with subsidy?</p>
+<p>A · For energy improvements that draw on public subsidies, the Spanish Horizontal Property Act (Ley 49/1960) requires a three-fifths majority quorum of owners and of their participation quotas (article 17.2). In some cases a simple majority applies. Each specific case must be reviewed with the property administrator and the association's legal documentation.</p>
+<p>──────────────</p>
+<p>Q · How long does the process take from the first meeting to the start of works?</p>
+<p>A · Usually between 4 and 8 months. It includes diagnostic, proposal, association vote, subsidy application and contracting. The works themselves can last from 4 to 12 months depending on scope.</p>
+<p>──────────────</p>
+<p>Q · What if the subsidy is not approved?</p>
+<p>A · The project remains viable if the homeowner association decides to proceed with private financing. Many financial institutions offer specific lines for retrofit with preferential terms. We guide you through the available options.</p>
+<p>──────────────</p>
+<p>Q · Can the retrofit be done with residents living in the building?</p>
+<p>A · Yes. A facade retrofit (SATE) or a roof retrofit is done with residents at home. A more invasive intervention (replacement of drainpipes, for example) requires phased planning. We coordinate it with the property administrator to minimise disruption.</p>
+<p>──────────────</p>
+<p>Q · What happens with residents who do not want to pay the special levy?</p>
+<p>A · If the association approves with the corresponding legal majority, the decision is binding. Non-voters and those who vote against also pay. For contentious cases, your property administrator's legal department has the applicable procedures available.</p>
+<p>──────────────</p>
+<p>Q · Do you work with property administrators on a stable basis?</p>
+<p>A · Yes. We have recurring property administrator collaborators. If your property administrator does not yet know us, we can introduce ourselves directly. They will decide if we are a good fit.</p>
+<p>──────────────</p>
+<p>Q · What about catalogued or heritage-protected buildings?</p>
+<p>A · They can be retrofitted as well, but with compliance with heritage regulations. Each case requires specific architectural assessment and often a prior favourable report from the competent authority.</p>
+<p>──────────────</p>
+<p>Q · Is there a building age limit?</p>
+<p>A · The NGEU programme has its own requirements. Generally, residential buildings prior to a reference year are eligible. We verify this during the diagnostic.</p>
+<p>──────────────</p>
+<p>Q · What is the difference between your retrofit and a conventional retrofit?</p>
+<p>A · We work with advanced energy efficiency standards (Eskimohaus® system, Passivhaus, EnerPHit). One of our retrofits does not just meet the minimum regulatory requirement, it seeks the maximum possible savings for the residents. ```</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 9 · CROSS-LINKING + FINAL DUAL CTA</h2>
+<p>``<code> If your case is different </code>``</p>
+<p>```</p>
+<p>Want to see the retrofit offering for single-family homes? → General retrofit (/en/retrofit)</p>
+<p>Do you own an entire building under single ownership (not an association)? → Wealth (/en/wealth)</p>
+<p>Do you want to build a new multi-family building? → Construction (new build, /en/construction) or Development (acquisition, /en/development) ```</p>
+<p>```</p>
+<p>Let's start with a conversation</p>
+<p>No commitment for the homeowner association. No cost. An honest assessment of the retrofit potential of your building and of the indicative subsidy that could apply.</p>
+<p>Request a meeting  → (short form + direct scheduling option)</p>
+<p>Request a free diagnostic  → (pre-qualification form · 4 fields) ```</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>REGULATORY DISCLAIMER · MANDATORY IN THE FOOTER</h2>
+<p>```</p>
+<p>Retrofit work under the regime of horizontal property requires approval by the homeowner association meeting in accordance with the applicable legal majority (Spanish Horizontal Property Act, Ley 49/1960, and its amendments). Next Generation EU subsidies are subject to budgetary availability and to compliance with the applicable requirements by the beneficiary. This page is informational and does not constitute legal advice or a guarantee of approval. Each case is assessed individually during the diagnostic phase. ```</p>
+<p>⚠ <strong>MANDATORY REVIEW by a lawyer specialised in horizontal property law before publishing.</strong> Not optional.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>NOTES FOR DEV</h2>
+<h3>Images</h3>
+<p>Hero with editorial photo of a generic, non-identifiable multi-family building, edit pending. Block 7 (cases) without identifiable images, only text and pure data. If images are used, before-and-after anonymised.</p>
+<h3>Animations</h3>
+<p>Sober, like Wealth. Hero with fade-in. Block 4 (process) with each phase appearing on scroll. Blocks 5 (property administrator) and 6 (president) with a slightly differentiated palette to draw attention to each audience.</p>
+<h3>Schema JSON-LD to insert</h3>
+<p>3 combined schemas: <code>02-service.json</code> (Service with audience BusinessAudience: "Property administrators and homeowner associations"), <code>06-breadcrumb.json</code> (Home, Retrofit, Communities), <code>05-faqpage.json</code> (the 9 questions from Block 8).</p>
+<h3>Performance and Accessibility</h3>
+<p>Same targets as the rest of the site (LCP under 2.5 seconds, WCAG AA).</p>
+<h3>Pre-qualification form</h3>
+<p>Block 6 form with 4 mandatory fields and client-side validation before sending. Automatic email response confirming receipt within 24 working hours. Backend: send the lead to the CRM with the tag "community" plus pre-qualification data.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>PRE-PUBLICATION CHECKLIST</h2>
+<p><strong>Review by a lawyer specialised in horizontal property law: NOT OPTIONAL.</strong></p>
+<p>LPH plus NGEU disclaimer in the footer, validated by a lawyer. No name, address or identifiable photo of homeowner associations in Block 7. No specific subsidy percentage attributed to a specific case. Block 5 with no mention of co-branding (only pure PAPIK identity). FAQ reviewed by a lawyer (especially majorities and association vote procedures). Dual CTA works on mobile (no overlap). Block 6 form connected to backend with CRM tag "community". Block 2 (Programa 3) with the most recent review date and update policy in less than 7 days if the BOE changes. Schema validated with Rich Results Test. Hreflang configured (CA, ES, EN). Mobile test 320px or above.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../../about.html">About us</a></li>
+          <li><a href="../../projects.html">Projects</a></li>
+          <li><a href="../../blog.html">Blog</a></li>
+          <li><a href="#contacte">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Services</p>
+        <ul>
+          <li><a href="../../construction.html">Residential Construction</a></li>
+          <li><a href="../../development.html">Real Estate Development</a></li>
+          <li><a href="../../retrofit.html">Energy Retrofit</a></li>
+          <li><a href="../../wealth.html">Wealth · Joint Investment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Offices</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>EMAIL</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Follow PAPIK: projects, energy retrofit and available subsidies.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Your email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Follow us</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – All rights reserved · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="../../legal-notice.html">Legal Notice</a>
+        <a href="../../privacy-policy.html">Privacy Policy</a>
+        <a href="../../cookies-policy.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../../js/cookie-banner.js" defer></script>
+<script src="../../js/forms.js" defer></script>
+</body>
+</html>

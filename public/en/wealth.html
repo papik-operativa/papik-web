@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wealth · Construction and co-investment for family offices · PAPIK</title>
+  <meta name="description" content="We accompany consolidated wealth holders in sustainable real estate projects in Catalonia, the Balearic Islands and Andorra. Bilateral service, case by case, in private vehicles.">
+
+  <link rel="canonical" href="https://papik.cat/en/wealth">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/patrimonis">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/patrimonios">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/wealth">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/patrimonis">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wealth · Construction and co-investment for family offices · PAPIK">
+  <meta property="og:description" content="We accompany consolidated wealth holders in sustainable real estate projects in Catalonia, the Balearic Islands and Andorra. Bilateral service, case by case, in private vehicles.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-wealth.jpg">
+  <meta property="og:url" content="https://papik.cat/en/wealth">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wealth · Construction and co-investment for family offices · PAPIK">
+  <meta name="twitter:description" content="We accompany consolidated wealth holders in sustainable real estate projects in Catalonia, the Balearic Islands and Andorra. Bilateral service, case by case, in private vehicles.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-wealth.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_examples_per_unit": {
+      "construccio": {
+        "name": "Construcció de cases Passivhaus",
+        "serviceType": "Custom passive house construction",
+        "description": "Construïm cases unifamiliars i plurifamiliars sota l'estàndard Passivhaus. De zero a clau en mà."
+      },
+      "promocio": {
+        "name": "Promoció immobiliària sostenible",
+        "serviceType": "Real estate development with passive house standards",
+        "description": "Desenvolupem promocions de cases passives. Comprem el solar, construïm i venem el producte acabat clau en mà."
+      },
+      "rehabilitacio": {
+        "name": "Rehabilitació energètica integral",
+        "serviceType": "Energy retrofit including subsidy management",
+        "description": "Transformem habitatges existents en cases eficients. Gestionem les ajudes Next Generation EU integralment."
+      },
+      "patrimonis": {
+        "name": "Construcció i coinversió per a inversors patrimonials",
+        "serviceType": "Real estate development partnership for family offices",
+        "description": "Acompanyem patrimonis consolidats en projectes immobiliaris sostenibles, cas a cas i en vehicles privats."
+      }
+    },
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Wealth · Construction and co-investment for family offices · PAPIK",
+    "serviceType": "ConstructionService",
+    "description": "We accompany consolidated wealth holders in sustainable real estate projects in Catalonia, the Balearic Islands and Andorra. Bilateral service, case by case, in private vehicles.",
+    "url": "https://papik.cat/en/wealth",
+    "provider": {
+      "@id": "https://papik.cat/#org"
+    },
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Catalunya"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Illes Balears"
+      },
+      {
+        "@type": "Country",
+        "name": "Andorra"
+      }
+    ],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Residential customers and investors"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Wealth · Construction and co-investment for family offices · PAPIK - tipologies",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "{{SUBSERVICE_1}}"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "{{SUBSERVICE_2}}"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "{{SUBSERVICE_3}}"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Home",
+        "item": "https://papik.cat/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Wealth and construction"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--service">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="../index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/patrimonis">CA</option>
+          <option value="https://papik.cat/es/patrimonios">ES</option>
+          <option value="https://papik.cat/en/wealth" selected>EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep">·</span>
+        <span>Wealth and construction</span>
+      </nav>
+    <h1 class="hero__title">Wealth and construction</h1>
+    <p class="hero__subtitle">We accompany consolidated wealth holders in sustainable real estate projects in Catalonia, the Balearic Islands and Andorra. Bilateral service, case by case, in private vehicles.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>HERO BLOCK · sober, B2B, no aspirational tone</h2>
+<p>``` BILATERAL SERVICE · CASE BY CASE · CONFIDENTIAL</p>
+<p>Wealth and construction</p>
+<p>We accompany consolidated wealth holders in sustainable real estate projects, case by case and through private vehicles.</p>
+<p>Request a confidential conversation  → ```</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 1 · WHO IT IS FOR · IMPLICIT FILTER</h2>
+<p>``` Who it is for</p>
+<p>Three profiles that fit what we offer.</p>
+<p>```</p>
+<h3>Card 1 · FAMILY OFFICES</h3>
+<p>``<code> Catalan and national family offices with a real estate allocation and a sustainability or growing ESG mandate. We look for partners with a long-term vision. </code>``</p>
+<h3>Card 2 · INDIVIDUAL WEALTH HOLDERS</h3>
+<p>``<code> Consolidated individual wealth holders with a long horizon who want real estate exposure with purpose, beyond pure financial return. </code>``</p>
+<h3>Card 3 · CO-INVESTMENT GROUPS</h3>
+<p>``<code> Already constituted groups of two to four partners seeking a trusted construction partner for a specific project. Family businesses with treasury surplus diversifying through real estate. </code>``</p>
+<p>``<code> If your case does not fit any of these profiles, we are probably not the right interlocutor for you. Our honesty here saves both your time and ours. </code>``</p>
+<p>⚠ NOTE TO COPYWRITER: this line is the filter. It is NOT arrogance, it is respect for the visitor's time. DO NOT soften.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 2 · HOW WE WORK · 4 PHASES</h2>
+<p>``` How we work</p>
+<p>Four phases, no more and no less.</p>
+<p>```</p>
+<p>``` 01 · INITIAL CONVERSATION</p>
+<p>Private meeting under NDA. We get to know each other. There are no proposals or numbers yet. The conversation is bilateral: you assess us, we assess you.</p>
+<p>──────────────</p>
+<p>02 · MUTUAL ASSESSMENT</p>
+<p>You assess our track record, team and methodological proposals. We assess your profile, capital, timeline and alignment of values. If the assessment is positive for both parties, we move forward.</p>
+<p>──────────────</p>
+<p>03 · STRUCTURING THE VEHICLE</p>
+<p>Design of an ad hoc company or private vehicle for the specific project. Legal, fiscal and operational framework defined by independent counsel (you and we hold separate advice).</p>
+<p>──────────────</p>
+<p>04 · DEVELOPMENT AND OPERATION</p>
+<p>We build the project. You participate in the governance of the vehicle in accordance with what has been agreed. Exit or operation in line with the mandate (asset sale, refinancing or long-term operation). ```</p>
+<p>``<code> PAPIK assesses before proposing. No project reaches phase 03 without both parties having validated phase 02. </code>``</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 3 · WHAT WE BRING</h2>
+<p>``` What we bring</p>
+<p>Five verifiable assets.</p>
+<p>```</p>
+<p>``<code> PAPIK brings to the collaboration thirty years of track record building in Catalonia (greater Barcelona area), with more than one hundred completed works that substantiate the historical trajectory. The proprietary Eskimohaus® construction system is the result of three decades of experience in efficient construction adapted to the Mediterranean climate. The multidisciplinary team integrates architecture, engineering, execution and post-completion as in-house departments, supplemented by an external legal and financial team of trusted advisors for vehicle structuring. The defined operating zone (Catalonia, the Balearic Islands and Andorra) reflects the principle that knowing the territory in depth matters more than expanding geographic reach. The verifiable certifications (Passivhaus Institut, FSC, PEFC, Plataforma PEP) all carry a public registration number. </code>``</p>
+<p>``<code> View all certifications  →   (link to /en/certifications) </code>``</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 4 · PROJECT TYPOLOGIES</h2>
+<p>``` Project typologies we develop</p>
+<p>Generic samples. We adapt the case to each relationship.</p>
+<p>```</p>
+<p>``<code> The typologies habitually developed within the framework of Wealth include sustainable multi-family promotion for rental or sale, with high energy efficiency apartment blocks intended for long-term leasing or commercial sale. Premium single-family promotion in consolidated areas takes the form of clusters of detached homes in municipalities with a solid residential market. Efficient build-to-rent residential consists of buildings designed from the outset for long-term rental operation. Comprehensive refurbishment of an existing building combines deep renovation with the capture of NGEU subsidies where applicable, with a final A energy class or EnerPHit. Support for the partner's own project consists of acting as delegated contractor for a project already structured by the ownership or another vehicle. </code>``</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 5 · ANONYMISED CASES</h2>
+<p>``` Cases in portfolio</p>
+<p>Without identifying partners or addresses. Documentation available under NDA.</p>
+<p>```</p>
+<p>``<code> TYPOLOGY           | ZONE                | SCALE        | STATUS       | PARTICULARITY ───────────────────────────────────────────────────────────────────────────────────── Multi-family       | Catalan Coast       | 8-15         | Operation    | A+ certification Passivhaus         |                     | units        |              | ───────────────────────────────────────────────────────────────────────────────────── Premium            | Vallès Occidental   | 4-6 units    | Construction | Private single-family      |                     |              |              | co-investment ───────────────────────────────────────────────────────────────────────────────────── Comprehensive      | Barcelonès          | 12 dwellings | Study        | EnerPHit + NGEU refurbishment      |                     |              |              | </code>``</p>
+<p>⚠ Each row with internal documentation available for audit under NDA.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 6 · WHAT WE ARE NOT · INVERSE FILTER</h2>
+<p>``` What we are NOT</p>
+<p>Differentiation without attack, only clarity.</p>
+<p>```</p>
+<p>``` WEALTH IS NOT                            WEALTH IS</p>
+<p>An open investment fund.                 A bilateral service.</p>
+<p>A real estate crowdfunding               Case by case. platform.</p>
+<p>A product with standardised              Private vehicles designed participations.                          for the specific project.</p>
+<p>A direct-to-public sales programme       A relationship built on of individual units.                     trust and mutual assessment. ```</p>
+<p>``<code> The difference is structural: you do not buy a participation in a product, instead we structure a private vehicle for the specific case. </code>``</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 7 · FAQ · 7 QUESTIONS</h2>
+<p>``` Frequently asked questions</p>
+<p>```</p>
+<p>``` Q · What is the minimum ticket?</p>
+<p>A · It depends on the project and the structured vehicle. We define this in the initial conversation. We do not publish ranges because each case has its own scale.</p>
+<p>──────────────</p>
+<p>Q · How is the joint investment vehicle structured?</p>
+<p>A · Case by case. It can be an ad hoc company, a trust or other legal forms, always with independent legal advice for both parties.</p>
+<p>──────────────</p>
+<p>Q · Who decides the investments of the vehicle?</p>
+<p>A · Governance is defined in the vehicle's shareholder agreement. It is usually co-management, with key decisions taken collegially between the parties.</p>
+<p>──────────────</p>
+<p>Q · What is the typical exit?</p>
+<p>A · Asset sale, refinancing or long-term operation, in accordance with the mandate agreed when the vehicle is constituted. There is no "standard exit": it depends on the specific project.</p>
+<p>──────────────</p>
+<p>Q · Does PAPIK contribute its own capital to the vehicle?</p>
+<p>A · In some cases yes, in others only construction and management. This is defined case by case during the structuring phase.</p>
+<p>──────────────</p>
+<p>Q · How long does it take from the first meeting to a concrete proposal?</p>
+<p>A · Between four and twelve weeks, depending on the complexity of the mutual assessment and the state of the specific project.</p>
+<p>──────────────</p>
+<p>Q · Do you work with non-resident investors?</p>
+<p>A · Yes, with specific fiscal and legal structuring adapted to the partner's country of residence. Coordination with specialised advisors.</p>
+<p>──────────────</p>
+<p>Q · Is there confidentiality?</p>
+<p>A · Total. An NDA is signed before the first substantive meeting. No information about partners or projects in portfolio is shared without explicit consent. ```</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>BLOCK 8 · CROSS-LINKING + FINAL CTA</h2>
+<p>``<code> If your case is different </code>``</p>
+<p>```</p>
+<p>Do you want to build your own home as a private individual? → Construction</p>
+<p>Do you own an entire building (not a community of owners)? → Conversation with PAPIK · we can explore co-investment case by case ```</p>
+<p>```</p>
+<p>Let us start with a conversation</p>
+<p>No commitment. No prior documentation. No exposure of your wealth. An initial conversation covered by NDA to see whether we fit.</p>
+<p>Request a confidential conversation  →</p>
+<p>Request a conversation  →</p>
+<p>All exchanges are governed by a confidentiality agreement. Reply within 48 working hours. ```</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>REGULATORY DISCLAIMER · MANDATORY IN FOOTER</h2>
+<p>```</p>
+<p>This content is informational. No action on this site constitutes a public offer of investment, a financial instrument or regulated financial advice for the purposes of Spanish law (the Spanish Securities Commission, CNMV) or of the European Union (EU Markets in Financial Instruments Directive, MiFID II). Each co-investment vehicle is governed by specific legal documentation agreed between the parties with independent legal advice.</p>
+<p>For non-Spanish-resident investors, jurisdiction-specific legal and regulatory advice (FCA, SEC, BaFin, AMF, or local equivalent) is required separately.</p>
+<p>PAPIK Group is a construction and real estate development company. It is not registered as a financial entity nor as a fund manager. ```</p>
+<p>⚠ <strong>MANDATORY REVIEW by counsel specialised in financial markets and CNMV regulatory compliance before publication.</strong> Not optional. For international distribution, additional review by counsel qualified in the relevant jurisdiction (FCA, SEC, BaFin, AMF, etc.) is also required.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>COPY RULES · INVIOLABLE</h2>
+<p>These rules have been applied to the copy above. If the developer or copywriter modifies anything, they must be preserved: no figures on managed investments, average ROI, capital under management or average ticket; no promise of return ("you will earn X%", "expected return Y%"); no button that says "invest" (always "request a conversation"); no copy that hints at public solicitation (always bilateral: "we work with", "we accompany"); no nominal comparison with competitors or with funds or financial products; no names of partners or identifiable projects. Yes to correct legal-technical lexicon (NDA, vehicle, governance, exit, trust) as a signal of professionalism.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../about.html">About us</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="#contacte">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Services</p>
+        <ul>
+          <li><a href="../construction.html">Residential Construction</a></li>
+          <li><a href="../development.html">Real Estate Development</a></li>
+          <li><a href="../retrofit.html">Energy Retrofit</a></li>
+          <li><a href="../wealth.html">Wealth · Joint Investment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Offices</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>EMAIL</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Follow PAPIK: projects, energy retrofit and available subsidies.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Your email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Follow us</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – All rights reserved · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="../legal-notice.html">Legal Notice</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../cookies-policy.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/cookie-banner.js" defer></script>
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

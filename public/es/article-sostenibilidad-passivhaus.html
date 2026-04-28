@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passivhaus y sostenibilidad: marco técnico, LCA y decisiones verificables | PAPIK</title>
+  <meta name="description" content="Sostenibilidad aplicada a obra Passivhaus: análisis de ciclo de vida según EN 15978, materiales y carbono incorporado, certificaciones formales y criterios ESG para viviendas que duran cien años.">
+
+  <link rel="canonical" href="https://papik.cat/es/article-sostenibilidad-passivhaus">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-sostenibilitat-passivhaus">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-sostenibilidad-passivhaus">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/article-passivhaus-sustainability">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-sostenibilitat-passivhaus">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Passivhaus y sostenibilidad: marco técnico, LCA y decisiones verificables | PAPIK">
+  <meta property="og:description" content="Sostenibilidad aplicada a obra Passivhaus: análisis de ciclo de vida según EN 15978, materiales y carbono incorporado, certificaciones formales y criterios ESG para viviendas que duran cien años.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/es/article-sostenibilidad-passivhaus">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Passivhaus y sostenibilidad: marco técnico, LCA y decisiones verificables | PAPIK">
+  <meta name="twitter:description" content="Sostenibilidad aplicada a obra Passivhaus: análisis de ciclo de vida según EN 15978, materiales y carbono incorporado, certificaciones formales y criterios ESG para viviendas que duran cien años.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Passivhaus y sostenibilidad: marco técnico, LCA y decisiones verificables | PAPIK",
+    "description": "Sostenibilidad aplicada a obra Passivhaus: análisis de ciclo de vida según EN 15978, materiales y carbono incorporado, certificaciones formales y criterios ESG para viviendas que duran cien años.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://papik.cat/es/article-sostenibilidad-passivhaus"
+    },
+    "articleSection": "Sostenibilidad",
+    "wordCount": "2067",
+    "inLanguage": "es",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inicio",
+        "item": "https://papik.cat/es/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Passivhaus y sostenibilidad: marco técnico, LCA y decisiones verificables"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="../index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/article-sostenibilitat-passivhaus">CA</option>
+          <option value="https://papik.cat/es/article-sostenibilidad-passivhaus" selected>ES</option>
+          <option value="https://papik.cat/en/article-passivhaus-sustainability">EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Inicio</a>
+        <span class="sep">·</span>
+        <span>Passivhaus y sostenibilidad: marco técnico, LCA y decisiones verificables</span>
+      </nav>
+    <h1 class="hero__title">Passivhaus y sostenibilidad: marco técnico, LCA y decisiones verificables</h1>
+    <p class="hero__subtitle">Sostenibilidad aplicada a obra Passivhaus: análisis de ciclo de vida según EN 15978, materiales y carbono incorporado, certificaciones formales y criterios ESG para viviendas que duran cien años.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Sostenibilidad como marco técnico, no como etiqueta</h2>
+<p>Una vivienda no es sostenible por estar revestida de madera, por tener placas fotovoltaicas o por haberse descrito así en el folleto comercial. Es sostenible cuando cumple simultáneamente tres condiciones: reduce su impacto ambiental a lo largo de todas las fases del ciclo de vida, lo hace con una metodología normalizada y la mejora es cuantificable respecto a un escenario de referencia.</p>
+<p>El estándar Passivhaus aborda la fase de uso (operación energética) con un nivel de exigencia que ninguna reglamentación europea iguala. Pero para hablar de sostenibilidad con propiedad, hay que sumarle el análisis del carbono incorporado en los materiales, la trazabilidad de las fuentes (FSC, PEFC), la durabilidad estructural a cincuenta o cien años, y el comportamiento al final de vida útil. Aquí es donde la norma EN 15978 (Sustainability of construction works · Assessment of environmental performance of buildings · Calculation method) deja de ser un acrónimo y pasa a ser una herramienta de decisión.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>EN 15978 y Lifecycle Assessment aplicados a una vivienda</h2>
+<p>El análisis de ciclo de vida (LCA, Lifecycle Assessment) calcula el impacto ambiental de un edificio en cinco grandes fases. Las fases A1 a A3 cubren el producto: extracción, transporte y fabricación de materiales. Las fases A4 y A5 cubren la construcción: transporte a obra y proceso constructivo. Las fases B1 a B7 cubren el uso: operación, mantenimiento, reparación, sustitución, energía y agua. Las fases C1 a C4 cubren el final de vida: demolición, transporte, tratamiento y disposición. La fase D recoge los beneficios fuera del límite del sistema, como la reutilización o el reciclaje.</p>
+<p>El indicador más utilizado es el GWP (Global Warming Potential), expresado en kgCO₂eq por metro cuadrado útil. Una casa convencional construida según el código técnico vigente suele situarse entre 800 y 1.200 kgCO₂eq/m² a lo largo de sus cincuenta años de operación. Una casa Passivhaus bien diseñada con materiales de baja huella puede reducir ese valor entre un 40% y un 60%, y una construcción con estructura de madera CLT y aislamientos biobasados puede situarse por debajo de los 300 kgCO₂eq/m² netos gracias al carbono almacenado.</p>
+<p>Cuando alguien habla de "casa sostenible" sin mencionar EN 15978, ni LCA, ni EPD (Environmental Product Declaration), la conversación es comercial y no técnica.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Carbono incorporado: la fase olvidada</h2>
+<p>Tradicionalmente, la arquitectura sostenible se ha centrado en reducir el consumo operativo (fase B6). Era una prioridad razonable mientras las viviendas europeas consumían cientos de kilovatios hora por metro cuadrado y año. Con la llegada del estándar Passivhaus, el consumo operativo se ha comprimido hasta los límites físicos, y la fase más relevante del ciclo de vida ha pasado a ser la del carbono incorporado en los materiales.</p>
+<p>En una vivienda Passivhaus actual, el carbono incorporado (fases A1 a A5) puede representar entre el 50% y el 70% del impacto total a cincuenta años. Este desplazamiento implica que las decisiones materiales, desde la estructura hasta los acabados, ya no son un detalle estético sino la palanca principal de impacto ambiental.</p>
+<p>La estructura es la decisión de mayor peso. Una estructura de hormigón armado aporta entre 250 y 400 kgCO₂eq/m² construido. Una estructura mixta con madera laminada o CLT bien diseñada puede situarse entre 50 y 100 kgCO₂eq/m² netos, considerando el carbono biogénico almacenado. El aislamiento continuo (SATE, sistema de aislamiento térmico por el exterior) también tiene margen: aislar con celulosa insuflada o corcho proyectado aporta carbono secuestrado, mientras que la lana mineral o el EPS aportan emisiones netas.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Materiales, trazabilidad y certificaciones formales</h2>
+<p>Una decisión de material no es sostenible por ser "natural". Lo es cuando viene acompañada de una EPD verificada, una certificación de trazabilidad de la cadena de suministro y un balance favorable de energía incorporada considerando el transporte. La lana de roca importada del otro extremo de Europa puede tener peor huella que un aislamiento reciclado de origen local, aunque "suene menos verde".</p>
+<p>Para madera, las certificaciones de referencia son FSC (Forest Stewardship Council) y PEFC (Programme for the Endorsement of Forest Certification). Ambas acreditan que la madera procede de bosques gestionados bajo criterios ambientales y sociales verificables. Para aislamientos biobasados, los fabricantes serios publican EPD según ISO 14025 con GWP y otros indicadores de impacto. Para la calificación global del proyecto, esquemas como Passivhaus PHI, EnerPHit (para rehabilitación de viviendas existentes), LEED y BREEAM aportan capas complementarias de verificación.</p>
+<p>La ausencia de estas certificaciones no demuestra mala praxis, pero su presencia es la única manera operativa de distinguir un proyecto sostenible de un proyecto que se presenta como tal.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Operación: por qué Passivhaus sigue siendo decisivo</h2>
+<p>Aunque el carbono incorporado ha ganado protagonismo, la operación sigue siendo la palanca más robusta a largo plazo, sobre todo en climas con veranos largos y con mixes eléctricos todavía dependientes de fósiles.</p>
+<p>Una vivienda que cumple el código técnico en zona climática C2 admite muros con transmitancias térmicas de hasta 0,75 W/m²K y puede consumir entre 40 y 60 kWh/m²·a en climatización. Una Passivhaus opera en otro orden de magnitud: muros con transmitancias entre 0,10 y 0,15 W/m²K, permeabilidad al aire máxima de 0,6 renovaciones/hora a 50 Pa, demanda máxima de calefacción y refrigeración por debajo de 15 kWh/m²·a.</p>
+<p>Este salto no es académico. Se traduce en facturas energéticas entre un 75% y un 90% inferiores, en temperaturas interiores estables sin necesidad de potencia mecánica elevada, y en una resiliencia frente a la volatilidad de los precios de la energía que ninguna otra estrategia constructiva ofrece con la misma garantía. Acumulado durante cincuenta años, el ahorro operativo de una Passivhaus respecto a una vivienda convencional puede superar las 170 toneladas de CO₂ no emitidas para una vivienda media.</p>
+<p>Si quiere entender el detalle numérico de este balance, el artículo <a href="/es/article-huella-ecologica">La huella ecológica de construir y vivir en su casa</a> lo aborda fase por fase.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Bioclimatismo mediterráneo y durabilidad a cien años</h2>
+<p>Passivhaus nació en Centroeuropa y su reto original era retener el calor. En el Mediterráneo el problema dominante es el verano largo y caluroso, motivo por el que el diseño pasivo debe adaptarse. La orientación de las aberturas, los voladizos calculados para la latitud exacta de la parcela, las protecciones solares móviles, la ventilación cruzada nocturna y la inercia térmica de soleras y paredes macizas son las herramientas que aseguran confort estival sin recurrir a refrigeración mecánica intensiva.</p>
+<p>La durabilidad estructural es un componente a menudo olvidado de la sostenibilidad. Una vivienda diseñada para durar cien años reparte su carbono incorporado sobre el doble de tiempo que una construcción pensada para cincuenta. Por eso, las decisiones de detalle constructivo (gestión de humedades, control de puentes térmicos, accesibilidad de instalaciones para mantenimiento, calidad de fijaciones y juntas) tienen impacto ambiental tanto o más relevante que el material en sí.</p>
+<p>Este enfoque integral, materiales de bajo carbono, diseño pasivo adaptado al clima y durabilidad técnica, es el que define la metodología <a href="/es/eskimohaus">Eskimohaus®</a> que aplicamos a los proyectos residenciales de PAPIK, tanto en obra nueva (<a href="/es/construccion">construcción</a>) como en intervención sobre edificios existentes (<a href="/es/rehabilitacion">rehabilitación</a>).</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>ESG: sostenibilidad como activo patrimonial</h2>
+<p>Para propietarios patrimoniales, family offices y fondos de inversión, la sostenibilidad ha dejado de ser una preferencia ética y se ha convertido en un factor financiero. El marco ESG (Environmental, Social, Governance) y la taxonomía europea para finanzas sostenibles clasifican los activos inmobiliarios según criterios ambientales verificables, y el acceso a financiación preferente depende cada vez más de esa clasificación.</p>
+<p>Una vivienda certificada Passivhaus, con LCA documentado según EN 15978 y EPD de los materiales principales, encaja de manera natural dentro del epígrafe de "contribución sustancial a la mitigación del cambio climático" de la taxonomía europea. Para un propietario patrimonial, esto se traduce en valor residual superior, exposición menor a futuras penalizaciones por activos energéticamente obsoletos y diferenciación real respecto al stock residencial convencional.</p>
+<p>A escala particular, este marco explica por qué PAPIK aplica el mismo nivel de exigencia técnica a un encargo familiar y a un encargo patrimonial: las decisiones de diseño y materiales que hoy parecen un sobrecoste se convierten, en una década, en la base del valor patrimonial del activo.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Qué puede exigir usted a un proyecto sostenible</h2>
+<p>Si está valorando una obra nueva o una rehabilitación y quiere asegurarse de que la dimensión sostenible es real y no decorativa, hay cinco preguntas que separan un proyecto técnico de un proyecto de folleto.</p>
+<p>La primera es si el proyecto aporta un cálculo LCA según EN 15978, hecho con una herramienta reconocida (PHPP, OneClick LCA, WUFI, EnergyPlus) y con resultado expresado en kgCO₂eq/m². La segunda es si los materiales principales (estructura, aislamiento, carpinterías) tienen EPD vigentes. La tercera es si la madera está certificada FSC o PEFC, con cadena de custodia documentada. La cuarta es si el edificio está orientado a alguna certificación formal verificable (Passivhaus PHI, EnerPHit en rehabilitaciones, LEED, BREEAM), o si simplemente se presenta como "casa sostenible" sin compromiso verificable. La quinta es si el proyecto prevé un horizonte de durabilidad de cincuenta o cien años, con un detalle constructivo coherente con ese horizonte.</p>
+<p>Si las cinco respuestas son sólidas, el proyecto tiene sostenibilidad real. Si faltan tres o más, lo que hay es publicidad.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Preguntas frecuentes</h2>
+<h3>¿Qué diferencia hay entre "casa eficiente" y "casa sostenible"?</h3>
+<p>Una casa eficiente es la que consume poca energía en operación. Una casa sostenible considera todas las fases: materiales, construcción, uso, final de vida. Toda Passivhaus bien diseñada es eficiente, pero solo es sostenible si se complementa con decisiones materiales y de durabilidad coherentes.</p>
+<h3>¿El cálculo LCA encarece mucho el proyecto?</h3>
+<p>Si se integra desde el diseño inicial, el coste es modesto y a menudo queda compensado por mejores decisiones materiales. El LCA detallado con terceros verificadores tiene un coste superior y solo es necesario para certificaciones específicas (LEED, BREEAM, taxonomía europea avanzada).</p>
+<h3>¿Se puede rehabilitar una vivienda existente hasta estándares Passivhaus?</h3>
+<p>Sí. El esquema EnerPHit del Passivhaus Institute es el marco específico de rehabilitación con exigencias adaptadas a la realidad constructiva existente. Permite llevar edificios de los años 70 u 80 a niveles de comportamiento muy próximos a una Passivhaus de obra nueva, y es el camino natural para activos que quiere mantener su valor a largo plazo.</p>
+<h3>¿Los materiales biobasados son seguros frente al fuego?</h3>
+<p>Los aislamientos como la celulosa insuflada o el corcho proyectado tienen comportamiento al fuego certificado según normativa europea (Euroclases) y, combinados con placas tipo Fermacell o yeso laminado, ofrecen protección equivalente o superior a los sistemas minerales tradicionales. La certificación de cada producto lo documenta de manera específica.</p>
+<h3>¿Cómo puedo verificar las afirmaciones ambientales de un constructor?</h3>
+<p>Pidiendo certificaciones formales (Passivhaus PHI, EnerPHit, FSC, PEFC, LEED, BREEAM), EPD de los materiales principales, cálculo LCA según EN 15978 y resultado de la prueba de estanqueidad (Blower Door). Si todo eso falta, las afirmaciones son publicidad.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CIERRE</h2>
+<p>La sostenibilidad aplicada a una vivienda no es un acabado, es una metodología. Si quiere que su proyecto se sostenga con datos y no con adjetivos, los criterios descritos aquí son una buena lista de comprobación para la primera reunión técnica.</p>
+<p>Configurar el presupuesto de mi proyecto: papik.cat/es/presupuesto.</p>
+<p><strong>Lea también:</strong></p>
+<p><a href="/es/article-huella-ecologica">La huella ecológica de construir y vivir en su casa</a></p>
+<p><a href="/es/article-materiales-sostenibles">Materiales sostenibles: madera, corcho, celulosa</a></p>
+<p><a href="/es/article-tecnologias-passivhaus">Tecnologías clave de una casa Passivhaus</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../nosotros.html">Quiénes somos</a></li>
+          <li><a href="../proyectos.html">Proyectos</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Servicios</p>
+        <ul>
+          <li><a href="../construccion.html">Construcción Residencial</a></li>
+          <li><a href="../promocion.html">Promoción Inmobiliaria</a></li>
+          <li><a href="../rehabilitacion.html">Rehabilitación Energética</a></li>
+          <li><a href="../patrimonios.html">Patrimonios · Inversión Conjunta</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficinas</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREO</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Sigue las novedades de PAPIK: proyectos, rehabilitación energética y ayudas disponibles.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Tu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Síguenos</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – Todos los derechos reservados · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="../aviso-legal.html">Aviso Legal</a>
+        <a href="../politica-privacidad.html">Política de Privacidad</a>
+        <a href="../politica-cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/cookie-banner.js" defer></script>
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

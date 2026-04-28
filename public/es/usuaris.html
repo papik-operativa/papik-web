@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Área de Clientes | PAPIK · Construcción · Promoción · Rehabilitación</title>
+  <title>Área de Clientes | PAPIK · Construcción · Promoción ·</title>
   <meta name="description" content="Accede a tu espacio de cliente PAPIK: seguimiento de proyectos, documentación y comunicación directa con el equipo.">
   <style>
     @font-face {
@@ -124,7 +124,7 @@
     header.header-top.hidden { top: -56px; }
 
     .header-logo {
-      width: 100%; position: absolute; padding-top: 14px;
+      width: 100%; position: absolute; padding-top: 22px;
       z-index: 102; background: #fff; top: 0;
     }
     .header-logo .container {
@@ -536,8 +536,47 @@
       .account-features { display: none; }
     }
   </style>
+  <!-- PAPIK:SHARED-HEADER-CSS -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+  <meta property="og:title" content="Área de Clientes | PAPIK · Construcción · Promoción ·">
+  <meta property="og:description" content="Accede a tu espacio de cliente PAPIK: seguimiento de proyectos, documentación y comunicación directa con el equipo.">
+  <meta property="og:url" content="https://papik.cat/es/usuaris">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Área de Clientes | PAPIK · Construcción · Promoción ·">
+  <meta name="twitter:description" content="Accede a tu espacio de cliente PAPIK: seguimiento de proyectos, documentación y comunicación directa con el equipo.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
 </head>
 <body>
+<!-- PAPIK · Cookie consent banner snippet
+     Inject at the start of <body>. The text shown is a CA fallback;
+     cookie-banner.js localises it in place using the page's <html lang>. -->
+<aside id="papik-cc-banner"
+       class="papik-cc"
+       role="region"
+       aria-label="Avís de galetes"
+       hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">
+        Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te
+        publicitat relacionada amb les teves preferències. Pots acceptar-les totes,
+        rebutjar-les totes o configurar-les.
+      </p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
 
 <!-- ═══════════════════════════════════
      MOBILE NAV OVERLAY
@@ -565,13 +604,13 @@
     <li><a href="index.html#promocion">Promoción Inmobiliaria</a></li>
     <li><a href="index.html#rehabilitacion">Rehabilitación Energética</a></li>
     <li class="sub-title">Empresa</li>
-    <li><a href="patrimonis.html">Patrimonios</a></li>
+    <li><a href="patrimonios.html">Patrimonios</a></li>
     <li><a href="projectes.html">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="nosaltres.html">Nosotros</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
     <li><a href="index.html#contacto">Contacto</a></li>
     <li><a href="usuaris.html" class="active" style="color:var(--green);font-weight:500;">Área de Clientes →</a></li>
-    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Presupuesto →</a></li>
+    <li><a href="presupuesto.html" style="color:var(--green);font-weight:600;">Presupuesto →</a></li>
   </ul>
 </nav>
 <div class="fade-bg" id="fadeBg"></div>
@@ -635,31 +674,13 @@
             <li>
               <a href="blog.html">Blog</a>
             </li>
-            <li><a href="nosaltres.html">Nosotros</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
           </ul>
         </nav>
 
         <!-- Right nav -->
         <nav class="menu-right t14">
           <ul>
-            <li class="btn-search-trigger" id="searchTrigger">
-              Buscar
-              <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/>
-                  <path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-            </li>
-            <li>
-              <a href="index.html#contacto">Contacto</a>
-              <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-            </li>
             <li>
               <span class="nav-cta menu-btn" data-menu="presupuesto">
                 Presupuesto
@@ -788,11 +809,11 @@
         <div class="submenu__col">
           <h3 class="t24">Inversión Patrimonial</h3>
           <ul class="t16">
-            <li><a href="patrimonis.html">Cartera de Activos Residenciales</a></li>
-            <li><a href="patrimonis.html">Inversores Privados y Family Office</a></li>
-            <li><a href="patrimonis.html">Co-inversión y Joint Venture</a></li>
-            <li><a href="patrimonis.html">Gestión de Activos y Mantenimiento</a></li>
-            <li><a href="patrimonis.html">Due Diligence Técnica</a></li>
+            <li><a href="patrimonios.html">Cartera de Activos Residenciales</a></li>
+            <li><a href="patrimonios.html">Inversores Privados y Family Office</a></li>
+            <li><a href="patrimonios.html">Co-inversión y Joint Venture</a></li>
+            <li><a href="patrimonios.html">Gestión de Activos y Mantenimiento</a></li>
+            <li><a href="patrimonios.html">Due Diligence Técnica</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
@@ -805,7 +826,7 @@
         <div class="submenu__featured">
           <h3>Destacado</h3>
           <p class="feat-title">Cartera activa: 3 solares disponibles para promoción plurifamiliar</p>
-          <a href="patrimonis.html" class="feat-link link-arrow">Conocer más
+          <a href="patrimonios.html" class="feat-link link-arrow">Conocer más
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -820,11 +841,11 @@
         <div class="submenu__col">
           <h3 class="t24">Tipo de proyecto</h3>
           <ul class="t16">
-            <li><a href="pressupost.html">Obra Nueva Unifamiliar</a></li>
-            <li><a href="pressupost.html">Edificio Plurifamiliar</a></li>
-            <li><a href="pressupost.html">Reforma Integral</a></li>
-            <li><a href="pressupost.html">Rehabilitación Energética</a></li>
-            <li><a href="pressupost.html">Ampliación y Cambio de Uso</a></li>
+            <li><a href="presupuesto.html">Obra Nueva Unifamiliar</a></li>
+            <li><a href="presupuesto.html">Edificio Plurifamiliar</a></li>
+            <li><a href="presupuesto.html">Reforma Integral</a></li>
+            <li><a href="presupuesto.html">Rehabilitación Energética</a></li>
+            <li><a href="presupuesto.html">Ampliación y Cambio de Uso</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
@@ -833,14 +854,14 @@
         <div class="submenu__col">
           <h3 class="t24">Estima tu proyecto</h3>
           <p class="t16" style="color:var(--muted);line-height:1.65;">Introduce las características de tu proyecto y obtén una estimación orientativa del coste en menos de un minuto. Sin compromiso, sin registro.</p>
-          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
+          <a href="presupuesto.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
             <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
         <div class="submenu__featured">
           <h3>Cómo funciona</h3>
           <p class="feat-title">3 pasos: tipo de proyecto → superficie y materiales → resultado</p>
-          <a href="pressupost.html" class="feat-link link-arrow">Probar ahora
+          <a href="presupuesto.html" class="feat-link link-arrow">Probar ahora
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -872,7 +893,7 @@
         <div class="submenu__featured">
           <h3>Reconocimientos</h3>
           <p class="feat-title">+120 viviendas entregadas · Calificación A en eficiencia energética</p>
-          <a href="nosaltres.html" class="feat-link link-arrow">Conocer el equipo
+          <a href="nosotros.html" class="feat-link link-arrow">Conocer el equipo
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -901,7 +922,7 @@
           </svg>
         </div>
         <div class="account-feature__text">
-          <h4>Seguimiento en tiempo real</h4>
+          <h3>Seguimiento en tiempo real</h3>
           <p>Estado actualizado de cada fase de la obra</p>
         </div>
       </div>
@@ -1033,7 +1054,7 @@
       <div class="footer-col">
         <p class="footer__col-title">PAPIK</p>
         <ul>
-          <li><a href="nosaltres.html">Quiénes somos</a></li>
+          <li><a href="nosotros.html">Quiénes somos</a></li>
           <li><a href="projectes.html">Proyectos</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="index.html#contacto">Contacto</a></li>
@@ -1055,7 +1076,7 @@
       <div class="footer-col">
         <p class="footer__col-title">Oficinas</p>
         <div class="info-showroom__item">
-          <h3>SEDE CENTRAL</h3>
+          <h2>SEDE CENTRAL</h2>
           <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 935 90 60 74</a></p>
         </div>
         <div class="info-showroom__item">
@@ -1086,7 +1107,7 @@
     </div>
 
     <div class="copyright">
-      <p>Copyright © 2025 PAPIK SL – Todos los derechos reservados<br>papik.cat</p>
+      <p>Copyright © 2025 PAPIK Real Estate Group S.L.U – Todos los derechos reservados<br>papik.cat</p>
       <div>
         <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);margin-right:20px;">Aviso Legal</a>
         <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);">Política de Privacidad</a>
@@ -1213,5 +1234,7 @@
 </script>
 
 <script src="../cursor.js"></script>
+  <script src="/js/cookie-banner.js" defer></script>
+  <script src="/js/forms.js" defer></script>
 </body>
 </html>

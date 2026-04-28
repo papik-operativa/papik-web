@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Por qué se respira mejor en una casa Passivhaus? | PAPIK</title>
+  <meta name="description" content="Una vivienda Passivhaus garantiza aire limpio, filtrado y a temperatura adecuada gracias a la ventilación con recuperación de calor (VRC). Por qué es necesaria, cómo funciona y qué mantenimiento requiere.">
+
+  <link rel="canonical" href="https://papik.cat/es/article-ventilacion-passivhaus">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-ventilacio-passivhaus">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-ventilacion-passivhaus">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/article-passivhaus-ventilation">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-ventilacio-passivhaus">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="¿Por qué se respira mejor en una casa Passivhaus? | PAPIK">
+  <meta property="og:description" content="Una vivienda Passivhaus garantiza aire limpio, filtrado y a temperatura adecuada gracias a la ventilación con recuperación de calor (VRC). Por qué es necesaria, cómo funciona y qué mantenimiento requiere.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/es/article-ventilacion-passivhaus">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="¿Por qué se respira mejor en una casa Passivhaus? | PAPIK">
+  <meta name="twitter:description" content="Una vivienda Passivhaus garantiza aire limpio, filtrado y a temperatura adecuada gracias a la ventilación con recuperación de calor (VRC). Por qué es necesaria, cómo funciona y qué mantenimiento requiere.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Por qué se respira mejor en una casa Passivhaus? | PAPIK",
+    "description": "Una vivienda Passivhaus garantiza aire limpio, filtrado y a temperatura adecuada gracias a la ventilación con recuperación de calor (VRC). Por qué es necesaria, cómo funciona y qué mantenimiento requiere.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://papik.cat/es/article-ventilacion-passivhaus"
+    },
+    "articleSection": "Tecnología Passivhaus",
+    "wordCount": "2210",
+    "inLanguage": "es",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inicio",
+        "item": "https://papik.cat/es/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "¿Por qué se respira mejor en una casa Passivhaus?"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="../index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/article-ventilacio-passivhaus">CA</option>
+          <option value="https://papik.cat/es/article-ventilacion-passivhaus" selected>ES</option>
+          <option value="https://papik.cat/en/article-passivhaus-ventilation">EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Inicio</a>
+        <span class="sep">·</span>
+        <span>¿Por qué se respira mejor en una casa Passivhaus?</span>
+      </nav>
+    <h1 class="hero__title">¿Por qué se respira mejor en una casa Passivhaus?</h1>
+    <p class="hero__subtitle">Una vivienda Passivhaus garantiza aire limpio, filtrado y a temperatura adecuada gracias a la ventilación con recuperación de calor (VRC). Por qué es necesaria, cómo funciona y qué mantenimiento requiere.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>El problema real: la calidad del aire interior</h2>
+<p>Pasamos aproximadamente el 90% del tiempo en espacios interiores, y la calidad del aire que respiramos en esos espacios determina, en buena medida, la calidad de nuestro descanso, del rendimiento cognitivo y de la salud respiratoria. Según la Organización Mundial de la Salud, el aire interior de una vivienda convencional puede estar entre dos y cinco veces más contaminado que el aire exterior, incluso en entornos urbanos con tráfico intenso. La calidad del aire interior, IAQ por sus siglas en inglés, es un indicador relevante que rara vez forma parte de la decisión de compra de una vivienda pero que afecta de manera medible al día a día de sus ocupantes.</p>
+<p>Las fuentes de contaminación interior son múltiples y a menudo invisibles para el ocupante. Incluyen compuestos orgánicos volátiles emitidos por muebles, pinturas, productos de limpieza y materiales sintéticos de los acabados; partículas de polvo y ácaros acumulados en los textiles y en el aire en suspensión; humedad excesiva que favorece la proliferación de hongos y la degradación de materiales; y el propio CO₂ que exhalamos, que en espacios mal ventilados se acumula hasta niveles que afectan a la concentración, a la calidad del sueño y a la sensación general de fatiga matinal.</p>
+<p>La solución tradicional, abrir las ventanas, presenta una contradicción energética evidente. Cuando se ventila por apertura natural, se pierde la energía invertida en climatizar el espacio: en invierno, el aire caliente se escapa; en verano, entra el aire caliente de la calle. El resultado es un dilema constante entre salud y eficiencia que la mayoría de hogares resuelven ventilando poco y mal, con ventanas cerradas durante la mayor parte de la jornada y abiertas solo puntualmente, a menudo en momentos en los que el confort exterior tampoco es el óptimo.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Por qué se necesita VRC cuando la envolvente es hermética</h2>
+<p>El estándar Passivhaus exige una hermeticidad verificada con el test blower-door con un valor n50 inferior a 0,6 h⁻¹, lo que la convierte en aproximadamente veinte veces más hermética que una construcción convencional. Esta hermeticidad es la que permite a la casa retener la energía térmica y evitar las infiltraciones descontroladas, pero al mismo tiempo elimina la renovación espontánea de aire que se produce por las fisuras y juntas de una construcción estándar.</p>
+<p>Es en este punto donde la ventilación con recuperación de calor (VRC) deja de ser un complemento y pasa a ser una condición estructural. Una vivienda hermética sin VRC acumula CO₂, humedad y contaminantes en cuestión de horas, motivo por el que el estándar Passivhaus y su variante para rehabilitación EnerPHit incorporan la VRC como pieza obligatoria del sistema. La lógica es simple: si se bloquea la fuga de aire incontrolada, hay que reintroducir un caudal controlado de aire renovado que mantenga la calidad ambiental dentro de parámetros saludables.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Cómo funciona el sistema</h2>
+<p>La VRC funciona de manera continua y automática. Un ventilador extrae el aire viciado de las estancias húmedas, es decir cocina, baños y lavadero, mientras otro insufla aire fresco filtrado a las estancias secas, es decir dormitorios, sala de estar y estudio. Entre ambos flujos, un intercambiador de calor de alta eficiencia transfiere la energía del aire saliente al aire entrante sin que las dos corrientes se mezclen nunca.</p>
+<p>La eficiencia típica de recuperación se sitúa entre el 85% y el 92% según el sistema utilizado. En el caso del Zehnder ComfoAir Q350, uno de los equipos que PAPIK instala habitualmente en sus proyectos, la tasa de recuperación alcanza el 96%. El aire fresco que entra en la vivienda se precalienta en invierno, o se prerrefresca en verano, gracias a la energía del aire que sale, con un coste energético adicional prácticamente despreciable para el usuario. El resultado operativo es aire renovado a temperatura ambiente las veinticuatro horas del día.</p>
+<p>Los filtros F7 incorporados al sistema retienen partículas finas, polen, esporas de hongos y polvo en suspensión con una eficacia superior al 90%, lo que mejora de manera significativa la calidad de vida de las personas con alergias o asma. El funcionamiento es prácticamente inaudible: el nivel sonoro se sitúa por debajo de los 25 dB, inferior al murmullo de una biblioteca.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Qué miden los sensores y por qué importa</h2>
+<p>En las viviendas Passivhaus modernas, los sensores de CO₂, humedad y temperatura distribuidos por los espacios alimentan el sistema de gestión de la ventilación, que ajusta el caudal según la ocupación real y las condiciones ambientales de cada momento. Este control en tiempo real es lo que garantiza que la calidad del aire se mantenga dentro de parámetros saludables sin intervención del usuario.</p>
+<blockquote><p>En nuestras viviendas, los sensores de CO₂ registran niveles inferiores a 800 ppm de manera constante, sin que nadie tenga que abrir ninguna ventana ni pensar en ello. Eso es lo que significa automatizar el bienestar.</p></blockquote>
+<p>Como referencia, una sala de reuniones convencional puede superar las 1.500 ppm de CO₂ en menos de una hora con cuatro personas, valor asociado a fatiga, pérdida de concentración y empeoramiento del descanso nocturno cuando la misma situación se produce en el dormitorio. La VRC bien dimensionada mantiene los valores estables en torno a 600 a 800 ppm de manera continua.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Beneficios observados desde el primer día</h2>
+<p>Las personas que se mudan a una vivienda con VRC suelen describir una sensación inmediata de frescor y ligereza ambiental. No hay olores estancados, la humedad se mantiene en valores saludables durante todo el año y la temperatura es homogénea en todas las estancias, sin las típicas diferencias entre habitaciones orientadas al norte y al sur de una construcción convencional.</p>
+<p>Desde el punto de vista de la salud, los beneficios están ampliamente documentados. Incluyen una reducción de los episodios de alergia, una mejora de la calidad del sueño, una disminución de problemas respiratorios y un descenso de los síntomas asociados a la mala ventilación en personas sensibles. Para familias con niños pequeños o personas mayores, estos factores adquieren una relevancia especial. En K-Valld'Or, una de nuestras obras recientes, una familia con un niño asmático constató una reducción significativa de los episodios respiratorios durante el primer año en la vivienda.</p>
+<p>El ahorro energético es el otro beneficio de fondo. Al eliminar la necesidad de abrir ventanas para ventilar, el sistema evita pérdidas de calor en invierno y entradas de aire caliente en verano. El recuperador de calor aprovecha hasta el 96% de la energía del aire saliente, de manera que la climatización de la vivienda funciona con una eficiencia muy superior a la de cualquier casa convencional, lo que se traduce en una factura energética anual reducida y en menor dependencia de fuentes fósiles.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Mantenimiento: sencillo y asequible</h2>
+<p>Una de las dudas más habituales de los clientes es el mantenimiento del sistema de VRC. La realidad es que es mucho más sencillo de lo que la mayoría de personas imaginan. Los filtros F7 deben sustituirse cada seis a doce meses dependiendo del entorno, con una frecuencia algo más alta en zonas con mucho polen o polvo en suspensión. El cambio es una operación que cualquier persona puede realizar en cinco minutos, sin herramientas especiales y sin necesidad de servicio técnico.</p>
+<p>El coste anual de los filtros se sitúa entre 60 y 100 euros según el modelo de equipo. Aparte de los filtros, se recomienda una revisión técnica anual que incluya la limpieza del intercambiador y la verificación de los caudales de aire. Comparado con el mantenimiento de una caldera de gas convencional, el coste es similar o inferior, con la ventaja de que no hay combustión, ni emisiones, ni riesgos asociados al producto de la combustión.</p>
+<p>Después de más de 120 viviendas entregadas, la experiencia de PAPIK confirma que los sistemas de VRC bien instalados funcionan de manera fiable durante décadas. La clave está en la calidad de la instalación inicial: conductos rígidos correctamente aislados, dimensionados según proyecto y con las pendientes adecuadas para facilitar el drenaje de condensación. PAPIK utiliza habitualmente Zehnder por su fiabilidad de largo plazo y Maico para determinadas configuraciones, ambos referentes europeos en VRC residencial.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Cómo PAPIK la integra en el sistema Eskimohaus®</h2>
+<p>El sistema constructivo Eskimohaus® de PAPIK incorpora la VRC como elemento estructural del proyecto, no como complemento añadido a posteriori. La planificación de los conductos se realiza en fase de proyecto arquitectónico y se integra con el resto de tecnologías clave Passivhaus que detallamos en el artículo sobre <a href="/es/article-tecnologias-passivhaus">tecnologías clave del Passivhaus</a>: aislamiento continuo, hermeticidad verificada con blower-door, ventanas triple vidrio y domótica integrada.</p>
+<p>La unidad principal se ubica habitualmente en zona técnica accesible para mantenimiento, con conductos rígidos que recorren forjados o falsos techos según la geometría de la obra. La hermeticidad de los pasos de instalaciones se resuelve con cintas adhesivas específicas que mantienen la continuidad de la envolvente, requisito verificado con el test blower-door post-obra antes de la entrega de la casa al cliente.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>¿Y si quiero abrir las ventanas?</h2>
+<p>Esta es, sin duda, la pregunta que más recibimos. La respuesta es sencilla: por supuesto que usted puede abrir las ventanas. Una casa Passivhaus no es un espacio hermético ni sellado desde el punto de vista funcional; es un espacio que no necesita que se abran las ventanas para tener un aire interior impecable. La diferencia es sutil pero fundamental: el usuario no está obligado a hacerlo, pero es completamente libre de hacerlo.</p>
+<p>En una tarde de primavera con una brisa agradable, abrir las ventanas es un placer al que nadie quiere renunciar. De hecho, en verano, la ventilación nocturna natural a través de ventanas es una estrategia que complementa perfectamente la VRC en clima mediterráneo: aprovecha el frescor de la noche para enfriar la masa estructural del edificio, y durante el día el sistema mecánico mantiene la calidad del aire sin introducir calor del exterior. La construcción Passivhaus, lejos de prohibirlo, aprovecha su beneficio térmico.</p>
+<p>Lo que cambia es que durante las noches de invierno, las horas de trabajo, los días de polinización intensa o las olas de calor estivales, la vivienda se ventila sola de manera impecable. La tranquilidad de saber que el hogar respira por usted las veinticuatro horas del día es un confort que, una vez experimentado, resulta difícil de abandonar.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Preguntas frecuentes</h2>
+<h3>¿Hay que certificar Passivhaus para disfrutar de una buena VRC?</h3>
+<p>No. La VRC aporta valor sanitario y energético independientemente de la certificación formal. La certificación Passivhaus del Instituto de Darmstadt es una decisión adicional del cliente que añade coste de tramitación pero aporta validación de terceros sobre el conjunto de la envolvente.</p>
+<h3>¿Se puede incorporar VRC en una rehabilitación?</h3>
+<p>Sí. La incorporación de VRC es habitual en proyectos EnerPHit (Passivhaus para rehabilitación). Requiere planificación de conductos y ubicación adecuada de la unidad principal en fase de proyecto. PAPIK la aplica habitualmente a obras de rehabilitación integral y a proyectos de <a href="/es/construccion">construcción residencial</a> de nueva planta.</p>
+<h3>¿El sistema hace ruido?</h3>
+<p>No de manera perceptible para el usuario. Los equipos Zehnder y Maico instalados por PAPIK funcionan por debajo de los 25 dB en modo normal, valor inferior al ruido de fondo de una biblioteca.</p>
+<h3>¿El consumo eléctrico de la VRC es elevado?</h3>
+<p>No. El consumo de una VRC residencial bien dimensionada es comparable al de un electrodoméstico pequeño en modo continuo. El balance energético global es siempre positivo, ya que la energía recuperada del aire saliente compensa con creces el consumo de los ventiladores.</p>
+<h3>¿Hay que apagar la VRC cuando no hay nadie en casa?</h3>
+<p>No. El sistema se dimensiona para funcionar las veinticuatro horas del día. Cuando no hay ocupación, el sistema modula automáticamente el caudal a un régimen mínimo que mantiene la calidad del aire y evita problemas de humedad sin consumo innecesario.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CIERRE</h2>
+<p>Si usted quiere explorar cómo integrar la ventilación con recuperación de calor en su proyecto, una evaluación técnica orientativa permite definir el sistema adecuado al caso concreto, teniendo en cuenta la geometría de la vivienda, la ocupación prevista y el clima local.</p>
+<p>Configurar el presupuesto de mi proyecto: papik.cat/es/presupuesto.</p>
+<p><strong>Lea también:</strong></p>
+<p><a href="/es/article-tecnologias-passivhaus">Cinco tecnologías clave del Passivhaus 2026</a></p>
+<p><a href="/es/article-principios-passivhaus">Los cinco principios del Passivhaus</a></p>
+<p><a href="/es/article-innovaciones-passivhaus">Innovaciones Passivhaus 2026</a></p>
+<p><a href="/es/construccion">Construcción residencial PAPIK</a></p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>#</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../nosotros.html">Quiénes somos</a></li>
+          <li><a href="../proyectos.html">Proyectos</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Servicios</p>
+        <ul>
+          <li><a href="../construccion.html">Construcción Residencial</a></li>
+          <li><a href="../promocion.html">Promoción Inmobiliaria</a></li>
+          <li><a href="../rehabilitacion.html">Rehabilitación Energética</a></li>
+          <li><a href="../patrimonios.html">Patrimonios · Inversión Conjunta</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficinas</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREO</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Sigue las novedades de PAPIK: proyectos, rehabilitación energética y ayudas disponibles.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Tu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Síguenos</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – Todos los derechos reservados · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="../aviso-legal.html">Aviso Legal</a>
+        <a href="../politica-privacidad.html">Política de Privacidad</a>
+        <a href="../politica-cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/cookie-banner.js" defer></script>
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

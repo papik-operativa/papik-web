@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memòria de Qualitats | PAPIK · Cases Passivhaus a Catalunya</title>
+  <meta name="description" content="Memòria de qualitats PAPIK: sistema constructiu Eskimohaus, envolvant exterior, acabats interiors, instal·lacions i energia solar. Cada detall documentat.">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <style>
+    /* qualitats page-specific */
+    .qual-hero { background: linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%); color: #fff; padding: 64px 0 48px; position: relative; overflow: hidden; }
+    .qual-hero::before { content:""; position:absolute; inset:0; background: radial-gradient(50% 60% at 80% 20%, rgba(149,187,165,0.15) 0%, transparent 60%); pointer-events:none; }
+    .qual-hero .container { position: relative; z-index: 2; }
+    .qual-hero h1 { font-size: clamp(40px, 6vw, 80px); font-weight: var(--fw-light); line-height: 1.05; color: #fff; margin-bottom: 24px; }
+    .qual-hero .subtitle { font-size: 17px; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+    .hero-stats { display: flex; gap: 48px; margin-top: 48px; flex-wrap: wrap; }
+    .hero-stat { color: #fff; }
+    .hero-stat .value { font-size: clamp(28px, 3vw, 42px); font-weight: var(--fw-light); color: var(--accent); margin-bottom: 6px; line-height: 1; }
+    .hero-stat .value sub { font-size: 14px; color: rgba(255,255,255,.5); }
+    .hero-stat .label { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: rgba(255,255,255,.6); }
+
+    /* TOC */
+    .toc-nav { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 72px; z-index: 50; }
+    .toc-nav ul { display: flex; gap: 0; overflow-x: auto; max-width: 1400px; margin: 0 auto; padding: 0 4.8vw; }
+    .toc-nav li { flex-shrink: 0; }
+    .toc-nav a { display: block; padding: 18px 22px 14px; font-size: 14px; color: var(--muted); border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+    .toc-nav a:hover { color: var(--green); }
+    .toc-nav a.is-active { color: var(--green); border-bottom-color: var(--green); font-weight: 500; }
+
+    .section.section--alt { background: var(--bg-light); }
+    .section h2 { font-size: clamp(28px, 3vw, 44px); font-weight: var(--fw-light); margin-bottom: 14px; color: var(--text); line-height: 1.15; }
+    .section .section-header { display: block; margin-bottom: 40px; max-width: 760px; }
+    .section .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: .2em; color: var(--accent); font-weight: 500; margin-bottom: 14px; }
+    .section--dark h2 { color: #fff; }
+    .section--dark .section-label { color: var(--accent); }
+    .section--dark .section-header p { color: rgba(255,255,255,.7); }
+
+    .card-icon { width: 48px; height: 48px; border-radius: var(--r-md); background: var(--bg-light); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; transition: background .35s, transform .35s var(--ease-bounce); }
+    .card:hover .card-icon { background: var(--accent-soft-hover); transform: scale(1.06); }
+    .section--dark .card-icon { background: rgba(255,255,255,0.06); }
+    .section--dark .card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: #fff; }
+    .section--dark .card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+    .section--dark .card h3, .section--dark .card .card__title { color: #fff; }
+    .section--dark .card p { color: rgba(255,255,255,.7); }
+
+    .card { padding: 32px 28px; }
+    .card h3 { font-size: 19px; font-weight: var(--fw-regular); margin-bottom: 12px; color: var(--text); }
+    .card p { color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .card .badge { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: var(--r-xs); margin-top: 14px; font-weight: 500; }
+    .section--dark .card .badge { background: rgba(149,187,165,.15); color: var(--accent); }
+
+    .cta-section { background: var(--green); color: #fff; padding: 80px 0; text-align: center; }
+    .cta-section h2 { font-size: clamp(26px, 2.8vw, 40px); font-weight: var(--fw-light); color: #fff; margin-bottom: 20px; max-width: 700px; margin-inline: auto; line-height: 1.15; }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,.65); max-width: 560px; margin: 0 auto 36px; }
+    .cta-section .btn-white { background: #fff; color: var(--green); border: 1px solid #fff; padding: 0 32px; height: 46px; border-radius: 23px; font-size: 15px; }
+    .cta-section .btn-white:hover { background: transparent; color: #fff; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.is-visible { opacity: 1; transform: none; }
+
+    .solar-section .card-grid { gap: 32px; }
+  </style>
+
+  
+  
+  <!-- PAPIK:SHARED-HEADER-CSS -->
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+  
+  <meta property="og:title" content="Memòria de Qualitats | PAPIK · Cases Passivhaus a Catalunya">
+  <meta property="og:description" content="Memòria de qualitats PAPIK: sistema constructiu Eskimohaus, envolvant exterior, acabats interiors, instal·lacions i energia solar. Cada detall documentat.">
+  <meta property="og:url" content="https://papik.cat/qualitats">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ca_ES">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Memòria de Qualitats | PAPIK · Cases Passivhaus a Catalunya">
+  <meta name="twitter:description" content="Memòria de qualitats PAPIK: sistema constructiu Eskimohaus, envolvant exterior, acabats interiors, instal·lacions i energia solar. Cada detall documentat.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+</head>
+<body>
+<!-- PAPIK · Cookie consent banner snippet
+     Inject at the start of <body>. The text shown is a CA fallback;
+     cookie-banner.js localises it in place using the page's <html lang>. -->
+<aside id="papik-cc-banner"
+       class="papik-cc"
+       role="region"
+       aria-label="Avís de galetes"
+       hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">
+        Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te
+        publicitat relacionada amb les teves preferències. Pots acceptar-les totes,
+        rebutjar-les totes o configurar-les.
+      </p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════
+     MOBILE NAV
+═══════════════════════════════════ -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__header">
+    <a href="/">
+      <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+      </svg>
+    </a>
+    <button class="mobile-nav__close" id="mobileNavClose">&#10005;</button>
+  </div>
+  <ul>
+    <li class="sub-title">Serveis</li>
+    <li><a href="construccio.html">Construcció</a></li>
+    <li><a href="promocio.html">Promoció Immobiliària</a></li>
+    <li><a href="rehabilitacio.html">Rehabilitació Energètica</a></li>
+    <li><a href="patrimonis.html">Patrimonis</a></li>
+    <li class="sub-title">Empresa</li>
+    <li><a href="projectes.html">Projectes</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="nosaltres.html">Nosaltres</a></li>
+    <li><a href="#contacte">Contacte</a></li>
+    <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Inicia sessió &rarr;</a></li>
+    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Pressupost &rarr;</a></li>
+  </ul>
+</nav>
+<div class="fade-bg" id="fadeBg"></div>
+
+<!-- ═══════════════════════════════════
+     HEADER
+═══════════════════════════════════ -->
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="logo">
+          <a href="/">
+            <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="location=this.value">
+          <option value="/" selected>CA</option>
+          <option value="/es/">ES</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════
+     STICKY NAV BAR
+═══════════════════════════════════ -->
+<section class="header-sticky" id="headerSticky">
+  <div class="header-sticky__bar">
+    <div class="container">
+      <div class="header-sticky__content">
+        <nav class="menu">
+          <ul>
+            <li><a href="construccio.html">Construcció</a></li>
+            <li><a href="rehabilitacio.html">Rehabilitació</a></li>
+            <li><a href="promocio.html">Promoció</a></li>
+            <li><a href="projectes.html">Projectes</a></li>
+            <li><a href="nosaltres.html">Nosaltres</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </nav>
+        <nav class="menu-right">
+          <ul>
+            <li>
+              <a href="usuaris.html">Inicia sessió</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/>
+                  <path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </li>
+            <li>
+              <a class="nav-cta" href="pressupost.html">
+                Pressupost
+                <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section class="hero qual-hero">
+  <div class="container">
+    <h1>Memòria de Qualitats</h1>
+    <p class="subtitle">Cada detall, cada material, cada decisió tècnica — documentada i transparent.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="value">U 0,16 <sub>W/m²K</sub></div>
+        <div class="label">Transmitància tèrmica</div>
+      </div>
+      <div class="hero-stat">
+        <div class="value">n50 &le;0,6 <sub>ach/h</sub></div>
+        <div class="label">Estanqueitat</div>
+      </div>
+      <div class="hero-stat">
+        <div class="value">-70%</div>
+        <div class="label">Estalvi energètic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     TABLE OF CONTENTS
+═══════════════════════════════════ -->
+<nav class="toc-nav" id="tocNav">
+  <ul>
+    <li><a href="#sistema-constructiu" data-section="sistema-constructiu">Sistema Constructiu</a></li>
+    <li><a href="#envolvant" data-section="envolvant">Envolvant Exterior</a></li>
+    <li><a href="#acabats" data-section="acabats">Acabats Interiors</a></li>
+    <li><a href="#installacions" data-section="installacions">Instal·lacions</a></li>
+    <li><a href="#cuina-banys" data-section="cuina-banys">Cuina i Banys</a></li>
+    <li><a href="#energia-solar" data-section="energia-solar">Energia Solar</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════
+     SISTEMA CONSTRUCTIU
+═══════════════════════════════════ -->
+<section class="section" id="sistema-constructiu">
+  <div class="container">
+    <div class="section-header fade-in">
+      <p class="section-label">01 — Sistema Constructiu</p>
+      <h2>Cada element, pensat per durar</h2>
+      <p>El sistema Eskimohaus combina fusta estructural, aïllament de cel·lulosa i tancaments d'alta prestació per aconseguir els estàndards Passivhaus.</p>
+    </div>
+
+    <div class="card-grid">
+
+      <!-- Card 1: Cimentació -->
+      <article class="card fade-in">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#002819" stroke-width="1.5">
+            <rect x="2" y="16" width="20" height="6" rx="1"/>
+            <rect x="4" y="10" width="16" height="6" rx="1"/>
+            <rect x="6" y="4" width="12" height="6" rx="1"/>
+          </svg>
+        </div>
+        <h3>Cimentació</h3>
+        <p class="card-desc">Llosa de cimentació amb aïllament inferior i morter autoanivellant. Màxima inèrcia tèrmica des de la base.</p>
+        <div class="card-spec">Inèrcia tèrmica optimitzada</div>
+        <br><br>
+        <button class="card-expand-btn" onclick="toggleDetail(this)">
+          Veure detall
+          <svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="card-detail">
+          <div class="card-detail-inner">
+            <ul>
+              <li>Llosa de formigó armat HA-25 amb aïllament XPS inferior</li>
+              <li>Morter autoanivellant per a terra radiant</li>
+              <li>Barrera de vapor i impermeabilització perimetral</li>
+              <li>Inèrcia tèrmica que estabilitza temperatures interiors</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Sistema Eskimohaus -->
+      <article class="card fade-in">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#002819" stroke-width="1.5">
+            <path d="M3 21V9l9-7 9 7v12"/>
+            <path d="M9 21V13h6v8"/>
+          </svg>
+        </div>
+        <h3>Sistema Eskimohaus</h3>
+        <p class="card-desc">Entramado lleuger de fusta C24, bigues GL24, panells OSB + Superpan i cel·lulosa insuflada.</p>
+        <div class="card-spec">Fusta C24 + GL24</div>
+        <br><br>
+        <button class="card-expand-btn" onclick="toggleDetail(this)">
+          Veure detall
+          <svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="card-detail">
+          <div class="card-detail-inner">
+            <ul>
+              <li>Estructura d'entramado lleuger amb fusta massissa C24</li>
+              <li>Bigues laminades encolades GL24 per a grans llums</li>
+              <li>Panells estructurals OSB/3 + Superpan (tancament interior)</li>
+              <li>Cel·lulosa insuflada (densitat 55-65 kg/m³) com a aïllament principal</li>
+              <li>Làmina d'estanqueïtat i làmina transpirable exterior</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Murs Verticals -->
+      <article class="card fade-in">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#002819" stroke-width="1.5">
+            <rect x="3" y="2" width="18" height="20" rx="1"/>
+            <line x1="3" y1="8" x2="21" y2="8"/>
+            <line x1="3" y1="14" x2="21" y2="14"/>
+            <line x1="12" y1="2" x2="12" y2="8"/>
+            <line x1="8" y1="8" x2="8" y2="14"/>
+            <line x1="16" y1="14" x2="16" y2="22"/>
+          </svg>
+        </div>
+        <h3>Murs Verticals</h3>
+        <p class="card-desc">115 mm d'espessor total amb múltiples capes per a màxim aïllament i estanqueïtat.</p>
+        <div class="card-spec">U 0,16 W/m²K</div>
+        <br><br>
+        <button class="card-expand-btn" onclick="toggleDetail(this)">
+          Veure detall
+          <svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="card-detail">
+          <div class="card-detail-inner">
+            <!-- Layer diagram -->
+            <div class="layer-diagram">
+              <div class="layer" style="--w:1;background:#d4a574"><span>Fusta</span></div>
+              <div class="layer" style="--w:1.2;background:#8b7355"><span>OSB</span></div>
+              <div class="layer" style="--w:4;background:#a8c090"><span>Cel·lulosa</span></div>
+              <div class="layer" style="--w:0.5;background:#6a9ec0"><span>Làmina transpirable</span></div>
+              <div class="layer" style="--w:2.5;background:#b0b0b0"><span>EPS 6cm</span></div>
+              <div class="layer" style="--w:1.5;background:#e8e0d0"><span>Trasdossat</span></div>
+            </div>
+            <ul>
+              <li>Estructura de fusta C24 (45 mm)</li>
+              <li>Panell OSB/3 (15 mm) — barrera de contrafibra</li>
+              <li>Cel·lulosa insuflada (145 mm) dins dels montants</li>
+              <li>Làmina transpirable i tallvent exterior</li>
+              <li>Aïllament EPS grafit exterior (60 mm)</li>
+              <li>Trasdossat interior amb espai tècnic per a instal·lacions</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Coberta i Forjats -->
+      <article class="card fade-in">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#002819" stroke-width="1.5">
+            <path d="M2 12L12 4l10 8"/>
+            <path d="M4 10v10h16V10"/>
+            <line x1="4" y1="15" x2="20" y2="15"/>
+          </svg>
+        </div>
+        <h3>Coberta i Forjats</h3>
+        <p class="card-desc">Bigues GL24 120x240mm, Superpan + OSB, cel·lulosa, càmera ventilada i impermeabilització.</p>
+        <div class="card-spec">Càmera ventilada</div>
+        <br><br>
+        <button class="card-expand-btn" onclick="toggleDetail(this)">
+          Veure detall
+          <svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="card-detail">
+          <div class="card-detail-inner">
+            <ul>
+              <li>Bigues laminades GL24 de 120 x 240 mm</li>
+              <li>Superpan + OSB/3 com a suport estructural</li>
+              <li>Cel·lulosa insuflada entre bigues (240 mm)</li>
+              <li>Càmera de ventilació per a eliminació d'humitat</li>
+              <li>Impermeabilització EPDM o làmina bituminosa</li>
+              <li>Acabat de teula o coberta plana segons projecte</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5: Finestres -->
+      <article class="card fade-in">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#002819" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="1"/>
+            <line x1="12" y1="3" x2="12" y2="21"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+          </svg>
+        </div>
+        <h3>Finestres</h3>
+        <p class="card-desc">Fusteries de fusta, PVC o mixtes. Triple junta d'estanqueïtat. Vidre 4/16/4 Low-E amb argó.</p>
+        <div class="card-spec">Uw 0,8–1,3 W/m²K</div>
+        <br><br>
+        <button class="card-expand-btn" onclick="toggleDetail(this)">
+          Veure detall
+          <svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="card-detail">
+          <div class="card-detail-inner">
+            <ul>
+              <li>Fusteries de fusta, PVC o mixta fusta-alumini</li>
+              <li>Triple junta d'estanqueïtat perimetral</li>
+              <li>Vidre doble 4/16/4 Low-E amb gas argó</li>
+              <li>Uw entre 0,8 i 1,3 W/m²K segons model</li>
+              <li>Persianes correderes o lames orientables opcionals</li>
+              <li>Instal·lació amb premarc aïllant i cinta d'estanqueïtat</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6: Tabics Interiors -->
+      <article class="card fade-in">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#002819" stroke-width="1.5">
+            <line x1="8" y1="3" x2="8" y2="21"/>
+            <line x1="16" y1="3" x2="16" y2="21"/>
+            <line x1="8" y1="8" x2="16" y2="8"/>
+            <line x1="8" y1="16" x2="16" y2="16"/>
+          </svg>
+        </div>
+        <h3>Tabics Interiors</h3>
+        <p class="card-desc">Llistons 65x45mm, OSB + guix laminat, espai tècnic per a instal·lacions.</p>
+        <div class="card-spec">Espai tècnic integrat</div>
+        <br><br>
+        <button class="card-expand-btn" onclick="toggleDetail(this)">
+          Veure detall
+          <svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="card-detail">
+          <div class="card-detail-inner">
+            <ul>
+              <li>Estructura de llistons de fusta de 65 x 45 mm</li>
+              <li>Panell OSB/3 d'un costat + guix laminat a l'altra</li>
+              <li>Espai tècnic interior per al pas d'instal·lacions</li>
+              <li>Aïllament acústic amb llana mineral o cel·lulosa</li>
+              <li>Possibilitat de tabics dobles per a zones humides</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     ENVOLVANT EXTERIOR
+═══════════════════════════════════ -->
+<section class="section section--dark" id="envolvant">
+  <div class="container">
+    <div class="section-header fade-in">
+      <p class="section-label">02 — Envolvant Exterior</p>
+      <h2>La pell de l'edifici</h2>
+      <p>Aïllament continu, sense ponts tèrmics. Tres opcions d'aïllament i quatre acabats exteriors.</p>
+    </div>
+
+    <!-- 5a. Aïllament Exterior -->
+    <h3 style="font-size:18px;font-weight:400;color:rgba(255,255,255,.7);margin-bottom:28px;">Aïllament Exterior</h3>
+
+    <div class="compare-grid">
+
+      <!-- EPS Grafit -->
+      <div class="compare-card fade-in">
+        <h3>EPS Grafit</h3>
+        <p class="spec-line">&lambda; <span class="spec-highlight">0,031–0,033 W/m·K</span></p>
+        <p class="spec-line">Espessors: 4–14 cm</p>
+        <p class="spec-line">Euroclasse E</p>
+        <div class="rating-bars">
+          <div class="rating-row"><span class="rating-label">Tèrmic</span><div class="rating-track"><div class="rating-fill" style="--fill:90%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Acústic</span><div class="rating-track"><div class="rating-fill" style="--fill:50%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Foc</span><div class="rating-track"><div class="rating-fill" style="--fill:30%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Sostenibilitat</span><div class="rating-track"><div class="rating-fill" style="--fill:45%"></div></div></div>
+        </div>
+      </div>
+
+      <!-- Llana de Roca -->
+      <div class="compare-card fade-in">
+        <h3>Llana de Roca</h3>
+        <p class="spec-line">Incombustible <span class="spec-highlight">A1</span></p>
+        <p class="spec-line">Acústic excel·lent</p>
+        <p class="spec-line">Espessors: 6–10 cm</p>
+        <div class="rating-bars">
+          <div class="rating-row"><span class="rating-label">Tèrmic</span><div class="rating-track"><div class="rating-fill" style="--fill:80%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Acústic</span><div class="rating-track"><div class="rating-fill" style="--fill:95%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Foc</span><div class="rating-track"><div class="rating-fill" style="--fill:100%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Sostenibilitat</span><div class="rating-track"><div class="rating-fill" style="--fill:60%"></div></div></div>
+        </div>
+      </div>
+
+      <!-- Suro Expandit -->
+      <div class="compare-card fade-in">
+        <h3>Suro Expandit</h3>
+        <p class="spec-line">100% vegetal, <span class="spec-highlight">CO₂ negatiu</span></p>
+        <p class="spec-line">Certificació A+</p>
+        <p class="spec-line">Espessors: 6–10 cm</p>
+        <div class="rating-bars">
+          <div class="rating-row"><span class="rating-label">Tèrmic</span><div class="rating-track"><div class="rating-fill" style="--fill:75%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Acústic</span><div class="rating-track"><div class="rating-fill" style="--fill:85%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Foc</span><div class="rating-track"><div class="rating-fill" style="--fill:65%"></div></div></div>
+          <div class="rating-row"><span class="rating-label">Sostenibilitat</span><div class="rating-track"><div class="rating-fill" style="--fill:100%"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 5b. Revestiment Exterior -->
+    <h3 style="font-size:18px;font-weight:400;color:rgba(255,255,255,.7);margin-top:56px;margin-bottom:28px;">Revestiment Exterior</h3>
+    <div class="rev-ext-grid">
+      <div class="compare-card fade-in">
+        <h3>SATE</h3>
+        <p class="ins-desc"><strong>Sistema d'Aïllament Tèrmic Exterior</strong></p>
+        <p class="ins-desc">Envolvant contínua adherida a l'estructura. Elimina ponts tèrmics. Acabat morter acrí­lic o siloxànic amb textures i colors personalitzables. Transpirabilitat conservada.</p>
+        <div class="rating-row"><span class="rating-label">Tèrmic</span><div class="rating-track"><div class="rating-fill" style="--fill:95%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Durabilitat</span><div class="rating-track"><div class="rating-fill" style="--fill:80%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Manteniment</span><div class="rating-track"><div class="rating-fill" style="--fill:70%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Estètica</span><div class="rating-track"><div class="rating-fill" style="--fill:75%"></div></div></div>
+      </div>
+      <div class="compare-card fade-in">
+        <h3>Faxada Ventilada CBPB</h3>
+        <p class="ins-desc"><strong>Panells ciment + fusta</strong></p>
+        <p class="ins-desc">Càmera de ventilació posterior que redueix càrregues tèrmiques a l'estiu. Textura natural amb matisos variables. Alta resistència a la humitat i agents biològics.</p>
+        <div class="rating-row"><span class="rating-label">Tèrmic</span><div class="rating-track"><div class="rating-fill" style="--fill:85%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Durabilitat</span><div class="rating-track"><div class="rating-fill" style="--fill:95%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Manteniment</span><div class="rating-track"><div class="rating-fill" style="--fill:90%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Estètica</span><div class="rating-track"><div class="rating-fill" style="--fill:85%"></div></div></div>
+      </div>
+      <div class="compare-card fade-in">
+        <h3>Fusta Natural</h3>
+        <p class="ins-desc"><strong>100% renovable · FSC</strong></p>
+        <p class="ins-desc">Regulador higroscòpic natural. Pàtina gris platejada amb el temps. Tractament autoclave o termotractat. Baixa petjada ambiental. Integració harmònica en entorns rurals i urbans.</p>
+        <div class="rating-row"><span class="rating-label">Tèrmic</span><div class="rating-track"><div class="rating-fill" style="--fill:75%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Durabilitat</span><div class="rating-track"><div class="rating-fill" style="--fill:70%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Manteniment</span><div class="rating-track"><div class="rating-fill" style="--fill:50%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Estètica</span><div class="rating-track"><div class="rating-fill" style="--fill:95%"></div></div></div>
+      </div>
+      <div class="compare-card fade-in">
+        <h3>Fusta Sintètica</h3>
+        <p class="ins-desc"><strong>Fibres vegetals + polímers reciclats</strong></p>
+        <p class="ins-desc">Sense deformacions, esquerdes ni decoloracions. Manteniment pràcticament nul — sense barnissos ni olis. Reciclable. Aspecte fusta amb durabilitat superior.</p>
+        <div class="rating-row"><span class="rating-label">Tèrmic</span><div class="rating-track"><div class="rating-fill" style="--fill:70%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Durabilitat</span><div class="rating-track"><div class="rating-fill" style="--fill:90%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Manteniment</span><div class="rating-track"><div class="rating-fill" style="--fill:100%"></div></div></div>
+        <div class="rating-row"><span class="rating-label">Estètica</span><div class="rating-track"><div class="rating-fill" style="--fill:80%"></div></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     ACABATS INTERIORS
+═══════════════════════════════════ -->
+<section class="section" id="acabats">
+  <div class="container">
+    <div class="section-header fade-in">
+      <p class="section-label">03 — Acabats Interiors</p>
+      <h2>L'espai que viuràs cada dia</h2>
+      <p>Materials saludables, acabats elegants i la flexibilitat per personalitzar cada racó.</p>
+    </div>
+
+    <div class="fade-in">
+
+      <!-- Revestiment Interior -->
+      <div class="accordion-item open">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>Revestiment Interior</h3>
+          <div class="accordion-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#002819" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Quatre opcions de revestiment interior segons les teves necessitats estètiques i tècniques:</p>
+            <div class="option-grid">
+              <div class="option-card">
+                <div class="opt-title">Cartró Guix (Pladur)</div>
+                <span class="opt-spec">Estàndard inclòs</span>
+                <div class="opt-desc">Placa de guix laminat amb nucli de guix i dues capes de cartró. Superfície llisa i contínua per a pintura o revestiments. Versions hidrófugues (H1) per a banys i cuines. Comportament favorable al foc gràcies a l'aigua cristal·litzada del guix.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Taulell Tricapa</div>
+                <span class="opt-spec">Fusta vista</span>
+                <div class="opt-desc">Tres capes de fusta massissa encolades en direccions alternes per a màxima estabilitat. Superfície natural i càlida d'avet. Alta rigidesa i durabilitat. Ideal per a revestiments de parets, sostres i mobiliari fix integrat.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Fermacell</div>
+                <span class="opt-spec">Alta resistència</span>
+                <div class="opt-desc">Placa de fibra de guix-paper d'alta densitat. Guix natural + fibres de paper reciclat, sense conglomerants sintètics. Ideal per a zones humides (cuines, banys). Resistència al foc, impactes i humitat superior al pladur convencional.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">OSB</div>
+                <span class="opt-spec">Estètica industrial</span>
+                <div class="opt-desc">Panell de virutes de fusta orientades en capes creuades. Gran rigidesa i estabilitat dimensional. Estructura visible que aporta caràcter industrial. Prestacions tèrmiques i acústiques adequades per a interiors.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portes -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>Portes Interiors</h3>
+          <div class="accordion-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#002819" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Portes de fusta massissa lacades en blanc o roure mallat. Altura 211 cm, amples 62/72/82 cm. Marc i tapajuntes del mateix acabat.</p>
+            <div class="option-grid">
+              <div class="option-card">
+                <div class="opt-title">Model 7.000</div>
+                <span class="opt-spec">Lacat blanc</span>
+                <div class="opt-desc">Porta llisa minimalista. Hoja de fusta massissa lacada en blanc mate. Marc i tapajuntes a joc per a una integració visual total. Acabat net i contemporani.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Model 8.500</div>
+                <span class="opt-spec">Roure mallat</span>
+                <div class="opt-desc">Acabat de roure amb textura visible. Calidesa natural. Marc i tapajuntes del mateix acabat. Ideal per combinar amb taulell tricapa i sòl de fusta.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Pom ARA · Pom DRACO</div>
+                <span class="opt-spec">Níquel mate · Antracita</span>
+                <div class="opt-desc">Disseny ergonòmic modern en acer inoxidable. ARA en níquel mate, DRACO en acabat antracita amb perfil angular contemporani. Resistència i durabilitat garantides.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Pom VELA · Pom BACO</div>
+                <span class="opt-spec">Negre mate</span>
+                <div class="opt-desc">VELA amb línia recta i acabat negre mate minimalista. BACO amb forma arrodonida en negre mate. Ambdós en acer, seleccionats per durabilitat i ergonomia.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paviments -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>Paviments</h3>
+          <div class="accordion-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#002819" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Sòl laminat d'alta densitat amb textures naturals. Instal·lació flotant amb ancoratges de precisió. Compatible amb terra radiant. Sòcol a joc inclòs.</p>
+            <div class="option-grid">
+              <div class="option-card">
+                <div class="opt-title">Parador</div>
+                <span class="opt-spec">AC4 · Terra radiant</span>
+                <div class="opt-desc">Sòl laminat d'alta densitat amb textures naturals de roure. Fabricant alemany de referència amb alts estàndards de qualitat i sostenibilitat. Àmplia gamma de colors i acabats. Sòcol a joc inclòs.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Classen</div>
+                <span class="opt-spec">AC5 · Alt trànsit</span>
+                <div class="opt-desc">Sòl laminat premium per a zones d'alt trànsit. Resistència superior al ratllat i al desgast quotidià. Dissenys contemporanis amb imitacions de fusta d'alta fidelitat. Sòcol a joc inclòs.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mecanismes elèctrics -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>Mecanismes Elèctrics</h3>
+          <div class="accordion-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#002819" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Potència estàndard 5,75 kW (ampliable a 9,5 kW). Mecanismes Simon 82, línia de disseny net i funcional conforme al REBT.</p>
+            <div class="option-grid">
+              <div class="option-card">
+                <div class="opt-title">Simon 82 Blanc</div>
+                <span class="opt-spec">Estàndard inclòs</span>
+                <div class="opt-desc">Línia neta de disseny neutre. Encaixa amb ambients moderns, senzills i funcionals. Mecanismes endolls, interruptors, commutadors i creuaments inclosos.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Simon 82 Ivory</div>
+                <span class="opt-spec">Opcional</span>
+                <div class="opt-desc">To càlid que complementa perfectament acabats de fusta natural i tricapa. Mateixa qualitat mecànica que el blanc estàndard.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Simon 82 Graphite</div>
+                <span class="opt-spec">Opcional</span>
+                <div class="opt-desc">Acabat fosc i sofisticat. Genera contrast elegant amb parets clares. Ideal per a estils contemporanis i minimalistes.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Simon 82 Metal</div>
+                <span class="opt-spec">Premium</span>
+                <div class="opt-desc">Acabat metàl·lic en alumini o acer. Tacte fred i premium. Per a interiors d'alt nivell on cada detall compta.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Simon 82 Detail</div>
+                <span class="opt-spec">Premium</span>
+                <div class="opt-desc">Marc interior visible amb doble textura. Nivell superior de refinament estètic. Coherència total amb interiors exigents.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Telecomunicacions -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>Telecomunicacions</h3>
+          <div class="accordion-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#002819" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Instal·lació ICT completa conforme al reglament d'infraestructures comunes de telecomunicacions. Preparada per a domòtica, seguretat i xarxes WiFi d'alt rendiment.</p>
+            <div class="option-grid">
+              <div class="option-card">
+                <div class="opt-title">Xarxa de dades</div>
+                <span class="opt-spec">Cat.6 Gigabit</span>
+                <div class="opt-desc">Preses RJ45 Cat.6 a totes les estances principals. Switch centralitzat de 8 ports al PAU metàl·lic. Velocitats estables i latència mínima per a treball digital i oci.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">TV + FM</div>
+                <span class="opt-spec">Antena UHF</span>
+                <div class="opt-desc">Antena d'acer galvanitzat i UHF BOSS. Mesclador TV-FM i amplificador per a distribució òptima. Bases de presa RTV-SAT a diversos punts de la vivenda.</div>
+              </div>
+              <div class="option-card">
+                <div class="opt-title">Videoporter Fermax VEO</div>
+                <span class="opt-spec">Monitor color WiFi</span>
+                <div class="opt-desc">Comunicació digital amb control d'accés. Pantalla color. Obertura elèctrica de porta. Preparat per a integració amb domòtica i sistemes de seguretat avançats.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Escales -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <h3>Escales</h3>
+          <div class="accordion-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#002819" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Quatre combinacions d'acabat per a petjada i frontal:</p>
+            <div class="stair-grid">
+              <div class="stair-option">
+                <div class="stair-visual">
+                  <div class="stair-step" style="width:18px;height:20px;background:#d4a574;"></div>
+                  <div class="stair-step" style="width:18px;height:32px;background:#d4a574;"></div>
+                  <div class="stair-step" style="width:18px;height:44px;background:#d4a574;"></div>
+                  <div class="stair-step" style="width:18px;height:56px;background:#e8e0d0;"></div>
+                </div>
+                <p>Tricapa + Guix laminat</p>
+              </div>
+              <div class="stair-option">
+                <div class="stair-visual">
+                  <div class="stair-step" style="width:18px;height:20px;background:#d4a574;"></div>
+                  <div class="stair-step" style="width:18px;height:32px;background:#d4a574;"></div>
+                  <div class="stair-step" style="width:18px;height:44px;background:#d4a574;"></div>
+                  <div class="stair-step" style="width:18px;height:56px;background:#d4a574;"></div>
+                </div>
+                <p>Tricapa + Tricapa</p>
+              </div>
+              <div class="stair-option">
+                <div class="stair-visual">
+                  <div class="stair-step" style="width:18px;height:20px;background:#b09070;"></div>
+                  <div class="stair-step" style="width:18px;height:32px;background:#b09070;"></div>
+                  <div class="stair-step" style="width:18px;height:44px;background:#b09070;"></div>
+                  <div class="stair-step" style="width:18px;height:56px;background:#e8e0d0;"></div>
+                </div>
+                <p>Laminat + Guix laminat</p>
+              </div>
+              <div class="stair-option">
+                <div class="stair-visual">
+                  <div class="stair-step" style="width:18px;height:20px;background:#b09070;"></div>
+                  <div class="stair-step" style="width:18px;height:32px;background:#b09070;"></div>
+                  <div class="stair-step" style="width:18px;height:44px;background:#b09070;"></div>
+                  <div class="stair-step" style="width:18px;height:56px;background:#b09070;"></div>
+                </div>
+                <p>Laminat + Laminat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     INSTAL·LACIONS
+═══════════════════════════════════ -->
+<section class="section section--alt" id="installacions">
+  <div class="container">
+    <div class="section-header fade-in">
+      <p class="section-label">04 — Instal·lacions</p>
+      <h2>Confort sense compromís</h2>
+      <p>Ventilació controlada i climatització eficient per a un ambient saludable tot l'any.</p>
+    </div>
+
+    <!-- 7a. Ventilació -->
+    <h3 style="font-size:18px;font-weight:400;color:var(--muted);margin-bottom:28px;">Ventilació Mecànica</h3>
+
+    <div class="vent-grid">
+
+      <div class="vent-card fade-in">
+        <h3>Flux Simple</h3>
+        <div class="vent-model">Zehnder ComfoFan S</div>
+        <p>Extracció contínua del aire viciat de zones humides (banys, cuina). Genera una lleugera depressió que afavoreix l'entrada natural d'aire fresc per rejilles a estances seques.</p>
+        <div class="vent-badge">Baix consum</div>
+        <ul class="vent-specs">
+          <li>Caudal autorregulable fix i estable</li>
+          <li>Versió Hygro amb regulació per humitat</li>
+          <li>Conductes Zehnder ComfoFresh</li>
+          <li>Rejilles a fusteries o murs</li>
+          <li>Baix consum elèctric</li>
+          <li>Manteniment mínim</li>
+        </ul>
+        <div class="airflow">
+          <span class="airflow-label supply-label">Aire fresc</span>
+          <div class="airflow-arrow supply"></div>
+          <span class="airflow-label exhaust-label">Aire viciat</span>
+        </div>
+      </div>
+
+      <div class="vent-card fade-in">
+        <h3>Doble Flux</h3>
+        <div class="vent-model">Zehnder ComfoAir Q 350/450</div>
+        <p>Intercanviador d'alta eficiència que recupera l'energia del aire extret. L'aire fresc es precalenta o prerefredda, reduint la demanda energètica. Dues xarxes independents de conductes.</p>
+        <div class="vent-badge">Certificació Passivhaus</div>
+        <ul class="vent-specs">
+          <li>Recuperació de calor fins al 96%</li>
+          <li>Bypass modulable al 100%</li>
+          <li>Equilibri automàtic de fluxos</li>
+          <li>Filtres F7 d'alta eficiència antial·lèrgics</li>
+          <li>Confort adaptatiu — caudal dinàmic</li>
+          <li>Nivell sonor molt baix</li>
+          <li>Compatible amb free-cooling estival</li>
+        </ul>
+        <div class="airflow">
+          <span class="airflow-label supply-label">Aire fresc temperat</span>
+          <div class="airflow-arrow supply"></div>
+          <span class="airflow-label exhaust-label">Aire viciat (calor recuperada)</span>
+          <div class="airflow-arrow exhaust"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 7b. Climatització -->
+    <h3 style="font-size:18px;font-weight:400;color:var(--muted);margin-top:60px;margin-bottom:28px;">Climatització</h3>
+
+    <div class="clima-grid">
+
+      <div class="clima-card fade-in">
+        <h4>Geotèrmia</h4>
+        <span class="clima-spec">COP &gt;4 · Font renovable</span>
+        <p>Energia tèrmica del subsòl mitjançant circuit tancat. Calefacció, refrigeració i ACS amb un consum molt reduït. Funcionament estable tot l'any amb vida útil prolongada i cost operatiu baix.</p>
+        <ul class="vent-specs">
+          <li>Calefacció + refrigeració + ACS</li>
+          <li>Independent de temperatura exterior</li>
+          <li>Vida útil prolongada</li>
+        </ul>
+      </div>
+
+      <div class="clima-card fade-in">
+        <h4>Estufa de Pellets</h4>
+        <span class="clima-spec">Rendiment &gt;90%</span>
+        <p>Biomassa de pellets de fusta compactada. Calor uniforme i confortable amb emissions reduïdes. Autonomia i facilitat d'ús. Combustible local, econòmic i renovable.</p>
+        <ul class="vent-specs">
+          <li>Biomassa local i renovable</li>
+          <li>Estètica amb flama real</li>
+          <li>Alta autonomia</li>
+        </ul>
+      </div>
+
+      <div class="clima-card fade-in">
+        <h4>Aerotèrmia Panasonic Aquarea</h4>
+        <span class="clima-spec">Tot-en-un · Classe A</span>
+        <p>Bomba de calor aire-aigua d'alta eficiència. Dipòsit d'acer inoxidable. Compatible amb terra radiant, radiadors de baixa temperatura i fancoils. Control remot HPM.</p>
+        <ul class="vent-specs">
+          <li>Calefacció + refrigeració + ACS</li>
+          <li>Impulsió fins a 55 °C</li>
+          <li>Baix nivell sonor</li>
+          <li>Disseny compacte</li>
+        </ul>
+      </div>
+
+      <div class="clima-card fade-in">
+        <h4>Expansió Directa Kosner / Aquanova</h4>
+        <span class="clima-spec">8 kW · Sense circuit hidràulic</span>
+        <p>Climatització per gas refrigerant sense necessitat de circuit d'aigua. Resposta tèrmica immediata. Instal·lació simplificada. Nivell sonor reduït i integració senzilla.</p>
+        <ul class="vent-specs">
+          <li>Resposta tèrmica immediata</li>
+          <li>Instal·lació simplificada</li>
+          <li>Conductes o split</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CUINA I BANYS
+═══════════════════════════════════ -->
+<section class="section" id="cuina-banys">
+  <div class="container">
+    <div class="section-header fade-in">
+      <p class="section-label">05 — Cuina i Banys</p>
+      <h2>Espais funcionals, disseny cuidat</h2>
+      <p>Equipament complet amb marques de referència. Personalització segons les teves necessitats.</p>
+    </div>
+
+    <div class="kitchen-bath-grid">
+
+      <div class="kb-block fade-in">
+        <h3>Cuina Estàndard</h3>
+        <div class="kb-price">~7.500 &euro;</div>
+        <p>Mobles blancs ultramate amb tiradors integrats. Encimera tricapa de fusta natural. Pica doble i griferia Grohe Eurosmart.</p>
+        <ul class="kb-list">
+          <li>Moble baix de 3 metres lineals</li>
+          <li>Moble alt de 2,40 metres lineals</li>
+          <li>Moble columna per a forn i microones</li>
+          <li>Encimera tricapa d'avet 40 mm</li>
+          <li>Pica doble acer inoxidable</li>
+          <li>Griferia Grohe Eurosmart extraïble</li>
+          <li>Il·luminació LED sota moble alt</li>
+          <li>Espai preparat per a rentavaixelles</li>
+        </ul>
+      </div>
+
+      <div class="kb-block fade-in">
+        <h3>Bany Estàndard</h3>
+        <div class="kb-price">~4.250 &euro; + 35 &euro;/m² ceràmica</div>
+        <p>Revestiment ceràmic a zona de dutxa, moble lavabo, mirall i griferia de qualitat. Plat de dutxa extraplà.</p>
+        <ul class="kb-list">
+          <li>Griferia Hansgrohe Focus o Talis</li>
+          <li>Opció: Time Male Negre (estètica industrial)</li>
+          <li>Plat de dutxa Hidrobox extraplà</li>
+          <li>Inodor Roca The Gap suspes</li>
+          <li>Mampara Canales corredora</li>
+          <li>Moble lavabo 80 cm + mirall retroil·luminat</li>
+          <li>Revestiment ceràmic fins a 2,40 m zona dutxa</li>
+          <li>Accessoris acer inoxidable</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     ENERGIA SOLAR
+═══════════════════════════════════ -->
+<section class="section section--dark solar-section" id="energia-solar">
+  <div class="container">
+
+    <div class="solar-card fade-in">
+
+      <div class="solar-card__graphic">
+        <svg class="sun-panel-svg" viewBox="0 0 200 200" width="200" height="200">
+          <g class="sun-rays">
+            <circle cx="100" cy="50" r="24" fill="none" stroke="rgba(149,187,165,.3)" stroke-width="1.5"/>
+            <circle cx="100" cy="50" r="16" fill="rgba(149,187,165,.15)"/>
+            <circle cx="100" cy="50" r="8" fill="var(--accent)"/>
+            <line x1="100" y1="18" x2="100" y2="8" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="100" y1="82" x2="100" y2="92" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="68" y1="50" x2="58" y2="50" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="132" y1="50" x2="142" y2="50" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="77" y1="27" x2="70" y2="20" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="123" y1="73" x2="130" y2="80" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="123" y1="27" x2="130" y2="20" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="77" y1="73" x2="70" y2="80" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+          <line class="energy-line" x1="100" y1="80" x2="80" y2="120" stroke="var(--accent)" stroke-width="1.5" opacity=".6"/>
+          <line class="energy-line" x1="100" y1="80" x2="120" y2="120" stroke="var(--accent)" stroke-width="1.5" opacity=".6" style="animation-delay:.3s"/>
+          <g transform="translate(50, 120)">
+            <rect x="0" y="0" width="100" height="50" rx="3" fill="rgba(149,187,165,.12)" stroke="var(--accent)" stroke-width="1"/>
+            <line x1="0" y1="25" x2="100" y2="25" stroke="var(--accent)" stroke-width=".5" opacity=".5"/>
+            <line x1="25" y1="0" x2="25" y2="50" stroke="var(--accent)" stroke-width=".5" opacity=".5"/>
+            <line x1="50" y1="0" x2="50" y2="50" stroke="var(--accent)" stroke-width=".5" opacity=".5"/>
+            <line x1="75" y1="0" x2="75" y2="50" stroke="var(--accent)" stroke-width=".5" opacity=".5"/>
+          </g>
+          <line x1="100" y1="170" x2="100" y2="185" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+          <line x1="80" y1="185" x2="120" y2="185" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="solar-card__body">
+        <p class="solar-card__label">06 — Energia Solar</p>
+        <h2 class="solar-card__title">Autoconsum fotovoltaic</h2>
+        <p class="solar-card__desc">Genera la teva pròpia energia. Instal·lació fotovoltaica dimensionada al teu projecte amb assessorament personalitzat, estudi d'orientació i cobertura solar inclòs.</p>
+
+        <div class="solar-card__stats">
+          <div>
+            <div class="solar-card__stat-num">~4.500</div>
+            <div class="solar-card__stat-unit">kWh / any generats</div>
+          </div>
+          <div>
+            <div class="solar-card__stat-num">~2,1</div>
+            <div class="solar-card__stat-unit">t CO₂ evitades / any</div>
+          </div>
+          <div>
+            <div class="solar-card__stat-num">5–7</div>
+            <div class="solar-card__stat-unit">anys d'amortització</div>
+          </div>
+        </div>
+
+        <div class="solar-card__benefits">
+          <div class="solar-card__benefit">Reducció de factura elèctrica</div>
+          <div class="solar-card__benefit">0 emissions CO₂</div>
+          <div class="solar-card__benefit">Autonomia energètica fins al 70%</div>
+          <div class="solar-card__benefit">Assessorament personalitzat</div>
+          <div class="solar-card__benefit">Dimensionat òptim inclòs</div>
+          <div class="solar-card__benefit">Compatible amb bateries</div>
+        </div>
+
+        <p class="solar-card__cta-note">Assessorament energètic + dimensionat inclòs al pressupost</p>
+        <a href="pressupost.html" class="cta-btn">
+          Configurar pressupost
+          <svg width="14" height="12" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CTA
+═══════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ja coneixes les nostres qualitats. Ara, configura el teu pressupost.</h2>
+    <p>Personalitza cada detall i rep una estimació en minuts.</p>
+    <a href="pressupost.html" class="cta-btn">
+      Configurar pressupost
+      <svg width="14" height="12" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer id="contacte">
+  <div class="container">
+    <div class="footer__content__info color-white">
+
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="nosaltres.html">Qui som</a></li>
+          <li><a href="projectes.html">Projectes</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacte</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer__col-title">Serveis</p>
+        <ul>
+          <li><a href="construccio.html">Construcció Residencial</a></li>
+          <li><a href="promocio.html">Promoció Immobiliària</a></li>
+          <li><a href="rehabilitacio.html">Rehabilitació Energètica</a></li>
+          <li><a href="construccio.html">Obra Nova</a></li>
+          <li><a href="construccio.html">Reformes Integrals</a></li>
+          <li><a href="rehabilitacio.html">Eficiència Energètica</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer__col-title">Oficines</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 935 90 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREU</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+
+      <div class="footer__newsletter">
+        <p class="footer__col-title" style="font-size:18px;font-weight:400;margin-bottom:20px;">Newsletter</p>
+        <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles. Subscriu-te.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="El teu email">
+          <button type="submit">
+            <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
+          </button>
+        </div>
+        <div class="footer__rrss">
+          <p>Segueix-nos</p>
+          <div class="rrss__links">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      <p>Copyright &copy; 2025 PAPIK SL – Tots els drets reservats<br>papik.cat</p>
+      <div>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);margin-right:20px;">Avís Legal</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);">Política de Privacitat</a>
+      </div>
+      <button class="btn-up" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        Amunt
+        <svg width="11" height="12" viewBox="0 0 10.89 12.447"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" transform="translate(0 12.447) rotate(-90)" fill="#fff"/></svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════ -->
+<script src="js/header.js" defer></script>
+<script src="js/motion.js" defer></script>
+<script src="cursor.js"></script>
+
+<script>
+/* TOC: highlight current section */
+(function(){
+  var tocLinks = document.querySelectorAll('.toc-nav a[data-section]');
+  var sections = Array.from(tocLinks).map(function(a){ return document.getElementById(a.dataset.section); }).filter(Boolean);
+  function update() {
+    var y = window.scrollY + 120;
+    var current = null;
+    sections.forEach(function(s, i){
+      if (s.offsetTop <= y) current = i;
+    });
+    tocLinks.forEach(function(a){ a.classList.remove('is-active'); });
+    if (current !== null) tocLinks[current].classList.add('is-active');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+  document.querySelectorAll('.fade-in').forEach(function(el){ el.classList.add('is-visible'); });
+})();
+</script>
+  <script src="/js/cookie-banner.js" defer></script>
+  <script src="/js/forms.js" defer></script>
+
+</body>
+</html>

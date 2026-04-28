@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why do you breathe better in a Passivhaus home? | PAPIK</title>
+  <meta name="description" content="A Passivhaus dwelling delivers clean, filtered air at the right temperature thanks to heat recovery ventilation (HRV). Why it is needed, how it works and what maintenance it requires.">
+
+  <link rel="canonical" href="https://papik.cat/en/article-passivhaus-ventilation">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-ventilacio-passivhaus">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-ventilacion-passivhaus">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/article-passivhaus-ventilation">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-ventilacio-passivhaus">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Why do you breathe better in a Passivhaus home? | PAPIK">
+  <meta property="og:description" content="A Passivhaus dwelling delivers clean, filtered air at the right temperature thanks to heat recovery ventilation (HRV). Why it is needed, how it works and what maintenance it requires.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/en/article-passivhaus-ventilation">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why do you breathe better in a Passivhaus home? | PAPIK">
+  <meta name="twitter:description" content="A Passivhaus dwelling delivers clean, filtered air at the right temperature thanks to heat recovery ventilation (HRV). Why it is needed, how it works and what maintenance it requires.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why do you breathe better in a Passivhaus home? | PAPIK",
+    "description": "A Passivhaus dwelling delivers clean, filtered air at the right temperature thanks to heat recovery ventilation (HRV). Why it is needed, how it works and what maintenance it requires.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://papik.cat/en/article-passivhaus-ventilation"
+    },
+    "articleSection": "Passivhaus Technology",
+    "wordCount": "2008",
+    "inLanguage": "en",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Home",
+        "item": "https://papik.cat/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Why do you breathe better in a Passivhaus home?"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="../index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/article-ventilacio-passivhaus">CA</option>
+          <option value="https://papik.cat/es/article-ventilacion-passivhaus">ES</option>
+          <option value="https://papik.cat/en/article-passivhaus-ventilation" selected>EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep">·</span>
+        <span>Why do you breathe better in a Passivhaus home?</span>
+      </nav>
+    <h1 class="hero__title">Why do you breathe better in a Passivhaus home?</h1>
+    <p class="hero__subtitle">A Passivhaus dwelling delivers clean, filtered air at the right temperature thanks to heat recovery ventilation (HRV). Why it is needed, how it works and what maintenance it requires.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>The real problem: indoor air quality</h2>
+<p>We spend roughly 90% of our time in indoor spaces, and the quality of the air we breathe in those spaces largely determines the quality of our rest, our cognitive performance and our respiratory health. According to the World Health Organization, the indoor air of a conventional dwelling can be between two and five times more polluted than outdoor air, even in urban environments with heavy traffic. Indoor Air Quality (IAQ) is a meaningful indicator that rarely forms part of a buyer's decision but measurably affects the daily life of the occupants.</p>
+<p>The sources of indoor pollution are many and often invisible to the occupant. They include volatile organic compounds emitted by furniture, paints, cleaning products and synthetic finishes; dust particles and mites accumulated in textiles and suspended in the air; excess humidity that fosters mould growth and material degradation; and the CO₂ that we exhale, which in poorly ventilated spaces builds up to levels that affect concentration, sleep quality and the general sense of morning fatigue.</p>
+<p>The traditional solution, opening windows, presents an obvious energy contradiction. When you ventilate by natural opening, you lose the energy invested in conditioning the space: in winter, the warm air escapes; in summer, the warm air outside enters. The result is a constant trade-off between health and efficiency that most households resolve by ventilating little and badly, with windows closed for most of the day and opened only sporadically, often at moments when outdoor comfort is not optimal either.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Why HRV is needed when the envelope is airtight</h2>
+<p>The Passivhaus standard requires airtightness verified with a blower-door test at an n50 value below 0.6 h⁻¹, which makes it roughly twenty times more airtight than a conventional build. This airtightness is what allows the house to retain thermal energy and avoid uncontrolled infiltration, but at the same time it eliminates the spontaneous air renewal that occurs through the cracks and joints of a standard build.</p>
+<p>It is at this point that heat recovery ventilation (HRV) ceases to be an add-on and becomes a structural condition. An airtight dwelling without HRV builds up CO₂, humidity and pollutants within hours, which is why the Passivhaus standard and its retrofit variant EnerPHit incorporate HRV as a mandatory part of the system. The logic is simple: if you block the uncontrolled air leakage, you must reintroduce a controlled flow of renewed air that keeps indoor conditions within healthy parameters.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>How the system works</h2>
+<p>HRV operates continuously and automatically. One fan extracts stale air from the wet rooms, that is kitchen, bathrooms and laundry, while another supplies fresh, filtered air to the dry rooms, that is bedrooms, living room and study. Between the two streams, a high-efficiency heat exchanger transfers the energy from the outgoing air to the incoming air without the two streams ever mixing.</p>
+<p>Typical recovery efficiency sits between 85% and 92% depending on the system used. In the case of the Zehnder ComfoAir Q350, one of the units PAPIK routinely installs on its projects, the recovery rate reaches 96%. The fresh air entering the dwelling is preheated in winter, or precooled in summer, by the energy of the outgoing air, with practically negligible additional energy cost for the user. The operational result is renewed air at room temperature twenty-four hours a day.</p>
+<p>The F7 filters incorporated into the system retain fine particles, pollen, mould spores and suspended dust with an efficiency above 90%, which significantly improves the quality of life of people with allergies or asthma. Operation is practically inaudible: the sound level sits below 25 dB, lower than the background hum of a library.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>What the sensors measure and why it matters</h2>
+<p>In modern Passivhaus dwellings, the CO₂, humidity and temperature sensors distributed across the spaces feed the ventilation management system, which adjusts the airflow according to actual occupancy and the ambient conditions of each moment. This real-time control is what guarantees that the indoor air quality stays within healthy parameters without user intervention.</p>
+<blockquote><p>In our homes, CO₂ sensors register levels below 800 ppm constantly, without anyone having to open a window or even think about it. That is what it means to automate well-being.</p></blockquote>
+<p>For reference, a conventional meeting room can exceed 1,500 ppm of CO₂ in less than an hour with four people, a value associated with fatigue, loss of concentration and worsened nocturnal rest when the same situation occurs in the bedroom. A correctly sized HRV holds the values steady at around 600 to 800 ppm continuously.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Benefits observed from the first day</h2>
+<p>People who move into a dwelling with HRV typically describe an immediate sense of freshness and ambient lightness. There are no stagnant odours, humidity is held within healthy values throughout the year and the temperature is homogeneous across all rooms, without the typical differences between north and south-facing rooms in a conventional build.</p>
+<p>From a health perspective, the benefits are well documented. They include a reduction in allergy episodes, improved sleep quality, fewer respiratory problems and a decline in symptoms associated with poor ventilation in sensitive individuals. For families with young children or older people, these factors take on particular relevance. At K-Valld'Or, one of our recent works, a family with an asthmatic child reported a significant reduction in respiratory episodes during the first year in the dwelling.</p>
+<p>Energy savings are the other underlying benefit. By eliminating the need to open windows for ventilation, the system avoids heat losses in winter and warm air ingress in summer. The heat recovery unit captures up to 96% of the outgoing air's energy, so the dwelling's climate control runs at a much higher efficiency than any conventional house, which translates into a reduced annual energy bill and lower dependence on fossil sources.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Maintenance: simple and affordable</h2>
+<p>One of the most common client questions concerns the maintenance of the HRV system. The reality is that it is much simpler than most people imagine. The F7 filters need to be replaced every six to twelve months depending on the environment, with a slightly higher frequency in areas with heavy pollen or suspended dust. Replacement is a five-minute operation that anyone can perform, without special tools and without a service call.</p>
+<p>The annual cost of the filters sits between 60 and 100 euros depending on the unit model. Beyond the filters, an annual technical inspection is recommended, including cleaning of the heat exchanger and verification of airflow rates. Compared with the maintenance of a conventional gas boiler, the cost is similar or lower, with the advantage that there is no combustion, no emissions and no risks associated with combustion products.</p>
+<p>After more than 120 dwellings delivered, PAPIK's experience confirms that well-installed HRV systems run reliably for decades. The key lies in the quality of the initial installation: rigid ducts, properly insulated, sized according to project and laid with the right slopes to facilitate condensate drainage. PAPIK routinely uses Zehnder for its long-term reliability and Maico for certain configurations, both European benchmarks in residential HRV.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>How PAPIK integrates it into the Eskimohaus® system</h2>
+<p>PAPIK's Eskimohaus® construction system incorporates HRV as a structural element of the project, not as an add-on bolted on after the fact. Duct planning is done at the architectural design stage and is integrated with the rest of the key Passivhaus technologies that we cover in the article on <a href="/en/article-passivhaus-technologies">key Passivhaus technologies</a>: continuous insulation, airtightness verified with a blower-door test, triple-glazed windows and integrated home automation.</p>
+<p>The main unit is typically located in a technical zone that is accessible for maintenance, with rigid ducts running through floor slabs or false ceilings depending on the geometry of the build. The airtightness of the service penetrations is resolved with dedicated adhesive tapes that maintain the continuity of the envelope, a requirement verified with the post-build blower-door test before the house is handed over to the client.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>What if I want to open the windows?</h2>
+<p>This is, without doubt, the question we receive most often. The answer is straightforward: of course you can open the windows. A Passivhaus home is not a hermetic or sealed space from a functional standpoint; it is a space that does not need its windows to be opened in order to have impeccable indoor air. The difference is subtle but fundamental: you are not obliged to do it, but you are entirely free to do so.</p>
+<p>On a spring afternoon with a pleasant breeze, opening the windows is a pleasure no one wants to give up. In fact, in summer, natural night-time ventilation through windows is a strategy that complements HRV beautifully in a Mediterranean climate: you take advantage of the cool night to lower the building's structural mass, and during the day the mechanical system maintains air quality without introducing outdoor heat. Passivhaus construction, far from forbidding it, makes the most of its thermal benefit.</p>
+<p>What changes is that during winter nights, working hours, days of intense pollination or summer heatwaves, the dwelling ventilates itself impeccably. The peace of mind of knowing that your home is breathing for you, twenty-four hours a day, is a comfort that, once experienced, becomes difficult to give up.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Frequently asked questions</h2>
+<h3>Do you need Passivhaus certification to enjoy good HRV?</h3>
+<p>No. HRV delivers health and energy value regardless of formal certification. Passivhaus certification from the Darmstadt Institute is an additional decision for the client that adds processing cost but provides third-party validation of the envelope as a whole.</p>
+<h3>Can HRV be retrofitted?</h3>
+<p>Yes. Retrofitting HRV is common on EnerPHit projects (Passivhaus for retrofit). It requires duct planning and proper placement of the main unit during the design phase. PAPIK applies it routinely on full retrofit works and on new-build <a href="/en/construction">residential construction</a> projects.</p>
+<h3>Is the system noisy?</h3>
+<p>Not perceptibly so to the user. The Zehnder and Maico units installed by PAPIK run below 25 dB in normal mode, a value lower than the background noise of a library.</p>
+<h3>Is the electrical consumption of HRV high?</h3>
+<p>No. The consumption of a properly sized residential HRV is comparable to that of a small appliance running continuously. The overall energy balance is always positive, since the energy recovered from the outgoing air more than offsets the consumption of the fans.</p>
+<h3>Should I switch off the HRV when no one is at home?</h3>
+<p>No. The system is sized to operate twenty-four hours a day. When no one is at home, the system automatically modulates the airflow to a minimum regime that maintains air quality and prevents humidity issues without unnecessary consumption.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CLOSING</h2>
+<p>If you want to explore how to integrate heat recovery ventilation into your project, an indicative technical assessment makes it possible to define the right system for the specific case, taking into account the dwelling's geometry, the projected occupancy and the local climate.</p>
+<p>Configure the budget for my project: papik.cat/en/budget.</p>
+<p><strong>Read also:</strong></p>
+<p><a href="/en/article-passivhaus-technologies">Five key Passivhaus technologies for 2026</a></p>
+<p><a href="/en/article-passivhaus-principles">The five Passivhaus principles</a></p>
+<p><a href="/en/article-passivhaus-innovations">Passivhaus innovations 2026</a></p>
+<p><a href="/en/construction">PAPIK residential construction</a></p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>#</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../about.html">About us</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="#contacte">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Services</p>
+        <ul>
+          <li><a href="../construction.html">Residential Construction</a></li>
+          <li><a href="../development.html">Real Estate Development</a></li>
+          <li><a href="../retrofit.html">Energy Retrofit</a></li>
+          <li><a href="../wealth.html">Wealth · Joint Investment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Offices</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>EMAIL</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Follow PAPIK: projects, energy retrofit and available subsidies.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Your email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Follow us</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – All rights reserved · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="../legal-notice.html">Legal Notice</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../cookies-policy.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/cookie-banner.js" defer></script>
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constructora Passivhaus en el Maresme · PAPIK Group</title>
+  <meta name="description" content="Construimos en el Maresme con proyectos documentados en Sant Andreu de Llavaneres, Argentona, Premià, Mataró, Vilassar, Cabrils, Alella y Tiana.">
+
+  <link rel="canonical" href="https://papik.cat/es/comarcas/maresme">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/maresme">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/maresme">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/maresme">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/maresme">
+
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Constructora Passivhaus en el Maresme · PAPIK Group">
+  <meta property="og:description" content="Construimos en el Maresme con proyectos documentados en Sant Andreu de Llavaneres, Argentona, Premià, Mataró, Vilassar, Cabrils, Alella y Tiana.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/es/comarcas/maresme">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Constructora Passivhaus en el Maresme · PAPIK Group">
+  <meta name="twitter:description" content="Construimos en el Maresme con proyectos documentados en Sant Andreu de Llavaneres, Argentona, Premià, Mataró, Vilassar, Cabrils, Alella y Tiana.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_geocircle_radius_recommendation": "8000-10000 metres per municipis del Valles. 12000-15000 per a Sitges (mes diversificat).",
+    "_municipi_coordinates_reference": {
+      "sant-cugat-del-valles": {
+        "lat": "41.473",
+        "lon": "2.083"
+      },
+      "sant-quirze-del-valles": {
+        "lat": "41.532",
+        "lon": "2.082"
+      },
+      "bellaterra": {
+        "lat": "41.503",
+        "lon": "2.099"
+      },
+      "matadepera": {
+        "lat": "41.598",
+        "lon": "2.027"
+      },
+      "argentona": {
+        "lat": "41.555",
+        "lon": "2.402"
+      },
+      "sant-andreu-de-llavaneres": {
+        "lat": "41.572",
+        "lon": "2.485"
+      },
+      "mataro": {
+        "lat": "41.540",
+        "lon": "2.444"
+      },
+      "premia-de-mar": {
+        "lat": "41.491",
+        "lon": "2.362"
+      },
+      "vilanova-i-la-geltru": {
+        "lat": "41.224",
+        "lon": "1.726"
+      },
+      "sitges": {
+        "lat": "41.236",
+        "lon": "1.811"
+      },
+      "sant-pere-de-ribes": {
+        "lat": "41.260",
+        "lon": "1.770"
+      }
+    },
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://papik.cat/zones/maresme#localbusiness",
+    "name": "PAPIK Group · Construcción Passivhaus en el Maresme",
+    "description": "Construcció i rehabilitació Passivhaus a Construcción Passivhaus en el Maresme.",
+    "url": "https://papik.cat/zones/maresme",
+    "image": "https://papik.cat/img/og/og-default.jpg",
+    "parentOrganization": {
+      "@id": "https://papik.cat/#org"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer Sort 34",
+      "addressLocality": "Sant Cugat del Vallès",
+      "postalCode": "08172",
+      "addressRegion": "Barcelona",
+      "addressCountry": "ES"
+    },
+    "telephone": "+34935906074",
+    "email": "info@papik.cat",
+    "areaServed": {
+      "@type": "GeoCircle",
+      "name": "Construcción Passivhaus en el Maresme i rodalies",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "41.4727",
+        "longitude": "2.0844"
+      },
+      "geoRadius": "15000"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "priceRange": "€€€"
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inicio",
+        "item": "https://papik.cat/es/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Construcción Passivhaus en el Maresme"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--landing">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="../../index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/comarques/maresme">CA</option>
+          <option value="https://papik.cat/es/comarcas/maresme" selected>ES</option>
+          <option value="https://papik.cat/en/regions/maresme">EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Inicio</a>
+        <span class="sep">·</span>
+        <span>Construcción Passivhaus en el Maresme</span>
+      </nav>
+    <span class="hero__eyebrow">PAPIK EN EL MARESME</span>
+    <h1 class="hero__title">Construcción Passivhaus en el Maresme</h1>
+    <p class="hero__subtitle">Construimos en la costa del Maresme con proyectos documentados en Sant Andreu de Llavaneres, Argentona, Premià, Mataró, Vilassar, Cabrils, Alella y Tiana. Nuestra experiencia en clima mediterráneo litoral es transferible a todo el territorio.</p>
+    <div class="hero__actions">
+      <a class="btn-white" href="#contacte">Configurar mi presupuesto <span aria-hidden="true">→</span></a>
+      <a class="btn-outline" href="#main">Ver los proyectos en el Maresme <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-header__title">Por qué construir en el Maresme ahora</h2>
+    </header>
+    <div class="section-body">
+      <p>El Maresme combina la proximidad a Barcelona con un contexto residencial costero y una orografía muy característica entre la Cordillera Litoral y el mar. Los municipios del bajo Maresme (Alella, Tiana, Premià, Vilassar) actúan como corona residencial de Barcelona; los del centro (Mataró, Argentona, Cabrils) combinan función de capital de comarca con residencial selectivo; y los del Maresme norte (Sant Andreu de Llavaneres) ofrecen parcelas amplias con pendiente y vegetación consolidada.</p>
+      <p>El clima mediterráneo litoral impone requerimientos específicos. La demanda principal en vivienda pasiva en el Maresme no es la calefacción, sino la refrigeración pasiva y el control solar en verano. Tenemos experiencia acreditada en orientaciones complejas, protecciones solares exteriores y ventilación nocturna cruzada, elementos críticos en este contexto climático.</p>
+      <p>Las parcelas con pendiente abundantes en el Maresme exigen soluciones de cimentación y adaptación topográfica que han formado parte de nuestro catálogo de proyectos durante años.</p>
+    </div>
+  </div>
+</section>
+<section class="section section--light">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-header__title">Municipios del Maresme donde hemos hecho obra</h2>
+      <p class="section-header__lead">Construimos en todo el Maresme. Estos son los municipios donde tenemos proyectos documentados. Aún no tenemos landing dedicada para ningún municipio de la comarca.</p>
+    </header>
+    <div class="card-grid">
+      <article class="card card--icon">
+        <h3 class="card__title">Sant Andreu de Llavaneres</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">Argentona</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">Premià de Mar y Premià de Dalt</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">Mataró</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">Vilassar de Mar y Vilassar de Dalt</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">Cabrils</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">Alella</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">Tiana</h3>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-header__title">Marco urbanístico común en el Maresme</h2>
+      <p class="section-header__lead">El Maresme presenta denominadores comunes claros: orografía con pendiente, suelo no urbanizable con componente paisajística fuerte y restricciones costeras en municipios de primera línea.</p>
+    </header>
+    <div class="section-body">
+      <p>⚠ Todo dato concreto exige verificación en la ficha urbanística de la finca y en el POUM municipal vigente.</p>
+    </div>
+    <div class="section-body">
+      <p>La mayoría de los municipios del Maresme tienen POUM aprobados entre el 2002 y el 2018, con modificaciones puntuales derivadas sobre todo de la presión residencial y de la componente paisajística. La versión consolidada es consultable en el Registro de Planeamiento Urbanístico de Cataluña (RPUC) y en los portales de urbanismo municipal correspondientes.</p>
+      <p>La edificabilidad residencial unifamiliar habitual en el Maresme se mueve entre 0,3 y 0,5 m²st/m²s, ligeramente inferior a la del Vallés Occidental, con ocupación entre el 25% y el 35% y alturas bajo cornisa de PB+1 (aproximadamente 7 m) más cubierta. La parcela mínima oscila entre 600 y 1.500 m² según municipio y sector. Las distancias a viales y lindes son habitualmente de 3 a 5 m.</p>
+      <p>Todos los municipios costeros (Premià, Vilassar de Mar, Mataró, Llavaneres) están afectados por la legislación de costas y por la servidumbre de protección de dominio público marítimo-terrestre, con condicionantes específicos para parcelas próximas al litoral. Diversos municipios (Cabrils, Alella, Tiana, Llavaneres, Argentona) tienen restricciones paisajísticas asociadas a la Cordillera Litoral y al PEIN correspondiente.</p>
+      <p>La solicitud de licencia de obra mayor sigue el mismo procedimiento que en el resto de Cataluña: proyecto técnico, estudio de seguridad, gestión de residuos y tasas municipales. Los plazos orientativos de resolución se sitúan entre 6 y 14 semanas, ligeramente superiores a la media del Vallés, especialmente cuando hay afectación de costas o paisajística.</p>
+    </div>
+  </div>
+</section>
+<section class="section section--light">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-header__title">Proyectos destacados en el Maresme</h2>
+      <p class="section-header__lead">Una selección de casos que ilustran nuestra actividad en el territorio. La lista completa se puede consultar en el portfolio.</p>
+    </header>
+    <div class="section-body">
+      <p>1. K-LLAVANERES · Sant Andreu de Llavaneres Obra residencial con protecciones solares exteriores. → /es/proyecto-k-llavaneres</p>
+      <p>2. K-ARGENTONA · Argentona Proyecto residencial en parcela con pendiente. → /es/proyecto-k-argentona</p>
+      <p>3. K-PREMIA · Premià Obra residencial en el bajo Maresme. → /es/proyecto-k-premia</p>
+      <p>4. K-MARISTANY · Maresme Proyecto de bajo consumo energético. → /es/proyecto-k-maristany</p>
+      <p>5. K-MOGENT · Maresme Proyecto residencial documentado. → /es/proyecto-k-mogent</p>
+      <a class="link-arrow" href="#">Ver todos los proyectos  →  /es/proyectos <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-header__title">Preguntas frecuentes · Maresme</h2>
+    </header>
+    <div class="section-body">
+      <div class="faq-list">
+        <details class="faq-item"><summary>¿Trabajan en todo el Maresme?</summary><div class="faq-item__body"><p>Sí. Tenemos proyectos documentados en Sant Andreu de
+      Llavaneres, Argentona, Premià, Mataró, Vilassar y otros municipios.
+      Nuestra oficina central está en Sant Cugat, pero desplazamos equipo
+      técnico y producción a la comarca con agilidad.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>¿Qué diferencia hay entre construir en el Maresme y en el Vallés Occidental?</summary><div class="faq-item__body"><p>La diferencia principal es climática. En el Maresme la demanda
+      crítica es la refrigeración pasiva y el control solar en verano,
+      mientras que en el Vallés Occidental el reto principal es la
+      calefacción invernal. También cambia la orografía, con mucha más
+      presencia de pendiente y parcelas complejas en el Maresme.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>¿Hay restricciones especiales por la proximidad al mar?</summary><div class="faq-item__body"><p>Sí. La legislación de costas establece una servidumbre de
+      protección de dominio público marítimo-terrestre que afecta a
+      las parcelas próximas al litoral. Estas afectaciones condicionan
+      alturas, volúmenes y materiales. Nuestra experiencia en proyectos
+      costeros incluye la gestión de estas restricciones.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>¿Qué parcela mínima se requiere en el Maresme?</summary><div class="faq-item__body"><p>Depende del municipio y de la zona. En residencial unifamiliar
+      aislado suele oscilar entre 600 y 1.500 m². La ficha urbanística
+      de cada finca define el parámetro exacto.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>¿Cuánto tarda la licencia de obra mayor en el Maresme?</summary><div class="faq-item__body"><p>La resolución suele tardar entre 6 y 14 semanas desde la
+      presentación completa de la documentación, ligeramente superior
+      a la media del Vallés Occidental. Los plazos pueden alargarse en
+      parcelas con afectación costera o paisajística.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--light">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-header__title">Empecemos en el Maresme</h2>
+    </header>
+    <div class="section-body">
+      <a class="btn-accent" href="#contacte">Configurar mi presupuesto <span aria-hidden="true">→</span></a>
+      <a class="btn-outline" href="#main">Hablar con un asesor del Maresme <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../../nosotros.html">Quiénes somos</a></li>
+          <li><a href="../../proyectos.html">Proyectos</a></li>
+          <li><a href="../../blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Servicios</p>
+        <ul>
+          <li><a href="../../construccion.html">Construcción Residencial</a></li>
+          <li><a href="../../promocion.html">Promoción Inmobiliaria</a></li>
+          <li><a href="../../rehabilitacion.html">Rehabilitación Energética</a></li>
+          <li><a href="../../patrimonios.html">Patrimonios · Inversión Conjunta</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficinas</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREO</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Sigue las novedades de PAPIK: proyectos, rehabilitación energética y ayudas disponibles.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Tu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Síguenos</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – Todos los derechos reservados · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="../../aviso-legal.html">Aviso Legal</a>
+        <a href="../../politica-privacidad.html">Política de Privacidad</a>
+        <a href="../../politica-cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../../js/cookie-banner.js" defer></script>
+<script src="../../js/forms.js" defer></script>
+</body>
+</html>

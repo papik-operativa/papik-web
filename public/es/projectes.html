@@ -141,7 +141,7 @@
     header.header-top.hidden { top: -56px; }
 
     .header-logo {
-      width: 100%; position: absolute; padding-top: 14px;
+      width: 100%; position: absolute; padding-top: 22px;
       z-index: 102; background: #fff; top: 0;
     }
 
@@ -573,8 +573,47 @@
       .pill { height: 32px; font-size: 13px; padding: 0 14px; }
     }
   </style>
+  <!-- PAPIK:SHARED-HEADER-CSS -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+  <meta property="og:title" content="Proyectos | PAPIK · Construcción · Promoción · Rehabilitación">
+  <meta property="og:description" content="Portfolio de proyectos de PAPIK: construcción residencial, promoción inmobiliaria y rehabilitación energética en Cataluña.">
+  <meta property="og:url" content="https://papik.cat/es/projectes">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Proyectos | PAPIK · Construcción · Promoción · Rehabilitación">
+  <meta name="twitter:description" content="Portfolio de proyectos de PAPIK: construcción residencial, promoción inmobiliaria y rehabilitación energética en Cataluña.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
 </head>
 <body>
+<!-- PAPIK · Cookie consent banner snippet
+     Inject at the start of <body>. The text shown is a CA fallback;
+     cookie-banner.js localises it in place using the page's <html lang>. -->
+<aside id="papik-cc-banner"
+       class="papik-cc"
+       role="region"
+       aria-label="Avís de galetes"
+       hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">
+        Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te
+        publicitat relacionada amb les teves preferències. Pots acceptar-les totes,
+        rebutjar-les totes o configurar-les.
+      </p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
 
 <!-- ═══════════════════════════════════
      MOBILE NAV OVERLAY
@@ -602,13 +641,13 @@
     <li><a href="index.html#promocion">Promoción Inmobiliaria</a></li>
     <li><a href="index.html#rehabilitacion">Rehabilitación Energética</a></li>
     <li class="sub-title">Empresa</li>
-    <li><a href="patrimonis.html">Patrimonios</a></li>
+    <li><a href="patrimonios.html">Patrimonios</a></li>
     <li><a href="projectes.html" class="active">Proyectos</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="nosaltres.html">Nosotros</a></li>
+    <li><a href="nosotros.html">Nosotros</a></li>
     <li><a href="index.html#contacto">Contacto</a></li>
     <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Iniciar sesión →</a></li>
-    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Presupuesto →</a></li>
+    <li><a href="presupuesto.html" style="color:var(--green);font-weight:600;">Presupuesto →</a></li>
   </ul>
 </nav>
 <div class="fade-bg" id="fadeBg"></div>
@@ -681,7 +720,7 @@
               <a href="blog.html">Blog</a>
             </li>
             <li>
-              <a href="nosaltres.html">Nosotros</a>
+              <a href="nosotros.html">Nosotros</a>
             </li>
           </ul>
         </nav>
@@ -689,24 +728,6 @@
         <!-- Right nav -->
         <nav class="menu-right t14">
           <ul>
-            <li class="btn-search-trigger" id="searchTrigger">
-              Buscar
-              <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/>
-                  <path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-            </li>
-            <li>
-              <a href="index.html#contacto">Contacto</a>
-              <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-            </li>
             <li>
               <a href="usuaris.html">Iniciar sesión</a>
               <div class="icon-wrapper">
@@ -844,11 +865,11 @@
         <div class="submenu__col">
           <h3 class="t24">Inversión Patrimonial</h3>
           <ul class="t16">
-            <li><a href="patrimonis.html">Cartera de Activos Residenciales</a></li>
-            <li><a href="patrimonis.html">Inversores Privados y Family Office</a></li>
-            <li><a href="patrimonis.html">Co-inversión y Joint Venture</a></li>
-            <li><a href="patrimonis.html">Gestión de Activos y Mantenimiento</a></li>
-            <li><a href="patrimonis.html">Due Diligence Técnica</a></li>
+            <li><a href="patrimonios.html">Cartera de Activos Residenciales</a></li>
+            <li><a href="patrimonios.html">Inversores Privados y Family Office</a></li>
+            <li><a href="patrimonios.html">Co-inversión y Joint Venture</a></li>
+            <li><a href="patrimonios.html">Gestión de Activos y Mantenimiento</a></li>
+            <li><a href="patrimonios.html">Due Diligence Técnica</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
@@ -861,7 +882,7 @@
         <div class="submenu__featured">
           <h3>Destacado</h3>
           <p class="feat-title">Cartera activa: 3 solares disponibles para promoción plurifamiliar</p>
-          <a href="patrimonis.html" class="feat-link link-arrow">Conocer más
+          <a href="patrimonios.html" class="feat-link link-arrow">Conocer más
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -876,11 +897,11 @@
         <div class="submenu__col">
           <h3 class="t24">Tipo de proyecto</h3>
           <ul class="t16">
-            <li><a href="pressupost.html">Obra Nueva Unifamiliar</a></li>
-            <li><a href="pressupost.html">Edificio Plurifamiliar</a></li>
-            <li><a href="pressupost.html">Reforma Integral</a></li>
-            <li><a href="pressupost.html">Rehabilitación Energética</a></li>
-            <li><a href="pressupost.html">Ampliación y Cambio de Uso</a></li>
+            <li><a href="presupuesto.html">Obra Nueva Unifamiliar</a></li>
+            <li><a href="presupuesto.html">Edificio Plurifamiliar</a></li>
+            <li><a href="presupuesto.html">Reforma Integral</a></li>
+            <li><a href="presupuesto.html">Rehabilitación Energética</a></li>
+            <li><a href="presupuesto.html">Ampliación y Cambio de Uso</a></li>
           </ul>
           <div class="submenu__img">
             <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
@@ -889,14 +910,14 @@
         <div class="submenu__col">
           <h3 class="t24">Estima tu proyecto</h3>
           <p class="t16" style="color:var(--muted);line-height:1.65;">Introduce las características de tu proyecto y obtén una estimación orientativa del coste en menos de un minuto. Sin compromiso, sin registro.</p>
-          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
+          <a href="presupuesto.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulación
             <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
         <div class="submenu__featured">
           <h3>Cómo funciona</h3>
           <p class="feat-title">3 pasos: tipo de proyecto → superficie y materiales → resultado</p>
-          <a href="pressupost.html" class="feat-link link-arrow">Probar ahora
+          <a href="presupuesto.html" class="feat-link link-arrow">Probar ahora
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -928,7 +949,7 @@
         <div class="submenu__featured">
           <h3>Reconocimientos</h3>
           <p class="feat-title">+120 viviendas entregadas · Calificación A en eficiencia energética</p>
-          <a href="nosaltres.html" class="feat-link link-arrow">Conocer el equipo
+          <a href="nosotros.html" class="feat-link link-arrow">Conocer el equipo
             <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -959,16 +980,20 @@
   <div class="container">
     <div class="filter-bar__pills">
       <button class="pill active" data-filter="tot">
-        Todos <span class="pill__count" id="countTot">9</span>
+        Todos <span class="pill__count" id="countTot">36</span>
       </button>
       <button class="pill" data-filter="residencial">
-        Construcción <span class="pill__count" id="countRes">5</span>
+        Construcción <span class="pill__count" id="countRes">28</span>
       </button>
       <button class="pill" data-filter="promocio">
         Promoción <span class="pill__count" id="countPro">2</span>
       </button>
       <button class="pill" data-filter="rehabilitacio">
-        Rehabilitación <span class="pill__count" id="countReh">2</span>
+        Rehabilitación <span class="pill__count" id="countReh">3</span>
+      </button>
+    
+      <button class="pill" data-filter="ampliacio">
+        Ampliación <span class="pill__count" id="countAmp">3</span>
       </button>
     </div>
   </div>
@@ -979,115 +1004,439 @@
 ═══════════════════════════════════ -->
 <section class="projects-section">
   <div class="container">
-    <p class="projects-count" id="projectsCount">9 proyectos</p>
+    <p class="projects-count" id="projectsCount">36 proyectos</p>
 
     <div class="grid" id="projectsGrid">
 
-      <!-- 1 -->
+      <!-- K-Botigues (2025) -->
       <div class="grid-item" data-category="residencial">
-        <a href="#" class="grid-item__link">
+        <a href="proyecto-k-botigues.html" class="grid-item__link">
           <div class="grid-item__img-wrap">
-            <div class="grid-item__img" style="height:320px;background:linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%);border-radius:4px;"></div>
+            <div class="grid-item__img" style="height:320px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
           <p class="grid-item__cat">Construcción Residencial</p>
-          <h3 class="grid-item__title">Casa Matadepera</h3>
-          <p class="grid-item__loc">Matadepera · Vallès Occidental</p>
+          <h2 class="grid-item__title">K-Botigues</h2>
+          <p class="grid-item__loc">Castelldefels · Baix Llobregat · 2025</p>
         </a>
       </div>
 
-      <!-- 2 -->
+      <!-- K-Alzina (2024) -->
       <div class="grid-item" data-category="residencial">
-        <a href="#" class="grid-item__link">
+        <a href="proyecto-k-alzina.html" class="grid-item__link">
           <div class="grid-item__img-wrap">
-            <div class="grid-item__img" style="height:260px;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);border-radius:4px;"></div>
+            <div class="grid-item__img" style="height:260px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
           <p class="grid-item__cat">Construcción Residencial</p>
-          <h3 class="grid-item__title">Casa Premià de Mar</h3>
-          <p class="grid-item__loc">Premià de Mar · Maresme</p>
+          <h3 class="grid-item__title">K-Alzina</h3>
+          <p class="grid-item__loc">Sta. Maria de Palautordera · Vallès Oriental · 2024</p>
         </a>
       </div>
 
-      <!-- 3 -->
+      <!-- K-Marges (2024) -->
+      <div class="grid-item" data-category="rehabilitacio">
+        <a href="proyecto-k-marges.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:300px;background:linear-gradient(160deg,#56685E 0%,#9FA9A3 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Rehabilitación Energética</p>
+          <h3 class="grid-item__title">K-Marges</h3>
+          <p class="grid-item__loc">Sant Cugat del Vallès · Vallès Occidental · 2024</p>
+        </a>
+      </div>
+
+      <!-- K-Merla (2023) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-merla.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:280px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Merla</h3>
+          <p class="grid-item__loc">Sant Cugat del Vallès · Vallès Occidental · 2023</p>
+        </a>
+      </div>
+
+      <!-- K-Calonge (2023) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-calonge.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:350px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Calonge</h3>
+          <p class="grid-item__loc">Calonge · Baix Empordà · 2023</p>
+        </a>
+      </div>
+
+      <!-- K-Denbas (2023) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-denbas.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:270px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Denbas</h3>
+          <p class="grid-item__loc">Sant Privat d'en Bas · Garrotxa · 2023</p>
+        </a>
+      </div>
+
+      <!-- K-Vall d'Or (2023) -->
       <div class="grid-item" data-category="promocio">
-        <a href="#" class="grid-item__link">
+        <a href="proyecto-k-vallor.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:310px;background:linear-gradient(160deg,#002819 0%,#56685E 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Promoción Inmobiliaria</p>
+          <h3 class="grid-item__title">K-Vall d'Or</h3>
+          <p class="grid-item__loc">Valldoreix · Vallès Occidental · 2023</p>
+        </a>
+      </div>
+
+      <!-- K-Bellindret (2023) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-bellindret.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:290px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Bellindret</h3>
+          <p class="grid-item__loc">Sant Cugat del Vallès · Vallès Occidental · 2023</p>
+        </a>
+      </div>
+
+      <!-- K-LaMassa (2022) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-lamassa.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:340px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-LaMassa</h3>
+          <p class="grid-item__loc">Catalunya · 2022</p>
+        </a>
+      </div>
+
+      <!-- K-Iturbi (2022) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-iturbi.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:250px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Iturbi</h3>
+          <p class="grid-item__loc">Bellaterra · Vallès Occidental · 2022</p>
+        </a>
+      </div>
+
+      <!-- K-Igualada (2021) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-igualada.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:330px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Igualada</h3>
+          <p class="grid-item__loc">Igualada · Anoia · 2021</p>
+        </a>
+      </div>
+
+      <!-- K-Maristany (2021) -->
+      <div class="grid-item" data-category="promocio">
+        <a href="proyecto-k-maristany.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:275px;background:linear-gradient(160deg,#002819 0%,#56685E 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Promoción Inmobiliaria</p>
+          <h3 class="grid-item__title">K-Maristany</h3>
+          <p class="grid-item__loc">Poblenou, Barcelona · Barcelonès · 2021</p>
+        </a>
+      </div>
+
+      <!-- K-Mogent (2021) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-mogent.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:305px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Mogent</h3>
+          <p class="grid-item__loc">Llinars del Vallès · Vallès Oriental · 2021</p>
+        </a>
+      </div>
+
+      <!-- K-Begues (2021) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-begues.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:285px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Begues</h3>
+          <p class="grid-item__loc">Begues · Baix Llobregat · 2021</p>
+        </a>
+      </div>
+
+      <!-- K-Gorgs (2021) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-gorgs.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:345px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Gorgs</h3>
+          <p class="grid-item__loc">Barberà del Vallès · Vallès Occidental · 2021</p>
+        </a>
+      </div>
+
+      <!-- K-Orio (2021) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-orio.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:265px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Orio</h3>
+          <p class="grid-item__loc">Corbera de Llobregat · Baix Llobregat · 2021</p>
+        </a>
+      </div>
+
+      <!-- K-Matadepera (2020) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-matadepera.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:315px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Matadepera</h3>
+          <p class="grid-item__loc">Matadepera · Vallès Occidental · 2020</p>
+        </a>
+      </div>
+
+      <!-- K-Cim (2020) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-cim.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:295px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Cim</h3>
+          <p class="grid-item__loc">Castellar del Vallès · Vallès Occidental · 2020</p>
+        </a>
+      </div>
+
+      <!-- K-Aragai (2020) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-aragai.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:325px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Aragai</h3>
+          <p class="grid-item__loc">Vilanova i la Geltrú · Garraf · 2020</p>
+        </a>
+      </div>
+
+      <!-- K-Hostalets (2019) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-hostalets.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:255px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Hostalets</h3>
+          <p class="grid-item__loc">Hostalets de Balenyà · Osona · 2019</p>
+        </a>
+      </div>
+
+      <!-- K-Codines (2019) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-codines.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:335px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Codines</h3>
+          <p class="grid-item__loc">Sant Feliu de Codines · Vallès Oriental · 2019</p>
+        </a>
+      </div>
+
+      <!-- K-Malats (2019) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-malats.html" class="grid-item__link">
           <div class="grid-item__img-wrap">
             <div class="grid-item__img" style="height:300px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
-          <p class="grid-item__cat">Promoción Inmobiliaria</p>
-          <h3 class="grid-item__title">Edificio Plurifamiliar Badalona</h3>
-          <p class="grid-item__loc">Badalona · Barcelonès</p>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Malats</h3>
+          <p class="grid-item__loc">Sant Andreu, Barcelona · Barcelonès · 2019</p>
         </a>
       </div>
 
-      <!-- 4 -->
+      <!-- K-Premià (2019) -->
       <div class="grid-item" data-category="residencial">
-        <a href="#" class="grid-item__link">
+        <a href="proyecto-k-premia.html" class="grid-item__link">
           <div class="grid-item__img-wrap">
-            <div class="grid-item__img" style="height:280px;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
+            <div class="grid-item__img" style="height:310px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
           <p class="grid-item__cat">Construcción Residencial</p>
-          <h3 class="grid-item__title">Edificio Argentona</h3>
-          <p class="grid-item__loc">Argentona · Maresme</p>
+          <h3 class="grid-item__title">K-Premià</h3>
+          <p class="grid-item__loc">Premià de Mar · Maresme · 2019</p>
         </a>
       </div>
 
-      <!-- 5 -->
+      <!-- PassivRooms (2019) -->
       <div class="grid-item" data-category="rehabilitacio">
-        <a href="#" class="grid-item__link">
+        <a href="proyecto-passivrooms.html" class="grid-item__link">
           <div class="grid-item__img-wrap">
-            <div class="grid-item__img" style="height:350px;background:linear-gradient(160deg,#E7E9E8 0%,#56685E 100%);border-radius:4px;"></div>
+            <div class="grid-item__img" style="height:280px;background:linear-gradient(160deg,#56685E 0%,#9FA9A3 100%);border-radius:4px;"></div>
           </div>
           <p class="grid-item__cat">Rehabilitación Energética</p>
-          <h3 class="grid-item__title">Rehabilitación Cerdanyola</h3>
-          <p class="grid-item__loc">Cerdanyola del Vallès · Vallès Occidental</p>
+          <h3 class="grid-item__title">PassivRooms</h3>
+          <p class="grid-item__loc">Vilanova i la Geltrú · Garraf · 2019</p>
         </a>
       </div>
 
-      <!-- 6 -->
+      <!-- K-del Carril (2018) -->
       <div class="grid-item" data-category="residencial">
-        <a href="#" class="grid-item__link">
+        <a href="proyecto-k-del-carril.html" class="grid-item__link">
           <div class="grid-item__img-wrap">
-            <div class="grid-item__img" style="height:270px;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);border-radius:4px;"></div>
+            <div class="grid-item__img" style="height:350px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
           <p class="grid-item__cat">Construcción Residencial</p>
-          <h3 class="grid-item__title">Casa Teià</h3>
-          <p class="grid-item__loc">Teià · Maresme</p>
+          <h3 class="grid-item__title">K-del Carril</h3>
+          <p class="grid-item__loc">Sant Cugat del Vallès · Vallès Occidental · 2018</p>
         </a>
       </div>
 
-      <!-- 7 -->
-      <div class="grid-item" data-category="rehabilitacio">
-        <a href="#" class="grid-item__link">
+      <!-- Fornells (2018) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-fornells.html" class="grid-item__link">
           <div class="grid-item__img-wrap">
-            <div class="grid-item__img" style="height:310px;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
+            <div class="grid-item__img" style="height:260px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">Fornells</h3>
+          <p class="grid-item__loc">Fornells de la Selva · Gironès · 2018</p>
+        </a>
+      </div>
+
+      <!-- Arbóç (2018) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-arboc.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:320px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">Arbóç</h3>
+          <p class="grid-item__loc">Arbóç · Baix Penedès · 2018</p>
+        </a>
+      </div>
+
+      <!-- K-Argentona (2017) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-argentona.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:290px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Argentona</h3>
+          <p class="grid-item__loc">Argentona · Maresme · 2017</p>
+        </a>
+      </div>
+
+      <!-- La Floresta (2017) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-la-floresta.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:340px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">La Floresta</h3>
+          <p class="grid-item__loc">La Floresta, Sant Cugat · Vallès Occidental · 2017</p>
+        </a>
+      </div>
+
+      <!-- Moianès (2016) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-moianes.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:270px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">Moianès</h3>
+          <p class="grid-item__loc">Moianès · Bages · 2016</p>
+        </a>
+      </div>
+
+      <!-- Rehabilitació Valldoreix (2015) -->
+      <div class="grid-item" data-category="rehabilitacio">
+        <a href="proyecto-rehabilitacio-valldoreix.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:330px;background:linear-gradient(160deg,#56685E 0%,#9FA9A3 100%);border-radius:4px;"></div>
           </div>
           <p class="grid-item__cat">Rehabilitación Energética</p>
-          <h3 class="grid-item__title">Reforma Integral Mataró</h3>
-          <p class="grid-item__loc">Mataró · Maresme</p>
+          <h3 class="grid-item__title">Rehabilitación Valldoreix</h3>
+          <p class="grid-item__loc">Valldoreix · Vallès Occidental · 2015</p>
         </a>
       </div>
 
-      <!-- 8 -->
-      <div class="grid-item" data-category="promocio">
-        <a href="#" class="grid-item__link">
-          <div class="grid-item__img-wrap">
-            <div class="grid-item__img" style="height:290px;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
-          </div>
-          <p class="grid-item__cat">Promoción Inmobiliaria</p>
-          <h3 class="grid-item__title">Edificio El Masnou</h3>
-          <p class="grid-item__loc">El Masnou · Maresme</p>
-        </a>
-      </div>
-
-      <!-- 9 -->
+      <!-- PassivPalau (2014) -->
       <div class="grid-item" data-category="residencial">
-        <a href="#" class="grid-item__link">
+        <a href="proyecto-passivpalau.html" class="grid-item__link">
           <div class="grid-item__img-wrap">
-            <div class="grid-item__img" style="height:340px;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);border-radius:4px;"></div>
+            <div class="grid-item__img" style="height:285px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
           </div>
           <p class="grid-item__cat">Construcción Residencial</p>
-          <h3 class="grid-item__title">Casa Caldes de Montbui</h3>
-          <p class="grid-item__loc">Caldes de Montbui · Vallès Oriental</p>
+          <h3 class="grid-item__title">PassivPalau</h3>
+          <p class="grid-item__loc">Palau-solità i Plegamans · Vallès Occidental · 2014</p>
+        </a>
+      </div>
+
+      <!-- K-Llavaneres (2014) -->
+      <div class="grid-item" data-category="residencial">
+        <a href="proyecto-k-llavaneres.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:305px;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Construcción Residencial</p>
+          <h3 class="grid-item__title">K-Llavaneres</h3>
+          <p class="grid-item__loc">Sant Andreu de Llavaneres · Maresme · 2014</p>
+        </a>
+      </div>
+
+      <!-- Remunta Sant Cugat (2013) -->
+      <div class="grid-item" data-category="ampliacio">
+        <a href="proyecto-remunta-sant-cugat.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:275px;background:linear-gradient(160deg,#9FA9A3 0%,#E7E9E8 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Ampliación / Remonta</p>
+          <h3 class="grid-item__title">Remonta Sant Cugat</h3>
+          <p class="grid-item__loc">Sant Cugat del Vallès · Vallès Occidental · 2013</p>
+        </a>
+      </div>
+
+      <!-- Remunta Valldoreix (2012) -->
+      <div class="grid-item" data-category="ampliacio">
+        <a href="proyecto-remunta-valldoreix.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:345px;background:linear-gradient(160deg,#9FA9A3 0%,#E7E9E8 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Ampliación / Remonta</p>
+          <h3 class="grid-item__title">Remonta Valldoreix</h3>
+          <p class="grid-item__loc">Valldoreix · Vallès Occidental · 2012</p>
+        </a>
+      </div>
+
+      <!-- Ampliació Valldoreix (2012) -->
+      <div class="grid-item" data-category="ampliacio">
+        <a href="proyecto-ampliacio-valldoreix.html" class="grid-item__link">
+          <div class="grid-item__img-wrap">
+            <div class="grid-item__img" style="height:310px;background:linear-gradient(160deg,#9FA9A3 0%,#E7E9E8 100%);border-radius:4px;"></div>
+          </div>
+          <p class="grid-item__cat">Ampliación / Remonta</p>
+          <h3 class="grid-item__title">Ampliación Valldoreix</h3>
+          <p class="grid-item__loc">Valldoreix · Vallès Occidental · 2012</p>
         </a>
       </div>
 
@@ -1123,7 +1472,7 @@
       <div class="footer-col">
         <p class="footer__col-title">PAPIK</p>
         <ul>
-          <li><a href="nosaltres.html">Quiénes somos</a></li>
+          <li><a href="nosotros.html">Quiénes somos</a></li>
           <li><a href="projectes.html">Proyectos</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="index.html#contacto">Contacto</a></li>
@@ -1176,7 +1525,7 @@
     </div>
 
     <div class="copyright">
-      <p>Copyright © 2025 PAPIK SL – Todos los derechos reservados<br>papik.cat</p>
+      <p>Copyright © 2025 PAPIK Real Estate Group S.L.U – Todos los derechos reservados<br>papik.cat</p>
       <div>
         <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);margin-right:20px;">Aviso Legal</a>
         <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);">Política de Privacidad</a>
@@ -1312,5 +1661,7 @@
 </script>
 
 <script src="../cursor.js"></script>
+  <script src="/js/cookie-banner.js" defer></script>
+  <script src="/js/forms.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La huella ecológica de construir y vivir en su casa | PAPIK</title>
+  <meta name="description" content="Una casa tiene dos huellas: la de su construcción y la de su funcionamiento. Análisis de ciclo de vida (LCA) según EN 15978 aplicado a obra Passivhaus.">
+
+  <link rel="canonical" href="https://papik.cat/es/article-huella-ecologica">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-petjada-ecologica">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-huella-ecologica">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-petjada-ecologica">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="La huella ecológica de construir y vivir en su casa | PAPIK">
+  <meta property="og:description" content="Una casa tiene dos huellas: la de su construcción y la de su funcionamiento. Análisis de ciclo de vida (LCA) según EN 15978 aplicado a obra Passivhaus.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/es/article-huella-ecologica">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="La huella ecológica de construir y vivir en su casa | PAPIK">
+  <meta name="twitter:description" content="Una casa tiene dos huellas: la de su construcción y la de su funcionamiento. Análisis de ciclo de vida (LCA) según EN 15978 aplicado a obra Passivhaus.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "La huella ecológica de construir y vivir en su casa | PAPIK",
+    "description": "Una casa tiene dos huellas: la de su construcción y la de su funcionamiento. Análisis de ciclo de vida (LCA) según EN 15978 aplicado a obra Passivhaus.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://papik.cat/es/article-huella-ecologica"
+    },
+    "articleSection": "Sostenibilidad",
+    "wordCount": "1490",
+    "inLanguage": "es",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inicio",
+        "item": "https://papik.cat/es/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "La huella ecológica de construir y vivir en su casa"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="../index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/article-petjada-ecologica">CA</option>
+          <option value="https://papik.cat/es/article-huella-ecologica" selected>ES</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Inicio</a>
+        <span class="sep">·</span>
+        <span>La huella ecológica de construir y vivir en su casa</span>
+      </nav>
+    <h1 class="hero__title">La huella ecológica de construir y vivir en su casa</h1>
+    <p class="hero__subtitle">Una casa tiene dos huellas: la de su construcción y la de su funcionamiento. Análisis de ciclo de vida (LCA) según EN 15978 aplicado a obra Passivhaus.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Qué mide realmente la huella ecológica de una vivienda</h2>
+<p>La norma EN 15978 (Sustainability of construction works · Assessment of environmental performance of buildings · Calculation method) define cómo debe analizarse el impacto ambiental de un edificio a lo largo de su ciclo de vida completo. Establece cinco fases de análisis.</p>
+<p>Las fases A1 a A3 cubren el producto: extracción de materias primas, transporte y fabricación de materiales. Las fases A4 y A5 cubren la construcción propiamente dicha: transporte a obra y proceso constructivo. Las fases B1 a B7 cubren el uso: operación, mantenimiento, reparación, sustitución, energía operativa y agua. Las fases C1 a C4 cubren el final de vida: demolición, transporte, tratamiento de residuos y disposición final. La fase D recoge los beneficios más allá del límite del sistema (reutilización, reciclaje).</p>
+<p>Una evaluación seria de la huella ecológica de una vivienda debe incluir las cinco fases. Cuando alguien habla de "casa sostenible" sin citar EN 15978 ni LCA (Life Cycle Assessment) ni EPD (Environmental Product Declaration), la conversación está al nivel de marketing y no al nivel de ingeniería.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Huella A1-A3: los materiales que entran en la casa</h2>
+<p>Las fases iniciales del ciclo de vida son las que aportan más diferenciación entre proyectos. Aquí se ve si una casa se ha construido con materiales de origen renovable, baja energía incorporada y trazabilidad verificable, o con materiales industriales de alta huella.</p>
+<p>La comparativa orientativa basada en literatura técnica del sector sitúa el hormigón en torno a 0,15 kg CO₂/kg, el acero estructural entre 1,8 y 2,0 kg CO₂/kg, la lana mineral en torno a 0,5 kg CO₂/kg, la celulosa insuflada (papel reciclado) entre 0,1 y 0,2 kg CO₂/kg, la madera laminada FSC entre 0,3 y 0,5 kg CO₂/kg con captura previa de CO₂ del árbol, y el corcho natural con captura neta positiva durante el crecimiento del alcornoque.</p>
+<p>Una casa con estructura de madera CLT, aislamiento de celulosa y revestimiento de corcho puede tener carbono almacenado, no solo "bajas emisiones". En otras palabras, la construcción ha extraído CO₂ de la atmósfera y lo mantiene capturado dentro de la madera y el corcho mientras el edificio existe. Este matiz convierte la decisión constructiva en una herramienta de mitigación climática activa, no solo pasiva.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Huella B6: la energía operativa a lo largo de los 50 años</h2>
+<p>La fase B6 mide el consumo energético operativo durante la vida útil del edificio. Es aquí donde el estándar Passivhaus marca la diferencia más espectacular.</p>
+<p>Una casa convencional construida según el CTE básico (Código Técnico de la Edificación) consume entre 70 y 150 kWh/m²·a para climatización, según clima y tipología. Una casa Passivhaus está diseñada para consumir menos de 15 kWh/m²·a para el mismo concepto, umbral de certificación del Instituto Passivhaus de Darmstadt.</p>
+<p>La diferencia acumulada a lo largo de cincuenta años, para una vivienda media de doscientos metros cuadrados, es sustancial. Una casa convencional consume el equivalente a 1.000.000 kWh durante este periodo (200 m² × 100 kWh/m²·a × 50 años). Una casa Passivhaus consume el equivalente a 150.000 kWh para el mismo concepto (200 m² × 15 kWh/m²·a × 50 años). La diferencia, 850.000 kWh ahorrados, equivale aproximadamente a entre 170 y 220 toneladas de CO₂ no emitido, según el mix eléctrico medio aplicable.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>El balance global de una casa Passivhaus</h2>
+<p>Cuando se suman todas las fases del ciclo de vida según EN 15978, el patrón que aparece es consistente. La huella de la construcción (fases A1 a A5) es habitualmente superior en una Passivhaus que en una convencional, porque incorpora más aislamiento, ventanas más técnicas y sistemas mecánicos añadidos. La huella operativa (fase B6) es drásticamente inferior en Passivhaus por las razones descritas en el punto anterior. El final de vida (fases C y D) es similar entre tipologías, dependiendo de los materiales concretos utilizados.</p>
+<p>El punto de equilibrio, definido como el momento a partir del cual la huella de construir Passivhaus se compensa con el ahorro operativo acumulado, suele situarse entre los cinco y diez años desde la entrega de la obra. A partir de ese momento, cada año adicional de vida útil del edificio añade beneficio neto en términos ambientales.</p>
+<p>Para una vivienda diseñada para durar cien años, el balance ambiental global de una construcción Passivhaus es netamente positivo en comparación con una construcción convencional equivalente, con una diferencia acumulada que se mide en cientos de toneladas de CO₂ a lo largo de la vida útil.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Casos documentados: qué hemos medido realmente</h2>
+<p>PAPIK ha aplicado este marco de análisis a varios proyectos propios. La <a href="/es/proyecto-la-floresta">Casa Pasiva en La Floresta</a> (Sant Cugat) fue el primer proyecto que combinó CLT con celulosa, con un punto de equilibrio estimado entre los seis y ocho años comparado con una construcción CTE básico equivalente. <a href="/es/proyecto-k-iturbi">K-Iturbi</a> (Bellaterra), Passivhaus certificado con Eskimohaus®, tiene una reducción acumulada estimada superior a 170 toneladas de CO₂ a lo largo de cincuenta años respecto a un equivalente convencional. <a href="/es/proyecto-k-llavaneres">K-Llavaneres</a> (Maresme), primera Passivhaus Plus de Cataluña, combina producción fotovoltaica y batería con estándar Passivhaus para alcanzar un balance energético operativo prácticamente neutro.</p>
+<p>Cada proyecto tiene parámetros específicos, motivo por el cual las cifras concretas son orientativas basadas en simulación PHPP (Passive House Planning Package) y no resultados directamente medidos a lo largo de cincuenta años de funcionamiento.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Qué puede hacer usted: decisiones con impacto real</h2>
+<p>Si está valorando construir o rehabilitar una vivienda y quiere que la decisión tenga impacto ambiental real y no solo estético, hay cuatro criterios que orientan una valoración seria.</p>
+<p>Pedir LCA al proyecto es el primero. Las herramientas existen (EnergyPlus, OneClick LCA, PHPP, WUFI), y si el constructor no puede aportarlo, la conversación se está manteniendo al nivel de marketing y no al de ingeniería. Verificar las EPD de los materiales principales (estructura, aislamiento, revestimientos) es el segundo. Un fabricante serio las facilita; uno que no las tiene probablemente no cumple los cuatro criterios básicos. No confundir "ecológico" con "sostenible" es el tercero: materiales de origen natural pero con alta energía incorporada, como la lana de roca importada del otro lado de Europa, pueden ser peor opción que materiales industriales reciclados locales. Pensar a cincuenta años, no a cinco, es el cuarto: una decisión constructiva tiene impacto durante toda la vida útil del edificio, y la diferencia entre "un poco menos eficiente" y "mucho más eficiente" puede ser de cientos de toneladas de CO₂ acumuladas.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Preguntas frecuentes</h2>
+<h3>Qué es una EPD</h3>
+<p>Environmental Product Declaration. Documento técnico estandarizado según la norma ISO 14025 que certifica el impacto ambiental de un material a lo largo de su ciclo de vida. Cada vez más fabricantes la ofrecen, y su ausencia es una señal de alerta.</p>
+<h3>El cálculo LCA es caro</h3>
+<p>Es variable. Para un proyecto residencial unifamiliar, una evaluación LCA básica puede incorporarse al proyecto con coste relativamente bajo si se integra desde el diseño inicial. La evaluación LCA detallada con terceros verificadores tiene un coste superior y solo es relevante en proyectos con certificaciones específicas tipo LEED o BREEAM.</p>
+<h3>La madera secuestra carbono indefinidamente</h3>
+<p>Mientras la madera forma parte de un edificio y no se quema o se biodegrada, el carbono capturado se mantiene secuestrado. Después de la vida útil del edificio, la madera puede reciclarse o, si va a gestor de residuos correctamente, puede mantener el secuestro temporal en otras aplicaciones.</p>
+<h3>Cómo puedo verificar las afirmaciones ambientales de un constructor</h3>
+<p>Pidiendo certificaciones formales (Passivhaus PHI, FSC, PEFC, LEED, BREEAM), EPD de los materiales principales, simulación PHPP del comportamiento térmico, y cálculo LCA según EN 15978. Si todo esto falta, las afirmaciones son publicidad.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CIERRE</h2>
+<p>Si quiere que su proyecto tenga un impacto ambiental verificable, el análisis LCA puede incorporarse al diseño inicial sin costes prohibitivos.</p>
+<p>Configurar el presupuesto de mi proyecto: papik.cat/es/presupuesto.</p>
+<p><strong>Lea también:</strong></p>
+<p><a href="/es/article-materiales-sostenibles">Materiales sostenibles: madera, corcho, celulosa</a></p>
+<p><a href="/es/article-principios-passivhaus">Los cinco principios del Passivhaus</a></p>
+<p><a href="/es/article-sostenibilidad-passivhaus">Sostenibilidad y Passivhaus</a></p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>#</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="../nosotros.html">Quiénes somos</a></li>
+          <li><a href="../proyectos.html">Proyectos</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Servicios</p>
+        <ul>
+          <li><a href="../construccion.html">Construcción Residencial</a></li>
+          <li><a href="../promocion.html">Promoción Inmobiliaria</a></li>
+          <li><a href="../rehabilitacion.html">Rehabilitación Energética</a></li>
+          <li><a href="../patrimonios.html">Patrimonios · Inversión Conjunta</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficinas</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREO</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Sigue las novedades de PAPIK: proyectos, rehabilitación energética y ayudas disponibles.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Tu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Síguenos</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – Todos los derechos reservados · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="../aviso-legal.html">Aviso Legal</a>
+        <a href="../politica-privacidad.html">Política de Privacidad</a>
+        <a href="../politica-cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/cookie-banner.js" defer></script>
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

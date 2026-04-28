@@ -3,1771 +3,548 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Construcció Residencial | PAPIK · Cases Passivhaus a Catalunya</title>
-  <meta name="description" content="Construcció d'habitatges unifamiliars, plurifamiliars, ampliacions i reformes. Sistema Eskimohaus® i certificació Passivhaus. Sant Cugat del Vallès, des de 1994.">
-  <style>
-    @font-face {
-      font-family: 'TT Firs Neue';
-      src: url('fonts/TT_Firs_Neue_Light.woff2') format('woff2'),
-           url('fonts/TT_Firs_Neue_Light.woff') format('woff');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'TT Firs Neue';
-      src: url('fonts/TT_Firs_Neue_Regular.woff2') format('woff2'),
-           url('fonts/TT_Firs_Neue_Regular.woff') format('woff');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'TT Firs Neue';
-      src: url('fonts/TT_Firs_Neue_Medium.woff2') format('woff2'),
-           url('fonts/TT_Firs_Neue_Medium.woff') format('woff');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-  </style>
+  <title>Construcció Passivhaus a Catalunya · PAPIK Group</title>
+  <meta name="description" content="Construïm cases Passivhaus a Catalunya, Balears i Andorra des de 1994. Sistema constructiu propi Eskimohaus®. Configura el pressupost de la teva casa.">
+
+  <link rel="canonical" href="https://papik.cat/construccio">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/construccio">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/construccion">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/construction">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/construccio">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>
-    /* ═══════════════════════════════════
-       VARIABLES & RESET
-    ═══════════════════════════════════ */
-    :root {
-      --green:       #002819;
-      --accent:      #95BBA5;
-      --green-dark:  #0A1B12;
-      --footer-bg:   #07140D;
-      --green-light: #56685E;
-      --bg-light:    rgba(86,104,94,0.14);
-      --bg-section:  rgba(86,104,94,0.14);
-      --text:        #002819;
-      --muted:       #56685E;
-      --muted-light: #9FA9A3;
-      --border:      rgba(86,104,94,0.25);
-      --warm-1:      rgba(86,104,94,0.22);
-      --warm-2:      #9FA9A3;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-    body, html {
-      margin: 0; padding: 0;
-      font-family: 'TT Firs Neue', Arial, Helvetica, sans-serif;
-      color: var(--text);
-      overflow-x: hidden;
-      opacity: 0;
-      animation: pageIn .5s ease .1s forwards;
-    }
-    @keyframes pageIn { to { opacity: 1; } }
-    html { scroll-padding-top: 120px; }
-
-
-    h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    a { text-decoration: none; color: inherit; }
-    button, input, select, textarea { font-family: 'TT Firs Neue', sans-serif; }
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* Typography */
-    .t12  { font-size: 12px; line-height: 1.6; }
-    .t14  { font-size: 14px; line-height: 1.6; }
-    .t16  { font-size: 16px; line-height: 1.6; }
-    .t18  { font-size: 18px; line-height: 1.4; }
-    .t24  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.3; }
-    .t42  { font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
-    .t70  { font-size: 70px; line-height: 1.05; }
-    .upper { text-transform: uppercase; }
-    .center { text-align: center; }
-    .color-green  { color: var(--green); }
-    .color-muted  { color: var(--muted); }
-    .color-muted-light { color: var(--muted-light); }
-    .color-white  { color: #fff; }
-    .opacity { opacity: .75; }
-
-    /* Layout */
-    .container { width: 90.625vw; margin: auto; }
-    .spacing, .block-margin { margin-bottom: 80px; }
-
-    /* ═══════════════════════════════════
-       BUTTONS
-    ═══════════════════════════════════ */
-    button, .btn {
-      height: 42px;
-      background: #fff;
-      border: 1px solid #fff;
-      border-radius: 21px;
-      padding: 0 28px;
-      cursor: pointer;
-      transition: all .2s ease;
-      font-size: 16px;
-      color: var(--text);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    button:hover { background: #000; border-color: #000; color: #fff; }
-    button svg path { transition: fill .2s; }
-    button:hover svg path { fill: #fff; }
-
-    button.btn-dark {
-      background: #000; border-color: #000; color: #fff;
-    }
-    button.btn-dark:hover { background: var(--green); border-color: var(--green); }
-
-    button.btn-outline-white {
-      background: transparent; border-color: rgba(255,255,255,.3); color: #fff;
-    }
-    button.btn-outline-white:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); color: #fff; }
-
-    button.btn-up {
-      background: var(--muted); border-color: var(--muted); color: #fff;
-    }
-    button.btn-up:hover { background: #000; border-color: #000; }
-
-    .arrow-svg { display: inline-block; vertical-align: middle; margin-left: 3px; }
-    .link-arrow {
-      display: inline-flex; align-items: center; gap: 4px;
-      color: var(--muted); font-size: 14px; transition: opacity .2s;
-    }
-    .link-arrow:hover { opacity: .6; }
-
-    /* ═══════════════════════════════════
-       PLACEHOLDER IMAGES
-    ═══════════════════════════════════ */
-    .ph { display: block; width: 100%; height: 100%; }
-    .ph-hero    { background: linear-gradient(160deg, #07140D 0%, #0A1B12 40%, #002819 100%); }
-    .ph-warm-1  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
-    .ph-warm-2  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
-    .ph-warm-3  { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
-    .ph-warm-4  { background: linear-gradient(135deg, #E7E9E8 0%, #9FA9A3 100%); }
-    .ph-warm-5  { background: linear-gradient(135deg, #9FA9A3 0%, #9FA9A3 100%); }
-    .ph-blue    { background: linear-gradient(135deg, #56685E 0%, #002819 100%); }
-    .ph-green   { background: linear-gradient(135deg, #9FA9A3 0%, #56685E 100%); }
-    .ph-capital { background: linear-gradient(160deg, #9FA9A3 0%, #0A1B12 100%); }
-    .ph-solar   { background: linear-gradient(160deg, #9FA9A3 0%, #56685E 100%); }
-    .ph-dark    { background: linear-gradient(135deg, #0A1B12 0%, #07140D 100%); }
-    .ph-stone   { background: linear-gradient(160deg, #E7E9E8 0%, #9FA9A3 100%); }
-
-    /* ═══════════════════════════════════
-       HEADER
-    ═══════════════════════════════════ */
-    .header-logo-layer { height: 56px; }
-
-    header.header-top {
-      position: fixed; width: 100%; background: #fff; top: 0;
-      z-index: 999; transition: top .2s linear;
-    }
-    header.header-top.hidden { top: -56px; }
-
-    .header-logo {
-      width: 100%; position: absolute; padding-top: 14px;
-      z-index: 102; background: #fff; top: 0;
-    }
-    .header-logo .container {
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .header-logo__content { display: flex; align-items: center; }
-
-    .menu-btn-wrapper {
-      width: 24px; height: 24px; cursor: pointer; position: relative;
-      display: none; margin-right: 5vw;
-    }
-    .menu-btn__burger { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .menu-btn__burger span { display: block; width: 24px; height: 2px; background: #000; margin-bottom: 5px; }
-    .menu-btn__burger span:last-child { margin-bottom: 0; }
-
-    .logo a { display: flex; align-items: center; }
-    .logo svg { display: block; }
-
-    .lang select {
-      -webkit-appearance: none; appearance: none; border: 0; background: transparent;
-      font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
-      cursor: pointer; text-transform: uppercase; padding-right: 16px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 0 center;
-    }
-
-    .header-sticky {
-      position: sticky; background: #fff; width: 100%; top: 0;
-      z-index: 100; margin-top: 56px; height: max-content;
-    }
-    .header-sticky__bar {
-      border-bottom: 1px solid var(--border);
-      height: 52px; padding: 10px 0; background: #fff;
-      position: relative; z-index: 90;
-    }
-    .header-sticky__content {
-      display: flex; justify-content: space-between; align-items: center;
-    }
-
-    nav.menu ul, nav.menu-right ul { display: flex; align-items: center; }
-    nav.menu ul { gap: 30px; }
-    nav.menu-right ul { gap: 20px; }
-    nav.menu li a, nav.menu li span { transition: opacity .2s; cursor: pointer; }
-    nav.menu li:hover > a, nav.menu li:hover > span { opacity: .5; }
-    nav.menu li.active-page > a, nav.menu li.active-page > span { font-weight: 500; }
-    nav.menu-right li { display: flex; align-items: center; cursor: pointer; }
-    nav.menu-right li:hover { opacity: .5; }
-
-    .nav-cta {
-      background: var(--green); color: #fff !important;
-      padding: 0 15px; height: 28px; border-radius: 14px;
-      display: flex; align-items: center; gap: 6px;
-      font-size: 12.5px; font-weight: 500; letter-spacing: .01em;
-      transition: background .2s !important;
-      white-space: nowrap; line-height: 1;
-    }
-    .nav-cta svg { flex-shrink: 0; }
-    .nav-cta:hover { background: var(--green-light) !important; opacity: 1 !important; }
-    nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
-
-    .icon-wrapper {
-      width: 30px; height: 30px; border-radius: 50%; display: flex;
-      align-items: center; justify-content: center; margin-left: 4px;
-      transition: background .2s;
-    }
-    nav.menu-right li:hover .icon-wrapper { background: #E7E9E8; }
-
-    .form-search-wrapper {
-      position: absolute; width: 90.625vw; top: 0;
-      visibility: hidden; display: flex; align-items: center;
-      justify-content: space-between;
-    }
-    .form-search__content {
-      display: flex; margin-left: 55vw; opacity: 0;
-      transition: all .2s linear;
-    }
-    .form-search__content input[type="text"] {
-      -webkit-appearance: none; appearance: none;
-      background: var(--bg-light); height: 40px; border: 0;
-      border-radius: 20px; padding: 0 15px 0 40px;
-      width: 27vw; color: var(--text); font-size: 16px;
-      transition: all .2s linear;
-    }
-    .form-search__content input::placeholder { color: var(--muted-light); }
-    .search-icon-btn {
-      background: #E7E9E8; height: 38px; width: 38px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      position: absolute; z-index: 10; left: 1px; top: 1px; cursor: pointer;
-      transition: background .3s; border: 0;
-    }
-    .search-icon-btn:hover { background: var(--border); }
-    .btn-close-search {
-      background: var(--bg-light); height: 40px; width: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; opacity: 0; visibility: hidden; border: 0;
-      transition: all .2s linear;
-    }
-    .header-sticky.search-open .header-sticky__content { opacity: 0; }
-    .header-sticky.search-open .header-sticky__bar { height: 66px; }
-    .header-sticky.search-open .form-search-wrapper { visibility: visible; }
-    .header-sticky.search-open .form-search__content { margin-left: 0; opacity: 1; }
-    .header-sticky.search-open .form-search__content input { width: 84vw; }
-    .header-sticky.search-open .btn-close-search { opacity: 1; visibility: visible; transition-delay: .3s; }
-
-    /* ═══════════════════════════════════
-       SUBMENUS
-    ═══════════════════════════════════ */
-    .submenu {
-      width: 100%; left: 0; z-index: 89; background: #fff;
-      padding: 40px 0; border-bottom: 1px solid var(--border);
-      position: absolute; visibility: hidden;
-      min-height: 340px; transition: all .3s ease-in-out;
-      margin-top: -600px;
-    }
-    .submenu.submenu-open { visibility: visible; margin-top: 0; }
-    .submenu__content { display: flex; gap: 5vw; align-items: flex-start; }
-    .submenu__col { flex: 1; }
-    .submenu__col h3 { color: var(--muted-light); font-size: 22px; margin-bottom: 24px; }
-    .submenu__col ul li { padding: 8px 0; font-size: 15px; border-bottom: 1px solid var(--bg-light); }
-    .submenu__col ul li a:hover { opacity: .6; }
-    .submenu__img {
-      width: 26vw; border-radius: 4px; overflow: hidden;
-      height: 16vw; margin-top: 24px;
-    }
-    .submenu__featured { width: 22vw; background: var(--bg-light); padding: 28px; border-radius: 4px; }
-    .submenu__featured h3 { color: var(--muted-light); font-size: 20px; margin-bottom: 16px; }
-    .submenu__featured .feat-title { font-size: 15px; line-height: 1.4; margin-bottom: 8px; }
-    .submenu__featured .feat-link { font-size: 13px; color: var(--muted); }
-
-    .fade-bg {
-      position: fixed; inset: 0; background: rgba(0,0,0,.5);
-      z-index: 70; opacity: 0; visibility: hidden; transition: .3s ease;
-    }
-    body.submenu-open .fade-bg { opacity: 1; visibility: visible; }
-
-    /* ═══════════════════════════════════
-       HERO
-    ═══════════════════════════════════ */
-    .block-hero {
-      width: 100vw; height: 54.6875vw; max-height: calc(100vh - 100px);
-      position: relative; overflow: hidden;
-    }
-    .block-hero__media { position: absolute; inset: 0; }
-    .block-hero__media .ph { position: absolute; inset: 0; }
-    .block-hero__overlay {
-      position: absolute; inset: 0; z-index: 2;
-      background: rgba(10,18,12,.5);
-    }
-    .block-hero__content {
-      position: absolute; inset: 0; z-index: 3;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 0 6vw;
-    }
-    .block-hero__eyebrow {
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(255,255,255,.45); margin-bottom: 24px;
-    }
-    .block-hero__title {
-      color: #fff; font-weight: 300;
-      font-size: clamp(38px, 5.2vw, 76px);
-      line-height: 1.08; max-width: 860px;
-    }
-    .block-hero__sub {
-      color: rgba(255,255,255,.6); font-size: clamp(15px, 1.3vw, 19px);
-      line-height: 1.65; max-width: 560px; margin-top: 22px;
-    }
-    .block-hero__cta {
-      margin-top: 44px;
-      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
-    }
-
-    /* ═══════════════════════════════════
-       STATS BAND
-    ═══════════════════════════════════ */
-    .pat-stats {
-      background: var(--bg-section);
-      border-bottom: 1px solid var(--border);
-    }
-    .pat-stats__inner {
-      display: flex; justify-content: space-between;
-      padding: 28px 0; gap: 12px;
-    }
-    .pat-stat {
-      flex: 1;
-      border-left: 1px solid var(--border);
-      padding-left: 28px;
-    }
-    .pat-stat:first-child { border-left: none; padding-left: 0; }
-    .pat-stat__num {
-      font-size: clamp(26px, 2.8vw, 40px);
-      color: var(--green); font-weight: 300; line-height: 1;
-      margin-bottom: 6px;
-    }
-    .pat-stat__lbl {
-      font-size: 13px; color: var(--muted); line-height: 1.45;
-    }
-
-    /* ═══════════════════════════════════
-       ESKIMOHAUS INTRO
-    ═══════════════════════════════════ */
-    .cons-intro { padding: 80px 0 0; background: #fff; }
-    .cons-intro__head { padding-bottom: 56px; }
-    .cons-intro__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 22px; display: block; }
-    .cons-intro__title { font-size: clamp(36px, 4.2vw, 64px); line-height: 1.05; margin-bottom: 28px; max-width: 760px; }
-    .cons-intro__body { font-size: 17px; color: var(--muted); line-height: 1.8; max-width: 580px; }
-    .cons-intro__specs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-    .cons-intro__spec { font-size: 12px; padding: 5px 14px; border: 1px solid var(--border); color: var(--muted); background: var(--bg-section); letter-spacing: .04em; }
-    .cons-metrics { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-top: 1px solid var(--border); margin-top: 0; }
-    .cons-metric { padding: 44px 40px; background: var(--bg-section); border-right: 1px solid var(--border); }
-    .cons-metric:last-child { border-right: 0; }
-    .cons-metric__val { font-size: clamp(36px, 4vw, 56px); color: var(--green); font-weight: 300; line-height: 1; margin-bottom: 12px; letter-spacing: -.02em; }
-    .cons-metric__lbl { font-size: 13px; color: var(--muted); line-height: 1.55; }
-
-    /* ═══════════════════════════════════
-       WALL ANATOMY
-    ═══════════════════════════════════ */
-    .cons-wall { padding: 80px 0; background: var(--green); }
-    .cons-wall__header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; gap: 4vw; }
-    .cons-wall__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 16px; display: block; }
-    .cons-wall__title { font-size: clamp(24px, 2.6vw, 38px); color: #fff; line-height: 1.15; font-weight: 300; max-width: 500px; }
-    .cons-wall__note { font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.6; max-width: 280px; flex-shrink: 0; text-align: right; }
-    .cons-wall__layers { display: flex; flex-direction: column; gap: 2px; }
-    .cons-wl { display: grid; grid-template-columns: 32px 56px 1fr auto; align-items: center; gap: 24px; padding: 20px 28px; background: rgba(255,255,255,.05); transition: background .15s; cursor: default; }
-    .cons-wl:hover { background: rgba(255,255,255,.09); }
-    .cons-wl--key { background: rgba(255,255,255,.13) !important; }
-    .cons-wl__idx { font-size: 11px; color: rgba(255,255,255,.2); font-weight: 300; }
-    .cons-wl__depth { font-size: 14px; color: rgba(255,255,255,.4); letter-spacing: .01em; }
-    .cons-wl--key .cons-wl__depth { color: rgba(255,255,255,.6); }
-    .cons-wl__name { font-size: 16px; color: #fff; font-weight: 300; }
-    .cons-wl--key .cons-wl__name { font-weight: 400; }
-    .cons-wl__spec { font-size: 12px; color: rgba(255,255,255,.35); white-space: nowrap; }
-    .cons-wl--key .cons-wl__spec { color: rgba(255,255,255,.6); }
-
-    /* ═══════════════════════════════════
-       PASSIVHAUS LEVELS
-    ═══════════════════════════════════ */
-    .cons-ph { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
-    .cons-ph-card { padding: 52px 44px; background: var(--bg-section); border-right: 1px solid var(--border); }
-    .cons-ph-card:last-child { border-right: 0; }
-    .cons-ph-card__badge { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 24px; display: block; }
-    .cons-ph-card__title { font-size: clamp(18px, 1.8vw, 26px); color: var(--green); font-weight: 300; line-height: 1.25; margin-bottom: 16px; }
-    .cons-ph-card__desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-    /* ═══════════════════════════════════
-       5 PRINCIPIS
-    ═══════════════════════════════════ */
-    .cons-5p { padding: 80px 0; background: var(--bg-section); }
-    .cons-5p__header { margin-bottom: 52px; }
-    .cons-5p__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
-    .cons-5p__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.1; max-width: 560px; }
-    .cons-5p__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-    .cons-5p-item { background: #fff; padding: 36px 32px; border-radius: 8px; }
-    .cons-5p-item__num { font-size: 11px; letter-spacing: .2em; color: var(--accent); margin-bottom: 20px; display: block; }
-    .cons-5p-item__title { font-size: 15px; color: var(--green); font-weight: 400; line-height: 1.3; margin-bottom: 12px; }
-    .cons-5p-item__desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
-
-    /* ═══════════════════════════════════
-       PER QUÈ PAPIK
-    ═══════════════════════════════════ */
-    .cons-why { padding: 80px 0; background: var(--green-dark); }
-    .cons-why__header { margin-bottom: 56px; }
-    .cons-why__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 14px; display: block; }
-    .cons-why__title { font-size: clamp(26px, 2.8vw, 40px); color: #fff; line-height: 1.1; font-weight: 300; }
-    .cons-why__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .cons-why-item { padding: 36px 32px; background: rgba(255,255,255,.06); border-radius: 8px; transition: background .15s; }
-    .cons-why-item:hover { background: rgba(255,255,255,.08); }
-    .cons-why-item__icon { font-size: 28px; color: var(--accent); font-weight: 300; margin-bottom: 20px; line-height: 1; }
-    .cons-why-item__title { font-size: 15px; color: #fff; font-weight: 400; margin-bottom: 10px; line-height: 1.3; }
-    .cons-why-item__desc { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.65; }
-
-    /* ═══════════════════════════════════
-       FAQ
-    ═══════════════════════════════════ */
-    .cons-faq { padding: 80px 0; background: var(--bg-section); }
-    .cons-faq__header { margin-bottom: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: end; }
-    .cons-faq__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
-    .cons-faq__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.12; }
-    .cons-faq__intro { font-size: 15px; color: var(--muted); line-height: 1.75; }
-    .faq-open-list { border-top: 1px solid var(--border); }
-    .faq-open-item { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6vw; padding: 40px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
-    .faq-open-item__num { font-size: 11px; letter-spacing: .2em; color: var(--accent); margin-bottom: 10px; }
-    .faq-open-item__q { font-size: 18px; color: var(--green); font-weight: 400; line-height: 1.3; }
-    .faq-open-item__a { font-size: 14px; color: var(--muted); line-height: 1.8; }
-    .faq-open-item__a ul { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
-    .faq-open-item__a ul li { display: flex; gap: 10px; }
-    .faq-open-item__a ul li::before { content: '—'; color: var(--muted-light); flex-shrink: 0; }
-
-    /* ═══════════════════════════════════
-       SERVICES CARDS
-    ═══════════════════════════════════ */
-    .cons-svcs { padding: 80px 0; background: var(--bg-section); }
-    .cons-svcs__header { margin-bottom: 52px; }
-    .cons-svcs__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
-    .cons-svcs__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.1; margin-bottom: 0; }
-    .cons-svcs__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .cons-svc-card { padding: 36px 32px; position: relative; overflow: hidden; background: #fff; border-radius: 8px; }
-    .cons-svc-card--hero { background: var(--green); }
-    .cons-svc-card__num { font-size: 140px; font-weight: 300; color: rgba(0,0,0,.05); line-height: 1; position: absolute; top: 12px; right: 24px; letter-spacing: -.04em; pointer-events: none; }
-    .cons-svc-card--hero .cons-svc-card__num { color: rgba(255,255,255,.06); }
-    .cons-svc-card__tag { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 36px; display: block; }
-    .cons-svc-card--hero .cons-svc-card__tag { color: rgba(255,255,255,.4); }
-    .cons-svc-card__title { font-size: clamp(20px, 2vw, 28px); color: var(--green); line-height: 1.2; font-weight: 300; margin-bottom: 16px; max-width: 300px; }
-    .cons-svc-card--hero .cons-svc-card__title { color: #fff; }
-    .cons-svc-card__text { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 400px; margin-bottom: 32px; }
-    .cons-svc-card--hero .cons-svc-card__text { color: rgba(255,255,255,.6); }
-    .cons-svc-card__features { display: flex; flex-direction: column; border-top: 1px solid var(--border); margin-bottom: 20px; }
-    .cons-svc-card--hero .cons-svc-card__features { border-color: rgba(255,255,255,.12); }
-    .cons-svc-card__feature { font-size: 13px; color: var(--muted); padding: 11px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: baseline; }
-    .cons-svc-card--hero .cons-svc-card__feature { color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.1); }
-    .cons-svc-card__feature::before { content: '—'; color: var(--muted-light); flex-shrink: 0; font-size: 10px; }
-    .cons-svc-card--hero .cons-svc-card__feature::before { color: rgba(255,255,255,.3); }
-    .cons-svc-card__badge { display: inline-flex; align-items: center; border: 1px solid var(--border); padding: 8px 16px; font-size: 12px; color: var(--muted); }
-    .cons-svc-card--hero .cons-svc-card__badge { border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.6); }
-
-    /* ═══════════════════════════════════
-       PROCÉS
-    ═══════════════════════════════════ */
-    .block-process {
-      padding: 80px 0; background: var(--bg-light);
-    }
-    .block-process__header { margin-bottom: 36px; }
-    .block-process__tag {
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--muted-light); margin-bottom: 14px; display: block;
-    }
-    .block-process__title {
-      font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15;
-    }
-    .block-process__intro {
-      font-size: 16px; color: var(--muted); line-height: 1.65;
-      max-width: 540px; margin-top: 14px;
-    }
-    .process-steps {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--border);
-    }
-    .process-step {
-      padding: 28px 0; display: flex; gap: 24px; align-items: flex-start;
-      border-bottom: 1px solid var(--border);
-    }
-    .process-step:nth-child(odd)  { padding-right: 5vw; }
-    .process-step:nth-child(even) { padding-left: 5vw; border-left: 1px solid var(--border); }
-    .process-step__num {
-      font-size: clamp(36px, 3vw, 52px);
-      color: var(--border); font-weight: 300;
-      line-height: 1; min-width: 64px; flex-shrink: 0;
-      letter-spacing: -.02em;
-    }
-    .process-step__body { padding-top: 4px; }
-    .process-step__title {
-      font-size: 17px; color: var(--green);
-      margin-bottom: 10px; line-height: 1.3; font-weight: 400;
-    }
-    .process-step__desc {
-      font-size: 14px; color: var(--muted);
-      line-height: 1.65; max-width: 360px;
-    }
-
-    /* ═══════════════════════════════════
-       PROJECTES
-    ═══════════════════════════════════ */
-    .cons-projects { padding: 80px 0; background: #fff; }
-    .cons-projects__header { margin-bottom: 48px; }
-    .cons-projects__tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 14px; display: block; }
-    .cons-projects__title { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15; }
-    .cons-projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .cons-project { background: #fff; border-radius: 8px; overflow: hidden; }
-    .cons-project__img { height: 15vw; overflow: hidden; }
-    .cons-project__img .ph { height: 100%; }
-    .cons-project__body { padding: 24px; }
-    .cons-project__year { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 12px; }
-    .cons-project__name { font-size: 19px; color: var(--green); line-height: 1.25; margin-bottom: 10px; font-weight: 400; }
-    .cons-project__desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
-    .cons-project__tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .cons-project__tag-pill { font-size: 11px; padding: 3px 10px; background: var(--bg-light); border: 1px solid var(--border); color: var(--muted); }
-
-    /* ═══════════════════════════════════
-       CTA / CONTACTE
-    ═══════════════════════════════════ */
-    .block-cta-inv {
-      padding: 80px 0; background: #fff;
-    }
-    .block-cta-inv__inner {
-      background: var(--green);
-      display: flex; align-items: stretch; overflow: hidden;
-      border-radius: 8px;
-    }
-    .cta-left {
-      flex: 1; padding: 44px 44px;
-    }
-    .cta-left .tag {
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(255,255,255,.4); margin-bottom: 20px; display: block;
-    }
-    .cta-left h2 {
-      font-size: clamp(26px, 2.8vw, 40px); color: #fff;
-      line-height: 1.12; margin-bottom: 20px;
-    }
-    .cta-left p {
-      font-size: 16px; color: rgba(255,255,255,.6);
-      line-height: 1.65; margin-bottom: 36px; max-width: 400px;
-    }
-    .cta-confidencial {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 13px; color: rgba(255,255,255,.35); margin-top: 20px;
-    }
-    .cta-right {
-      width: 42%; background: rgba(255,255,255,.04);
-      padding: 44px 40px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .pat-form label {
-      display: block; font-size: 11px; letter-spacing: .2em;
-      text-transform: uppercase; color: rgba(255,255,255,.35);
-      margin-bottom: 6px; margin-top: 20px;
-    }
-    .pat-form label:first-child { margin-top: 0; }
-    .pat-form input, .pat-form select, .pat-form textarea {
-      width: 100%; background: transparent;
-      border: 0; border-bottom: 1px solid rgba(255,255,255,.2);
-      color: #fff; padding: 8px 0; font-size: 15px;
-      font-family: 'TT Firs Neue', sans-serif; outline: none;
-      transition: border-color .2s;
-      -webkit-appearance: none; appearance: none;
-    }
-    .pat-form input:focus, .pat-form select:focus, .pat-form textarea:focus {
-      border-bottom-color: rgba(255,255,255,.6);
-    }
-    .pat-form input::placeholder, .pat-form textarea::placeholder { color: rgba(255,255,255,.25); }
-    .pat-form select option { background: var(--green); color: #fff; }
-    .pat-form textarea { resize: none; height: 80px; }
-    .pat-form__submit {
-      margin-top: 32px;
-      background: #fff; border-color: #fff; color: var(--green);
-      width: 100%; justify-content: center; font-size: 15px; font-weight: 500;
-    }
-    .pat-form__submit:hover { background: var(--bg-light); border-color: var(--bg-light); color: var(--green); }
-
-    /* ═══════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════ */
-    footer {
-      background: var(--footer-bg); color: #fff;
-      padding: 60px 0 40px;
-    }
-    footer a:hover { opacity: .6; }
-    .footer__content__info {
-      display: flex; justify-content: space-between;
-      gap: 20px; padding-bottom: 60px; flex-wrap: wrap;
-    }
-    .footer__content__info .footer-col { min-width: 120px; }
-    .footer__col-title { font-size: 18px; font-weight: 400; margin-bottom: 20px; }
-    .footer__content__info ul li { margin-bottom: 8px; }
-    .footer__content__info ul li a {
-      color: rgba(255,255,255,.6); font-size: 14px; transition: opacity .2s;
-    }
-    .info-showroom__item { margin-bottom: 24px; }
-    .info-showroom__item:last-child { margin-bottom: 0; }
-    .info-showroom__item h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; font-weight: 400; margin-bottom: 4px; }
-    .info-showroom__item p { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.5; }
-    .info-showroom__item a { color: rgba(255,255,255,.6); font-size: 13px; }
-    .footer__newsletter { max-width: 380px; }
-    .footer__newsletter > p { color: rgba(255,255,255,.6); font-size: 14px; margin-bottom: 20px; }
-    .newsletter-form { position: relative; }
-    .newsletter-form input[type="email"] {
-      width: 100%; background: transparent; border: 0;
-      border-bottom: 1px solid rgba(255,255,255,.35);
-      color: #fff; padding: 8px 36px 8px 0; font-size: 16px;
-      font-family: 'TT Firs Neue', sans-serif; outline: none;
-    }
-    .newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
-    .newsletter-form button[type="submit"] {
-      position: absolute; right: 0; top: 0; background: transparent;
-      border: 0; height: 36px; width: 30px; display: flex;
-      align-items: center; justify-content: center; cursor: pointer;
-      color: rgba(255,255,255,.7); padding: 0;
-    }
-    .newsletter-form button[type="submit"]:hover { color: #fff; background: transparent; }
-    .footer__rrss { padding-top: 30px; }
-    .footer__rrss > p { font-size: 14px; margin-bottom: 12px; color: rgba(255,255,255,.5); }
-    .rrss__links { display: flex; gap: 20px; }
-    .rrss__links a { color: rgba(255,255,255,.6); font-size: 14px; }
-    .copyright {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      border-top: 1px solid rgba(255,255,255,.08); padding-top: 30px;
-    }
-    .copyright p { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.5; }
-
-    /* ═══════════════════════════════════
-       MOBILE NAV
-    ═══════════════════════════════════ */
-    .mobile-nav {
-      position: fixed; top: 0; left: -90vw; width: 90vw; height: 100vh;
-      background: #fff; z-index: 200; transition: left .3s ease;
-      overflow-y: auto; padding: 0 6vw;
-    }
-    .mobile-nav.open { left: 0; }
-    .mobile-nav__header {
-      height: 56px; display: flex; align-items: center;
-      justify-content: space-between; border-bottom: 1px solid var(--border);
-    }
-    .mobile-nav__close {
-      background: none; border: none; cursor: pointer;
-      font-size: 24px; padding: 0; height: auto; color: var(--text);
-    }
-    .mobile-nav__close:hover { background: none; color: var(--muted); }
-    .mobile-nav ul { padding: 20px 0; }
-    .mobile-nav ul li { border-bottom: 1px solid var(--bg-light); }
-    .mobile-nav ul li a, .mobile-nav ul li span {
-      display: block; padding: 16px 0; font-size: 20px; cursor: pointer;
-    }
-    .mobile-nav ul li.sub-title { font-size: 12px; text-transform: uppercase; color: var(--muted); padding: 20px 0 8px; border-bottom: 0; }
-
-    /* ═══════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════ */
-    @media (max-width: 900px) {
-      .menu-btn-wrapper { display: block; }
-      nav.menu, nav.menu-right, .lang { display: none; }
-
-      .t42 { font-size: 24px; }
-      .t70 { font-size: 38px; }
-      .t24 { font-size: 20px; }
-      .container { width: 100%; padding: 0 4.8vw; }
-      .spacing, .block-margin { margin-bottom: 45px; }
-
-      .block-hero { height: 106vw; max-height: 500px; }
-
-      .pat-stats__inner { flex-wrap: wrap; gap: 24px; }
-      .pat-stat { min-width: calc(50% - 12px); }
-      .pat-stat:nth-child(3) { border-left: none; padding-left: 0; }
-
-      .cons-metrics { grid-template-columns: 1fr; }
-      .cons-metric { border-right: 0; border-bottom: 1px solid var(--border); }
-
-      .cons-wall__header { flex-direction: column; align-items: flex-start; }
-      .cons-wall__note { text-align: left; }
-      .cons-wl { grid-template-columns: 28px 48px 1fr; gap: 16px; }
-      .cons-wl__spec { display: none; }
-
-      .cons-ph { grid-template-columns: 1fr; }
-      .cons-ph-card { border-right: 0; border-bottom: 1px solid var(--border); }
-
-      .cons-svcs__grid { grid-template-columns: 1fr; }
-      .cons-svc-card__num { font-size: 100px; }
-
-      .process-steps { grid-template-columns: 1fr; }
-      .process-step:nth-child(even) { border-left: none; padding-left: 0; }
-      .process-step:nth-child(odd)  { padding-right: 0; }
-
-      .cons-5p__grid { grid-template-columns: 1fr 1fr; }
-      .cons-why__grid { grid-template-columns: 1fr 1fr; }
-      .cons-faq__header { grid-template-columns: 1fr; gap: 20px; }
-      .faq-open-item { grid-template-columns: 1fr; gap: 12px; }
-
-      .cons-projects-grid { grid-template-columns: 1fr; }
-      .cons-project__img { height: 56vw; }
-
-      .block-cta-inv__inner { flex-direction: column; }
-      .cta-right { width: 100%; padding: 40px 4.8vw 48px; }
-      .cta-left { padding: 48px 4.8vw 40px; }
-
-      .footer__content__info { flex-direction: column; }
-      .footer__newsletter { max-width: 100%; }
-    }
-
-    @media (max-width: 600px) {
-      .pat-stat { min-width: 100%; border-left: none; padding-left: 0; }
-    }
-  
-    /* ═══════════════════════════════════════════════════════
-       PAPIK · MOTION SYSTEM — v1
-       Only transform + opacity → GPU composited, zero reflow
-    ═══════════════════════════════════════════════════════ */
-
-    /* ─── Scroll-reveal base ─────────────────────────────── */
-    .js-ready [data-anim] {
-      opacity: 0;
-      transition: opacity 0.65s cubic-bezier(.22,.68,0,1.05),
-                  transform 0.65s cubic-bezier(.22,.68,0,1.05);
-    }
-    .js-ready [data-anim="fade-up"]    { transform: translateY(30px); }
-    .js-ready [data-anim="fade-left"]  { transform: translateX(-32px); }
-    .js-ready [data-anim="fade-right"] { transform: translateX(32px); }
-    .js-ready [data-anim="fade-scale"] { transform: scale(0.93); }
-    .js-ready [data-anim="fade-in"]    { transform: none; }
-    .js-ready [data-anim].is-visible   { opacity: 1; transform: none; }
-
-    /* ─── Header con fondo al hacer scroll ───────────────── */
-    .header-top {
-      transition: background-color 0.32s ease, box-shadow 0.32s ease;
-    }
-    .header-top.hdr-scrolled {
-      background: rgba(255,255,255,0.97) !important;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 1px 0 rgba(0,0,0,.07);
-    }
-
-    /* ─── Submenú: slide suave en lugar de margin jump ───── */
-    .submenu {
-      transition: opacity 0.22s ease, transform 0.22s ease,
-                  visibility 0.22s ease !important;
-      transform: translateY(-8px) !important;
-      opacity: 0 !important;
-      margin-top: 0 !important;
-      visibility: hidden !important;
-    }
-    .submenu.submenu-open {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-      visibility: visible !important;
-    }
-
-    /* ─── Card hover lift ────────────────────────────────── */
-    .promo-model__phase,
-    .promo-process__step,
-    .promo-guarantee__item,
-    .rehab-wl__step,
-    .const-wl__step,
-    .nextgen-block__card,
-    .tipo-card {
-      transition: transform 0.28s cubic-bezier(.34,1.56,.64,1),
-                  box-shadow 0.28s ease !important;
-    }
-    .promo-model__phase:hover,
-    .promo-process__step:hover,
-    .tipo-card:hover,
-    .nextgen-block__card:hover {
-      transform: translateY(-5px) !important;
-      box-shadow: 0 14px 36px rgba(0,40,25,.10) !important;
-    }
-    .promo-guarantee__item:hover {
-      transform: translateY(-3px) !important;
-      box-shadow: 0 8px 20px rgba(0,40,25,.08) !important;
-    }
-
-    /* ─── Botones ─────────────────────────────────────────── */
-    .btn-cta, .nav-cta, [class*="btn-primary"], [class*="btn-outline"],
-    a.btn, button.btn {
-      transition: transform 0.18s ease, box-shadow 0.18s ease,
-                  background-color 0.22s ease, color 0.22s ease !important;
-    }
-    .btn-cta:hover, [class*="btn-primary"]:hover, .nav-cta:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 20px rgba(0,40,25,.20) !important;
-    }
-    .btn-cta:active, [class*="btn-primary"]:active {
-      transform: scale(0.97) !important;
-      box-shadow: none !important;
-    }
-
-    /* ─── Links con subrayado animado ──────────────────────── */
-    .feat-link, .link-arrow, .submenu__col ul a {
-      background-image: linear-gradient(currentColor, currentColor);
-      background-size: 0% 1px;
-      background-repeat: no-repeat;
-      background-position: 0 100%;
-      padding-bottom: 1px;
-      transition: background-size 0.28s ease, color 0.2s ease !important;
-    }
-    .feat-link:hover, .link-arrow:hover, .submenu__col ul a:hover {
-      background-size: 100% 1px;
-    }
-
-    /* ─── Image zoom en hover ──────────────────────────────── */
-    .submenu__img { overflow: hidden; }
-    .submenu__img > * {
-      transition: transform 0.5s cubic-bezier(.25,.46,.45,.94) !important;
-    }
-    .submenu__col:hover .submenu__img > * { transform: scale(1.07); }
-
-    /* ─── Nav menu items ───────────────────────────────────── */
-    .menu-btn {
-      transition: opacity 0.18s ease;
-      display: inline-block;
-    }
-    .menu-btn:hover { opacity: 0.6; }
-    .nav-cta.menu-btn { display: flex; }
-
-    /* ─── FAQ items: indent hover ──────────────────────────── */
-    .faq-open-item {
-      transition: padding-left 0.22s ease !important;
-    }
-    .faq-open-item:hover { padding-left: 10px; }
-
-    /* ─── Promo process: número se ilumina ─────────────────── */
-    .promo-process__num {
-      transition: color 0.28s ease !important;
-    }
-    .promo-process__step:hover .promo-process__num {
-      color: var(--muted);
-    }
-
-    /* ─── Promo actives: card full hover ───────────────────── */
-    .promo-actives .active-card {
-      transition: transform 0.28s cubic-bezier(.34,1.56,.64,1),
-                  box-shadow 0.28s ease !important;
-    }
-    .promo-actives .active-card:hover {
-      transform: translateY(-4px) !important;
-      box-shadow: 0 12px 30px rgba(0,40,25,.12) !important;
-    }
-
-    /* ─── Reduced motion: desactivar todo ──────────────────── */
-    @media (prefers-reduced-motion: reduce) {
-      .js-ready [data-anim]          { opacity: 1 !important; transform: none !important; }
-      .js-ready [data-anim].is-visible { transition: none !important; }
-    }
-
-    </style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Construcció Passivhaus a Catalunya · PAPIK Group">
+  <meta property="og:description" content="Construïm cases Passivhaus a Catalunya, Balears i Andorra des de 1994. Sistema constructiu propi Eskimohaus®. Configura el pressupost de la teva casa.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-construccio.jpg">
+  <meta property="og:url" content="https://papik.cat/construccio">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="ca_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Construcció Passivhaus a Catalunya · PAPIK Group">
+  <meta name="twitter:description" content="Construïm cases Passivhaus a Catalunya, Balears i Andorra des de 1994. Sistema constructiu propi Eskimohaus®. Configura el pressupost de la teva casa.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-construccio.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_examples_per_unit": {
+      "construccio": {
+        "name": "Construcció de cases Passivhaus",
+        "serviceType": "Custom passive house construction",
+        "description": "Construïm cases unifamiliars i plurifamiliars sota l'estàndard Passivhaus. De zero a clau en mà."
+      },
+      "promocio": {
+        "name": "Promoció immobiliària sostenible",
+        "serviceType": "Real estate development with passive house standards",
+        "description": "Desenvolupem promocions de cases passives. Comprem el solar, construïm i venem el producte acabat clau en mà."
+      },
+      "rehabilitacio": {
+        "name": "Rehabilitació energètica integral",
+        "serviceType": "Energy retrofit including subsidy management",
+        "description": "Transformem habitatges existents en cases eficients. Gestionem les ajudes Next Generation EU integralment."
+      },
+      "patrimonis": {
+        "name": "Construcció i coinversió per a inversors patrimonials",
+        "serviceType": "Real estate development partnership for family offices",
+        "description": "Acompanyem patrimonis consolidats en projectes immobiliaris sostenibles, cas a cas i en vehicles privats."
+      }
+    },
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Construcció Passivhaus a Catalunya · PAPIK Group",
+    "serviceType": "ConstructionService",
+    "description": "Construïm cases Passivhaus a Catalunya, Balears i Andorra des de 1994. Sistema constructiu propi Eskimohaus®. Configura el pressupost de la teva casa.",
+    "url": "https://papik.cat/construccio",
+    "provider": {
+      "@id": "https://papik.cat/#org"
+    },
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Catalunya"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Illes Balears"
+      },
+      {
+        "@type": "Country",
+        "name": "Andorra"
+      }
+    ],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Residential customers and investors"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Construcció Passivhaus a Catalunya · PAPIK Group - tipologies",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "{{SUBSERVICE_1}}"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "{{SUBSERVICE_2}}"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "{{SUBSERVICE_3}}"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Construïm la seva casa, de zero a clau en mà"
+      }
+    ]
+  }
+]</script>
 </head>
-<body>
-
-<!-- ═══════════════════════════════════
-     MOBILE NAV OVERLAY
-═══════════════════════════════════ -->
-<nav class="mobile-nav" id="mobileNav">
-  <div class="mobile-nav__header">
-    <a href="index.html">
-      <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
-      </svg>
-    </a>
-    <button class="mobile-nav__close" id="mobileNavClose">&#x2715;</button>
+<body class="page--service">
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
   </div>
-  <ul class="t18">
-    <li class="sub-title">Serveis</li>
-    <li><a href="construccio.html" style="color:var(--green);font-weight:500;">Construcció</a></li>
-    <li><a href="promocio.html">Promoció Immobiliària</a></li>
-    <li><a href="rehabilitacio.html">Rehabilitació Energètica</a></li>
-    <li class="sub-title">Empresa</li>
-    <li><a href="patrimonis.html">Patrimonis</a></li>
-    <li><a href="projectes.html">Projectes</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="nosaltres.html">Nosaltres</a></li>
-    <li><a href="#contacte">Contacte</a></li>
-    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Pressupost →</a></li>
-  </ul>
-</nav>
-<div class="fade-bg" id="fadeBg"></div>
+</aside>
 
-<!-- ═══════════════════════════════════
-     HEADER
-═══════════════════════════════════ -->
 <header class="header-top" id="headerTop">
   <div class="header-logo-layer"></div>
   <div class="header-logo">
     <div class="container">
       <div class="header-logo__content">
         <div class="menu-btn-wrapper" id="burgerBtn">
-          <div class="menu-btn__burger">
-            <span></span><span></span><span></span>
-          </div>
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
         </div>
         <div class="logo">
-          <a href="index.html">
-            <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
-            </svg>
-          </a>
+          <a href="index.html"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
         </div>
       </div>
       <div class="lang">
-        <select onchange="location=this.value">
-          <option value="construccio.html" selected>CA</option>
-          <option value="es/construccio.html">ES</option>
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/construccio" selected>CA</option>
+          <option value="https://papik.cat/es/construccion">ES</option>
+          <option value="https://papik.cat/en/construction">EN</option>
         </select>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ═══════════════════════════════════
-     STICKY BAR
-═══════════════════════════════════ -->
-<section class="header-sticky" id="headerSticky">
-  <div class="header-sticky__bar">
-    <div class="container">
-      <div class="header-sticky__content">
-        <nav class="menu t14">
-          <ul>
-            <li class="active-page"><span class="menu-btn" data-menu="construccio">Construcció</span></li>
-            <li><span class="menu-btn" data-menu="promocio">Promoció</span></li>
-            <li><span class="menu-btn" data-menu="rehabilitacio">Rehabilitació</span></li>
-            <li><span class="menu-btn" data-menu="patrimonis">Patrimonis</span></li>
-                        <li>
-              <a href="blog.html">Blog</a>
-            </li>
-            <li><span class="menu-btn" data-menu="nosaltres">Nosaltres</span></li>
-          </ul>
-        </nav>
-        <nav class="menu-right t14">
-          <ul>
-            <li class="btn-search-trigger" id="searchTrigger">
-              Buscar
-              <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-            </li>
-            <li><a href="index.html#contacte">Contacte</a>
-              <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/><path d="M2 6L12 13L22 6" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-            </li>
-            <li><a href="usuaris.html">Inicia sessió</a>
-              <div class="icon-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-            </li>
-            <li>
-              <span class="nav-cta menu-btn" data-menu="pressupost">
-                Pressupost
-                <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
-              </span>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <!-- Search -->
-      <div class="form-search-wrapper" id="searchWrapper">
-        <div class="form-search__content" style="position:relative;">
-          <button class="search-icon-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </button>
-          <form action="/" method="get">
-            <input type="text" name="s" placeholder="Cerca...">
-          </form>
-        </div>
-        <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── SUBMENU: Pressupost ─── -->
-  <div class="submenu" id="sub-pressupost">
-    <div class="container">
-      <div class="submenu__content">
-        <div class="submenu__col">
-          <h3 class="t24">Tipus de projecte</h3>
-          <ul class="t16">
-            <li><a href="pressupost.html">Obra Nova Unifamiliar</a></li>
-            <li><a href="pressupost.html">Edifici Plurifamiliar</a></li>
-            <li><a href="pressupost.html">Reforma Integral</a></li>
-            <li><a href="pressupost.html">Rehabilitació Energètica</a></li>
-            <li><a href="pressupost.html">Ampliació i Canvi d'Ús</a></li>
-          </ul>
-          <div class="submenu__img">
-            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
-          </div>
-        </div>
-        <div class="submenu__col">
-          <h3 class="t24">Estima el teu projecte</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Introdueix les característiques del teu projecte i obtén una estimació orientativa del cost en menys d'un minut. Sense compromís, sense registre.</p>
-          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulació
-            <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
-          </a>
-        </div>
-        <div class="submenu__featured">
-          <h3>Com funciona</h3>
-          <p class="feat-title">3 passos: tipus de projecte → superfície i materials → resultat</p>
-          <a href="pressupost.html" class="feat-link link-arrow">Provar ara
-            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Submenus -->
-  <div class="submenu" id="sub-construccio">
-    <div class="container">
-      <div class="submenu__content">
-        <div class="submenu__col">
-          <h3 class="t24"><a href="construccio.html" style="color:inherit;">Construcció Residencial</a></h3>
-          <ul class="t16">
-            <li><a href="construccio.html#unifamiliar">Habitatges Unifamiliars</a></li>
-            <li><a href="construccio.html#plurifamiliar">Edificis Plurifamiliars</a></li>
-            <li><a href="construccio.html#ampliacio">Ampliacions i Remuntes</a></li>
-            <li><a href="construccio.html#reforma">Reformes Integrals</a></li>
-          </ul>
-          <div class="submenu__img"><div class="ph ph-warm-1" style="height:100%;"></div></div>
-        </div>
-        <div class="submenu__col">
-          <h3 class="t24">El nostre enfocament</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Construïm residències amb qualitat artesanal i tecnologia d'avantguarda. Sistema Eskimohaus® i certificació Passivhaus des de 2004.</p>
-        </div>
-        <div class="submenu__featured">
-          <h3>Actualitat</h3>
-          <p class="feat-title">Nova promoció a Badalona: 24 habitatges amb certificació A</p>
-          <a href="#" class="feat-link link-arrow">Llegir més <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="submenu" id="sub-promocio">
-    <div class="container">
-      <div class="submenu__content">
-        <div class="submenu__col">
-          <h3 class="t24"><a href="promocio.html" style="color:inherit;">Promoció Immobiliària</a></h3>
-          <ul class="t16">
-            <li><a href="promocio.html#promocions">Promocions actives</a></li>
-            <li><a href="promocio.html#tipologies">Tipologies de promoció</a></li>
-            <li><a href="promocio.html#solar">Col·laboració propietaris de solar</a></li>
-            <li><a href="promocio.html#faq">Preguntes freqüents</a></li>
-          </ul>
-          <div class="submenu__img"><div class="ph ph-warm-2" style="height:100%;"></div></div>
-        </div>
-        <div class="submenu__col">
-          <h3 class="t24">Màxima rendibilitat</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Des de la cerca de solar fins a la venda del darrer habitatge.</p>
-        </div>
-        <div class="submenu__featured">
-          <h3>Actualitat</h3>
-          <p class="feat-title">Projecte Eixample: 12 pisos de disseny al cor de Barcelona</p>
-          <a href="#" class="feat-link link-arrow">Llegir més <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="submenu" id="sub-rehabilitacio">
-    <div class="container">
-      <div class="submenu__content">
-        <div class="submenu__col">
-          <h3 class="t24"><a href="rehabilitacio.html" style="color:inherit;">Rehabilitació Energètica</a></h3>
-          <ul class="t16">
-            <li><a href="rehabilitacio.html#diagnosi">Diagnosi i certificació energètica</a></li>
-            <li><a href="rehabilitacio.html#envolupant">Aïllament de façanes i cobertes</a></li>
-            <li><a href="rehabilitacio.html#instal-lacions">Instal·lacions i solar fotovoltaica</a></li>
-            <li><a href="rehabilitacio.html#nextgen">Ajudes Next Generation EU</a></li>
-          </ul>
-          <div class="submenu__img"><div class="ph ph-green" style="height:100%;"></div></div>
-        </div>
-        <div class="submenu__col">
-          <h3 class="t24">Estalvi i confort</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Millorar l'eficiència energètica del teu edifici és invertir en futur.</p>
-        </div>
-        <div class="submenu__featured">
-          <h3>Actualitat</h3>
-          <p class="feat-title">Fins a un 80% de subvenció per rehabilitar la teva façana</p>
-          <a href="#" class="feat-link link-arrow">Llegir més <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- ─── SUBMENU: Patrimonis ─── -->
-  <div class="submenu" id="sub-patrimonis">
-    <div class="container">
-      <div class="submenu__content">
-        <div class="submenu__col">
-          <h3 class="t24"><a href="patrimonis.html" style="color:inherit;">Inversió Patrimonial</a></h3>
-          <ul class="t16">
-            <li><a href="patrimonis.html#com-funciona">Com funciona</a></li>
-            <li><a href="patrimonis.html">Inversors Privats i Family Office</a></li>
-            <li><a href="patrimonis.html">Co-inversió i Joint Venture</a></li>
-            <li><a href="patrimonis.html#faq">Preguntes freqüents</a></li>
-          </ul>
-          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div></div>
-        </div>
-        <div class="submenu__col">
-          <h3 class="t24">Rendibilitat i seguretat</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">Assessorem inversors patrimonials, family offices i fons d'inversió en la identificació, adquisició i gestió d'actius immobiliaris residencials al Maresme i Barcelonès.</p>
-        </div>
-        <div class="submenu__featured">
-          <h3>Destacat</h3>
-          <p class="feat-title">Cartera activa: 3 solars disponibles per a promoció plurifamiliar</p>
-          <a href="patrimonis.html" class="feat-link link-arrow">Conèixer més <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- ─── SUBMENU: Nosaltres ─── -->
-  <div class="submenu" id="sub-nosaltres">
-    <div class="container">
-      <div class="submenu__content">
-        <div class="submenu__col">
-          <h3 class="t24"><a href="nosaltres.html" style="color:inherit;">PAPIK Group</a></h3>
-          <ul class="t16">
-            <li><a href="nosaltres.html">La nostra història</a></li>
-            <li><a href="nosaltres.html#equip">L'equip</a></li>
-            <li><a href="nosaltres.html#eskimohaus">Sistema Eskimohaus</a></li>
-            <li><a href="nosaltres.html#valors">Valors i compromís</a></li>
-            <li><a href="nosaltres.html#reconeixements">Premis i certificacions</a></li>
-          </ul>
-          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div></div>
-        </div>
-        <div class="submenu__col">
-          <h3 class="t24">Trenta anys d'ofici</h3>
-          <p class="t16" style="color:var(--muted);line-height:1.65;">D'un taller de fusteria artesanal al grup constructor de referència en passivhaus a Catalunya. Fem coses que duren — i ho fem des del 1994.</p>
-        </div>
-        <div class="submenu__featured">
-          <h3>Reconeixements</h3>
-          <p class="feat-title">Premio Excelencia Empresarial · Foment del Treball, 2019</p>
-          <a href="nosaltres.html#reconeixements" class="feat-link link-arrow">Conèixer l'empresa <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════
-     HERO
-═══════════════════════════════════ -->
-<section class="block-hero">
-  <div class="block-hero__media">
-    <div class="ph" style="position:absolute;inset:0;background:linear-gradient(160deg,#07140D 0%,#07140D 50%,#0A1B12 100%);"></div>
-  </div>
-  <div class="block-hero__overlay"></div>
-  <div class="block-hero__content">
-    <p class="block-hero__eyebrow">Construcció Residencial · Sistema Eskimohaus® · Passivhaus Certified</p>
-    <h1 class="block-hero__title">Construïm cases que<br>duren generacions</h1>
-    <p class="block-hero__sub">Habitatges unifamiliars, plurifamiliars, ampliacions i reformes. Amb el sistema Eskimohaus® i trenta anys d'artesania constructiva al Vallès. Tu portes el projecte — nosaltres el construïm.</p>
-    <div class="block-hero__cta">
-      <a href="pressupost.html"><button>Sol·licitar pressupost <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/></svg></button></a>
-      <a href="#serveis"><button class="btn-outline-white">Veure serveis</button></a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════
-     STATS
-═══════════════════════════════════ -->
-<section class="pat-stats">
+<main id="main">
+<section class="hero hero--dark">
   <div class="container">
-    <div class="pat-stats__inner">
-      <div class="pat-stat">
-        <p class="pat-stat__num">30 anys</p>
-        <p class="pat-stat__lbl">en construcció residencial a Catalunya</p>
-      </div>
-      <div class="pat-stat">
-        <p class="pat-stat__num">+150</p>
-        <p class="pat-stat__lbl">habitatges construïts i entregats</p>
-      </div>
-      <div class="pat-stat">
-        <p class="pat-stat__num">Pioners</p>
-        <p class="pat-stat__lbl">en Passivhaus a Catalunya des de 2004</p>
-      </div>
-      <div class="pat-stat">
-        <p class="pat-stat__num">4 mesos</p>
-        <p class="pat-stat__lbl">de primera pedra a entrega de claus (habitatge unifamiliar)</p>
-      </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Inici</a>
+        <span class="sep">·</span>
+        <span>Construïm la seva casa, de zero a clau en mà</span>
+      </nav>
+    <span class="hero__eyebrow">LA NOSTRA UNITAT MAJOR</span>
+    <h1 class="hero__title">Construïm la seva casa, de zero a clau en mà</h1>
+    <p class="hero__subtitle">Trenta anys construint a Catalunya. Sistema constructiu propi. Tenir solar o no és una qüestió de logística; la resta la portem nosaltres.</p>
+    <div class="hero__actions">
+      <a class="btn-white" href="#contacte">Configurar el meu pressupost <span aria-hidden="true">→</span></a>
+      <a class="btn-outline" href="#main">Veure cases construïdes <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     ESKIMOHAUS INTRO
-═══════════════════════════════════ -->
-<section class="cons-intro">
+<section class="section">
   <div class="container">
-    <div class="cons-intro__head">
-      <span class="cons-intro__tag">El sistema que ho fa possible</span>
-      <h2 class="cons-intro__title">Eskimohaus®: fusta,<br>precisió i Passivhaus de sèrie</h2>
-      <p class="cons-intro__body">El nom ho diu tot: com les cases dels inuit, les Eskimohaus ofereixen un gran confort interior en qualsevol clima, amb una despesa energètica mínima. El sistema és nostre — l'hem desenvolupat i perfeccionat al taller de Castellbell durant trenta anys. Muntants de pi C-24, llana de roca d'alta densitat, barrera d'aire hermètica i façana ventilada: una sola metodologia que fa possible la certificació Passivhaus des del primer dia.</p>
-    </div>
-  </div>
-  <div class="cons-metrics">
-    <div class="cons-metric">
-      <p class="cons-metric__val">U 0,16</p>
-      <p class="cons-metric__lbl">W/m²K transmitància tèrmica<br>3× millor que el CTE (màx. 0,53)</p>
-    </div>
-    <div class="cons-metric">
-      <p class="cons-metric__val">n50 ≤0,6</p>
-      <p class="cons-metric__lbl">ach/h estanquitat a l'aire<br>verificat per blower door test</p>
-    </div>
-    <div class="cons-metric">
-      <p class="cons-metric__val">−70%</p>
-      <p class="cons-metric__lbl">estalvi energètic respecte<br>a una construcció convencional</p>
+    <header class="section-header">
+      <h2 class="section-header__title">On comença el seu procés?</h2>
+      <p class="section-header__lead">Cada situació té el seu camí.</p>
+    </header>
+    <div class="card-grid">
+      <article class="card card--icon">
+        <span class="card__cat">TINC SOLAR</span>
+        <h3 class="card__title">Tinc solar</h3>
+        <p class="card__excerpt">Té el terreny i la decisió de construir. Comencem el procés amb una visita tècnica al seu solar i una proposta inicial.</p>
+        <a class="link-arrow" href="#">Configurar el meu pressupost <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card card--icon">
+        <span class="card__cat">NO TINC SOLAR ENCARA</span>
+        <h3 class="card__title">No tinc solar encara</h3>
+        <p class="card__excerpt">Disposem d'una xarxa pròpia de col·laboradors immobiliaris i d'un equip intern especialitzat en avaluació de parcel·les.</p>
+        <a class="link-arrow" href="#">Sol·licitar acompanyament  →   (ancla a BLOC 7) <span aria-hidden="true">→</span></a>
+      </article>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     5 PRINCIPIS PASSIVHAUS
-═══════════════════════════════════ -->
-<section class="cons-5p">
+<section class="section section--light">
   <div class="container">
-    <div class="cons-5p__header">
-      <span class="cons-5p__tag">Els cinc pilars de l'estàndard</span>
-      <h2 class="cons-5p__title">Per ser Passivhaus cal complir cinc principis sense excepció.</h2>
+    <header class="section-header">
+      <h2 class="section-header__title">Set fases per construir la seva casa</h2>
+      <p class="section-header__lead">Cada projecte és diferent; el procés, no.</p>
+    </header>
+    <div class="section-body">
+      <p>01 · CONVERSA INICIAL</p>
+      <p>Reunió sense compromís. Ens explica què vol, què té, què el preocupa. No hi ha proposta encara: escoltem.</p>
+      <p>──────────────</p>
+      <p>02 · AVALUACIÓ DEL SOLAR</p>
+      <p>Visita tècnica al terreny. Si encara no en té, l'orientem en la cerca amb la nostra xarxa de col·laboradors immobiliaris.</p>
+      <p>──────────────</p>
+      <p>03 · AVANTPROJECTE</p>
+      <p>Primera proposta arquitectònica i estimació de pressupost orientativa. Aquí ja parlem de número, plànol i terminis.</p>
+      <p>──────────────</p>
+      <p>04 · PROJECTE DEFINITIU</p>
+      <p>Projecte tècnic complet, amb tots els detalls tancats: distribució, materials, instal·lacions, certificacions.</p>
+      <p>──────────────</p>
+      <p>05 · LLICÈNCIES I CONTRACTACIÓ</p>
+      <p>Tramitem les llicències urbanístiques davant l'ajuntament. Signem contracte d'obra amb terminis i pressupost tancats.</p>
+      <p>──────────────</p>
+      <p>06 · CONSTRUCCIÓ</p>
+      <p>Fase d'obra amb seguiment continuat. Visites periòdiques amb el client. Comunicació transparent dels imprevistos si n'hi ha.</p>
+      <p>──────────────</p>
+      <p>07 · ENTREGA I POSTOBRA</p>
+      <p>Lliurament de claus, manual d'ús de la casa, garanties i acompanyament durant el primer any de vida.</p>
     </div>
-    <div class="cons-5p__grid">
-      <div class="cons-5p-item">
-        <span class="cons-5p-item__num">01</span>
-        <h3 class="cons-5p-item__title">Aïllament tèrmic màxim</h3>
-        <p class="cons-5p-item__desc">La fusta té un baix coeficient tèrmic de forma natural. Combinada amb llana de roca i cel·lulosa, s'assoleix una transmitància de U 0,16 W/m²K — tres vegades millor que el que exigeix la normativa.</p>
-      </div>
-      <div class="cons-5p-item">
-        <span class="cons-5p-item__num">02</span>
-        <h3 class="cons-5p-item__title">Tancaments d'alta eficiència</h3>
-        <p class="cons-5p-item__desc">Finestres i portes exteriors amb certificació Passivhaus. Triple vidre, marc sense pont tèrmic i segell hermètic perimetral. El punt de pèrdua tèrmica més habitual, eliminat.</p>
-      </div>
-      <div class="cons-5p-item">
-        <span class="cons-5p-item__num">03</span>
-        <h3 class="cons-5p-item__title">Zero ponts tèrmics</h3>
-        <p class="cons-5p-item__desc">Tots els aïllaments s'executen en una sola obra, sense juntes. La façana ventilada trenca la transmissió directa entre exterior i interior. Cap fuga de temperatura és acceptable.</p>
-      </div>
-      <div class="cons-5p-item">
-        <span class="cons-5p-item__num">04</span>
-        <h3 class="cons-5p-item__title">Estanquitat a l'aire</h3>
-        <p class="cons-5p-item__desc">La barrera d'aire hermètica d'OSB garanteix que no hi hagi filtracions. El blower door test final ha de donar un valor inferior a n50 ≤ 0,6 h⁻¹. Sense excepcions, sense marge.</p>
-      </div>
-      <div class="cons-5p-item">
-        <span class="cons-5p-item__num">05</span>
-        <h3 class="cons-5p-item__title">Ventilació mecànica MVHR</h3>
-        <p class="cons-5p-item__desc">Sistema de ventilació amb recuperació de calor que renova l'aire de forma contínua, recuperant més del 90% de la calor de l'aire expulsat. Aire net, temperatura constant.</p>
-      </div>
+    <div class="section-body">
+      <p class="closing-sentence">La fase de disseny pot durar entre tres i vuit mesos. La construcció, entre nou i divuit. Cada calendari és diferent, i el seu el definim juntament amb vostè.</p>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     WALL ANATOMY
-═══════════════════════════════════ -->
-<section class="cons-wall">
+<section class="section">
   <div class="container">
-    <div class="cons-wall__header">
-      <div>
-        <span class="cons-wall__tag">Anatomia de l'envolupant</span>
-        <h3 class="cons-wall__title">Sis capes. Un sol objectiu:<br>zero ponts tèrmics, màxima estanquitat.</h3>
-      </div>
-      <p class="cons-wall__note">Tots els panells es prefabriquen al taller de Castellbell i s'eleven a obra en sec. Control de qualitat 100% fora de l'obra.</p>
+    <header class="section-header">
+      <h2 class="section-header__title">Eskimohaus®, el nostre sistema constructiu propi</h2>
+    </header>
+    <div class="section-body">
+      <p>Després de trenta anys construint a Catalunya, hem desenvolupat un sistema que combina els principis de l'estàndard alemany Passivhaus amb els materials i el clima mediterrani. No és aplicar una tecnologia importada, sinó integrar la metodologia internacional amb les particularitats del territori.</p>
+      <p class="lead">Quatre principis sense superflu</p>
     </div>
-    <div class="cons-wall__layers">
-      <div class="cons-wl">
-        <span class="cons-wl__idx">01</span>
-        <span class="cons-wl__depth">5 cm</span>
-        <span class="cons-wl__name">Façana ventilada</span>
-        <span class="cons-wl__spec">trenca el pont tèrmic exterior</span>
-      </div>
-      <div class="cons-wl">
-        <span class="cons-wl__idx">02</span>
-        <span class="cons-wl__depth">12 cm</span>
-        <span class="cons-wl__name">Llana de roca exterior</span>
-        <span class="cons-wl__spec">làmina impermeabilitzant transpirable</span>
-      </div>
-      <div class="cons-wl cons-wl--key">
-        <span class="cons-wl__idx">03</span>
-        <span class="cons-wl__depth">10 cm</span>
-        <span class="cons-wl__name">Fusta pi C-24 — muntants 100×50mm</span>
-        <span class="cons-wl__spec">estructura portant prefabricada al taller</span>
-      </div>
-      <div class="cons-wl">
-        <span class="cons-wl__idx">04</span>
-        <span class="cons-wl__depth">18 cm</span>
-        <span class="cons-wl__name">Cel·lulosa d'alta densitat</span>
-        <span class="cons-wl__spec">U total 0,16 W/m²K · aïllament acústic</span>
-      </div>
-      <div class="cons-wl">
-        <span class="cons-wl__idx">05</span>
-        <span class="cons-wl__depth">1,1 cm</span>
-        <span class="cons-wl__name">Barrera d'aire hermètica OSB</span>
-        <span class="cons-wl__spec">n50 ≤0,6 ach/h · blower door verificat</span>
-      </div>
-      <div class="cons-wl">
-        <span class="cons-wl__idx">06</span>
-        <span class="cons-wl__depth">1,3 cm</span>
-        <span class="cons-wl__name">Pladur 13mm — acabat interior</span>
-        <span class="cons-wl__spec">resistència al foc · acabat net</span>
-      </div>
+    <div class="section-body">
+      <p class="closing-sentence">Una casa Eskimohaus® consumeix fins a un 90% menys d'energia que una construcció convencional.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card card--icon">
+        <h3 class="card__title">ENVOLUPANT TÈRMICA</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">HERMETICITAT CONTROLADA</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">VENTILACIÓ AMB RECUPERACIÓ</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">ESTRUCTURA EFICIENT</h3>
+      </article>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     PASSIVHAUS LEVELS
-═══════════════════════════════════ -->
-<div class="cons-ph">
-  <div class="cons-ph-card">
-    <span class="cons-ph-card__badge">Passivhaus Classic</span>
-    <h3 class="cons-ph-card__title">Màxima eficiència per a cada clima</h3>
-    <p class="cons-ph-card__desc">L'estàndard de referència internacional. Garanteix un consum energètic ≤15 kWh/m²·any, adaptat a les condicions climàtiques específiques de cada emplaçament.</p>
-  </div>
-  <div class="cons-ph-card">
-    <span class="cons-ph-card__badge">Passivhaus Plus</span>
-    <h3 class="cons-ph-card__title">Casa autosuficient energèticament</h3>
-    <p class="cons-ph-card__desc">La casa produeix tota l'energia que necessita gràcies als panells fotovoltaics integrats. Balanç energètic positiu en còmput anual.</p>
-  </div>
-  <div class="cons-ph-card">
-    <span class="cons-ph-card__badge">Passivhaus Premium</span>
-    <h3 class="cons-ph-card__title">Produeix més del que consumeix</h3>
-    <p class="cons-ph-card__desc">El nivell màxim de la certificació. La casa genera un excedent energètic que s'aboca a la xarxa. La inversió que et retorna any rere any.</p>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════
-     SERVEIS — CARD GRID
-═══════════════════════════════════ -->
-<section class="cons-svcs" id="serveis">
+<section class="section section--light">
   <div class="container">
-    <div class="cons-svcs__header">
-      <span class="cons-svcs__tag">Els nostres serveis de construcció</span>
-      <h2 class="cons-svcs__title">Quatre serveis, un sol sistema.</h2>
-    </div>
-    <div class="cons-svcs__grid">
-
-      <!-- Card 01: Unifamiliar (hero) -->
-      <div class="cons-svc-card cons-svc-card--hero" id="unifamiliar">
-        <div class="cons-svc-card__num">01</div>
-        <span class="cons-svc-card__tag">El nostre referent</span>
-        <h3 class="cons-svc-card__title">Habitatge Unifamiliar Eskimohaus®</h3>
-        <p class="cons-svc-card__text">Dissenyem, prefabricam i construïm des de zero. Sistema Eskimohaus® certificat Passivhaus, fabricat íntegrament al taller de Castellbell. Entrega en 4 mesos.</p>
-        <div class="cons-svc-card__features">
-          <div class="cons-svc-card__feature">Disseny arquitectònic personalitzat inclòs</div>
-          <div class="cons-svc-card__feature">Certificació Passivhaus Classic, Plus o Premium</div>
-          <div class="cons-svc-card__feature">Triple vidre · MVHR · sense pont tèrmic</div>
-          <div class="cons-svc-card__feature">10 anys garantia estructura · 3 anys instal·l.</div>
-        </div>
-        <span class="cons-svc-card__badge">1.300–1.600€/m² · arquitecte, permisos i impostos inclosos · des de 80 m²</span>
-      </div>
-
-      <!-- Card 02: Plurifamiliar -->
-      <div class="cons-svc-card" id="plurifamiliar">
-        <div class="cons-svc-card__num">02</div>
-        <span class="cons-svc-card__tag">A escala col·lectiva</span>
-        <h3 class="cons-svc-card__title">Edificis Plurifamiliars i Cooperatives</h3>
-        <p class="cons-svc-card__text">Sistema Eskimohaus® a escala col·lectiva. Fins a 6 plantes, prefabricació en taller i certificació energètica A o Passivhaus per a cada unitat. Compatible amb cooperatives i lloguer social.</p>
-        <div class="cons-svc-card__features">
-          <div class="cons-svc-card__feature">Estructura lleugera: menor pes sobre cimentació</div>
-          <div class="cons-svc-card__feature">Certificació energètica A o Passivhaus per unitat</div>
-          <div class="cons-svc-card__feature">Compatible amb cooperatives i lloguer social</div>
-          <div class="cons-svc-card__feature">Entrega en termini garantit per contracte</div>
-        </div>
-        <span class="cons-svc-card__badge">A partir de 6 unitats habitacionals</span>
-      </div>
-
-      <!-- Card 03: Ampliació -->
-      <div class="cons-svc-card" id="ampliacio">
-        <div class="cons-svc-card__num">03</div>
-        <span class="cons-svc-card__tag">Creixer sense moure's</span>
-        <h3 class="cons-svc-card__title">Ampliació, Remunta i Sobreelevació</h3>
-        <p class="cons-svc-card__text">Augmenta la superfície útil sense obra invasiva. El sistema lleuger és la solució ideal per a ampliacions laterals, remuntes sobre coberta i addicions de plantes a edificis existents.</p>
-        <div class="cons-svc-card__features">
-          <div class="cons-svc-card__feature">Sistema lleuger: mínim impacte estructural</div>
-          <div class="cons-svc-card__feature">Compatible amb qualsevol tipologia constructiva</div>
-          <div class="cons-svc-card__feature">Tramitació de llicències inclosa</div>
-          <div class="cons-svc-card__feature">Certificació energètica de la nova superfície</div>
-        </div>
-        <span class="cons-svc-card__badge">Ampliacions des de 30 m² de nova superfície</span>
-      </div>
-
-      <!-- Card 04: Reforma -->
-      <div class="cons-svc-card" id="reforma">
-        <div class="cons-svc-card__num">04</div>
-        <span class="cons-svc-card__tag">Transformació integral</span>
-        <h3 class="cons-svc-card__title">Reforma Integral amb Eficiència Energètica</h3>
-        <p class="cons-svc-card__text">Renovació completa d'habitatges i edificis: estructura, envolupant, instal·lacions i acabats. Estàndards Passivhaus EnerPHit per a edificis antics — alt confort, baix consum.</p>
-        <div class="cons-svc-card__features">
-          <div class="cons-svc-card__feature">Diagnosi energètica prèvia inclosa</div>
-          <div class="cons-svc-card__feature">MVHR, aerotèrmia i solar FV integrats</div>
-          <div class="cons-svc-card__feature">Acabats i interiorisme integrats al projecte</div>
-          <div class="cons-svc-card__feature">Certificació final A+, A o Passivhaus EnerPHit</div>
-        </div>
-        <span class="cons-svc-card__badge">Reformes integrals des de 60 m²</span>
-      </div>
-
+    <header class="section-header">
+      <h2 class="section-header__title">Per què construir amb nosaltres</h2>
+      <p class="section-header__lead">Quatre raons verificables, sense superlatius.</p>
+    </header>
+    <div class="card-grid">
+      <article class="card card--icon">
+        <h3 class="card__title">TRENTA ANYS</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">CASOS DOCUMENTATS</h3>
+        <a class="link-arrow" href="#">Veure-les <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">SISTEMA PROPI</h3>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">EQUIP INTEGRAT</h3>
+      </article>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     PER QUÈ PAPIK
-═══════════════════════════════════ -->
-<section class="cons-why">
+<section class="section">
   <div class="container">
-    <div class="cons-why__header">
-      <span class="cons-why__tag">Per què triar PAPIK Group</span>
-      <h2 class="cons-why__title">Deu raons. Cap és màrqueting.</h2>
+    <header class="section-header">
+      <h2 class="section-header__title">Algunes de les nostres cases</h2>
+      <p class="section-header__lead">Sis projectes que mostren l'abast del nostre treball.</p>
+    </header>
+    <div class="section-body">
+      <a class="link-arrow" href="#">Veure tots els 36 projectes  →   (link a /projectes) <span aria-hidden="true">→</span></a>
     </div>
-    <div class="cons-why__grid">
-      <div class="cons-why-item">
-        <div class="cons-why-item__icon">✦</div>
-        <h3 class="cons-why-item__title">Pioners Passivhaus</h3>
-        <p class="cons-why-item__desc">Constructors Passivhaus certificats des de 2004. Primers a Catalunya. La nostra formació i experiència orienten cada projecte des del primer dia.</p>
-      </div>
-      <div class="cons-why-item">
-        <div class="cons-why-item__icon">◈</div>
-        <h3 class="cons-why-item__title">Màxima personalització</h3>
-        <p class="cons-why-item__desc">Interiors, exteriors i nivell d'acabats totalment personalitzables. El nostre lema: "del teu cap a les nostres mans." Dissenyem i fabriquem el que el client desitja.</p>
-      </div>
-      <div class="cons-why-item">
-        <div class="cons-why-item__icon">◉</div>
-        <h3 class="cons-why-item__title">U 0,16 W/m²K</h3>
-        <p class="cons-why-item__desc">La transmitància tèrmica de les nostres construccions triplica els requisits del CTE. No és un objectiu — és un estàndard que complim en tots els projectes sense excepció.</p>
-      </div>
-      <div class="cons-why-item">
-        <div class="cons-why-item__icon">◎</div>
-        <h3 class="cons-why-item__title">Aïllament acústic superior</h3>
-        <p class="cons-why-item__desc">La qualitat dels tancaments, portes i finestres aporta un aïllament acústic molt per sobre d'un habitatge convencional. Silenci real, no estadístic.</p>
-      </div>
-      <div class="cons-why-item">
-        <div class="cons-why-item__icon">⬡</div>
-        <h3 class="cons-why-item__title">Hipotecable</h3>
-        <p class="cons-why-item__desc">Les nostres construccions tenen les mateixes condicions d'hipoteca que qualsevol habitatge. Cap impediment financer ni legal per finançar la teva casa Eskimohaus.</p>
-      </div>
-      <div class="cons-why-item">
-        <div class="cons-why-item__icon">◆</div>
-        <h3 class="cons-why-item__title">Alta durabilitat</h3>
-        <p class="cons-why-item__desc">Cap element de fusta queda directament en contacte amb l'exterior. Tots els materials provenen de boscos certificats FSC. Construïm perquè duri generacions, no dècades.</p>
-      </div>
-      <div class="cons-why-item">
-        <div class="cons-why-item__icon">◇</div>
-        <h3 class="cons-why-item__title">1.300–1.600€/m²</h3>
-        <p class="cons-why-item__desc">Inclou honoraris d'arquitecte, permisos, impostos i tots els acabats (bany i cuina). S'exclouen: terreny, fonamentació i estudi topogràfic (~450€).</p>
-      </div>
-      <div class="cons-why-item">
-        <div class="cons-why-item__icon">◌</div>
-        <h3 class="cons-why-item__title">Garantia 10 + 3 + 1</h3>
-        <p class="cons-why-item__desc">10 anys per a les estructures. 3 anys per a instal·lacions i materials. 1 any de servei postvenda pels acabats. Conforme al Codi Tècnic d'Edificació (CTE).</p>
-      </div>
+    <div class="card-grid">
+      <article class="card card--icon">
+        <h3 class="card__title">K-del Carril</h3>
+        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">K-Llavaneres</h3>
+        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">K-Matadepera</h3>
+        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">K-Vall d'Or</h3>
+        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">K-LaMassa</h3>
+        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card card--icon">
+        <h3 class="card__title">K-Mogent</h3>
+        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
+      </article>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     PROCÉS
-═══════════════════════════════════ -->
-<section class="block-process">
+<section class="section section--light">
   <div class="container">
-    <div class="block-process__header">
-      <span class="block-process__tag">El procés</span>
-      <h2 class="block-process__title">Vuit fases, del projecte<br>a l'entrega de claus</h2>
-      <p class="block-process__intro">Cada projecte segueix el mateix procés rigorós, amb comunicació transparent en cada fase. Saps exactament on ets i quan reps les claus.</p>
-    </div>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="process-step__num">01</div>
-        <div class="process-step__body">
-          <h4 class="process-step__title">Estudi topogràfic i projecte</h4>
-          <p class="process-step__desc">Realitzem l'estudi topogràfic de la parcel·la i elaborem el projecte arquitectònic complet (bàsic i executiu). Gestionem la llicència d'obres davant l'ajuntament, sense burocràcia per a tu.</p>
+    <header class="section-header">
+      <h2 class="section-header__title">CONFIGURADOR · GANXO CENTRAL</h2>
+    </header>
+    <div class="section-body">
+      <section class="block-cta">
+        <div class="container">
+          <p class="block-cta__label">PRESSUPOST ORIENTATIU</p>
+          <h2 class="block-cta__title">Quina seria la inversió per a la seva casa?</h2>
+          <p class="block-cta__sub">El nostre configurador li dona una estimació orientativa personalitzada en cinc minuts.</p>
+          <a class="btn-white" href="#contacte">Configurar el meu pressupost <span aria-hidden="true">→</span></a>
         </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step__num">02</div>
-        <div class="process-step__body">
-          <h4 class="process-step__title">Avantprojecte i estimació de cost</h4>
-          <p class="process-step__desc">El nostre equip elabora un primer esbós i un pressupost orientatiu detallat. En menys d'una setmana tens els números sobre la taula.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step__num">03</div>
-        <div class="process-step__body">
-          <h4 class="process-step__title">Fonamentació i forjat sanitari</h4>
-          <p class="process-step__desc">La fonamentació és específica per a cada terreny i topografia. S'hi afegeix un forjat sanitari de fusta 180mm amb llana de roca 180mm que impedeix l'entrada d'humitat, termites i pèrdues de calor.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step__num">04</div>
-        <div class="process-step__body">
-          <h4 class="process-step__title">Fabricació al taller Castellbell</h4>
-          <p class="process-step__desc">Prefabricació dels panells estructurals (muntants pi C-24, 100×50mm), forjats (bigues 180×50mm) i elements de coberta. Control de qualitat 100% en taller, sense imprevistos a peu d'obra.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step__num">05</div>
-        <div class="process-step__body">
-          <h4 class="process-step__title">Estructura i coberta</h4>
-          <p class="process-step__desc">Muntatge de l'estructura prefabricada in situ. Coberta amb bigues 180mm, llana de roca 180mm d'alta densitat i làmina impermeabilitzant transpirable. Aïllament total sense juntes.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step__num">06</div>
-        <div class="process-step__body">
-          <h4 class="process-step__title">Façanes i tancaments</h4>
-          <p class="process-step__desc">Façanes ventilades amb làmina impermeabilitzant transpirable. Finestres i portes amb certificació Passivhaus (triple vidre, marc sense pont tèrmic). Instal·lació de la barrera d'aire hermètica OSB 11mm.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step__num">07</div>
-        <div class="process-step__body">
-          <h4 class="process-step__title">Instal·lacions i MVHR</h4>
-          <p class="process-step__desc">Instal·lació completa d'aigua (coure), electricitat (REBT 5,75kW), sanejament (PVC), calefacció/ACS (plaques solars + preinstal·lació emissors). MVHR obligatori en cases certificades PH.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step__num">08</div>
-        <div class="process-step__body">
-          <h4 class="process-step__title">Acabats, blower door i entrega</h4>
-          <p class="process-step__desc">Acabats interiors personalitzats. Blower door test final (n50 ≤ 0,6 h⁻¹). Entrega de claus amb documentació completa, manual d'ús i certificat Passivhaus de l'Institut de Darmstadt.</p>
-        </div>
-      </div>
+      </section>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     PROJECTES DESTACATS
-═══════════════════════════════════ -->
-<section class="cons-projects">
+<section class="section">
   <div class="container">
-    <div class="cons-projects__header">
-      <span class="cons-projects__tag">Obra construïda</span>
-      <h2 class="cons-projects__title">Tres referències<br>Passivhaus a Catalunya</h2>
+    <header class="section-header">
+      <h2 class="section-header__title">No té solar? L'acompanyem a trobar-lo</h2>
+      <p class="section-header__lead">Disposem d'una xarxa pròpia de col·laboradors immobiliaris i d'un equip intern especialitzat en avaluació de parcel·les. La cerca de solar és part del nostre servei, no un afegit. Què avaluem en cada solar</p>
+    </header>
+    <div class="section-body">
+      <p>L'avaluació tècnica d'un solar inclou orientació i exposició solar, pendent i moviment de terres necessari, accessibilitat per a maquinària d'obra, marc urbanístic (POUM, ordenances municipals, parcel·la mínima), subministraments disponibles (aigua, electricitat, fibra), i geotècnia amb possibles condicionants com radó, freàtic o sòl no consolidat. Cada un d'aquests factors té implicacions directes sobre la viabilitat del projecte i sobre el cost final.</p>
     </div>
-    <div class="cons-projects-grid">
-
-      <div class="cons-project">
-        <div class="cons-project__img">
-          <div class="ph ph-warm-3"></div>
-        </div>
-        <div class="cons-project__body">
-          <p class="cons-project__year">LLAVANERES · 2022</p>
-          <h3 class="cons-project__name">Passivhaus Plus Llavaneres</h3>
-          <p class="cons-project__desc">Primera casa autosuficient cert. Passivhaus Plus a Catalunya i Espanya. Energia neta, sense connexió a la xarxa per a calefacció. 220 m².</p>
-          <div class="cons-project__tags">
-            <span class="cons-project__tag-pill">Passivhaus Plus</span>
-            <span class="cons-project__tag-pill">Unifamiliar</span>
-            <span class="cons-project__tag-pill">220 m²</span>
-            <span class="cons-project__tag-pill">Maresme</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cons-project">
-        <div class="cons-project__img">
-          <div class="ph ph-warm-4"></div>
-        </div>
-        <div class="cons-project__body">
-          <p class="cons-project__year">PALAU SOLITÀ · 2018</p>
-          <h3 class="cons-project__name">PassivPalau — 2a Passivhaus de Catalunya</h3>
-          <p class="cons-project__desc">Sistema Eskimohaus® de fusta. 1.200 €/m² construït. Model de referència per a futurs projectes. 180 m².</p>
-          <div class="cons-project__tags">
-            <span class="cons-project__tag-pill">Passivhaus Classic</span>
-            <span class="cons-project__tag-pill">Unifamiliar</span>
-            <span class="cons-project__tag-pill">180 m²</span>
-            <span class="cons-project__tag-pill">Vallès</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cons-project">
-        <div class="cons-project__img">
-          <div class="ph ph-warm-5"></div>
-        </div>
-        <div class="cons-project__body">
-          <p class="cons-project__year">SANT CUGAT · 2020</p>
-          <h3 class="cons-project__name">Primera Passivhaus del Vallès Occ.</h3>
-          <p class="cons-project__desc">Primera certificació Passivhaus del Vallès Occidental. Tercera construïda per PAPIK. 195 m².</p>
-          <div class="cons-project__tags">
-            <span class="cons-project__tag-pill">Passivhaus Classic</span>
-            <span class="cons-project__tag-pill">Unifamiliar</span>
-            <span class="cons-project__tag-pill">195 m²</span>
-            <span class="cons-project__tag-pill">Sant Cugat</span>
-          </div>
-        </div>
-      </div>
-
+    <div class="section-body">
+      <p class="lead">Zones on construïm habitualment</p>
     </div>
-    <div style="margin-top:40px;">
-      <a href="projectes.html" class="link-arrow">Veure tots els projectes <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+    <div class="section-body">
+      <p>Treballem amb intensitat al Vallès Occidental (Sant Cugat, Sant Quirze, Bellaterra, Matadepera, Terrassa, Sabadell, Cerdanyola, Castellar, Viladecavalls i Ullastrell), al Maresme (Mataró, Premià, Vilassar, Argentona, Llavaneres, Canet i Sant Pol), i al Garraf (Sitges, Vilanova i la Geltrú, Sant Pere de Ribes). Puntualment estenem l'activitat a Andorra i a les Illes Balears.</p>
+    </div>
+    <div class="section-body">
+      <form class="form" action="#" method="post" novalidate>
+        <label class="form-field"><span class="form-field__label">Nom complet</span><input class="form-field__input" type="text" required></label>
+        <label class="form-field"><span class="form-field__label">Email</span><input class="form-field__input" type="email" required></label>
+        <label class="form-field"><span class="form-field__label">Telèfon</span><input class="form-field__input" type="tel" required></label>
+        <label class="form-field"><span class="form-field__label">múltiple · Zona preferent (multi-select de comarques o "no sé encara")</span><select class="form-field__input"><option>—</option></select></label>
+        <label class="form-field"><span class="form-field__label">Mida orientativa de casa (m²)</span><select class="form-field__input"><option>—</option></select></label>
+        <label class="form-field"><span class="form-field__label">Pressupost orientatiu (rangs amplis)</span><select class="form-field__input"><option>—</option></select></label>
+        <label class="form-field"><span class="form-field__label">opcional · Comentaris</span><input class="form-field__input" type="text" required></label>
+        <button class="btn-accent" type="submit">Sol·licitar acompanyament</button>
+      </form>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     FAQ
-═══════════════════════════════════ -->
-<section class="cons-faq">
+<section class="section section--light">
   <div class="container">
-    <div class="cons-faq__header">
-      <div>
-        <span class="cons-faq__tag">Preguntes freqüents</span>
-        <h2 class="cons-faq__title">El que tothom pregunta<br>abans de decidir-se.</h2>
+    <header class="section-header">
+      <h2 class="section-header__title">Preguntes freqüents</h2>
+    </header>
+    <div class="section-body">
+      <div class="faq-list">
+        <details class="faq-item"><summary>Quant triga construir una casa amb PAPIK?</summary><div class="faq-item__body"><p>Depèn del projecte. La fase de disseny pot durar entre tres i vuit
+      mesos. L'obra pròpiament dita, entre nou i divuit. Cada cas té el seu
+      calendari, que es defineix abans de signar el contracte.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>Quant costa una casa Passivhaus per metre quadrat?</summary><div class="faq-item__body"><p>El preu varia segons solar, mida, acabats i grau de certificació.
+      Pot configurar la seva casa al nostre simulador per obtenir una
+      estimació orientativa adaptada al seu cas concret.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>Cal certificar la casa com a Passivhaus?</summary><div class="faq-item__body"><p>No és obligatori. Tota construcció PAPIK compleix amb estàndards
+      d'alta eficiència energètica. La certificació formal del Passivhaus
+      Institut és una decisió del client, ja que afegeix cost de tramitació
+      però aporta validació de tercers i revalorització de mercat.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>PAPIK construeix fora de Catalunya?</summary><div class="faq-item__body"><p>Treballem habitualment a Catalunya, Illes Balears i Andorra.
+      Altres ubicacions s'estudien cas a cas si el projecte ho justifica.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>I si tinc una idea de plànol pròpia o un arquitecte?</summary><div class="faq-item__body"><p>La integrem al procés. La seva idea és el punt de partida. Si
+      ja treballa amb un arquitecte, podem coordinar-nos com a constructor.
+      Si no, el nostre departament d'arquitectura intern desenvolupa el
+      projecte des del primer esbós.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>Què passa després de l'entrega?</summary><div class="faq-item__body"><p>L'acompanyem amb un manual d'ús específic de la casa, la garantia
+      decennal obligatòria i postobra continuada el primer any. Si apareixen
+      ajustaments necessaris, els resolem nosaltres.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>Es pot construir amb hipoteca verda o energètica?</summary><div class="faq-item__body"><p>Sí. Treballem amb diverses entitats financeres que ofereixen
+      hipoteques amb bonificació per a habitatges d'alta eficiència
+      energètica. Podem fer la presentació tècnica del projecte davant
+      l'entitat per facilitar l'aprovació.
+      
+      ──────────────</p></div></details>
+        <details class="faq-item"><summary>Hi ha visites a obres en curs?</summary><div class="faq-item__body"><p>Sí. Organitzem visites a casa-mostra i a obres en construcció
+      prèvia coordinació. És habitual que els clients visitin altres obres
+      nostres abans de signar res, i ho recomanem com a part del procés
+      d'avaluació mútua.</p></div></details>
       </div>
-      <p class="cons-faq__intro">Respostes directes sobre el procés de construcció, el pressupost, els terminis i els nostres estàndards de qualitat Passivhaus.</p>
-    </div>
-    <div class="faq-open-list">
-
-      <div class="faq-open-item">
-        <div>
-          <p class="faq-open-item__num">01</p>
-          <h3 class="faq-open-item__q">Quant costa una casa Eskimohaus?</h3>
-        </div>
-        <div class="faq-open-item__a">
-          <p>El preu orientatiu és de <strong>1.300–1.600€/m² construït</strong>. Inclou honoraris d'arquitecte, permisos, impostos i tots els acabats del bany i la cuina. <em>No inclou</em> el cost del terreny ni la fonamentació, que depenen de la parcel·la. Per a un pressupost personalitzat, utilitza el nostre calculador en línia o contacta'ns directament.</p>
-        </div>
-      </div>
-
-      <div class="faq-open-item">
-        <div>
-          <p class="faq-open-item__num">02</p>
-          <h3 class="faq-open-item__q">Quines despeses afegides he de preveure?</h3>
-        </div>
-        <div class="faq-open-item__a">
-          <p>A part del preu per m², cal tenir en compte:</p>
-          <ul>
-            <li>Cost de compra del terreny</li>
-            <li>Estudi topogràfic (~450€) i estudi geològic</li>
-            <li>Fonamentació (variable segons topografia)</li>
-            <li>Moviment de terres en terrenys amb pendent</li>
-            <li>Murs de tancament perimetral i portes exteriors</li>
-            <li>Impostos i taxes municipals</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq-open-item">
-        <div>
-          <p class="faq-open-item__num">03</p>
-          <h3 class="faq-open-item__q">Quina diferència hi ha entre una Eskimohaus i una casa certificada Passivhaus?</h3>
-        </div>
-        <div class="faq-open-item__a">
-          <p>Totes les cases Passivhaus que construïm són Eskimohaus, però no totes les Eskimohaus estan certificades. La diferència pràctica és:</p>
-          <ul>
-            <li>Certificació: en les cases PH, els tancaments (finestres i portes) porten el segell Passivhaus i garanteixen un comportament tèrmic superior</li>
-            <li>MVHR: totes les Eskimohaus inclouen la instal·lació de canonades i reixetes, però la màquina de ventilació mecànica és obligatòria i inclosa al preu de la casa certificada</li>
-            <li>Control extern: un certificador independent supervisa el projecte des del disseny fins als tests finals (blower door), garantint que el que es calcula en projecte es compleix a l'obra</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq-open-item">
-        <div>
-          <p class="faq-open-item__num">04</p>
-          <h3 class="faq-open-item__q">Per què construir en lloc de comprar?</h3>
-        </div>
-        <div class="faq-open-item__a">
-          <p>Construir una casa nova amb PAPIK et permet:</p>
-          <ul>
-            <li>Dissenyar-la exactament a les teves necessitats i gustos</li>
-            <li>Evitar defectes estructurals ocults (humitats, mala orientació)</li>
-            <li>Aplicar els últims coneixements en eficiència energètica i materials</li>
-            <li>Triar l'orientació i el disseny adequats a la parcel·la</li>
-            <li>Obtenir una casa amb garantia documental i certificació energètica real</li>
-          </ul>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     CTA / PRESSUPOST
-═══════════════════════════════════ -->
-<section class="block-cta-inv" id="contacte">
+<section class="section">
   <div class="container">
-    <div class="block-cta-inv__inner">
-      <div class="cta-left">
-        <span class="tag">El primer pas és gratuït</span>
-        <h2>La consulta inicial<br>no et compromet a res</h2>
-        <p>Explica'ns el teu projecte —solar, habitatge existent, idea— i en menys d'una setmana tens un pressupost orientatiu detallat i signat. Sense cost, sense compromís. A PAPIK, la primera conversa sempre és nostra.</p>
-        <a href="tel:935906074">
-          <button class="btn-outline-white">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M22 16.92V19.92C22.0011 20.4692 21.7712 20.9936 21.3663 21.3664C20.9614 21.7392 20.4147 21.9281 19.87 21.89C16.7429 21.5528 13.7401 20.4931 11.1 18.8C8.64376 17.3224 6.57401 15.2527 5.09627 12.7965C3.41925 10.1422 2.35938 7.12329 2.02953 3.97952C1.99148 3.43618 2.17944 2.89996 2.54956 2.49588C2.91969 2.09179 3.43994 1.85917 3.98952 1.85C5.1285 1.79874 6.22413 2.4303 6.80952 3.43952L8.31952 6.10952C8.81226 6.93748 8.82048 7.95985 8.33952 8.79L7.46952 10.31C8.87097 12.6701 10.8299 14.629 13.19 16.03L14.71 15.16C15.5402 14.6791 16.5625 14.6873 17.3905 15.1801L20.0605 16.6901C21.0564 17.2591 21.7017 18.3374 21.6605 19.4901" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            93 590 60 74
-          </button>
-        </a>
-        <div class="cta-confidencial">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/></svg>
-          Horari d'atenció: Dilluns–Divendres, 09:00–19:00 h
-        </div>
-      </div>
-      <div class="cta-right">
-        <form class="pat-form" onsubmit="return false;">
-          <label>Tipus de projecte</label>
-          <select>
-            <option value="">Selecciona...</option>
-            <option>Habitatge Unifamiliar Eskimohaus®</option>
-            <option>Edifici Plurifamiliar</option>
-            <option>Ampliació o Remunta</option>
-            <option>Reforma Integral</option>
-            <option>Altre</option>
-          </select>
-
-          <label>Superfície aproximada (m²) i municipi</label>
-          <textarea placeholder="Ex: 180 m² · Sant Cugat del Vallès"></textarea>
-
-          <button type="submit" class="btn pat-form__submit">
-            Enviar consulta →
-          </button>
-        </form>
-      </div>
+    <header class="section-header">
+      <h2 class="section-header__title">Si el seu cas és diferent</h2>
+    </header>
+    <div class="section-body">
+      <p>¿Vol comprar una casa ja construïda? → Promoció</p>
+      <p>¿Vol rehabilitar la seva casa actual? → Rehabilitació</p>
+      <p>¿Cerca un soci constructor com a inversor patrimonial? → Patrimonis</p>
+    </div>
+    <div class="section-body">
+      <h2>Comencem amb una conversa</h2>
+      <p>Sense compromís. Sense pressupost previ. Sense pressió comercial. Una reunió per entendre què vol, què té i què podem fer junts.</p>
+      <a class="btn-accent" href="#contacte">Configurar el meu pressupost <span aria-hidden="true">→</span></a>
+      <a class="btn-outline" href="#main">O parlar amb un assessor  →   (link a /contacte) <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
+</main>
 
-<!-- ═══════════════════════════════════
-     FOOTER
-═══════════════════════════════════ -->
 <footer>
   <div class="container">
     <div class="footer__content__info color-white">
-
       <div class="footer-col">
         <p class="footer__col-title">PAPIK</p>
         <ul>
@@ -1777,7 +554,6 @@
           <li><a href="#contacte">Contacte</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <p class="footer__col-title">Serveis</p>
         <ul>
@@ -1787,7 +563,6 @@
           <li><a href="patrimonis.html">Patrimonis · Inversió Conjunta</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <p class="footer__col-title">Oficines</p>
         <div class="info-showroom__item">
@@ -1799,243 +574,35 @@
           <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
         </div>
       </div>
-
       <div class="footer__newsletter">
         <p class="footer__col-title">Newsletter</p>
         <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles.</p>
-        <div class="newsletter-form">
-          <input type="email" placeholder="El teu email">
-          <button type="submit">
-            <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
-          </button>
-        </div>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="El teu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
         <div class="footer__rrss">
           <p>Segueix-nos</p>
           <div class="rrss__links">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Facebook</a>
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
           </div>
         </div>
       </div>
-
     </div>
     <div class="copyright">
       <p>Copyright © 2025 PAPIK Fusters S.L. – Tots els drets reservats · papik.cat</p>
-      <div style="display:flex;gap:20px;">
-        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Avís Legal</a>
-        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Política de Privacitat</a>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="avis-legal.html">Avís Legal</a>
+        <a href="politica-privacitat.html">Política de Privacitat</a>
+        <a href="politica-cookies.html">Galetes</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script>
-  // ─── Header hide on scroll ───
-  const headerTop = document.getElementById('headerTop');
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const cur = window.scrollY;
-    if (cur > 80 && cur > lastScroll) {
-      headerTop.classList.add('hidden');
-    } else {
-      headerTop.classList.remove('hidden');
-    }
-    lastScroll = cur;
-  }, { passive: true });
-
-  // ─── Submenus ───
-  const fadeBg = document.getElementById('fadeBg');
-  let activeSubmenu = null;
-
-  document.querySelectorAll('.menu-btn[data-menu]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const id = 'sub-' + btn.dataset.menu;
-      const sub = document.getElementById(id);
-      if (!sub) return;
-      if (activeSubmenu && activeSubmenu !== sub) {
-        activeSubmenu.classList.remove('submenu-open');
-      }
-      sub.classList.toggle('submenu-open');
-      activeSubmenu = sub.classList.contains('submenu-open') ? sub : null;
-      document.body.classList.toggle('submenu-open', !!activeSubmenu);
-    });
-  });
-
-  document.addEventListener('click', () => {
-    if (activeSubmenu) {
-      activeSubmenu.classList.remove('submenu-open');
-      activeSubmenu = null;
-      document.body.classList.remove('submenu-open');
-    }
-  });
-
-  // ─── Search ───
-  const headerSticky = document.getElementById('headerSticky');
-  const searchTrigger = document.getElementById('searchTrigger');
-  const searchClose = document.getElementById('searchClose');
-  searchTrigger.addEventListener('click', () => headerSticky.classList.add('search-open'));
-  searchClose.addEventListener('click', () => headerSticky.classList.remove('search-open'));
-
-  // ─── Mobile nav ───
-  const mobileNav = document.getElementById('mobileNav');
-  const burgerBtn = document.getElementById('burgerBtn');
-  const mobileNavClose = document.getElementById('mobileNavClose');
-
-  burgerBtn.addEventListener('click', () => {
-    mobileNav.classList.add('open');
-    fadeBg.style.opacity = '1';
-    fadeBg.style.visibility = 'visible';
-  });
-  function closeMobileNav() {
-    mobileNav.classList.remove('open');
-    fadeBg.style.opacity = '';
-    fadeBg.style.visibility = '';
-  }
-  mobileNavClose.addEventListener('click', closeMobileNav);
-  fadeBg.addEventListener('click', closeMobileNav);
-</script>
-
-<script src="cursor.js"></script>
-
-  <!-- ═══════════════════════════════════════════════════════
-       PAPIK · MOTION ENGINE — v1
-       IntersectionObserver + auto-detect + counter + parallax
-  ═══════════════════════════════════════════════════════ -->
-  <script>
-  (function () {
-    'use strict';
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var hasIO   = 'IntersectionObserver' in window;
-
-    /* Marca el DOM como listo para que el CSS aplique opacity:0 */
-    document.documentElement.classList.add('js-ready');
-
-    /* ── Fallback: sin animaciones ── */
-    if (reduced || !hasIO) {
-      document.querySelectorAll('[data-anim]').forEach(function (el) {
-        el.classList.add('is-visible');
-      });
-      return;
-    }
-
-    /* ══ Observer principal ══════════════════════════════════ */
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('is-visible');
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    /* Registrar elementos con data-anim del HTML */
-    document.querySelectorAll('[data-anim]').forEach(function (el) {
-      var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        setTimeout(function(){ el.classList.add('is-visible'); }, 60);
-      } else {
-        io.observe(el);
-      }
-    });
-
-    /* ══ Auto-detección ══════════════════════════════════════ */
-    function mark(el, type, delay) {
-      if (!el || el.hasAttribute('data-anim')) return;
-      el.setAttribute('data-anim', type || 'fade-up');
-      var rect = el.getBoundingClientRect();
-      var inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (inView) {
-        /* Ya visible al cargar: activar con micro-delay para evitar flash */
-        (function(e){ setTimeout(function(){ e.classList.add('is-visible'); }, 60); })(el);
-      } else {
-        if (delay) el.style.transitionDelay = delay + 'ms';
-        io.observe(el);
-      }
-    }
-
-    /* H2 de secciones de contenido */
-    document.querySelectorAll('section:not(.header-sticky) h2').forEach(function (el) {
-      mark(el, 'fade-up');
-    });
-
-    /* Paràgraf / sub-títol immediatament després de h2 */
-    document.querySelectorAll('section:not(.header-sticky) h2 + p, section:not(.header-sticky) h2 + .t16').forEach(function (el) {
-      mark(el, 'fade-up');
-    });
-
-    /* Grids: stagger en hijos directos */
-    [
-      '.promo-process__grid',
-      '.promo-model__flow',
-      '.promo-guarantee__list',
-      '.promo-tipos__grid',
-      '.pat-stats__grid',
-      '.stats-grid',
-      '[class*="rehab-steps"]',
-      '[class*="const-steps"]',
-      '.nextgen-block__cards',
-      '.nextgen-block__body',
-    ].forEach(function (sel) {
-      document.querySelectorAll(sel).forEach(function (container) {
-        Array.from(container.children).forEach(function (child, i) {
-          mark(child, 'fade-up', i * 80);
-        });
-      });
-    });
-
-    /* FAQ items desde la derecha */
-    document.querySelectorAll('.faq-open-item, .pat-faq__item').forEach(function (el, i) {
-      mark(el, 'fade-right', i * 55);
-    });
-
-    /* Secciones de impacto: fade-in sutil */
-    document.querySelectorAll(
-      '.promo-guarantee, .block-cta-inv, .promo-public, .pat-hero, .promo-model__hdr-inner'
-    ).forEach(function (el) {
-      mark(el, 'fade-scale');
-    });
-
-    /* ══ Counter animado ══════════════════════════════════════ */
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var el  = e.target;
-        var raw = el.dataset.raw || el.textContent.trim();
-        el.dataset.raw = raw; /* guardar original */
-        var m = raw.match(/^([\d]+(?:[.,]\d+)?)(.*)$/);
-        if (!m) return;
-        var target = parseFloat(m[1].replace(',', '.'));
-        var suffix = m[2] || '';
-        var isInt  = (m[1].indexOf('.') === -1 && m[1].indexOf(',') === -1);
-        var dur    = 1100, t0 = performance.now();
-        (function step(now) {
-          var p = Math.min((now - t0) / dur, 1);
-          var v = target * (1 - Math.pow(1 - p, 3));
-          el.textContent = (isInt ? Math.round(v) : v.toFixed(1)) + suffix;
-          if (p < 1) requestAnimationFrame(step);
-          else el.textContent = raw;
-        })(t0);
-        cio.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll(
-      '[class*="stat-num"], [class*="stats-val"], [class*="kpi-num"], .stat-big, .pat-stats .num'
-    ).forEach(function (el) { cio.observe(el); });
-
-    /* ══ Header: fondo al hacer scroll ═══════════════════════ */
-    var hdr = document.querySelector('.header-top');
-    if (hdr) {
-      var _scrolled = false;
-      window.addEventListener('scroll', function () {
-        var s = window.scrollY > 60;
-        if (s !== _scrolled) { hdr.classList.toggle('hdr-scrolled', s); _scrolled = s; }
-      }, { passive: true });
-    }
-
-    /* ══ Parallax desactivado — scroll estático ════════════ */)();
-  </script>
-
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/forms.js" defer></script>
 </body>
 </html>
