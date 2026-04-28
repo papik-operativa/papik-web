@@ -10,16 +10,19 @@
 
 PAPIK Group is a Passivhaus constructor in Catalonia (30 years, proprietary system Eskimohaus®). The legacy WordPress at `papik.cat` is being replaced on **1 June 2026** by a static build deployed on Vercel.
 
-**Project phase · post-S5, pre-launch.**
+**Project phase · post-Wave-3, pre-launch.**
 
-- Phases S1-S5 complete: strategy, briefs, copy v1.1 (CA + ES + EN), HTML build, QA pass.
-- ~95.000 words of editorial copy in production across three languages.
-- Legal placeholders drafted; counsel sign-off pending.
-- Tier 1 + Tier 2 landings live in copy; comarcal hubs (Vallès Occidental, Maresme, Garraf) live.
-- 18 articles published in CA + ES + EN (tri-lingual parity rule enforced).
-- vercel.json with 245+ redirects mergeed from `.candidate`.
+- Phases S1-S5 + Wave 1-3 complete: strategy, briefs, copy v1.1 (CA + ES + EN), HTML build, QA pass, project pages tri-lingual, Tier-2 landings, performance pass.
+- **268 HTML pages** in production across three languages.
+- **36 project pages tri-lingual** (`/projecte-*` CA, `/es/proyecto-*`, `/en/projects/*`).
+- **14 landings tri-lingual** · 4 Tier-1 (Bellaterra, Sant Cugat, Matadepera, Sant Quirze) + 5 Tier-2 (Cabrils, Alella, Premià de Dalt, Tiana, Cerdanyola) + 5 Tier-2 batch 3 (Argentona, Castellar, Llavaneres, Sitges, Vilanova).
+- **3 comarcal hubs tri-lingual** · Vallès Occidental, Maresme, Garraf.
+- **~18 v1.1 articles tri-lingual** (~54 article files total).
+- **Hubs tri-lingual** · blog, projectes, 404.
+- **Legal placeholders** · 6 CA + 3 EN (counsel sign-off pending).
+- vercel.json with 301 redirects merged from `.candidate`. sitemap.xml has 255 URLs. robots.txt blocks AI scrapers (GPTBot, ClaudeBot, PerplexityBot, CCBot, Bytespider, Google-Extended).
 - `generate_html.py` is the build pipeline; `generate_sitemap.py` regenerates the sitemap.
-- Remaining blockers: counsel sign-off (6 docs), real assets (NIF, cookie inventory, OG images), final smoke tests.
+- Remaining blockers: counsel sign-off (6 docs), real assets (NIF, cookie inventory, OG images, project images), manual QA (Lighthouse, axe, Mobile-Friendly, Rich Results).
 
 For the full status table see `seo-internal/README.md` §2 (status badge table).
 
@@ -30,7 +33,7 @@ For the full status table see `seo-internal/README.md` §2 (status badge table).
 ### Documentation (read first)
 
 - `seo-internal/README.md` · master orchestration document, status by phase
-- `seo-internal/style-guide-editorial.md` · editorial v1.2 (voice, slug taxonomy, hreflang invariants, parity rule, privacy v2, cross-linking, technical metadata)
+- `seo-internal/style-guide-editorial.md` · editorial v1.3 (voice, slug taxonomy, hreflang invariants, parity rule, privacy v2, cross-linking, technical metadata, project page conventions, Tier-2 landings, performance defaults, robots policy)
 - `seo-internal/deployment-runbook.md` · 1 June 2026 launch runbook
 - `seo-internal/schemas/README.md` · JSON-LD matrix per page type
 
@@ -99,7 +102,7 @@ Full taxonomy at `style-guide-editorial.md` §4. Snapshot:
 
 ## Style guide pointer
 
-Always read `seo-internal/style-guide-editorial.md` v1.2 before writing or editing any copy. Key sections:
+Always read `seo-internal/style-guide-editorial.md` v1.3 before writing or editing any copy. Key sections:
 
 - §2.7 · No em-dashes (`—`)
 - §2.8 · Adult register, not didactic
@@ -110,6 +113,10 @@ Always read `seo-internal/style-guide-editorial.md` v1.2 before writing or editi
 - §7 · Privacy boundary v2
 - §8 · Cross-linking taxonomy (3 article cross-links · 3-5 projects on landings)
 - §9 · Technical metadata (title 30-65, meta 100-165, OG fallback chain, JSON-LD matrix)
+- §10 · Project page conventions (`/projecte-X` / `/es/proyecto-X` / `/en/projects/X`, RealEstateListing schema, no addresses, no €/m²)
+- §11 · Comarcal and Tier-2 landing tier (anchor proximity rule)
+- §12 · Performance defaults (defer/async, lazy/eager, preload CSS+font, no Google Fonts)
+- §13 · Robots and crawl policy (block AI scrapers, crawl-delay SEO bots)
 
 ---
 
@@ -146,6 +153,9 @@ Hard-won lessons from this project. If you find yourself doing one of these, sto
 
 - **Never assume.** If a fact is not in the briefs, the audit, or the existing copy, do not invent it. PAPIK has a strict factual-claim regime; unverified claims are a regulatory risk on `/patrimonis` and the financial articles.
 - **Never overwrite without backup.** Vercel.json keeps a `.previous` for rollback; build outputs in `BACKUPS/`.
+- **Never assume project location — read legacy HTML first.** K-Codines, K-Hostalets, K-Malats, K-Maristany, K-Orio, K-Premia and PassivPalau all had wrong assumed locations until verified against legacy WP HTML. The project name does not always encode the municipality. Always crack open the legacy page and confirm before drafting the fitxa.
+- **Always run `generate_html.py` AFTER all language siblings exist.** The hreflang block reads `slug-mapping.json` and self-references the trio at build time. Building CA before ES/EN exist produces `404` hreflang targets and breaks the cluster. Order: write all three copy files, register slug-mapping, THEN build.
+- **Tier-2 landings anchor to the CLOSEST direct project, not the famous one.** Cabrils landing references K-Llavaneres (4 km, Maresme), not K-Iturbi (35 km, Sant Cugat) just because K-Iturbi is iconic. Proximity beats fame for landing relevance and conversion. (style-guide §11.3)
 
 ---
 

@@ -108,3 +108,45 @@ The new `generate_sitemap.py`:
 - Classifies pages into priority tiers (1.0 / 0.9 / 0.8 / 0.7 / 0.6 / 0.3) and changefreq buckets (weekly / monthly / yearly).
 - Sorts output by priority desc, then canonical asc.
 - Writes to `/public/sitemap.xml` (or stdout with `--dry-run`).
+
+---
+
+## 2026-04-27 · Regeneration Audit (post-EN-projects expansion)
+
+| Metric | Before | After | Delta |
+| --- | ---: | ---: | ---: |
+| Total URLs | 178 | 255 | +77 |
+| Duplicate `<loc>` | 0 | 0 | 0 |
+| All under `https://papik.cat/` | YES | YES | — |
+| Triplet completeness (CA+ES+EN) | 41.6% | 88.6% | +47.0pp |
+| Well-formed XML | YES | YES | — |
+
+### Section breakdown (after)
+
+| Section | URLs |
+| --- | ---: |
+| CA root | 1 |
+| CA pages | 68 |
+| CA zones | 14 |
+| CA comarques | 3 |
+| ES pages | 69 |
+| ES zonas | 14 |
+| ES comarcas | 3 |
+| EN pages | 29 |
+| EN areas | 14 |
+| EN regions | 3 |
+| EN retrofit | 1 |
+| EN projects | 36 |
+
+### Generator changes
+
+- Added `en/projects` to `WALK_DIRS`.
+- Added `404.html` to `EXCLUDE_FILENAMES`.
+- Added `_normalize_domain()` to force `https://papik.cat` (strips `www.`, http variants) on every `<loc>` and `<xhtml:link href>`.
+- Extended `classify()` to assign priority 0.6 / changefreq monthly to `/en/projects/*`.
+
+### Skipped (duplicate canonical, expected — comarcal hubs share canonical with their parent landing)
+
+- `comarques/{garraf,maresme,valles-occidental}.html`
+- `es/comarcas/{garraf,maresme,valles-occidental}.html`
+- `en/regions/valles-occidental.html`

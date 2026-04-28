@@ -2,7 +2,7 @@
 
 > Document canònic de veu i tono per a tot el contingut editorial del site (articles de blog, fitxes de projecte, copy de pàgines, communicacions). Aplicable a CA, ES i EN amb adaptacions culturals descrites a la secció corresponent.
 >
-> Última revisió · 28 abril 2026 · v1.2
+> Última revisió · 28 abril 2026 · v1.3
 
 ---
 
@@ -384,7 +384,147 @@ Tota pàgina · `<meta charset="utf-8">` · `<meta name="viewport" content="widt
 
 ---
 
-## 10. Convencions de format
+## 10. Project page conventions
+
+Esmena v1.3. Codificació del format v1.1 de pàgina de projecte (`/projecte-*`). El trio CA + ES + EN és obligatori (regla §6).
+
+### 10.1 · Slug pattern tri-lingüe
+
+| CA | ES | EN |
+|---|---|---|
+| `/projecte-X` | `/es/proyecto-X` | `/en/projects/X` |
+
+Nota · l'EN adopta camí pla sota `/en/projects/` (no `/en/project-X/`). Aquesta asimetria respecta la convenció editorial anglesa de carpeta-pare per a llistats.
+
+### 10.2 · Privacy boundary específica de projectes
+
+Reforça §7.4 amb prohibicions explícites:
+- **No adreces exactes** · municipi + comarca only (no carrer, no número, no urbanització identificable)
+- **No noms de client** sense consentiment escrit datat (Ponsa-rule, §7.3)
+- **No €/m²** · ni cost total, ni preu de venda, ni rendibilitat
+- **No superlatius** · "la casa més...", "el projecte més...", "el més gran de" prohibits sense dada verificable
+
+### 10.3 · Seccions obligatòries
+
+Tota fitxa de projecte ha de portar, en aquest ordre:
+
+1. **Hero** · eyebrow (categoria · "Casa Passivhaus", "Rehabilitació EnerPHit", etc.) + H1 únic + subtítol de localització a nivell municipi + comarca
+2. **Project specs** · taula compacta amb m², any, classe energètica, nivell Passivhaus (Classic / Plus / Premium / EnerPHit), sistema constructiu (Eskimohaus®, Passive Rooms, mixt)
+3. **Descripció** · 2-3 paràgrafs de prosa argumentada (§3.5), no llista de bullets
+4. **3 projectes relacionats** · cross-linkats (vegeu §10.5)
+5. **JSON-LD RealEstateListing** + **BreadcrumbList**
+
+### 10.4 · Schema requirements
+
+`RealEstateListing` ha de contenir:
+- `name` · nom-codi del projecte (K-Sandal, K-Vall d'Or, etc.)
+- `description` · 1-2 frases sintetitzant la fitxa
+- `url` · canonical de la versió en la llengua de la pàgina
+- `location` · `@type: Place` amb `address.addressLocality` (municipi) i `address.addressRegion` (comarca). **Mai** `streetAddress` ni coordinates de precisió de carrer.
+
+### 10.5 · Cross-link rule per fitxa
+
+Cada fitxa de projecte enllaça a:
+1. **Zone landing** corresponent (si existeix · `/zones/bellaterra`, `/comarca/maresme`, etc.)
+2. **1-2 projectes germans** · mateixa categoria o àrea geogràfica propera
+3. **Service hub rellevant** · `/construccio` per obres noves, `/rehabilitacio` per intervencions sobre existent, `/promocio` per promocions
+
+---
+
+## 11. Comarcal i Tier-2 landing conventions
+
+Esmena v1.3. La taxonomia de landings s'ha ampliat post-S5 amb un tier addicional. Codificació del nou tier i del seu tractament editorial.
+
+### 11.1 · Tres tiers de landing
+
+| Tier | Definició | Exemples | Word count |
+|---|---|---|---|
+| Tier 1 | Municipis prime amb cluster propi | Bellaterra, Sant Cugat del Vallès, Matadepera, Sant Quirze del Vallès | 1.500-2.500 paraules |
+| Tier 2 | Municipis amb projecte directe PAPIK | Cabrils, Alella, Premià de Dalt, Tiana, Cerdanyola del Vallès, Argentona, Castellar, Llavaneres, Sitges, Vilanova | 600-900 paraules |
+| Comarcal hub | Hub agregador de comarca | Vallès Occidental, Maresme, Garraf | 800-1.000 paraules |
+
+### 11.2 · Tier-2 · concisió focalitzada
+
+A diferència de Tier 1 (extens, exhaustiu), Tier 2 és **concís i focalitzat**. 600-900 paraules és el rang. No bullet-fests; prosa breu en 3-4 H2.
+
+### 11.3 · Anchor proximity rule
+
+Esmena crítica v1.3. Cada landing Tier-2 referencia el **projecte PAPIK directe més proper geogràficament**, no el projecte famós o icònic si està lluny.
+
+Exemple correcte:
+- Cabrils landing → ancla a **K-Llavaneres** (Maresme, 4 km)
+- Cabrils landing → NO ancla a K-Iturbi (Sant Cugat, 35 km, només pel renom)
+
+Lògica · l'usuari aterra a la landing buscant proximitat. El projecte més proper és l'evidència més rellevant.
+
+### 11.4 · Comarcal hubs · llistat exhaustiu
+
+Cada hub comarcal llista **tots els municipis dins el seu àmbit** que tenen landing publicada, i els enllaça. Sense exclusions selectives. La completesa de la llista és la utilitat del hub.
+
+---
+
+## 12. Performance defaults
+
+Esmena v1.3. Codificació de les regles de rendiment que el `generate_html.py` injecta i que tota plantilla manual ha de respectar.
+
+### 12.1 · Scripts externs · sempre defer o async
+
+Tot `<script src="...">` ha de portar `defer` (per defecte) o `async` (per analytics, scripts independents del DOM). Cap script bloquejant al `<head>`.
+
+### 12.2 · Imatges · loading strategy per fold
+
+- **Above the fold** (hero, primer viewport) · `loading="eager"` + `fetchpriority="high"`
+- **Below the fold** (la resta) · `loading="lazy"` + `decoding="async"`
+
+### 12.3 · Preload · CSS i font primaris
+
+- `<link rel="preload" as="style" href="/styles/main.css">`
+- `<link rel="preload" as="font" type="font/woff2" href="/fonts/tt-firs-neue.woff2" crossorigin>`
+
+### 12.4 · DNS-prefetch · CDN externs
+
+Tot CDN extern usat (analytics, fonts CDN, video provider) declarat amb `<link rel="dns-prefetch" href="//[domain]">` al `<head>`.
+
+### 12.5 · No Google Fonts
+
+Esmena v1.3. La família TT Firs Neue és **self-hosted** des de `/fonts/`. Cap dependència de `fonts.googleapis.com`. Raons · privacitat (AEPD), rendiment (un round-trip menys), control de versions.
+
+---
+
+## 13. Robots i crawl policy
+
+Esmena v1.3. Codificació de `robots.txt` i de la postura PAPIK davant scrapers.
+
+### 13.1 · Block AI scrapers (drets de contingut AEPD)
+
+Els següents user-agents són bloquejats sistemàticament a `robots.txt`:
+
+- `GPTBot` (OpenAI)
+- `ClaudeBot` (Anthropic)
+- `PerplexityBot` (Perplexity)
+- `CCBot` (Common Crawl, alimenta entrenament massiu)
+- `Bytespider` (ByteDance / TikTok)
+- `Google-Extended` (entrenament Bard/Gemini, distint del crawler de Search)
+
+Justificació · els 95.000 paraules editorials són IP de PAPIK; el seu ús per entrenar models comercials sense llicència no està autoritzat. Aquesta postura s'alinea amb el guidance AEPD/CNIL sobre data scraping.
+
+### 13.2 · Per-bot crawl-delay 5s · scrapers SEO
+
+Bloc específic per scrapers de monitoring SEO de tercers (Ahrefs, Semrush, Majestic / MJ12) amb `Crawl-delay: 5`. Es permet l'accés (per a anàlisi competitiva legítima de tercers que ens monitoritzen) però amb cadència restringida per limitar càrrega.
+
+### 13.3 · Sitemap reference
+
+Al final de `robots.txt`:
+
+```
+Sitemap: https://papik.cat/sitemap.xml
+```
+
+Únic sitemap canonical. Cap sitemap-index múltiple ni sitemaps secundaris.
+
+---
+
+## 14. Convencions de format
 
 ### 10.1 · Nombres
 - Anys · "1994", "2024", "2026"
@@ -525,6 +665,17 @@ Si ≥10 dels 13 punts es compleixen, l'article està en bona forma.
 Aquest manual és **viu**. Cada vegada que detectem un patró editorial nou (positiu o negatiu) o una decisió tècnica nova, l'incorporem aquí.
 
 ### Història de versions
+
+**v1.3 (28 abril 2026 · post-Wave-3)**
+
+Cinc seccions noves codificades a partir de descobriments del cicle de project pages, Tier-2 landings i performance pass:
+
+- §10 · Project page conventions (slug tri-lingüe `/projecte-X` / `/es/proyecto-X` / `/en/projects/X`, privacy boundary específica, seccions obligatòries, schema RealEstateListing a nivell municipi, cross-link rule)
+- §11 · Comarcal i Tier-2 landing conventions (Tier-2 600-900 paraules, anchor proximity rule, comarcal hubs llistat exhaustiu)
+- §12 · Performance defaults (defer/async, lazy/eager per fold, preload CSS+font, DNS-prefetch, no Google Fonts)
+- §13 · Robots i crawl policy (block GPTBot/ClaudeBot/PerplexityBot/CCBot/Bytespider/Google-Extended, crawl-delay 5s SEO scrapers, sitemap canonical)
+
+També renumeració de §10-§17 antics a §14-§21.
 
 **v1.2 (28 abril 2026 · post-S5)**
 
