@@ -1547,6 +1547,65 @@
   <meta name="twitter:description" content="Configura el teu habitatge i obtén una estimació orientativa del pressupost. Sense compromís.">
   <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
   <meta name="theme-color" content="#002819">
+
+  <!-- perf-pass:preload -->
+  <link rel="preload" href="css/tokens.css" as="style">
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
+<!-- schema-enrichment:wave2 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inici",
+      "item": "https://papik.cat/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Pressupost",
+      "item": "https://papik.cat/pressupost"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Configurador de pressupost Passivhaus",
+  "description": "Sol·licitud i estimació orientativa de pressupost per a construcció i rehabilitació Passivhaus.",
+  "url": "https://papik.cat/pressupost",
+  "provider": {
+    "@id": "https://papik.cat/#org",
+    "@type": "Organization",
+    "name": "PAPIK Group"
+  },
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Catalunya"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Vallès Occidental"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Maresme"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Garraf"
+    }
+  ],
+  "serviceType": "Construction budget request",
+  "inLanguage": "ca"
+}
+</script>
 </head>
 <body>
 <!-- PAPIK · Cookie consent banner snippet
@@ -2482,7 +2541,7 @@
 <script src="js/header.js" defer></script>
 <script src="js/motion.js" defer></script>
 
-<script src="cursor.js"></script>
+<script src="cursor.js" defer></script>
   <script src="/js/cookie-banner.js" defer></script>
   <script src="/js/forms.js" defer></script>
 

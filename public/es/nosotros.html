@@ -985,6 +985,53 @@
   <meta name="twitter:description" content="Treinta años construyendo viviendas de alta calidad en Cataluña. Fundada en 1994 por Papik Fisas Moreno, PAPIK Group es hoy referente en construcción pasiva...">
   <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
   <meta name="theme-color" content="#002819">
+
+  <!-- perf-pass:preload -->
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- perf-pass:dns -->
+  <link rel="dns-prefetch" href="//unpkg.com">
+<!-- schema-enrichment:wave2 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://papik.cat/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Nosotros",
+      "item": "https://papik.cat/es/nosotros"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Sobre PAPIK Group",
+  "description": "Constructora Passivhaus en Cataluña. 30 años de experiencia, sistema propio Eskimohaus®.",
+  "url": "https://papik.cat/es/nosotros",
+  "inLanguage": "es",
+  "mainEntity": {
+    "@id": "https://papik.cat/#org",
+    "@type": "Organization",
+    "name": "PAPIK Group",
+    "url": "https://papik.cat/",
+    "logo": "https://papik.cat/img/logo/papik-logo.svg",
+    "sameAs": [
+      "https://www.linkedin.com/company/papik-group",
+      "https://www.instagram.com/papikgroup"
+    ]
+  }
+}
+</script>
 </head>
 <body>
 <!-- PAPIK · Cookie consent banner snippet
@@ -2032,7 +2079,7 @@
 })();
 </script>
 
-<script src="../cursor.js"></script>
+<script src="../cursor.js" defer></script>
   <script src="/js/cookie-banner.js" defer></script>
   <script src="/js/forms.js" defer></script>
 </body>

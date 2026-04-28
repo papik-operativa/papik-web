@@ -1,16 +1,17 @@
-# PAPIK Group - papik.cat
+# PAPIK Group · papik.cat
 # Production robots.txt
+# Last updated: 2026-04-28
 
 User-agent: *
 Allow: /
 
-# Internal pages not for indexing
+# Disallow internal/dashboard areas (not for indexing)
 Disallow: /dashboard-cliente
 Disallow: /es/dashboard-cliente
 Disallow: /usuaris
 Disallow: /es/usuarios
 
-# WordPress legacy paths (defensive — site is now static)
+# Disallow legacy WordPress paths (defensive — site is now static)
 Disallow: /wp-admin/
 Disallow: /wp-login.php
 Disallow: /wp-content/
@@ -18,23 +19,60 @@ Disallow: /wp-includes/
 Disallow: /xmlrpc.php
 Disallow: /?author=
 
-# Search and filter parameters (avoid indexing duplicates)
+# Disallow search and tracking-parameter URLs (avoid duplicate indexing)
 Disallow: /*?s=
 Disallow: /*?p=
-Disallow: /*?utm_
+Disallow: /*?utm_*
 Disallow: /*?ref=
-Disallow: /*?fbclid=
-Disallow: /*?gclid=
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
 
-# Allow CSS, JS, images for proper rendering (Google needs these)
+# Disallow internal/test files shipped to public/
+Disallow: /_test_dir.txt
+Disallow: /serve.py
+Disallow: /serve_preview.py
+Disallow: /dashboard-guard.js
+
+# Allow assets (override above wildcards if needed for proper rendering)
 Allow: /css/
 Allow: /js/
 Allow: /img/
 Allow: /fonts/
 
-# Sitemaps
-Sitemap: https://papik.cat/sitemap.xml
+# Crawl-delay for non-Google bots (politeness; Google ignores this)
+User-agent: AhrefsBot
+Crawl-delay: 5
 
-# Crawl-delay relaxed - we want fast indexation post-launch
-# (Google ignores Crawl-delay; Bing/Yandex respect it)
-Crawl-delay: 1
+User-agent: SemrushBot
+Crawl-delay: 5
+
+User-agent: MJ12bot
+Crawl-delay: 5
+
+# Block AI scrapers (preserve content rights for ~95k words of editorial copy)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Sitemap
+Sitemap: https://papik.cat/sitemap.xml

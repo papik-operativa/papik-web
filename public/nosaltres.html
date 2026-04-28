@@ -74,6 +74,52 @@
   <meta name="twitter:description" content="Trenta anys construint habitatges d">
   <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
   <meta name="theme-color" content="#002819">
+
+  <!-- perf-pass:preload -->
+  <link rel="preload" href="css/tokens.css" as="style">
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
+<!-- schema-enrichment:wave2 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inici",
+      "item": "https://papik.cat/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Nosaltres",
+      "item": "https://papik.cat/nosaltres"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Sobre PAPIK Group",
+  "description": "Constructora Passivhaus a Catalunya. 30 anys d'experiència, sistema propi Eskimohaus®.",
+  "url": "https://papik.cat/nosaltres",
+  "inLanguage": "ca",
+  "mainEntity": {
+    "@id": "https://papik.cat/#org",
+    "@type": "Organization",
+    "name": "PAPIK Group",
+    "url": "https://papik.cat/",
+    "logo": "https://papik.cat/img/logo/papik-logo.svg",
+    "sameAs": [
+      "https://www.linkedin.com/company/papik-group",
+      "https://www.instagram.com/papikgroup"
+    ]
+  }
+}
+</script>
 </head>
 <body>
 <!-- PAPIK · Cookie consent banner snippet
@@ -587,7 +633,7 @@
       <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">01</span><h3 class="card__title" style="font-size:20px;">Artesania a escala</h3><p class="card__excerpt">La precisió i cura artesanal en cada projecte, independentment de la dimensió o el pressupost. Mai industrialitzem el que ha de ser únic.</p></div>
       <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">02</span><h3 class="card__title" style="font-size:20px;">Eficiència sense concessions</h3><p class="card__excerpt">Construïm habitatges que consumeixin la mínima energia possible. No com a tendència, sinó com a convicció tècnica des del primer dia.</p></div>
       <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">03</span><h3 class="card__title" style="font-size:20px;">Transparència radical</h3><p class="card__excerpt">Clients, socis i inversors accedeixen a informació real en temps real. Res s'amaga, tot es mesura, tot es reporta.</p></div>
-      <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">04</span><h3 class="card__title" style="font-size:20px;">Equip propi, qualitat controlada</h3><p class="card__excerpt">Equip estable d'~30 professionals i taller propi: controlem cada fase. No externalitzem allò que defineix la nostra qualitat.</p></div>
+      <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">04</span><h3 class="card__title" style="font-size:20px;"><a href="/qualitats">Equip propi, qualitat controlada</a></h3><p class="card__excerpt">Equip estable d'~30 professionals i taller propi: controlem cada fase. No externalitzem allò que defineix la nostra qualitat.</p></div>
       <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">05</span><h3 class="card__title" style="font-size:20px;">Arrel catalana</h3><p class="card__excerpt">Construïm a tota Catalunya, sempre des del coneixement profund del territori, la normativa i el mercat local.</p></div>
       <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">06</span><h3 class="card__title" style="font-size:20px;">Innovació aplicada</h3><p class="card__excerpt">Investiguem i perfeccionem sistemes constructius que redueixen costos i terminis sense sacrificar qualitat. L'Eskimohaus n'és l'exemple.</p></div>
     </div>
@@ -694,7 +740,7 @@
 
 <script src="js/header.js" defer></script>
 <script src="js/motion.js" defer></script>
-<script src="cursor.js"></script>
+<script src="cursor.js" defer></script>
   <script src="/js/cookie-banner.js" defer></script>
   <script src="/js/forms.js" defer></script>
 

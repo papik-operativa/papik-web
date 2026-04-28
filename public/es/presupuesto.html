@@ -1081,6 +1081,64 @@
   <meta name="twitter:description" content="Configura tu vivienda y obtén una estimación orientativa del presupuesto. Sin compromiso.">
   <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
   <meta name="theme-color" content="#002819">
+
+  <!-- perf-pass:preload -->
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
+<!-- schema-enrichment:wave2 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://papik.cat/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Presupuesto",
+      "item": "https://papik.cat/es/presupuesto"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Configurador de presupuesto Passivhaus",
+  "description": "Solicitud y estimación orientativa de presupuesto para construcción y rehabilitación Passivhaus.",
+  "url": "https://papik.cat/es/presupuesto",
+  "provider": {
+    "@id": "https://papik.cat/#org",
+    "@type": "Organization",
+    "name": "PAPIK Group"
+  },
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Catalunya"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Vallès Occidental"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Maresme"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Garraf"
+    }
+  ],
+  "serviceType": "Construction budget request",
+  "inLanguage": "es"
+}
+</script>
 </head>
 <body>
 <!-- PAPIK · Cookie consent banner snippet
@@ -2572,7 +2630,7 @@
 })();
 </script>
 
-<script src="../cursor.js"></script>
+<script src="../cursor.js" defer></script>
   <script src="/js/cookie-banner.js" defer></script>
   <script src="/js/forms.js" defer></script>
 

@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://papik.cat/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/"/>
@@ -13,7 +13,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/"/>
@@ -23,7 +23,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/"/>
@@ -33,7 +33,7 @@
   </url>
   <url>
     <loc>https://papik.cat/construccio</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/construccio"/>
@@ -43,7 +43,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/construction</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/construccio"/>
@@ -53,7 +53,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/development</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/promocio"/>
@@ -63,7 +63,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/retrofit</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/rehabilitacio"/>
@@ -73,7 +73,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/retrofit/communities</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/rehabilitacio/comunitats"/>
@@ -83,7 +83,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/wealth</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/patrimonis"/>
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/construccion</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/construccio"/>
@@ -103,7 +103,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/patrimonios</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/patrimonis"/>
@@ -123,7 +123,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/promocion</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/promocio"/>
@@ -133,7 +133,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/rehabilitacion</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/rehabilitacio"/>
@@ -143,7 +143,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/rehabilitacion/comunidades</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/rehabilitacio/comunitats"/>
@@ -153,7 +153,7 @@
   </url>
   <url>
     <loc>https://papik.cat/patrimonis</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/patrimonis"/>
@@ -173,7 +173,7 @@
   </url>
   <url>
     <loc>https://papik.cat/promocio</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/promocio"/>
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://papik.cat/rehabilitacio</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/rehabilitacio"/>
@@ -193,7 +193,7 @@
   </url>
   <url>
     <loc>https://papik.cat/rehabilitacio/comunitats</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/rehabilitacio/comunitats"/>
@@ -208,7 +208,28 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/blog"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/blog"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/blog"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/comarques/garraf</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/garraf"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/garraf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/garraf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/garraf"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/comarques/maresme</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/maresme"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/maresme"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/maresme"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/maresme"/>
   </url>
   <url>
     <loc>https://papik.cat/comarques/valles-occidental</loc>
@@ -221,8 +242,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/valles-occidental"/>
   </url>
   <url>
+    <loc>https://papik.cat/en/areas/alella</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/alella"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/alella"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/alella"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/alella"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/areas/argentona</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/argentona"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/argentona"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/argentona"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/argentona"/>
+  </url>
+  <url>
     <loc>https://papik.cat/en/areas/bellaterra</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/bellaterra"/>
@@ -231,8 +272,38 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/bellaterra"/>
   </url>
   <url>
+    <loc>https://papik.cat/en/areas/cabrils</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/cabrils"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/areas/castellar-del-valles</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/castellar-del-valles"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/areas/cerdanyola-del-valles</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/cerdanyola-del-valles"/>
+  </url>
+  <url>
     <loc>https://papik.cat/en/areas/matadepera</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/matadepera"/>
@@ -241,8 +312,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/matadepera"/>
   </url>
   <url>
+    <loc>https://papik.cat/en/areas/premia-de-dalt</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/premia-de-dalt"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/areas/sant-andreu-de-llavaneres</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sant-andreu-de-llavaneres"/>
+  </url>
+  <url>
     <loc>https://papik.cat/en/areas/sant-cugat-del-valles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-cugat-del-valles"/>
@@ -252,7 +343,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/areas/sant-quirze-del-valles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-quirze-del-valles"/>
@@ -261,13 +352,114 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sant-quirze-del-valles"/>
   </url>
   <url>
+    <loc>https://papik.cat/en/areas/sitges</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sitges"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/sitges"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/sitges"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sitges"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/areas/tiana</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/tiana"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/tiana"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/tiana"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/tiana"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/areas/vilanova-i-la-geltru</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/vilanova-i-la-geltru"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/blog</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/blog"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/blog"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/regions/garraf</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/garraf"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/garraf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/garraf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/garraf"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/regions/maresme</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/maresme"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/maresme"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/maresme"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/maresme"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/regions/valles-occidental</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/valles-occidental"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/valles-occidental"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/valles-occidental"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/valles-occidental"/>
+  </url>
+  <url>
     <loc>https://papik.cat/es/blog</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/blog"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/blog"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/blog"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/comarcas/garraf</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/garraf"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/garraf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/garraf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/garraf"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/comarcas/maresme</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/maresme"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/maresme"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/maresme"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/maresme"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/comarcas/valles-occidental</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/comarques/valles-occidental"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/comarcas/valles-occidental"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/regions/valles-occidental"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/comarques/valles-occidental"/>
   </url>
   <url>
     <loc>https://papik.cat/es/nosotros</loc>
@@ -291,8 +483,28 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://papik.cat/es/zonas/alella</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/alella"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/alella"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/alella"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/alella"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/zonas/argentona</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/argentona"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/argentona"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/argentona"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/argentona"/>
+  </url>
+  <url>
     <loc>https://papik.cat/es/zonas/bellaterra</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/bellaterra"/>
@@ -301,8 +513,38 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/bellaterra"/>
   </url>
   <url>
+    <loc>https://papik.cat/es/zonas/cabrils</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/cabrils"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/zonas/castellar-del-valles</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/castellar-del-valles"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/zonas/cerdanyola-del-valles</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/cerdanyola-del-valles"/>
+  </url>
+  <url>
     <loc>https://papik.cat/es/zonas/matadepera</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/matadepera"/>
@@ -311,8 +553,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/matadepera"/>
   </url>
   <url>
+    <loc>https://papik.cat/es/zonas/premia-de-dalt</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/premia-de-dalt"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/zonas/sant-andreu-de-llavaneres</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sant-andreu-de-llavaneres"/>
+  </url>
+  <url>
     <loc>https://papik.cat/es/zonas/sant-cugat-del-valles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-cugat-del-valles"/>
@@ -322,13 +584,43 @@
   </url>
   <url>
     <loc>https://papik.cat/es/zonas/sant-quirze-del-valles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-quirze-del-valles"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/sant-quirze-del-valles"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/sant-quirze-del-valles"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sant-quirze-del-valles"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/zonas/sitges</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sitges"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/sitges"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/sitges"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sitges"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/zonas/tiana</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/tiana"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/tiana"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/tiana"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/tiana"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/es/zonas/vilanova-i-la-geltru</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/vilanova-i-la-geltru"/>
   </url>
   <url>
     <loc>https://papik.cat/nosaltres</loc>
@@ -338,14 +630,6 @@
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/nosaltres"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/nosotros"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/nosaltres"/>
-  </url>
-  <url>
-    <loc>https://papik.cat/projectes</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projectes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projectes"/>
   </url>
   <url>
     <loc>https://papik.cat/qualitats</loc>
@@ -362,8 +646,28 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://papik.cat/zones/alella</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/alella"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/alella"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/alella"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/alella"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/zones/argentona</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/argentona"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/argentona"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/argentona"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/argentona"/>
+  </url>
+  <url>
     <loc>https://papik.cat/zones/bellaterra</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/bellaterra"/>
@@ -372,8 +676,38 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/bellaterra"/>
   </url>
   <url>
+    <loc>https://papik.cat/zones/cabrils</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/cabrils"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/cabrils"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/zones/castellar-del-valles</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/castellar-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/castellar-del-valles"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/zones/cerdanyola-del-valles</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/cerdanyola-del-valles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/cerdanyola-del-valles"/>
+  </url>
+  <url>
     <loc>https://papik.cat/zones/matadepera</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/matadepera"/>
@@ -382,8 +716,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/matadepera"/>
   </url>
   <url>
+    <loc>https://papik.cat/zones/premia-de-dalt</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/premia-de-dalt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/premia-de-dalt"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/zones/sant-andreu-de-llavaneres</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/sant-andreu-de-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sant-andreu-de-llavaneres"/>
+  </url>
+  <url>
     <loc>https://papik.cat/zones/sant-cugat-del-valles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-cugat-del-valles"/>
@@ -393,7 +747,7 @@
   </url>
   <url>
     <loc>https://papik.cat/zones/sant-quirze-del-valles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sant-quirze-del-valles"/>
@@ -402,8 +756,38 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sant-quirze-del-valles"/>
   </url>
   <url>
+    <loc>https://papik.cat/zones/sitges</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/sitges"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/sitges"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/sitges"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/sitges"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/zones/tiana</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/tiana"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/tiana"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/tiana"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/tiana"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/zones/vilanova-i-la-geltru</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/zones/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/zonas/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/areas/vilanova-i-la-geltru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/zones/vilanova-i-la-geltru"/>
+  </url>
+  <url>
     <loc>https://papik.cat/article-apagada-2025</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-apagada-2025"/>
@@ -412,7 +796,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-casa-montseny</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-casa-montseny"/>
@@ -422,7 +806,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-derribar-casa-antiga-construir-nova-passos</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-derribar-casa-antiga-construir-nova-passos"/>
@@ -431,7 +815,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-hipoteca-energetica</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-hipoteca-energetica"/>
@@ -441,7 +825,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-innovacions-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-innovacions-passivhaus"/>
@@ -450,7 +834,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-llicencia-derribo-cerdanyola-bellaterra</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-llicencia-derribo-cerdanyola-bellaterra"/>
@@ -459,7 +843,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-materials-sostenibles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-materials-sostenibles"/>
@@ -468,7 +852,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-nota-premsa-papik-ksandal</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-ksandal"/>
@@ -477,7 +861,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-nota-premsa-papik-ponsa</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-ponsa"/>
@@ -486,7 +870,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-nota-premsa-papik-sabadell</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-sabadell"/>
@@ -495,7 +879,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-petjada-ecologica</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-petjada-ecologica"/>
@@ -504,7 +888,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-pressupost-casa-passiva</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-pressupost-casa-passiva"/>
@@ -513,7 +897,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-principis-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-principis-passivhaus"/>
@@ -523,7 +907,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-revolucio-fusta</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-revolucio-fusta"/>
@@ -533,7 +917,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-sostenibilitat-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-sostenibilitat-passivhaus"/>
@@ -543,7 +927,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-substituir-vs-rehabilitar</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-substituir-vs-rehabilitar"/>
@@ -552,7 +936,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-tecnologies-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-tecnologies-passivhaus"/>
@@ -561,7 +945,7 @@
   </url>
   <url>
     <loc>https://papik.cat/article-ventilacio-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-ventilacio-passivhaus"/>
@@ -571,7 +955,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-blackout-2025</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-apagada-2025"/>
@@ -581,7 +965,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-demolish-and-rebuild-steps</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-derribar-casa-antiga-construir-nova-passos"/>
@@ -591,7 +975,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-demolition-permit-cerdanyola-bellaterra</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-llicencia-derribo-cerdanyola-bellaterra"/>
@@ -601,7 +985,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-ecological-footprint</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-petjada-ecologica"/>
@@ -611,7 +995,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-green-mortgage</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-hipoteca-energetica"/>
@@ -621,7 +1005,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-ksandal-press-release</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-ksandal"/>
@@ -631,7 +1015,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-montseny-house</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-casa-montseny"/>
@@ -641,7 +1025,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-passivhaus-budget</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-pressupost-casa-passiva"/>
@@ -651,7 +1035,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-passivhaus-innovations</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-innovacions-passivhaus"/>
@@ -661,7 +1045,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-passivhaus-principles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-principis-passivhaus"/>
@@ -671,7 +1055,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-passivhaus-sustainability</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-sostenibilitat-passivhaus"/>
@@ -681,7 +1065,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-passivhaus-technologies</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-tecnologies-passivhaus"/>
@@ -691,7 +1075,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-passivhaus-ventilation</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-ventilacio-passivhaus"/>
@@ -701,7 +1085,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-ponsa-press-release</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-ponsa"/>
@@ -711,7 +1095,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-replace-vs-retrofit</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-substituir-vs-rehabilitar"/>
@@ -721,7 +1105,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-sabadell-press-release</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-sabadell"/>
@@ -731,7 +1115,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-sustainable-materials</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-materials-sostenibles"/>
@@ -741,7 +1125,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/article-wood-revolution</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-revolucio-fusta"/>
@@ -759,8 +1143,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/budget.html"/>
   </url>
   <url>
+    <loc>https://papik.cat/en/projects.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projectes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyectos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projectes.html"/>
+  </url>
+  <url>
     <loc>https://papik.cat/es/article-apagon-2025</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-apagada-2025"/>
@@ -769,7 +1163,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-casa-montseny</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-casa-montseny"/>
@@ -779,7 +1173,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-derribar-construir-pasos</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-derribar-casa-antiga-construir-nova-passos"/>
@@ -788,7 +1182,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-hipoteca-energetica</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-hipoteca-energetica"/>
@@ -798,7 +1192,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-huella-ecologica</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-petjada-ecologica"/>
@@ -807,7 +1201,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-innovaciones-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-innovacions-passivhaus"/>
@@ -817,7 +1211,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-licencia-derribo-cerdanyola-bellaterra</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-llicencia-derribo-cerdanyola-bellaterra"/>
@@ -826,7 +1220,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-materiales-sostenibles</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-materials-sostenibles"/>
@@ -835,7 +1229,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-nota-prensa-papik-ksandal</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-ksandal"/>
@@ -844,7 +1238,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-nota-prensa-papik-ponsa</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-ponsa"/>
@@ -853,7 +1247,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-nota-prensa-papik-sabadell</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-sabadell"/>
@@ -862,7 +1256,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-presupuesto-casa-pasiva</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-pressupost-casa-passiva"/>
@@ -871,7 +1265,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-principios-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-principis-passivhaus"/>
@@ -881,7 +1275,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-revolucion-madera</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-revolucio-fusta"/>
@@ -891,7 +1285,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-sostenibilidad-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-sostenibilitat-passivhaus"/>
@@ -901,7 +1295,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-sustituir-vs-rehabilitar</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-substituir-vs-rehabilitar"/>
@@ -910,7 +1304,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-tecnologias-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-tecnologies-passivhaus"/>
@@ -919,7 +1313,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/article-ventilacion-passivhaus</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/article-ventilacio-passivhaus"/>
@@ -929,7 +1323,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/politica-de-cookies</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/politica-de-cookies"/>
@@ -939,7 +1333,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/politica-de-privacidad</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/politica-de-privacitat"/>
@@ -948,8 +1342,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/politica-de-privacitat"/>
   </url>
   <url>
+    <loc>https://papik.cat/es/proyectos.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projectes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyectos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projectes.html"/>
+  </url>
+  <url>
     <loc>https://papik.cat/politica-de-cookies</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/politica-de-cookies"/>
@@ -959,7 +1363,7 @@
   </url>
   <url>
     <loc>https://papik.cat/politica-de-privacitat</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/politica-de-privacitat"/>
@@ -968,328 +1372,734 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/politica-de-privacitat"/>
   </url>
   <url>
+    <loc>https://papik.cat/projectes.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projectes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyectos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projectes.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/ampliacio-valldoreix</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-ampliacio-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-ampliacio-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/ampliacio-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-ampliacio-valldoreix"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/arboc.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-arboc.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/fornells.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-fornells.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-alzina.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-alzina.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-aragai.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-aragai.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-argentona.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-argentona.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-begues.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-begues.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-bellindret.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-bellindret.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-botigues.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-botigues.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-calonge.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-calonge.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-cim.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-cim.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-codines.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-codines.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-del-carril.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-del-carril.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-denbas.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-denbas.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-gorgs.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-gorgs.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-hostalets.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-hostalets.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-igualada.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-igualada.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-iturbi.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-iturbi.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-lamassa.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-lamassa.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-llavaneres.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-llavaneres.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-malats.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-malats.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-marges.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-marges.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-maristany.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-maristany.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-matadepera.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-matadepera.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-merla.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-merla.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-mogent.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-mogent.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-orio.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-orio.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-premia.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-premia.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/k-vallor.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-vallor.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/la-floresta.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-la-floresta.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/moianes.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-moianes.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/passivpalau.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivpalau.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/passivrooms.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivrooms.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/rehabilitacio-valldoreix.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-rehabilitacio-valldoreix.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/remunta-sant-cugat.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-sant-cugat.html"/>
+  </url>
+  <url>
+    <loc>https://papik.cat/en/projects/remunta-valldoreix.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-valldoreix.html"/>
+  </url>
+  <url>
     <loc>https://papik.cat/es/proyecto-ampliacio-valldoreix</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-ampliacio-valldoreix"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-ampliacio-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/ampliacio-valldoreix"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-ampliacio-valldoreix"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-arboc</loc>
+    <loc>https://papik.cat/es/proyecto-arboc.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-arboc"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-arboc"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-arboc"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-arboc.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-fornells</loc>
+    <loc>https://papik.cat/es/proyecto-fornells.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-fornells"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-fornells"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-fornells"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-fornells.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-alzina</loc>
+    <loc>https://papik.cat/es/proyecto-k-alzina.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-alzina"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-alzina"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-alzina"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-alzina.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-aragai</loc>
+    <loc>https://papik.cat/es/proyecto-k-aragai.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-aragai"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-aragai"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-aragai"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-aragai.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-argentona</loc>
+    <loc>https://papik.cat/es/proyecto-k-argentona.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-argentona"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-argentona"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-argentona"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-argentona.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-begues</loc>
+    <loc>https://papik.cat/es/proyecto-k-begues.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-begues"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-begues"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-begues"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-begues.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-bellindret</loc>
+    <loc>https://papik.cat/es/proyecto-k-bellindret.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-bellindret"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-bellindret"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-bellindret"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-bellindret.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-botigues</loc>
+    <loc>https://papik.cat/es/proyecto-k-botigues.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-botigues"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-botigues"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-botigues"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-botigues.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-calonge</loc>
+    <loc>https://papik.cat/es/proyecto-k-calonge.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-calonge"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-calonge"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-calonge"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-calonge.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-cim</loc>
+    <loc>https://papik.cat/es/proyecto-k-cim.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-cim"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-cim"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-cim"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-cim.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-codines</loc>
+    <loc>https://papik.cat/es/proyecto-k-codines.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-codines"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-codines"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-codines"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-codines.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-del-carril</loc>
+    <loc>https://papik.cat/es/proyecto-k-del-carril.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-del-carril"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-del-carril"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-del-carril"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-del-carril.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-denbas</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-k-denbas.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-denbas"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-denbas"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-denbas"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-denbas.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-gorgs</loc>
+    <loc>https://papik.cat/es/proyecto-k-gorgs.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-gorgs"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-gorgs"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-gorgs"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-gorgs.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-hostalets</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-k-hostalets.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-hostalets"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-hostalets"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-hostalets"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-hostalets.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-igualada</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-k-igualada.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-igualada"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-igualada"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-igualada"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-igualada.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-iturbi</loc>
+    <loc>https://papik.cat/es/proyecto-k-iturbi.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-iturbi"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-iturbi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-iturbi"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-iturbi.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-lamassa</loc>
+    <loc>https://papik.cat/es/proyecto-k-lamassa.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-lamassa"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-lamassa"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-lamassa"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-lamassa.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-llavaneres</loc>
+    <loc>https://papik.cat/es/proyecto-k-llavaneres.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-llavaneres"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-llavaneres"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-llavaneres.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-malats</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-k-malats.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-malats"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-malats"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-malats"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-malats.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-marges</loc>
+    <loc>https://papik.cat/es/proyecto-k-marges.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-marges"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-marges"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-marges"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-marges.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-maristany</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-k-maristany.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-maristany"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-maristany"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-maristany"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-maristany.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-matadepera</loc>
+    <loc>https://papik.cat/es/proyecto-k-matadepera.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-matadepera"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-matadepera"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-matadepera"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-matadepera.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-merla</loc>
+    <loc>https://papik.cat/es/proyecto-k-merla.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-merla"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-merla"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-merla"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-merla.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-mogent</loc>
+    <loc>https://papik.cat/es/proyecto-k-mogent.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-mogent"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-mogent"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-mogent"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-mogent.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-orio</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-k-orio.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-orio"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-orio"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-orio"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-orio.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-premia</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-k-premia.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-premia"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-premia"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-premia"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-premia.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-k-vallor</loc>
+    <loc>https://papik.cat/es/proyecto-k-vallor.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-vallor"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-vallor"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-vallor"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-vallor.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-la-floresta</loc>
+    <loc>https://papik.cat/es/proyecto-la-floresta.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-la-floresta"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-la-floresta"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-la-floresta"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-la-floresta.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-moianes</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-moianes.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-moianes"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-moianes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-moianes"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-moianes.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-passivpalau</loc>
+    <loc>https://papik.cat/es/proyecto-passivpalau.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivpalau"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivpalau"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivpalau"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivpalau.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-passivrooms</loc>
+    <loc>https://papik.cat/es/proyecto-passivrooms.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivrooms"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivrooms"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivrooms"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivrooms.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-rehabilitacio-valldoreix</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-rehabilitacio-valldoreix.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-rehabilitacio-valldoreix"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-rehabilitacio-valldoreix"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-rehabilitacio-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-rehabilitacio-valldoreix.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-remunta-sant-cugat</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-remunta-sant-cugat.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-sant-cugat"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-sant-cugat"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-sant-cugat"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-sant-cugat.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/es/proyecto-remunta-valldoreix</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/es/proyecto-remunta-valldoreix.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-valldoreix"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-valldoreix"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-valldoreix.html"/>
   </url>
   <url>
     <loc>https://papik.cat/projecte-ampliacio-valldoreix</loc>
@@ -1298,326 +2108,362 @@
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-ampliacio-valldoreix"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-ampliacio-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/ampliacio-valldoreix"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-ampliacio-valldoreix"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-arboc</loc>
+    <loc>https://papik.cat/projecte-arboc.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-arboc"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-arboc"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-arboc"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/arboc.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-arboc.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-fornells</loc>
+    <loc>https://papik.cat/projecte-fornells.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-fornells"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-fornells"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-fornells"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/fornells.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-fornells.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-alzina</loc>
+    <loc>https://papik.cat/projecte-k-alzina.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-alzina"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-alzina"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-alzina"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-alzina.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-alzina.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-aragai</loc>
+    <loc>https://papik.cat/projecte-k-aragai.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-aragai"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-aragai"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-aragai"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-aragai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-aragai.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-argentona</loc>
+    <loc>https://papik.cat/projecte-k-argentona.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-argentona"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-argentona"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-argentona"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-argentona.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-argentona.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-begues</loc>
+    <loc>https://papik.cat/projecte-k-begues.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-begues"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-begues"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-begues"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-begues.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-begues.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-bellindret</loc>
+    <loc>https://papik.cat/projecte-k-bellindret.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-bellindret"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-bellindret"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-bellindret"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-bellindret.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-bellindret.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-botigues</loc>
+    <loc>https://papik.cat/projecte-k-botigues.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-botigues"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-botigues"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-botigues"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-botigues.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-botigues.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-calonge</loc>
+    <loc>https://papik.cat/projecte-k-calonge.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-calonge"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-calonge"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-calonge"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-calonge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-calonge.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-cim</loc>
+    <loc>https://papik.cat/projecte-k-cim.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-cim"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-cim"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-cim"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-cim.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-cim.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-codines</loc>
+    <loc>https://papik.cat/projecte-k-codines.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-codines"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-codines"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-codines"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-codines.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-codines.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-del-carril</loc>
+    <loc>https://papik.cat/projecte-k-del-carril.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-del-carril"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-del-carril"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-del-carril"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-del-carril.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-del-carril.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-denbas</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-k-denbas.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-denbas"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-denbas"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-denbas"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-denbas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-denbas.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-gorgs</loc>
+    <loc>https://papik.cat/projecte-k-gorgs.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-gorgs"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-gorgs"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-gorgs"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-gorgs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-gorgs.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-hostalets</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-k-hostalets.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-hostalets"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-hostalets"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-hostalets"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-hostalets.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-hostalets.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-igualada</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-k-igualada.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-igualada"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-igualada"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-igualada"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-igualada.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-igualada.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-iturbi</loc>
+    <loc>https://papik.cat/projecte-k-iturbi.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-iturbi"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-iturbi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-iturbi"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-iturbi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-iturbi.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-lamassa</loc>
+    <loc>https://papik.cat/projecte-k-lamassa.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-lamassa"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-lamassa"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-lamassa"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-lamassa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-lamassa.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-llavaneres</loc>
+    <loc>https://papik.cat/projecte-k-llavaneres.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-llavaneres"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-llavaneres"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-llavaneres"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-llavaneres.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-llavaneres.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-malats</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-k-malats.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-malats"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-malats"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-malats"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-malats.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-malats.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-marges</loc>
+    <loc>https://papik.cat/projecte-k-marges.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-marges"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-marges"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-marges"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-marges.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-marges.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-maristany</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-k-maristany.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-maristany"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-maristany"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-maristany"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-maristany.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-maristany.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-matadepera</loc>
+    <loc>https://papik.cat/projecte-k-matadepera.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-matadepera"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-matadepera"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-matadepera"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-matadepera.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-matadepera.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-merla</loc>
+    <loc>https://papik.cat/projecte-k-merla.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-merla"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-merla"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-merla"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-merla.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-merla.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-mogent</loc>
+    <loc>https://papik.cat/projecte-k-mogent.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-mogent"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-mogent"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-mogent"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-mogent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-mogent.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-orio</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-k-orio.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-orio"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-orio"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-orio"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-orio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-orio.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-premia</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-k-premia.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-premia"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-premia"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-premia"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-premia.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-premia.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-k-vallor</loc>
+    <loc>https://papik.cat/projecte-k-vallor.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-vallor"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-vallor"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-vallor"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/k-vallor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-k-vallor.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-la-floresta</loc>
+    <loc>https://papik.cat/projecte-la-floresta.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-la-floresta"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-la-floresta"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-la-floresta"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/la-floresta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-la-floresta.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-moianes</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-moianes.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-moianes"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-moianes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-moianes"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/moianes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-moianes.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-passivpalau</loc>
+    <loc>https://papik.cat/projecte-passivpalau.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivpalau"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivpalau"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivpalau"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/passivpalau.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivpalau.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-passivrooms</loc>
+    <loc>https://papik.cat/projecte-passivrooms.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivrooms"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivrooms"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivrooms"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/passivrooms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-passivrooms.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-rehabilitacio-valldoreix</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-rehabilitacio-valldoreix.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-rehabilitacio-valldoreix"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-rehabilitacio-valldoreix"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-rehabilitacio-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/rehabilitacio-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-rehabilitacio-valldoreix.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-remunta-sant-cugat</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-remunta-sant-cugat.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-sant-cugat"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-sant-cugat"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-sant-cugat"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/remunta-sant-cugat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-sant-cugat.html"/>
   </url>
   <url>
-    <loc>https://papik.cat/projecte-remunta-valldoreix</loc>
-    <lastmod>2026-04-28</lastmod>
+    <loc>https://papik.cat/projecte-remunta-valldoreix.html</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-valldoreix"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-valldoreix"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-valldoreix"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/projecte-remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://papik.cat/es/proyecto-remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papik.cat/en/projects/remunta-valldoreix.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://papik.cat/projecte-remunta-valldoreix.html"/>
   </url>
   <url>
     <loc>https://papik.cat/avis-legal</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/avis-legal"/>
@@ -1627,7 +2473,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/cookie-policy</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/politica-de-cookies"/>
@@ -1637,7 +2483,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/legal-notice</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/avis-legal"/>
@@ -1647,7 +2493,7 @@
   </url>
   <url>
     <loc>https://papik.cat/en/privacy-policy</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/politica-de-privacitat"/>
@@ -1657,7 +2503,7 @@
   </url>
   <url>
     <loc>https://papik.cat/es/aviso-legal</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://papik.cat/avis-legal"/>

@@ -82,6 +82,47 @@
   <meta name="twitter:description" content="Accedeix al teu espai de client PAPIK: seguiment de projectes, documentació i comunicació directa amb l">
   <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
   <meta name="theme-color" content="#002819">
+
+  <!-- perf-pass:preload -->
+  <link rel="preload" href="css/tokens.css" as="style">
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- perf-pass:dns -->
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<!-- schema-enrichment:wave2 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inici",
+      "item": "https://papik.cat/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Usuaris",
+      "item": "https://papik.cat/usuaris"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Àrea d'usuaris · PAPIK Group",
+  "description": "Accés privat per a clients i col·laboradors de PAPIK Group.",
+  "url": "https://papik.cat/usuaris",
+  "inLanguage": "ca",
+  "isPartOf": {
+    "@id": "https://papik.cat/#website"
+  },
+  "robots": "noindex,follow"
+}
+</script>
 </head>
 <body>
 <!-- PAPIK · Cookie consent banner snippet
@@ -672,7 +713,7 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-auth.js"></script>
+<script src="supabase-auth.js" defer></script>
   <script src="/js/cookie-banner.js" defer></script>
   <script src="/js/forms.js" defer></script>
 
