@@ -5,10 +5,10 @@
       "id": "1",
       "type": "number",
       "label": "Quants m² té la casa?",
-      "description": "Superfície construïda (mínim 120 m²)",
+      "description": "Superfície construïda (mínim 80 m²)",
       "required": "1",
       "size": "medium",
-      "min": "120",
+      "min": "80",
       "placeholder": "Ex: 160"
     },
     {
@@ -32,6 +32,140 @@
         { "label": "2 banys", "value": "2" },
         { "label": "3 banys", "value": "3" },
         { "label": "4 o més banys", "value": "4" }
+      ]
+    },
+    {
+      "id": "11",
+      "type": "radio",
+      "label": "Quin nivell de bany prefereix?",
+      "description": "Referència de qualitat i acabats dels banys",
+      "required": "1",
+      "choices": [
+        { "label": "Estàndard (sanitaris Roca bàsics)", "value": "estandar" },
+        { "label": "Alt (Roca ONA, aixeteria Tres Study)", "value": "alt" },
+        { "label": "Premium (disseny exclusiu, banyera exempta)", "value": "premium" }
+      ]
+    },
+    {
+      "id": "12",
+      "type": "radio",
+      "label": "Tipus de coberta?",
+      "required": "1",
+      "choices": [
+        { "label": "Inclinada amb teula (àrab o mixta)", "value": "teula" },
+        { "label": "Plana (grava o transitable)", "value": "plana" },
+        { "label": "Xapa metàl·lica (zinc/galvanitzada)", "value": "xapa" }
+      ]
+    },
+    {
+      "id": "13",
+      "type": "radio",
+      "label": "Tipus de façana?",
+      "required": "1",
+      "choices": [
+        { "label": "SATE estàndard (arrebossat)", "value": "sate" },
+        { "label": "Façana ventilada (llistons fusta)", "value": "ventilada" },
+        { "label": "Suro natural", "value": "suro" },
+        { "label": "Fusta Accoya (alta durada)", "value": "accoya" }
+      ]
+    },
+    {
+      "id": "14",
+      "type": "radio",
+      "label": "Tipus de paviment interior?",
+      "required": "1",
+      "choices": [
+        { "label": "Formigó polit (microciment)", "value": "formigo" },
+        { "label": "Ceràmic / Gres porcel·lànic", "value": "ceramic" },
+        { "label": "Parquet / Fusta natural", "value": "parquet" }
+      ]
+    },
+    {
+      "id": "15",
+      "type": "radio",
+      "label": "Vol plaques solars fotovoltaiques?",
+      "description": "Instal·lació d'autoconsum amb panells al teulat",
+      "required": "1",
+      "choices": [
+        { "label": "Sí, instal·lació completa (~4 kWp)", "value": "si" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "id": "16",
+      "type": "radio",
+      "label": "Vol persianes motoritzades?",
+      "description": "Persianes tipus Griesser o similar, motoritzades amb comandament",
+      "required": "1",
+      "choices": [
+        { "label": "Sí", "value": "si" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "id": "17",
+      "type": "radio",
+      "label": "Vol fan coils (climatització per conductes)?",
+      "description": "Unitats interiors per distribuir calor/fred per tota la casa",
+      "required": "1",
+      "choices": [
+        { "label": "Sí", "value": "si" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "id": "18",
+      "type": "radio",
+      "label": "Vol llar de foc?",
+      "description": "Xemeneia de llenya o biomassa com a complement de calefacció",
+      "required": "1",
+      "choices": [
+        { "label": "Sí", "value": "si" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "id": "19",
+      "type": "radio",
+      "label": "Necessita membrana anti-radó?",
+      "description": "Obligatòria en zones de risc de radó (zona II o superior)",
+      "required": "1",
+      "choices": [
+        { "label": "Sí", "value": "si" },
+        { "label": "No / No ho sé", "value": "no" }
+      ]
+    },
+    {
+      "id": "20",
+      "type": "radio",
+      "label": "Vol domòtica Loxone?",
+      "description": "Sistema de control intel·ligent de llums, persianes, clima i seguretat",
+      "required": "0",
+      "choices": [
+        { "label": "Sí", "value": "si" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "id": "21",
+      "type": "radio",
+      "label": "Tipus d'escala interior?",
+      "description": "Només si la casa té més d'una planta",
+      "required": "0",
+      "choices": [
+        { "label": "Fusta estàndard", "value": "fusta" },
+        { "label": "Metàl·lica amb fusta", "value": "metallica" },
+        { "label": "No necessito escala", "value": "no" }
+      ],
+      "conditional_logic": "1",
+      "conditionals": [
+        {
+          "action": "show",
+          "logic_action": "any",
+          "rules": [
+            { "field": "2", "operator": "isnot", "value": "1" }
+          ]
+        }
       ]
     },
     {
@@ -64,14 +198,13 @@
       ]
     },
     {
-      "id": "6",
-      "type": "radio",
-      "label": "Vol escala interior?",
-      "required": "1",
-      "choices": [
-        { "label": "Sí (+3.423 €)", "value": "si" },
-        { "label": "No", "value": "no" }
-      ]
+      "id": "22",
+      "type": "number",
+      "label": "Quants m² de pòrxos / terrasses cobertes?",
+      "description": "Superfície de zones exteriors cobertes (0 si no n'hi ha)",
+      "required": "0",
+      "min": "0",
+      "placeholder": "Ex: 20"
     },
     {
       "id": "7",
@@ -100,6 +233,16 @@
         { "label": "Mataró (48 km)", "value": "48" },
         { "label": "Manresa (55 km)", "value": "55" },
         { "label": "Igualada (60 km)", "value": "60" },
+        { "label": "Begues (31 km)", "value": "31" },
+        { "label": "Sant Quirze Safaja (38 km)", "value": "38" },
+        { "label": "Collsuspina (52 km)", "value": "52" },
+        { "label": "Premià de Dalt (40 km)", "value": "40" },
+        { "label": "Sant Boi de Llobregat (25 km)", "value": "25" },
+        { "label": "Santa Coloma de Gramenet (28 km)", "value": "28" },
+        { "label": "Vacarisses (30 km)", "value": "30" },
+        { "label": "Vallvidrera (15 km)", "value": "15" },
+        { "label": "Valldoreix (3 km)", "value": "3" },
+        { "label": "Vic (67 km)", "value": "67" },
         { "label": "Altra localització (a consultar)", "value": "-1" }
       ]
     },

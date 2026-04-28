@@ -1,7 +1,43 @@
+# Python
 __pycache__/
 *.pyc
-.env
-.DS_Store
-.vercel
+*.pyo
 .venv/
+venv/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Claude / AI tooling
+.claude/
+
+# Vercel
+.vercel/
+.vercel
+
+# Backups (local snapshots, don't push)
+BACKUPS/
+
+# Local dev scripts (keep out of repo)
+serve.py
+serve_dev.py
+start_server.sh
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node
 node_modules/
+
+# OS
+Thumbs.db
