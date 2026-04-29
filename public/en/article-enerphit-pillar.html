@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnerPHit in Catalonia · Passivhaus retrofit standard | PAPIK</title>
+  <meta name="description" content="What EnerPHit is, how to certify it, what it costs and when it pays off versus a class A retrofit. Technical guide for Catalonia, written by PAPIK.">
+
+  <link rel="canonical" href="https://papik.cat/en/article-enerphit-pillar">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-enerphit-pillar">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-enerphit-pilar">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/article-enerphit-pillar">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-enerphit-pillar">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/editorial.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="EnerPHit in Catalonia · Passivhaus retrofit standard | PAPIK">
+  <meta property="og:description" content="What EnerPHit is, how to certify it, what it costs and when it pays off versus a class A retrofit. Technical guide for Catalonia, written by PAPIK.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/en/article-enerphit-pillar">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EnerPHit in Catalonia · Passivhaus retrofit standard | PAPIK">
+  <meta name="twitter:description" content="What EnerPHit is, how to certify it, what it costs and when it pays off versus a class A retrofit. Technical guide for Catalonia, written by PAPIK.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "EnerPHit in Catalonia · Passivhaus retrofit standard | PAPIK",
+    "description": "What EnerPHit is, how to certify it, what it costs and when it pays off versus a class A retrofit. Technical guide for Catalonia, written by PAPIK.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://papik.cat/en/article-enerphit-pillar"
+    },
+    "articleSection": "Energy retrofit",
+    "wordCount": "2527",
+    "inLanguage": "en",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Home",
+        "item": "https://papik.cat/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "EnerPHit in Catalonia · the Passivhaus standard for energy retrofits"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<a href="#main" class="skip-to-content">Skip to content</a>
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="/en/"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/article-enerphit-pillar">CA</option>
+          <option value="https://papik.cat/es/article-enerphit-pilar">ES</option>
+          <option value="https://papik.cat/en/article-enerphit-pillar" selected>EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/en/">Home</a>
+        <span class="sep">·</span>
+        <span>EnerPHit in Catalonia · the Passivhaus standard for energy retrofits</span>
+      </nav>
+    <h1 class="hero__title">EnerPHit in Catalonia · the Passivhaus standard for energy retrofits</h1>
+    <p class="hero__subtitle">What EnerPHit is, how to certify it, what it costs and when it pays off versus a class A retrofit. Technical guide for Catalonia, written by PAPIK.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>What EnerPHit is</h2>
+<p>EnerPHit (acronym for Energy retrofit with Passive House components) is the certification that the Passivhaus Institut grants to retrofitted buildings that achieve thermal performance close to Passivhaus within the thresholds adapted for existing construction. It was published in 2010 and updated in 2015 with the addition of climate-zone classification and the offer of two certification routes.</p>
+<p>The first, the component-based route, requires every construction element (insulation, windows, ventilation, airtightness, thermal bridges) to meet minimum prescriptive values per climate zone. The second, the performance-based route, allows greater flexibility in combining components provided that the energy demand calculated with the official Passive House Planning Package (PHPP) software does not exceed the global threshold set. Most residential retrofit projects in Mediterranean climate choose the performance-based route because it allows the investment to be allocated where it delivers the highest thermal return.</p>
+<p>In either route, the result must be audited by an accredited certifier and finally validated by the Passivhaus Institut in Darmstadt, which issues the international EnerPHit Classic, Plus or Premium seal depending on the renewable primary energy balance.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Differences between Passivhaus and EnerPHit</h2>
+<p>The quantitative differences between Passivhaus and EnerPHit are limited but decisive on site. The annual heating demand permitted in Passivhaus is less than or equal to 15 kWh per square metre per year, while EnerPHit allows up to 25 kWh per square metre per year in central European climate, with thresholds adjusted by zone in Mediterranean climate. The involuntary air-change rate, measured with a blower-door test at 50 Pa of pressure, remains at n50 below 0.6 h⁻¹ in Passivhaus and shifts to n50 below 1.0 h⁻¹ in EnerPHit.</p>
+<p>The reason for this relaxation is not technical but practical. Existing buildings carry structure, foundations and envelope conditioned by the original construction. Achieving 0.6 h⁻¹ airtightness on a retrofit would often require invasive works of disproportionate cost. Accepting 1.0 h⁻¹ allows 95 percent of the actual energy benefit to be captured with an intervention executable on existing fabric, without having to strip every room down to structure.</p>
+<p>In operational terms, a certified EnerPHit dwelling consumes around three to five kWh per square metre per year more than its Passivhaus equivalent, a small figure on the bill but significant from the technical audit standpoint. For an owner, the relevant decision is not Passivhaus versus EnerPHit (the existing building does not admit pure Passivhaus) but EnerPHit versus a standard class A retrofit.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>The five key EnerPHit components</h2>
+<p>Continuous envelope insulation is the first pillar. The entire thermal volume must be wrapped with a continuous, uninterrupted layer, typically from the exterior (external thermal insulation composite system or ventilated facade) to simplify thermal bridge resolution. Typical thicknesses range from 12 to 24 centimetres depending on orientation and material, with target U-values below 0.20 W/m²K in walls.</p>
+<p>High-efficiency windows are the second critical component. In an EnerPHit retrofit we routinely substitute to triple glazing with wood or hybrid frames and an overall U-value below 1.0 W/m²K. The installation requires perimeter airtight tapes integrated with the new envelope, because the effort in the joinery is wasted if the wall-to-window junction is not continuous.</p>
+<p>Ventilation with heat recovery is essential from the moment the envelope becomes airtight. Without it, the indoor air deteriorates and humidity and condensation problems arise. The usual equipment (Zehnder, Helios, Paul) delivers recovery efficiencies between 85 and 92 percent.</p>
+<p>Controlled airtightness requires specific membranes between structure and finish, certified adhesive tapes at every joint, airtight boxes for service penetrations and a final blower-door verification that must achieve n50 below 1.0 h⁻¹ for certification.</p>
+<p>Thermal bridge minimisation is the fifth component, particularly critical in retrofit because the pre-existing structure already imposes columns, beams and problematic junctions. The usual solution is continuous external insulation, complemented by specific construction-detail drawings at risk points (wall head, window sill, roof-to-wall junction, ground contact).</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>EnerPHit versus a class A retrofit</h2>
+<p>A standard retrofit reaching energy class A can reduce consumption by 50 to 70 percent against the original consumption, a notable improvement. EnerPHit adds on top of this base an extra reduction up to 90 percent of the original consumption, thanks to the combination of more generous insulation, ventilation with heat recovery and blower-door verification.</p>
+<p>The difference is not only quantitative. A class A dwelling can meet the certificate without controlled mechanical ventilation and without airtightness verification, which often translates into humidity problems or stale indoor air once the retrofit is occupied. EnerPHit guarantees indoor air quality, constant thermal comfort and minimum energy bills, because the system is designed as an integrated and audited whole.</p>
+<p>When does EnerPHit make sense and when not? It makes sense in single-family dwellings or apartments above 120 square metres where the cost premium is absorbable by the comfort upgrade and the resale value; in buildings where the client has a long-term wealth perspective and wants to avoid a second retrofit in fifteen or twenty years; and in projects that combine Next Generation EU (NGEU) subsidies with a green mortgage. It does not make sense in small apartments without the possibility of continuous envelope due to community constraints, in heavily protected buildings that do not admit external interventions, or when the use horizon is below ten years.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>The certification process step by step</h2>
+<p>The first step is energy modelling with the Passive House Planning Package (PHPP) software, an official Passivhaus Institut Excel tool where every constructive datum is entered: areas, U-values, orientations, shading, thermal bridges, climate-control and ventilation systems. The PHPP calculates the annual demand and confirms whether it meets the EnerPHit thresholds for the relevant climate zone.</p>
+<p>The second step is detailed construction documentation. Detail drawings showing geometric continuity of the insulation must be provided, alongside specifications of joinery and systems, detail of membranes and airtight tapes, thermal bridge calculations at risk points and quality control protocols for site execution.</p>
+<p>The third step is on-site verification. The blower-door test is typically performed twice: a first orientative test once the interior envelope is closed, to detect and correct leaks; and a second certification test once the work is finished, which must meet n50 below 1.0 h⁻¹.</p>
+<p>The fourth step is submission to an accredited certifier (Energiehaus, Hispalyt, Pich Aguilera Engineers or equivalents in Catalonia), which reviews all documentation and, where appropriate, escalates the file to the Passivhaus Institut in Darmstadt for issuance of the EnerPHit Classic, Plus or Premium seal.</p>
+<p>The overall certification timeline, measured from project start to seal issuance, ranges between six and twelve months on mid-sized residential projects, depending on complexity and documentary readiness.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Costs and return on investment</h2>
+<p>The cost premium of an EnerPHit retrofit versus a standard retrofit reaching class A typically sits between 10 and 30 percent of the total retrofit budget, depending on the starting condition and the geometric complexity. This premium concentrates on the additional insulation, the triple-glazed windows, the ventilation with heat recovery, the airtight membranes and the certification process itself (PHPP modelling, blower-door, Passivhaus Institut fee).</p>
+<p>Subsidies from the Next Generation EU (NGEU) Recovery Plan cover a substantial share of this premium. Programme 3 (residential building retrofit) offers up to 60 percent of the action with a maximum of EUR 18,800 per dwelling if the improvement exceeds 60 percent reduction in non-renewable primary energy consumption. Programme 4 (energy efficiency improvement in individual dwellings) offers up to 40 percent. Programme 5 (building book and retrofit project preparation) co-finances technical fees and certification.</p>
+<p>Households with a green mortgage obtain additional reductions in the interest rate (typically between 10 and 25 basis points) if the dwelling reaches class A or EnerPHit equivalent. Combining subsidies, green mortgage and energy savings, the EnerPHit investment payback period in Catalonia typically sits between seven and twelve years, after which the dwelling continues to generate savings throughout its remaining service life (typically 50 years or more).</p>
+<p>The annual energy bill saving ranges between 60 and 90 percent against the original state, which in current Catalan terms (2026 prices) means between EUR 1,500 and EUR 4,000 less every year for a single-family dwelling of 200 square metres.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>EnerPHit in Catalonia · what is specific</h2>
+<p>The Catalan climate is not the central European climate for which Passivhaus was originally designed. The conception of summer comfort, solar radiation, orientation and thermal bridges changes the calculation substantially. In Catalonia, an EnerPHit must reason with cooling priority, not only with heating.</p>
+<p>This shift in priorities has practical consequences. Solar protection (external shutters, orientable louvres, calculated overhangs) is as important as winter insulation. Interior thermal mass, often retained in retrofits over stone or ceramic, becomes an asset rather than a problem. Ventilation with heat recovery may incorporate a summer bypass for night cooling. All these aspects are modelled in the PHPP and audited in the EnerPHit certificate, but they require local experience that is not common across all building contractors.</p>
+<p>At the municipal level, projects in Bellaterra or Matadepera (with general urban plans, POUMs, that include aesthetic protections) or in heritage-listed historic centres may face restrictions on visible exterior retrofit. In those cases, interior insulation is more common, which complicates (without making impossible) the resolution of thermal bridges. PAPIK has developed specific protocols for these scenarios in existing projects in the Vallès Occidental and the Maresme.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>How PAPIK delivers EnerPHit</h2>
+<p>PAPIK Group integrates EnerPHit retrofit within the general <a href="/en/retrofit">retrofit</a> service, with teams specialised in continuous external envelope, triple-glazed windows and ventilation with heat recovery. The PHPP documentary management and the coordination with the accredited certifier are handled from the technical office, without the client having to manage these workstreams directly.</p>
+<p>NGEU subsidy management is integrated into the project from the outset, because the documentary justification must follow the structure required by the Catalan regional call. Our <a href="/en/article-ngeu-subsidies-guide-catalonia">NGEU subsidy guide for Catalonia</a> details the three main programmes and the applicable deadlines.</p>
+<p>The Eskimohaus® construction system, which we use in new-build Passivhaus, shares the same technical components as EnerPHit in retrofit: blown-in cellulose, verified airtightness, Zehnder MVHR, triple-glazed windows with wood or hybrid frames. The difference is that in EnerPHit it is applied over pre-existing structure, which requires specific construction-detail and integration solutions.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Frequently asked questions</h2>
+<h3>Is my dwelling a candidate for EnerPHit?</h3>
+<p>Generally yes, provided the geometry allows a continuous envelope from the exterior or, failing that, from the interior. Single-family dwellings and apartments with at least one free facade are clear candidates. Inner apartments in a building with a protected facade may face significant limitations and require prior analysis.</p>
+<h3>How much does it cost to certify EnerPHit?</h3>
+<p>The specific certification fee at the Passivhaus Institut, plus the accredited certifier's fees and the PHPP modelling, typically ranges between EUR 4,000 and EUR 9,000 for a mid-sized single-family dwelling. This cost is the certification-specific premium, separate from the construction cost premium.</p>
+<h3>Is it worth it versus a class A retrofit?</h3>
+<p>It depends on the use horizon and on sensitivity to comfort. If the horizon is above fifteen years and the client values indoor air quality and thermal stability, EnerPHit delivers a notable differential. If the horizon is short, a class A retrofit may be more proportionate.</p>
+<h3>How much does it cut my energy bill?</h3>
+<p>A certified EnerPHit cuts between 60 and 90 percent of the original energy consumption. In Catalan monetary terms for 2026, this typically means between EUR 1,500 and EUR 4,000 less every year for a single-family dwelling of 200 square metres.</p>
+<h3>Is it compatible with NGEU subsidies?</h3>
+<p>Yes, fully. EnerPHit is the technical standard best aligned with the energy-saving criteria of Programme 3 (60 percent minimum reduction), which gives access to the maximum subsidy bracket.</p>
+<h3>What is the works timeline?</h3>
+<p>A residential single-family EnerPHit retrofit ranges between eight and fourteen months on site, depending on scope and complexity. Full multi-family buildings can extend between eighteen and thirty months.</p>
+<h3>Can I live in the home during the works?</h3>
+<p>Usually no, because the work on the exterior and interior envelope is invasive and incompatible with continuous occupancy. Some phased works allow partial occupancy, but it is not the optimal option for the quality of the result.</p>
+<h3>How many EnerPHit buildings are there in Catalonia?</h3>
+<p>The public Passivhaus Institut database lists a small but growing number of EnerPHit buildings in Catalonia, concentrated in the Vallès Occidental, Barcelonès, Maresme and Garraf. The exact figure evolves monthly and can be consulted in the official PHI database at passivehouse-database.org.</p>
+<h3>What is the difference between EnerPHit and nZEB?</h3>
+<p>Nearly Zero Energy Building (nZEB) is a European regulatory category applicable to new construction and, in its ZEB version, also to retrofit, but with thresholds less demanding than EnerPHit and without third-party PHPP audit. Every EnerPHit building meets nZEB; the reverse is not true.</p>
+<h3>Does PAPIK certify EnerPHit directly?</h3>
+<p>PAPIK delivers the retrofit to EnerPHit standard and coordinates the documentation, but the formal certification is issued by the Passivhaus Institut in Darmstadt through an independent accredited certifier. Our responsibility is to ensure that the project achieves the verified thresholds at the end of the process.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CLOSING</h2>
+<p>If you are considering an EnerPHit-standard retrofit in Catalonia, a preliminary technical assessment makes it possible to define whether your building is a candidate, which NGEU subsidy programme fits the calendar and what the realistic cost premium is for the specific case. The initial conversation commits you to nothing and clarifies the economic and technical parameters before any decision is made.</p>
+<p>Configure the budget for my project: papik.cat/en/budget.</p>
+<p><strong>Read also:</strong></p>
+<p><a href="/en/retrofit">Retrofit service</a></p>
+<p><a href="/en/article-replace-vs-retrofit">Replace or retrofit · how to decide</a></p>
+<p><a href="/en/article-ngeu-subsidies-guide-catalonia">NGEU subsidies guide for Catalonia</a></p>
+<p><a href="/en/article-passivhaus-technologies">Five key Passivhaus technologies for 2026</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="/en/about.html">About us</a></li>
+          <li><a href="/en/projects.html">Projects</a></li>
+          <li><a href="/en/blog.html">Blog</a></li>
+          <li><a href="#contacte">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Services</p>
+        <ul>
+          <li><a href="/en/construction.html">Residential Construction</a></li>
+          <li><a href="/en/development.html">Real Estate Development</a></li>
+          <li><a href="/en/retrofit.html">Energy Retrofit</a></li>
+          <li><a href="/en/wealth.html">Wealth · Joint Investment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Offices</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>EMAIL</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Follow PAPIK: projects, energy retrofit and available subsidies.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Your email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Follow us</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – All rights reserved · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="/en/legal-notice.html">Legal Notice</a>
+        <a href="/en/privacy-policy.html">Privacy Policy</a>
+        <a href="/en/cookie-policy.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/motion.js" defer></script>
+<script src="../js/cookie-banner.js" defer></script>
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

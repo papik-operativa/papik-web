@@ -441,6 +441,16 @@
       "exists": { "ca": true, "es": true, "en": false }
     },
     {
+      "id": "article-modular-vs-passivhaus",
+      "type": "article",
+      "priority": 0.8,
+      "changefreq": "yearly",
+      "ca": "/article-modular-vs-passivhaus",
+      "es": "/es/article-modular-vs-passivhaus",
+      "en": "/en/article-modular-vs-passivhaus",
+      "exists": { "ca": true, "es": true, "en": true }
+    },
+    {
       "id": "article-petjada-ecologica",
       "type": "article",
       "priority": 0.6,
@@ -565,6 +575,18 @@
       "exists": { "ca": false, "es": false, "en": false },
       "status": "v1.1-pending-build",
       "note": "Article BOFU hyperlocal del cluster Bellaterra. Copy CA + ES llest. HTML pendent build."
+    },
+    {
+      "id": "article-enerphit-pillar",
+      "type": "article",
+      "priority": 0.8,
+      "changefreq": "yearly",
+      "ca": "/article-enerphit-pillar",
+      "es": "/es/article-enerphit-pilar",
+      "en": "/en/article-enerphit-pillar",
+      "exists": { "ca": false, "es": false, "en": false },
+      "status": "v1.1-pending-build",
+      "note": "Pillar EnerPHit tri-lingüe. Captura segment retrofit-premium contra Praxis-RB i Inarquia. Copy CA + ES + EN llest. HTML pendent build."
     },
     {
       "id": "article-substituir-vs-rehabilitar",

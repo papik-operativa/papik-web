@@ -3,38 +3,32 @@
 Generated: 2026-04-29
 
 ## Summary
-- Total HTML pages: 279
-- Pages with full triplet (CA + ES + EN + x-default): 271 (97.1%)
-- Pages missing 1 sibling: 6
+- Total HTML pages: 286
+- Pages with full triplet (CA + ES + EN + x-default): 282 (98.6%)
+- Pages missing 1 sibling: 2
 - Pages missing 2+ siblings: 1
 - Pages with no hreflang at all: 1
-- Bidirectional inconsistencies: 0
-- Dead alternate URLs (404 targets): 61
-- x-default issues: 0
+- Bidirectional inconsistencies: 3
+- Dead alternate URLs (404 targets): 53
+- x-default issues: 1
 
 ## Errors by category
 
 ### Missing siblings (asymmetric triplets)
-- `/en/budget.html` missing: x-default
-- `/es/article-derribar-construir-pasos.html` missing: en
-- `/es/nosotros.html` missing: en
 - `/es/usuaris.html` missing: en
-- `/nosaltres.html` missing: en
 - `/usuaris.html` missing: en
 - `/qualitats.html` missing: en, es
 - `/cookie-banner.html` has NO hreflang tags at all
 
 ### Bidirectional inconsistencies
-- (none)
+- `/es/article-derribar-construir-pasos.html` -> `en` -> `/en/article-demolish-and-rebuild-steps.html`, but partner returns `https://papik.cat/es/article-derribar-casa-antigua-construir-nueva-pasos`
+- `/es/nosotros.html` -> `en` -> `/en/about.html`, but partner returns `https://papik.cat/es/about`
+- `/nosaltres.html` -> `en` -> `/en/about.html`, but partner returns `https://papik.cat/about`
 
 ### Dead alternates (target file does not exist)
 - `/article-derribar-construir-passos.html` `hreflang="ca"` -> https://papik.cat/article-derribar-casa-antiga-construir-nova-passos (404)
 - `/article-derribar-construir-passos.html` `hreflang="es"` -> https://papik.cat/es/article-derribar-casa-antigua-construir-nueva-pasos (404)
 - `/article-derribar-construir-passos.html` `hreflang="x-default"` -> https://papik.cat/article-derribar-casa-antiga-construir-nova-passos (404)
-- `/comarques/anoia.html` `hreflang="en"` -> https://papik.cat/en/regions/anoia (404)
-- `/comarques/baix-emporda.html` `hreflang="en"` -> https://papik.cat/en/regions/baix-emporda (404)
-- `/comarques/baix-llobregat.html` `hreflang="en"` -> https://papik.cat/en/regions/baix-llobregat (404)
-- `/comarques/osona.html` `hreflang="en"` -> https://papik.cat/en/regions/osona (404)
 - `/comunitats.html` `hreflang="ca"` -> https://papik.cat/rehabilitacio/comunitats (404)
 - `/comunitats.html` `hreflang="es"` -> https://papik.cat/es/rehabilitacion/comunidades (404)
 - `/comunitats.html` `hreflang="x-default"` -> https://papik.cat/rehabilitacio/comunitats (404)
@@ -58,10 +52,6 @@ Generated: 2026-04-29
 - `/en/retrofit/communities.html` `hreflang="x-default"` -> https://papik.cat/rehabilitacio/comunitats (404)
 - `/es/article-derribar-construir-pasos.html` `hreflang="ca"` -> https://papik.cat/article-derribar-casa-antiga-construir-nova-passos (404)
 - `/es/article-derribar-construir-pasos.html` `hreflang="x-default"` -> https://papik.cat/article-derribar-casa-antiga-construir-nova-passos (404)
-- `/es/comarcas/anoia.html` `hreflang="en"` -> https://papik.cat/en/regions/anoia (404)
-- `/es/comarcas/baix-emporda.html` `hreflang="en"` -> https://papik.cat/en/regions/baix-emporda (404)
-- `/es/comarcas/baix-llobregat.html` `hreflang="en"` -> https://papik.cat/en/regions/baix-llobregat (404)
-- `/es/comarcas/osona.html` `hreflang="en"` -> https://papik.cat/en/regions/osona (404)
 - `/es/comunidades.html` `hreflang="ca"` -> https://papik.cat/rehabilitacio/comunitats (404)
 - `/es/comunidades.html` `hreflang="es"` -> https://papik.cat/es/rehabilitacion/comunidades (404)
 - `/es/comunidades.html` `hreflang="x-default"` -> https://papik.cat/rehabilitacio/comunitats (404)
@@ -91,7 +81,7 @@ Generated: 2026-04-29
 - `/zones/sant-quirze.html` `hreflang="x-default"` -> https://papik.cat/zones/sant-quirze-del-valles (404)
 
 ### x-default issues
-- (none)
+- `/en/budget.html`: x-default=https://papik.cat/pressupost != ca=https://papik.cat/pressupost.html
 
 ## Recommendations
 

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAPIK</title>
+  <meta name="description" content="">
+
+  <link rel="canonical" href="">
+  
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PAPIK">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="ca_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PAPIK">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "",
+    "description": "",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": ""
+    },
+    "articleSection": "Construcció sostenible",
+    "wordCount": "4664",
+    "inLanguage": "ca",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": ""
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<a href="#main" class="skip-to-content">Salta al contingut</a>
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="/"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="" selected>CA</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Inici</a>
+        <span class="sep">·</span>
+        <span>Preguntes Frequents</span>
+      </nav>
+    <h1 class="hero__title">Preguntes Frequents</h1>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<ul>
+<li><strong>Title:</strong> Preguntes freqüents sobre Passivhaus | PAPIK Group</li>
+<li><strong>Meta description:</strong> Resposta directa a 15 preguntes habituals sobre Passivhaus, rehabilitació EnerPHit, certificació, terminis i el sistema Eskimohaus® de PAPIK. Guia pràctica per a Catalunya.</li>
+<li><strong>URL:</strong> /preguntes-frequents</li>
+<li><strong>Canonical:</strong> https://papikgroup.com/preguntes-frequents</li>
+<li><strong>OG image:</strong> /og/preguntes-frequents.jpg</li>
+<li><strong>Hreflang:</strong> ca, es, en</li>
+<li><strong>Schema:</strong> FAQPage + Article + BreadcrumbList</li>
+</ul>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p># H1 · Preguntes freqüents sobre Passivhaus</p>
+<h2>Una guia honesta a les preguntes que més vegades ens fan al despatx</h2>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>INTRO</h2>
+<p>Aquesta pàgina recull les quinze preguntes que els nostres clients ens fan amb més freqüència durant la primera reunió. La intenció és simple: estalviar a vostè el temps que d'altra manera invertiria buscant informació dispersa, i oferir-li respostes amb la mateixa precisió tècnica que utilitzem internament. No són respostes de màrqueting; són les explicacions que donem en una taula amb plànols al davant.</p>
+<p>Si la seva situació és específica (un solar concret, una rehabilitació amb patrimoni implicat, una operació per a family office), la resposta exacta requereix dades. Per a aquests casos, demani-nos un <a href="/pressupost">pressupost personalitzat</a> i li respondrem amb números reals sobre la seva parcel·la i el seu programa.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Navegació ràpida</h2>
+<ul>
+<li><a href="#sobre-passivhaus">Sobre Passivhaus</a> (preguntes 1 a 4)</li>
+<li><a href="#sobre-papik">Sobre PAPIK i Eskimohaus®</a> (preguntes 5 a 6)</li>
+<li><a href="#sobre-construccio">Sobre el procés constructiu</a> (preguntes 7 a 9)</li>
+<li><a href="#sobre-rehabilitacio">Sobre rehabilitació</a> (preguntes 10 a 11)</li>
+<li><a href="#sobre-certificacio">Sobre certificació</a> (pregunta 12)</li>
+<li><a href="#sobre-b2b">Sobre B2B i patrimonis</a> (pregunta 13)</li>
+<li><a href="#comparatives">Comparatives i durabilitat</a> (preguntes 14 a 15)</li>
+</ul>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>&lt;a id="sobre-passivhaus"&gt;&lt;/a&gt;</p>
+<h2>Grup 1 · Sobre Passivhaus</h2>
+<h3>1. Què és exactament una casa Passivhaus?</h3>
+<p>Una casa Passivhaus és un habitatge dissenyat sota un estàndard internacional que limita la demanda d'energia per a calefacció i refrigeració a un màxim de 15 kWh/m²·any, i el consum total d'energia primària a 120 kWh/m²·any. No és una marca comercial: és un protocol tècnic desenvolupat pel Passivhaus Institut a Darmstadt, verificat amb càlcul PHPP i provat en obra amb un assaig de blower door que confirma una hermeticitat inferior a 0,6 renovacions per hora a 50 Pa.</p>
+<p>A la pràctica, vostè entra a una casa Passivhaus i nota tres coses: la temperatura és uniforme entre estances (sense racons freds), no hi ha corrents d'aire, i l'aire és fresc i sec gràcies a la ventilació mecànica amb recuperació de calor. La factura energètica baixa entre un 75 i un 90 per cent respecte d'una casa convencional construïda amb el CTE mínim. No és aïllament reforçat: és un sistema integrat de envolvent, ponts tèrmics, hermeticitat i ventilació.</p>
+<p>Si vol entendre els fonaments tècnics amb més profunditat, llegeixi els <a href="/recursos/principis-passivhaus">cinc principis Passivhaus</a>.</p>
+<h3>2. Quant s'estalvia en una casa Passivhaus?</h3>
+<p>L'estalvi depèn del clima, de la casa de partida i del preu de l'energia. Com a referència útil per a Catalunya, una vivenda unifamiliar de 200 m² Passivhaus consumeix entre 2.000 i 3.500 kWh/any per a climatització, davant dels 12.000 a 18.000 kWh d'una casa convencional construïda fa quinze anys. Tradüït a euros, parlem d'una factura anual de 250 a 450 euros davant dels 1.800 a 3.000 euros habituals.</p>
+<p>Sobre tota la vida útil de l'habitatge (50 anys, prudent), l'estalvi acumulat oscil·la entre 90.000 i 150.000 euros, sense comptar revaloritzacions del preu de l'energia. Aquest número és la raó econòmica per la qual una casa Passivhaus, amb un sobrecost de construcció del 5 al 12 per cent, s'amortitza entre l'any 8 i l'any 14. A partir d'aquí, és benefici net per al propietari.</p>
+<p>A això cal sumar-hi l'estalvi en manteniment de calderes (no n'hi ha), en obres de millora futura (l'envolvent està feta) i la pràctica eliminació del risc de pobresa energètica davant pujades de tarifa.</p>
+<h3>3. Una casa Passivhaus és més cara?</h3>
+<p>Sí, en costos directes de construcció: entre un 5 i un 12 per cent més que una casa convencional equivalent, depenent del programa. La diferència es concentra en l'aïllament continu, les fusteries d'alt rendiment, el sistema de ventilació mecànica amb recuperació i el control rigorós de l'execució (assaigs de hermeticitat, supervisió de ponts tèrmics).</p>
+<p>Ara bé, "més cara" és una mala manera de plantejar-ho. La pregunta correcta és: cara comparada amb què, i durant quant de temps? Si compara una Passivhaus amb una casa CTE mínim al cap de vint anys (amb factures, manteniment i possibles rehabilitacions energètiques incloses), la Passivhaus surt més barata. Si la compara al cap de cinquanta anys, la diferència es dispara.</p>
+<p>Hi ha un altre matís rellevant: les hipoteques verdes ofereixen tipus reduïts per a habitatges amb certificació A, i les ajudes NGEU poden cobrir part del sobrecost en rehabilitació. Per a un desglossament detallat del que costa realment una Passivhaus a Catalunya el 2026, consulti la nostra <a href="/recursos/pressupost-casa-passiva">guia de pressupost de casa passiva</a>.</p>
+<h3>4. Funciona Passivhaus en clima Mediterrani?</h3>
+<p>Funciona, però s'ha de dissenyar diferent. L'estàndard Passivhaus va néixer a Alemanya i la primera generació de cases del nord d'Europa prioritzava captació solar i conservació de calor a l'hivern. Al clima mediterrani el problema dominant és el contrari: protecció solar a l'estiu, inèrcia tèrmica i ventilació nocturna.</p>
+<p>Una Passivhaus mediterrània ben dissenyada utilitza vidres amb factor solar més baix a sud i oest, proteccions solars exteriors mòbils (no només persianes interiors, que arriben tard), masses tèrmiques adequades i, sovint, refrigeració activa de baix consum integrada al sistema de ventilació. La hermeticitat segueix sent crítica, i l'aïllament també, però el càlcul PHPP té en compte la radiació solar local i ajusta els paràmetres.</p>
+<p>Hem certificat habitatges Passivhaus al Vallès, al Maresme i a la Garrotxa, i tots passen els estius amb confort tèrmic estable sense les patologies (sobrescalfament) que pateixen alguns projectes mal dimensionats. Si vol aprofundir en aquest tema, hem publicat un article específic sobre <a href="/recursos/passivhaus-mediterrania">Passivhaus en clima mediterrani</a>.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>&lt;a id="sobre-papik"&gt;&lt;/a&gt;</p>
+<h2>Grup 2 · Sobre PAPIK i Eskimohaus®</h2>
+<h3>5. Què és el sistema Eskimohaus® de PAPIK?</h3>
+<p>Eskimohaus® és el nostre sistema constructiu propietari, desenvolupat al llarg de més d'una dècada de projectes Passivhaus a Catalunya. No és un producte modular tancat ni un kit de muntatge: és una metodologia de projecte i obra que combina estructura mixta de fusta laminada i CLT, una envolvent contínua amb aïllaments naturals (fibra de fusta, cel·lulosa) i un protocol d'execució amb controls intermedis de hermeticitat i continuïtat tèrmica.</p>
+<p>L'avantatge per al client és que cada projecte parteix d'una base ja resolta tècnicament. No reinventem la solució de cantonada, ni el detall de fusteria, ni la connexió coberta-mur cada vegada. Això es tradueix en menys imprevistos d'obra, terminis més predictibles i un nivell de qualitat repetible. La signatura arquitectònica, en canvi, és sempre singular: l'estètica i la distribució es projecten des de zero per a cada client.</p>
+<p>Eskimohaus® està registrat com a marca i no es ven com a llicència a tercers. Només es construeix amb PAPIK Group com a constructor o amb les empreses que formen part del nostre consorci de fusta laminada.</p>
+<h3>6. En què es diferencia PAPIK d'altres constructores Passivhaus?</h3>
+<p>Tres elements que considerem rellevants. Primer, el control vertical: PAPIK projecta, executa, certifica i lliura. No subcontractem la direcció Passivhaus a despatxos externs, cosa que evita l'asimetria d'informació entre projectista i constructor que sovint encareix les obres a meitat del procés.</p>
+<p>Segon, l'enfocament patrimonial. Treballem amb famílies que volen passar l'habitatge a la generació següent, no només per a una primera ocupació. Això canvia decisions de materials (durabilitat, manteniment, classes A1 al foc on cal), de detall constructiu (accessibilitat futura) i de documentació (lliurament d'arxiu tècnic complet, no només el llibre de l'edifici).</p>
+<p>Tercer, el rigor en costos. Els nostres pressupostos inclouen contingència explícita i no opcionals camuflats. El que veu vostè a la primera pàgina del pressupost és el que paga al final, llevat de canvis demanats per vostè. Aquesta política la mantenim des del primer projecte i és la raó per la qual el 70 per cent de la nostra carrera prové de recomanació directa de clients anteriors.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>&lt;a id="sobre-construccio"&gt;&lt;/a&gt;</p>
+<h2>Grup 3 · Sobre el procés constructiu</h2>
+<h3>7. Quant es triga a construir una casa Passivhaus?</h3>
+<p>Entre 14 i 24 mesos des de l'encàrrec d'avantprojecte fins a les claus, segons mida i complexitat. El desglossament típic per a una unifamiliar de 200 a 300 m² és: 4 a 6 mesos de projecte i visat, 3 a 5 mesos de tramitació de llicència urbanística (variable segons municipi), 8 a 12 mesos d'obra i 1 mes de proves finals i certificació Passivhaus.</p>
+<p>Aquests terminis pressuposen que el solar està net, amb llicència obtenible i sense complicacions tipus expedients d'enderroc o canvis d'ús. Una Passivhaus en parcel·la complicada (pendent forta, cessions, vialitat) pot afegir 3 a 6 mesos a la fase prèvia. La fase d'obra Eskimohaus®, en canvi, és força estable: l'estructura de fusta s'aixeca en 4 a 6 setmanes i el tancament d'envolvent en 8 a 10 setmanes més.</p>
+<p>Si vostè necessita un termini més curt (per exemple, per a operació de venda o calendari familiar), digui-ho a la primera reunió. Hi ha decisions de projecte (paral·lelitzar tràmits, congelar canvis abans, prefabricació) que poden retallar entre 2 i 4 mesos del total.</p>
+<h3>8. Necessito un solar específic per construir Passivhaus?</h3>
+<p>No, però alguns solars són millors que d'altres per al cost final. La millor parcel·la per a Passivhaus té orientació sud o sud-est lliure d'ombres a l'hivern, dimensions que permetin separació de mitgeres (per evitar ponts tèrmics complexos) i pendent moderada (sota el 15 per cent estalvia molt en moviment de terres).</p>
+<p>Dit això, hem fet Passivhaus en parcel·les urbanes de 6 metres d'amplada entre mitgeres, en cantonada amb dues façanes a nord, en pendent del 30 per cent i en solars amb servituds d'aigües. Tot és resoluble. El que canvia és el cost: una orientació nord pura pot suposar entre un 3 i un 7 per cent més de pressupost (més aïllament, més vidre tècnic, possible ventilació amb pre-condicionament). Una pendent forta afegeix un 5 a un 15 per cent en estructura.</p>
+<p>L'única condició no negociable és el compliment de planejament municipal. Abans de comprar un solar pensant en Passivhaus, faci'ns una consulta amb el plànol cadastral i el POUM vigent: en una hora podem dir-li si el seu projecte hi cap.</p>
+<h3>9. Puc construir Passivhaus en una parcel·la amb pendent?</h3>
+<p>Sí. La pendent no és un problema tècnic per a Passivhaus: és un problema de projecte i de cost que es resol amb dues estratègies. La primera, cases esglaonades que segueixen el desnivell, repartint el programa en plataformes connectades. Aquesta és sovint la millor solució estètica i la més econòmica si la pendent és regular.</p>
+<p>La segona, cases sobre forjat sanitari ventilat amb mur de contenció. Útil quan la pendent és irregular o quan es vol mantenir el terreny natural visible. Té un cost estructural superior, però permet plantes lliures i grans terrasses voladisses.</p>
+<p>L'envolvent Passivhaus es comporta igual de bé en qualsevol de les dues solucions, sempre que es resolguin amb cura tres detalls: continuïtat de l'aïllament a la unió mur-forjat (és el punt on més projectes fallen el blower door), drenatge perimetral i tractament de la vegetació en cota inferior (humitat ascendent). Hem documentat aquests detalls en projectes a la zona del Vallès Oriental i el Berguedà, on la topografia mai és plana.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>&lt;a id="sobre-rehabilitacio"&gt;&lt;/a&gt;</p>
+<h2>Grup 4 · Sobre rehabilitació</h2>
+<h3>10. Val la pena rehabilitar una casa antiga a Passivhaus?</h3>
+<p>A vegades sí, a vegades no. La pregunta correcta és si val la pena fer una EnerPHit (l'estàndard Passivhaus per a rehabilitació), no si rehabilitar tout court. EnerPHit és una versió relaxada de Passivhaus que admet 25 kWh/m²·any de demanda de calefacció (en comptes de 15) precisament perquè parteix d'una geometria existent que limita el que es pot fer.</p>
+<p>Té sentit fer EnerPHit quan: la masia, casa de poble o habitatge té valor patrimonial o emocional que justifica conservar-la; l'estructura existent està en bon estat (no hi ha lesions greus); i l'envolvent es pot intervenir des de l'exterior sense pèrdua de superfície habitable. En aquests casos, l'estalvi energètic és comparable al d'una obra nova i la inversió s'amortitza en 12 a 18 anys.</p>
+<p>No té sentit quan: l'estructura té patologies que obliguen a reforços costosos; la geometria de la casa fa impossible una envolvent contínua; o el cost previsible supera el d'una obra nova equivalent en més d'un 30 per cent. En aquest cas, derribar i tornar a construir és més honest i sovint millor.</p>
+<p>Per a una anàlisi quantitativa amb números reals, llegeixi el nostre article comparatiu: <a href="/recursos/substituir-vs-rehabilitar">substituir vs. rehabilitar</a>.</p>
+<h3>11. És compatible Passivhaus amb les ajudes NGEU?</h3>
+<p>Sí, i de fet l'estàndard Passivhaus i EnerPHit són dels que més puntuen en els programes vigents fins al 31 de desembre de 2026. Les ajudes Next Generation EU per a rehabilitació residencial a Catalunya es canalitzen pels programes 3, 4 i 5, gestionats per l'Agència de l'Habitatge de Catalunya.</p>
+<p>A grans trets: el programa 3 finança rehabilitació d'edificis (fins al 80 per cent del cost amb estalvi energètic superior al 60 per cent), el programa 4 finança intervencions en habitatges individuals (fins a 14.000 euros), i el programa 5 finança el llibre de l'edifici i el projecte. Una EnerPHit ben documentada acostuma a accedir al màxim del programa 3 perquè acredita reduccions del 70 al 90 per cent.</p>
+<p>Hi ha lletra petita important: terminis de justificació, compatibilitats entre ajudes, requisits fiscals i limitacions per a immobles arrendats. Aquesta resposta és una orientació general, no assessorament fiscal ni jurídic. Per a la seva situació concreta, consulti un assessor especialitzat o demani'ns una reunió amb el nostre equip de subvencions. Tota la informació actualitzada és a la <a href="/recursos/guia-subvencions-ngeu-catalunya">guia NGEU per a Catalunya</a>.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>&lt;a id="sobre-certificacio"&gt;&lt;/a&gt;</p>
+<h2>Grup 5 · Sobre certificació</h2>
+<h3>12. Com es certifica una casa Passivhaus?</h3>
+<p>La certificació Passivhaus és un procés de verificació independent que es desenvolupa en tres fases. Primera, el càlcul PHPP, que és el full de càlcul oficial del Passivhaus Institut on s'introdueixen totes les dades del projecte (geometria, materials, ponts tèrmics, ventilació, ombres, clima local) i s'obté la demanda d'energia. Aquest càlcul el fa el projectista i el revisa un certificador acreditat.</p>
+<p>Segona, el control d'obra, on un certificador independent (no l'arquitecte de PAPIK) supervisa la posada en obra dels detalls crítics. Inclou l'assaig de hermeticitat (blower door) en dos moments: un assaig intermedi a tancament d'envolvent (quan encara es pot reparar el que falli) i un assaig final amb la casa acabada. El resultat ha de ser inferior a 0,6 renovacions per hora a 50 Pa per a Passivhaus o 1,0 per a EnerPHit.</p>
+<p>Tercera, el lliurament documental al Passivhaus Institut o a una entitat certificadora oficial (Passive House Database, PEP, ZEPHIR), que emet el certificat numerat. El procés té un cost addicional sobre el projecte (entre 4.000 i 8.000 euros segons mida) que recomanem assumir: una casa "Passivhaus de fet" sense certificat perd valor patrimonial i no accedeix a hipoteques verdes.</p>
+<p>Per a una explicació en detall del procés EnerPHit, vegi el nostre <a href="/recursos/enerphit">pilar EnerPHit complet</a>.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>&lt;a id="sobre-b2b"&gt;&lt;/a&gt;</p>
+<h2>Grup 6 · Sobre B2B i patrimonis</h2>
+<h3>13. PAPIK treballa amb family offices?</h3>
+<p>Sí. Tenim una línia de servei específica, <a href="/patrimonis">Patrimonis</a>, dissenyada per a family offices, gestores patrimonials i clients privats que operen des d'una lògica de cartera. La diferència respecte de l'encàrrec residencial estàndard no és el producte (que continua sent una construcció Passivhaus de gama alta) sinó el procés: comunicació amb gestor patrimonial designat, documentació financera adaptada a contabilitat de família, calendaris de reporting trimestrals, i acords de confidencialitat reforçats.</p>
+<p>Treballem amb dos tipus d'operació. La primera, residència principal o secundària per a la família titular, on el client és final i la decisió la pren el cap de família amb assessorament del family office. La segona, operacions de patrimoni: vivendes per a generacions futures, segones residències destinades a lloguer de gama alta o operacions de promoció controlada amb un nombre tancat d'unitats.</p>
+<p>No fem comissions ni ofertes vinculants per telèfon. La porta d'entrada és sempre una conversa privada amb un dels socis fundadors, sota acord de confidencialitat. Si vostè representa un family office o una assessoria patrimonial, <a href="/contacte">escrigui'ns directament</a> i li respondrem amb una proposta de primera reunió.</p>
+<p>Aquesta resposta és informativa i no constitueix oferta vinculant ni assessorament financer.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<p>&lt;a id="comparatives"&gt;&lt;/a&gt;</p>
+<h2>Grup 7 · Comparatives i durabilitat</h2>
+<h3>14. Modular o Passivhaus?</h3>
+<p>No són opcions excloents, però sí que responen a prioritats diferents. La construcció modular industrialitzada prioritza terminis curts (4 a 8 mesos d'obra), preu tancat des de catàleg i flexibilitat futura (la casa pot ampliar-se afegint mòduls). El sostre de qualitat és alt en els bons fabricants, però rarament arriba al detall i la singularitat d'una construcció a mida.</p>
+<p>Passivhaus prioritza el rendiment energètic certificat, la durabilitat (50 a 100 anys de vida útil amb manteniment normal) i la signatura arquitectònica. És un sistema de qualitat, no de velocitat. Una Passivhaus modular és possible (n'hem fet) però requereix un fabricant especialitzat en el detall constructiu Passivhaus, no qualsevol modular del mercat.</p>
+<p>Per al perfil de client habitual de PAPIK (família que projecta una vivenda per a una o dues generacions, amb solar propi i exigència de qualitat), Passivhaus a mida és gairebé sempre la millor opció. Per al client que vol una segona residència ràpida, sense complicacions i amb pressupost tancat, modular pot tenir sentit. Hem desenvolupat aquest tema en un article específic: <a href="/recursos/modular-vs-passivhaus">modular vs. Passivhaus</a>.</p>
+<h3>15. Una casa Passivhaus és per a tota la vida?</h3>
+<p>Sí, i aquest és un dels seus arguments econòmics més robustos. Una Passivhaus ben construïda té una vida útil de 50 a 100 anys amb un manteniment senzill. L'envolvent (aïllament, fusteries, hermeticitat) està dissenyada per durar tota la vida de l'edifici. El sistema de ventilació mecànica té una vida útil de 15 a 25 anys segons fabricant, amb canvi de filtres cada 6 mesos i revisió anual.</p>
+<p>Què cal mantenir? Filtres del recuperador de calor (cost anual baix), neteja de les preses d'aire exterior (un cop l'any), revisió de juntes de fusteria (cada 5 a 10 anys, segons exposició), i pintures o tractaments exteriors si la façana ho requereix (cada 10 a 15 anys segons material). Res de calderes, ni revisions de gas, ni dipòsits.</p>
+<p>L'argument generacional és rellevant per a famílies que pensen el patrimoni a llarg termini. Una Passivhaus lliurada el 2026 al seu fill o filla el 2056 segueix sent estatuda com a habitatge d'alta qualificació energètica, sense necessitat de rehabilitació estructural. Aquest no és el cas de la majoria de cases construïdes amb el CTE mínim, que als 30 anys necessitaran intervencions energètiques importants per mantenir-se al dia.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CIERRE / CTA</h2>
+<p>Aquesta llista no esgota les preguntes possibles. Si la seva té una dimensió particular (un solar concret, una rehabilitació amb patrimoni implicat, una operació amb assessor financer), la resposta exacta requereix dades. Demani'ns un <a href="/pressupost">pressupost personalitzat</a> o reservi una primera reunió i li respondrem amb números reals.</p>
+<p>Tornem al despatx una vegada cada sis mesos sobre aquesta pàgina i actualitzem les respostes que ho mereixin. Si troba alguna informació que considera errada, <a href="/contacte">escrigui'ns</a>: la primera resposta serà una correcció, no una excusa.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Llegeixi també</h2>
+<ul>
+<li><a href="/recursos/principis-passivhaus">Cinc principis Passivhaus, en català clar</a></li>
+<li><a href="/recursos/pressupost-casa-passiva">Pressupost real d'una casa passiva a Catalunya 2026</a></li>
+<li><a href="/recursos/substituir-vs-rehabilitar">Substituir vs. rehabilitar: anàlisi comparativa</a></li>
+<li><a href="/recursos/guia-subvencions-ngeu-catalunya">Guia de subvencions NGEU per a Catalunya</a></li>
+<li><a href="/patrimonis">Servei Patrimonis per a family offices</a></li>
+</ul>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>JSON-LD</h2>
+<p>``<code>json { "@context": "https://schema.org", "@graph": [ { "@type": "FAQPage", "@id": "https://papikgroup.com/preguntes-frequents#faqpage", "mainEntity": [ { "@type": "Question", "name": "Què és exactament una casa Passivhaus?", "acceptedAnswer": { "@type": "Answer", "text": "Una casa Passivhaus és un habitatge dissenyat sota un estàndard internacional que limita la demanda d'energia per a calefacció i refrigeració a un màxim de 15 kWh/m²·any i el consum total d'energia primària a 120 kWh/m²·any. És un protocol tècnic verificat amb càlcul PHPP i provat en obra amb un assaig de blower door que confirma una hermeticitat inferior a 0,6 renovacions per hora a 50 Pa. La factura energètica baixa entre un 75 i un 90 per cent respecte d'una casa convencional construïda amb el CTE mínim." } }, { "@type": "Question", "name": "Quant s'estalvia en una casa Passivhaus?", "acceptedAnswer": { "@type": "Answer", "text": "Una vivenda unifamiliar de 200 m² Passivhaus a Catalunya consumeix entre 2.000 i 3.500 kWh/any per a climatització, davant dels 12.000 a 18.000 kWh d'una casa convencional. Es tradueix en una factura anual de 250 a 450 euros davant dels 1.800 a 3.000 euros habituals. L'estalvi acumulat al llarg de 50 anys oscil·la entre 90.000 i 150.000 euros, amortitzant el sobrecost de construcció entre l'any 8 i l'any 14." } }, { "@type": "Question", "name": "Una casa Passivhaus és més cara?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, en costos directes de construcció: entre un 5 i un 12 per cent més que una casa convencional equivalent. La diferència es concentra en aïllament continu, fusteries d'alt rendiment, ventilació mecànica amb recuperació i control rigorós de l'execució. Comparada al cap de vint anys amb totes les despeses incloses, una Passivhaus surt més barata. Les hipoteques verdes i les ajudes NGEU poden mitigar el sobrecost." } }, { "@type": "Question", "name": "Funciona Passivhaus en clima Mediterrani?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, però s'ha de dissenyar diferent. Al clima mediterrani el problema dominant és la protecció solar a l'estiu, no la conservació de calor a l'hivern. Una Passivhaus mediterrània utilitza vidres amb factor solar més baix a sud i oest, proteccions solars exteriors mòbils, masses tèrmiques adequades i, sovint, refrigeració activa de baix consum. Hem certificat habitatges Passivhaus al Vallès, Maresme i Garrotxa amb confort tèrmic estable." } }, { "@type": "Question", "name": "Què és el sistema Eskimohaus® de PAPIK?", "acceptedAnswer": { "@type": "Answer", "text": "Eskimohaus® és el sistema constructiu propietari de PAPIK Group, desenvolupat al llarg d'una dècada de projectes Passivhaus a Catalunya. Combina estructura mixta de fusta laminada i CLT, una envolvent contínua amb aïllaments naturals (fibra de fusta, cel·lulosa) i un protocol d'execució amb controls intermedis de hermeticitat. Es tradueix en menys imprevistos d'obra, terminis predictibles i qualitat repetible amb signatura arquitectònica singular." } }, { "@type": "Question", "name": "En què es diferencia PAPIK d'altres constructores Passivhaus?", "acceptedAnswer": { "@type": "Answer", "text": "Tres elements: control vertical (PAPIK projecta, executa, certifica i lliura sense subcontractar la direcció Passivhaus), enfocament patrimonial (treballem amb famílies que pensen en la generació següent) i rigor en costos (pressupostos amb contingència explícita i sense opcionals camuflats). El 70 per cent de la nostra carrera prové de recomanació directa de clients anteriors." } }, { "@type": "Question", "name": "Quant es triga a construir una casa Passivhaus?", "acceptedAnswer": { "@type": "Answer", "text": "Entre 14 i 24 mesos des de l'encàrrec d'avantprojecte fins a les claus, segons mida i complexitat. El desglossament típic per a una unifamiliar de 200 a 300 m² és: 4 a 6 mesos de projecte i visat, 3 a 5 mesos de tramitació de llicència, 8 a 12 mesos d'obra i 1 mes de proves finals i certificació. Els terminis pressuposen un solar net amb llicència obtenible." } }, { "@type": "Question", "name": "Necessito un solar específic per construir Passivhaus?", "acceptedAnswer": { "@type": "Answer", "text": "No, però alguns solars són millors per al cost final. La millor parcel·la té orientació sud o sud-est lliure d'ombres a l'hivern, dimensions amb separació de mitgeres i pendent moderada (sota el 15 per cent). Hem fet Passivhaus en parcel·les urbanes de 6 metres entre mitgeres, en cantonada amb dues façanes a nord i en pendent del 30 per cent. Tot és resoluble; canvia el cost." } }, { "@type": "Question", "name": "Puc construir Passivhaus en una parcel·la amb pendent?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La pendent es resol amb dues estratègies: cases esglaonades que segueixen el desnivell repartint el programa en plataformes connectades, o cases sobre forjat sanitari ventilat amb mur de contenció. L'envolvent Passivhaus es comporta igual de bé en ambdues solucions, sempre que es resolguin amb cura la continuïtat de l'aïllament a la unió mur-forjat, el drenatge perimetral i el tractament de la vegetació en cota inferior." } }, { "@type": "Question", "name": "Val la pena rehabilitar una casa antiga a Passivhaus?", "acceptedAnswer": { "@type": "Answer", "text": "A vegades sí, a vegades no. La via tècnica és l'EnerPHit, una versió de Passivhaus per a rehabilitació que admet 25 kWh/m²·any de demanda de calefacció. Té sentit quan la casa té valor patrimonial, l'estructura existent està en bon estat i l'envolvent es pot intervenir des de l'exterior. No té sentit quan hi ha patologies estructurals greus, geometria que impossibilita envolvent contínua o cost previsible superior al 30 per cent d'una obra nova equivalent." } }, { "@type": "Question", "name": "És compatible Passivhaus amb les ajudes NGEU?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Passivhaus i EnerPHit són dels que més puntuen en els programes NGEU vigents fins al 31 de desembre de 2026. A Catalunya es canalitzen pels programes 3, 4 i 5 gestionats per l'Agència de l'Habitatge. Una EnerPHit ben documentada acostuma a accedir al màxim del programa 3 perquè acredita reduccions del 70 al 90 per cent. Aquesta informació és orientativa i no constitueix assessorament fiscal o jurídic." } }, { "@type": "Question", "name": "Com es certifica una casa Passivhaus?", "acceptedAnswer": { "@type": "Answer", "text": "El procés té tres fases: càlcul PHPP (full de càlcul oficial amb totes les dades del projecte), control d'obra amb certificador independent que supervisa detalls crítics i fa l'assaig de blower door (resultat inferior a 0,6 renovacions per hora a 50 Pa), i lliurament documental al Passivhaus Institut o entitat certificadora oficial. El cost addicional sobre el projecte oscil·la entre 4.000 i 8.000 euros segons mida." } }, { "@type": "Question", "name": "PAPIK treballa amb family offices?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Tenim una línia de servei específica anomenada Patrimonis per a family offices, gestores patrimonials i clients privats. La diferència no és el producte sinó el procés: comunicació amb gestor patrimonial designat, documentació financera adaptada, calendaris de reporting trimestrals i acords de confidencialitat reforçats. La porta d'entrada és sempre una conversa privada amb un dels socis fundadors sota NDA. Aquesta resposta és informativa i no constitueix oferta vinculant." } }, { "@type": "Question", "name": "Modular o Passivhaus?", "acceptedAnswer": { "@type": "Answer", "text": "No són excloents, però responen a prioritats diferents. La modular industrialitzada prioritza terminis curts (4 a 8 mesos), preu tancat des de catàleg i flexibilitat futura. Passivhaus prioritza rendiment energètic certificat, durabilitat (50 a 100 anys) i signatura arquitectònica. Per a famílies que projecten una vivenda per a una o dues generacions amb solar propi, Passivhaus a mida sol ser la millor opció. Per a segones residències ràpides, modular pot tenir sentit." } }, { "@type": "Question", "name": "Una casa Passivhaus és per a tota la vida?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Una Passivhaus ben construïda té una vida útil de 50 a 100 anys amb manteniment senzill. L'envolvent (aïllament, fusteries, hermeticitat) està dissenyada per durar tota la vida de l'edifici. El sistema de ventilació mecànica té una vida útil de 15 a 25 anys amb canvi de filtres semestral. No hi ha calderes, ni revisions de gas, ni dipòsits. És un argument generacional rellevant per a famílies que pensen el patrimoni a llarg termini." } } ] }, { "@type": "Article", "@id": "https://papikgroup.com/preguntes-frequents#article", "headline": "Preguntes freqüents sobre Passivhaus", "description": "Resposta directa a 15 preguntes habituals sobre Passivhaus, rehabilitació EnerPHit, certificació, terminis i el sistema Eskimohaus® de PAPIK.", "author": { "@type": "Organization", "name": "PAPIK Group", "url": "https://papikgroup.com" }, "publisher": { "@type": "Organization", "name": "PAPIK Group", "logo": { "@type": "ImageObject", "url": "https://papikgroup.com/logo.png" } }, "datePublished": "2026-04-29", "dateModified": "2026-04-29", "inLanguage": "ca-ES", "mainEntityOfPage": "https://papikgroup.com/preguntes-frequents" }, { "@type": "BreadcrumbList", "@id": "https://papikgroup.com/preguntes-frequents#breadcrumb", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Inici", "item": "https://papikgroup.com/" }, { "@type": "ListItem", "position": 2, "name": "Recursos", "item": "https://papikgroup.com/recursos" }, { "@type": "ListItem", "position": 3, "name": "Preguntes freqüents", "item": "https://papikgroup.com/preguntes-frequents" } ] } ] } </code>``</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="/nosaltres.html">Qui som</a></li>
+          <li><a href="/projectes.html">Projectes</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacte</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Serveis</p>
+        <ul>
+          <li><a href="/construccio.html">Construcció Residencial</a></li>
+          <li><a href="/promocio.html">Promoció Immobiliària</a></li>
+          <li><a href="/rehabilitacio.html">Rehabilitació Energètica</a></li>
+          <li><a href="/patrimonis.html">Patrimonis · Inversió Conjunta</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficines</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREU</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="El teu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Segueix-nos</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – Tots els drets reservats · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="/avis-legal.html">Avís Legal</a>
+        <a href="/politica-privacitat.html">Política de Privacitat</a>
+        <a href="/politica-cookies.html">Galetes</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/motion.js" defer></script>
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/forms.js" defer></script>
+</body>
+</html>

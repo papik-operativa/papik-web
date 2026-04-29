@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construcción modular vs Passivhaus · en qué se diferencian | PAPIK</title>
+  <meta name="description" content="Modular y Passivhaus se confunden a menudo. La primera define cómo se construye la casa; la segunda, qué prestación energética garantiza. Comparativa técnica, tabla de decisión y cuándo tiene sentido cada vía para un comprador de vivienda premium en Cataluña.">
+
+  <link rel="canonical" href="https://papik.cat/es/article-modular-vs-passivhaus">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-modular-vs-passivhaus">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-modular-vs-passivhaus">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/article-modular-vs-passivhaus">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-modular-vs-passivhaus">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/editorial.css">
+  <link rel="stylesheet" href="/css/cookie-banner.css">
+
+  <style>
+.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
+.section-header{display:block;margin-bottom:32px;max-width:760px;}
+.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
+.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
+.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
+.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
+.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
+.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
+.section-body p{margin-bottom:16px;}
+.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
+.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
+.section-body li{margin-bottom:6px;}
+.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
+.section-body a:hover{color:var(--accent);border-color:var(--accent);}
+.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
+.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
+.section-body .microtext{font-size:13px;color:var(--muted-light);}
+.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
+.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
+.hero{padding:96px 0 64px;}
+.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
+.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
+.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
+.faq-list{margin:24px 0;border-top:1px solid var(--border);}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
+.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
+.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
+.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
+.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
+.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
+.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
+.cross-links ul{padding:0;margin:0;}
+.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.cross-links li:last-child{border-bottom:0;}
+.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
+.form-field{display:block;}
+.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
+.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
+.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.form-field--check input{margin-top:3px;}
+.card-grid .card--icon{padding:24px 22px;}
+.article-body{padding:56px 0 80px;background:#fff;}
+.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
+.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
+.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
+.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
+.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
+.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
+.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
+.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
+.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
+.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
+.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
+.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a{color:var(--muted-light);border-bottom:0;}
+.breadcrumb a:hover{opacity:.7;}
+.breadcrumb .sep{opacity:.5;}
+.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
+.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
+.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Construcción modular vs Passivhaus · en qué se diferencian | PAPIK">
+  <meta property="og:description" content="Modular y Passivhaus se confunden a menudo. La primera define cómo se construye la casa; la segunda, qué prestación energética garantiza. Comparativa técnica, tabla de decisión y cuándo tiene sentido cada vía para un comprador de vivienda premium en Cataluña.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:url" content="https://papik.cat/es/article-modular-vs-passivhaus">
+  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Construcción modular vs Passivhaus · en qué se diferencian | PAPIK">
+  <meta name="twitter:description" content="Modular y Passivhaus se confunden a menudo. La primera define cómo se construye la casa; la segunda, qué prestación energética garantiza. Comparativa técnica, tabla de decisión y cuándo tiene sentido cada vía para un comprador de vivienda premium en Cataluña.">
+  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta name="theme-color" content="#002819">
+
+  <script type="application/ld+json">[
+  {
+    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Construcción modular vs Passivhaus · en qué se diferencian | PAPIK",
+    "description": "Modular y Passivhaus se confunden a menudo. La primera define cómo se construye la casa; la segunda, qué prestación energética garantiza. Comparativa técnica, tabla de decisión y cuándo tiene sentido cada vía para un comprador de vivienda premium en Cataluña.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://papik.cat/img/og/og-default.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-04-27",
+    "author": {
+      "@type": "Organization",
+      "name": "PAPIK Group",
+      "url": "https://papik.cat"
+    },
+    "publisher": {
+      "@id": "https://papik.cat/#org"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://papik.cat/es/article-modular-vs-passivhaus"
+    },
+    "articleSection": "Comparativa técnica",
+    "wordCount": "2033",
+    "inLanguage": "es",
+    "isAccessibleForFree": true
+  },
+  {
+    "_examples_per_page_type": {
+      "service_page": "Inici > Construccio",
+      "subpage": "Inici > Rehabilitacio > Comunitats",
+      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
+      "article_blog": "Inici > Blog > [Titular article]",
+      "project_fitxa": "Inici > Projectes > [Nom projecte]"
+    },
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inici",
+        "item": "https://papik.cat/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inicio",
+        "item": "https://papik.cat/es/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Construcción modular vs Passivhaus: en qué se diferencian"
+      }
+    ]
+  }
+]</script>
+</head>
+<body class="page--article">
+<a href="#main" class="skip-to-content">Saltar al contenido</a>
+<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
+  <div class="papik-cc-inner">
+    <div class="papik-cc-copy">
+      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
+      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
+    </div>
+    <div class="papik-cc-actions">
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
+      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
+    </div>
+  </div>
+</aside>
+
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+        </div>
+        <div class="logo">
+          <a href="/es/"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+</svg></a>
+        </div>
+      </div>
+      <div class="lang">
+        <select onchange="if(this.value)location=this.value">
+          <option value="https://papik.cat/article-modular-vs-passivhaus">CA</option>
+          <option value="https://papik.cat/es/article-modular-vs-passivhaus" selected>ES</option>
+          <option value="https://papik.cat/en/article-modular-vs-passivhaus">EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--dark">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/es/">Inicio</a>
+        <span class="sep">·</span>
+        <span>Construcción modular vs Passivhaus: en qué se diferencian</span>
+      </nav>
+    <h1 class="hero__title">Construcción modular vs Passivhaus: en qué se diferencian</h1>
+    <p class="hero__subtitle">Modular y Passivhaus se confunden a menudo. La primera define cómo se construye la casa; la segunda, qué prestación energética garantiza. Comparativa técnica, tabla de decisión y cuándo tiene sentido cada vía para un comprador de vivienda premium en Cataluña.</p>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Sistema constructivo vs estándar energético, la aclaración clave</h2>
+<p>La confusión nace de una superposición terminológica. Modular describe cómo se construye el edificio: si los componentes se industrializan en fábrica y se ensamblan en obra, hablamos de construcción modular o industrializada. Passivhaus describe qué prestación entrega el edificio: es un estándar energético, no un método constructivo. Define umbrales medibles de demanda de calefacción y refrigeración, hermeticidad y confort térmico, pero no obliga a emplear ninguna técnica concreta para alcanzarlos.</p>
+<p>La consecuencia práctica de esta distinción es contraintuitiva y muy relevante para el comprador. Una casa puede ser modular y Passivhaus a la vez. Puede ser modular y no certificar Passivhaus. Puede construirse íntegramente en obra (no modular) y cumplir Passivhaus con holgura. Y, evidentemente, puede no ser ni una cosa ni la otra. Las cuatro combinaciones existen en el mercado actual, y el precio, la calidad percibida y la prestación real varían dentro de cada una.</p>
+<p>Comprender esta separación evita errores de compra frecuentes, como asumir que pagar el sobrecoste de una casa industrializada implica automáticamente prestación energética certificada, o que renunciar a la modularidad cierra la puerta al Passivhaus.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Construcción modular, qué es</h2>
+<p>La construcción modular traslada parte o la totalidad del proceso constructivo de la obra a una planta industrial. Los módulos (volumétricos tridimensionales) o los paneles (bidimensionales) se fabrican bajo cubierto, en un entorno de control de calidad estandarizado, y se transportan al solar para un ensamblaje que puede durar desde unas horas hasta unas semanas, según el nivel de industrialización.</p>
+<p>La ventaja principal es la velocidad de obra in situ. Una casa volumétrica puede quedar estanca y con instalaciones básicas en un solo día de montaje, frente a los meses que requiere el mismo cierre en obra tradicional. Este factor es valioso para clientes con agendas de mudanza ajustadas o con solares en los que la presencia prolongada de andamios y materiales genera problemas de vecindad. Una segunda ventaja es el control de calidad: cortar madera y montar paneles en una nave cubierta, con humedad regulada y operarios fijos, reduce los defectos de planeidad, escuadras y hermeticidad.</p>
+<p>También existen restricciones estructurales que conviene tener presentes. El transporte por carretera limita las dimensiones del módulo (típicamente hasta cuatro metros de ancho para evitar transporte especial), lo que condiciona el lenguaje arquitectónico. Los solares con topografía compleja, acceso restringido para grúas de gran tonelaje o entorno patrimonial denso difícilmente se resuelven con módulos volumétricos. Y el diseño custom, con geometrías singulares o materiales no estándar, no siempre encaja en los catálogos industriales. La industrialización es una tendencia creciente en el sector catalán, pero no es la respuesta universal que a veces se presenta en las ferias.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Passivhaus, qué es</h2>
+<p>Passivhaus es un estándar energético desarrollado en 1991 por el ingeniero Wolfgang Feist en el Passivhaus Institut de Darmstadt. Define una serie de umbrales cuantificados que un edificio debe alcanzar para obtener la certificación: demanda anual de calefacción y refrigeración por debajo de quince kWh por metro cuadrado, hermeticidad verificada con test Blower Door por debajo de 0,6 renovaciones hora a 50 pascales, y confort térmico estable durante todo el año. Se basa en cinco principios: aislamiento continuo sin puentes térmicos, hermeticidad envolvente, ventanas de altas prestaciones, ventilación mecánica con recuperación de calor y orientación con control solar.</p>
+<p>La certificación la emite un organismo acreditado, no la propia constructora. Este detalle es lo que separa Passivhaus de la mayoría de declaraciones comerciales de eficiencia energética del mercado: la prestación no se autodeclara, se verifica mediante cálculo con el software oficial PHPP, medición física en obra terminada y revisión documental por parte de un certificador independiente.</p>
+<p>Passivhaus es, por diseño, agnóstico respecto al sistema constructivo. Se puede certificar con estructura de madera, hormigón, cerámica, acero o sistemas mixtos. Se puede certificar con construcción modular, con obra tradicional o con sistemas híbridos. El estándar mira el resultado termodinámico, no el proceso. Este rasgo es lo que lo hace especialmente útil para un comprador que quiera garantías de prestación sin renunciar a libertad arquitectónica.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Comparativa sintética</h2>
+<table class="data-table">
+<thead><tr><th>Dimensión</th><th>Modular</th><th>Passivhaus</th></tr></thead>
+<tbody>
+<tr><td>Qué define</td><td>Proceso constructivo</td><td>Prestación energética</td></tr>
+<tr><td>Verificable</td><td>Autodeclaración del fabricante</td><td>Certificación de tercero independiente</td></tr>
+<tr><td>Sobrecoste típico vs convencional</td><td>Entre 5 y 15 por ciento</td><td>Entre 10 y 25 por ciento</td></tr>
+<tr><td>Tiempo de obra in situ</td><td>Entre 30 y 50 por ciento más rápido</td><td>Variable según sistema</td></tr>
+<tr><td>Ahorro energético</td><td>Variable, depende de la calidad real</td><td>Reducción garantizada del 60 al 90 por ciento</td></tr>
+<tr><td>Compatible con el otro?</td><td>Sí, existe modular Passivhaus</td><td>Sí, existe Passivhaus no modular</td></tr>
+</tbody>
+</table>
+<p>La tabla condensa la diferencia de naturaleza entre ambos términos. Modular acelera la obra y, bien ejecutado, mejora la calidad material, pero no garantiza prestación térmica por sí mismo. Passivhaus garantiza prestación con números medibles, pero no dice nada sobre velocidad de ejecución ni sobre el proceso industrial.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Cuándo tiene sentido la vía modular</h2>
+<p>La construcción modular brilla en un perfil de proyecto muy concreto. Calendarios muy ajustados, a menudo vinculados a una venta de vivienda actual o a un cambio de residencia fiscal. Tipologías repetidas donde la racionalización industrial tiene recorrido: promociones de varias unidades similares, segundas residencias con programa estandarizado, ampliaciones modulares sobre viviendas existentes. Solares de acceso amplio, sin pendiente significativa, con proximidad razonable a una vía que admita grúas. Y un cliente que priorice la previsibilidad del calendario por encima de la singularidad arquitectónica.</p>
+<p>Las limitaciones son las complementarias. Topografías de pendiente fuerte, parcelas estrechas con acceso rural, entorno patrimonial denso (cascos históricos, conjuntos protegidos), o programa singular con voladizos importantes y geometrías no rectangulares suelen salir más caros o directamente no resolverse por vía modular volumétrica pura. En esos casos, una solución híbrida (paneles industrializados ensamblados en obra) o la obra tradicional bien ejecutada acostumbran a ganar tanto en coste como en resultado.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Cuándo tiene sentido Passivhaus</h2>
+<p>Passivhaus está diseñado para un perfil distinto, no necesariamente excluyente del modular. Compromiso explícito con ahorro energético y confort térmico medibles. Vivienda de larga duración, no operación de reventa especulativa. Clientes que valoran la verificación de prestación por parte de un tercero independiente frente a la simple declaración comercial. Y, a menudo, sensibilidad ambiental y voluntad de alinear el patrimonio residencial con objetivos de autonomía energética y salud interior.</p>
+<p>Un punto clave es que Passivhaus es compatible con arquitectura custom. No impone una tipología, no exige dimensiones modulares, no obliga a renunciar a una fachada singular ni a un programa atípico. Si la función arquitectónica del proyecto es central para el cliente (algo habitual en vivienda premium en el Vallès, el Maresme o la costa catalana), Passivhaus aporta la garantía técnica sin restringir el lenguaje.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>El enfoque PAPIK</h2>
+<p>Trabajamos con un sistema propietario, Eskimohaus®, refinado a lo largo de treinta años de obra en Cataluña. La construcción se hace a pie de obra, con elementos industrializados prefabricados (paneles de cerramiento, carpinterías, componentes de instalación) que se ensamblan con la flexibilidad geométrica de la obra tradicional. El resultado combina dos atributos que a menudo se presentan como incompatibles: control de calidad industrial y libertad de diseño.</p>
+<p>Todos nuestros proyectos son certificables Passivhaus por defecto. La metodología, la envolvente, las carpinterías y la ventilación ya entran a obra dimensionadas para alcanzar el estándar. El cliente decide si activar la certificación formal del PHI o limitarse a la prestación equivalente sin papel certificado, en función de sus criterios patrimoniales y fiscales. Esta decisión ya no condiciona el proceso constructivo, porque el proceso en sí está planteado para superar los umbrales.</p>
+<p>El beneficio para el cliente es directo: prestación energética certificable con arquitectura plenamente a medida, sin las restricciones geométricas de la modularidad volumétrica y sin renunciar a la previsibilidad industrial de los componentes.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Mitos frecuentes que conviene desmontar</h2>
+<p>"Modular siempre es más barato." No es cierto. El sobrecoste de la industrialización existe y se compensa, según el caso, con ahorro de tiempo o con mejor control de calidad, pero no con un precio final inferior al de la obra tradicional bien ejecutada. Comparar presupuestos exige igualar prestación, no solo euros por metro cuadrado.</p>
+<p>"Passivhaus solo tiene sentido en climas fríos." Falso, con matiz. El estándar nació en clima continental frío, pero la metodología se adapta al clima mediterráneo con una inversión de prioridades que conocemos como cooling-first. La describimos al detalle en el artículo sobre <a href="/es/article-passivhaus-mediterranea">Passivhaus mediterránea</a>.</p>
+<p>"Modular siempre parece un container." Falso. La diversidad estética de la oferta industrializada actual es amplia, desde catálogos con imagen muy doméstica hasta sistemas de paneles que permiten fachadas indistinguibles de obra tradicional. La percepción contenedor se asocia más a una estética concreta que a la modularidad como tal.</p>
+<p>"Passivhaus solo sirve para obra nueva." Existe la certificación EnerPHit para rehabilitación, con umbrales adaptados a la realidad constructiva del parque existente. La rehabilitación profunda de una vivienda de los años setenta u ochenta puede alcanzar prestación muy próxima a Passivhaus de nueva planta.</p>
+<p>"Todos los fabricantes modulares son equivalentes." Falso y potencialmente costoso. La calidad de los materiales, el detalle constructivo de la envolvente, las certificaciones ambientales de los componentes y la prestación térmica final varían sustancialmente entre proveedores. Un módulo no es, por sí solo, garantía de nada.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>Marco de decisión rápido</h2>
+<p>Cinco preguntas que ayudan a orientar la decisión antes de pedir presupuestos comparativos:</p>
+<ol>
+<li>¿El calendario es una restricción crítica, con una fecha de mudanza o entrega cerrada? Si lo es, modular gana peso.</li>
+<li>¿El solar tiene topografía compleja, acceso restringido o entorno patrimonial denso? Si la respuesta es sí, la obra a pie de obra (con o sin componentes industrializados) suele ser más apta.</li>
+<li>¿La prestación energética certificada es una prioridad explícita, no solo un argumento de venta? Si lo es, Passivhaus es la vía, con independencia del sistema constructivo elegido.</li>
+<li>¿El diseño arquitectónico debe responder a un programa singular, con geometrías no rectangulares o materiales no estándar? Si sí, modular volumétrico puro queda descartado; obra a pie de obra o sistemas híbridos encajan mejor.</li>
+<li>¿Se busca una vivienda para décadas o una operación con horizonte corto? Para el primer caso, la inversión en envolvente Passivhaus se devuelve con factura energética y confort. Para el segundo, el cálculo cambia.</li>
+</ol>
+<p>Ninguna de las preguntas tiene respuesta única. Se trata de ordenar prioridades antes de comparar presupuestos, porque la comparación numérica entre sistemas distintos sin ese paso previo suele ser engañosa.</p>
+    </div>
+  </div>
+</section>
+<section class="article-body">
+  <div class="container">
+    <div class="article-body__content">
+<h2>CIERRE</h2>
+<p>Modular y Passivhaus no son alternativas entre sí: son respuestas a preguntas distintas. La primera responde cómo se construye la casa, la segunda qué prestación entrega. Elegir bien exige entender qué está comprando exactamente y qué queda fuera del paquete declarado.</p>
+<p>Si quiere contrastar su caso con datos concretos (programa, presupuesto orientativo, prestación certificable), el configurador ofrece una evaluación proyectual breve sin compromiso.</p>
+<p>Configurar el presupuesto de mi proyecto: papik.cat/es/presupuesto.</p>
+<p><strong>Lea también:</strong></p>
+<p><a href="/es/construccion">Servicio de construcción PAPIK</a></p>
+<p><a href="/es/article-tecnologias-passivhaus">Cinco tecnologías clave del Passivhaus 2026</a></p>
+<p><a href="/es/article-revolucion-madera">La revolución de la madera en la construcción</a></p>
+<p><a href="/es/article-presupuesto-casa-pasiva">Presupuesto de una casa pasiva</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK</p>
+        <ul>
+          <li><a href="/es/nosotros.html">Quiénes somos</a></li>
+          <li><a href="/es/proyectos.html">Proyectos</a></li>
+          <li><a href="/es/blog.html">Blog</a></li>
+          <li><a href="#contacte">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Servicios</p>
+        <ul>
+          <li><a href="/es/construccion.html">Construcción Residencial</a></li>
+          <li><a href="/es/promocion.html">Promoción Inmobiliaria</a></li>
+          <li><a href="/es/rehabilitacion.html">Rehabilitación Energética</a></li>
+          <li><a href="/es/patrimonios.html">Patrimonios · Inversión Conjunta</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficinas</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREO</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Sigue las novedades de PAPIK: proyectos, rehabilitación energética y ayudas disponibles.</p>
+        <form class="newsletter-form" action="#" method="post" novalidate>
+          <input type="email" placeholder="Tu email" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <div class="footer__rrss">
+          <p>Síguenos</p>
+          <div class="rrss__links">
+            <a href="https://www.instagram.com/papikgroup">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2025 PAPIK Fusters S.L. – Todos los derechos reservados · papik.cat</p>
+      <div class="legal" style="display:flex;gap:20px;">
+        <a href="/es/aviso-legal.html">Aviso Legal</a>
+        <a href="/es/politica-privacidad.html">Política de Privacidad</a>
+        <a href="/es/politica-cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/motion.js" defer></script>
+<script src="../js/cookie-banner.js" defer></script>
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

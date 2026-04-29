@@ -27,6 +27,13 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
+# Skip-to-content WCAG label dispatch (Wave 5 fix).
+_SKIP_LABEL = {
+    "ca": "Salta al contingut",
+    "es": "Saltar al contenido",
+    "en": "Skip to content",
+}
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
@@ -1745,6 +1752,7 @@ def render_page(page: Page) -> str:
   {jsonld}
 </head>
 <body class="page--{page.page_type}">
+<a href="#main" class="skip-to-content">{_SKIP_LABEL[page.lang]}</a>
 {COOKIE_BANNER}
 
 {header_html(page)}

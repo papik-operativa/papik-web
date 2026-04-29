@@ -1,18 +1,18 @@
 # S4 Build Report (post-redesign generator)
 
-- Total source files discovered: **162**
-- HTML files written: **162**
+- Total source files discovered: **174**
+- HTML files written: **174**
 - Failed: **0**
 
 ## Per-language
 
-- CA: 54
-- ES: 54
-- EN: 54
+- CA: 58
+- ES: 58
+- EN: 58
 
 ## Per-type
 
-- article: 63
+- article: 75
 - community: 3
 - homepage: 3
 - landing: 72

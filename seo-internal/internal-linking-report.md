@@ -2,38 +2,38 @@
 Generated: 2026-04-29
 
 ## Summary
-- Total pages analyzed: 278
-- Total internal links: 5647
-- Orphans (0 in-links): 44
+- Total pages analyzed: 285
+- Total internal links: 6030
+- Orphans (0 in-links): 51
 - Weakly-linked (1-2 in-links): 90
-- Average outbound internal links per page: 20.3
+- Average outbound internal links per page: 21.2
 
 ## Top 10 most-linked-to pages
-1. `index.html` — 1006 in-links
-2. `es/index.html` — 275 in-links
-3. `en/index.html` — 230 in-links
-4. `projectes.html` — 193 in-links
-5. `es/proyectos.html` — 181 in-links
-6. `en/projects.html` — 177 in-links
-7. `construccio.html` — 156 in-links
-8. `es/construccion.html` — 143 in-links
-9. `rehabilitacio.html` — 135 in-links
-10. `en/construction.html` — 132 in-links
+1. `index.html` — 1307 in-links
+2. `es/index.html` — 277 in-links
+3. `en/index.html` — 240 in-links
+4. `projectes.html` — 194 in-links
+5. `en/projects.html` — 182 in-links
+6. `es/proyectos.html` — 182 in-links
+7. `construccio.html` — 157 in-links
+8. `es/construccion.html` — 144 in-links
+9. `en/construction.html` — 137 in-links
+10. `rehabilitacio.html` — 136 in-links
 
 ## Top 10 pages with most outbound links
-1. `es/projectes.html` — 100 out-links
-2. `usuaris.html` — 70 out-links
-3. `es/usuaris.html` — 68 out-links
-4. `nosaltres.html` — 58 out-links
-5. `es/nosotros.html` — 57 out-links
-6. `es/presupuesto.html` — 57 out-links
-7. `en/projects.html` — 50 out-links
-8. `es/proyectos.html` — 50 out-links
-9. `projectes.html` — 50 out-links
-10. `blog.html` — 49 out-links
+1. `es/projectes.html` — 101 out-links
+2. `usuaris.html` — 71 out-links
+3. `es/usuaris.html` — 69 out-links
+4. `nosaltres.html` — 59 out-links
+5. `es/nosotros.html` — 58 out-links
+6. `es/presupuesto.html` — 58 out-links
+7. `en/projects.html` — 51 out-links
+8. `es/proyectos.html` — 51 out-links
+9. `projectes.html` — 51 out-links
+10. `blog.html` — 50 out-links
 
 ## Orphans by language
-### CA (16)
+### CA (17)
 - `article-guia-subvencions-ngeu-catalunya.html`
 - `article-passivhaus-mediterrania.html`
 - `comarques/anoia.html`
@@ -45,13 +45,14 @@ Generated: 2026-04-29
 - `zones/cabrils.html`
 - `zones/cerdanyola-del-valles.html`
 - `zones/matadepera.html`
+- `zones/mataro.html`
 - `zones/premia-de-dalt.html`
 - `zones/sant-pere-de-ribes.html`
 - `zones/tiana.html`
 - `zones/vilanova-i-la-geltru.html`
 - `zones/vilassar-de-mar.html`
 
-### ES (17)
+### ES (18)
 - `es/about.html`
 - `es/article-guia-subvenciones-ngeu-cataluna.html`
 - `es/article-passivhaus-mediterranea.html`
@@ -64,30 +65,36 @@ Generated: 2026-04-29
 - `es/zonas/cabrils.html`
 - `es/zonas/cerdanyola-del-valles.html`
 - `es/zonas/matadepera.html`
+- `es/zonas/mataro.html`
 - `es/zonas/premia-de-dalt.html`
 - `es/zonas/sant-pere-de-ribes.html`
 - `es/zonas/tiana.html`
 - `es/zonas/vilanova-i-la-geltru.html`
 - `es/zonas/vilassar-de-mar.html`
 
-### EN (11)
+### EN (16)
 - `en/areas/alella.html`
 - `en/areas/cabrils.html`
 - `en/areas/cerdanyola-del-valles.html`
 - `en/areas/matadepera.html`
+- `en/areas/mataro.html`
 - `en/areas/premia-de-dalt.html`
 - `en/areas/sant-pere-de-ribes.html`
 - `en/areas/tiana.html`
 - `en/areas/vilanova-i-la-geltru.html`
 - `en/areas/vilassar-de-mar.html`
 - `en/article-ngeu-subsidies-guide-catalonia.html`
+- `en/regions/anoia.html`
+- `en/regions/baix-emporda.html`
+- `en/regions/baix-llobregat.html`
 - `en/regions/garraf.html`
+- `en/regions/osona.html`
 
 ## Cross-language balance check
-- CA orphans: 16, ES orphans: 17, EN orphans: 11
+- CA orphans: 17, ES orphans: 18, EN orphans: 16
 
 ### Pages with imbalanced cross-language link profile
-- `about.html` — CA=1, EN=103, ES=0
+- `about.html` — CA=1, EN=108, ES=0
 
 ## Generic anchor texts (improvement candidates)
 - `es/nosotros.html` → `index.html` anchor: "Leer más"
