@@ -1,0 +1,553 @@
+/* ═══════════════════════════════════════════════════════════
+   PAPIK · EDITORIAL · high-end visual primitives
+   ───────────────────────────────────────────────────────────
+   Vibe archetype  · Editorial Luxury (Hermès / Aesop / Margaret Howell)
+   Layout archetypes · Editorial Split + Asymmetric Bento
+   Aesthetic anchors · refined editorial · quiet luxury through restraint
+
+   Import AFTER tokens.css and components.css.
+   These primitives ELEVATE the existing system without modifying it.
+   ───────────────────────────────────────────────────────────
+   Anti-pattern guard:
+   - NO greenwashing icons (leaves, eco badges)
+   - NO gradient text
+   - NO glassmorphism applied decoratively
+   - NO border-left/right > 1px as colored stripe
+   - NO purple/cyan AI palette
+   - Sharp architectural radii preferred over rounded-pill except where pills
+     read as physical hardware (eyebrow tags, button-island icon).
+═══════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────────────
+   §1 · EYEBROW · architectural microscopic tag
+   Use for section labels, taxonomy, kicker over major headings.
+   Never decorative; always semantic context.
+───────────────────────────────────────────────────────── */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--t-eyebrow);
+  line-height: 1;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-cream);
+  padding: 6px 10px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-pill);
+  background: transparent;
+}
+
+.eyebrow--filled {
+  background: var(--cream);
+  border-color: transparent;
+  color: var(--text);
+}
+
+.eyebrow--inverse {
+  color: var(--accent);
+  border-color: rgba(149,187,165,0.32);
+}
+
+.eyebrow--bare {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* Eyebrow stacked above a heading with breathing room */
+.eyebrow + h1,
+.eyebrow + h2,
+.eyebrow + .display,
+.eyebrow + .t70 {
+  margin-top: 24px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §2 · DISPLAY · editorial drama
+   Massive headlines for hero moments, article openers, project anchors.
+   Reserve sparingly · 1 per page maximum.
+───────────────────────────────────────────────────────── */
+.display {
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-light);
+  font-size: var(--t-display);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  max-width: 18ch;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.display--secondary {
+  font-size: var(--t-display-2);
+  line-height: 1.0;
+  max-width: 22ch;
+}
+
+.display em {
+  font-style: italic;
+  font-weight: var(--fw-light);
+  color: var(--green-light);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §3 · LEDE · the lead paragraph
+   First paragraph after a major heading, larger than body, sets tone.
+───────────────────────────────────────────────────────── */
+.lede {
+  font-size: var(--t-lede);
+  line-height: 1.55;
+  font-weight: var(--fw-regular);
+  color: var(--text);
+  max-width: var(--measure);
+  margin: 24px 0 0;
+  letter-spacing: -0.005em;
+}
+
+.lede--muted {
+  color: var(--muted);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §4 · BEZEL · double-bezel nested architecture
+   Use for premium cards, hero photo frames, project specs panels.
+   Outer shell + inner core with concentric radii.
+───────────────────────────────────────────────────────── */
+.bezel {
+  display: block;
+  background: var(--cream);
+  border: 1px solid var(--hairline);
+  padding: 12px;
+  border-radius: 18px;
+  box-shadow: var(--sh-soft);
+  transition: box-shadow var(--t-slow) var(--ease-paper),
+              transform var(--t-slow) var(--ease-paper);
+}
+
+.bezel:hover { box-shadow: var(--sh-lift); transform: translateY(-1px); }
+
+.bezel__inner {
+  background: #fff;
+  border-radius: 10px; /* concentric: outer 18 - padding 12 / 2 ≈ 12, target 10 for visual elegance */
+  box-shadow: var(--sh-inset-highlight);
+  overflow: hidden;
+  position: relative;
+}
+
+.bezel--ink {
+  background: var(--ink);
+  border-color: rgba(255,255,255,0.06);
+}
+.bezel--ink .bezel__inner { background: var(--green-dark); }
+.bezel--ink, .bezel--ink * { color: rgba(255,255,255,0.92); }
+
+.bezel--paper {
+  background: var(--paper);
+  border-color: var(--hairline);
+}
+.bezel--paper .bezel__inner { background: #fff; }
+
+
+/* ─────────────────────────────────────────────────────────
+   §5 · BUTTON-ISLAND · button-in-button trailing icon
+   Adds editorial-luxury "machined hardware" feel to existing buttons.
+   Pair with .btn-* base classes from components.css.
+───────────────────────────────────────────────────────── */
+.btn-island {
+  position: relative;
+  padding-right: 56px;
+}
+
+.btn-island__icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,40,25,0.06);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: transform var(--t-base) var(--ease-paper),
+              background var(--t-base) var(--ease-paper);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.btn-island:hover .btn-island__icon {
+  transform: translateY(-50%) translateX(2px);
+  background: rgba(0,40,25,0.12);
+}
+
+/* Inverse for dark surfaces */
+.btn-white .btn-island__icon,
+.section--dark .btn-island__icon,
+.hero--dark .btn-island__icon {
+  background: rgba(255,255,255,0.10);
+}
+.btn-white:hover .btn-island__icon,
+.section--dark .btn-island:hover .btn-island__icon,
+.hero--dark .btn-island:hover .btn-island__icon {
+  background: rgba(255,255,255,0.18);
+}
+
+/* Outline variant: icon container reads as outlined too */
+.btn-outline .btn-island__icon {
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §6 · SPLIT · Editorial Split layout
+   Massive typography one side, content/list the other.
+   Asymmetric, breaks the grid intentionally.
+───────────────────────────────────────────────────────── */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.split--reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+.split__lead {
+  position: sticky;
+  top: 96px;
+}
+
+@media (max-width: 900px) {
+  .split,
+  .split--reverse {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .split__lead { position: static; top: auto; }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §7 · BENTO · asymmetric grid for project showcases
+   Six-column base; cards span varied widths to break monotony.
+───────────────────────────────────────────────────────── */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: dense;
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.bento > .bento__cell { grid-column: span 3; }
+.bento > .bento__cell--wide { grid-column: span 4; }
+.bento > .bento__cell--narrow { grid-column: span 2; }
+.bento > .bento__cell--full { grid-column: 1 / -1; }
+.bento > .bento__cell--tall { grid-row: span 2; }
+
+@media (max-width: 900px) {
+  .bento { grid-template-columns: 1fr; }
+  .bento > .bento__cell,
+  .bento > .bento__cell--wide,
+  .bento > .bento__cell--narrow,
+  .bento > .bento__cell--tall { grid-column: 1 / -1; grid-row: auto; }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §8 · QUOTE · editorial pull quote
+   For client testimonials, manifesto sentences, key claims.
+   No quote-mark icons, no swirl decorations, no italic by default.
+───────────────────────────────────────────────────────── */
+.quote {
+  font-family: var(--ff-sans);
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.35;
+  font-weight: var(--fw-light);
+  color: var(--text);
+  letter-spacing: -0.01em;
+  max-width: var(--measure);
+  margin: 56px 0;
+  padding-left: 0;
+  border-left: 0;
+  text-wrap: balance;
+}
+
+.quote::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--text);
+  margin-bottom: 24px;
+}
+
+.quote__cite {
+  display: block;
+  font-size: var(--t-eyebrow);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 24px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §9 · MEASURE · reading-width constraints for prose
+   Apply to article body, lede paragraphs, anywhere body text reigns.
+───────────────────────────────────────────────────────── */
+.measure       { max-width: var(--measure); }
+.measure-tight { max-width: var(--measure-tight); }
+.measure-wide  { max-width: var(--measure-wide); }
+
+
+/* ─────────────────────────────────────────────────────────
+   §10 · RULE · architectural divider
+   Replaces decorative HR. Just a hairline with brand-aware color.
+───────────────────────────────────────────────────────── */
+.rule {
+  width: 100%;
+  height: 1px;
+  background: var(--hairline);
+  border: 0;
+  margin: 56px 0;
+}
+
+.rule--short {
+  width: 32px;
+  margin: 24px 0;
+}
+
+.rule--strong {
+  background: var(--hairline-strong);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §11 · STATS · editorial fact slabs
+   Replace "card grids of icon + number" with typographic-only fact rows.
+───────────────────────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(24px, 4vw, 56px);
+  padding: 32px 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.stat__number {
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  font-weight: var(--fw-light);
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.stat__label {
+  display: block;
+  font-size: var(--t-eyebrow);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-cream);
+  margin-top: 12px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §12 · SECTION · editorial section variants
+   Add to existing .section ecosystem without conflict.
+───────────────────────────────────────────────────────── */
+.section--cream {
+  background: var(--cream);
+  padding: clamp(72px, 10vw, 144px) 0;
+}
+
+.section--paper {
+  background: var(--paper);
+  padding: clamp(72px, 10vw, 144px) 0;
+}
+
+.section--ink {
+  background: var(--ink);
+  color: rgba(255,255,255,0.92);
+  padding: clamp(96px, 12vw, 168px) 0;
+}
+
+.section--ink .eyebrow {
+  border-color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.72);
+}
+
+.section--ink .display,
+.section--ink .lede,
+.section--ink h1,
+.section--ink h2,
+.section--ink h3 {
+  color: rgba(255,255,255,0.96);
+}
+
+.section--editorial {
+  padding: clamp(96px, 14vw, 192px) 0;
+  background: #fff;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §13 · GENERATIONAL · the trust-builders
+   Subtle craftsmanship marks: timeline strip, certifications row.
+   Sober. Type-only. No icons.
+───────────────────────────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: baseline;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
+}
+
+.timeline__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.timeline__year {
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.timeline__label {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.cert-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  align-items: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.cert-row__item {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §14 · PRINT-NOISE · subtle paper texture overlay
+   Optional; apply via body class .has-grain. Restrained, not flashy.
+   Performance: pseudo-element, fixed, pointer-events-none.
+───────────────────────────────────────────────────────── */
+body.has-grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.has-grain::before { opacity: 0; }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §15 · MOTION REVEAL extension
+   Build on existing [data-anim] system. Add cinematic timing variant.
+───────────────────────────────────────────────────────── */
+.js-ready [data-anim="cinema"] {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(4px);
+  transition: opacity var(--t-cinematic) var(--ease-out-expo),
+              transform var(--t-cinematic) var(--ease-out-expo),
+              filter var(--t-cinematic) var(--ease-out-expo);
+}
+
+.js-ready [data-anim="cinema"].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-ready [data-anim="cinema"] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §16 · SUSTAINABLE-FACT
+   Replace eco-badges with type-only fact rows.
+   Demonstrates the "sustainability without symbols" principle (.impeccable.md §6).
+───────────────────────────────────────────────────────── */
+.fact-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) 1fr;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.fact-row:last-of-type { border-bottom: 0; }
+
+.fact-row__label {
+  font-size: var(--t-eyebrow);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-cream);
+  font-weight: var(--fw-medium);
+}
+
+.fact-row__value {
+  font-size: var(--t-body);
+  line-height: 1.5;
+  color: var(--text);
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §17 · RESPONSIVE · editorial mobile collapse
+   At narrow widths, editorial primitives gracefully simplify.
+───────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .display { font-size: clamp(36px, 8vw, 56px); max-width: 100%; }
+  .display--secondary { font-size: clamp(32px, 7vw, 48px); }
+  .lede { font-size: 17px; }
+  .quote { font-size: 20px; margin: 40px 0; }
+  .stat__number { font-size: clamp(28px, 6vw, 40px); }
+  .section--editorial,
+  .section--cream,
+  .section--paper { padding: 64px 0; }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   §18 · END
+   When elevating an existing page, opt-in incrementally.
+   Add classes to existing markup; do not rebuild from zero.
+───────────────────────────────────────────────────────── */

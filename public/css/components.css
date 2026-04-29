@@ -217,7 +217,8 @@ button.btn-up:hover, .btn-up:hover {
 
 .hero__eyebrow {
   display: inline-block;
-  font-size: 11px;
+  font-size: var(--t-eyebrow);
+  font-weight: var(--fw-medium);
   text-transform: uppercase;
   letter-spacing: .18em;
   color: var(--muted);
@@ -226,11 +227,14 @@ button.btn-up:hover, .btn-up:hover {
 .hero--dark .hero__eyebrow { color: var(--accent); }
 
 .hero__title {
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: var(--t-h1);
   font-weight: var(--fw-light);
-  line-height: 1.08;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
   color: var(--text);
   overflow: hidden;
+  max-width: 22ch;
   margin: 0;
   letter-spacing: -0.01em;
 }
@@ -249,11 +253,12 @@ button.btn-up:hover, .btn-up:hover {
 }
 
 .hero__subtitle {
-  font-size: 16px;
+  font-size: var(--t-lede);
   color: var(--muted);
-  line-height: 1.6;
-  max-width: 560px;
-  margin-top: 16px;
+  line-height: 1.5;
+  max-width: var(--measure);
+  margin-top: 24px;
+  letter-spacing: -0.005em;
   transform: translateY(20px);
   opacity: 0;
   transition: transform .6s .4s ease, opacity .6s .4s ease;

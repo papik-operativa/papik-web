@@ -1724,6 +1724,7 @@ def render_page(page: Page) -> str:
   <link rel="stylesheet" href="{pref}css/header.css">
   <link rel="stylesheet" href="{pref}css/components.css">
   <link rel="stylesheet" href="{pref}css/footer.css">
+  <link rel="stylesheet" href="{pref}css/editorial.css">
   <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>{EXTRA_INLINE_CSS}</style>
@@ -1755,6 +1756,7 @@ def render_page(page: Page) -> str:
 
 {footer_html(page)}
 
+<script src="{pref}js/motion.js" defer></script>
 <script src="{pref}js/cookie-banner.js" defer></script>
 <script src="{pref}js/forms.js" defer></script>
 </body>

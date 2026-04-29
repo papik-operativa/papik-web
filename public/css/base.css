@@ -16,7 +16,17 @@ body, html {
   animation: pageIn .5s ease .1s forwards;
 }
 @keyframes pageIn { to { opacity: 1; } }
-html { scroll-padding-top: 120px; }
+html {
+  scroll-padding-top: 120px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 
 /* ─── Keyboard focus ─── */
 /* WCAG-compliant focus ring for keyboard users only.
@@ -40,10 +50,21 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0; padding: 0;
   font-weight: var(--fw-light);
 }
+
+/* Editorial type rendering: balance long headings, prevent paragraph widows */
+h1, h2, h3 { text-wrap: balance; }
+p          { text-wrap: pretty; }
+
 ul { list-style: none; margin: 0; padding: 0; }
 a  { text-decoration: none; color: inherit; }
 button, input, select, textarea { font-family: var(--ff-sans); }
 img { max-width: 100%; height: auto; display: block; }
+
+/* Selection styling · subtle brand tint, never harsh */
+::selection {
+  background: var(--accent-soft-hover);
+  color: var(--text);
+}
 
 /* ─── Typography scale ─── */
 .t12  { font-size: 12px; line-height: 1.6; }
