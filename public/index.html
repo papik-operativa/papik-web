@@ -12,87 +12,14 @@
   <link rel="alternate" hreflang="en" href="https://papik.cat/en/">
   <link rel="alternate" hreflang="x-default" href="https://papik.cat/">
 
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/editorial.css">
-  <link rel="stylesheet" href="css/blocks.css">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/editorial.css">
+  <link rel="stylesheet" href="/css/blocks.css">
   <link rel="stylesheet" href="/css/cookie-banner.css">
-
-  <style>
-.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
-.section-header{display:block;margin-bottom:32px;max-width:760px;}
-.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
-.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
-.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
-.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
-.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
-.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
-.section-body p{margin-bottom:16px;}
-.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
-.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
-.section-body li{margin-bottom:6px;}
-.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
-.section-body a:hover{color:var(--accent);border-color:var(--accent);}
-.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
-.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
-.section-body .microtext{font-size:13px;color:var(--muted-light);}
-.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
-.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
-.hero{padding:96px 0 64px;}
-.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
-.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
-.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
-.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
-.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
-.faq-list{margin:24px 0;border-top:1px solid var(--border);}
-.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
-.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
-.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
-.faq-item[open] summary::after{transform:rotate(45deg);}
-.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
-.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
-.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
-.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
-.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
-.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
-.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
-.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
-.cross-links ul{padding:0;margin:0;}
-.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
-.cross-links li:last-child{border-bottom:0;}
-.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
-.form-field{display:block;}
-.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
-.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
-.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
-.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
-.form-field--check input{margin-top:3px;}
-.card-grid .card--icon{padding:24px 22px;}
-.article-body{padding:56px 0 80px;background:#fff;}
-.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
-.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
-.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
-.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
-.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
-.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
-.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
-.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
-.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
-.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
-.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
-.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
-.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
-.breadcrumb a{color:var(--muted-light);border-bottom:0;}
-.breadcrumb a:hover{opacity:.7;}
-.breadcrumb .sep{opacity:.5;}
-.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
-.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
-.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
-.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
-</style>
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="PAPIK Group · Cases sostenibles, naturalment">
@@ -101,6 +28,8 @@
   <meta property="og:url" content="https://papik.cat/">
   <meta property="og:site_name" content="PAPIK Group">
   <meta property="og:locale" content="ca_ES">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PAPIK Group · Cases sostenibles, naturalment">
   <meta name="twitter:description" content="Construcció, promoció, rehabilitació i patrimoni. Cases sostenibles a Catalunya, Balears i Andorra des de 1994. Sistema constructiu propi Eskimohaus®.">
@@ -215,12 +144,24 @@
           "name": "Patrimonis"
         }
       ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inici",
+          "item": "https://papik.cat/"
+        }
+      ]
     }
   ]
 }</script>
 </head>
 <body class="page--homepage">
 <a href="#main" class="skip-to-content">Salta al contingut</a>
+
 <aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
   <div class="papik-cc-inner">
     <div class="papik-cc-copy">
@@ -244,7 +185,7 @@
           <div class="menu-btn__burger"><span></span><span></span><span></span></div>
         </div>
         <div class="logo">
-          <a href="/"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+          <a href="/" aria-label="PAPIK Group · Inici"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
 <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
 <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
 <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
@@ -258,7 +199,7 @@
         </div>
       </div>
       <div class="lang">
-        <select onchange="if(this.value)location=this.value">
+        <select onchange="if(this.value)location=this.value" aria-label="Idioma">
           <option value="https://papik.cat/" selected>CA</option>
           <option value="https://papik.cat/es/">ES</option>
           <option value="https://papik.cat/en/">EN</option>
@@ -269,215 +210,394 @@
 </header>
 
 <main id="main">
+<div id="content-flex">
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
 <section class="block-hero block-hero--dark block-hero--home">
   <div class="block-hero__media">
-    <img src="/img/fotos/photo-1.jpg" alt="" loading="eager" fetchpriority="high">
+    <img src="/img/fotos/photo-1.jpg" alt="Casa Passivhaus construïda per PAPIK a Catalunya" loading="eager" fetchpriority="high" width="1920" height="1080">
     <div class="ph ph-hero" aria-hidden="true"></div>
   </div>
   <div class="block-hero__overlay"></div>
   <div class="block-hero__content">
     <span class="block-hero__eyebrow">DES DE 1994</span>
-    <h1 class="block-hero__title">Cases sostenibles, naturalment.</h1>
-    <p class="block-hero__sub block-hero__subtitle">Trenta anys construint a Catalunya. Sistema constructiu propi. Cases pensades per durar un segle.</p>
+    <h1 class="block-hero__title">Cases sostenibles,<br>naturalment.</h1>
+    <p class="block-hero__sub">Trenta anys construint a Catalunya. Sistema constructiu propi. Cases pensades per durar un segle.</p>
     <div class="block-hero__cta">
-      <a class="btn-white" href="#contacte">Configurar el meu pressupost <span aria-hidden="true">→</span></a>
-      <a class="btn-outline" href="#main">Veure cases construïdes <span aria-hidden="true">→</span></a>
+      <a href="#contacte">
+        <button>
+          Configurar el meu pressupost
+          <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" fill="none" aria-hidden="true">
+            <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/>
+          </svg>
+        </button>
+      </a>
+      <a href="/projectes" class="block-hero__cta-secondary" style="margin-left:14px;color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:4px;">
+        Veure cases construïdes
+        <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" fill="none" aria-hidden="true">
+          <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
-<section class="section">
+
+<!-- ═══════════════════════════════════
+     INFO REPEATABLE — 2 blocs alternats
+═══════════════════════════════════ -->
+<section class="block-info-repeatable" id="construccio">
+  <!-- Bloc 1: Construcció Residencial -->
+  <div class="block-info-repeatable__item bg-warm-1">
+    <div class="item__info">
+      <div class="item__info__text">
+        <p class="tag">Construcció Residencial</p>
+        <h2 class="big-text">Edificis que<br>expliquen una història</h2>
+        <p class="text">La seva casa, dissenyada amb vostè i lliurada clau en mà, amb solar o sense. Construïm habitatges Passivhaus i Eskimohaus® amb rigor tècnic i sensibilitat arquitectònica, des de la fonamentació fins al lliurament de claus.</p>
+      </div>
+      <div class="item__info__link">
+        <a class="link-wrapper" href="/projectes">
+          <div class="link_images">
+            <div><div class="ph ph-warm-4" style="height:100%;border-radius:50%;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);"></div></div>
+            <div><div class="ph ph-warm-5" style="height:100%;border-radius:50%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);"></div></div>
+            <div><div class="ph ph-stone" style="height:100%;border-radius:50%;background:linear-gradient(160deg,#56685E 0%,#0A1B12 100%);"></div></div>
+          </div>
+          <div style="margin-left:16px;">
+            <p class="t16 color-muted">Veure projectes
+              <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+              </svg>
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="item__media">
+      <img src="/img/projects/projecte-k-llavaneres/hero.jpg" alt="K-Llavaneres, primera casa Passivhaus Plus de Catalunya" loading="lazy" width="1200" height="800" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+
+  <!-- Bloc 2: Rehabilitació Energètica -->
+  <div class="block-info-repeatable__item bg-warm-2" id="rehabilitacio">
+    <div class="item__info">
+      <div class="item__info__text">
+        <p class="tag" style="color:var(--muted);">Rehabilitació Energètica</p>
+        <h2 class="big-text">Edificis més eficients,<br>consum responsable</h2>
+        <p class="text">La rehabilitació energètica no és una despesa, és una inversió. Millorem l'envolupant del seu edifici, reduïm el consum i acompanyem en la gestió integral de subvencions Next Generation EU per al seu projecte.</p>
+      </div>
+      <div class="item__info__link" style="margin-top:28px;">
+        <a class="link-wrapper" href="/rehabilitacio">
+          <p class="t16 color-muted">Saber-ne més
+            <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+            </svg>
+          </p>
+        </a>
+      </div>
+    </div>
+    <div class="item__media">
+      <img src="/img/projects/projecte-k-argentona/exterior-01.jpg" alt="Rehabilitació energètica K-Argentona" loading="lazy" width="1200" height="800" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<div class="spacing"></div>
+
+<!-- ═══════════════════════════════════
+     SERVICES / DIVISIONS
+═══════════════════════════════════ -->
+<section class="block-services block-margin">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Quatre maneres de treballar amb PAPIK</h2>
-      <p class="section-header__lead">Cada projecte té el seu camí.</p>
-    </header>
-    <div class="card-grid">
-      <article class="card card--icon">
-        <span class="card__cat">VULL CONSTRUIR</span>
-        <h3 class="card__title">CONSTRUCCIÓ</h3>
-        <p class="card__excerpt">La seva casa, dissenyada amb vostè i lliurada clau en mà, amb solar o sense.</p>
-        <a class="link-arrow" href="#">Conèixer Construcció <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="card card--icon">
-        <span class="card__cat">VULL COMPRAR</span>
-        <h3 class="card__title">PROMOCIÓ</h3>
-        <p class="card__excerpt">Cases ja construïdes o amb data d'entrega tancada. Producte acabat, sense sorpreses.</p>
-        <a class="link-arrow" href="#">Veure promocions disponibles <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="card card--icon">
-        <span class="card__cat">VULL REHABILITAR</span>
-        <h3 class="card__title">REHABILITACIÓ</h3>
-        <p class="card__excerpt">Habitatges o edificis sencers. Gestió integral de subvencions Next Generation per al seu projecte.</p>
-        <a class="link-arrow" href="#">Calcular subvenció <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="card card--icon">
-        <span class="card__cat">SOC INVERSOR</span>
-        <h3 class="card__title">PATRIMONIS</h3>
-        <p class="card__excerpt">Vehicles privats per a family offices i patrimonis consolidats. Cas a cas, amb confidencialitat total.</p>
-        <a class="link-arrow" href="#">Sol·licitar conversa <span aria-hidden="true">→</span></a>
-      </article>
+    <div class="block-services__content">
+      <!-- Visual panel -->
+      <div class="services__gif">
+        <div class="ph ph-blue services-img-active" id="servicesImg" style="height:29.8vw;border-radius:6px;transition:all .4s;background:linear-gradient(135deg,#56685E 0%,#002819 100%);"></div>
+      </div>
+      <!-- List -->
+      <div class="services__list">
+        <p class="label t16">Àrees PAPIK</p>
+        <ul class="t42">
+          <li class="active" data-img="ph-blue">
+            <a href="/construccio">Construcció
+              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;" aria-hidden="true">
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
+              </svg>
+            </a>
+          </li>
+          <li data-img="ph-project1">
+            <a href="/promocio">Promoció
+              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;" aria-hidden="true">
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
+              </svg>
+            </a>
+          </li>
+          <li data-img="ph-green">
+            <a href="/rehabilitacio">Rehabilitació
+              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;" aria-hidden="true">
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
+              </svg>
+            </a>
+          </li>
+          <li data-img="ph-dark">
+            <a href="/patrimonis">Patrimonis
+              <svg width="32" height="26" viewBox="0 0 32.373 25.533" fill="none" style="flex-shrink:0;" aria-hidden="true">
+                <path d="M28.964,57.832v1.7H0v1.7H28.964v1.7h-1.7v1.7h-1.7v1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h1.7v-1.7h-1.7v-1.7Zm-1.7,0h1.7v-1.7h-1.7Zm-1.7-1.7h1.7v-1.7h-1.7Z" transform="translate(0 -47.622)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 5.1)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(23.853 18.731)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 20.431)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 22.131)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 23.831)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(22.151 3.401)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(20.448 1.701)" fill="#002819"/>
+                <rect width="1.703" height="1.703" transform="translate(18.745 0.001)" fill="#002819"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
-<section class="section section--light">
+
+<!-- ═══════════════════════════════════
+     CATEGORIES GRID — 4 SERVEIS
+═══════════════════════════════════ -->
+<section class="block-categories block-margin" id="serveis">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">TRUST STRIP</h2>
-    </header>
-    <div class="section-body">
-      <h3>Avals i certificacions</h3>
-      <h3>Han parlat de nosaltres</h3>
-      <a class="link-arrow" href="#">Veure totes les aparicions  →   (link a /premsa) <span aria-hidden="true">→</span></a>
+    <h2 class="t42 center block-categories__title">Serveis</h2>
+    <div class="categories-container">
+      <a href="/construccio" class="categories__item">
+        <div class="ph-cat" style="background-image:url('/img/og/og-projecte-k-del-carril.jpg');background-size:cover;background-position:center;border-radius:5px;margin-bottom:12px;"></div>
+        <p class="categories__item__title center t24">Construcció</p>
+      </a>
+      <a href="/promocio" class="categories__item">
+        <div class="ph-cat" style="background-image:url('/img/og/og-projecte-passivrooms.jpg');background-size:cover;background-position:center;border-radius:5px;margin-bottom:12px;"></div>
+        <p class="categories__item__title center t24">Promoció</p>
+      </a>
+      <a href="/rehabilitacio" class="categories__item">
+        <div class="ph-cat" style="background-image:url('/img/og/og-projecte-rehabilitacio-valldoreix.jpg');background-size:cover;background-position:center;border-radius:5px;margin-bottom:12px;"></div>
+        <p class="categories__item__title center t24">Rehabilitació</p>
+      </a>
+      <a href="/patrimonis" class="categories__item">
+        <div class="ph-cat" style="background-image:url('/img/og/og-projecte-k-iturbi.jpg');background-size:cover;background-position:center;border-radius:5px;margin-bottom:12px;"></div>
+        <p class="categories__item__title center t24">Patrimonis</p>
+      </a>
     </div>
+    <a href="#contacte" class="archive-btn t16">
+      Demana pressupost
+      <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+      </svg>
+    </a>
   </div>
 </section>
-<section class="section">
+
+<div class="spacing"></div>
+
+<!-- ═══════════════════════════════════
+     PROJECTES (Columns)
+═══════════════════════════════════ -->
+<section class="block-columns block-margin" id="projectes">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Trenta anys construint el futur de la llar</h2>
-    </header>
-    <div class="section-body">
-      <p>El 1994, Papik Fisas Moreno funda PAPIK a Sant Cugat del Vallès amb una visió que llavors era poc habitual al sector: cases pensades per durar, no per vendre. Construcció amb ofici, materials naturals, eficiència energètica abans que aquesta paraula tingués nom propi.</p>
-      <p>El 2010 construïm la segona casa Passivhaus certificada de Catalunya. El 2014 desenvolupem el sistema constructiu propi Eskimohaus®, fruit de dues dècades d'experiència acumulada. Avui, més de 100 cases construïdes i 36 documentades a la web fan que cada nou projecte parteixi d'una base sòlida i verificable.</p>
-      <p>Continuem treballant a Catalunya, Illes Balears i Andorra amb el mateix principi que va orientar el primer projecte: una casa ben construïda és la inversió més rentable a llarg termini, tant per a qui hi viu com per a qui vindrà després.</p>
-      <a class="link-arrow" href="#">Conèixer la nostra història  →   (link a /empresa o /nosaltres) <span aria-hidden="true">→</span></a>
-    </div>
-    <div class="section-body">
+    <h2 class="t42 center block-columns__title">Projectes recents</h2>
+    <div class="block-columns__repeater">
+      <div class="block-columns__item">
+        <a href="/projecte-k-del-carril">
+          <div class="item__media-col">
+            <img src="/img/og/og-projecte-k-del-carril.jpg" alt="K-del Carril, Sant Cugat del Vallès" loading="lazy" width="1200" height="630" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          </div>
+          <h3 class="title t24">K-del Carril · Sant Cugat del Vallès</h3>
+          <p class="text t16 color-muted">Primera casa Passivhaus certificada del municipi. Construcció Eskimohaus® amb envolupant tèrmica continua i ventilació amb recuperació.</p>
+          <p style="margin-top:12px;">
+            <span class="link-arrow t14">Veure projecte
+              <svg width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+              </svg>
+            </span>
+          </p>
+        </a>
+      </div>
+      <div class="block-columns__item">
+        <a href="/projecte-k-iturbi">
+          <div class="item__media-col">
+            <img src="/img/og/og-projecte-k-iturbi.jpg" alt="K-Iturbi, Sant Cugat del Vallès" loading="lazy" width="1200" height="630" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          </div>
+          <h3 class="title t24">K-Iturbi · Sant Cugat del Vallès</h3>
+          <p class="text t16 color-muted">Habitatge Passivhaus de referència. Materials naturals, fusta contralaminada i estructura eficient pensada per al clima mediterrani.</p>
+          <p style="margin-top:12px;">
+            <span class="link-arrow t14">Veure projecte
+              <svg width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+              </svg>
+            </span>
+          </p>
+        </a>
+      </div>
+      <div class="block-columns__item">
+        <a href="/projecte-k-matadepera">
+          <div class="item__media-col">
+            <img src="/img/og/og-projecte-k-matadepera.jpg" alt="K-Matadepera, integrada a l'entorn de Sant Llorenç del Munt" loading="lazy" width="1200" height="630" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          </div>
+          <h3 class="title t24">K-Matadepera · Matadepera</h3>
+          <p class="text t16 color-muted">Habitatge Passivhaus certificat amb sistema CLT, integrat en l'entorn de Sant Llorenç del Munt. Consum gairebé nul i confort tèrmic estable.</p>
+          <p style="margin-top:12px;">
+            <span class="link-arrow t14">Veure projecte
+              <svg width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+              </svg>
+            </span>
+          </p>
+        </a>
+      </div>
     </div>
   </div>
 </section>
-<section class="section section--light">
+
+<!-- ═══════════════════════════════════
+     CTA / INFO SECTION
+═══════════════════════════════════ -->
+<section class="block-info block-margin" id="nosaltres">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Eskimohaus®, el nostre sistema constructiu propi</h2>
-    </header>
-    <div class="section-body">
-      <p>Després de trenta anys construint, hem desenvolupat un sistema que combina els principis de l'estàndard alemany Passivhaus amb els materials i el clima mediterrani. No es tracta d'aplicar una tecnologia importada sinó d'integrar la metodologia internacional amb les particularitats del territori.</p>
-      <p class="lead">Quatre principis sense superflu</p>
-    </div>
-    <div class="section-body">
-      <p class="closing-sentence">Una casa Eskimohaus® consumeix fins a un 90% menys d'energia que una construcció convencional.</p>
-      <a class="link-arrow" href="#">Conèixer Eskimohaus en detall  →   (link a /construccio#eskimohaus o /eskimohaus si existeix) <span aria-hidden="true">→</span></a>
-    </div>
-    <div class="card-grid">
-      <article class="card card--icon">
-        <h3 class="card__title">ENVOLUPANT TÈRMICA</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">HERMETICITAT CONTROLADA</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">VENTILACIÓ AMB RECUPERACIÓ</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">ESTRUCTURA EFICIENT</h3>
-      </article>
+    <div class="block-info__content">
+      <div class="block-info__text">
+        <h2>Trenta anys construint<br>el futur de la llar</h2>
+        <p class="text">El 1994, Papik Fisas Moreno funda PAPIK a Sant Cugat del Vallès amb una visió poc habitual al sector: cases pensades per durar, no per vendre. Avui, més de 100 cases construïdes i 36 documentades fan que cada nou projecte parteixi d'una base sòlida i verificable.</p>
+        <a href="/nosaltres">
+          <button style="background:#fff;color:#002819;border-color:#fff;">
+            Conèixer la nostra història
+            <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/>
+            </svg>
+          </button>
+        </a>
+      </div>
+      <div class="block-info__image">
+        <div class="ph-circle" style="background:linear-gradient(135deg,#9FA9A3 0%,#002819 100%);"></div>
+      </div>
     </div>
   </div>
 </section>
-<section class="section">
+
+<div class="spacing"></div>
+
+<!-- ═══════════════════════════════════
+     ACTUALITAT / JOURNAL
+═══════════════════════════════════ -->
+<section class="block-journal block-margin">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Algunes de les nostres cases</h2>
-      <p class="section-header__lead">Sis projectes que mostren l'abast del nostre treball, del Vallès a la costa, de l'obra nova a la rehabilitació singular.</p>
-    </header>
-    <div class="section-body">
-      <a class="link-arrow" href="#">Veure tots els 36 projectes  →   (link a /projectes) <span aria-hidden="true">→</span></a>
+    <div class="journal-bar">
+      <h2 class="t24">Actualitat</h2>
+      <a href="/blog" class="link-arrow t16">Totes les notícies
+        <svg width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+        </svg>
+      </a>
     </div>
-    <div class="card-grid">
-      <article class="card card--icon">
-        <h3 class="card__title">K-del Carril</h3>
-        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">K-Llavaneres</h3>
-        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">K-Matadepera</h3>
-        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">K-Vall d'Or</h3>
-        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">K-LaMassa</h3>
-        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">K-Mogent</h3>
-        <a class="link-arrow" href="#">Veure projecte <span aria-hidden="true">→</span></a>
-      </article>
-    </div>
+
+    <!-- Featured article -->
+    <a href="/article-pressupost-casa-passiva">
+      <div class="featured__item__content">
+        <div class="featured__item__img">
+          <img src="/img/og/og-pressupost-casa-passiva.jpg" alt="Pressupost de casa Passivhaus, guia de costos" loading="lazy" width="1200" height="630" style="width:43vw;height:27.5vw;border-radius:3px;display:block;object-fit:cover;">
+        </div>
+        <div class="featured__item__text">
+          <div class="categories t16">Construcció · Pressupostos</div>
+          <h3 class="title t42">Pressupost de casa Passivhaus: guia de costos</h3>
+          <p class="desc t16 color-muted">Una guia detallada amb els factors que mouen el preu d'una casa Passivhaus a Catalunya. Tipologia, materials, instal·lacions i certificacions explicades amb rang de costos.</p>
+          <time class="date t16" datetime="2026-04-15">15 abril 2026</time>
+        </div>
+      </div>
+    </a>
   </div>
 </section>
-<section class="section section--light">
+
+<!-- Small news cards -->
+<section class="other-articles">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Articles recents</h2>
-    </header>
-    <div class="section-body">
-      <a class="link-arrow" href="#">Veure tots els articles  →   (link a /blog) <span aria-hidden="true">→</span></a>
-    </div>
-    <div class="card-grid">
-      <article class="card card--icon">
-        <h3 class="card__title">proposades (basades en articles existents)</h3>
-      </article>
+    <div class="news-grid">
+      <a href="/article-substituir-vs-rehabilitar" class="news-card">
+        <div class="news-card__img">
+          <img src="/img/og/og-materials-sostenibles.jpg" alt="Substituir o rehabilitar, com decidir" loading="lazy" width="800" height="500" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="news-text">
+          <p class="category">Rehabilitació</p>
+          <h3>Substituir o rehabilitar: criteris per decidir abans d'invertir</h3>
+          <time class="t14 color-muted" datetime="2026-03-12">12 març 2026</time>
+        </div>
+      </a>
+      <a href="/article-tecnologies-passivhaus" class="news-card">
+        <div class="news-card__img">
+          <img src="/img/og/og-tecnologies-passivhaus.jpg" alt="Tecnologies clau del Passivhaus" loading="lazy" width="800" height="500" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="news-text">
+          <p class="category">Construcció</p>
+          <h3>Tecnologies Passivhaus: els components que defineixen una casa eficient</h3>
+          <time class="t14 color-muted" datetime="2026-02-28">28 febrer 2026</time>
+        </div>
+      </a>
+      <a href="/article-petjada-ecologica" class="news-card">
+        <div class="news-card__img">
+          <img src="/img/og/og-petjada-ecologica.jpg" alt="Petjada ecològica de la construcció" loading="lazy" width="800" height="500" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="news-text">
+          <p class="category">Sostenibilitat</p>
+          <h3>Petjada ecològica de la construcció: com es mesura i com es redueix</h3>
+          <time class="t14 color-muted" datetime="2026-02-10">10 febrer 2026</time>
+        </div>
+      </a>
     </div>
   </div>
 </section>
-<section class="section">
-  <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">NEWSLETTER I CONTACTE</h2>
-    </header>
-    <div class="card-grid">
-      <article class="card card--icon">
-        <h3 class="card__title">Columna esquerra · Newsletter</h3>
-        <p class="card__excerpt">Una vegada al mes li enviem un article curt amb les novetats del sector i les nostres reflexions. Sense promocions ni venda directa.</p>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">Columna dreta · Contacte directe</h3>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="block-cta block-cta--closing">
-  <div class="container">
-    <p class="block-cta__label">Tens alguna pregunta?</p>
-    <h2 class="block-cta__title">Parla amb nosaltres sobre el teu projecte</h2>
-    <a class="btn-white" href="#contacte">Contactar <span aria-hidden="true">→</span></a>
-  </div>
-</section>
+
+</div><!-- end #content-flex -->
 </main>
 
-<footer>
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer id="contacte">
   <div class="container">
     <div class="footer__content__info color-white">
       <div class="footer-col">
         <p class="footer__col-title">PAPIK</p>
         <ul>
-          <li><a href="/nosaltres.html">Qui som</a></li>
-          <li><a href="/projectes.html">Projectes</a></li>
-          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/nosaltres">Qui som</a></li>
+          <li><a href="/projectes">Projectes</a></li>
+          <li><a href="/blog">Blog</a></li>
           <li><a href="#contacte">Contacte</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <p class="footer__col-title">Serveis</p>
         <ul>
-          <li><a href="/construccio.html">Construcció Residencial</a></li>
-          <li><a href="/promocio.html">Promoció Immobiliària</a></li>
-          <li><a href="/rehabilitacio.html">Rehabilitació Energètica</a></li>
-          <li><a href="/patrimonis.html">Patrimonis · Inversió Conjunta</a></li>
+          <li><a href="/construccio">Construcció Residencial</a></li>
+          <li><a href="/promocio">Promoció Immobiliària</a></li>
+          <li><a href="/rehabilitacio">Rehabilitació Energètica</a></li>
+          <li><a href="/patrimonis">Patrimonis · Inversió Conjunta</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <p class="footer__col-title">Oficines</p>
         <div class="info-showroom__item">
           <h3>SEU CENTRAL</h3>
-          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:+34935906074">T 93 590 60 74</a></p>
         </div>
         <div class="info-showroom__item">
           <h3>CORREU</h3>
@@ -488,32 +608,32 @@
         <p class="footer__col-title">Newsletter</p>
         <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles.</p>
         <form class="newsletter-form" action="#" method="post" novalidate>
-          <input type="email" placeholder="El teu email" required>
-          <button type="submit" aria-label="Subscribe">→</button>
+          <input type="email" placeholder="El teu email" aria-label="El teu email" required>
+          <button type="submit" aria-label="Subscriure'm">→</button>
         </form>
         <div class="footer__rrss">
           <p>Segueix-nos</p>
           <div class="rrss__links">
-            <a href="https://www.instagram.com/papikgroup">Instagram</a>
-            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
-            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+            <a href="https://www.instagram.com/papikgroup" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/company/papik-group" rel="noopener">LinkedIn</a>
+            <a href="https://www.youtube.com/@papikgroup" rel="noopener">YouTube</a>
           </div>
         </div>
       </div>
     </div>
     <div class="copyright">
-      <p>Copyright © 2025 PAPIK Fusters S.L. – Tots els drets reservats · papik.cat</p>
+      <p>Copyright © 2026 PAPIK Fusters S.L. – Tots els drets reservats · papik.cat</p>
       <div class="legal" style="display:flex;gap:20px;">
-        <a href="/avis-legal.html">Avís Legal</a>
-        <a href="/politica-privacitat.html">Política de Privacitat</a>
-        <a href="/politica-cookies.html">Galetes</a>
+        <a href="/avis-legal">Avís Legal</a>
+        <a href="/politica-privacitat">Política de Privacitat</a>
+        <a href="/politica-cookies">Galetes</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="js/motion.js" defer></script>
-<script src="js/cookie-banner.js" defer></script>
-<script src="js/forms.js" defer></script>
+<script src="/js/motion.js" defer></script>
+<script src="/js/cookie-banner.js" defer></script>
+<script src="/js/forms.js" defer></script>
 </body>
 </html>
