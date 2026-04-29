@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/blocks.css">
   <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>
@@ -233,15 +234,23 @@
 </header>
 
 <main id="main">
-<section class="hero hero--dark">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
+<section class="block-hero block-hero--dark block-hero--service">
+  <div class="block-hero__media">
+    <img src="/img/fotos/photo-1.jpg" alt="" loading="eager" fetchpriority="high">
+    <div class="ph ph-hero" aria-hidden="true"></div>
+  </div>
+  <div class="block-hero__overlay"></div>
+  <div class="block-hero__breadcrumb"><nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Inici</a>
         <span class="sep">·</span>
         <span>Rehabilitació energètica per a comunitats de propietaris</span>
-      </nav>
-    <h1 class="hero__title">Rehabilitació energètica per a comunitats de propietaris</h1>
-    <p class="hero__subtitle">Soci tècnic d'administradors de finques per a la rehabilitació energètica d'edificis plurifamiliars. Gestió integral de subvencions Programa 3 NGEU.</p>
+      </nav></div>
+  <div class="block-hero__content">
+    <h1 class="block-hero__title">Rehabilitació energètica per a comunitats de propietaris</h1>
+    <p class="block-hero__sub block-hero__subtitle">Soci tècnic d'administradors de finques per a la rehabilitació energètica d'edificis plurifamiliars. Gestió integral de subvencions Programa 3 NGEU.</p>
+    <div class="block-hero__cta">
+      <a class="btn-white" href="#contacte">Parla amb nosaltres <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 <section class="article-body">
@@ -481,6 +490,13 @@
 <p>La rehabilitació en règim de propietat horitzontal requereix l'aprovació de la junta de propietaris segons la majoria legal aplicable (Llei 49/1960 de Propietat Horitzontal i les seves modificacions). Les subvencions Next Generation EU estan subjectes a disponibilitat pressupostària i compliment de requisits per part del beneficiari. Aquesta pàgina és informativa i no constitueix assessorament jurídic ni garantia d'aprovació. Cada cas s'avalua individualment durant la fase de diagnòstic. ```</p>
 <p>⚠ <strong>REVISIÓ OBLIGATÒRIA per advocat especialitzat en propietat horitzontal abans de publicar.</strong> No opcional.</p>
     </div>
+  </div>
+</section>
+<section class="block-cta block-cta--closing">
+  <div class="container">
+    <p class="block-cta__label">Tens alguna pregunta?</p>
+    <h2 class="block-cta__title">Parla amb nosaltres sobre el teu projecte</h2>
+    <a class="btn-white" href="#contacte">Contactar <span aria-hidden="true">→</span></a>
   </div>
 </section>
 </main>

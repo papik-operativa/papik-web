@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/blocks.css">
   <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>
@@ -220,17 +221,19 @@
 </header>
 
 <main id="main">
-<section class="hero hero--dark">
+<section class="article-hero">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Inici</a>
         <span class="sep">·</span>
         <span>Glossari Passivhaus i construcció sostenible</span>
       </nav>
-    <h1 class="hero__title">Glossari Passivhaus i construcció sostenible</h1>
-    <p class="hero__subtitle">Definicions autoritzades de termes Passivhaus, construcció sostenible, rehabilitació energètica i urbanisme català. 38 termes amb referències normatives.</p>
+    <h1 class="article-hero__title">Glossari Passivhaus i construcció sostenible</h1>
   </div>
 </section>
+<div class="article-cover">
+  <img class="article-cover__img" src="/img/og/og-glossari.jpg" alt="" loading="eager" fetchpriority="high">
+</div>
 <section class="article-body">
   <div class="container">
     <div class="article-body__content">
@@ -413,6 +416,13 @@
 <h2>JSON-LD</h2>
 <p>``<code>json { "@context": "https://schema.org", "@graph": [ { "@type": "DefinedTermSet", "@id": "https://papik.cat/glossari#termset", "name": "Glossari Passivhaus i construcció sostenible", "description": "Definicions autoritzades de 38 termes Passivhaus, construcció sostenible, rehabilitació energètica i urbanisme català.", "inLanguage": "ca", "publisher": { "@type": "Organization", "name": "PAPIK Group", "url": "https://papik.cat" } }, { "@type": "DefinedTerm", "name": "Passivhaus", "description": "Estàndard d'edificació del Passivhaus Institut que limita la demanda de calefacció a 15 kWh/m²·any.", "inDefinedTermSet": "https://papik.cat/glossari#termset" }, { "@type": "DefinedTerm", "name": "EnerPHit", "description": "Variant Passivhaus per a rehabilitació d'edificis existents amb llindars més permissius (25 kWh/m²·any).", "inDefinedTermSet": "https://papik.cat/glossari#termset" }, { "@type": "DefinedTerm", "name": "nZEB", "description": "Edifici de consum d'energia gairebé nul, categoria normativa europea (Directiva 2010/31/UE).", "inDefinedTermSet": "https://papik.cat/glossari#termset" }, { "@type": "DefinedTerm", "name": "PHPP", "description": "Passive House Planning Package, full de càlcul de balanç energètic anual amb resolució mensual.", "inDefinedTermSet": "https://papik.cat/glossari#termset" }, { "@type": "DefinedTerm", "name": "Eskimohaus", "description": "Sistema constructiu propietari de PAPIK Group basat en estructura de fusta i envolupant Passivhaus.", "inDefinedTermSet": "https://papik.cat/glossari#termset" }, { "@type": "DefinedTerm", "name": "POUM", "description": "Pla d'Ordenació Urbanística Municipal, instrument bàsic de planejament a Catalunya.", "inDefinedTermSet": "https://papik.cat/glossari#termset" }, { "@type": "DefinedTerm", "name": "ITE", "description": "Inspecció Tècnica de l'Edifici, revisió obligatòria a partir dels 45 anys (Decret 67/2015).", "inDefinedTermSet": "https://papik.cat/glossari#termset" }, { "@type": "DefinedTerm", "name": "LCA", "description": "Life Cycle Assessment, metodologia ISO 14040/14044 i EN 15978 per a edificis.", "inDefinedTermSet": "https://papik.cat/glossari#termset" }, { "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "Inici", "item": "https://papik.cat"}, {"@type": "ListItem", "position": 2, "name": "Glossari", "item": "https://papik.cat/glossari"} ] } ] } </code>``</p>
     </div>
+  </div>
+</section>
+<section class="block-cta block-cta--closing">
+  <div class="container">
+    <p class="block-cta__label">Tens alguna pregunta?</p>
+    <h2 class="block-cta__title">Parla amb nosaltres sobre el teu projecte</h2>
+    <a class="btn-white" href="#contacte">Contactar <span aria-hidden="true">→</span></a>
   </div>
 </section>
 </main>

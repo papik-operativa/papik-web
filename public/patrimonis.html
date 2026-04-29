@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/blocks.css">
   <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>
@@ -267,15 +268,23 @@
 </header>
 
 <main id="main">
-<section class="hero hero--dark">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
+<section class="block-hero block-hero--dark block-hero--service">
+  <div class="block-hero__media">
+    <img src="/img/og/og-patrimonis.jpg" alt="" loading="eager" fetchpriority="high">
+    <div class="ph ph-hero" aria-hidden="true"></div>
+  </div>
+  <div class="block-hero__overlay"></div>
+  <div class="block-hero__breadcrumb"><nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Inici</a>
         <span class="sep">·</span>
         <span>Patrimoni i construcció</span>
-      </nav>
-    <h1 class="hero__title">Patrimoni i construcció</h1>
-    <p class="hero__subtitle">Acompanyem patrimonis consolidats en projectes immobiliaris sostenibles a Catalunya, Balears i Andorra. Servei bilateral, cas a cas, en vehicles privats.</p>
+      </nav></div>
+  <div class="block-hero__content">
+    <h1 class="block-hero__title">Patrimoni i construcció</h1>
+    <p class="block-hero__sub block-hero__subtitle">Acompanyem patrimonis consolidats en projectes immobiliaris sostenibles a Catalunya, Balears i Andorra. Servei bilateral, cas a cas, en vehicles privats.</p>
+    <div class="block-hero__cta">
+      <a class="btn-white" href="#contacte">Parla amb nosaltres <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 <section class="article-body">
@@ -474,6 +483,13 @@
 <h2>REGLES DE COPY · INVIOLABLES</h2>
 <p>Aquestes regles han estat aplicades al copy d'amunt. Si el dev o el copywriter modifiquen alguna cosa, han de mantenir-se: cap xifra d'inversions gestionades, ROI mig, capital sota gestió o ticket mig; cap promesa de rendibilitat ("guanyarà X%", "rendibilitat esperada Y%"); cap botó que digui "invertir" (sempre "sol·licitar conversa"); cap copy que insinuï captació pública (sempre bilateral: "treballem amb", "acompanyem"); cap comparativa nominal amb competidors ni amb fons o productes financers; cap nom de socis ni projectes identificables. Sí lèxic legal-tècnic correcte (NDA, vehicle, governança, sortida, fideïcomís) com a senyal de professionalitat.</p>
     </div>
+  </div>
+</section>
+<section class="block-cta block-cta--closing">
+  <div class="container">
+    <p class="block-cta__label">Tens alguna pregunta?</p>
+    <h2 class="block-cta__title">Parla amb nosaltres sobre el teu projecte</h2>
+    <a class="btn-white" href="#contacte">Contactar <span aria-hidden="true">→</span></a>
   </div>
 </section>
 </main>

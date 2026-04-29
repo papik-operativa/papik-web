@@ -1,0 +1,540 @@
+/* ═══════════════════════════════════════════════════════════
+   PAPIK · BLOCK COMPONENTS
+   Extracted verbatim from the original design HTML files
+   (papik/index.html · papik/projecte-k-iturbi.html ·
+    papik/article-pressupost-casa-passiva.html ·
+    papik/construccio.html).
+   Uses tokens declared in tokens.css — does NOT redeclare them.
+   Order:
+     1. Spacing & utilities (block-margin, bg-warm-*)
+     2. block-hero (homepage + service variants)
+     3. block-info-repeatable (+ big-text, item__info, item__media)
+     4. block-services (services divisions list)
+     5. block-categories (categories grid + archive-btn)
+     6. block-columns (3-up project grid)
+     7. block-info (dark green CTA panel)
+     8. block-journal (featured + news cards)
+     9. block-process (numbered process list)
+    10. block-cta-inv (split contact CTA)
+    11. btn-up · btn-close-search
+    12. Responsive overrides (@media 900px / 520px)
+═══════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────────────
+   1 · BLOCK MARGIN · global vertical rhythm
+   ───────────────────────────────────────────────────────── */
+.spacing,
+.block-margin { margin-bottom: 80px; }
+
+
+/* ─────────────────────────────────────────────────────────
+   2 · BG WARM UTILITIES · used on info-repeatable items
+   ───────────────────────────────────────────────────────── */
+.bg-warm-1 { background: var(--warm-1); }
+.bg-warm-2 { background: var(--warm-2); }
+
+
+/* ─────────────────────────────────────────────────────────
+   3 · BLOCK-HERO · full-width cinematic opener
+   Used on: homepage, service pages, landings, project pages
+   Variants: default, with __eyebrow + __sub (service hero),
+             with __cta (homepage), without overlay tint shift
+   ───────────────────────────────────────────────────────── */
+.block-hero {
+  width: 100vw;
+  height: 54.6875vw;
+  max-height: calc(100vh - 100px);
+  position: relative;
+  overflow: hidden;
+}
+.block-hero__media { position: absolute; inset: 0; }
+.block-hero__media .ph { position: absolute; inset: 0; }
+.block-hero__overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: rgba(26,24,22,.42);
+}
+/* Service-page variant uses a darker tint */
+.block-hero--service .block-hero__overlay,
+.block-hero.is-service .block-hero__overlay { background: rgba(10,18,12,.5); }
+
+.block-hero__content {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 0 6vw;
+}
+.block-hero__eyebrow {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.45); margin-bottom: 24px;
+}
+.block-hero__title {
+  color: #fff; font-weight: 300;
+  font-size: clamp(38px, 5.2vw, 76px);
+  line-height: 1.08; max-width: 860px;
+}
+.block-hero__sub {
+  color: rgba(255,255,255,.6);
+  font-size: clamp(15px, 1.3vw, 19px);
+  line-height: 1.65; max-width: 560px; margin-top: 22px;
+}
+.block-hero__cta {
+  margin-top: 48px;
+  display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   4 · BLOCK-INFO-REPEATABLE · alternating media/info rows
+   Used on: homepage (Construccio + Rehabilitacio rows)
+   ───────────────────────────────────────────────────────── */
+.block-info-repeatable { position: relative; z-index: 1; }
+.block-info-repeatable__item {
+  display: flex; min-height: 37.5vw;
+}
+
+.item__info {
+  width: 40%; padding: 4.6875vw;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.item__info__text .tag {
+  font-size: 11px; text-transform: uppercase;
+  letter-spacing: .2em; margin-bottom: 18px;
+  opacity: .65;
+}
+.item__info__text .big-text {
+  font-size: clamp(26px, 2.8vw, 40px);
+  line-height: 1.18; font-weight: 300;
+}
+.item__info__text .text {
+  font-size: 16px; line-height: 1.65;
+  color: var(--muted); margin-top: 20px;
+}
+
+.item__media {
+  width: 60%; overflow: hidden; position: relative;
+}
+.item__media .ph { position: absolute; inset: 0; }
+
+/* Alternate order on even rows */
+.block-info-repeatable__item:nth-child(even) .item__info  { order: 1; }
+.block-info-repeatable__item:nth-child(even) .item__media { order: 0; }
+
+/* Stacked avatar links cluster */
+.item__info__link { margin-top: 28px; }
+.item__info__link .link_images {
+  width: 64px; height: 64px;
+  position: relative; display: inline-block;
+}
+.item__info__link .link_images > div {
+  width: 36px; height: 36px; border-radius: 50%;
+  position: absolute; top: 0; overflow: hidden;
+  border: 2px solid var(--warm-1);
+}
+.item__info__link .link_images > div:nth-child(1) { left: 0;  z-index: 3; }
+.item__info__link .link_images > div:nth-child(2) { left: 16px; z-index: 2; }
+.item__info__link .link_images > div:nth-child(3) { left: 32px; z-index: 1; }
+.item__info__link .link_images > div .ph { height: 100%; }
+
+.link-wrapper {
+  display: flex; align-items: center; gap: 12px;
+}
+.link-wrapper:hover { opacity: .7; }
+
+
+/* ─────────────────────────────────────────────────────────
+   5 · BLOCK-SERVICES · gif + interactive divisions list
+   Used on: homepage
+   ───────────────────────────────────────────────────────── */
+.block-services { padding: 80px 0; }
+
+.block-services__content {
+  display: flex; gap: 0; padding-left: 12.96875vw;
+}
+
+.services__gif { width: 44.6875vw; flex-shrink: 0; }
+.services__gif .ph {
+  height: 29.8vw; border-radius: 8px; transition: opacity .3s;
+}
+
+.services__list {
+  padding-left: 7.03125vw;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.services__list .label { color: var(--green); font-size: 15px; }
+.services__list ul { margin-top: 16px; }
+.services__list ul li {
+  font-size: clamp(26px, 2.8vw, 40px); line-height: 1.2;
+  padding: 6px 0; color: var(--muted-light); cursor: pointer;
+  display: flex; align-items: center; gap: 10px;
+  transition: color .2s;
+}
+.services__list ul li.active { color: var(--green); }
+.services__list ul li:hover  { color: var(--green); }
+.services__list ul li svg { opacity: 0; transition: opacity .2s; }
+.services__list ul li.active svg,
+.services__list ul li:hover svg { opacity: 1; }
+
+
+/* ─────────────────────────────────────────────────────────
+   6 · BLOCK-CATEGORIES · 3-tile grid + archive-btn
+   Used on: homepage (Serveis section)
+   ───────────────────────────────────────────────────────── */
+.block-categories {
+  padding: 80px 0;
+  background: var(--bg-light);
+}
+.block-categories__title { margin-bottom: 60px; }
+
+.categories-container {
+  width: 100%; display: flex; flex-wrap: wrap;
+  margin: 0 -1.68vw; width: calc(100% + 3.36vw);
+}
+
+.categories__item {
+  display: flex; flex-direction: column; align-items: center;
+  width: 27.96vw; margin: 0 1.68vw 45px;
+  cursor: pointer; transition: opacity .2s;
+}
+.categories__item:hover { opacity: .6; }
+
+.categories__item img,
+.categories__item .ph-cat {
+  width: 100%; height: 17.97vw; object-fit: cover;
+  border-radius: 8px; margin-bottom: 12px;
+}
+.categories__item .ph-cat { height: 17.97vw; border-radius: 8px; }
+.categories__item__title { font-size: 22px; font-weight: 300; }
+
+.archive-btn {
+  display: block; width: max-content; margin: 10px auto 0;
+  padding: 10px 24px; background: #E7E9E8; border-radius: 24px;
+  font-size: 16px; transition: background .2s, color .2s;
+}
+.archive-btn:hover { background: #000; color: #fff; }
+
+
+/* ─────────────────────────────────────────────────────────
+   7 · BLOCK-COLUMNS · 3-up project / showroom grid
+   Used on: homepage (Projectes recents)
+   ───────────────────────────────────────────────────────── */
+.block-columns { padding-bottom: 80px; }
+.block-columns__title { margin-bottom: 40px; }
+
+.block-columns__repeater {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.block-columns__item { position: relative; }
+.block-columns__item .item__media-col {
+  height: 18vw; overflow: hidden; position: relative;
+  margin-bottom: 18px; border-radius: 8px;
+}
+.block-columns__item .item__media-col .ph {
+  position: absolute; inset: 0; transition: opacity .2s;
+}
+.block-columns__item:hover .item__media-col .ph { opacity: .82; }
+.block-columns__item .title { font-size: 22px; margin-bottom: 8px; }
+.block-columns__item .text {
+  color: var(--muted); font-size: 15px; line-height: 1.6;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   8 · BLOCK-LOGIN · two account cards
+   Used on: homepage (Usuaris area)
+   ───────────────────────────────────────────────────────── */
+.block-login { padding-bottom: 80px; }
+.block-login__content {
+  display: flex; gap: 20px; justify-content: center;
+}
+.block-login__item {
+  min-height: 130px; width: 43vw;
+  background: var(--bg-light);
+  border: 1px solid var(--border); border-radius: 8px;
+  display: flex; align-items: center; padding: 36px 40px;
+  position: relative; transition: border-color .2s; cursor: pointer;
+}
+.block-login__item:hover { border-color: #000; }
+.block-login__item h6 { font-size: 22px; margin-bottom: 12px; }
+.block-login__item .link_button {
+  display: flex; align-items: center; gap: 4px; font-size: 15px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   9 · BLOCK-INFO · dark-green half-image CTA panel
+   Used on: homepage (Nosaltres section)
+   ───────────────────────────────────────────────────────── */
+.block-info { padding-bottom: 80px; }
+.block-info__content {
+  border-radius: 8px;
+  padding: 56px 56px 56px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--green);
+}
+.block-info__text {
+  width: 60%; padding: 0 40px 0 56px;
+}
+.block-info__text h4 {
+  color: #fff; font-size: 42px; margin-bottom: 16px;
+}
+.block-info__text .text {
+  color: rgba(255,255,255,.75);
+  font-size: 16px; margin-bottom: 36px;
+}
+.block-info__image { margin-right: 56px; }
+.block-info__image .ph-circle {
+  width: 20vw; height: 20vw; border-radius: 50%;
+  max-width: 340px; max-height: 340px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   10 · BLOCK-JOURNAL · featured article + news grid
+   Used on: homepage (Actualitat)
+   ───────────────────────────────────────────────────────── */
+.block-journal { padding-bottom: 0; }
+
+.journal-bar {
+  display: flex; align-items: baseline;
+  justify-content: space-between; padding-bottom: 28px;
+}
+
+/* Featured article */
+.featured__item__content {
+  display: flex; align-items: center; gap: 40px;
+  margin-top: 40px; justify-content: space-between;
+}
+.featured__item__img { flex-shrink: 0; }
+.featured__item__img .ph {
+  width: 43vw; height: 27.5vw; border-radius: 8px;
+}
+.featured__item__text { flex: 1; transition: opacity .2s; }
+.featured__item__text:hover { opacity: .75; }
+.featured__item__text .categories {
+  color: var(--muted); font-size: 16px; margin-bottom: 12px;
+}
+.featured__item__text .title {
+  font-size: 40px; margin-bottom: 12px;
+}
+.featured__item__text .desc {
+  color: var(--muted); font-size: 16px;
+}
+.featured__item__text .date {
+  display: block; color: var(--muted); font-size: 15px; margin-top: 12px;
+}
+
+/* Small news cards row */
+.other-articles { padding: 80px 0 80px; }
+.news-grid {
+  display: flex; gap: 30px; margin-top: 10px;
+}
+.news-card { flex: 1; cursor: pointer; }
+.news-card__img {
+  width: 100%; height: 14vw;
+  overflow: hidden; margin-bottom: 16px; border-radius: 8px;
+}
+.news-card__img .ph { height: 100%; transition: opacity .2s; }
+.news-card:hover .news-card__img .ph { opacity: .82; }
+.news-card .category {
+  font-size: 11px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px; letter-spacing: .08em;
+}
+.news-card h4 {
+  font-size: 18px; line-height: 1.35; margin-bottom: 8px;
+}
+.news-card .news-text { transition: opacity .2s; }
+.news-card:hover .news-text { opacity: .7; }
+
+
+/* ─────────────────────────────────────────────────────────
+   11 · BLOCK-PROCESS · numbered phases grid
+   Used on: construccio.html, rehabilitacio.html, promocio.html
+   ───────────────────────────────────────────────────────── */
+.block-process {
+  padding: 80px 0; background: var(--bg-light);
+}
+.block-process__header { margin-bottom: 36px; }
+.block-process__tag {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted-light); margin-bottom: 14px; display: block;
+}
+.block-process__title {
+  font-size: clamp(26px, 2.8vw, 40px);
+  line-height: 1.15;
+}
+.block-process__intro {
+  font-size: 16px; color: var(--muted); line-height: 1.65;
+  max-width: 540px; margin-top: 14px;
+}
+
+.process-steps {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.process-step {
+  padding: 28px 0; display: flex; gap: 24px; align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+}
+.process-step:nth-child(odd)  { padding-right: 5vw; }
+.process-step:nth-child(even) { padding-left: 5vw; border-left: 1px solid var(--border); }
+.process-step__num {
+  font-size: clamp(36px, 3vw, 52px);
+  color: var(--border); font-weight: 300;
+  line-height: 1; min-width: 64px; flex-shrink: 0;
+  letter-spacing: -.02em;
+}
+.process-step__body { padding-top: 4px; }
+.process-step__title {
+  font-size: 17px; color: var(--green);
+  margin-bottom: 10px; line-height: 1.3; font-weight: 400;
+}
+.process-step__desc {
+  font-size: 14px; color: var(--muted);
+  line-height: 1.65; max-width: 360px;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   12 · BLOCK-CTA-INV · split-panel contact form CTA
+   Used on: construccio.html, service pages
+   (block-cta itself is in components.css — do NOT redeclare)
+   ───────────────────────────────────────────────────────── */
+.block-cta-inv {
+  padding: 80px 0; background: #fff;
+}
+.block-cta-inv__inner {
+  background: var(--green);
+  display: flex; align-items: stretch;
+  overflow: hidden; border-radius: 8px;
+}
+.block-cta-inv .cta-left {
+  flex: 1; padding: 44px;
+}
+.block-cta-inv .cta-left .tag {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.4); margin-bottom: 20px; display: block;
+}
+.block-cta-inv .cta-left h2 {
+  font-size: clamp(26px, 2.8vw, 40px); color: #fff;
+  line-height: 1.12; margin-bottom: 20px;
+}
+.block-cta-inv .cta-left p {
+  font-size: 16px; color: rgba(255,255,255,.6);
+  line-height: 1.65; margin-bottom: 36px; max-width: 400px;
+}
+.block-cta-inv .cta-confidencial {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: rgba(255,255,255,.35); margin-top: 20px;
+}
+.block-cta-inv .cta-right {
+  width: 42%; background: rgba(255,255,255,.04);
+  padding: 44px 40px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   13 · BTN-UP · floating "scroll to top" pill
+   (companion to block-margin · footer-adjacent)
+   ───────────────────────────────────────────────────────── */
+/* Note: `.btn-up` already exists in components.css — keep
+   any additional inverse-state hover here if needed. */
+
+
+/* ─────────────────────────────────────────────────────────
+   14 · BTN-CLOSE-SEARCH · header search dismissal pill
+   (referenced from header.css search drawer)
+   ───────────────────────────────────────────────────────── */
+.btn-close-search {
+  background: var(--bg-light);
+  height: 40px; width: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; visibility: hidden; border: 0;
+  transition: all .2s linear;
+}
+.header-sticky.search-open .btn-close-search {
+  opacity: 1; visibility: visible; transition-delay: .3s;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES · mirror exactly what the source files do
+═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .spacing,
+  .block-margin { margin-bottom: 45px; }
+
+  /* Hero */
+  .block-hero { height: 106vw; max-height: 500px; }
+  .block-hero__title { font-size: 30px; }
+
+  /* Info repeatable stacks vertically */
+  .block-info-repeatable__item { flex-wrap: wrap; }
+  .item__info  { width: 100%; order: 1 !important; padding: 6vw 4.8vw; }
+  .item__media { width: 100%; order: 0 !important; height: 62vw; }
+  .block-info-repeatable__item:nth-child(even) .item__info  { order: 1 !important; }
+  .block-info-repeatable__item:nth-child(even) .item__media { order: 0 !important; }
+
+  /* Services */
+  .block-services__content {
+    flex-direction: column; padding-left: 0; gap: 30px;
+  }
+  .services__gif { width: 100%; }
+  .services__gif .ph { height: 62vw; }
+  .services__list { padding-left: 0; }
+  .services__list ul li { font-size: 22px; }
+
+  /* Categories grid */
+  .categories-container { margin: 0; width: 100%; }
+  .categories__item { width: 48%; margin: 0 1% 20px; }
+  .categories__item .ph-cat { height: 30vw; }
+
+  /* Columns */
+  .block-columns__repeater { grid-template-columns: 1fr; }
+  .block-columns__item .item__media-col { height: 56vw; }
+
+  /* Login cards */
+  .block-login__content { flex-direction: column; }
+  .block-login__item { width: 100%; }
+
+  /* Block-info dark CTA */
+  .block-info__content {
+    flex-direction: column; padding: 40px 5vw;
+    text-align: center;
+  }
+  .block-info__text { width: 100%; padding: 0 0 30px; }
+  .block-info__text h4 { font-size: 28px; }
+  .block-info__image { margin: 0; }
+  .block-info__image .ph-circle { width: 50vw; height: 50vw; }
+
+  /* Journal */
+  .featured__item__content { flex-direction: column; }
+  .featured__item__img .ph { width: 100%; height: 56vw; }
+  .news-grid { flex-wrap: wrap; gap: 20px; }
+  .news-card { width: calc(50% - 10px); flex: none; }
+  .news-card__img { height: 30vw; }
+
+  /* Process steps stack to 1 col on tablet down */
+  .process-steps { grid-template-columns: 1fr; }
+  .process-step:nth-child(odd),
+  .process-step:nth-child(even) {
+    padding: 28px 0; border-left: 0;
+  }
+
+  /* Block-cta-inv stacks */
+  .block-cta-inv__inner { flex-direction: column; }
+  .block-cta-inv .cta-right { width: 100%; }
+}
+
+@media (max-width: 520px) {
+  .categories__item { width: 100%; margin: 0 0 20px; }
+  .categories__item .ph-cat { height: 56vw; }
+  .news-card { width: 100%; }
+  .news-card__img { height: 56vw; }
+  .block-hero__title { font-size: 26px; }
+}

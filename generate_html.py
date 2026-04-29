@@ -1611,85 +1611,217 @@ def render_breadcrumb(page: Page) -> str:
       </nav>'''
 
 
-def hero_for_page(page: Page) -> str:
-    """Render the page's hero. Prefers `## BLOC HERO` block; falls back to a default hero."""
-    body_text = page.body_md
-    sections = split_into_sections(body_text)
-    breadcrumb = render_breadcrumb(page)
+def hero_image_for_page(page: Page) -> str:
+    """Pick a hero background image based on page type / slug.
 
+    Falls back to a generic photo when no specific asset is available. The
+    generator does NOT verify file existence; missing assets degrade to the
+    CSS gradient placeholder beneath them.
+    """
+    slug = page.slug
+    if page.page_type == "homepage":
+        return "/img/fotos/photo-1.jpg"
+    if page.page_type == "service":
+        # Map common service slugs -> OG image
+        og_map = {
+            "construccio": "/img/og/og-construccio.jpg",
+            "construccion": "/img/og/og-construccio.jpg",
+            "construction": "/img/og/og-construccio.jpg",
+            "rehabilitacio": "/img/og/og-rehabilitacio.jpg",
+            "rehabilitacion": "/img/og/og-rehabilitacio.jpg",
+            "retrofit": "/img/og/og-rehabilitacio.jpg",
+            "promocio": "/img/og/og-promocio.jpg",
+            "promocion": "/img/og/og-promocio.jpg",
+            "development": "/img/og/og-promocio.jpg",
+            "patrimonis": "/img/og/og-patrimonis.jpg",
+            "patrimonios": "/img/og/og-patrimonis.jpg",
+            "wealth": "/img/og/og-patrimonis.jpg",
+            "comunitats": "/img/og/og-comunitats.jpg",
+            "comunidades": "/img/og/og-comunitats.jpg",
+            "communities": "/img/og/og-comunitats.jpg",
+        }
+        return og_map.get(slug, "/img/fotos/photo-2.jpg")
+    if page.page_type == "article":
+        # article-pressupost-casa-passiva -> og-pressupost-casa-passiva.jpg
+        article_slug = re.sub(r"^article-", "", slug)
+        return f"/img/og/og-{article_slug}.jpg"
+    if page.page_type == "landing":
+        # rotate among photo-1..photo-6 based on slug hash for variety
+        idx = (sum(ord(c) for c in slug) % 6) + 1
+        return f"/img/fotos/photo-{idx}.jpg"
+    return "/img/fotos/photo-1.jpg"
+
+
+def _parse_hero_entries(page: Page) -> dict:
+    """Walk source body for `## BLOC HERO` and pull out eyebrow/h1/subhead/CTAs."""
+    out = {
+        "eyebrow": "",
+        "h1": "",
+        "subhead": "",
+        "primary_cta": None,
+        "secondary_cta": None,
+        "microtrust": "",
+    }
+    sections = split_into_sections(page.body_md)
     for sec in sections:
         if sec["kind"] != "hero":
             continue
         blocks = collect_fenced_blocks(sec["content_lines"])
         for b in blocks:
-            if b["kind"] == "fence":
-                entries = parse_marker_block(b["text"])
-                # Build hero
-                eyebrow = ""
-                h1 = ""
-                subhead_parts: list[str] = []
-                primary_cta = None
-                secondary_cta = None
-                microtrust = ""
-                for e in entries:
-                    m = e["marker"] or ""
-                    t = _join_lines(e["lines"])
-                    if not t:
-                        continue
-                    if m.startswith("eyebrow"):
-                        eyebrow = t
-                    elif m == "h1" or m.startswith("h1"):
-                        h1 = t
-                    elif m.startswith("subhead") or m.startswith("subtitle") or m.startswith("subtítol"):
-                        subhead_parts.append(t)
-                    elif m.startswith("cta primari") or m.startswith("cta primary") or m.startswith("cta principal"):
-                        primary_cta = _strip_arrow(t)
-                    elif m.startswith("cta secund") or m.startswith("cta secondary"):
-                        secondary_cta = _strip_arrow(t)
-                    elif m.startswith("microtrust") or m.startswith("micro-trust"):
-                        microtrust = t
-                    elif m is None:
-                        subhead_parts.append(t)
-                if not h1:
-                    h1 = page.meta.h1 or page.meta.title
+            if b["kind"] != "fence":
+                continue
+            entries = parse_marker_block(b["text"])
+            subhead_parts: list[str] = []
+            for e in entries:
+                m = e["marker"] or ""
+                t = _join_lines(e["lines"])
+                if not t:
+                    continue
+                if m.startswith("eyebrow"):
+                    out["eyebrow"] = t
+                elif m == "h1" or m.startswith("h1"):
+                    out["h1"] = t
+                elif m.startswith("subhead") or m.startswith("subtitle") or m.startswith("subtítol"):
+                    subhead_parts.append(t)
+                elif m.startswith("cta primari") or m.startswith("cta primary") or m.startswith("cta principal"):
+                    out["primary_cta"] = _strip_arrow(t)
+                elif m.startswith("cta secund") or m.startswith("cta secondary"):
+                    out["secondary_cta"] = _strip_arrow(t)
+                elif m.startswith("microtrust") or m.startswith("micro-trust"):
+                    out["microtrust"] = t
+                elif m is None:
+                    subhead_parts.append(t)
+            out["subhead"] = " ".join(subhead_parts).strip()
+            return out
+    return out
 
-                parts = [
-                    '<section class="hero hero--dark">',
-                    '  <div class="container">',
-                ]
-                if breadcrumb:
-                    parts.append("    " + breadcrumb)
-                if eyebrow:
-                    parts.append(f'    <span class="hero__eyebrow">{md_inline(eyebrow)}</span>')
-                if h1:
-                    parts.append(f'    <h1 class="hero__title">{md_inline(h1)}</h1>')
-                if subhead_parts:
-                    parts.append(f'    <p class="hero__subtitle">{md_inline(" ".join(subhead_parts))}</p>')
-                if primary_cta or secondary_cta:
-                    parts.append('    <div class="hero__actions">')
-                    if primary_cta:
-                        parts.append(f'      <a class="btn-white" href="#contacte">{md_inline(primary_cta)} <span aria-hidden="true">→</span></a>')
-                    if secondary_cta:
-                        parts.append(f'      <a class="btn-outline" href="#main">{md_inline(secondary_cta)} <span aria-hidden="true">→</span></a>')
-                    parts.append('    </div>')
-                if microtrust:
-                    parts.append(f'    <p class="hero__microtrust">{md_inline(microtrust)}</p>')
-                parts.append('  </div>')
-                parts.append('</section>')
-                return "\n".join(parts)
 
-    # Fallback hero
-    h1 = page.meta.h1 or page.meta.title or page.slug.replace("-", " ").title()
-    desc = page.meta.description or ""
-    parts = ['<section class="hero hero--dark">', '  <div class="container">']
+def _render_block_hero(page: Page, hero: dict, breadcrumb: str) -> str:
+    """Block-hero markup: full-bleed image + overlay + centred content.
+
+    Used for homepage, service, landing, community pages.
+    """
+    img = hero_image_for_page(page)
+    cta_label_default = {"ca": "Parla amb nosaltres", "es": "Habla con nosotros", "en": "Talk to us"}[page.lang]
+    primary_cta = hero.get("primary_cta") or cta_label_default
+    secondary_cta = hero.get("secondary_cta")
+    eyebrow = hero.get("eyebrow")
+    h1 = hero.get("h1") or page.meta.h1 or page.meta.title
+    subhead = hero.get("subhead") or page.meta.description or ""
+
+    hero_class = "block-hero block-hero--dark"
+    if page.page_type in ("service", "landing", "community"):
+        hero_class += " block-hero--service"
+    if page.page_type == "homepage":
+        hero_class += " block-hero--home"
+
+    parts: list[str] = []
+    parts.append(f'<section class="{hero_class}">')
+    parts.append('  <div class="block-hero__media">')
+    parts.append(f'    <img src="{html.escape(img)}" alt="" loading="eager" fetchpriority="high">')
+    parts.append('    <div class="ph ph-hero" aria-hidden="true"></div>')
+    parts.append('  </div>')
+    parts.append('  <div class="block-hero__overlay"></div>')
     if breadcrumb:
-        parts.append("    " + breadcrumb)
-    parts.append(f'    <h1 class="hero__title">{md_inline(h1)}</h1>')
-    if desc:
-        parts.append(f'    <p class="hero__subtitle">{md_inline(desc)}</p>')
+        parts.append(f'  <div class="block-hero__breadcrumb">{breadcrumb}</div>')
+    parts.append('  <div class="block-hero__content">')
+    if eyebrow:
+        parts.append(f'    <span class="block-hero__eyebrow">{md_inline(eyebrow)}</span>')
+    if h1:
+        parts.append(f'    <h1 class="block-hero__title">{md_inline(h1)}</h1>')
+    if subhead:
+        parts.append(f'    <p class="block-hero__sub block-hero__subtitle">{md_inline(subhead)}</p>')
+    parts.append('    <div class="block-hero__cta">')
+    parts.append(f'      <a class="btn-white" href="#contacte">{md_inline(primary_cta)} <span aria-hidden="true">→</span></a>')
+    if secondary_cta:
+        parts.append(f'      <a class="btn-outline" href="#main">{md_inline(secondary_cta)} <span aria-hidden="true">→</span></a>')
+    parts.append('    </div>')
     parts.append('  </div>')
     parts.append('</section>')
     return "\n".join(parts)
+
+
+def _render_article_hero(page: Page, hero: dict, breadcrumb: str) -> str:
+    """Article-hero markup with breadcrumb + category badge + meta line."""
+    h1 = hero.get("h1") or page.meta.h1 or page.meta.title
+    eyebrow = hero.get("eyebrow") or page.meta.article_section or ""
+    cover_img = hero_image_for_page(page)
+
+    parts = ['<section class="article-hero">', '  <div class="container">']
+    if breadcrumb:
+        parts.append("    " + breadcrumb)
+    if eyebrow:
+        parts.append(f'    <span class="article-hero__cat">{md_inline(eyebrow)}</span>')
+    if h1:
+        parts.append(f'    <h1 class="article-hero__title">{md_inline(h1)}</h1>')
+    if hero.get("subhead"):
+        parts.append(f'    <p class="article-hero__lead">{md_inline(hero["subhead"])}</p>')
+    parts.append('  </div>')
+    parts.append('</section>')
+    parts.append('<div class="article-cover">')
+    parts.append(f'  <img class="article-cover__img" src="{html.escape(cover_img)}" alt="" loading="eager" fetchpriority="high">')
+    parts.append('</div>')
+    return "\n".join(parts)
+
+
+def hero_for_page(page: Page) -> str:
+    """Render the page's hero using block-* markup.
+
+    Page-type dispatch:
+      * homepage  -> full-bleed block-hero with photo background
+      * service   -> block-hero--service (full-bleed with darker overlay)
+      * article   -> light article-hero + cover image strip
+      * landing   -> block-hero--service
+      * community -> block-hero--service
+      * legal     -> simple block-hero (no image)
+    """
+    breadcrumb = render_breadcrumb(page)
+    hero = _parse_hero_entries(page)
+
+    if page.page_type == "article":
+        return _render_article_hero(page, hero, breadcrumb)
+    if page.page_type == "legal":
+        # Lightweight light-bg hero for legal text pages
+        h1 = hero.get("h1") or page.meta.h1 or page.meta.title
+        parts = ['<section class="article-hero">', '  <div class="container">']
+        if breadcrumb:
+            parts.append("    " + breadcrumb)
+        if h1:
+            parts.append(f'    <h1 class="article-hero__title">{md_inline(h1)}</h1>')
+        if page.meta.description:
+            parts.append(f'    <p class="article-hero__lead">{md_inline(page.meta.description)}</p>')
+        parts.append('  </div>')
+        parts.append('</section>')
+        return "\n".join(parts)
+    return _render_block_hero(page, hero, breadcrumb)
+
+
+_CLOSING_CTA_COPY = {
+    "ca": ("Tens alguna pregunta?", "Parla amb nosaltres sobre el teu projecte", "Contactar"),
+    "es": ("¿Tienes alguna pregunta?", "Habla con nosotros sobre tu proyecto", "Contactar"),
+    "en": ("Have a question?", "Talk to us about your project", "Get in touch"),
+}
+
+
+def render_closing_cta(page: Page) -> str:
+    """Closing CTA banner (block-cta) appended at the end of every non-legal page.
+
+    Mirrors the original design's green strip used on every page in the legacy
+    site (index.html, projecte-*, article-*).
+    """
+    if page.page_type == "legal":
+        return ""
+    # Skip if the body already ends with a block-cta to avoid duplication
+    label, title, cta = _CLOSING_CTA_COPY.get(page.lang, _CLOSING_CTA_COPY["ca"])
+    return (
+        '<section class="block-cta block-cta--closing">\n'
+        '  <div class="container">\n'
+        f'    <p class="block-cta__label">{html.escape(label)}</p>\n'
+        f'    <h2 class="block-cta__title">{html.escape(title)}</h2>\n'
+        f'    <a class="btn-white" href="#contacte">{html.escape(cta)} <span aria-hidden="true">→</span></a>\n'
+        '  </div>\n'
+        '</section>'
+    )
 
 
 def render_page(page: Page) -> str:
@@ -1702,6 +1834,7 @@ def render_page(page: Page) -> str:
     jsonld = build_jsonld(page)
     hero = hero_for_page(page)
     body_html = render_body(page.body_md, page)
+    closing_cta = render_closing_cta(page)
     if not body_html.strip():
         # Fallback: render the whole body as free markdown article
         sections = split_into_sections(page.body_md)
@@ -1732,6 +1865,7 @@ def render_page(page: Page) -> str:
   <link rel="stylesheet" href="{pref}css/components.css">
   <link rel="stylesheet" href="{pref}css/footer.css">
   <link rel="stylesheet" href="{pref}css/editorial.css">
+  <link rel="stylesheet" href="{pref}css/blocks.css">
   <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>{EXTRA_INLINE_CSS}</style>
@@ -1760,6 +1894,7 @@ def render_page(page: Page) -> str:
 <main id="main">
 {hero}
 {body_html}
+{closing_cta}
 </main>
 
 {footer_html(page)}

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/editorial.css">
+  <link rel="stylesheet" href="../css/blocks.css">
   <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>
@@ -220,17 +221,19 @@
 </header>
 
 <main id="main">
-<section class="hero hero--dark">
+<section class="article-hero">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/es/">Inicio</a>
         <span class="sep">·</span>
         <span>Glosario Passivhaus y construcción sostenible</span>
       </nav>
-    <h1 class="hero__title">Glosario Passivhaus y construcción sostenible</h1>
-    <p class="hero__subtitle">Definiciones autorizadas de términos Passivhaus, construcción sostenible, rehabilitación energética y urbanismo catalán. 38 términos con referencias normativas.</p>
+    <h1 class="article-hero__title">Glosario Passivhaus y construcción sostenible</h1>
   </div>
 </section>
+<div class="article-cover">
+  <img class="article-cover__img" src="/img/og/og-glosario.jpg" alt="" loading="eager" fetchpriority="high">
+</div>
 <section class="article-body">
   <div class="container">
     <div class="article-body__content">
@@ -413,6 +416,13 @@
 <h2>JSON-LD</h2>
 <p>``<code>json { "@context": "https://schema.org", "@graph": [ { "@type": "DefinedTermSet", "@id": "https://papik.cat/es/glosario#termset", "name": "Glosario Passivhaus y construcción sostenible", "description": "Definiciones autorizadas de 38 términos Passivhaus, construcción sostenible, rehabilitación energética y urbanismo catalán.", "inLanguage": "es", "publisher": { "@type": "Organization", "name": "PAPIK Group", "url": "https://papik.cat" } }, { "@type": "DefinedTerm", "name": "Passivhaus", "description": "Estándar de edificación del Passivhaus Institut que limita la demanda de calefacción a 15 kWh/m²·año.", "inDefinedTermSet": "https://papik.cat/es/glosario#termset" }, { "@type": "DefinedTerm", "name": "EnerPHit", "description": "Variante Passivhaus para rehabilitación de edificios existentes con umbrales más permisivos (25 kWh/m²·año).", "inDefinedTermSet": "https://papik.cat/es/glosario#termset" }, { "@type": "DefinedTerm", "name": "nZEB", "description": "Edificio de consumo de energía casi nulo, categoría normativa europea (Directiva 2010/31/UE).", "inDefinedTermSet": "https://papik.cat/es/glosario#termset" }, { "@type": "DefinedTerm", "name": "PHPP", "description": "Passive House Planning Package, hoja de cálculo de balance energético anual con resolución mensual.", "inDefinedTermSet": "https://papik.cat/es/glosario#termset" }, { "@type": "DefinedTerm", "name": "Eskimohaus", "description": "Sistema constructivo propietario de PAPIK Group basado en estructura de madera y envolvente Passivhaus.", "inDefinedTermSet": "https://papik.cat/es/glosario#termset" }, { "@type": "DefinedTerm", "name": "POUM", "description": "Plan de Ordenación Urbanística Municipal, instrumento básico de planeamiento en Cataluña.", "inDefinedTermSet": "https://papik.cat/es/glosario#termset" }, { "@type": "DefinedTerm", "name": "ITE", "description": "Inspección Técnica del Edificio, revisión obligatoria a partir de los 45 años (Decreto 67/2015).", "inDefinedTermSet": "https://papik.cat/es/glosario#termset" }, { "@type": "DefinedTerm", "name": "LCA", "description": "Life Cycle Assessment, metodología ISO 14040/14044 y EN 15978 para edificios.", "inDefinedTermSet": "https://papik.cat/es/glosario#termset" }, { "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://papik.cat/es"}, {"@type": "ListItem", "position": 2, "name": "Glosario", "item": "https://papik.cat/es/glosario"} ] } ] } </code>``</p>
     </div>
+  </div>
+</section>
+<section class="block-cta block-cta--closing">
+  <div class="container">
+    <p class="block-cta__label">¿Tienes alguna pregunta?</p>
+    <h2 class="block-cta__title">Habla con nosotros sobre tu proyecto</h2>
+    <a class="btn-white" href="#contacte">Contactar <span aria-hidden="true">→</span></a>
   </div>
 </section>
 </main>
