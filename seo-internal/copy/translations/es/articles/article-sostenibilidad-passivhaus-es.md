@@ -33,7 +33,7 @@ Passivhaus y sostenibilidad: marco técnico, LCA y decisiones verificables
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · [Fecha publicación] · Reading time aproximado 8 min
+Equipo técnico · PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 8 min
 ```
 
 ## INTRO

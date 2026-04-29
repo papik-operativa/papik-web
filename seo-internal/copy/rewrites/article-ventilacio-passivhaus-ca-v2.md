@@ -8,7 +8,7 @@
 
 ```html
 <title>Per què es respira millor en una casa Passivhaus? | PAPIK</title>
-<meta name="description" content="Una vivenda Passivhaus garanteix aire net, filtrat i a temperatura adequada gràcies a la ventilació amb recuperació de calor (VRC). Per què calen, com funcionen i quin manteniment requereixen.">
+<meta name="description" content="Un habitatge Passivhaus garanteix aire net, filtrat i a temperatura adequada gràcies a la ventilació amb recuperació de calor (VRC). Per què calen, com funcionen i quin manteniment requereixen.">
 <link rel="canonical" href="https://papik.cat/article-ventilacio-passivhaus">
 <link rel="alternate" hreflang="ca" href="https://papik.cat/article-ventilacio-passivhaus">
 <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-ventilacion-passivhaus">
@@ -40,7 +40,7 @@ Una casa Passivhaus es respira diferent. La causa no és casual ni atribuïble a
 
 ## H2 · 1. El problema real: la qualitat de l'aire interior
 
-Passem aproximadament el 90% del temps en espais interiors, i la qualitat de l'aire que respirem en aquests espais determina, en bona mesura, la qualitat del nostre descans, del rendiment cognitiu i de la salut respiratòria. Segons l'Organització Mundial de la Salut, l'aire interior d'una vivenda convencional pot estar entre dues i cinc vegades més contaminat que l'aire exterior, fins i tot en entorns urbans amb trànsit intens. La qualitat de l'aire interior, IAQ per les seves sigles en anglès, és un indicador rellevant que rarament forma part de la decisió de compra d'una vivenda però que afecta de manera mesurable el dia a dia dels seus ocupants.
+Passem aproximadament el 90% del temps en espais interiors, i la qualitat de l'aire que respirem en aquests espais determina, en bona mesura, la qualitat del nostre descans, del rendiment cognitiu i de la salut respiratòria. Segons l'Organització Mundial de la Salut, l'aire interior d'un habitatge convencional pot estar entre dues i cinc vegades més contaminat que l'aire exterior, fins i tot en entorns urbans amb trànsit intens. La qualitat de l'aire interior, IAQ per les seves sigles en anglès, és un indicador rellevant que rarament forma part de la decisió de compra d'un habitatge però que afecta de manera mesurable el dia a dia dels seus ocupants.
 
 Les fonts de contaminació interior són múltiples i sovint invisibles a l'ocupant. Inclouen compostos orgànics volàtils emesos per mobles, pintures, productes de neteja i materials sintètics dels acabats; partícules de pols i àcars acumulats als tèxtils i a l'aire en suspensió; humitat excessiva que afavoreix la proliferació de fongs i la degradació de materials; i el propi CO₂ que exhalem, que en espais mal ventilats s'acumula fins a nivells que afecten la concentració, la qualitat del son i la sensació general de fatiga al matí.
 
@@ -52,7 +52,7 @@ La solució tradicional, obrir les finestres, presenta una contradicció energè
 
 L'estàndard Passivhaus exigeix una hermeticitat verificada amb el test blower-door amb un valor n50 inferior a 0,6 h⁻¹, fet que la converteix en aproximadament vint vegades més hermètica que una construcció convencional. Aquesta hermeticitat és la que permet a la casa retenir l'energia tèrmica i evitar les infiltracions descontrolades, però alhora elimina la renovació espontània d'aire que es produeix per les fissures i juntes d'una construcció estàndard.
 
-És en aquest punt on la ventilació amb recuperació de calor (VRC) deixa de ser un complement i passa a ser una condició estructural. Una vivenda hermètica sense VRC acumula CO₂, humitat i contaminants en qüestió d'hores, motiu pel qual l'estàndard Passivhaus i la seva variant per a rehabilitació EnerPHit incorporen la VRC com a peça obligatòria del sistema. La lògica és simple: si es bloqueja la fuita d'aire incontrolada, cal reintroduir un cabal controlat d'aire renovat que mantingui la qualitat ambiental dins de paràmetres saludables.
+És en aquest punt on la ventilació amb recuperació de calor (VRC) deixa de ser un complement i passa a ser una condició estructural. Un habitatge hermètica sense VRC acumula CO₂, humitat i contaminants en qüestió d'hores, motiu pel qual l'estàndard Passivhaus i la seva variant per a rehabilitació EnerPHit incorporen la VRC com a peça obligatòria del sistema. La lògica és simple: si es bloqueja la fuita d'aire incontrolada, cal reintroduir un cabal controlat d'aire renovat que mantingui la qualitat ambiental dins de paràmetres saludables.
 
 ---
 
@@ -68,7 +68,7 @@ Els filtres F7 incorporats al sistema retenen partícules fines, pol·len, espor
 
 ## H2 · 4. Què mesuren els sensors i per què importa
 
-A les vivendes Passivhaus modernes, els sensors de CO₂, humitat i temperatura distribuïts pels espais alimenten el sistema de gestió de la ventilació, que ajusta el cabal segons l'ocupació real i les condicions ambientals de cada moment. Aquest control en temps real és el que garanteix que la qualitat de l'aire es mantingui dins de paràmetres saludables sense intervenció de l'usuari.
+A les habitatges Passivhaus modernes, els sensors de CO₂, humitat i temperatura distribuïts pels espais alimenten el sistema de gestió de la ventilació, que ajusta el cabal segons l'ocupació real i les condicions ambientals de cada moment. Aquest control en temps real és el que garanteix que la qualitat de l'aire es mantingui dins de paràmetres saludables sense intervenció de l'usuari.
 
 > Als nostres habitatges, els sensors de CO₂ registren nivells inferiors a 800 ppm de manera constant, sense que ningú hagi d'obrir cap finestra ni pensar-hi. Això és el que significa automatitzar el benestar.
 

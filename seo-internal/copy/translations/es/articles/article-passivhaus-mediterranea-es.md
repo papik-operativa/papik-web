@@ -29,7 +29,7 @@ Passivhaus mediterránea, el paradigma cooling-first
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · 27 abril 2026 · Reading time aproximado 8 min
+Equipo técnico · PAPIK Group · 27 abril 2026 · Tiempo de lectura aproximado 8 min
 ```
 
 ## INTRO

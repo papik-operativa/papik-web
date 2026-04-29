@@ -27,7 +27,7 @@ PAPIK Group y familia Ponsa: 2 millones de euros anuales en vivienda sostenible
 ## BYLINE
 
 ```
-Equipo de PAPIK Group · [Fecha publicación] · Reading time aproximado 6 min
+Equipo de PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 6 min
 ```
 
 ## INTRO

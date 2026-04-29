@@ -30,7 +30,7 @@ Hipoteca verde: el coste que paga cada mes la casa que no lo ha pedido
 ## BYLINE
 
 ```
-Equipo de PAPIK Group · [Fecha publicación] · Reading time aproximado 8 min
+Equipo de PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 8 min
 ```
 
 ## INTRO

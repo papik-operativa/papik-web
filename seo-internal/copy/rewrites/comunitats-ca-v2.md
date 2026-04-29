@@ -327,7 +327,7 @@ comunitat ho sol·licita explícitament.
 [CTA específic]
 Sol·licitar diagnòstic per a la meva finca  →
 
-[Form de pre-cualificació · 4 camps]
+[Form de prequalificació · 4 camps]
 [Camp · Adreça aproximada (zona o municipi · NO carrer concret)]
 [Camp · Any de construcció de l'edifici]
 [Camp · Nombre d'habitatges]
@@ -486,13 +486,13 @@ Si el seu cas és diferent
 ```
 [Grid 3 cards petites]
 
-¿Vol veure la rehabilitació per a habitatges unifamiliars?
+Vol veure la rehabilitació per a habitatges unifamiliars?
 → Rehabilitació general
 
-¿Té un edifici sencer en propietat única (no comunitat)?
+Té un edifici sencer en propietat única (no comunitat)?
 → Patrimonis
 
-¿Vol una construcció d'edifici plurifamiliar nou?
+Vol una construcció d'edifici plurifamiliar nou?
 → Construcció (obra nova) o Promoció (compra)
 ```
 
@@ -513,7 +513,7 @@ Sol·licitar reunió  →
 
 [Botó 2 · President / vocal / veí]
 Sol·licitar diagnòstic gratuït  →
-(formulari pre-cualificació · 4 camps)
+(formulari prequalificació · 4 camps)
 ```
 
 ---
@@ -555,9 +555,9 @@ Sòbries, com Patrimonis. Hero amb fade-in. Bloc 4 (procés) amb cada fase apare
 
 Mateixos objectius que la resta del site (LCP inferior a 2,5 segons, WCAG AA).
 
-### Form de pre-cualificació
+### Form de prequalificació
 
-Bloc 6 form amb 4 camps obligatoris i validació client-side abans d'enviar. Resposta automàtica per email confirmant recepció en menys de 24 hores hàbils. Backend: enviar lead a CRM amb tag "comunitat" més dades de pre-cualificació.
+Bloc 6 form amb 4 camps obligatoris i validació client-side abans d'enviar. Resposta automàtica per email confirmant recepció en menys de 24 hores hàbils. Backend: enviar lead a CRM amb tag "comunitat" més dades de prequalificació.
 
 ---
 
@@ -581,4 +581,4 @@ Versió EN (`comunitats-en.md`) amb adaptació cultural important: "Comunitat de
 
 ## Canvis respecte a v1
 
-Tots els guions llargs eliminats. Les llistes de "què oferim als administradors" (Bloc 5) i de "com us ajudem" (Bloc 6) convertides a paràgrafs editorials integrats. La llista de tipus d'intervenció (Bloc 3) convertida a paràgraf editorial. La llista de requisits del Programa 3 (Bloc 2.3) convertida a paràgraf integrat. Frases didàctiques eliminades. Lèxic legal-tècnic mantingut com a senyal de profesionalitat al sector immobiliari.
+Tots els guions llargs eliminats. Les llistes de "què oferim als administradors" (Bloc 5) i de "com us ajudem" (Bloc 6) convertides a paràgrafs editorials integrats. La llista de tipus d'intervenció (Bloc 3) convertida a paràgraf editorial. La llista de requisits del Programa 3 (Bloc 2.3) convertida a paràgraf integrat. Frases didàctiques eliminades. Lèxic legal-tècnic mantingut com a senyal de professionalitat al sector immobiliari.

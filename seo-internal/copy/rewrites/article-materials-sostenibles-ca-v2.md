@@ -90,7 +90,7 @@ A PAPIK la utilitzem com a aïllament principal en moltes obres del sistema Eski
 
 ## H2 · 5. Altres materials i elements sostenibles
 
-Més enllà dels tres pilars (fusta, suro i cel·lulosa), incorporem ad hoc altres materials segons les necessitats de cada projecte. La llana mineral d'alta densitat resol algunes aplicacions específiques on les seves prestacions concretes (resistència al foc, densitat) justifiquen l'ús. Les membranes hygrovariable regulen el vapor d'aigua a l'envolupant (vegeu [Innovacions Passivhaus 2026](/article-innovacions-passivhaus)). Les pintures minerals sense compostos orgànics volàtils (COV) garanteixen la qualitat de l'aire interior. Els paviments de fusta natural (roure, freixe, castanyer, ipe segons aplicació) i el parquet o microciment d'origen mineral cobreixen les diferents zones de la vivenda segons exigències funcionals.
+Més enllà dels tres pilars (fusta, suro i cel·lulosa), incorporem ad hoc altres materials segons les necessitats de cada projecte. La llana mineral d'alta densitat resol algunes aplicacions específiques on les seves prestacions concretes (resistència al foc, densitat) justifiquen l'ús. Les membranes hygrovariable regulen el vapor d'aigua a l'envolupant (vegeu [Innovacions Passivhaus 2026](/article-innovacions-passivhaus)). Les pintures minerals sense compostos orgànics volàtils (COV) garanteixen la qualitat de l'aire interior. Els paviments de fusta natural (roure, freixe, castanyer, ipe segons aplicació) i el parquet o microciment d'origen mineral cobreixen les diferents zones de l'habitatge segons exigències funcionals.
 
 Tot el que entra a una obra Eskimohaus® compleix com a mínim el primer criteri (origen renovable o reciclat) i preferentment els quatre.
 
@@ -122,7 +122,7 @@ Sí. La diferència de cost s'avalua cas a cas. Té sentit quan l'estètica i la
 
 ### Què és una EPD?
 
-Environmental Product Declaration. Document tècnic estandaritzat segons la norma ISO 14025 que certifica l'impacte ambiental d'un material al llarg del seu cicle de vida. Quan un fabricant no n'aporta una és bona raó per a sospitar de la seva publicitat sostenible.
+Environmental Product Declaration. Document tècnic estandarditzat segons la norma ISO 14025 que certifica l'impacte ambiental d'un material al llarg del seu cicle de vida. Quan un fabricant no n'aporta una és bona raó per a sospitar de la seva publicitat sostenible.
 
 ### Quins materials utilitzeu per a façanes exteriors?
 

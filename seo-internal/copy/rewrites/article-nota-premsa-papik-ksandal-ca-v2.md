@@ -8,7 +8,7 @@
 
 ```html
 <title>K-SANDAL · habitatge passiu al Parc de Collserola | PAPIK</title>
-<meta name="description" content="K-SANDAL és la nova promoció PAPIK al Parc de Collserola: habitatges Passivhaus integrats en l'entorn natural, llave en mà i amb autonomia energètica.">
+<meta name="description" content="K-SANDAL és la nova promoció PAPIK al Parc de Collserola: habitatges Passivhaus integrats en l'entorn natural, clau en mà i amb autonomia energètica.">
 <link rel="canonical" href="https://papik.cat/article-nota-premsa-papik-ksandal">
 <link rel="alternate" hreflang="ca" href="https://papik.cat/article-nota-premsa-papik-ksandal">
 <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-nota-prensa-papik-ksandal">
@@ -32,7 +32,7 @@ Equip de PAPIK Group · [Data publicació] · Reading time aproximat 5 min
 
 ## INTRO
 
-PAPIK Group anuncia el llançament de K-SANDAL, la nova promoció d'habitatges passius integrada al Parc Natural de la Serra de Collserola. K-SANDAL representa l'evolució del nostre sistema constructiu Eskimohaus® aplicat a un dels entorns naturals més protegits de l'àrea metropolitana de Barcelona, en una promoció dissenyada per a famílies que volen una vivenda contemporània sense renunciar a la integració amb l'entorn.
+PAPIK Group anuncia el llançament de K-SANDAL, la nova promoció d'habitatges passius integrada al Parc Natural de la Serra de Collserola. K-SANDAL representa l'evolució del nostre sistema constructiu Eskimohaus® aplicat a un dels entorns naturals més protegits de l'àrea metropolitana de Barcelona, en una promoció dissenyada per a famílies que volen un habitatge contemporània sense renunciar a la integració amb l'entorn.
 
 Aquest article presenta el projecte, les seves característiques tècniques i el procés que el va fer possible, incloent les particularitats urbanístiques de construir dins del PEIN Collserola.
 
@@ -42,7 +42,7 @@ Aquest article presenta el projecte, les seves característiques tècniques i el
 
 K-SANDAL és una promoció d'habitatges unifamiliars Passivhaus situada en una parcel·la integrada al Parc Natural de la Serra de Collserola. Cada habitatge està dissenyat amb el sistema Eskimohaus®, basat en entramat lleuger amb aïllament continu, hermeticitat controlada i ventilació amb recuperació de calor, per assolir l'estàndard Passivhaus de l'Institut de Darmstadt.
 
-A diferència d'una construcció a mida (vegeu el nostre servei de [Construcció](/construccio)), una promoció és un producte acabat. L'habitatge està dissenyat, planificat i construït per PAPIK abans que el comprador final el signi, i el comprador no assumeix risc d'obra, ni de calendari, ni de pressupost. Entra a viure el dia que firma la compravenda.
+A diferència d'una construcció a mida (vegeu el nostre servei de [Construcció](/construccio)), una promoció és un producte acabat. L'habitatge està dissenyat, planificat i construït per PAPIK abans que el comprador final el signi, i el comprador no assumeix risc d'obra, ni de calendari, ni de pressupost. Entra a viure el dia que signa la compravenda.
 
 ---
 
@@ -92,7 +92,7 @@ PAPIK no publica preus concrets de promocions a la web. La fitxa detallada s'env
 
 ### Quan es lliuren els habitatges de K-SANDAL?
 
-La data d'entrega prevista es comunica a la fitxa detallada de cada habitatge. Si el comprador firma sobre plà o durant l'obra, la data figura tancada al contracte. Si firma una vegada l'habitatge està construït, l'entrega és immediata.
+La data d'entrega prevista es comunica a la fitxa detallada de cada habitatge. Si el comprador signa sobre plànol o durant l'obra, la data figura tancada al contracte. Si signa una vegada l'habitatge està construït, l'entrega és immediata.
 
 ### K-SANDAL és certificada Passivhaus?
 
@@ -100,7 +100,7 @@ Cada habitatge està dissenyat per assolir l'estàndard Passivhaus de l'Institut
 
 ### Es pot personalitzar la casa que es compra a K-SANDAL?
 
-La promoció té calidades tancades a la fitxa. Pot haver-hi marge per a personalització d'acabats finals (mobiliari, complements) si l'habitatge encara no està construït en la fase final, però es resol cas a cas durant la negociació de la compravenda.
+La promoció té qualitats tancades a la fitxa. Pot haver-hi marge per a personalització d'acabats finals (mobiliari, complements) si l'habitatge encara no està construït en la fase final, però es resol cas a cas durant la negociació de la compravenda.
 
 ### Quin tipus d'autonomia energètica té K-SANDAL?
 

@@ -27,7 +27,7 @@ La huella ecológica de construir y vivir en su casa
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · [Fecha publicación] · Reading time aproximado 7 min
+Equipo técnico · PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 7 min
 ```
 
 ## INTRO

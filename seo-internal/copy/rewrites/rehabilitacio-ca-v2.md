@@ -34,10 +34,10 @@
 
 ```
 [Eyebrow]
-SUBVENCIONS NEXT GENERATION VIGENTS FINS DESEMBRE 2026
+SUBVENCIONS NEXT GENERATION VIGENTS FINS AL DESEMBRE DEL 2026
 
 [H1]
-Transformem la seva casa en una vivenda eficient
+Transformem la seva casa en un habitatge eficient
 
 [Subhead · 2 línies]
 Gestionem les ajudes Next Generation EU de principi a fi.
@@ -75,7 +75,7 @@ SUBVENCIÓ NEXT GENERATION
 
 Els programes 3, 4 i 5 dels fons Next Generation EU financen
 fins al 80% del cost subvencionable, segons l'estalvi energètic
-aconseguit. Els programes són vigents fins desembre 2026.
+aconseguit. Els programes són vigents fins al desembre del 2026.
 ```
 
 ### Card 2 · ESTALVI ENERGÈTIC
@@ -86,8 +86,8 @@ aconseguit. Els programes són vigents fins desembre 2026.
 REDUCCIÓ DEL CONSUM
 
 Una rehabilitació integral pot reduir la factura energètica
-fins a un 70% segons l'estat inicial de la vivenda. La millora
-a la classe energètica és habitualment de tres a cinc nivells
+fins a un 70% segons l'estat inicial de l'habitatge. La millora
+de la classe energètica és habitualment de tres a cinc nivells
 (de E o F a A o B).
 ```
 
@@ -98,16 +98,16 @@ a la classe energètica és habitualment de tres a cinc nivells
 
 REVALORITZACIÓ MERCAT
 
-Una vivenda amb classe energètica A es revaloritza entre un
-15% i un 25% en mercat secundari (segons la zona, comparat amb
-una vivenda equivalent classe E o F).
+Un habitatge amb classe energètica A es revaloritza entre un
+15% i un 25% en el mercat secundari (segons la zona, comparat
+amb un habitatge equivalent de classe E o F).
 
 Font: estudis públics del sector immobiliari (Sociedad de Tasación, Idealista Data).
 ```
 
 ---
 
-## BLOC 2 · CALCULADORA · GANCHO CENTRAL
+## BLOC 2 · CALCULADORA · GANXO CENTRAL
 
 ```
 [Banner destacat]
@@ -159,7 +159,7 @@ superior, la substitució de finestres d'altes prestacions amb fusta,
 PVC o sistemes mixtos, i l'eliminació de ponts tèrmics estructurals.
 
 És la intervenció amb més impacte en estalvi energètic. Pot reduir
-el consum entre un 30% i un 50% pel sol fet d'actuar sobre l'envolvent.
+el consum entre un 30% i un 50% pel sol fet d'actuar sobre l'envolupant.
 ```
 
 ### 3.2 SISTEMES MECÀNICS
@@ -175,7 +175,7 @@ eficient.
 
 La transició de gas a aerotèrmia està subvencionada pel programa 4
 NGEU. La ventilació amb recuperació és gairebé obligatòria si s'aïlla
-bé l'envolvent, ja que sense ella la casa no respira correctament.
+bé l'envolupant, ja que sense aquesta la casa no respira correctament.
 ```
 
 ### 3.3 PRODUCCIÓ D'ENERGIA
@@ -189,7 +189,7 @@ bateria d'autoconsum amb autonomia parcial, carregador de vehicle
 elèctric, i aerotèrmia per a aigua calenta sanitària.
 
 La combinació "envolupant + aerotèrmia + fotovoltaica" pot acostar
-la vivenda al consum gairebé nul (nZEB) o fins i tot al balanç
+l'habitatge al consum gairebé nul (nZEB) o fins i tot al balanç
 energètic positiu.
 ```
 
@@ -204,7 +204,7 @@ de la intervenció, el test blower-door per mesurar hermeticitat, la
 termografia per detectar pèrdues no visibles, i la certificació EnerPHit
 com a estàndard Passivhaus per a rehabilitació.
 
-EnerPHit és l'estàndard equivalent a Passivhaus per a vivendes
+EnerPHit és l'estàndard equivalent a Passivhaus per a habitatges
 existents. Quan el cas tècnic ho permet, l'oferim com a màxim nivell
 de rehabilitació possible.
 ```
@@ -227,7 +227,7 @@ de cada fase.
 ```
 01 · DIAGNÒSTIC INICIAL · GRATUÏT
 
-Visita tècnica a la seva vivenda. Avaluem estat actual, potencial
+Visita tècnica al seu habitatge. Avaluem estat actual, potencial
 d'estalvi i ajuda NGEU aplicable orientativa. Sense compromís,
 sense cost.
 
@@ -250,7 +250,7 @@ justificació final). Vostè no ha de tractar amb cap administració.
 04 · EXECUCIÓ DE L'OBRA
 
 Construcció amb seguiment continuat. Si hi ha veïns o vostè viu
-a la vivenda, planifiquem per minimitzar l'impacte.
+a l'habitatge, planifiquem per minimitzar l'impacte.
 
 ──────────────
 
@@ -356,7 +356,7 @@ Rehabilitació energètica per a comunitats de propietaris
 Som soci tècnic d'administracions de finques. Projecte, obra
 i gestió integral de subvencions per al seu edifici.
 
-[Bloc 6.1 · POR QUÈ TREBALLAR AMB PAPIK]
+[Bloc 6.1 · PER QUÈ TREBALLAR AMB PAPIK]
 
 Quan treballem amb comunitats de propietaris, el principi rector és
 respectar la relació entre l'administrador i la finca. Treballem amb
@@ -399,7 +399,7 @@ visita tècnica gratuïta.
 
 ──────────────
 
-P · Quant temps tarda la tramitació de les ajudes?
+P · Quant temps triga la tramitació de les ajudes?
 
 R · L'aprovació de la subvenció acostuma a trigar entre 3 i 6 mesos
 des de la presentació de la sol·licitud. Mentrestant, vostè pot
@@ -418,7 +418,7 @@ P · I si la subvenció no s'aprova?
 
 R · El projecte segueix sent viable amb finançament privat. Moltes
 entitats financeres ofereixen hipoteca verda amb bonificació per a
-vivendes eficients. L'orientem en les opcions disponibles.
+habitatges eficients. L'orientem en les opcions disponibles.
 
 ──────────────
 
@@ -467,13 +467,13 @@ Si el seu cas és diferent
 ```
 [Grid 3 cards petites]
 
-¿Vol construir una casa nova en lloc de rehabilitar?
+Vol construir una casa nova en lloc de rehabilitar?
 → Construcció
 
-¿Vol comprar una casa ja eficient?
+Vol comprar una casa ja eficient?
 → Promoció
 
-¿Cerca un soci tècnic per a un projecte d'inversió?
+Cerca un soci tècnic per a un projecte d'inversió?
 → Patrimonis
 ```
 
@@ -485,7 +485,7 @@ Comencem amb una visita tècnica
 
 [Paràgraf]
 Sense compromís. Sense cost. Una avaluació honesta del potencial
-de rehabilitació de la seva vivenda i de la subvenció orientativa
+de rehabilitació del seu habitatge i de la subvenció orientativa
 que podria aplicar.
 
 [CTA primari]
@@ -544,7 +544,7 @@ Tots els enllaços interns vàlids. Disclaimer regulatori NGEU al peu, revisat p
 
 ## Word count del copy: aproximadament 1.300 paraules
 
-Versió ES (`rehabilitacio-es.md`) com a traducció literal amb adaptacions léxiques.
+Versió ES (`rehabilitacio-es.md`) com a traducció literal amb adaptacions lèxiques.
 
 Versió EN (`rehabilitacio-en.md`) amb adaptació cultural amb atenció especial: les subvencions NGEU són per a residents fiscals a Espanya, motiu pel qual cal simplificar el to en EN al benefici tècnic més revalorització, no als subsidies. "EnerPHit" funciona en EN. "Next Generation EU" cal explicar-lo al primer ús ("EU recovery funds"). L'audiència anglesa per a rehabilitació és residual; versió EN més sintètica.
 

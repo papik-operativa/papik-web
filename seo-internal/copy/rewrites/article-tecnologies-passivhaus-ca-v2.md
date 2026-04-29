@@ -50,7 +50,7 @@ A PAPIK utilitzem habitualment cel·lulosa insuflada per la seva combinació d'o
 
 L'hermeticitat és la capacitat de l'envolupant de bloquejar les infiltracions d'aire no controlades. Una casa convencional pot tenir una taxa de renovació d'aire involuntària (n50) d'entre 10 i 15 h⁻¹. Una Passivhaus certificada exigeix n50 inferior a 0,6 h⁻¹, fet que la converteix en aproximadament vint vegades més hermètica que una construcció estàndard.
 
-L'hermeticitat es verifica amb el test blower-door, que despresuritza la vivenda i mesura la fugida d'aire. Si el resultat no compleix l'umbral, no es certifica la casa com a Passivhaus.
+L'hermeticitat es verifica amb el test blower-door, que despresuritza l'habitatge i mesura la fugida d'aire. Si el resultat no compleix l'umbral, no es certifica la casa com a Passivhaus.
 
 Les tecnologies que ho fan possible són específiques: membranes hermètiques (paper kraft, làmines polimèriques especialitzades) entre estructura i revestiment, cintes adhesives específiques per a unions, juntes i passos d'instal·lacions, caixes hermètiques per a endolls i interruptors a parets exteriors, i detalls constructius rigorosos als punts de risc com trobades de murs amb cobertes, finestres i passos d'instal·lacions. Una hermeticitat insuficient anul·la la majoria de la resta de la inversió, motiu pel qual la verificació amb blower-door és part del procés de control de qualitat estàndard a obra Passivhaus.
 
@@ -58,7 +58,7 @@ Les tecnologies que ho fan possible són específiques: membranes hermètiques (
 
 ## H2 · 3. Ventilació amb recuperació de calor (VRC)
 
-Una vivenda hermètica necessita ventilació mecànica controlada. Sense ella, l'aire interior es deteriora i es generen problemes d'humitat. La ventilació amb recuperació de calor resol aquest dilema renovant l'aire constantment sense pèrdua significativa d'energia.
+Un habitatge hermètica necessita ventilació mecànica controlada. Sense ella, l'aire interior es deteriora i es generen problemes d'humitat. La ventilació amb recuperació de calor resol aquest dilema renovant l'aire constantment sense pèrdua significativa d'energia.
 
 El funcionament és el següent: un ventilador extreu aire viciat dels banys, cuina i locals humits, mentre un altre insufla aire fresc a les estances principals (sales, dormitoris). Entre ambdós fluxos d'aire, un intercanviador de calor transfereix l'energia del aire sortint al aire entrant sense que es barregin. L'eficiència típica de recuperació se situa entre el 85% i el 92% segons el sistema utilitzat.
 
@@ -78,7 +78,7 @@ L'orientació també compta de manera estructural. Les finestres orientades a su
 
 ## H2 · 5. Domòtica i sistemes integrats
 
-La cinquena tecnologia no és un material, sinó la integració intel·ligent de tots els sistemes de la casa. Una vivenda Passivhaus moderna sol incorporar sensors de temperatura, CO₂ i humitat distribuïts pels espais, un sistema de gestió integrada (Loxone, KNX o equivalent) que ajusta climatització, ventilació i protecció solar segons les condicions, producció fotovoltaica integrada amb gestió de prioritats (autoconsum, càrrega de bateria, injecció a xarxa), bateria d'autoconsum per a continuïtat davant talls de subministrament (vegeu el cas de l'[apagada del 2025](/article-apagada-2025)), aerotèrmia per a climatització i aigua calenta sanitària gestionada en funció de la producció solar, i carregador per a vehicle elèctric amb gestió de prioritats.
+La cinquena tecnologia no és un material, sinó la integració intel·ligent de tots els sistemes de la casa. Un habitatge Passivhaus moderna sol incorporar sensors de temperatura, CO₂ i humitat distribuïts pels espais, un sistema de gestió integrada (Loxone, KNX o equivalent) que ajusta climatització, ventilació i protecció solar segons les condicions, producció fotovoltaica integrada amb gestió de prioritats (autoconsum, càrrega de bateria, injecció a xarxa), bateria d'autoconsum per a continuïtat davant talls de subministrament (vegeu el cas de l'[apagada del 2025](/article-apagada-2025)), aerotèrmia per a climatització i aigua calenta sanitària gestionada en funció de la producció solar, i carregador per a vehicle elèctric amb gestió de prioritats.
 
 La domòtica afegeix entre 10.000 i 30.000 euros al pressupost segons el nivell d'integració, i no és imprescindible per a la certificació Passivhaus. La seva incorporació es justifica quan el client busca multiplicar el rendiment energètic i el confort de la casa més enllà del que la pròpia construcció ja ofereix per disseny.
 
@@ -94,7 +94,7 @@ El resultat operatiu són cases que assoleixen l'estàndard Passivhaus amb costo
 
 ## H2 · 7. Què tot això significa per al client final
 
-Una casa amb les cinc tecnologies integrades correctament consumeix fins a un 90% menys que una construcció convencional equivalent, manté la temperatura interior dins d'un rang estret de 19 a 25 graus durant tot l'any (amb mínima intervenció dels sistemes de climatització), i renova l'aire interior constantment sense corrents ni canvis bruscs. La vivenda és menys vulnerable a apagades, ja que els sistemes essencials poden mantenir-se amb autoconsum i bateria. La vida útil estructural és verificable a més de cent anys, i la revalorització de mercat és superior, entre el 15% i el 25% més que una construcció classe E o F equivalent segons estudis del sector immobiliari (Sociedad de Tasación, Idealista Data).
+Una casa amb les cinc tecnologies integrades correctament consumeix fins a un 90% menys que una construcció convencional equivalent, manté la temperatura interior dins d'un rang estret de 19 a 25 graus durant tot l'any (amb mínima intervenció dels sistemes de climatització), i renova l'aire interior constantment sense corrents ni canvis bruscs. La habitatge és menys vulnerable a apagades, ja que els sistemes essencials poden mantenir-se amb autoconsum i bateria. La vida útil estructural és verificable a més de cent anys, i la revalorització de mercat és superior, entre el 15% i el 25% més que una construcció classe E o F equivalent segons estudis del sector immobiliari (Sociedad de Tasación, Idealista Data).
 
 ---
 

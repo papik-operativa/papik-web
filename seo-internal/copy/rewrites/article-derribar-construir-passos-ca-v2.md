@@ -32,15 +32,15 @@ Equip tècnic · PAPIK Group · [Data publicació] · Reading time aproximat 10 
 
 ## INTRO
 
-Hi ha vivendes que no tenen reforma possible. O que la reforma costaria gairebé el mateix que una obra nova, sense aprofitar l'eficiència energètica que avui és estàndard. En aquests casos, derribar i tornar a construir és l'opció que té més sentit, però el procés requereix una planificació específica que el diferencia tant d'una rehabilitació convencional com d'una obra nova sobre solar verge.
+Hi ha habitatges que no tenen reforma possible. O que la reforma costaria gairebé el mateix que una obra nova, sense aprofitar l'eficiència energètica que avui és estàndard. En aquests casos, derribar i tornar a construir és l'opció que té més sentit, però el procés requereix una planificació específica que el diferencia tant d'una rehabilitació convencional com d'una obra nova sobre solar verge.
 
-Aquest article explica el procés complet de substitució de vivenda, des de la primera avaluació fins al lliurament de claus, amb la informació pràctica que un propietari necessita conèixer abans de decidir.
+Aquest article explica el procés complet de substitució de habitatge, des de la primera avaluació fins al lliurament de claus, amb la informació pràctica que un propietari necessita conèixer abans de decidir.
 
 ---
 
 ## H2 · 1. Quan derribar és la decisió correcta
 
-No totes les vivendes antigues s'han de derribar. La majoria, de fet, són rehabilitables amb un projecte ben fet. Hi ha cinc situacions en què la substitució és habitualment la millor opció, i s'han d'identificar abans d'iniciar qualsevol despesa de projecte.
+No totes les habitatges antigues s'han de derribar. La majoria, de fet, són rehabilitables amb un projecte ben fet. Hi ha cinc situacions en què la substitució és habitualment la millor opció, i s'han d'identificar abans d'iniciar qualsevol despesa de projecte.
 
 L'estructura compromesa o no rehabilitable és la primera. Esquerdes estructurals importants, assentaments diferencials, ITE desfavorable: si la valoració tècnica detecta dos o més d'aquests indicadors simultàniament, la rehabilitació pot ser tècnicament possible però econòmicament absurda. El cost de reforma superior al 70% del cost d'una obra nova és la segona, i és la regla orientativa més usada al sector. La distribució no aprofitable per a la vida actual és la tercera: cases compartimentades amb passadissos llargs, alçades baixes i llum natural insuficient són difícils de transformar mantenint l'estructura existent. L'eficiència energètica impossible de salvar és la quarta: murs sense aïllament, finestres antigues, ponts tèrmics estructurals integrats al disseny original. La quinta són els aspectes legals inviables, com cèdules d'habitabilitat o ITE que requeririen costos de regularització superiors al valor que aporten al projecte futur.
 
@@ -52,7 +52,7 @@ Abans de plantejar el derribo, fem tres anàlisis paral·leles que conjuntament 
 
 L'anàlisi tècnica de l'estructura actual és la primera. Visita d'arquitecte tècnic, avaluació de fonaments, murs portants, forjats i coberta. Si es detecta humitat persistent o danys estructurals greus, queda documentat amb implicacions directes per a la decisió posterior.
 
-L'anàlisi urbanística és la segona. Verificació del POUM aplicable, edificabilitat residual, ocupació permesa, alçades, distàncies. Sovint la parcel·la actual permet construir més metres dels que té la casa antiga, i això és una de les raons més freqüents per justificar la substitució: el solar permet una vivenda significativament més gran o millor distribuïda que la que actualment hi ha.
+L'anàlisi urbanística és la segona. Verificació del POUM aplicable, edificabilitat residual, ocupació permesa, alçades, distàncies. Sovint la parcel·la actual permet construir més metres dels que té la casa antiga, i això és una de les raons més freqüents per justificar la substitució: el solar permet un habitatge significativament més gran o millor distribuïda que la que actualment hi ha.
 
 L'anàlisi econòmica és la tercera. Comparativa entre cost de reforma integral i cost de derribo amb obra nova, incloent totes les partides. La reforma sembla sempre més barata fins que es fa una valoració seriosa amb tots els punts necessaris. Quan les tres anàlisis apunten en la mateixa direcció, la decisió és clara.
 
@@ -68,7 +68,7 @@ Si la propietat és a Bellaterra o Cerdanyola del Vallès, hem detallat el proc�
 
 ## H2 · 4. Disseny de l'obra nova: aprofitar la parcel·la
 
-Aquest és el moment del procés on el propietari recupera tot el que la vivenda antiga no oferia. El POUM i l'edificabilitat residual permeten construir més metres dels existents en molts casos, fins i tot un 30% o un 50% més en parcel·les amb construccions originals modestes. Aquesta edificabilitat residual és un actiu del propietari que la nova obra ha d'aprofitar al màxim.
+Aquest és el moment del procés on el propietari recupera tot el que l'habitatge antiga no oferia. El POUM i l'edificabilitat residual permeten construir més metres dels existents en molts casos, fins i tot un 30% o un 50% més en parcel·les amb construccions originals modestes. Aquesta edificabilitat residual és un actiu del propietari que la nova obra ha d'aprofitar al màxim.
 
 L'orientació i pendent del solar es poden aprofitar de manera molt més eficient en una obra nova que en una rehabilitació. La casa antiga sovint ignorava aquests factors o els resolia de manera subòptima. Amb una obra nova, les estances importants es col·loquen amb la millor orientació solar, i la pendent del solar es pot transformar en avantatge constructiu en lloc de problema. Les alineacions, alçades permeses i tipologies aplicables defineixen el sostre constructiu, i l'edifici nou es pot dissenyar generosament dins d'aquest marc.
 
@@ -78,7 +78,7 @@ La casa nova és eficient des del primer disseny: aïllament continu, hermeticit
 
 ## H2 · 5. Execució: derribo controlat i obra nova
 
-El derribo professional no és enderroc destructiu. És un procés controlat amb tres característiques que el diferencien d'un enderroc convencional. La recuperació de materials quan és possible (vigues de fusta noble, peces ceràmiques d'època, pedra) permet reutilitzar elements al projecte nou com a element decoratiu, fet que aporta continuïtat física a la vivenda. La gestió ordenada de residus segons categories obligatòries (formigó, ceràmica, fusta, metalls, plàstics, vidre, residus especials com amiant si n'hi ha) compleix amb la normativa catalana de gestió de residus de la construcció. La coordinació amb veïns es resol amb informes previs si l'obra pot afectar la propietat veïna, mesures de seguretat al perímetre de l'obra, i comunicació de horaris per minimitzar molèsties.
+El derribo professional no és enderroc destructiu. És un procés controlat amb tres característiques que el diferencien d'un enderroc convencional. La recuperació de materials quan és possible (vigues de fusta noble, peces ceràmiques d'època, pedra) permet reutilitzar elements al projecte nou com a element decoratiu, fet que aporta continuïtat física a l'habitatge. La gestió ordenada de residus segons categories obligatòries (formigó, ceràmica, fusta, metalls, plàstics, vidre, residus especials com amiant si n'hi ha) compleix amb la normativa catalana de gestió de residus de la construcció. La coordinació amb veïns es resol amb informes previs si l'obra pot afectar la propietat veïna, mesures de seguretat al perímetre de l'obra, i comunicació de horaris per minimitzar molèsties.
 
 Una vegada acabat el derribo, l'obra nova pot començar immediatament o amb una pausa segons el calendari de llicències. Quan ambdues llicències s'han tramitat en paral·lel, l'obra nova arrenca pràcticament sense interrupció.
 
@@ -104,9 +104,9 @@ Si tot va sense imprevistos, el procés complet dura entre catorze i vint-i-quat
 
 ## H2 · 8. Quan PAPIK ho fa: la nostra experiència en derribo i reposició
 
-Tenim diversos projectes documentats que combinen derribo previ i obra nova. [K-Iturbi](/projecte-k-iturbi), a Bellaterra, és un Passivhaus certificat construït després d'un procés de substitució de vivenda existent. [K-Botigues](/projecte-k-botigues), a Castelldefels, és un Eskimohaus amb enderroc previ explícitament mencionat al projecte. Ambdós casos il·lustren com el procés es resol quan l'organització i la coordinació entre llicències estan correctament planificades.
+Tenim diversos projectes documentats que combinen derribo previ i obra nova. [K-Iturbi](/projecte-k-iturbi), a Bellaterra, és un Passivhaus certificat construït després d'un procés de substitució de habitatge existent. [K-Botigues](/projecte-k-botigues), a Castelldefels, és un Eskimohaus amb enderroc previ explícitament mencionat al projecte. Ambdós casos il·lustren com el procés es resol quan l'organització i la coordinació entre llicències estan correctament planificades.
 
-Si la seva vivenda és a Bellaterra o al Vallès Occidental, hem treballat aquest tipus de procés amb projectes certificats al territori. Pot conèixer més detalls sobre el cas Bellaterra a la [pàgina dedicada al municipi](/zones/bellaterra).
+Si la seva habitatge és a Bellaterra o al Vallès Occidental, hem treballat aquest tipus de procés amb projectes certificats al territori. Pot conèixer més detalls sobre el cas Bellaterra a la [pàgina dedicada al municipi](/zones/bellaterra).
 
 ---
 
@@ -122,7 +122,7 @@ Sovint sí, especialment en parcel·les amb edificabilitat residual. La casa nov
 
 ### Cal abandonar la casa durant el procés?
 
-Sí. A diferència d'una rehabilitació parcial, el procés de derribo amb obra nova requereix que la vivenda estigui buida durant tot el període, habitualment entre catorze i vint-i-quatre mesos.
+Sí. A diferència d'una rehabilitació parcial, el procés de derribo amb obra nova requereix que l'habitatge estigui buida durant tot el període, habitualment entre catorze i vint-i-quatre mesos.
 
 ### Què passa amb el mobiliari i estructures recuperables?
 
@@ -130,13 +130,13 @@ Forma part de la planificació inicial. Algunes peces es poden reutilitzar al pr
 
 ### Hi ha bonificacions fiscals per substituir per casa eficient?
 
-Sí. Les hipoteques verdes ofereixen bonificació per a vivendes d'alta eficiència energètica, com detallem a l'article sobre [hipoteca verda](/article-nota-premsa-papik-sabadell). Algunes ajudes municipals (revisar ordenança municipal vigent) també afavoreixen la substitució per classe energètica A.
+Sí. Les hipoteques verdes ofereixen bonificació per a habitatges d'alta eficiència energètica, com detallem a l'article sobre [hipoteca verda](/article-nota-premsa-papik-sabadell). Algunes ajudes municipals (revisar ordenança municipal vigent) també afavoreixen la substitució per classe energètica A.
 
 ---
 
 ## CIERRE
 
-Si està valorant la substitució de la seva vivenda actual a Bellaterra o al Vallès Occidental, una visita tècnica gratuïta al solar permet avaluar viabilitat i rang d'inversió.
+Si està valorant la substitució de la seva habitatge actual a Bellaterra o al Vallès Occidental, una visita tècnica gratuïta al solar permet avaluar viabilitat i rang d'inversió.
 
 Sol·licitar valoració de derribo amb obra nova: papik.cat/zones/bellaterra.
 

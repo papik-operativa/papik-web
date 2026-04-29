@@ -58,7 +58,7 @@ que volen construir la seva casa.
 
 El mercat de parcel·les és selectiu, ja que l'edificabilitat
 residencial està en gran part consolidada, i els preus reflecteixen
-aquesta maduresa. La rehabilitació de vivenda existent o la
+aquesta maduresa. La rehabilitació de habitatge existent o la
 substitució controlada (derribo amb obra nova) són cada vegada més
 freqüents com a alternativa a la cerca de solar verge.
 ```

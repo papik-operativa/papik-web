@@ -16,7 +16,7 @@ Cada uno de los 6 artículos debe incorporar las mismas adiciones estructurales.
   <span class="separator">·</span>
   <time datetime="[YYYY-MM-DD]">[Fecha publicación]</time>
   <span class="separator">·</span>
-  Reading time aproximado [X] min
+  Tiempo de lectura aproximado [X] min
 </div>
 ```
 

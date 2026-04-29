@@ -29,7 +29,7 @@ Una casa sostenible a las faldas del Montseny
 ## BYLINE
 
 ```
-Equipo de PAPIK Group · [Fecha publicación] · Reading time aproximado 6 min
+Equipo de PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 6 min
 ```
 
 ## INTRO

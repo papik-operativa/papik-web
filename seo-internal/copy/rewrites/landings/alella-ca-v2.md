@@ -54,7 +54,7 @@ Per què construir a Alella ara
 Alella és un municipi de prop de deu mil habitants amb una
 trajectòria patrimonial poc habitual al Maresme. La denominació
 d'origen Alella, una de les més antigues de Catalunya, ha
-preservat un teixit agrícola que dóna caràcter al paisatge
+preservat un teixit agrícola que dona caràcter al paisatge
 residencial. La proximitat a Barcelona, amb sortida directa a la
 C-32 i a la B-20, situa el municipi a vint minuts del centre de
 la ciutat sense perdre l'escala de poble.

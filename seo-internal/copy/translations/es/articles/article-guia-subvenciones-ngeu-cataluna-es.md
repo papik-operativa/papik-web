@@ -29,7 +29,7 @@ Guía subvenciones NGEU para rehabilitación en Cataluña
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · 27 abril 2026 · Reading time aproximado 9 min
+Equipo técnico · PAPIK Group · 27 abril 2026 · Tiempo de lectura aproximado 9 min
 ```
 
 ## INTRO

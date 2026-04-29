@@ -80,9 +80,9 @@ Construir una casa amb autonomia parcial deixa de ser un capritxo tècnic per co
 
 ## H2 · 5. Què pot fer vostè si vol aquest tipus de protecció
 
-Si està construint o rehabilitant una vivenda i vol incorporar autonomia energètica davant talls, la planificació adequada depèn del moment del projecte. En obra nova, és essencial indicar el requeriment des de la fase de projecte. Incorporar fotovoltaica i bateria és substancialment més econòmic i eficient si es planifica al disseny inicial que no afegir-ho posteriorment, i les nostres unitats de [Construcció](/construccio) i [Promoció](/promocio) ho contemplen com a opció estàndard.
+Si està construint o rehabilitant un habitatge i vol incorporar autonomia energètica davant talls, la planificació adequada depèn del moment del projecte. En obra nova, és essencial indicar el requeriment des de la fase de projecte. Incorporar fotovoltaica i bateria és substancialment més econòmic i eficient si es planifica al disseny inicial que no afegir-ho posteriorment, i les nostres unitats de [Construcció](/construccio) i [Promoció](/promocio) ho contemplen com a opció estàndard.
 
-En vivenda existent és possible amb [rehabilitació energètica](/rehabilitacio), incloent la instal·lació fotovoltaica i de bateria, el reemplaçament d'inversor per un model híbrid, i la segregació de circuits crítics que permeti l'operació aïllada. Aquesta intervenció és compatible amb les subvencions Next Generation EU dels programes 4 i 5, fet que pot reduir significativament el cost net per al propietari.
+En habitatge existent és possible amb [rehabilitació energètica](/rehabilitacio), incloent la instal·lació fotovoltaica i de bateria, el reemplaçament d'inversor per un model híbrid, i la segregació de circuits crítics que permeti l'operació aïllada. Aquesta intervenció és compatible amb les subvencions Next Generation EU dels programes 4 i 5, fet que pot reduir significativament el cost net per al propietari.
 
 ---
 
@@ -90,7 +90,7 @@ En vivenda existent és possible amb [rehabilitació energètica](/rehabilitacio
 
 ### Quina capacitat de bateria necessito per cobrir un tall de 12 hores?
 
-Depèn del consum essencial de la vivenda. Una bateria de cinc a deu kWh cobreix habitualment de vuit a vint-i-quatre hores de consum crític (il·luminació, frigorífic, comunicacions, climatització mínima). El dimensionat òptim s'avalua cas a cas durant la fase de projecte segons el perfil de consum real previst.
+Depèn del consum essencial de l'habitatge. Una bateria de cinc a deu kWh cobreix habitualment de vuit a vint-i-quatre hores de consum crític (il·luminació, frigorífic, comunicacions, climatització mínima). El dimensionat òptim s'avalua cas a cas durant la fase de projecte segons el perfil de consum real previst.
 
 ### La fotovoltaica funciona durant l'apagada?
 
@@ -100,7 +100,7 @@ Només si l'inversor és híbrid i la instal·lació està preparada per a opera
 
 Sí. El programa 4 NGEU finança autoconsum i bateria fins a percentatges significatius del cost. PAPIK gestiona integralment la tramitació en projectes de rehabilitació energètica, i en alguns casos la integra en projectes d'obra nova quan el client compleix els requisits específics del programa.
 
-### Es pot retrofitar una vivenda existent per a aquesta autonomia?
+### Es pot retrofitar un habitatge existent per a aquesta autonomia?
 
 Sí, amb rehabilitació. El cost depèn de l'estat actual de la instal·lació elèctrica i de l'envolupant. La rehabilitació integral és el moment òptim per incorporar-ho, ja que permet planificar la segregació de circuits crítics simultàniament amb la resta d'intervencions.
 
@@ -108,7 +108,7 @@ Sí, amb rehabilitació. El cost depèn de l'estat actual de la instal·lació e
 
 ## CIERRE
 
-Si vol explorar com construir o rehabilitar una vivenda amb autonomia energètica, una primera avaluació orientativa permet entendre l'abast del projecte i el rang d'inversió aplicable.
+Si vol explorar com construir o rehabilitar un habitatge amb autonomia energètica, una primera avaluació orientativa permet entendre l'abast del projecte i el rang d'inversió aplicable.
 
 Configurar el meu pressupost: papik.cat/pressupost.
 

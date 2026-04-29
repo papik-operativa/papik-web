@@ -32,19 +32,19 @@ Equip tècnic · PAPIK Group · [Data publicació] · Reading time aproximat 7 m
 
 ## INTRO
 
-Una vivenda té dues petjades ecològiques que sovint es confonen: la de la seva construcció i la del seu funcionament al llarg dels anys. Tradicionalment, l'arquitectura sostenible s'ha centrat en reduir el consum operatiu, és a dir, la segona. Però en una casa Passivhaus, el consum operatiu es redueix tant que l'impacte de la construcció pot superar el del funcionament durant la vida útil de l'edifici.
+Un habitatge té dues petjades ecològiques que sovint es confonen: la de la seva construcció i la del seu funcionament al llarg dels anys. Tradicionalment, l'arquitectura sostenible s'ha centrat en reduir el consum operatiu, és a dir, la segona. Però en una casa Passivhaus, el consum operatiu es redueix tant que l'impacte de la construcció pot superar el del funcionament durant la vida útil de l'edifici.
 
 Aquest article analitza com es mesura cada petjada segons la norma europea EN 15978, per què el balanç global d'una casa Passivhaus pot ser dràsticament millor que el d'una construcció convencional, i com prendre decisions amb dades en lloc d'intuïcions.
 
 ---
 
-## H2 · 1. Què mesura realment la petjada ecològica d'una vivenda
+## H2 · 1. Què mesura realment la petjada ecològica d'un habitatge
 
 La norma EN 15978 (Sustainability of construction works · Assessment of environmental performance of buildings · Calculation method) defineix com s'ha d'analitzar l'impacte ambiental d'un edifici al llarg del seu cicle de vida complet. Estableix cinc fases d'anàlisi.
 
 Les fases A1 a A3 cobreixen el producte: extracció de matèries primeres, transport i fabricació de materials. Les fases A4 i A5 cobreixen la construcció pròpiament dita: transport a obra i procés constructiu. Les fases B1 a B7 cobreixen l'ús: operació, manteniment, reparació, substitució, energia operativa i aigua. Les fases C1 a C4 cobreixen el final de vida: demolició, transport, tractament de residus i disposició final. La fase D recull els beneficis més enllà del límit del sistema (reutilització, reciclatge).
 
-Una avaluació seriosa de la petjada ecològica d'una vivenda ha d'incloure les cinc fases. Quan algú parla de "casa sostenible" sense citar EN 15978 ni LCA (Life Cycle Assessment) ni EPD (Environmental Product Declaration), la conversa està al nivell de màrqueting i no al nivell d'enginyeria.
+Una avaluació seriosa de la petjada ecològica d'un habitatge ha d'incloure les cinc fases. Quan algú parla de "casa sostenible" sense citar EN 15978 ni LCA (Life Cycle Assessment) ni EPD (Environmental Product Declaration), la conversa està al nivell de màrqueting i no al nivell d'enginyeria.
 
 ---
 
@@ -64,7 +64,7 @@ La fase B6 mesura el consum energètic operatiu durant la vida útil de l'edific
 
 Una casa convencional construïda segons el CTE bàsic (Codi Tècnic de l'Edificació) consumeix entre 70 i 150 kWh/m²·a per a climatització, segons clima i tipologia. Una casa Passivhaus està dissenyada per consumir menys de 15 kWh/m²·a per al mateix concepte, llindar de certificació de l'Institut Passivhaus de Darmstadt.
 
-La diferència acumulada al llarg de cinquanta anys, per a una vivenda mitjana de dos-cents metres quadrats, és substancial. Una casa convencional consumeix l'equivalent a 1.000.000 kWh durant aquest període (200 m² × 100 kWh/m²·a × 50 anys). Una casa Passivhaus consumeix l'equivalent a 150.000 kWh per al mateix concepte (200 m² × 15 kWh/m²·a × 50 anys). La diferència, 850.000 kWh estalviats, equival aproximadament a entre 170 i 220 tones de CO₂ no emès, segons el mix elèctric mitjà aplicable.
+La diferència acumulada al llarg de cinquanta anys, per a un habitatge mitjana de dos-cents metres quadrats, és substancial. Una casa convencional consumeix l'equivalent a 1.000.000 kWh durant aquest període (200 m² × 100 kWh/m²·a × 50 anys). Una casa Passivhaus consumeix l'equivalent a 150.000 kWh per al mateix concepte (200 m² × 15 kWh/m²·a × 50 anys). La diferència, 850.000 kWh estalviats, equival aproximadament a entre 170 i 220 tones de CO₂ no emès, segons el mix elèctric mitjà aplicable.
 
 ---
 
@@ -74,7 +74,7 @@ Quan se sumen totes les fases del cicle de vida segons EN 15978, el patró que a
 
 El punt d'equilibri, definit com el moment a partir del qual la petjada de construir Passivhaus es compensa amb l'estalvi operatiu acumulat, sol situar-se entre els cinc i deu anys des de l'entrega de l'obra. A partir d'aquest moment, cada any addicional de vida útil de l'edifici afegeix benefici net en termes ambientals.
 
-Per a una vivenda dissenyada per durar cent anys, el balanç ambiental global d'una construcció Passivhaus és netament positiu en comparació amb una construcció convencional equivalent, amb una diferència acumulada que es mesura en centenars de tones de CO₂ al llarg de la vida útil.
+Per a un habitatge dissenyada per durar cent anys, el balanç ambiental global d'una construcció Passivhaus és netament positiu en comparació amb una construcció convencional equivalent, amb una diferència acumulada que es mesura en centenars de tones de CO₂ al llarg de la vida útil.
 
 ---
 
@@ -88,7 +88,7 @@ Cada projecte té paràmetres específics, motiu pel qual les xifres concretes s
 
 ## H2 · 6. Què pot fer vostè: decisions amb impacte real
 
-Si està valorant construir o rehabilitar una vivenda i vol que la decisió tingui impacte ambiental real i no només estètic, hi ha quatre criteris que orienten una valoració seriosa.
+Si està valorant construir o rehabilitar un habitatge i vol que la decisió tingui impacte ambiental real i no només estètic, hi ha quatre criteris que orienten una valoració seriosa.
 
 Demanar LCA al projecte és el primer. Les eines existeixen (EnergyPlus, OneClick LCA, PHPP, WUFI), i si el constructor no en pot aportar, la conversa s'està fent al nivell de màrqueting i no al d'enginyeria. Verificar les EPD dels materials principals (estructura, aïllament, revestiments) és el segon. Un fabricant seriós les facilita; un que no les té probablement no compleix els quatre criteris bàsics. No confondre "ecològic" amb "sostenible" és el tercer: materials d'origen natural però amb alta energia incorporada, com la llana de roca importada de l'altra banda d'Europa, poden ser pitjor opció que materials industrials reciclats locals. Pensar a cinquanta anys, no a cinc, és el quart: una decisió constructiva té impacte durant tota la vida útil de l'edifici, i la diferència entre "una mica menys eficient" i "molt més eficient" pot ser de centenars de tones de CO₂ acumulades.
 
@@ -98,7 +98,7 @@ Demanar LCA al projecte és el primer. Les eines existeixen (EnergyPlus, OneClic
 
 ### Què és una EPD?
 
-Environmental Product Declaration. Document tècnic estandaritzat segons la norma ISO 14025 que certifica l'impacte ambiental d'un material al llarg del seu cicle de vida. Cada cop més fabricants l'ofereixen, i la seva absència és un senyal d'alerta.
+Environmental Product Declaration. Document tècnic estandarditzat segons la norma ISO 14025 que certifica l'impacte ambiental d'un material al llarg del seu cicle de vida. Cada cop més fabricants l'ofereixen, i la seva absència és un senyal d'alerta.
 
 ### El càlcul LCA és car?
 

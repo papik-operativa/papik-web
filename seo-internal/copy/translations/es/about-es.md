@@ -1,6 +1,6 @@
 # Copy ES · About · `/es/about`
 
-> Página breve de introducción a PAPIK Group orientada a periodistas, partners y visitantes curiosos. No duplica /es/nosotros (el equipo), sino que responde "qué es PAPIK Group en sesenta segundos".
+> Página breve de introducción a PAPIK Group orientada a periodistas, socios y visitantes curiosos. No duplica /es/nosotros (el equipo), sino que responde "qué es PAPIK Group en sesenta segundos".
 
 ---
 
@@ -60,7 +60,7 @@ QUÉ HACEMOS
 Cuatro unidades de negocio complementarias
 ```
 
-La actividad de PAPIK se organiza en torno a cuatro unidades de negocio. La [construcción residencial Passivhaus](/es/construccion) es la unidad histórica y mayor: viviendas unifamiliares de cero a llave en mano, con sistema Eskimohaus®. La [promoción inmobiliaria](/es/promocion) desarrolla viviendas Passivhaus para venta directa, a menudo en partenariado con propietarios de suelo. La [rehabilitación energética](/es/rehabilitacion) cubre EnerPHit para viviendas existentes, así como rehabilitación de comunidades de vecinos con gestión integrada de subvenciones europeas. Finalmente, la unidad de [patrimonios](/es/patrimonios) ofrece coinversión y gestión patrimonial conjunta a propietarios que quieren rentabilizar suelo o edificios sin ejecutar el proyecto ellos mismos.
+La actividad de PAPIK se organiza en torno a cuatro unidades de negocio. La [construcción residencial Passivhaus](/es/construccion) es la unidad histórica y mayor: viviendas unifamiliares de cero a llave en mano, con sistema Eskimohaus®. La [promoción inmobiliaria](/es/promocion) desarrolla viviendas Passivhaus para venta directa, a menudo en colaboración con propietarios de suelo. La [rehabilitación energética](/es/rehabilitacion) cubre EnerPHit para viviendas existentes, así como rehabilitación de comunidades de vecinos con gestión integrada de subvenciones europeas. Finalmente, la unidad de [patrimonios](/es/patrimonios) ofrece coinversión y gestión patrimonial conjunta a propietarios que quieren rentabilizar suelo o edificios sin ejecutar el proyecto ellos mismos.
 
 ---
 

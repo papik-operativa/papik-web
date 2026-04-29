@@ -27,7 +27,7 @@ Cinco tecnologías clave del Passivhaus 2026
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · [Fecha publicación] · Reading time aproximado 7 min
+Equipo técnico · PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 7 min
 ```
 
 ## INTRO

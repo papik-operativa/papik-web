@@ -7,11 +7,11 @@
 ## META TAGS · `<head>`
 
 ```html
-<title>Promoció · Cases Passivhaus llave en mà · PAPIK Group</title>
-<meta name="description" content="Comprem el solar, construïm i venem la casa terminada. Cases Passivhaus a Catalunya, Balears i Andorra. Sense risc d'obra per al comprador. Entrega clau en mà.">
+<title>Promoció · Cases Passivhaus clau en mà · PAPIK Group</title>
+<meta name="description" content="Comprem el solar, construïm i venem la casa acabada. Cases Passivhaus a Catalunya, Balears i Andorra. Sense risc d'obra per al comprador. Entrega clau en mà.">
 
-<meta property="og:title" content="Promoció · Cases Passivhaus llave en mà · PAPIK Group">
-<meta property="og:description" content="PAPIK compra el solar, construeix i ven el producte acabat. Vostè entra a viure el dia que firma.">
+<meta property="og:title" content="Promoció · Cases Passivhaus clau en mà · PAPIK Group">
+<meta property="og:description" content="PAPIK compra el solar, construeix i ven el producte acabat. Vostè entra a viure el dia que signa.">
 <meta property="og:url" content="https://papik.cat/promocio">
 <meta property="og:image" content="https://papik.cat/img/og/og-promocio.jpg">
 <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
 <meta property="og:locale:alternate" content="en_US">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Promoció · Cases Passivhaus llave en mà · PAPIK">
+<meta name="twitter:title" content="Promoció · Cases Passivhaus clau en mà · PAPIK">
 <meta name="twitter:description" content="Comprem el solar, construïm i venem el producte acabat.">
 
 <link rel="canonical" href="https://papik.cat/promocio">
@@ -36,14 +36,14 @@
 
 ```
 [Eyebrow]
-LLAVE EN MÀ · ENTREGA IMMEDIATA O AMB DATA TANCADA
+CLAU EN MÀ · ENTREGA IMMEDIATA O AMB DATA TANCADA
 
 [H1]
 Cases passives per viure des del primer dia
 
 [Subhead · 2 línies]
-Comprem el solar, construïm i venem la casa terminada. Vostè
-no arrisca capital durant l'obra. Vostè decideix quan firmar i
+Comprem el solar, construïm i venem la casa acabada. Vostè
+no arrisca capital durant l'obra. Vostè decideix quan signar i
 comença a viure.
 
 [CTA primari]
@@ -57,7 +57,7 @@ Parlar amb un assessor  →
 
 ---
 
-## BLOC 1 · POR QUÈ COMPRAR UNA PROMOCIÓ PAPIK
+## BLOC 1 · PER QUÈ COMPRAR UNA PROMOCIÓ PAPIK
 
 ```
 [H2]
@@ -80,7 +80,7 @@ per encàrrec.
 SENSE RISC D'OBRA
 
 El solar el comprem nosaltres. La construcció la financem
-nosaltres. Els retrasos, els imprevistos i les desviacions de
+nosaltres. Els retards, els imprevistos i les desviacions de
 pressupost els absorbim nosaltres. Vostè compra producte, no
 risc de projecte.
 ```
@@ -94,8 +94,8 @@ risc de projecte.
 
 SENSE SORPRESES
 
-Preu tancat al firmar. Calidades tancades al firmar. Data
-d'entrega tancada al firmar. Si la casa ja està construïda,
+Preu tancat al signar. Qualitats tancades al signar. Data
+d'entrega tancada al signar. Si la casa ja està construïda,
 data immediata. Si està en construcció, calendari amb data
 exacta al contracte.
 ```
@@ -109,8 +109,8 @@ exacta al contracte.
 
 VIURE DES DEL PRIMER DIA
 
-Cases ja terminades o amb entrega fixa per contracte. El dia
-que firma, entra a viure (o té la data fixada). Sense mesos de
+Cases ja acabades o amb entrega fixa per contracte. El dia
+que signa, entra a viure (o té la data fixada). Sense mesos de
 disseny, sense anys d'obra, sense pressió.
 ```
 
@@ -131,13 +131,13 @@ Sense compromís fins al pas 4.
 ```
 01 · LI ENSENYEM LES PROMOCIONS DISPONIBLES
 
-Llistat actualitzat de cases en construcció o terminades. Vostè
+Llistat actualitzat de cases en construcció o acabades. Vostè
 veu què hi ha, on, amb quina classe energètica i quan es pot
 lliurar.
 
 ──────────────
 
-02 · ELEGEIX LA QUE ENCAIXA AMB LA SEVA VIDA
+02 · TRIA LA QUE ENCAIXA AMB LA SEVA VIDA
 
 Tipologia, mida, ubicació, calendari, pressupost. Si no hi ha
 cap que encaixi, podem comentar projectes futurs en preparació.
@@ -147,21 +147,21 @@ cap que encaixi, podem comentar projectes futurs en preparació.
 03 · VISITA L'OBRA O EL SOLAR
 
 Si la casa està en construcció, la visita en obra. Si està
-terminada, la visita acabada. Si està en projecte, vostè veu el
-solar i la documentació tècnica.
+acabada, la visita un cop enllestida. Si està en projecte, vostè
+veu el solar i la documentació tècnica.
 
 ──────────────
 
 04 · RESERVA + CONTRACTE
 
 Reserva inicial amb terminis i contracte de compravenda amb
-totes les calidades, dates i clàusules de protecció.
+totes les qualitats, dates i clàusules de protecció.
 
 ──────────────
 
 05 · ENTREGA DE CLAUS
 
-Lliurament de claus, manual d'ús de la casa, garanties decennal
+Lliurament de claus, manual d'ús de la casa, garantia decennal
 i postobra continuada el primer any.
 ```
 
@@ -192,7 +192,7 @@ d'avisos.
 · m² construïts
 · Dormitoris i banys
 · Classe energètica
-· Estat (terminada, en obra, en projecte)
+· Estat (acabada, en obra, en projecte)
 · Data d'entrega prevista (si en obra o projecte)
 
 [Link]
@@ -208,7 +208,7 @@ Sol·licitar avís de noves promocions  →
 
 ---
 
-## BLOC 4 · DIFERÈNCIA VS COMPRAR USADO
+## BLOC 4 · DIFERÈNCIA VS COMPRAR USAT
 
 ```
 [H2]
@@ -232,7 +232,7 @@ Cost manteniment 1-10 anys| Alt (sovint requereix   | Mínim
 Garantia d'obra           | Vencida o sense         | 10 anys decennal +
                           | cobertura completa      | sistema PAPIK
 ─────────────────────────────────────────────────────────────────
-Sorpreses tècniques       | Probables               | Cero
+Sorpreses tècniques       | Probables               | Cap
 ─────────────────────────────────────────────────────────────────
 Confort tèrmic            | Variable                | Estable per disseny
                           | (estiu i hivern)        |
@@ -256,7 +256,7 @@ Construïm cases per vendre a zones residencials consolidades.
 La nostra activitat es concentra en quatre àmbits geogràfics. El
 Vallès Occidental és el nostre àmbit prioritari, amb especial
 intensitat a Sant Cugat, Sant Quirze, Bellaterra i Matadepera. El
-Maresme acollir promocions selectives a Argentona, Sant Andreu de
+Maresme acull promocions selectives a Argentona, Sant Andreu de
 Llavaneres, Premià i Mataró. El Garraf representa la nostra costa
 premium amb projectes a Vilanova i la Geltrú, Sitges i Sant Pere de
 Ribes. A Andorra i a les Illes Balears actuem puntualment quan el
@@ -283,37 +283,37 @@ Preguntes freqüents
 ```
 P · Puc personalitzar la casa que compro a PAPIK com a promotor?
 
-R · Depèn de l'estat de l'obra. Si la casa està terminada, només
+R · Depèn de l'estat de l'obra. Si la casa està acabada, només
 acabats finals (mobiliari, complements). Si està en obra, podem
-ajustar detalls de calidades. Si està en projecte, hi ha més
+ajustar detalls de qualitats. Si està en projecte, hi ha més
 marge sempre dins del que el contracte permeti.
 
 ──────────────
 
-P · Què inclou exactament "llave en mà"?
+P · Què inclou exactament "clau en mà"?
 
-R · La casa terminada amb cuina equipada, banys complets, acabats
+R · La casa acabada amb cuina equipada, banys complets, acabats
 de paviment i pintura, instal·lacions actives, certificat energètic
 i cèdula d'habitabilitat. No inclou mobiliari mòbil, electrodomèstics
 blancs ni decoració.
 
 ──────────────
 
-P · Hi ha finançament verda o hipoteca passiva disponible?
+P · Hi ha finançament verd o hipoteca passiva disponible?
 
 R · Sí. Diverses entitats financeres ofereixen hipoteques amb
-bonificació per a vivendes d'alta eficiència energètica. Podem
+bonificació per a habitatges d'alta eficiència energètica. Podem
 fer la presentació tècnica davant l'entitat per facilitar
 l'aprovació.
 
 ──────────────
 
-P · Quant tarda en lliurar-se una promoció PAPIK?
+P · Quant triga a lliurar-se una promoció PAPIK?
 
-R · Depèn de l'estat de l'obra. Una casa terminada té entrega
-immediata després de la firma. Una casa en construcció té data
+R · Depèn de l'estat de l'obra. Una casa acabada té entrega
+immediata després de la signatura. Una casa en construcció té data
 tancada al contracte. Una casa en projecte té termini orientatiu
-en moment de reserva, confirmat al contracte definitiu.
+en el moment de la reserva, confirmat al contracte definitiu.
 
 ──────────────
 
@@ -322,7 +322,7 @@ P · Com em protegeix el contracte si hi ha retards?
 R · El contracte inclou penalitzacions econòmiques per dia de
 retard, devolució íntegra de la reserva si l'obra no compleix el
 calendari més enllà d'un termini definit, i garanties bancàries
-de quantia lliurada durant la construcció.
+de la quantia lliurada durant la construcció.
 
 ──────────────
 
@@ -354,13 +354,13 @@ Si el seu cas és diferent
 ```
 [Grid 3 cards petites]
 
-¿Té solar i vol construir la seva pròpia casa?
+Té solar i vol construir la seva pròpia casa?
 → Construcció
 
-¿Vol rehabilitar la seva vivenda actual?
+Vol rehabilitar el seu habitatge actual?
 → Rehabilitació
 
-¿Cerca un soci constructor com a inversor patrimonial?
+Cerca un soci constructor com a inversor patrimonial?
 → Patrimonis
 ```
 
@@ -390,7 +390,7 @@ Sol·licitar avís de noves promocions  →
 La pàgina ha de deixar clar EN ELS PRIMERS 3 SEGONS DE SCROLL
 que aquí es COMPRA producte, NO es CONTRACTA obra.
 
-Cualquier ambigüedad genera leads desalineats: particular amb solar
+Qualsevol ambigüitat genera leads desalineats: particular amb solar
 pensa que és aquí per construir (ha d'anar a /construccio); particular
 sense solar pensant a comprar (és aquí, perfecte); inversor patrimonial
 (ha d'anar a /patrimonis).

@@ -27,7 +27,7 @@ K-SANDAL: vivienda pasiva en el Parque de Collserola
 ## BYLINE
 
 ```
-Equipo de PAPIK Group · [Fecha publicación] · Reading time aproximado 5 min
+Equipo de PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 5 min
 ```
 
 ## INTRO

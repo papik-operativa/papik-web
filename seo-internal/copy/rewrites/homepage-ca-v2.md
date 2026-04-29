@@ -500,7 +500,7 @@ Tots els enllaços interns apunten a URLs vàlides. Hero image optimitzat WebP a
 
 (Sense comptar microcopy de UI, headings ni CTAs.)
 
-Aquest és el copy madre CA. La versió ES (`homepage-es.md`) es traduirà literalment amb adaptacions léxiques. La versió EN (`homepage-en.md`) requereix reescriptura cultural com a tasca a S4 amb el brief homepage com a referència.
+Aquest és el copy mare CA. La versió ES (`homepage-es.md`) es traduirà literalment amb adaptacions lèxiques. La versió EN (`homepage-en.md`) requereix reescriptura cultural com a tasca a S4 amb el brief homepage com a referència.
 
 ---
 

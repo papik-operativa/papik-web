@@ -27,7 +27,7 @@ Hipoteca verde para Passivhaus: el acuerdo entre PAPIK y Banco Sabadell
 ## BYLINE
 
 ```
-Equipo de PAPIK Group · [Fecha publicación] · Reading time aproximado 7 min
+Equipo de PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 7 min
 ```
 
 ## INTRO

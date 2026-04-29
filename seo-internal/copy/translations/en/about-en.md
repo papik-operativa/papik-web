@@ -1,6 +1,6 @@
 # Copy EN · About · `/en/about`
 
-> Brief external-facing introduction to PAPIK Group for journalists, partners and curious visitors. Not a duplicate of /en/about (the team page · note: in EN /about IS the slug for both, the team page lives at /en/about — wait: in EN, /about is "us" page per slug-mapping for nosaltres). Here we use /en/about as the brief page since the slug-mapping points nosaltres -> /en/about. Per task instructions: this About is the brief page; the deep team page remains under /en/about per the existing slug-mapping. Resolved per user spec: this is the new brief about-us page at /en/about.
+> Brief external-facing introduction to PAPIK Group for journalists, partners and curious visitors. Not a duplicate of /en/about (the team page · note: in EN /about IS the slug for both, the team page lives at /en/about; wait: in EN, /about is "us" page per slug-mapping for nosaltres). Here we use /en/about as the brief page since the slug-mapping points nosaltres -> /en/about. Per task instructions: this About is the brief page; the deep team page remains under /en/about per the existing slug-mapping. Resolved per user spec: this is the new brief about-us page at /en/about.
 
 ---
 

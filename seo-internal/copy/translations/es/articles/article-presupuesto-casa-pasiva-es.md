@@ -27,7 +27,7 @@ Presupuesto de casa Passivhaus: guía de costes
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · [Fecha publicación] · Reading time aproximado 9 min
+Equipo técnico · PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 9 min
 ```
 
 ## INTRO
@@ -118,7 +118,7 @@ El punto de equilibrio financiero, definido como el momento a partir del cual el
 
 ## H2 · 10. Cómo obtener una estimación orientativa
 
-PAPIK ofrece un [configurador de presupuesto](/es/presupuesto) que da una estimación orientativa personalizada en cinco minutos. El configurador tiene en cuenta los metros cuadrados construidos, el número de plantas y baños, el nivel de acabados (estándar, alto o premium), el tipo de cubierta y fachada, la pavimentación seleccionada, y los sistemas incorporados al proyecto. La estimación se entrega por email con un PDF detallado, y un asesor de PAPIK se pone en contacto en menos de 24 horas para resolver dudas.
+PAPIK ofrece un [configurador de presupuesto](/es/presupuesto) que da una estimación orientativa personalizada en cinco minutos. El configurador tiene en cuenta los metros cuadrados construidos, el número de plantas y baños, el nivel de acabados (estándar, alto o premium), el tipo de cubierta y fachada, la pavimentación seleccionada, y los sistemas incorporados al proyecto. La estimación se entrega por correo electrónico con un PDF detallado, y un asesor de PAPIK se pone en contacto en menos de 24 horas para resolver dudas.
 
 El configurador da una estimación orientativa. El presupuesto definitivo requiere visita técnica al solar, proyecto arquitectónico y contrato específico.
 

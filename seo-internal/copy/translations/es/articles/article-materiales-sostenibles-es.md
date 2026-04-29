@@ -27,7 +27,7 @@ Materiales sostenibles: madera, corcho, celulosa y otras opciones reales
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · [Fecha publicación] · Reading time aproximado 7 min
+Equipo técnico · PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 7 min
 ```
 
 ## INTRO

@@ -78,7 +78,7 @@ Aquí es decideix gran part del cost final i del rendiment energètic de la casa
 
 Les finestres són un element central a Passivhaus. Es treballa amb fusta, alumini, PVC o sistemes mixtos, sempre amb triple vidre i cambres de gas inert per assolir l'estàndard.
 
-Segons l'Institut de Tecnologia de la Construcció de Catalunya (ITeC), els rangs orientatius per a una construcció residencial nova al 2025-2026 a Catalunya es situen entre 1.500 i 2.500 €/m² segons calidades i sistema. Una construcció Passivhaus amb sistema lleuger sol situar-se al rang mig-alt d'aquesta franja, amb retorn d'inversió per estalvi energètic al cap de set a deu anys.
+Segons l'Institut de Tecnologia de la Construcció de Catalunya (ITeC), els rangs orientatius per a una construcció residencial nova al 2025-2026 a Catalunya es situen entre 1.500 i 2.500 €/m² segons qualitats i sistema. Una construcció Passivhaus amb sistema lleuger sol situar-se al rang mig-alt d'aquesta franja, amb retorn d'inversió per estalvi energètic al cap de set a deu anys.
 
 Aquest rang és orientatiu del sector públic. El cost concret per a cada projecte depèn dels factors específics de cada cas i només es defineix amb estudi tècnic detallat de la parcel·la i el programa.
 
@@ -110,7 +110,7 @@ A més dels set components principals, hi ha factors externs que cal incorporar 
 
 Una construcció Passivhaus suposa habitualment un sobrecost del 5% al 15% sobre la mateixa construcció amb estàndards bàsics CTE, segons fonts públiques del sector com l'IDAE i la Plataforma PEP.
 
-Aquest sobrecost es recupera per diverses vies que actuen al llarg de la vida útil del bé. L'estalvi energètic operatiu és la primera: una casa Passivhaus consumeix entre el 70% i el 90% menys que una equivalent convencional al llarg de tota la vida útil. La vida útil és superior, amb estructura i envolupant amb durabilitat verificable a més de cent anys. El manteniment és reduït, ja que els sistemes operen amb menys desgast tèrmic i, en conseqüència, amb menys necessitat de reparacions. La revalorització de mercat és superior, amb estudis de Sociedad de Tasación i Idealista Data que indiquen que una vivenda classe A es revaloritza entre el 15% i el 25% més que una equivalent classe E o F.
+Aquest sobrecost es recupera per diverses vies que actuen al llarg de la vida útil del bé. L'estalvi energètic operatiu és la primera: una casa Passivhaus consumeix entre el 70% i el 90% menys que una equivalent convencional al llarg de tota la vida útil. La vida útil és superior, amb estructura i envolupant amb durabilitat verificable a més de cent anys. El manteniment és reduït, ja que els sistemes operen amb menys desgast tèrmic i, en conseqüència, amb menys necessitat de reparacions. La revalorització de mercat és superior, amb estudis de Sociedad de Tasación i Idealista Data que indiquen que un habitatge classe A es revaloritza entre el 15% i el 25% més que una equivalent classe E o F.
 
 El punt d'equilibri financer, definit com el moment a partir del qual l'estalvi acumulat compensa el sobrecost inicial, sol situar-se entre els set i els dotze anys. A partir d'aquí, cada any de vida útil afegit és benefici net per al propietari.
 
@@ -118,9 +118,9 @@ El punt d'equilibri financer, definit com el moment a partir del qual l'estalvi 
 
 ## H2 · 10. Com obtenir una estimació orientativa
 
-PAPIK ofereix un [configurador de pressupost](/pressupost) que dóna una estimació orientativa personalitzada en cinc minuts. El configurador té en compte els metres quadrats construïts, el nombre de plantes i banys, el nivell d'acabats (estàndard, alt o premium), el tipus de coberta i façana, la pavimentació seleccionada, i els sistemes incorporats al projecte. L'estimació es lliura per email amb un PDF detallat, i un assessor de PAPIK es posa en contacte en menys de 24 hores per resoldre dubtes.
+PAPIK ofereix un [configurador de pressupost](/pressupost) que dona una estimació orientativa personalitzada en cinc minuts. El configurador té en compte els metres quadrats construïts, el nombre de plantes i banys, el nivell d'acabats (estàndard, alt o premium), el tipus de coberta i façana, la pavimentació seleccionada, i els sistemes incorporats al projecte. L'estimació es lliura per email amb un PDF detallat, i un assessor de PAPIK es posa en contacte en menys de 24 hores per resoldre dubtes.
 
-El configurador dóna una estimació orientativa. El pressupost definitiu requereix visita tècnica al solar, projecte arquitectònic i contracte específic.
+El configurador dona una estimació orientativa. El pressupost definitiu requereix visita tècnica al solar, projecte arquitectònic i contracte específic.
 
 ---
 
@@ -136,15 +136,15 @@ Depèn del cas concret. L'entramat lleuger de fusta sol ser el més econòmic pe
 
 ### Es pot construir Passivhaus amb pressupost ajustat?
 
-Sí. Les versions Passivhaus Standard són accessibles per a la majoria de famílies amb capacitat de finançament hipotecari habitual. Les versions Passivhaus Plus i Premium són tipologies premium amb sobrecost addicional. Cada client elegeix el nivell que té sentit per al seu cas concret.
+Sí. Les versions Passivhaus Standard són accessibles per a la majoria de famílies amb capacitat de finançament hipotecari habitual. Les versions Passivhaus Plus i Premium són tipologies premium amb sobrecost addicional. Cada client tria el nivell que té sentit per al seu cas concret.
 
-### Què inclou exactament el cost que dóna el configurador?
+### Què inclou exactament el cost que dona el configurador?
 
 L'estimació de cost d'obra a partir dels paràmetres introduïts. No inclou solar, llicències, taxes, IVA, ni honoraris professionals, que es comuniquen separadament al PDF que es genera.
 
 ### Com puc finançar la meva casa Passivhaus?
 
-A través d'hipoteca convencional o, en alguns casos, hipoteca verda amb bonificacions específiques per a vivendes d'alta eficiència. PAPIK té un acord amb Banc Sabadell que ho facilita: vegeu [el nostre article sobre hipoteca verda](/article-nota-premsa-papik-sabadell).
+A través d'hipoteca convencional o, en alguns casos, hipoteca verda amb bonificacions específiques per a habitatges d'alta eficiència. PAPIK té un acord amb Banc Sabadell que ho facilita: vegeu [el nostre article sobre hipoteca verda](/article-nota-premsa-papik-sabadell).
 
 ---
 

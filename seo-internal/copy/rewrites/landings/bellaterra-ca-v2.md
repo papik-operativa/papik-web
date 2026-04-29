@@ -32,10 +32,10 @@ Especialistes Passivhaus i derribo+reposició a Bellaterra
 
 [Subhead]
 Tenim un cas Passivhaus certificat al municipi (K-Iturbi). Oferim
-el procés complet de derribo i obra nova quan la vivenda existent
+el procés complet de derribo i obra nova quan l'habitatge existent
 no és recuperable. Una combinació única al territori.
 
-[CTA primari] Sol·licitar valoració de la meva vivenda actual  →
+[CTA primari] Sol·licitar valoració de la meva habitatge actual  →
 [CTA secundari] Configurar el pressupost d'una nova casa  →
 ```
 
@@ -54,11 +54,11 @@ a Cerdanyola del Vallès. Ciutat-jardí amb parcel·les amplies
 (habitualment superiors a 800 m²), arbrat consolidat i tipologia
 residencial unifamiliar consolidada des de la dècada de 1950.
 
-El parc residencial té vivendes dels anys seixanta a vuitanta en
+El parc residencial té habitatges dels anys seixanta a vuitanta en
 parcel·les amplies, sovint amb propietat envellida i transferència
 generacional en curs. Aquesta situació genera una oportunitat
 singular: la substitució controlada (derribo amb obra nova al mateix
-solar) que permet obtenir una vivenda contemporània, eficient i
+solar) que permet obtenir un habitatge contemporània, eficient i
 adaptada a la vida actual sense canviar de zona. És exactament
 l'àmbit on PAPIK aporta més valor.
 ```
@@ -181,7 +181,7 @@ El nostre procés especialitzat de derribo i reposició
 
 [Subhead · 1 línia]
 Sis fases adaptades a la singularitat de la substitució de
-vivenda antiga per obra nova al mateix solar.
+habitatge antiga per obra nova al mateix solar.
 
 [Diagrama vertical]
 ```
@@ -195,7 +195,7 @@ ITE pendent.
 
 02 · DIAGNÒSTIC D'OPORTUNITAT
 Quan val la pena substituir vs rehabilitar. Assessorem honestament:
-no totes les vivendes haurien de ser derruïdes. La rehabilitació
+no totes les habitatges haurien de ser derruïdes. La rehabilitació
 és sovint la millor opció. Vegeu /article-substituir-vs-rehabilitar.
 
 ──────────────
@@ -214,7 +214,7 @@ i informe preceptiu de l'EMD Bellaterra.
 
 05 · EXECUCIÓ DE L'OBRA
 Derribo controlat (no enderroc destructiu) més construcció Eskimohaus®
-amb les calidades acordades al contracte.
+amb les qualitats acordades al contracte.
 
 ──────────────
 
@@ -241,7 +241,7 @@ sobre arbrat, materials i tipologia.
 P · Quina és la diferència entre derribo amb obra nova i rehabilitació?
 
 R · La rehabilitació preserva l'estructura existent i millora
-prestacions. El derribo amb obra nova substitueix la vivenda per
+prestacions. El derribo amb obra nova substitueix l'habitatge per
 una de nova al mateix solar. La decisió correcta depèn de l'estat
 estructural, el cost relatiu, l'eficiència energètica final i la
 compatibilitat urbanística. Tenim un article complet sobre el
@@ -297,7 +297,7 @@ Vallès Occidental. La nostra activitat a Bellaterra és recurrent.
 
 ```
 [H2]
-Comencem amb una valoració de la seva vivenda actual
+Comencem amb una valoració de la seva habitatge actual
 
 [Paràgraf]
 Sense compromís. Una visita tècnica gratuïta a la seva propietat
@@ -311,10 +311,10 @@ Sol·licitar valoració · derribo amb obra nova  →
 
 [Form curt]
 [Camp · Adreça aproximada (sense número)]
-[Camp · Any de construcció de la vivenda actual]
+[Camp · Any de construcció de l'habitatge actual]
 [Camp · m² aproximats]
 [Camp · Email i telèfon]
-[Selector · Estat de la vivenda · Habitable, Habitable amb reformes, Inhabitable, No ho sé]
+[Selector · Estat de l'habitatge · Habitable, Habitable amb reformes, Inhabitable, No ho sé]
 
 [CTA secundari]
 Configurar el pressupost d'una casa nova  →
@@ -324,7 +324,7 @@ Configurar el pressupost d'una casa nova  →
 [Cross-links discrets]
 Articles relacionats: /article-derribar-casa-antiga i /article-substituir-vs-rehabilitar.
 Hub Vallès Occidental: veure totes les zones.
-Si vol rehabilitar la vivenda existent: /rehabilitacio.
+Si vol rehabilitar l'habitatge existent: /rehabilitacio.
 ```
 
 ---

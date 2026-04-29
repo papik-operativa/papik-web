@@ -88,7 +88,7 @@ Bellaterra com a Entitat Municipal Descentralitzada dins del terme municipal de 
 
 ## H2 · 7. Després de la llicència de derribo: la transició a obra nova
 
-La llicència d'obra major, necessària per construir la nova vivenda, és independent de la d'enderroc. Es poden tramitar conjuntament amb sol·licitud paral·lela (opció més comuna, que permet economia de tràmit i terminis paral·lels) o seqüencialment, primer enderroc i després obra nova (opció habitual només si el projecte d'obra nova encara s'està definint quan es vol començar el derribo).
+La llicència d'obra major, necessària per construir la nova habitatge, és independent de la d'enderroc. Es poden tramitar conjuntament amb sol·licitud paral·lela (opció més comuna, que permet economia de tràmit i terminis paral·lels) o seqüencialment, primer enderroc i després obra nova (opció habitual només si el projecte d'obra nova encara s'està definint quan es vol començar el derribo).
 
 PAPIK coordina ambdues llicències quan la part de derribo i reposició es contracta com a procés integrat, fet que minimitza les esperes intermedies entre llicències i optimitza el calendari global del projecte.
 
@@ -96,7 +96,7 @@ PAPIK coordina ambdues llicències quan la part de derribo i reposició es contr
 
 ## H2 · 8. Quan PAPIK gestiona tot el procés
 
-PAPIK gestiona la documentació tècnica, el contacte amb l'Ajuntament i la coordinació entre llicències per al cas integrat de derribo i obra nova. El cas referenciat és [K-Iturbi](/projecte-k-iturbi), un Passivhaus certificat construït a Bellaterra a través d'un procés que va incloure substitució de vivenda existent. La família va prendre les decisions estratègiques (programa de la nova casa, calendari, calidades), i la part operativa de coordinació amb administracions la va portar PAPIK.
+PAPIK gestiona la documentació tècnica, el contacte amb l'Ajuntament i la coordinació entre llicències per al cas integrat de derribo i obra nova. El cas referenciat és [K-Iturbi](/projecte-k-iturbi), un Passivhaus certificat construït a Bellaterra a través d'un procés que va incloure substitució de habitatge existent. La família va prendre les decisions estratègiques (programa de la nova casa, calendari, qualitats), i la part operativa de coordinació amb administracions la va portar PAPIK.
 
 ---
 

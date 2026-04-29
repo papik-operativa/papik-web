@@ -84,7 +84,7 @@ rentabilidad pura.
 ### Card 3 · GRUPOS DE COINVERSIÓN
 
 ```
-Grupos de dos a cuatro socios ya constituidos que buscan partner
+Grupos de dos a cuatro socios ya constituidos que buscan socio
 constructor de confianza para un proyecto concreto. Empresas
 familiares con tesorería excedente que diversifican vía inmobiliario.
 ```

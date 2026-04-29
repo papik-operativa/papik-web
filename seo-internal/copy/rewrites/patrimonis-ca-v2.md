@@ -142,7 +142,7 @@ independents (vostè i nosaltres tenim assessorament separat).
 
 Construïm el projecte. Vostè participa en la governança del
 vehicle segons el que s'hagi acordat. Sortida o explotació
-segons mandat (venda d'actiu, refinanciació o operació a
+segons mandat (venda d'actiu, refinançament o operació a
 llarg termini).
 ```
 
@@ -319,7 +319,7 @@ les parts.
 
 P · Quina és la sortida típica?
 
-R · Venda d'actiu, refinanciació o operació a llarg termini,
+R · Venda d'actiu, refinançament o operació a llarg termini,
 segons el mandat acordat al constituir el vehicle. Cap "sortida
 estàndard": depèn del projecte concret.
 
@@ -365,10 +365,10 @@ Si el seu cas és diferent
 ```
 [Grid 2 cards petites]
 
-¿Vol construir la seva pròpia casa com a particular?
+Vol construir la seva pròpia casa com a particular?
 → Construcció
 
-¿Té un edifici sencer en propietat única (no comunitat)?
+Té un edifici sencer en propietat única (no comunitat)?
 → Conversa amb PAPIK · podem explorar coinversió cas a cas
 ```
 
@@ -427,7 +427,7 @@ gestora de fons.
 
 ## REGLES DE COPY · INVIOLABLES
 
-Aquestes regles han estat aplicades al copy d'amunt. Si el dev o el copywriter modifiquen alguna cosa, han de mantenir-se: cap xifra d'inversions gestionades, ROI mig, capital sota gestió o ticket mig; cap promesa de rendibilitat ("guanyarà X%", "rendibilitat esperada Y%"); cap botó que digui "invertir" (sempre "sol·licitar conversa"); cap copy que insinuï captació pública (sempre bilateral: "treballem amb", "acompanyem"); cap comparativa nominal amb competidors ni amb fons o productes financers; cap nom de socis ni projectes identificables. Sí lèxic legal-tècnic correcte (NDA, vehicle, governança, sortida, fideïcomís) com a senyal de profesionalitat.
+Aquestes regles han estat aplicades al copy d'amunt. Si el dev o el copywriter modifiquen alguna cosa, han de mantenir-se: cap xifra d'inversions gestionades, ROI mig, capital sota gestió o ticket mig; cap promesa de rendibilitat ("guanyarà X%", "rendibilitat esperada Y%"); cap botó que digui "invertir" (sempre "sol·licitar conversa"); cap copy que insinuï captació pública (sempre bilateral: "treballem amb", "acompanyem"); cap comparativa nominal amb competidors ni amb fons o productes financers; cap nom de socis ni projectes identificables. Sí lèxic legal-tècnic correcte (NDA, vehicle, governança, sortida, fideïcomís) com a senyal de professionalitat.
 
 ---
 
@@ -461,7 +461,7 @@ Mateixos objectius que la resta del site (LCP inferior a 2,5 segons, WCAG AA).
 
 **Revisió per advocat especialitzat en CNMV i MiFID II: NO OPCIONAL.**
 
-Disclaimer regulatori al peu, validat per advocat. Cap promesa de rendibilitat. Cap botó "invertir": només "sol·licitar conversa". Cap nom, adreça o foto identificable. Tabla de casos al Bloc 5: cada fila documentable internament sota NDA. FAQ revisada per advocat. CTA dirigeix a formulari amb NDA mencionat. Tono i paleta visual diferenciats del resto del site. Schema validat amb Rich Results Test (NO usar FinancialProduct). Hreflang configurat (CA, ES, EN). Mobile test 320px o més.
+Disclaimer regulatori al peu, validat per advocat. Cap promesa de rendibilitat. Cap botó "invertir": només "sol·licitar conversa". Cap nom, adreça o foto identificable. Tabla de casos al Bloc 5: cada fila documentable internament sota NDA. FAQ revisada per advocat. CTA dirigeix a formulari amb NDA mencionat. To i paleta visual diferenciats de la resta del lloc. Schema validat amb Rich Results Test (NO usar FinancialProduct). Hreflang configurat (CA, ES, EN). Mobile test 320px o més.
 
 ---
 
@@ -477,4 +477,4 @@ Versió EN (`patrimonis-en.md`) requereix adaptació cultural important: "Patrim
 
 ## Canvis respecte a v1
 
-Tots els guions llargs eliminats. Llista de "Què aportem" (5 actius) convertida a paràgraf editorial integrat. Llista de tipologies de projecte (5 elements) convertida a paràgraf que descriu cadascuna amb context. Quadre 2x2 "Què NO som vs Què SÍ som" mantingut perquè és un quadre comparatiu real (excepció prevista al style guide). Frases didàctiques eliminades. Lèxic financer-legal mantingut o reforçat com a senyal de profesionalitat.
+Tots els guions llargs eliminats. Llista de "Què aportem" (5 actius) convertida a paràgraf editorial integrat. Llista de tipologies de projecte (5 elements) convertida a paràgraf que descriu cadascuna amb context. Quadre 2x2 "Què NO som vs Què SÍ som" mantingut perquè és un quadre comparatiu real (excepció prevista al style guide). Frases didàctiques eliminades. Lèxic financer-legal mantingut o reforçat com a senyal de professionalitat.

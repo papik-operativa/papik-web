@@ -58,7 +58,7 @@ A Catalunya el termini ordinari de presentació es manté obert fins al juny del
 
 ## H2 · 3. Programa 4 · habitatge individual
 
-El Programa 4 és l'equivalent a propietaris de vivendes unifamiliars o pisos individuals (el propietari sol·licita per al seu pis dins d'un edifici, sense necessitat d'aprovació comunitària). La condició central és, igualment, assolir una reducció verificada del trenta per cent en demanda energètica, amb sostre màxim de subvenció de catorze mil euros per habitatge i quaranta per cent del cost.
+El Programa 4 és l'equivalent a propietaris de habitatges unifamiliars o pisos individuals (el propietari sol·licita per al seu pis dins d'un edifici, sense necessitat d'aprovació comunitària). La condició central és, igualment, assolir una reducció verificada del trenta per cent en demanda energètica, amb sostre màxim de subvenció de catorze mil euros per habitatge i quaranta per cent del cost.
 
 A diferència del Programa 3, el Programa 4 cobreix obres dins l'habitatge: substitució de finestres, aïllament interior, ventilació individual, instal·lacions tèrmiques. No cobreix obres a elements comuns. Per a propietaris de pis, això significa que el Programa 4 millora la pell interior del seu apartament; el Programa 3, en canvi, millora la pell exterior compartida de l'edifici. Els dos programes són compatibles entre si si la comunitat opta per execució conjunta.
 

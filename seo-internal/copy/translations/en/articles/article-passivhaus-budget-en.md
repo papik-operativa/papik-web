@@ -36,7 +36,7 @@ Technical team · PAPIK Group · [Publication date] · Approximate reading time 
 
 Calculating the construction budget of a Passivhaus home is more complex than applying a generic €/m² rate. The plot, the architectural design, the permits, the construction system, the finishes and several operational factors all play a role, and these last items often fall outside the first estimate. The usual consequence is that budget comparisons between builders arrive with significant differences not because of the apparent factors, but because of what each estimate includes or excludes.
 
-This guide breaks down the components that define the real cost of a Passivhaus (high-performance certified low-energy) home in Catalonia, based on public sector ranges (ITeC, COAC, IDAE — Catalan, Catalan and Spanish technical and energy agencies) and on PAPIK's accumulated experience building more than one hundred projects. Specific figures from internal projects are not published here: the personalised estimate for each client's particular case is generated through the [budget configurator](/en/budget).
+This guide breaks down the components that define the real cost of a Passivhaus (high-performance certified low-energy) home in Catalonia, based on public sector ranges (ITeC, COAC, IDAE; Catalan, Catalan and Spanish technical and energy agencies) and on PAPIK's accumulated experience building more than one hundred projects. Specific figures from internal projects are not published here: the personalised estimate for each client's particular case is generated through the [budget configurator](/en/budget).
 
 ---
 

@@ -82,7 +82,7 @@ A nivell de producte final, l'acord garanteix continuïtat al ritme de promocion
 
 ## H2 · 5. Què significa per al mercat
 
-Per al comprador final d'una promoció PAPIK, l'acord no canvia l'experiència. El comprador segueix adquirint un producte acabat amb les mateixes garanties, el mateix sistema constructiu i les mateixes calidades. La diferència, des del seu punt de vista, és que l'oferta de promocions PAPIK al mercat es manté constant en lloc de cíclica, i això redueix la incertesa sobre disponibilitat futura.
+Per al comprador final d'una promoció PAPIK, l'acord no canvia l'experiència. El comprador segueix adquirint un producte acabat amb les mateixes garanties, el mateix sistema constructiu i les mateixes qualitats. La diferència, des del seu punt de vista, és que l'oferta de promocions PAPIK al mercat es manté constant en lloc de cíclica, i això redueix la incertesa sobre disponibilitat futura.
 
 Per al sector en general, l'acord és un cas d'estudi reproduïble. Mostra que la combinació "capital pacient amb mandat sostenible més constructor amb capacitat tècnica" pot estructurar-se sense dependre de fons especulatius o de vehicles d'inversió pública, mantenint el control de la qualitat constructiva en mans del constructor especialitzat i la decisió d'inversió en mans del soci financer.
 
@@ -92,7 +92,7 @@ Per al sector en general, l'acord és un cas d'estudi reproduïble. Mostra que l
 
 ### L'acord canvia el preu o les condicions per a un comprador final d'una promoció PAPIK?
 
-No. El comprador final firma una compravenda directament amb PAPIK, i les condicions són les estàndard de cada promoció. El soci financer no apareix al contracte de compravenda i no és visible per al comprador.
+No. El comprador final signa una compravenda directament amb PAPIK, i les condicions són les estàndard de cada promoció. El soci financer no apareix al contracte de compravenda i no és visible per al comprador.
 
 ### Per què 2 milions d'euros anuals i no més o menys?
 

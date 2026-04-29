@@ -27,7 +27,7 @@ Derribar una casa antigua y construir una nueva: pasos prácticos
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · [Fecha publicación] · Reading time aproximado 10 min
+Equipo técnico · PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 10 min
 ```
 
 ## INTRO

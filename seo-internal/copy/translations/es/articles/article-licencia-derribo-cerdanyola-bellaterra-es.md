@@ -27,7 +27,7 @@ Proceso de licencia de derribo en Cerdanyola del Vallès y Bellaterra
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · [Fecha publicación] · Reading time aproximado 9 min
+Equipo técnico · PAPIK Group · [Fecha publicación] · Tiempo de lectura aproximado 9 min
 ```
 
 ## INTRO

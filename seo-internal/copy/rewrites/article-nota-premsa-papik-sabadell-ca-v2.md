@@ -32,7 +32,7 @@ Equip de PAPIK Group · [Data publicació] · Reading time aproximat 7 min
 
 ## INTRO
 
-Construir o comprar una casa Passivhaus implica una inversió superior a la d'una construcció convencional, i tradicionalment ha topat amb una limitació financera concreta. Els bancs no diferenciaven entre vivendes amb estàndards energètics avançats i la resta del parc immobiliari, i això deixava sense translació financera el sobrecost real associat a complir amb estàndards d'alta eficiència. Aquesta situació comença a canviar.
+Construir o comprar una casa Passivhaus implica una inversió superior a la d'una construcció convencional, i tradicionalment ha topat amb una limitació financera concreta. Els bancs no diferenciaven entre habitatges amb estàndards energètics avançats i la resta del parc immobiliari, i això deixava sense translació financera el sobrecost real associat a complir amb estàndards d'alta eficiència. Aquesta situació comença a canviar.
 
 PAPIK Group i Banc Sabadell han formalitzat un acord per oferir hipoteques verdes als clients de PAPIK que adquireixin habitatges d'alta eficiència energètica. Aquest article descriu què és aquest tipus de finançament, com s'integra amb projectes Passivhaus, i el marc general de la col·laboració entre les dues parts.
 
@@ -52,7 +52,7 @@ Les condicions específiques de l'acord PAPIK i Banc Sabadell són privades i ex
 
 Banc Sabadell és una de les entitats financeres espanyoles amb una estratègia ESG (Environmental, Social, Governance) consolidada i mandat actiu de finançament sostenible. PAPIK Group, com a constructora especialitzada en estàndards Passivhaus, ha estructurat amb Banc Sabadell un acord pel qual els clients de PAPIK poden accedir a un canal preferent de finançament verda.
 
-L'acord aporta tres elements operatius. Primer, un procés simplificat: PAPIK presenta tècnicament el projecte al Banc, evitant que el client hagi de gestionar la documentació tècnica davant de l'entitat. Segon, un reconeixement formal de l'estàndard: les vivendes Passivhaus o equivalents construïdes per PAPIK queden validades automàticament dins el marc de criteris d'eficiència energètica del Banc. Tercer, un canal d'atenció dedicat: l'equip comercial de PAPIK coordina directament amb un punt de contacte específic dins de Banc Sabadell.
+L'acord aporta tres elements operatius. Primer, un procés simplificat: PAPIK presenta tècnicament el projecte al Banc, evitant que el client hagi de gestionar la documentació tècnica davant de l'entitat. Segon, un reconeixement formal de l'estàndard: les habitatges Passivhaus o equivalents construïdes per PAPIK queden validades automàticament dins el marc de criteris d'eficiència energètica del Banc. Tercer, un canal d'atenció dedicat: l'equip comercial de PAPIK coordina directament amb un punt de contacte específic dins de Banc Sabadell.
 
 Les condicions concretes de cada operació hipotecària, incloent tipus, termini, comissions i garanties, es negocien individualment entre el client i Banc Sabadell, com a qualsevol producte hipotecari. PAPIK actua com a facilitador del canal, no com a part del contracte de préstec.
 
@@ -60,15 +60,15 @@ Les condicions concretes de cada operació hipotecària, incloent tipus, termini
 
 ## H2 · 3. Per què Passivhaus mereix tractament financer diferenciat
 
-Una vivenda Passivhaus presenta un perfil econòmic radicalment diferent al d'una construcció convencional, i això justifica que les entitats financeres ofereixin condicions específiques. Els arguments són d'ordre tècnic i de risc, no comercial.
+Un habitatge Passivhaus presenta un perfil econòmic radicalment diferent al d'una construcció convencional, i això justifica que les entitats financeres ofereixin condicions específiques. Els arguments són d'ordre tècnic i de risc, no comercial.
 
 ### Cost operatiu inferior i risc d'impagament reduït
 
-Una casa Passivhaus consumeix fins a un 90% menys d'energia que una equivalent convencional. La factura energètica reduïda allibera capacitat de pagament del client al llarg de tota la vida del préstec, fet rellevant per al càlcul de risc de l'entitat financera. Quan dos clients amb el mateix perfil de renda accedeixen a hipoteques per a vivendes amb prestacions energètiques diferents, el risc associat al préstec també és diferent.
+Una casa Passivhaus consumeix fins a un 90% menys d'energia que una equivalent convencional. La factura energètica reduïda allibera capacitat de pagament del client al llarg de tota la vida del préstec, fet rellevant per al càlcul de risc de l'entitat financera. Quan dos clients amb el mateix perfil de renda accedeixen a hipoteques per a habitatges amb prestacions energètiques diferents, el risc associat al préstec també és diferent.
 
 ### Revalorització superior
 
-Els estudis del sector immobiliari, com els publicats per Sociedad de Tasación o Idealista Data, indiquen que les vivendes amb classe energètica A es revaloritzen entre un 15% i un 25% més que equivalents classe E o F en mercats secundaris. Una garantia immobiliària amb millor revalorització esperada redueix l'exposició del Banc al llarg del termini de la hipoteca, especialment rellevant en escenaris de mercat estables o ascendents.
+Els estudis del sector immobiliari, com els publicats per Sociedad de Tasación o Idealista Data, indiquen que les habitatges amb classe energètica A es revaloritzen entre un 15% i un 25% més que equivalents classe E o F en mercats secundaris. Una garantia immobiliària amb millor revalorització esperada redueix l'exposició del Banc al llarg del termini de la hipoteca, especialment rellevant en escenaris de mercat estables o ascendents.
 
 ### Marc regulatori favorable
 
@@ -86,15 +86,15 @@ L'acord és aplicable a tres perfils de client de PAPIK, cada un amb un cas d'ú
 
 ### Compradors de promocions PAPIK
 
-Particulars que adquireixen una vivenda terminada o sobre plà a una de les promocions actives de PAPIK. La presentació tècnica al Banc està facilitada per la documentació estandaritzada de cada promoció, fet que accelera la fase d'avaluació respecte d'una hipoteca tradicional.
+Particulars que adquireixen un habitatge acabat o sobre plànol a una de les promocions actives de PAPIK. La presentació tècnica al Banc està facilitada per la documentació estandarditzada de cada promoció, fet que accelera la fase d'avaluació respecte d'una hipoteca tradicional.
 
 ### Clients de Construcció
 
-Famílies que construeixen la seva casa amb PAPIK i necessiten finançament hipotecari per a l'adquisició del solar, l'execució de l'obra, o ambdues coses. La certificació final Passivhaus del projecte permet activar el canal d'hipoteca verda al final del procés constructiu, una vegada la vivenda compleix amb els criteris de l'estàndard.
+Famílies que construeixen la seva casa amb PAPIK i necessiten finançament hipotecari per a l'adquisició del solar, l'execució de l'obra, o ambdues coses. La certificació final Passivhaus del projecte permet activar el canal d'hipoteca verda al final del procés constructiu, una vegada l'habitatge compleix amb els criteris de l'estàndard.
 
 ### Clients de Rehabilitació
 
-Propietaris que rehabiliten energèticament la seva vivenda amb PAPIK i requereixen finançament addicional al subsidi NGEU. La hipoteca verda pot finançar la part no subvencionada del cost, completant l'estructura financera del projecte de rehabilitació.
+Propietaris que rehabiliten energèticament la seva habitatge amb PAPIK i requereixen finançament addicional al subsidi NGEU. La hipoteca verda pot finançar la part no subvencionada del cost, completant l'estructura financera del projecte de rehabilitació.
 
 En tots tres casos, la concessió de la hipoteca depèn dels criteris de risc i solvència del Banc, que avalua cada client segons els seus paràmetres habituals. PAPIK no garanteix l'aprovació; facilita l'accés al canal preferent.
 
@@ -102,7 +102,7 @@ En tots tres casos, la concessió de la hipoteca depèn dels criteris de risc i 
 
 ## H2 · 5. Procés per accedir al canal preferent
 
-El procés segueix una seqüència estructurada que minimitza la fricció administrativa per al client. La primera fase és la definició del projecte amb PAPIK, ja sigui de construcció, promoció o rehabilitació, amb pressupost i certificació energètica esperada definits. A continuació, PAPIK presenta tècnicament el projecte a Banc Sabadell amb la documentació estandaritzada del canal preferent, evitant que el client gestioni aquesta documentació pel seu compte.
+El procés segueix una seqüència estructurada que minimitza la fricció administrativa per al client. La primera fase és la definició del projecte amb PAPIK, ja sigui de construcció, promoció o rehabilitació, amb pressupost i certificació energètica esperada definits. A continuació, PAPIK presenta tècnicament el projecte a Banc Sabadell amb la documentació estandarditzada del canal preferent, evitant que el client gestioni aquesta documentació pel seu compte.
 
 El Banc avalua el perfil del client i les condicions específiques aplicables, segons els seus criteris de risc i solvència. Si l'avaluació és favorable, l'entitat formula una proposta hipotecària concreta al client, que decideix individualment si l'accepta o si negocia amb altres entitats.
 
@@ -130,7 +130,7 @@ L'acord PAPIK i Sabadell és un canal preferent, però no exclusiu. El client po
 
 ### Quin tipus de certificació energètica acredita el meu projecte?
 
-Una vivenda PAPIK pot acreditar diversos nivells: certificat energètic A, certificació Passivhaus en les seves modalitats Standard, Plus o Premium, o EnerPHit per a rehabilitació. Cada nivell té implicacions financeres específiques que orientem en cada cas concret durant la fase d'avaluació del projecte.
+Un habitatge PAPIK pot acreditar diversos nivells: certificat energètic A, certificació Passivhaus en les seves modalitats Standard, Plus o Premium, o EnerPHit per a rehabilitació. Cada nivell té implicacions financeres específiques que orientem en cada cas concret durant la fase d'avaluació del projecte.
 
 ---
 

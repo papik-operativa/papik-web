@@ -27,7 +27,7 @@ Tres casas encendidas durante el apagón de 2025
 ## BYLINE
 
 ```
-Equipo técnico · PAPIK Group · 1 de mayo de 2025 · Reading time aproximado 6 min
+Equipo técnico · PAPIK Group · 1 de mayo de 2025 · Tiempo de lectura aproximado 6 min
 ```
 
 ## INTRO

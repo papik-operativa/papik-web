@@ -45,13 +45,13 @@ La diferència entre les dues és estructural. La hipoteca financera té un term
 
 La hipoteca energètica és la suma agregada de les despeses operatives associades a la climatització i el funcionament d'un habitatge al llarg de la seva vida útil. No es signa davant de notari, però es paga puntualment cada mes, i acumulada al llarg de tres dècades pot superar amb facilitat l'import del préstec hipotecari original. La paradoxa és que rarament es valora durant la decisió de compra o construcció, malgrat el seu pes específic sobre l'economia familiar.
 
-L'arrel del problema és tècnica. Una vivenda construïda sota l'estàndard mínim del Codi Tècnic d'Edificació (CTE) espanyol pot demandar entre 40 i 86 kWh per metre quadrat i any en climatització, segons la zona climàtica. Una construcció anterior al CTE de 2006, sense aïllament continu ni control d'infiltracions, supera amb facilitat els 150 kWh/m²a. L'estàndard Passivhaus, en canvi, fixa un límit estricte de 15 kWh/m²a tant per a calefacció com per a refrigeració, juntament amb un assaig blower-door que verifica una hermeticitat inferior a 0,6 renovacions per hora a 50 pascals.
+L'arrel del problema és tècnica. Un habitatge construïda sota l'estàndard mínim del Codi Tècnic d'Edificació (CTE) espanyol pot demandar entre 40 i 86 kWh per metre quadrat i any en climatització, segons la zona climàtica. Una construcció anterior al CTE de 2006, sense aïllament continu ni control d'infiltracions, supera amb facilitat els 150 kWh/m²a. L'estàndard Passivhaus, en canvi, fixa un límit estricte de 15 kWh/m²a tant per a calefacció com per a refrigeració, juntament amb un assaig blower-door que verifica una hermeticitat inferior a 0,6 renovacions per hora a 50 pascals.
 
 ---
 
 ## H2 · 2. Les xifres que marquen la diferència
 
-Quan es traslladen aquestes demandes energètiques a euros, l'asimetria entre els dos models es fa evident. Amb un cost mitjà de 0,18 €/kWh, una vivenda convencional de 200 m² amb una demanda de 120 kWh/m²a genera una factura anual de climatització propera als 4.300 €. Una Passivhaus de la mateixa superfície, ajustada als 15 kWh/m²a, no arriba als 540 € anuals. La diferència, gairebé 3.800 € cada any, no és una excepció estadística sinó la conseqüència directa de l'aïllament continu, l'eliminació de ponts tèrmics, l'hermeticitat verificada i la ventilació mecànica amb recuperació de calor.
+Quan es traslladen aquestes demandes energètiques a euros, l'asimetria entre els dos models es fa evident. Amb un cost mitjà de 0,18 €/kWh, un habitatge convencional de 200 m² amb una demanda de 120 kWh/m²a genera una factura anual de climatització propera als 4.300 €. Una Passivhaus de la mateixa superfície, ajustada als 15 kWh/m²a, no arriba als 540 € anuals. La diferència, gairebé 3.800 € cada any, no és una excepció estadística sinó la conseqüència directa de l'aïllament continu, l'eliminació de ponts tèrmics, l'hermeticitat verificada i la ventilació mecànica amb recuperació de calor.
 
 A les cases construïdes per PAPIK, les dades de consum reals reportades pels propietaris confirmen aquestes magnituds. Projectes Passivhaus de 200 a 280 m² acumulen factures energètiques totals, incloent climatització, aigua calenta i electrodomèstics, en l'ordre de 50 a 70 € mensuals. Construccions convencionals de mida equivalent superen amb facilitat els 250 € mensuals durant els mesos de càrrega tèrmica màxima. La diferència acumulada al llarg d'una dècada se situa per sobre dels 25.000 €, i creix cada any que el preu de l'energia s'incrementa.
 
@@ -61,13 +61,13 @@ A les cases construïdes per PAPIK, les dades de consum reals reportades pels pr
 
 En el sector de l'automoció, ningú avalua la compra d'un vehicle exclusivament pel preu de venda. El consum, el manteniment i les assegurances integren un càlcul que es coneix com a cost total de propietat. Aplicat a un edifici, el mateix concepte combina la inversió inicial amb totes les despeses d'operació al llarg de la seva vida útil. És, sense ambigüitat, l'única xifra que descriu fidelment el cost real d'un habitatge.
 
-Una Passivhaus pot suposar un sobrecost inicial d'entre el 10% i el 15% respecte d'una construcció convencional de qualitat similar. Projectada a trenta anys, l'aritmètica es capgira. Una vivenda convencional de 200 m² acumula entre 100.000 i 150.000 € en factures energètiques al llarg de tres dècades, i la xifra creix si el preu de l'energia continua pujant. Una Passivhaus, en el mateix horitzó, acumula entre 15.000 i 20.000 €. La diferència, situada entre 80.000 i 130.000 €, supera àmpliament qualsevol sobrecost inicial. Dit d'una altra manera: la hipoteca energètica d'una casa convencional equival a un segon préstec hipotecari que mai no acaba de pagar-se.
+Una Passivhaus pot suposar un sobrecost inicial d'entre el 10% i el 15% respecte d'una construcció convencional de qualitat similar. Projectada a trenta anys, l'aritmètica es capgira. Un habitatge convencional de 200 m² acumula entre 100.000 i 150.000 € en factures energètiques al llarg de tres dècades, i la xifra creix si el preu de l'energia continua pujant. Una Passivhaus, en el mateix horitzó, acumula entre 15.000 i 20.000 €. La diferència, situada entre 80.000 i 130.000 €, supera àmpliament qualsevol sobrecost inicial. Dit d'una altra manera: la hipoteca energètica d'una casa convencional equival a un segon préstec hipotecari que mai no acaba de pagar-se.
 
 ---
 
 ## H2 · 4. L'energia cada cop és més cara, i la protecció és tècnica
 
-El preu de l'electricitat a l'Estat espanyol ha seguit una trajectòria ascendent sostinguda durant l'última dècada, marcada per la volatilitat dels mercats majoristes, la dependència dels combustibles fòssils i els impostos mediambientals creixents. Qui va construir una vivenda convencional fa quinze anys paga avui factures energètiques significativament superiors a les que llavors es preveien. La protecció efectiva contra aquesta inflació estructural no és contractual ni financera: és tècnica, i consisteix simplement a necessitar menys energia.
+El preu de l'electricitat a l'Estat espanyol ha seguit una trajectòria ascendent sostinguda durant l'última dècada, marcada per la volatilitat dels mercats majoristes, la dependència dels combustibles fòssils i els impostos mediambientals creixents. Qui va construir un habitatge convencional fa quinze anys paga avui factures energètiques significativament superiors a les que llavors es preveien. La protecció efectiva contra aquesta inflació estructural no és contractual ni financera: és tècnica, i consisteix simplement a necessitar menys energia.
 
 Una Passivhaus actua, en aquest sentit, com una assegurança contra la inflació energètica. Si el preu del kWh es duplica, la factura d'una construcció convencional també es duplica; la d'una Passivhaus segueix la mateixa proporció, però partint d'una base un 90% inferior. Amb més de 120 cases lliurades, a PAPIK hem documentat com els nostres clients travessen els cicles de pujada de preus de l'energia amb una estabilitat de despesa que els seus veïns en construcció convencional no poden compartir.
 
@@ -77,7 +77,7 @@ Una Passivhaus actua, en aquest sentit, com una assegurança contra la inflació
 
 El sector financer europeu ha integrat l'eficiència energètica com a variable rellevant en la valoració del risc hipotecari. Diverses entitats catalanes i espanyoles ofereixen hipoteques verdes per a habitatges amb classe energètica A, certificació Passivhaus o EnerPHit, amb condicions diferenciades respecte de la hipoteca convencional. La Directiva d'Eficiència Energètica dels Edificis i les directrius del Banc Central Europeu sobre criteris ESG reforcen aquesta direcció amb mandat regulatori creixent.
 
-La lògica del banc és racional. Una família que destina 500 € a despesa energètica anual, en lloc de 4.000 €, presenta més capacitat de pagament i un perfil de risc inferior. Una garantia immobiliària amb classe energètica A es revaloritza, segons dades de Sociedad de Tasación i Idealista Data, entre un 15% i un 25% més que una vivenda equivalent classe E o F en mercats secundaris. Per a l'entitat, finançar habitatge eficient redueix simultàniament el risc d'impagament i el risc de pèrdua sobre la garantia.
+La lògica del banc és racional. Una família que destina 500 € a despesa energètica anual, en lloc de 4.000 €, presenta més capacitat de pagament i un perfil de risc inferior. Una garantia immobiliària amb classe energètica A es revaloritza, segons dades de Sociedad de Tasación i Idealista Data, entre un 15% i un 25% més que un habitatge equivalent classe E o F en mercats secundaris. Per a l'entitat, finançar habitatge eficient redueix simultàniament el risc d'impagament i el risc de pèrdua sobre la garantia.
 
 PAPIK manté un acord amb Banc Sabadell per facilitar als seus clients l'accés a un canal preferent de hipoteca verda. Les condicions concretes de l'acord són privades i s'avaluen individualment durant el procés de cada operació. Pot consultar-se el detall del marc de col·laboració a la nota de premsa específica.
 
@@ -97,9 +97,9 @@ A PAPIK, quan presentem un pressupost a un client, sempre incloem la projecció 
 
 La hipoteca verda incorpora bonificacions vinculades a l'eficiència energètica del bé finançat: condicions sobre tipus, comissions o productes vinculats. La intensitat varia per entitat i perfil de client. La hipoteca convencional no integra aquesta variable.
 
-### Quin certificat energètic acredita una vivenda construïda per PAPIK?
+### Quin certificat energètic acredita un habitatge construïda per PAPIK?
 
-Una vivenda PAPIK pot acreditar certificat energètic A, certificació Passivhaus en les seves modalitats Standard, Plus o Premium, o EnerPHit per a rehabilitació. Cada nivell té implicacions financeres específiques que orientem en la fase d'avaluació del projecte.
+Un habitatge PAPIK pot acreditar certificat energètic A, certificació Passivhaus en les seves modalitats Standard, Plus o Premium, o EnerPHit per a rehabilitació. Cada nivell té implicacions financeres específiques que orientem en la fase d'avaluació del projecte.
 
 ### La hipoteca verda és compatible amb les ajudes Next Generation EU?
 

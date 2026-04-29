@@ -32,13 +32,13 @@ Equip tècnic · PAPIK Group · [Data publicació] · Reading time aproximat 7 m
 
 ## INTRO
 
-No totes les vivendes antigues haurien de ser derruïdes. Tampoc totes haurien de ser rehabilitades. La decisió correcta depèn de cinc factors específics, no de l'edat de la casa ni de la preferència emocional del propietari. Aquest article presenta els cinc criteris tècnics, econòmics i legals que un propietari amb vivenda antiga hauria de considerar abans de prendre la decisió, i ofereix una recomanació orientativa segons situacions tipus.
+No totes les habitatges antigues haurien de ser derruïdes. Tampoc totes haurien de ser rehabilitades. La decisió correcta depèn de cinc factors específics, no de l'edat de la casa ni de la preferència emocional del propietari. Aquest article presenta els cinc criteris tècnics, econòmics i legals que un propietari amb habitatge antiga hauria de considerar abans de prendre la decisió, i ofereix una recomanació orientativa segons situacions tipus.
 
 ---
 
 ## H2 · Les dues opcions en una frase
 
-Rehabilitar significa preservar l'estructura existent i millorar les seves prestacions. Substituir significa derribar la vivenda actual i construir-ne una de nova al mateix solar. Ambdues opcions són legítimes, i cap és intrínsicament millor que l'altra. La validesa de cada una depèn del cas concret.
+Rehabilitar significa preservar l'estructura existent i millorar les seves prestacions. Substituir significa derribar l'habitatge actual i construir-ne una de nova al mateix solar. Ambdues opcions són legítimes, i cap és intrínsicament millor que l'altra. La validesa de cada una depèn del cas concret.
 
 ---
 
@@ -58,7 +58,7 @@ Una rehabilitació pot arribar a classe energètica A o B, a l'estàndard EnerPH
 
 ### Compatibilitat urbanística
 
-El POUM pot afavorir una opció o l'altra segons la configuració concreta de la parcel·la i de l'edifici existent. Substituir té avantatge quan l'edificabilitat residual del solar és superior als metres existents (cas freqüent en cases dels anys seixanta a vuitanta en parcel·les amplies), quan la tipologia actual no aprofita bé el solar (alçada baixa, distribució poc òptima), o quan l'ordenança permet més plantes o ocupació que la que té la vivenda. Rehabilitar té avantatge quan la vivenda té protecció patrimonial parcial o total inclosa al catàleg de patrimoni, quan el planejament limita molt l'obra nova al solar (per exemple, en zones rurals amb restriccions estrictes), o quan l'edifici és part d'un conjunt protegit que obliga a conservar la façana original. Cada parcel·la té la seva fitxa urbanística, motiu pel qual aquesta avaluació és imprescindible abans de decidir.
+El POUM pot afavorir una opció o l'altra segons la configuració concreta de la parcel·la i de l'edifici existent. Substituir té avantatge quan l'edificabilitat residual del solar és superior als metres existents (cas freqüent en cases dels anys seixanta a vuitanta en parcel·les amplies), quan la tipologia actual no aprofita bé el solar (alçada baixa, distribució poc òptima), o quan l'ordenança permet més plantes o ocupació que la que té l'habitatge. Rehabilitar té avantatge quan l'habitatge té protecció patrimonial parcial o total inclosa al catàleg de patrimoni, quan el planejament limita molt l'obra nova al solar (per exemple, en zones rurals amb restriccions estrictes), o quan l'edifici és part d'un conjunt protegit que obliga a conservar la façana original. Cada parcel·la té la seva fitxa urbanística, motiu pel qual aquesta avaluació és imprescindible abans de decidir.
 
 ### Calendari
 
@@ -83,17 +83,17 @@ La rehabilitació pot fer-se per fases (vivint dins en alguns casos), pot allarg
 
 ## H2 · Subvencions i ajudes
 
-La rehabilitació compta amb programes Next Generation EU vigents fins desembre de 2026. El Programa 3 cobreix edificis plurifamiliars amb fins al 80% de subvenció sobre cost subvencionable. El Programa 4 ofereix ajudes específiques per a vivendes unifamiliars segons tipus d'intervenció. El Programa 5 finança específicament la millora de l'envolupant tèrmica.
+La rehabilitació compta amb programes Next Generation EU vigents fins desembre de 2026. El Programa 3 cobreix edificis plurifamiliars amb fins al 80% de subvenció sobre cost subvencionable. El Programa 4 ofereix ajudes específiques per a habitatges unifamiliars segons tipus d'intervenció. El Programa 5 finança específicament la millora de l'envolupant tèrmica.
 
-La substitució pot accedir a hipoteca verda amb bonificacions específiques per a vivendes amb classe energètica A o equivalent, a bonificacions fiscals municipals segons l'ordenança vigent de cada municipi, i a ajudes específiques per a renovació en alguns plans urbanístics municipals. Cada opció obre portes diferents, i l'avaluació individualitzada permet identificar la combinació òptima per a cada cas.
+La substitució pot accedir a hipoteca verda amb bonificacions específiques per a habitatges amb classe energètica A o equivalent, a bonificacions fiscals municipals segons l'ordenança vigent de cada municipi, i a ajudes específiques per a renovació en alguns plans urbanístics municipals. Cada opció obre portes diferents, i l'avaluació individualitzada permet identificar la combinació òptima per a cada cas.
 
 ---
 
 ## H2 · La nostra recomanació en tres supòsits típics
 
-Una vivenda dels anys seixanta a setanta amb estructura mig conservada acostuma a ser un cas a cas. Sovint la substitució guanya per tres motius combinats: l'edificabilitat residual habitualment està infrautilitzada, els costos de regularitzar la vivenda existent (cèdula d'habitabilitat, ITE, normativa elèctrica) s'acumulen, i la dificultat d'arribar a Passivhaus en una estructura antiga fa que el sostre d'eficiència sigui significativament inferior al d'una obra nova.
+Un habitatge dels anys seixanta a setanta amb estructura mig conservada acostuma a ser un cas a cas. Sovint la substitució guanya per tres motius combinats: l'edificabilitat residual habitualment està infrautilitzada, els costos de regularitzar l'habitatge existent (cèdula d'habitabilitat, ITE, normativa elèctrica) s'acumulen, i la dificultat d'arribar a Passivhaus en una estructura antiga fa que el sostre d'eficiència sigui significativament inferior al d'una obra nova.
 
-Una vivenda dels anys vuitanta o més recent en bon estat de conservació acostuma a ser un cas clar de rehabilitació amb objectiu EnerPHit. L'estructura és recent i està en bon estat, la rehabilitació és tècnicament viable, i el cost relatiu sol ser inferior al 70% d'una obra nova equivalent.
+Un habitatge dels anys vuitanta o més recent en bon estat de conservació acostuma a ser un cas clar de rehabilitació amb objectiu EnerPHit. L'estructura és recent i està en bon estat, la rehabilitació és tècnicament viable, i el cost relatiu sol ser inferior al 70% d'una obra nova equivalent.
 
 Un pis a un edifici plurifamiliar és sempre un cas de rehabilitació. No es pot derruir un sol pis d'un edifici sencer, i la intervenció s'ha d'inscriure dins del marc de propietat horitzontal i les seves limitacions.
 
@@ -111,7 +111,7 @@ No habitualment. Són processos diferents amb llicències diferents. Si durant l
 
 ### Quina opció revaloritza més la propietat?
 
-Habitualment la substitució per a vivenda nova classe A o Passivhaus. Estudis del sector immobiliari (Sociedad de Tasación, Idealista Data) indiquen revaloritzacions del 15% al 25% per a vivendes classe A en mercat secundari, comparat amb equivalents classe E o F.
+Habitualment la substitució per a habitatge nova classe A o Passivhaus. Estudis del sector immobiliari (Sociedad de Tasación, Idealista Data) indiquen revaloritzacions del 15% al 25% per a habitatges classe A en mercat secundari, comparat amb equivalents classe E o F.
 
 ### Es pot reaprofitar mobiliari o estructures?
 
@@ -121,7 +121,7 @@ Si es decideix substituir, alguns elements poden recuperar-se com a element deco
 
 ## CIERRE
 
-Si vol una avaluació concreta de la seva vivenda, una visita tècnica gratuïta amb tot el que hem descrit aquí permet decidir amb dades.
+Si vol una avaluació concreta de la seva habitatge, una visita tècnica gratuïta amb tot el que hem descrit aquí permet decidir amb dades.
 
 Sol·licitar valoració sense compromís:
 

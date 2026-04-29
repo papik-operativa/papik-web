@@ -574,13 +574,13 @@ Si el seu cas és diferent
 ```
 [Grid 3 cards petites · cross-links a altres unitats]
 
-¿Vol comprar una casa ja construïda?
+Vol comprar una casa ja construïda?
 → Promoció
 
-¿Vol rehabilitar la seva casa actual?
+Vol rehabilitar la seva casa actual?
 → Rehabilitació
 
-¿Cerca un soci constructor com a inversor patrimonial?
+Cerca un soci constructor com a inversor patrimonial?
 → Patrimonis
 ```
 
@@ -637,7 +637,7 @@ Tots els enllaços interns vàlids. Hero image optimitzat WebP amb preload i alt
 
 (Sense comptar microcopy de UI, headings ni CTAs.)
 
-Versió ES (`construccio-es.md`) com a traducció literal amb adaptacions léxiques mínimes. Versió EN (`construccio-en.md`) amb adaptació cultural com a tasca de S4.
+Versió ES (`construccio-es.md`) com a traducció literal amb adaptacions lèxiques mínimes. Versió EN (`construccio-en.md`) amb adaptació cultural com a tasca de S4.
 
 ---
 
