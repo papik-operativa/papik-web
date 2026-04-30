@@ -1558,7 +1558,7 @@
   ],
   "functions": {
     "app.py": {
-      "includeFiles": "public/**"
+      "includeFiles": "public/index.html"
     }
   },
   "headers": [
