@@ -7,106 +7,67 @@
 ═══════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════
-   BUTTONS · Unified system (site-wide)
-   Reference: index hero CTA (.v2-btn) — architectural square, 14/500,
-   16×26 padding. All variants share shape, font, transitions and
-   icon-shift-on-hover. Applied globally; no !important needed.
+   BUTTONS
 ═══════════════════════════════════ */
-button, .btn,
-.btn-accent, .btn-dark, .btn-white, .btn-outline,
-.v2-btn {
+button, .btn {
+  height: 42px;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: var(--r-pill);
+  padding: 0 28px;
+  cursor: pointer;
+  transition: transform var(--t-fast) ease, box-shadow var(--t-fast) ease,
+              background-color var(--t-base) ease, color var(--t-base) ease,
+              border-color var(--t-base) ease;
+  font-size: 16px;
+  color: var(--text);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
   font-family: var(--ff-sans);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: .02em;
-  line-height: 1;
-  padding: 16px 26px;
-  height: auto;
-  border: 1px solid transparent;
-  border-radius: 0;
-  background: #fff;
-  color: var(--text);
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background .3s var(--ease-paper),
-              color .3s var(--ease-paper),
-              border-color .3s var(--ease-paper),
-              transform .3s var(--ease-paper);
-  box-shadow: none;
+}
+button:hover, .btn:hover {
+  background: #000; border-color: #000; color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--sh-btn-hover);
+}
+button:active, .btn:active { transform: scale(.97); box-shadow: none; }
+button svg path, .btn svg path { transition: fill var(--t-base); }
+button:hover svg path, .btn:hover svg path { fill: #fff; }
+
+button.btn-dark, .btn-dark {
+  background: #000; border-color: #000; color: #fff;
+}
+button.btn-dark:hover, .btn-dark:hover {
+  background: var(--green); border-color: var(--green);
 }
 
-/* Primary filled (site-wide default CTA) */
-.btn-accent, .btn-dark,
-button.btn-dark {
-  background: var(--green); color: #fff; border-color: var(--green);
-}
-.btn-accent:hover, .btn-dark:hover,
-button.btn-dark:hover {
-  background: var(--green-dark); border-color: var(--green-dark);
-  color: #fff; transform: translateY(-1px);
-}
-
-/* Inverse: white fill on dark backgrounds (hero CTAs) */
-.btn-white, .v2-btn--primary {
-  background: #fff; color: var(--green); border-color: #fff;
-}
-.btn-white:hover, .v2-btn--primary:hover {
-  background: var(--accent); border-color: var(--accent); color: var(--green);
-  transform: translateY(-1px);
-}
-
-/* Outline on light bg */
-.btn-outline {
-  background: transparent;
-  color: var(--green);
-  border-color: var(--border);
-}
-.btn-outline:hover {
-  border-color: var(--green); color: var(--green); background: transparent;
-}
-
-/* Outline on dark sections (CTA strip, dark hero) */
-.block-cta .btn-outline,
-.section--dark .btn-outline,
-.hero--dark .btn-outline {
-  color: #fff; border-color: rgba(255,255,255,.45); background: transparent;
-}
-.block-cta .btn-outline:hover,
-.section--dark .btn-outline:hover,
-.hero--dark .btn-outline:hover {
-  border-color: #fff; background: rgba(255,255,255,.08); color: #fff;
-}
-
-/* Icon shift on hover */
-.btn svg, .btn-accent svg, .btn-dark svg,
-.btn-white svg, .btn-outline svg, .v2-btn svg {
-  transition: transform .3s var(--ease-paper), fill var(--t-base);
-}
-.btn:hover svg, .btn-accent:hover svg, .btn-dark:hover svg,
-.btn-white:hover svg, .btn-outline:hover svg, .v2-btn:hover svg {
-  transform: translateX(4px);
-}
-
-/* Active press */
-button:active, .btn:active,
-.btn-accent:active, .btn-dark:active,
-.btn-white:active, .btn-outline:active, .v2-btn:active {
-  transform: scale(.98);
-}
-
-/* Utility · scroll-to-top (separate UX context, stays circular) */
 button.btn-up, .btn-up {
   background: var(--muted); border-color: var(--muted); color: #fff;
-  padding: 0; width: 42px; height: 42px; border-radius: 50%;
 }
-button.btn-up:hover, .btn-up:hover {
-  background: var(--green); border-color: var(--green); transform: translateY(-2px);
+button.btn-up:hover, .btn-up:hover { background: #000; border-color: #000; }
+
+.btn-accent {
+  background: var(--green); border-color: var(--green); color: #fff;
 }
+.btn-accent:hover {
+  background: var(--green-light); border-color: var(--green-light); color: #fff;
+}
+
+.btn-outline {
+  background: transparent; border-color: var(--border); color: var(--text);
+}
+.btn-outline:hover {
+  background: var(--green); border-color: var(--green); color: #fff;
+}
+
+.btn-white {
+  background: #fff; border: 1px solid #fff;
+  color: var(--green); height: 46px; padding: 0 32px;
+  border-radius: 23px; font-size: 15px;
+}
+.btn-white:hover { background: transparent; color: #fff; border-color: #fff; }
 
 .link-arrow {
   display: inline-flex; align-items: center; gap: 6px;
@@ -217,8 +178,7 @@ button.btn-up:hover, .btn-up:hover {
 
 .hero__eyebrow {
   display: inline-block;
-  font-size: var(--t-eyebrow);
-  font-weight: var(--fw-medium);
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .18em;
   color: var(--muted);
@@ -227,14 +187,11 @@ button.btn-up:hover, .btn-up:hover {
 .hero--dark .hero__eyebrow { color: var(--accent); }
 
 .hero__title {
-  font-size: var(--t-h1);
+  font-size: clamp(32px, 4vw, 56px);
   font-weight: var(--fw-light);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
+  line-height: 1.08;
   color: var(--text);
   overflow: hidden;
-  max-width: 22ch;
   margin: 0;
   letter-spacing: -0.01em;
 }
@@ -253,12 +210,11 @@ button.btn-up:hover, .btn-up:hover {
 }
 
 .hero__subtitle {
-  font-size: var(--t-lede);
+  font-size: 16px;
   color: var(--muted);
-  line-height: 1.5;
-  max-width: var(--measure);
-  margin-top: 24px;
-  letter-spacing: -0.005em;
+  line-height: 1.6;
+  max-width: 560px;
+  margin-top: 16px;
   transform: translateY(20px);
   opacity: 0;
   transition: transform .6s .4s ease, opacity .6s .4s ease;
@@ -370,15 +326,11 @@ button.btn-up:hover, .btn-up:hover {
               box-shadow .35s ease,
               border-color .3s ease;
 }
-/* Lift-on-hover is a mouse affordance — suppress on touch so cards
-   don't look "stuck up" after a tap. */
-@media (hover: hover) {
-  .card:hover,
-  .blog-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--sh-card-hover);
-    border-color: transparent;
-  }
+.card:hover,
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-card-hover);
+  border-color: transparent;
 }
 .card__link,
 .blog-card__link {
@@ -724,12 +676,10 @@ button.btn-up:hover, .btn-up:hover {
   transition: transform .35s var(--ease-bounce),
               box-shadow .35s ease, border-color .3s ease;
 }
-@media (hover: hover) {
-  .stat:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--sh-card-hover-sm);
-    border-color: transparent;
-  }
+.stat:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-card-hover-sm);
+  border-color: transparent;
 }
 .stat__num {
   font-size: clamp(24px, 2.6vw, 36px);
@@ -760,38 +710,24 @@ button.btn-up:hover, .btn-up:hover {
 }
 
 /* ═══════════════════════════════════
-   BLOCKQUOTE — editorial
-   Pull-quote treatment: generous indent, large type,
-   a quiet glyph above the quote. No side-stripe border.
+   BLOCKQUOTE — accent
 ═══════════════════════════════════ */
 .blockquote-accent {
-  position: relative;
-  padding: 28px 28px 24px;
-  margin: 40px 0;
+  border-left: 3px solid var(--accent);
+  padding: 18px 26px;
+  margin: 32px 0;
   background: var(--bg-light);
-  border-radius: var(--r-md);
-  font-size: clamp(17px, 1.6vw, 20px);
-  font-weight: var(--fw-light);
-  line-height: 1.55;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  font-size: 17px;
+  line-height: 1.6;
   color: var(--text);
-  letter-spacing: -0.005em;
-}
-.blockquote-accent::before {
-  content: "";
-  display: block;
-  width: 28px;
-  height: 2px;
-  background: var(--green);
-  margin-bottom: 18px;
-  border-radius: 1px;
 }
 .blockquote-accent cite {
   display: block;
-  margin-top: 14px;
+  margin-top: 10px;
   font-size: 13px;
   color: var(--muted);
   font-style: normal;
-  letter-spacing: 0.02em;
 }
 
 /* ═══════════════════════════════════
@@ -802,9 +738,7 @@ button.btn-up:hover, .btn-up:hover {
   background: #fff;
 }
 .article-body__content {
-  /* Cap reading column at ~70ch with a pixel ceiling so it never
-     overruns the grid at wide zoom levels. Editorial rhythm. */
-  max-width: min(70ch, 720px); margin: 0 auto;
+  max-width: 720px; margin: 0 auto;
 }
 .article-body__content h2 {
   font-size: clamp(22px, 2.4vw, 32px);
@@ -839,25 +773,12 @@ button.btn-up:hover, .btn-up:hover {
   font-weight: var(--fw-medium); color: var(--text);
 }
 .article-body__content blockquote {
-  position: relative;
-  padding: 28px 28px 24px;
-  margin: 40px 0;
+  border-left: 3px solid var(--accent);
+  padding: 16px 24px; margin: 32px 0;
   background: var(--bg-light);
-  border-radius: var(--r-md);
-  font-size: clamp(17px, 1.6vw, 20px);
-  font-weight: var(--fw-light);
-  line-height: 1.55;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  font-size: 17px; line-height: 1.6;
   color: var(--text);
-  letter-spacing: -0.005em;
-}
-.article-body__content blockquote::before {
-  content: "";
-  display: block;
-  width: 28px;
-  height: 2px;
-  background: var(--green);
-  margin-bottom: 18px;
-  border-radius: 1px;
 }
 .article-body__content a {
   color: var(--green);

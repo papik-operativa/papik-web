@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAPIK | Configurador de Pressupost</title>
-  <meta name="description" content="Configura el teu habitatge i obtén una estimació orientativa del pressupost. Sense compromís.">
+  <title>Configurador de pressupost · PAPIK Group</title>
+  <meta name="description" content="Configuri el seu habitatge en quatre passos i rebi una estimació orientativa del pressupost. Sense compromís ni registre.">
+  <link rel="icon" type="image/png" href="PAPIK (4).png">
+  <link rel="canonical" href="https://papik.cat/pressupost">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/pressupost">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/presupuesto">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/budget">
+  <meta property="og:title" content="Configurador de pressupost · PAPIK Group">
+  <meta property="og:description" content="Estimació orientativa en cinc minuts. Sense compromís ni registre.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:type" content="website">
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
@@ -457,13 +466,8 @@
     .panel-lock-badge, .panel-check { display: none; }
 
     /* Step 4 reveal */
-    .conf-section[data-section="4"] {
-      opacity: 0; transform: translateY(20px);
-      pointer-events: none; transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .conf-section[data-section="4"].panel-active {
-      opacity: 1; transform: translateY(0); pointer-events: auto;
-    }
+    /* La secció 4 segueix el mateix patró que la 2 i 3:
+       visible des del primer moment, bloquejada fins que la 3 estigui completa. */
 
     /* ═══════════════════════════════════
        HERO PARALLAX
@@ -2479,7 +2483,7 @@
       </div>
 
       <!-- ─── STEP 4: Ubicació i contacte ─── -->
-      <div class="conf-section card-locked" data-section="4" style="display:none;">
+      <div class="conf-section card-locked" data-section="4">
         <div class="conf-card__img-wrap">
           <div class="conf-card__img" style="background-image:url('img/home/mg-3787.jpg');"></div>
         </div>

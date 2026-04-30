@@ -3,359 +3,578 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La petjada ecològica de construir i viure a casa seva | PAPIK</title>
-  <meta name="description" content="Una casa té dues petjades: la de la seva construcció i la del seu funcionament. Anàlisi de cicle de vida (LCA) segons EN 15978 aplicada a obra Passivhaus.">
-
-  <link rel="canonical" href="https://papik.cat/article-petjada-ecologica">
-  <link rel="alternate" hreflang="ca" href="https://papik.cat/article-petjada-ecologica">
-  <link rel="alternate" hreflang="es" href="https://papik.cat/es/article-huella-ecologica">
-  <link rel="alternate" hreflang="x-default" href="https://papik.cat/article-petjada-ecologica">
-  <link rel="alternate" hreflang="en" href="https://papik.cat/en/article-ecological-footprint">
+  <title>La petjada ecològica de construir i viure a casa teva | PAPIK</title>
+  <meta name="description" content="Quant CO₂ genera construir una casa? I habitar-la durant 50 anys? Analitzem la petjada ecològica de la construcció convencional i les alternatives sostenibles.">
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/editorial.css">
-  <link rel="stylesheet" href="css/blocks.css">
-  <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>
-.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
-.section-header{display:block;margin-bottom:32px;max-width:760px;}
-.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
-.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
-.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
-.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
-.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
-.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
-.section-body p{margin-bottom:16px;}
-.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
-.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
-.section-body li{margin-bottom:6px;}
-.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
-.section-body a:hover{color:var(--accent);border-color:var(--accent);}
-.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
-.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
-.section-body .microtext{font-size:13px;color:var(--muted-light);}
-.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
-.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
-.hero{padding:96px 0 64px;}
-.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
-.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
-.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
-.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
-.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
-.faq-list{margin:24px 0;border-top:1px solid var(--border);}
-.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
-.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
-.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
-.faq-item[open] summary::after{transform:rotate(45deg);}
-.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
-.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
-.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
-.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
-.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
-.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
-.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
-.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
-.cross-links ul{padding:0;margin:0;}
-.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
-.cross-links li:last-child{border-bottom:0;}
-.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
-.form-field{display:block;}
-.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
-.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
-.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
-.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
-.form-field--check input{margin-top:3px;}
-.card-grid .card--icon{padding:24px 22px;}
-.article-body{padding:56px 0 80px;background:#fff;}
-.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
-.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
-.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
-.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
-.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
-.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
-.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
-.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
-.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
-.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
-.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
-.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
-.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
-.breadcrumb a{color:var(--muted-light);border-bottom:0;}
-.breadcrumb a:hover{opacity:.7;}
-.breadcrumb .sep{opacity:.5;}
-.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
-.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
-.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
-.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
-</style>
+    /* article page-specific */
+    .article-hero { padding: 44px 0 32px; background: var(--bg-light); }
+    .article-hero .breadcrumb { margin-bottom: 28px; }
+    .article-hero__cat { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: .15em; color: #fff; background: var(--green); padding: 4px 12px; border-radius: var(--r-xs); margin-bottom: 18px; font-weight: var(--fw-regular); }
+    .article-hero__title { font-size: clamp(28px, 3.4vw, 48px); font-weight: var(--fw-light); line-height: 1.1; color: var(--text); margin: 8px 0 16px; max-width: 880px; }
+    .article-hero__meta { font-size: 14px; color: var(--muted-light); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .article-hero__meta .sep { opacity: .4; }
 
+    .article-cover { width: 100%; height: 50vh; min-height: 320px; max-height: 540px; background: var(--green-dark); }
+    .article-cover__img { width: 100%; height: 100%; background-size: cover; background-position: center; }
+
+    .article-body { padding: 64px 0 80px; background: #fff; }
+    .article-body__content { max-width: 720px; margin: 0 auto; }
+    .article-body__content h2 { font-size: clamp(22px, 2.4vw, 32px); font-weight: var(--fw-light); color: var(--text); margin: 48px 0 20px; line-height: 1.2; }
+    .article-body__content h2:first-child { margin-top: 0; }
+    .article-body__content h3 { font-size: clamp(18px, 1.8vw, 22px); font-weight: var(--fw-regular); color: var(--text); margin: 32px 0 14px; }
+    .article-body__content p { font-size: 16px; line-height: 1.75; color: var(--muted); margin-bottom: 20px; }
+    .article-body__content ul, .article-body__content ol { padding-left: 24px; margin-bottom: 20px; list-style: disc; }
+    .article-body__content ol { list-style: decimal; }
+    .article-body__content li { font-size: 16px; line-height: 1.75; color: var(--muted); margin-bottom: 8px; }
+    .article-body__content strong { color: var(--text); font-weight: var(--fw-medium); }
+    .article-body__content blockquote { border-left: 3px solid var(--accent); padding: 18px 26px; margin: 32px 0; background: var(--bg-light); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+    .article-body__content blockquote p { color: var(--text); font-size: 17px; margin-bottom: 0; }
+    .article-body__content a { color: var(--green); border-bottom: 1px solid var(--border); transition: border-color .2s, color .2s; }
+    .article-body__content a:hover { color: var(--accent); border-color: var(--accent); }
+
+    .article-back { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 15px; margin-top: 48px; }
+    .article-back:hover { color: var(--green); }
+
+    .related-section { padding: 80px 0; background: var(--bg-light); }
+    .related-section__title { font-size: clamp(22px, 2.2vw, 32px); font-weight: var(--fw-light); margin-bottom: 36px; color: var(--text); }
+  </style>
+
+  <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="La petjada ecològica de construir i viure a casa seva | PAPIK">
-  <meta property="og:description" content="Una casa té dues petjades: la de la seva construcció i la del seu funcionament. Anàlisi de cicle de vida (LCA) segons EN 15978 aplicada a obra Passivhaus.">
-  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
-  <meta property="og:url" content="https://papik.cat/article-petjada-ecologica">
-  <meta property="og:site_name" content="PAPIK Group">
+  <meta property="og:title" content="La petjada ecològica de construir i viure a casa teva | PAPIK">
+  <meta property="og:description" content="Quant CO₂ genera construir una casa? I habitar-la durant 50 anys? Analitzem la petjada ecològica de la construcció convencional i les alternatives sostenibles.">
+  <meta property="og:image" content="https://www.papik.cat/img/og/og-petjada-ecologica.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.papik.cat/article-petjada-ecologica.html">
+  <meta property="og:site_name" content="PAPIK">
   <meta property="og:locale" content="ca_ES">
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="La petjada ecològica de construir i viure a casa seva | PAPIK">
-  <meta name="twitter:description" content="Una casa té dues petjades: la de la seva construcció i la del seu funcionament. Anàlisi de cicle de vida (LCA) segons EN 15978 aplicada a obra Passivhaus.">
-  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
-  <meta name="theme-color" content="#002819">
+  <meta name="twitter:title" content="La petjada ecològica de construir i viure a casa teva | PAPIK">
+  <meta name="twitter:description" content="Quant CO₂ genera construir una casa? I habitar-la durant 50 anys? Analitzem la petjada ecològica de la construcció convencional i les alternatives sostenibles.">
+  <meta name="twitter:image" content="https://www.papik.cat/img/og/og-petjada-ecologica.jpg">
+  
 
-  <script type="application/ld+json">[
-  {
-    "_author_strategy": "Decisio: usar 'PAPIK Group' com a Organization-author (mes simple, mes coherent), o 'Papik Fisas Moreno' com a Person-author (mes E-E-A-T). Recomanacio: Person-author per a articles tecnics, Organization-author per a notes de premsa.",
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "La petjada ecològica de construir i viure a casa seva | PAPIK",
-    "description": "Una casa té dues petjades: la de la seva construcció i la del seu funcionament. Anàlisi de cicle de vida (LCA) segons EN 15978 aplicada a obra Passivhaus.",
-    "image": {
-      "@type": "ImageObject",
-      "url": "https://papik.cat/img/og/og-default.jpg",
-      "width": 1200,
-      "height": 630
-    },
-    "datePublished": "2025-01-01",
-    "dateModified": "2026-04-27",
-    "author": {
-      "@type": "Organization",
-      "name": "PAPIK Group",
-      "url": "https://papik.cat"
-    },
-    "publisher": {
-      "@id": "https://papik.cat/#org"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://papik.cat/article-petjada-ecologica"
-    },
-    "articleSection": "Sostenibilitat",
-    "wordCount": "1441",
-    "inLanguage": "ca",
-    "isAccessibleForFree": true
-  },
-  {
-    "_examples_per_page_type": {
-      "service_page": "Inici > Construccio",
-      "subpage": "Inici > Rehabilitacio > Comunitats",
-      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
-      "article_blog": "Inici > Blog > [Titular article]",
-      "project_fitxa": "Inici > Projectes > [Nom projecte]"
-    },
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inici",
-        "item": "https://papik.cat/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Inici",
-        "item": "https://papik.cat/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "La petjada ecològica de construir i viure a casa seva"
-      }
-    ]
-  }
-]</script>
+  
+  
 </head>
-<body class="page--article">
-<a href="#main" class="skip-to-content">Salta al contingut</a>
-<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
-  <div class="papik-cc-inner">
-    <div class="papik-cc-copy">
-      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
-      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
-    </div>
-    <div class="papik-cc-actions">
-      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
-      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
-      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
-    </div>
-  </div>
-</aside>
+<body>
 
+<!-- MOBILE NAV OVERLAY -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__header">
+    <a href="index.html">
+      <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+      </svg>
+    </a>
+    <button class="mobile-nav__close" id="mobileNavClose">&#10005;</button>
+  </div>
+  <ul class="t18">
+    <li class="sub-title">Serveis</li>
+    <li><a href="index.html#construccio">Construcció</a></li>
+    <li><a href="index.html#promocio">Promoció Immobiliària</a></li>
+    <li><a href="index.html#rehabilitacio">Rehabilitació Energètica</a></li>
+    <li><a href="patrimonis.html">Patrimonis</a></li>
+    <li class="sub-title">Empresa</li>
+    <li><a href="projectes.html">Projectes</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="nosaltres.html">Nosaltres</a></li>
+    <li><a href="index.html#contacte">Contacte</a></li>
+    <li><a href="usuaris.html" style="color:var(--green-light);font-weight:500;">Inicia sessió &rarr;</a></li>
+    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Pressupost &rarr;</a></li>
+  </ul>
+</nav>
+<div class="fade-bg" id="fadeBg"></div>
+
+<!-- HEADER -->
 <header class="header-top" id="headerTop">
   <div class="header-logo-layer"></div>
   <div class="header-logo">
     <div class="container">
       <div class="header-logo__content">
         <div class="menu-btn-wrapper" id="burgerBtn">
-          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+          <div class="menu-btn__burger">
+            <span></span><span></span><span></span>
+          </div>
         </div>
         <div class="logo">
-          <a href="/"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
-</svg></a>
+          <a href="index.html">
+            <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+            </svg>
+          </a>
         </div>
       </div>
       <div class="lang">
-        <select onchange="if(this.value)location=this.value">
-          <option value="https://papik.cat/article-petjada-ecologica" selected>CA</option>
-          <option value="https://papik.cat/es/article-huella-ecologica">ES</option>
-          <option value="https://papik.cat/en/article-ecological-footprint">EN</option>
+        <select onchange="location=this.value">
+          <option value="blog.html" selected>CA</option>
+          <option value="es/blog.html">ES</option>
         </select>
       </div>
     </div>
   </div>
 </header>
 
-<main id="main">
+<!-- STICKY BAR -->
+<section class="header-sticky" id="headerSticky">
+  <div class="header-sticky__bar">
+    <div class="container">
+      <div class="header-sticky__content">
+        <nav class="menu t14">
+          <ul>
+            <li><span class="menu-btn" data-menu="construccio">Construcció</span></li>
+            <li><span class="menu-btn" data-menu="promocio">Promoció</span></li>
+            <li><span class="menu-btn" data-menu="rehabilitacio">Rehabilitació</span></li>
+            <li><span class="menu-btn" data-menu="patrimonis">Patrimonis</span></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="nosaltres.html">Nosaltres</a></li>
+          </ul>
+        </nav>
+        <nav class="menu-right t14">
+          <ul>
+            <li>
+              <a href="usuaris.html">Inicia sessió</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/>
+                  <path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </li>
+            <li>
+              <span class="nav-cta menu-btn" data-menu="pressupost">
+                Pressupost
+                <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="form-search-wrapper" id="searchWrapper">
+        <div class="form-search__content" style="position:relative;">
+          <button class="search-icon-btn" style="position:absolute;left:1px;top:1px;height:38px;width:38px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <form action="/" method="get">
+            <input type="text" name="s" placeholder="Cerca...">
+          </form>
+        </div>
+        <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Construcció -->
+  <div class="submenu" id="sub-construccio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="construccio.html" style="color:inherit;">Construcció Residencial</a></h3>
+          <ul class="t16">
+            <li><a href="construccio.html#unifamiliar">Habitatges Unifamiliars</a></li>
+            <li><a href="construccio.html#plurifamiliar">Edificis Plurifamiliars</a></li>
+            <li><a href="construccio.html#ampliacio">Ampliacions i Remuntes</a></li>
+            <li><a href="construccio.html#reforma">Reformes Integrals</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(135deg,#E7E9E8 0%,#9FA9A3 100%);"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">El nostre enfocament</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Construïm residències amb qualitat artesanal i tecnologia d'avantguarda. Cada projecte és únic, dissenyat per durar i adaptat a les necessitats del client.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualitat</h3>
+          <p class="feat-title">Nova promoció a Badalona: 24 habitatges amb certificació A</p>
+          <a href="#" class="feat-link link-arrow">Llegir més
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Promoció -->
+  <div class="submenu" id="sub-promocio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="promocio.html" style="color:inherit;">Promoció Immobiliària</a></h3>
+          <ul class="t16">
+            <li><a href="promocio.html#promocions">Promocions actives</a></li>
+            <li><a href="promocio.html#tipologies">Tipologies de promoció</a></li>
+            <li><a href="promocio.html#solar">Col·laboració propietaris de solar</a></li>
+            <li><a href="promocio.html#faq">Preguntes freqüents</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#002819 100%);"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">El nostre model</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Desenvolupem promocions residencials sostenibles i eficients. Gestionem tot el procés, des de la recerca de sòl fins al lliurament, amb màxima transparència.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Disponibles</h3>
+          <p class="feat-title">Edifici Premià de Mar: últimes unitats disponibles</p>
+          <a href="#" class="feat-link link-arrow">Veure promoció
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Rehabilitació -->
+  <div class="submenu" id="sub-rehabilitacio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="rehabilitacio.html" style="color:inherit;">Rehabilitació Energètica</a></h3>
+          <ul class="t16">
+            <li><a href="rehabilitacio.html#diagnosi">Diagnosi i certificació energètica</a></li>
+            <li><a href="rehabilitacio.html#envolupant">Aïllament de façanes i cobertes</a></li>
+            <li><a href="rehabilitacio.html#instal-lacions">Instal·lacions i solar fotovoltaica</a></li>
+            <li><a href="rehabilitacio.html#nextgen">Ajudes Next Generation EU</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(135deg,#9FA9A3 0%,#56685E 100%);"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Estalvi garantit</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Reduïm el consum energètic del teu edifici fins a un 60%. T'acompanyem en tot el procés, incloent la tramitació de subvencions europees.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Ajudes</h3>
+          <p class="feat-title">Fins a 80.000&euro; per habitatge en ajudes Next Generation</p>
+          <a href="#" class="feat-link link-arrow">Saber-ne més
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Patrimonis -->
+  <div class="submenu" id="sub-patrimonis">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="patrimonis.html" style="color:inherit;">Inversió Patrimonial</a></h3>
+          <ul class="t16">
+            <li><a href="patrimonis.html#com-funciona">Com funciona</a></li>
+            <li><a href="patrimonis.html#faq">Preguntes freqüents</a></li>
+            <li><a href="patrimonis.html#contacte-inversion">Contacte inversors</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Rendibilitat i seguretat</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Assessorem inversors patrimonials, family offices i fons d'inversió en la identificació, adquisició i gestió d'actius immobiliaris residencials al Maresme i Barcelonès.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Destacat</h3>
+          <p class="feat-title">Cartera activa: 3 solars disponibles per a promoció plurifamiliar</p>
+          <a href="patrimonis.html" class="feat-link link-arrow">Conèixer més
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Pressupost -->
+  <div class="submenu" id="sub-pressupost">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Tipus de projecte</h3>
+          <ul class="t16">
+            <li><a href="pressupost.html">Obra Nova Unifamiliar</a></li>
+            <li><a href="pressupost.html">Edifici Plurifamiliar</a></li>
+            <li><a href="pressupost.html">Reforma Integral</a></li>
+            <li><a href="pressupost.html">Rehabilitació Energètica</a></li>
+            <li><a href="pressupost.html">Ampliació i Canvi d'Ús</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Estima el teu projecte</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Introdueix les característiques del teu projecte i obtén una estimació orientativa del cost en menys d'un minut. Sense compromís, sense registre.</p>
+          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulació
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+        <div class="submenu__featured">
+          <h3>Com funciona</h3>
+          <p class="feat-title">3 passos: tipus de projecte &rarr; superfície i materials &rarr; resultat</p>
+          <a href="pressupost.html" class="feat-link link-arrow">Provar ara
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMENU: Nosaltres -->
+  <div class="submenu" id="sub-nosaltres">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="nosaltres.html" style="color:inherit;">L'empresa</a></h3>
+          <ul class="t16">
+            <li><a href="nosaltres.html">Qui som</a></li>
+            <li><a href="nosaltres.html#equip">El nostre equip</a></li>
+            <li><a href="nosaltres.html#valors">Valors i metodologia</a></li>
+            <li><a href="projectes.html">Projectes realitzats</a></li>
+            <li><a href="nosaltres.html#eskimohaus">Sostenibilitat</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Construïm des del 2008</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Som una empresa de construcció i promoció immobiliària amb base al Maresme. Més de 15 anys d'experiència en obra residencial, rehabilitació i inversió patrimonial.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Reconeixements</h3>
+          <p class="feat-title">+120 habitatges entregats &middot; Qualificació A en eficiència energètica</p>
+          <a href="index.html#nosaltres" class="feat-link link-arrow">Conèixer l'equip
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE HERO -->
 <section class="article-hero">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Inici</a>
-        <span class="sep">·</span>
-        <span>La petjada ecològica de construir i viure a casa seva</span>
-      </nav>
+    <nav class="breadcrumb">
+      <a href="index.html">Inici</a>
+      <span class="sep">&rsaquo;</span>
+      <a href="blog.html">Blog</a>
+      <span class="sep">&rsaquo;</span>
+      <span>La petjada ecològica de construir i viure a casa teva</span>
+    </nav>
     <span class="article-hero__cat">Sostenibilitat</span>
-    <h1 class="article-hero__title">La petjada ecològica de construir i viure a casa seva</h1>
+    <h1 class="article-hero__title" data-reveal-words>La petjada ecològica de construir i viure a casa teva</h1>
+    <div class="article-hero__meta">
+      <time>26 setembre 2025</time>
+      <span class="sep">&middot;</span>
+      <span>10 min lectura</span>
+    </div>
   </div>
 </section>
+
+<!-- ARTICLE COVER -->
 <div class="article-cover">
-  <img class="article-cover__img" src="/img/og/og-petjada-ecologica.jpg" alt="" loading="eager" fetchpriority="high">
+  <div class="article-cover__img" style="background:linear-gradient(160deg,#0A1B12 0%,#56685E 100%);"></div>
 </div>
+
+<!-- ARTICLE BODY -->
 <section class="article-body">
   <div class="container">
     <div class="article-body__content">
-<h2>Què mesura realment la petjada ecològica d'un habitatge</h2>
-<p>La norma EN 15978 (Sustainability of construction works · Assessment of environmental performance of buildings · Calculation method) defineix com s'ha d'analitzar l'impacte ambiental d'un edifici al llarg del seu cicle de vida complet. Estableix cinc fases d'anàlisi.</p>
-<p>Les fases A1 a A3 cobreixen el producte: extracció de matèries primeres, transport i fabricació de materials. Les fases A4 i A5 cobreixen la construcció pròpiament dita: transport a obra i procés constructiu. Les fases B1 a B7 cobreixen l'ús: operació, manteniment, reparació, substitució, energia operativa i aigua. Les fases C1 a C4 cobreixen el final de vida: demolició, transport, tractament de residus i disposició final. La fase D recull els beneficis més enllà del límit del sistema (reutilització, reciclatge).</p>
-<p>Una avaluació seriosa de la petjada ecològica d'un habitatge ha d'incloure les cinc fases. Quan algú parla de "casa sostenible" sense citar EN 15978 ni LCA (Life Cycle Assessment) ni EPD (Environmental Product Declaration), la conversa està al nivell de màrqueting i no al nivell d'enginyeria.</p>
+      <h2>La petjada de carboni de construir i habitar: dades reals</h2>
+
+      <p>Cada edifici que s'aixeca deixa una petjada de carboni molt abans que algú hi encengui el primer llum. La fabricació dels materials, el transport fins a l'obra i el procés constructiu generen emissions de CO<sub>2</sub> que, en conjunt, representen una part significativa de l'impacte ambiental total d'un habitatge. A PAPIK, fa anys que mesurem aquesta petjada als nostres projectes amb anàlisis de cicle de vida (ACV), i les dades ens permeten parlar amb xifres concretes, no amb estimacions genèriques.</p>
+
+      <h2>Fase 1: la petjada de carboni de la construcció</h2>
+
+      <p>Construir una casa genera emissions. La qüestió és quantes, i aquí el material estructural ho canvia tot.</p>
+
+      <p>Produir un metre cúbic de formigó convencional allibera al voltant de 215 kg de CO<sub>2</sub> a l'atmosfera, principalment pel procés de calcinació del ciment Portland (dades de la base EPD europea). L'acer estructural emet aproximadament 1.500 kg de CO<sub>2</sub> per tona produïda. Són materials amb una petjada de carboni elevada que dominen la construcció convencional.</p>
+
+      <p>Per contra, un metre cúbic de fusta estructural d'avet o pi (les espècies que utilitzem a PAPIK) no només no emet durant el seu creixement, sinó que emmagatzema aproximadament 500 kg de CO<sub>2</sub>, captat de l'atmosfera per fotosíntesi. Aquesta xifra, documentada a les declaracions ambientals de producte (EPD) del sector fusta, varia segons l'espècie i la densitat: per a la fusta d'avet (Picea abies, densitat ~450 kg/m<sup>3</sup>), el valor se situa entre 470 i 520 kg de CO<sub>2</sub> per m<sup>3</sup>.</p>
+
+      <blockquote>
+        <p>Al projecte K-Alzina, el nostre càlcul ACV va mostrar que l'estructura de fusta FSC emmagatzema 41,82 tones de CO<sub>2</sub>, i que el projecte estalvia 23,90 tones respecte a l'equivalent en formigó. No és teoria: són les xifres reals d'una casa de 180 m<sup>2</sup> al Montseny.</p>
+      </blockquote>
+
+      <p>Si ho traslladem a un habitatge tipus de 180 m<sup>2</sup> (la mida del K-Alzina), la comparació és la següent. Una casa convencional amb estructura de formigó i obra de fàbrica genera entre 40 i 55 tones de CO<sub>2</sub> durant la fase de construcció, segons la tipologia i els acabats. Un habitatge equivalent amb estructura d'entramat lleuger de fusta certificada arriba a emmagatzemar entre 25 i 30 tones de CO<sub>2</sub> a la seva estructura (en funció del volum total de fusta). El balanç net entre una opció i l'altra supera les 65-80 tones de CO<sub>2</sub>.</p>
+
+      <h2>Fase 2: la petjada de carboni de l'ús</h2>
+
+      <p>La petjada de la construcció, però, és només una part de l'equació. Un cop l'habitatge és ocupat, comença una segona fase d'emissions que es perllonga durant tota la vida útil de l'edifici: el consum energètic per climatitzar, il·luminar i fer funcionar la llar.</p>
+
+      <p>Segons dades de l'IDAE (Institut per a la Diversificació i Estalvi de l'Energia), un habitatge convencional a Catalunya consumeix de mitjana entre 100 i 120 kWh/m<sup>2</sup>/any en calefacció, refrigeració i aigua calenta sanitària. Per a una casa de 180 m<sup>2</sup>, això representa uns 18.000-21.600 kWh anuals.</p>
+
+      <p>Amb l'estàndard Passivhaus, la demanda de calefacció i refrigeració es limita a un màxim de 15 kWh/m<sup>2</sup>/any cadascuna. Als nostres projectes, les demandes reals se situen típicament entre 12 i 14 kWh/m<sup>2</sup>/any per a calefacció i entre 8 i 12 kWh/m<sup>2</sup>/any per a refrigeració, segons l'orientació i la ubicació. L'estalvi global respecte a un habitatge convencional se situa entre el 75% i el 90%.</p>
+
+      <p>Projectem aquestes xifres a un horitzó de 50 anys, que és la vida útil mínima estimada d'un edifici residencial. La diferència acumulada entre un habitatge convencional i un Passivhaus supera els 600.000 kWh per a una casa de 180 m<sup>2</sup>. Si apliquem el factor d'emissió de la xarxa elèctrica espanyola (aproximadament 0,14 kg CO<sub>2</sub>/kWh, dada de Red Eléctrica), parlem d'unes 84 tones de CO<sub>2</sub> estalviades en mig segle. Si l'habitatge convencional utilitza gas natural per a calefacció i ACS (factor d'emissió de 0,20 kg CO<sub>2</sub>/kWh), la xifra d'estalvi puja encara més.</p>
+
+      <h2>El balanç complet: construcció + ús</h2>
+
+      <p>Sumem les dues fases. Per a un habitatge de 180 m<sup>2</sup> amb les característiques dels nostres projectes:</p>
+
+      <p>Estalvi en fase de construcció (fusta vs. formigó): 65-80 tones de CO<sub>2</sub>. Estalvi en fase d'ús durant 50 anys (Passivhaus vs. convencional): 84-120 tones de CO<sub>2</sub>. Balanç total favorable: entre 150 i 200 tones de CO<sub>2</sub> evitades al llarg del cicle de vida complet.</p>
+
+      <p>Per posar-ho en perspectiva: 150 tones de CO<sub>2</sub> equivalen a les emissions d'un cotxe de combustió durant més de 50 anys (assumint 12.000 km/any i 120 g CO<sub>2</sub>/km).</p>
+
+      <h2>Què fa PAPIK per minimitzar la petjada</h2>
+
+      <p>Les xifres anteriors no surten de la casualitat. Són el resultat de decisions conscients i sistemàtiques que apliquem a cada projecte:</p>
+
+      <p>Fusta FSC d'origen europeu. Tota la fusta estructural que utilitzem porta certificació de cadena de custòdia FSC. Això garanteix que els boscos d'origen es gestionen de manera sostenible i que la fusta tallada es replanta. La traçabilitat és completa, des del bosc fins al muntant.</p>
+
+      <p>Proveïment de proximitat. El suro expandit que especifiquem com a aïllament exterior prové de surars catalans (Alt Empordà, Selva), a menys de 200 km de les nostres obres. La cel·lulosa insuflada es fabrica a la península. Reduïm la petjada del transport sempre que la qualitat del material ho permet.</p>
+
+      <p>Eliminació del gas. Cap dels nostres habitatges Passivhaus utilitza gas natural. La climatització es resol amb bomba de calor aerotèrmica (eficient fins i tot amb temperatures exteriors baixes), i l'emmagatzematge elèctric es fa amb bateries de plom, una tecnologia robusta i reciclable. Sense gas, eliminem les emissions directes de combustió durant tota la vida útil de l'edifici.</p>
+
+      <p>Estanquitat rigorosa. Un Blower Door de 0,3-0,5 ACH (els resultats habituals als nostres projectes, molt per sota del límit Passivhaus de 0,6 ACH) significa que l'energia invertida en climatitzar l'aire interior no s'escapa per infiltracions. Cada millora en estanquitat redueix directament el consum energètic i, per tant, la petjada de carboni operativa.</p>
+
+      <blockquote>
+        <p>No construïm cases "neutres en carboni" perquè el concepte ens sembli atractiu. Ho fem perquè les dades ACV dels nostres projectes demostren que és tècnicament viable i econòmicament raonable, amb un sobrecost del 10-15% que es recupera en estalvi energètic.</p>
+      </blockquote>
+
+      <h2>Fonts i metodologia</h2>
+
+      <p>Les dades d'aquest article provenen de fonts públiques i verificables: la base de dades EPD europea per a les emissions de materials (Environdec, IBU), les dades de l'IDAE per al consum energètic residencial a Espanya, els factors d'emissió de Red Eléctrica de España, i les directrius del Passivhaus Institut de Darmstadt per als límits de demanda energètica. Les xifres específiques de projectes PAPIK (K-Alzina, K-Codines) provenen dels nostres càlculs interns d'ACV, realitzats seguint la norma EN 15978 d'avaluació de la sostenibilitat d'obres de construcció.</p>
+
+      <p>La petjada de carboni d'un habitatge no és un concepte abstracte. És una xifra que es pot calcular, comparar i, sobretot, reduir. Cada decisió de projecte, des del material estructural fins al sistema de climatització, mou la balança en una direcció o en l'altra. El nostre compromís a PAPIK és que cada casa que construïm mogui la balança cap al costat correcte.</p>
+
+      <a href="blog.html" class="article-back">
+        <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+        Tornar al Blog
+      </a>
+
     </div>
   </div>
 </section>
-<section class="article-body">
+
+<!-- RELATED ARTICLES -->
+<section class="related-section">
   <div class="container">
-    <div class="article-body__content">
-<h2>Petjada A1-A3: els materials que entren a la casa</h2>
-<p>Les fases inicials del cicle de vida són les que aporten més diferenciació entre projectes. Aquí es veu si una casa s'ha construït amb materials d'origen renovable, baixa energia incorporada i traçabilitat verificable, o amb materials industrials d'alta empremta.</p>
-<p>La comparativa orientativa basada en literatura tècnica del sector situa el formigó al voltant de 0,15 kg CO₂/kg, l'acer estructural entre 1,8 i 2,0 kg CO₂/kg, la llana mineral al voltant de 0,5 kg CO₂/kg, la cel·lulosa insuflada (paper reciclat) entre 0,1 i 0,2 kg CO₂/kg, la fusta laminada FSC entre 0,3 i 0,5 kg CO₂/kg amb captura prèvia de CO₂ de l'arbre, i el suro natural amb captura neta positiva durant el creixement del roure surer.</p>
-<p>Una casa amb estructura de fusta CLT, aïllament de cel·lulosa i revestiment de suro pot tenir carboni emmagatzemat, no només "baixes emissions". En altres paraules, la construcció ha extret CO₂ de l'atmosfera i el manté capturat dins la fusta i el suro mentre l'edifici existeix. Aquest matís converteix la decisió constructiva en una eina de mitigació climàtica activa, no només passiva.</p>
+    <h2 class="related-section__title">Articles relacionats</h2>
+    <div class="blog-grid">
+      <div class="blog-card" data-anim="fade-up">
+        <a href="article-casa-montseny.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#56685E 0%,#0A1B12 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Projectes</span>
+          <h3 class="blog-card__title">Una casa sostenible a les faldes del Montseny</h3>
+          <div class="blog-card__meta">
+            <time>13 octubre 2025</time>
+            <span class="sep">&middot;</span>
+            <span>5 min lectura</span>
+          </div>
+        </a>
+      </div>
+      <div class="blog-card" data-anim="fade-up">
+        <a href="article-sostenibilitat-passivhaus.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(160deg,#95BBA5 0%,#002819 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Sostenibilitat</span>
+          <h3 class="blog-card__title">Passivhaus i sostenibilitat: com minimitzar la petjada ecològica</h3>
+          <div class="blog-card__meta">
+            <time>11 juny 2025</time>
+            <span class="sep">&middot;</span>
+            <span>7 min lectura</span>
+          </div>
+        </a>
+      </div>
+      <div class="blog-card" data-anim="fade-up">
+        <a href="article-revolucio-fusta.html" class="blog-card__link">
+          <div class="blog-card__img-wrap">
+            <div class="blog-card__img" style="background:linear-gradient(135deg,#56685E 0%,#0A1B12 100%);"></div>
+          </div>
+          <span class="blog-card__cat">Construcció</span>
+          <h3 class="blog-card__title">La revolució de la fusta en la construcció moderna</h3>
+          <div class="blog-card__meta">
+            <time>8 octubre 2025</time>
+            <span class="sep">&middot;</span>
+            <span>7 min lectura</span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
-<section class="article-body">
-  <div class="container">
-    <div class="article-body__content">
-<h2>Petjada B6: l'energia operativa al llarg dels 50 anys</h2>
-<p>La fase B6 mesura el consum energètic operatiu durant la vida útil de l'edifici. És aquí on l'estàndard Passivhaus marca la diferència més espectacular.</p>
-<p>Una casa convencional construïda segons el CTE bàsic (Codi Tècnic de l'Edificació) consumeix entre 70 i 150 kWh/m²·a per a climatització, segons clima i tipologia. Una casa Passivhaus està dissenyada per consumir menys de 15 kWh/m²·a per al mateix concepte, llindar de certificació de l'Institut Passivhaus de Darmstadt.</p>
-<p>La diferència acumulada al llarg de cinquanta anys, per a un habitatge mitjana de dos-cents metres quadrats, és substancial. Una casa convencional consumeix l'equivalent a 1.000.000 kWh durant aquest període (200 m² × 100 kWh/m²·a × 50 anys). Una casa Passivhaus consumeix l'equivalent a 150.000 kWh per al mateix concepte (200 m² × 15 kWh/m²·a × 50 anys). La diferència, 850.000 kWh estalviats, equival aproximadament a entre 170 i 220 tones de CO₂ no emès, segons el mix elèctric mitjà aplicable.</p>
-    </div>
-  </div>
-</section>
-<section class="article-body">
-  <div class="container">
-    <div class="article-body__content">
-<h2>El balanç global d'una casa Passivhaus</h2>
-<p>Quan se sumen totes les fases del cicle de vida segons EN 15978, el patró que apareix és consistent. La petjada de la construcció (fases A1 a A5) és habitualment superior en una Passivhaus que en una convencional, perquè incorpora més aïllament, finestres més tècniques i sistemes mecànics afegits. La petjada operativa (fase B6) és dràsticament inferior en Passivhaus per les raons descrites al punt anterior. El final de vida (fases C i D) és similar entre tipologies, depenent dels materials concrets utilitzats.</p>
-<p>El punt d'equilibri, definit com el moment a partir del qual la petjada de construir Passivhaus es compensa amb l'estalvi operatiu acumulat, sol situar-se entre els cinc i deu anys des de l'entrega de l'obra. A partir d'aquest moment, cada any addicional de vida útil de l'edifici afegeix benefici net en termes ambientals.</p>
-<p>Per a un habitatge dissenyada per durar cent anys, el balanç ambiental global d'una construcció Passivhaus és netament positiu en comparació amb una construcció convencional equivalent, amb una diferència acumulada que es mesura en centenars de tones de CO₂ al llarg de la vida útil.</p>
-    </div>
-  </div>
-</section>
-<section class="article-body">
-  <div class="container">
-    <div class="article-body__content">
-<h2>Casos documentats: què hem mesurat realment</h2>
-<p>PAPIK ha aplicat aquest marc d'anàlisi a diversos projectes propis. La <a href="/projecte-la-floresta">Casa Passiva a La Floresta</a> (Sant Cugat) va ser el primer projecte que va combinar CLT amb cel·lulosa, amb un punt d'equilibri estimat entre els sis i vuit anys comparat amb una construcció CTE bàsic equivalent. <a href="/projecte-k-iturbi">K-Iturbi</a> (Bellaterra), Passivhaus certificat amb Eskimohaus®, té una reducció acumulada estimada superior a 170 tones de CO₂ al llarg de cinquanta anys respecte a un equivalent convencional. <a href="/projecte-k-llavaneres">K-Llavaneres</a> (Maresme), primera Passivhaus Plus de Catalunya, combina producció fotovoltaica i bateria amb estàndard Passivhaus per assolir un balanç energètic operatiu pràcticament neutre.</p>
-<p>Cada projecte té paràmetres específics, motiu pel qual les xifres concretes són orientatives basades en simulació PHPP (Passive House Planning Package) i no resultats directament mesurats al llarg de cinquanta anys de funcionament.</p>
-    </div>
-  </div>
-</section>
-<section class="article-body">
-  <div class="container">
-    <div class="article-body__content">
-<h2>Què pot fer vostè: decisions amb impacte real</h2>
-<p>Si està valorant construir o rehabilitar un habitatge i vol que la decisió tingui impacte ambiental real i no només estètic, hi ha quatre criteris que orienten una valoració seriosa.</p>
-<p>Demanar LCA al projecte és el primer. Les eines existeixen (EnergyPlus, OneClick LCA, PHPP, WUFI), i si el constructor no en pot aportar, la conversa s'està fent al nivell de màrqueting i no al d'enginyeria. Verificar les EPD dels materials principals (estructura, aïllament, revestiments) és el segon. Un fabricant seriós les facilita; un que no les té probablement no compleix els quatre criteris bàsics. No confondre "ecològic" amb "sostenible" és el tercer: materials d'origen natural però amb alta energia incorporada, com la llana de roca importada de l'altra banda d'Europa, poden ser pitjor opció que materials industrials reciclats locals. Pensar a cinquanta anys, no a cinc, és el quart: una decisió constructiva té impacte durant tota la vida útil de l'edifici, i la diferència entre "una mica menys eficient" i "molt més eficient" pot ser de centenars de tones de CO₂ acumulades.</p>
-    </div>
-  </div>
-</section>
-<section class="article-body">
-  <div class="container">
-    <div class="article-body__content">
-<h2>Preguntes freqüents</h2>
-<h3>Què és una EPD?</h3>
-<p>Environmental Product Declaration. Document tècnic estandarditzat segons la norma ISO 14025 que certifica l'impacte ambiental d'un material al llarg del seu cicle de vida. Cada cop més fabricants l'ofereixen, i la seva absència és un senyal d'alerta.</p>
-<h3>El càlcul LCA és car?</h3>
-<p>És variable. Per a un projecte residencial unifamiliar, una avaluació LCA bàsica pot incorporar-se al projecte amb cost relativament baix si s'integra des del disseny inicial. L'avaluació LCA detallada amb tercers verificadors té un cost superior i només és rellevant en projectes amb certificacions específiques tipus LEED o BREEAM.</p>
-<h3>La fusta segresta carboni indefinidament?</h3>
-<p>Mentre la fusta forma part d'un edifici i no es crema o es biodegrada, el carboni capturat es manté segrestat. Després de la vida útil de l'edifici, la fusta pot reciclar-se o, si va a gestor de residus correctament, pot mantenir el segrest temporal en altres aplicacions.</p>
-<h3>Com puc verificar les afirmacions ambientals d'un constructor?</h3>
-<p>Demanant certificacions formals (Passivhaus PHI, FSC, PEFC, LEED, BREEAM), EPD dels materials principals, simulació PHPP del comportament tèrmic, i càlcul LCA segons EN 15978. Si tot això manca, les afirmacions són publicitat.</p>
-    </div>
-  </div>
-</section>
-<section class="article-body">
-  <div class="container">
-    <div class="article-body__content">
-<h2>CIERRE</h2>
-<p>Si vol que el seu projecte tingui un impacte ambiental verificable, l'anàlisi LCA es pot incorporar al disseny inicial sense costos prohibitius.</p>
-<p>Configurar el pressupost del meu projecte: papik.cat/pressupost.</p>
-<p><strong>Llegiu també:</strong></p>
-<p><a href="/article-materials-sostenibles">Materials sostenibles: fusta, suro, cel·lulosa</a></p>
-<p><a href="/article-principis-passivhaus">Els cinc principis del Passivhaus</a></p>
-<p><a href="/article-sostenibilitat-passivhaus">Sostenibilitat i Passivhaus</a></p>
-    </div>
-  </div>
-</section>
-<section class="block-cta block-cta--closing">
+
+<!-- CTA STRIP -->
+<section class="block-cta">
   <div class="container">
     <p class="block-cta__label">Tens alguna pregunta?</p>
     <h2 class="block-cta__title">Parla amb nosaltres sobre el teu projecte</h2>
-    <a class="btn-white" href="#contacte">Contactar <span aria-hidden="true">→</span></a>
+    <a href="index.html#contacte">
+      <button class="btn-white">
+        Contactar
+        <svg width="12" height="11" viewBox="0 0 12.447 10.89" fill="none">
+          <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </a>
   </div>
 </section>
-</main>
 
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer__content__info color-white">
       <div class="footer-col">
         <p class="footer__col-title">PAPIK</p>
         <ul>
-          <li><a href="/nosaltres.html">Qui som</a></li>
-          <li><a href="/projectes.html">Projectes</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="#contacte">Contacte</a></li>
+          <li><a href="index.html#nosaltres">Qui som</a></li>
+          <li><a href="projectes.html">Projectes</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contacte">Contacte</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <p class="footer__col-title">Serveis</p>
         <ul>
-          <li><a href="/construccio.html">Construcció Residencial</a></li>
-          <li><a href="/promocio.html">Promoció Immobiliària</a></li>
-          <li><a href="/rehabilitacio.html">Rehabilitació Energètica</a></li>
-          <li><a href="/patrimonis.html">Patrimonis · Inversió Conjunta</a></li>
+          <li><a href="index.html#construccio">Construcció Residencial</a></li>
+          <li><a href="index.html#promocio">Promoció Immobiliària</a></li>
+          <li><a href="index.html#rehabilitacio">Rehabilitació Energètica</a></li>
+          <li><a href="#">Obra Nova</a></li>
+          <li><a href="#">Reformes Integrals</a></li>
+          <li><a href="#">Eficiència Energètica</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <p class="footer__col-title">Oficines</p>
         <div class="info-showroom__item">
           <h3>SEU CENTRAL</h3>
-          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 935 90 60 74</a></p>
         </div>
         <div class="info-showroom__item">
           <h3>CORREU</h3>
@@ -363,35 +582,42 @@
         </div>
       </div>
       <div class="footer__newsletter">
-        <p class="footer__col-title">Newsletter</p>
-        <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles.</p>
-        <form class="newsletter-form" action="#" method="post" novalidate>
-          <input type="email" placeholder="El teu email" required>
-          <button type="submit" aria-label="Subscribe">→</button>
-        </form>
+        <p class="footer__col-title" style="font-size:18px;font-weight:400;margin-bottom:20px;">Newsletter</p>
+        <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles. Subscriu-te.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="El teu email">
+          <button type="submit">
+            <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
+          </button>
+        </div>
         <div class="footer__rrss">
           <p>Segueix-nos</p>
           <div class="rrss__links">
-            <a href="https://www.instagram.com/papikgroup">Instagram</a>
-            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
-            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
           </div>
         </div>
       </div>
     </div>
     <div class="copyright">
-      <p>Copyright © 2025 PAPIK Fusters S.L. – Tots els drets reservats · papik.cat</p>
-      <div class="legal" style="display:flex;gap:20px;">
-        <a href="/avis-legal.html">Avís Legal</a>
-        <a href="/politica-privacitat.html">Política de Privacitat</a>
-        <a href="/politica-cookies.html">Galetes</a>
+      <p>Copyright &copy; 2025 PAPIK SL &ndash; Tots els drets reservats<br>papik.cat</p>
+      <div>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);margin-right:20px;">Avís Legal</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.35);">Política de Privacitat</a>
       </div>
+      <button class="btn-up t14" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        Amunt
+        <svg width="11" height="12" viewBox="0 0 10.89 12.447"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" transform="translate(0 12.447) rotate(-90)" fill="#fff"/></svg>
+      </button>
     </div>
   </div>
 </footer>
 
+<!-- JAVASCRIPT -->
+<script src="js/header.js" defer></script>
 <script src="js/motion.js" defer></script>
-<script src="js/cookie-banner.js" defer></script>
-<script src="js/forms.js" defer></script>
+<script src="cursor.js"></script>
+
 </body>
 </html>

@@ -5,567 +5,652 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rehabilitació energètica · subvencions Next Generation · PAPIK</title>
   <meta name="description" content="Transformem habitatges existents en cases eficients. Gestionem les ajudes Next Generation EU per vostè. Diagnòstic gratuït a Catalunya, Balears i Andorra.">
-
+  <link rel="icon" type="image/png" href="PAPIK (4).png">
   <link rel="canonical" href="https://papik.cat/rehabilitacio">
   <link rel="alternate" hreflang="ca" href="https://papik.cat/rehabilitacio">
   <link rel="alternate" hreflang="es" href="https://papik.cat/es/rehabilitacion">
   <link rel="alternate" hreflang="en" href="https://papik.cat/en/retrofit">
-  <link rel="alternate" hreflang="x-default" href="https://papik.cat/rehabilitacio">
+  <meta property="og:title" content="Rehabilitació energètica · subvencions Next Generation · PAPIK">
+  <meta property="og:description" content="Gestionem les ajudes Next Generation EU de principi a fi. Vostè decideix; nosaltres tramitem.">
+  <meta property="og:url" content="https://papik.cat/rehabilitacio">
+  <meta property="og:image" content="https://papik.cat/img/abstract/02-motion-blur.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ca_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rehabilitació energètica · PAPIK Group">
+  <meta name="twitter:description" content="Gestionem les ajudes Next Generation EU de principi a fi.">
+  <meta name="twitter:image" content="https://papik.cat/img/abstract/02-motion-blur.jpg">
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/editorial.css">
-  <link rel="stylesheet" href="css/blocks.css">
-  <link rel="stylesheet" href="/css/cookie-banner.css">
 
   <style>
-.section-header__eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:14px;font-weight:var(--fw-regular);}
-.section-header{display:block;margin-bottom:32px;max-width:760px;}
-.section-header__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:var(--text);line-height:1.2;}
-.section-header__lead{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6;}
-.section-body{font-size:16px;line-height:1.75;color:var(--muted);max-width:760px;}
-.section-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:var(--fw-light);color:var(--text);margin:36px 0 14px;line-height:1.2;}
-.section-body h3{font-size:clamp(17px,1.7vw,22px);font-weight:var(--fw-regular);color:var(--text);margin:28px 0 10px;}
-.section-body h4{font-size:15px;font-weight:var(--fw-medium);color:var(--text);margin:20px 0 8px;}
-.section-body p{margin-bottom:16px;}
-.section-body strong{color:var(--text);font-weight:var(--fw-medium);}
-.section-body ul,.section-body ol{padding-left:22px;margin-bottom:18px;}
-.section-body li{margin-bottom:6px;}
-.section-body a{color:var(--green);border-bottom:1px solid var(--border);}
-.section-body a:hover{color:var(--accent);border-color:var(--accent);}
-.section-body .lead{font-size:18px;color:var(--text);font-weight:var(--fw-light);line-height:1.55;margin-bottom:20px;}
-.section-body .closing-sentence{font-size:clamp(20px,2vw,26px);font-weight:var(--fw-light);color:var(--text);line-height:1.35;margin:32px 0;letter-spacing:-.005em;}
-.section-body .microtext{font-size:13px;color:var(--muted-light);}
-.section-body .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:var(--fw-regular);margin-bottom:8px;}
-.hero--dark .hero__microtrust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;}
-.hero{padding:96px 0 64px;}
-.hero--dark{background:linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);}
-.hero__actions{margin-top:28px;display:inline-flex;gap:12px;flex-wrap:wrap;}
-.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
-.data-table th,.data-table td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
-.data-table th{background:var(--bg-light);font-weight:var(--fw-medium);color:var(--text);}
-.faq-list{margin:24px 0;border-top:1px solid var(--border);}
-.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
-.faq-item summary{cursor:pointer;font-size:16px;font-weight:var(--fw-medium);color:var(--text);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
-.faq-item summary::after{content:"+";color:var(--green);font-size:22px;line-height:1;transition:transform .25s ease;}
-.faq-item[open] summary::after{transform:rotate(45deg);}
-.faq-item__body{padding-top:12px;color:var(--muted);font-size:15px;line-height:1.6;}
-.phase-list{list-style:none;padding:0;margin:32px 0;border-top:1px solid var(--border);}
-.phase-list__item{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
-.phase-list__num{font-size:clamp(20px,2vw,28px);font-weight:var(--fw-light);color:var(--accent);line-height:1;}
-.phase-list__title{font-size:17px;font-weight:var(--fw-medium);color:var(--text);margin-bottom:6px;line-height:1.3;}
-.phase-list__text{color:var(--muted);font-size:14px;line-height:1.6;margin:0;}
-.cross-links{margin:32px 0;padding:24px;background:var(--bg-light);border-radius:var(--r-md);}
-.cross-links__label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px;}
-.cross-links ul{padding:0;margin:0;}
-.cross-links li{padding:6px 0;border-bottom:1px solid var(--border-soft);}
-.cross-links li:last-child{border-bottom:0;}
-.form{display:grid;gap:16px;max-width:520px;margin:24px 0;}
-.form-field{display:block;}
-.form-field__label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
-.form-field__input{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);background:#fff;font-size:15px;color:var(--text);font-family:var(--ff-sans);border-radius:var(--r-sm);}
-.form-field__input:focus{outline:2px solid var(--green);outline-offset:2px;}
-.form-field--check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
-.form-field--check input{margin-top:3px;}
-.card-grid .card--icon{padding:24px 22px;}
-.article-body{padding:56px 0 80px;background:#fff;}
-.article-body__content{max-width:min(70ch,720px);margin:0 auto;}
-.article-body__content h2{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);margin:48px 0 20px;color:var(--text);line-height:1.2;}
-.article-body__content h3{font-size:clamp(18px,1.8vw,22px);font-weight:var(--fw-regular);margin:32px 0 14px;color:var(--text);}
-.article-body__content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
-.article-body__content ul,.article-body__content ol{padding-left:22px;margin-bottom:20px;}
-.article-body__content li{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:8px;}
-.article-body__content strong{color:var(--text);font-weight:var(--fw-medium);}
-.article-body__content blockquote{padding:24px 28px;background:var(--bg-light);border-radius:var(--r-md);font-size:18px;font-weight:var(--fw-light);color:var(--text);margin:32px 0;}
-.article-body__content a{color:var(--green);border-bottom:1px solid var(--border);}
-.article-body__content a:hover{color:var(--accent);border-color:var(--accent);}
-.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-light);margin-bottom:24px;}
-.hero--dark .breadcrumb{color:rgba(255,255,255,.7);}
-.hero--dark .breadcrumb a{color:rgba(255,255,255,.85);}
-.breadcrumb a{color:var(--muted-light);border-bottom:0;}
-.breadcrumb a:hover{opacity:.7;}
-.breadcrumb .sep{opacity:.5;}
-.block-cta{background:var(--green);color:#fff;padding:64px 0;text-align:center;}
-.block-cta__label{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.55);margin-bottom:14px;}
-.block-cta__title{font-size:clamp(22px,2.4vw,32px);font-weight:var(--fw-light);color:#fff;line-height:1.2;margin:0 auto 20px;max-width:680px;}
-.block-cta__sub{font-size:15px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 28px;}
-</style>
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Rehabilitació energètica · subvencions Next Generation · PAPIK">
-  <meta property="og:description" content="Transformem habitatges existents en cases eficients. Gestionem les ajudes Next Generation EU per vostè. Diagnòstic gratuït a Catalunya, Balears i Andorra.">
-  <meta property="og:image" content="https://papik.cat/img/og/og-rehabilitacio.jpg">
-  <meta property="og:url" content="https://papik.cat/rehabilitacio">
-  <meta property="og:site_name" content="PAPIK Group">
-  <meta property="og:locale" content="ca_ES">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Rehabilitació energètica · subvencions Next Generation · PAPIK">
-  <meta name="twitter:description" content="Transformem habitatges existents en cases eficients. Gestionem les ajudes Next Generation EU per vostè. Diagnòstic gratuït a Catalunya, Balears i Andorra.">
-  <meta name="twitter:image" content="https://papik.cat/img/og/og-rehabilitacio.jpg">
-  <meta name="theme-color" content="#002819">
-
-  <script type="application/ld+json">[
-  {
-    "_examples_per_unit": {
-      "construccio": {
-        "name": "Construcció de cases Passivhaus",
-        "serviceType": "Custom passive house construction",
-        "description": "Construïm cases unifamiliars i plurifamiliars sota l'estàndard Passivhaus. De zero a clau en mà."
-      },
-      "promocio": {
-        "name": "Promoció immobiliària sostenible",
-        "serviceType": "Real estate development with passive house standards",
-        "description": "Desenvolupem promocions de cases passives. Comprem el solar, construïm i venem el producte acabat clau en mà."
-      },
-      "rehabilitacio": {
-        "name": "Rehabilitació energètica integral",
-        "serviceType": "Energy retrofit including subsidy management",
-        "description": "Transformem habitatges existents en cases eficients. Gestionem les ajudes Next Generation EU integralment."
-      },
-      "patrimonis": {
-        "name": "Construcció i coinversió per a inversors patrimonials",
-        "serviceType": "Real estate development partnership for family offices",
-        "description": "Acompanyem patrimonis consolidats en projectes immobiliaris sostenibles, cas a cas i en vehicles privats."
-      }
-    },
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Rehabilitació energètica · subvencions Next Generation · PAPIK",
-    "serviceType": "ConstructionService",
-    "description": "Transformem habitatges existents en cases eficients. Gestionem les ajudes Next Generation EU per vostè. Diagnòstic gratuït a Catalunya, Balears i Andorra.",
-    "url": "https://papik.cat/rehabilitacio",
-    "provider": {
-      "@id": "https://papik.cat/#org"
-    },
-    "areaServed": [
-      {
-        "@type": "AdministrativeArea",
-        "name": "Catalunya"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "Illes Balears"
-      },
-      {
-        "@type": "Country",
-        "name": "Andorra"
-      }
-    ],
-    "audience": {
-      "@type": "Audience",
-      "audienceType": "Residential customers and investors"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Rehabilitació energètica · subvencions Next Generation · PAPIK - tipologies",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "{{SUBSERVICE_1}}"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "{{SUBSERVICE_2}}"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "{{SUBSERVICE_3}}"
-          }
-        }
-      ]
+    .rehab-hero {
+      background: linear-gradient(160deg,#0A1B12 0%,#002819 60%,#56685E 110%);
+      color: #fff; min-height: 56vh;
+      display: flex; align-items: center; position: relative; overflow: hidden;
     }
-  },
-  {
-    "_examples_per_page_type": {
-      "service_page": "Inici > Construccio",
-      "subpage": "Inici > Rehabilitacio > Comunitats",
-      "landing_municipal": "Inici > Zones > Valles Occidental > Sant Cugat del Valles",
-      "article_blog": "Inici > Blog > [Titular article]",
-      "project_fitxa": "Inici > Projectes > [Nom projecte]"
-    },
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inici",
-        "item": "https://papik.cat/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Inici",
-        "item": "https://papik.cat/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Transformem la seva casa en un habitatge eficient"
-      }
-    ]
-  },
-  {
-    "_quality_rules": [
-      "Cada pregunta ha de ser una frase completa amb interrogant",
-      "Resposta entre 50-300 paraules ideal — masa curta es debil, massa llarga no es renderitza",
-      "No repetir keyword stuffing al text de la pregunta",
-      "La FAQ ha de ser visible al usuari, no nomes al schema (Google ho verifica)"
-    ],
-    "_example_filled": {
-      "@type": "Question",
-      "name": "Quina majoria necessita la junta de propietaris per aprovar la rehabilitació amb subvenció Next Generation?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Per a millores energètiques que aprofitin subvencions públiques, la Llei 49/1960 de Propietat Horitzontal (article 17.2) estableix la majoria de tres cinquenes parts dels propietaris i les seves quotes. En alguns supòsits aplica majoria simple. Cada cas concret ha de ser revisat amb l'administrador de finques i la documentació jurídica de la comunitat."
-      }
-    },
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "{{QUESTION_1}}",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "{{ANSWER_1}}"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "{{QUESTION_2}}",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "{{ANSWER_2}}"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "{{QUESTION_3}}",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "{{ANSWER_3}}"
-        }
-      }
-    ]
-  }
-]</script>
-</head>
-<body class="page--service">
-<a href="#main" class="skip-to-content">Salta al contingut</a>
-<aside id="papik-cc-banner" class="papik-cc" role="region" aria-label="Avís de galetes" hidden>
-  <div class="papik-cc-inner">
-    <div class="papik-cc-copy">
-      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
-      <p data-cc-text="body">Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te publicitat relacionada amb les teves preferències. Pots acceptar-les totes, rebutjar-les totes o configurar-les.</p>
-    </div>
-    <div class="papik-cc-actions">
-      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
-      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
-      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
-    </div>
-  </div>
-</aside>
+    .rehab-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 60% at 80% 20%, rgba(149,187,165,0.15) 0%, transparent 60%); pointer-events: none; }
+    .rehab-hero .container { position: relative; z-index: 2; padding-top: 56px; padding-bottom: 40px; }
+    .rehab-hero .hero__title { color: #fff; font-size: clamp(32px, 4vw, 56px); }
+    .rehab-hero .hero__subtitle { color: rgba(255,255,255,.72); max-width: 620px; }
+    .rehab-hero .hero__eyebrow { color: var(--accent); }
 
+    .ajudes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 900px) { .ajudes-grid { grid-template-columns: 1fr; } }
+    .ajuda-card {
+      padding: 32px 28px; border: 1px solid var(--border); border-radius: var(--r-lg);
+      background: #fff;
+      transition: transform .35s var(--ease-bounce), box-shadow .35s ease, border-color .3s ease;
+    }
+    .ajuda-card:hover { transform: translateY(-5px); box-shadow: var(--sh-card-hover-sm); border-color: transparent; }
+    .ajuda-card--hi { background: var(--green); color: #fff; border-color: var(--green); }
+    .ajuda-card__pct { font-size: clamp(40px, 4.5vw, 60px); font-weight: var(--fw-light); color: var(--green); line-height: 1; margin-bottom: 14px; letter-spacing: -.02em; }
+    .ajuda-card--hi .ajuda-card__pct { color: var(--accent); }
+    .ajuda-card__name { font-size: 18px; color: var(--text); margin-bottom: 8px; font-weight: var(--fw-regular); }
+    .ajuda-card--hi .ajuda-card__name { color: #fff; }
+    .ajuda-card__desc { color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .ajuda-card--hi .ajuda-card__desc { color: rgba(255,255,255,.7); }
+
+    .ba-row { display: flex; gap: 18px; margin-top: 16px; }
+    .ba { flex: 1; padding: 14px 18px; border-radius: var(--r-md); background: var(--bg-light); }
+    .ba.is-after { background: var(--green); color: #fff; }
+    .ba__lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted-light); margin-bottom: 4px; }
+    .ba.is-after .ba__lbl { color: rgba(255,255,255,.5); }
+    .ba__val { font-size: 22px; font-weight: var(--fw-light); color: var(--text); line-height: 1; }
+    .ba.is-after .ba__val { color: #fff; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { padding: 28px 0; border-bottom: 1px solid var(--border); transition: padding-left .25s ease; }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-item:hover { padding-left: 12px; }
+    .faq-item__num { color: var(--accent); font-size: 13px; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 8px; }
+    .faq-item__q { font-size: clamp(18px, 1.8vw, 22px); font-weight: var(--fw-light); margin-bottom: 14px; color: var(--text); }
+    .faq-item__a { color: var(--muted); font-size: 15px; line-height: 1.7; }
+  </style>
+
+  
+
+  
+  
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     MOBILE NAV OVERLAY
+═══════════════════════════════════ -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__header">
+    <a href="index.html">
+      <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+      </svg>
+    </a>
+    <button class="mobile-nav__close" id="mobileNavClose">&#x2715;</button>
+  </div>
+  <ul class="t18">
+    <li class="sub-title">Serveis</li>
+    <li><a href="construccio.html">Construcció</a></li>
+    <li><a href="promocio.html">Promoció Immobiliària</a></li>
+    <li><a href="rehabilitacio.html" style="color:var(--green);font-weight:500;">Rehabilitació Energètica</a></li>
+    <li><a href="patrimonis.html">Patrimonis</a></li>
+    <li class="sub-title">Empresa</li>
+    <li><a href="projectes.html">Projectes</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="nosaltres.html">Nosaltres</a></li>
+    <li><a href="#contacte">Contacte</a></li>
+    <li><a href="pressupost.html" style="color:var(--green);font-weight:600;">Pressupost →</a></li>
+  </ul>
+</nav>
+<div class="fade-bg" id="fadeBg"></div>
+
+<!-- ═══════════════════════════════════
+     HEADER
+═══════════════════════════════════ -->
 <header class="header-top" id="headerTop">
   <div class="header-logo-layer"></div>
   <div class="header-logo">
     <div class="container">
       <div class="header-logo__content">
         <div class="menu-btn-wrapper" id="burgerBtn">
-          <div class="menu-btn__burger"><span></span><span></span><span></span></div>
+          <div class="menu-btn__burger">
+            <span></span><span></span><span></span>
+          </div>
         </div>
         <div class="logo">
-          <a href="/"><svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-<path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
-<path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
-<path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
-<polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
-<polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
-<path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
-<polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
-<path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
-<path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
-</svg></a>
+          <a href="index.html">
+            <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+            </svg>
+          </a>
         </div>
       </div>
       <div class="lang">
-        <select onchange="if(this.value)location=this.value">
-          <option value="https://papik.cat/rehabilitacio" selected>CA</option>
-          <option value="https://papik.cat/es/rehabilitacion">ES</option>
-          <option value="https://papik.cat/en/retrofit">EN</option>
+        <select onchange="location=this.value">
+          <option value="rehabilitacio.html" selected>CA</option>
+          <option value="es/rehabilitacio.html">ES</option>
         </select>
       </div>
     </div>
   </div>
 </header>
 
-<main id="main">
-<section class="block-hero block-hero--dark block-hero--service">
-  <div class="block-hero__media">
-    <img src="/img/og/og-rehabilitacio.jpg" alt="" loading="eager" fetchpriority="high">
-    <div class="ph ph-hero" aria-hidden="true"></div>
-  </div>
-  <div class="block-hero__overlay"></div>
-  <div class="block-hero__breadcrumb"><nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Inici</a>
-        <span class="sep">·</span>
-        <span>Transformem la seva casa en un habitatge eficient</span>
-      </nav></div>
-  <div class="block-hero__content">
-    <span class="block-hero__eyebrow">SUBVENCIONS NEXT GENERATION VIGENTS FINS AL DESEMBRE DEL 2026</span>
-    <h1 class="block-hero__title">Transformem la seva casa en un habitatge eficient</h1>
-    <p class="block-hero__sub block-hero__subtitle">Gestionem les ajudes Next Generation EU de principi a fi. Vostè decideix; nosaltres tramitem.</p>
-    <div class="block-hero__cta">
-      <a class="btn-white" href="#contacte">Calcular la meva subvenció <span aria-hidden="true">→</span></a>
-      <a class="btn-outline" href="#main">Sol·licitar visita tècnica gratuïta <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Per què rehabilitar ara</h2>
-      <p class="section-header__lead">Tres raons concretes, totes amb dades verificables.</p>
-    </header>
-    <div class="card-grid">
-      <article class="card card--icon">
-        <h3 class="card__title">AJUDES VIGENTS</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">ESTALVI ENERGÈTIC</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">REVALORITZACIÓ</h3>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="section section--light">
-  <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">CALCULADORA · GANXO CENTRAL</h2>
-    </header>
-    <div class="section-body">
-      <section class="block-cta">
-        <div class="container">
-          <p class="block-cta__label">PRESSUPOST ORIENTATIU</p>
-          <h2 class="block-cta__title">Quant podria estalviar amb la rehabilitació de casa seva?</h2>
-          <p class="block-cta__sub">Cinc preguntes ràpides. Una estimació orientativa de la subvenció aplicable al seu cas i del consum energètic post-rehabilitació.</p>
-          <a class="btn-white" href="#contacte">Calcular la meva subvenció <span aria-hidden="true">→</span></a>
+<!-- ═══════════════════════════════════
+     STICKY BAR
+═══════════════════════════════════ -->
+<section class="header-sticky" id="headerSticky">
+  <div class="header-sticky__bar">
+    <div class="container">
+      <div class="header-sticky__content">
+        <nav class="menu t14">
+          <ul>
+            <li><span class="menu-btn" data-menu="construccio">Construcció</span></li>
+            <li><span class="menu-btn" data-menu="promocio">Promoció</span></li>
+            <li class="active-page"><span class="menu-btn" data-menu="rehabilitacio">Rehabilitació</span></li>
+            <li><span class="menu-btn" data-menu="patrimonis">Patrimonis</span></li>
+                        <li>
+              <a href="blog.html">Blog</a>
+            </li>
+            <li><span class="menu-btn" data-menu="nosaltres">Nosaltres</span></li>
+          </ul>
+        </nav>
+        <nav class="menu-right t14">
+          <ul>
+            <li><a href="usuaris.html">Inicia sessió</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </li>
+            <li>
+              <span class="nav-cta menu-btn" data-menu="pressupost">
+                Pressupost
+                <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Search -->
+      <div class="form-search-wrapper" id="searchWrapper">
+        <div class="form-search__content" style="position:relative;">
+          <button class="search-icon-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <form action="/" method="get">
+            <input type="text" name="s" placeholder="Cerca...">
+          </form>
         </div>
-      </section>
+        <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
+        </button>
+      </div>
     </div>
   </div>
-</section>
-<section class="section">
-  <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Què cobreix la rehabilitació amb PAPIK</h2>
-      <p class="section-header__lead">Quatre àrees d'intervenció, combinables segons el cas.</p>
-    </header>
-    <div class="card-grid">
-      <article class="card card--icon">
-        <h3 class="card__title">3.1 ENVOLUPANT TÈRMICA</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">3.2 SISTEMES MECÀNICS</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">3.3 PRODUCCIÓ D'ENERGIA</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">3.4 CERTIFICACIÓ I VERIFICACIÓ</h3>
-      </article>
+
+  <!-- Submenus -->
+  <!-- ─── SUBMENU: Pressupost ─── -->
+  <div class="submenu" id="sub-pressupost">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24">Tipus de projecte</h3>
+          <ul class="t16">
+            <li><a href="pressupost.html">Obra Nova Unifamiliar</a></li>
+            <li><a href="pressupost.html">Edifici Plurifamiliar</a></li>
+            <li><a href="pressupost.html">Reforma Integral</a></li>
+            <li><a href="pressupost.html">Rehabilitació Energètica</a></li>
+            <li><a href="pressupost.html">Ampliació i Canvi d'Ús</a></li>
+          </ul>
+          <div class="submenu__img">
+            <div class="ph" style="height:100%;background:linear-gradient(160deg,#56685E 0%,#002819 100%);border-radius:4px;"></div>
+          </div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Estima el teu projecte</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Introdueix les característiques del teu projecte i obtén una estimació orientativa del cost en menys d'un minut. Sense compromís, sense registre.</p>
+          <a href="pressupost.html" class="feat-link link-arrow" style="margin-top:20px;display:inline-flex;color:var(--green);">Iniciar simulació
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89" style="margin-left:6px;"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+        <div class="submenu__featured">
+          <h3>Com funciona</h3>
+          <p class="feat-title">3 passos: tipus de projecte → superfície i materials → resultat</p>
+          <a href="pressupost.html" class="feat-link link-arrow">Provar ara
+            <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-<section class="section section--light">
-  <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Sis fases · vostè només pren les decisions</h2>
-      <p class="section-header__lead">La part operativa la portem nosaltres. Vostè aprova al final de cada fase.</p>
-    </header>
-    <div class="section-body">
-      <p>01 · DIAGNÒSTIC INICIAL · GRATUÏT</p>
-      <p>Visita tècnica al seu habitatge. Avaluem estat actual, potencial d'estalvi i ajuda NGEU aplicable orientativa. Sense compromís, sense cost.</p>
-      <p>──────────────</p>
-      <p>02 · PROJECTE I PRESSUPOST</p>
-      <p>Projecte tècnic detallat amb rang d'ajudes esperades i estimació d'estalvi energètic. Ja parlem de números i calendaris.</p>
-      <p>──────────────</p>
-      <p>03 · GESTIÓ DE SUBVENCIONS</p>
-      <p>Tramitem TOTA la documentació NGEU per vostè (sol·licitud, adjudicació, justificació final). Vostè no ha de tractar amb cap administració.</p>
-      <p>──────────────</p>
-      <p>04 · EXECUCIÓ DE L'OBRA</p>
-      <p>Construcció amb seguiment continuat. Si hi ha veïns o vostè viu a l'habitatge, planifiquem per minimitzar l'impacte.</p>
-      <p>──────────────</p>
-      <p>05 · CERTIFICACIÓ FINAL</p>
-      <p>Certificat energètic post-obra amb la nova classe assolida. Justificació davant l'administració per cobrar la subvenció.</p>
-      <p>──────────────</p>
-      <p>06 · ACOMPANYAMENT POSTOBRA</p>
-      <p>Manual d'ús de la nova instal·lació, garanties tècniques i suport durant el primer any de vida.</p>
-    </div>
-    <div class="section-body">
-      <p class="closing-sentence">La fase de diagnòstic és gratuïta. Si decideix continuar, el projecte es desenvolupa abans de signar res.</p>
+
+  <div class="submenu" id="sub-construccio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="construccio.html" style="color:inherit;">Construcció Residencial</a></h3>
+          <ul class="t16">
+            <li><a href="construccio.html#unifamiliar">Habitatges Unifamiliars</a></li>
+            <li><a href="construccio.html#plurifamiliar">Edificis Plurifamiliars</a></li>
+            <li><a href="construccio.html#ampliacio">Ampliacions i Remuntes</a></li>
+            <li><a href="construccio.html#reforma">Reformes Integrals</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-warm-1" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">El nostre enfocament</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Construïm residències amb qualitat artesanal i tecnologia d'avantguarda. Sistema Eskimohaus® i certificació Passivhaus des de 2004.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualitat</h3>
+          <p class="feat-title">Nova promoció a Badalona: 24 habitatges amb certificació A</p>
+          <a href="#" class="feat-link link-arrow">Llegir més <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-<section class="section">
-  <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Tres casos recents</h2>
-      <p class="section-header__lead">Dades clau, sense identificar la finca, totes les xifres verificables internament.</p>
-    </header>
-    <div class="section-body">
-      <p>⚠ Cada cas ha de poder ser sustentat amb documentació interna en cas d'auditoria, però sense identificar la finca. Confirmar permís d'imatge abans de publicar.</p>
-    </div>
-    <div class="card-grid">
-      <article class="card card--icon">
-        <h3 class="card__title">Casa unifamiliar Vallès</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">Casa de poble Maresme</h3>
-      </article>
-      <article class="card card--icon">
-        <h3 class="card__title">Edifici plurifamiliar Barcelona</h3>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="section section--light">
-  <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">COMUNITATS DE PROPIETARIS · SECCIÓ DESTACADA B2B</h2>
-    </header>
-    <div class="section-body">
-      <h2>Rehabilitació energètica per a comunitats de propietaris</h2>
-      <p class="lead">Som soci tècnic d'administracions de finques. Projecte, obra i gestió integral de subvencions per al seu edifici.</p>
-      <p>Quan treballem amb comunitats de propietaris, el principi rector és respectar la relació entre l'administrador i la finca. Treballem amb el seu administrador, no contra ell, i ens encarreguem de la tramitació conjunta NGEU per a tots els habitatges. Preparem materials llests per a la junta de propietaris amb la nostra identitat tècnica visible. La nostra metodologia és compatible amb la dinàmica de votació en juntes, i planifiquem l'obra per minimitzar l'impacte als veïns durant l'execució.</p>
-      <button class="btn-accent" type="button">Soc administrador → Sol·licitar reunió</button>
-      <button class="btn-accent" type="button">Soc president o veí → Sol·licitar diagnòstic gratuït</button>
-      <a class="link-arrow" href="#">Conèixer el servei complet per a comunitats  →   (link a /rehabilitacio/comunitats) <span aria-hidden="true">→</span></a>
+  <div class="submenu" id="sub-promocio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="promocio.html" style="color:inherit;">Promoció Immobiliària</a></h3>
+          <ul class="t16">
+            <li><a href="promocio.html#promocions">Promocions actives</a></li>
+            <li><a href="promocio.html#tipologies">Tipologies de promoció</a></li>
+            <li><a href="promocio.html#solar">Col·laboració propietaris de solar</a></li>
+            <li><a href="promocio.html#faq">Preguntes freqüents</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-warm-2" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Màxima rendibilitat</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Des de la cerca de solar fins a la venda del darrer habitatge.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualitat</h3>
+          <p class="feat-title">Projecte Eixample: 12 pisos de disseny al cor de Barcelona</p>
+          <a href="#" class="feat-link link-arrow">Llegir més <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-<section class="section">
-  <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Preguntes freqüents</h2>
-    </header>
-    <div class="section-body">
-      <div class="faq-list">
-        <details class="faq-item"><summary>Quina subvenció Next Generation puc aplicar a la meva casa?</summary><div class="faq-item__body"><p>Depèn del nivell d'estalvi energètic que aconsegueixi la
-      rehabilitació, del tipus d'habitatge i, en alguns programes, de la
-      renda. Pot estimar-la amb la nostra calculadora; ho confirmem en la
-      visita tècnica gratuïta.
-      
-      ──────────────</p></div></details>
-        <details class="faq-item"><summary>Quant temps triga la tramitació de les ajudes?</summary><div class="faq-item__body"><p>L'aprovació de la subvenció acostuma a trigar entre 3 i 6 mesos
-      des de la presentació de la sol·licitud. Mentrestant, vostè pot
-      avançar amb el projecte si decideix fer-ho.
-      
-      ──────────────</p></div></details>
-        <details class="faq-item"><summary>Hi ha límit de pressupost subvencionable?</summary><div class="faq-item__body"><p>Sí. Cada programa NGEU té els seus límits per habitatge i tipus
-      d'intervenció. Els revisem cas a cas per maximitzar l'ajuda aplicable.
-      
-      ──────────────</p></div></details>
-        <details class="faq-item"><summary>I si la subvenció no s'aprova?</summary><div class="faq-item__body"><p>El projecte segueix sent viable amb finançament privat. Moltes
-      entitats financeres ofereixen hipoteca verda amb bonificació per a
-      habitatges eficients. L'orientem en les opcions disponibles.
-      
-      ──────────────</p></div></details>
-        <details class="faq-item"><summary>Cal abandonar la casa durant l'obra?</summary><div class="faq-item__body"><p>Depèn de la intervenció. Una rehabilitació de façana exterior
-      (SATE) o de coberta es pot fer amb la casa habitada. Una rehabilitació
-      integral pot requerir sortir uns mesos. Ho planifiquem amb vostè.
-      
-      ──────────────</p></div></details>
-        <details class="faq-item"><summary>Què passa si descobrim problemes ocults durant l'obra?</summary><div class="faq-item__body"><p>Tota rehabilitació té marge per a imprevistos. Els tractem amb
-      transparència i li proposem solucions abans de continuar. La fase
-      de diagnòstic minimitza aquests imprevistos però mai els elimina del
-      tot.
-      
-      ──────────────</p></div></details>
-        <details class="faq-item"><summary>Treballeu en pisos antics de Barcelona ciutat (segle XIX)?</summary><div class="faq-item__body"><p>Sí. Cada cas requereix avaluació específica per la compatibilitat
-      estructural i els requeriments de patrimoni si la finca està catalogada.
-      La rehabilitació de pisos antics de Barcelona és un dels nostres àmbits
-      habituals.
-      
-      ──────────────</p></div></details>
-        <details class="faq-item"><summary>Es pot rehabilitar amb estàndard Passivhaus?</summary><div class="faq-item__body"><p>Sí. La certificació equivalent per a rehabilitació es diu EnerPHit.
-      L'oferim quan el cas tècnic ho permet (és el màxim nivell de rehabilitació
-      possible avui).</p></div></details>
+  <div class="submenu" id="sub-rehabilitacio">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="rehabilitacio.html" style="color:inherit;">Rehabilitació Energètica</a></h3>
+          <ul class="t16">
+            <li><a href="rehabilitacio.html#diagnosi">Diagnosi i certificació energètica</a></li>
+            <li><a href="rehabilitacio.html#envolupant">Aïllament de façanes i cobertes</a></li>
+            <li><a href="rehabilitacio.html#instal-lacions">Instal·lacions i solar fotovoltaica</a></li>
+            <li><a href="rehabilitacio.html#nextgen">Ajudes Next Generation EU</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph ph-green" style="height:100%;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Estalvi i confort</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Millorar l'eficiència energètica del teu edifici és invertir en futur.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Actualitat</h3>
+          <p class="feat-title">Fins al 80% de subvenció per rehabilitar la teva façana</p>
+          <a href="#" class="feat-link link-arrow">Llegir més <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submenu" id="sub-patrimonis">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="patrimonis.html" style="color:inherit;">Inversió Patrimonial</a></h3>
+          <ul class="t16">
+            <li><a href="patrimonis.html#com-funciona">Com funciona</a></li>
+            <li><a href="patrimonis.html">Inversors Privats i Family Office</a></li>
+            <li><a href="patrimonis.html">Co-inversió i Joint Venture</a></li>
+            <li><a href="patrimonis.html#faq">Preguntes freqüents</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#0A1B12 0%,#002819 100%);border-radius:4px;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Rendibilitat i seguretat</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">Assessorem inversors patrimonials, family offices i fons d'inversió en la identificació, adquisició i gestió d'actius immobiliaris residencials al Maresme i Barcelonès.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Destacat</h3>
+          <p class="feat-title">Cartera activa: 3 solars disponibles per a promoció plurifamiliar</p>
+          <a href="patrimonis.html" class="feat-link link-arrow">Conèixer més <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submenu" id="sub-nosaltres">
+    <div class="container">
+      <div class="submenu__content">
+        <div class="submenu__col">
+          <h3 class="t24"><a href="nosaltres.html" style="color:inherit;">PAPIK Group</a></h3>
+          <ul class="t16">
+            <li><a href="nosaltres.html">La nostra història</a></li>
+            <li><a href="nosaltres.html#equip">L'equip</a></li>
+            <li><a href="nosaltres.html#eskimohaus">Sistema Eskimohaus</a></li>
+            <li><a href="nosaltres.html#valors">Valors i compromís</a></li>
+            <li><a href="nosaltres.html#reconeixements">Premis i certificacions</a></li>
+          </ul>
+          <div class="submenu__img"><div class="ph" style="height:100%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);border-radius:4px;"></div></div>
+        </div>
+        <div class="submenu__col">
+          <h3 class="t24">Trenta anys d'ofici</h3>
+          <p class="t16" style="color:var(--muted);line-height:1.65;">D'un taller de fusteria artesanal al grup constructor de referència en passivhaus a Catalunya. Fem coses que duren — i ho fem des del 1994.</p>
+        </div>
+        <div class="submenu__featured">
+          <h3>Reconeixements</h3>
+          <p class="feat-title">Premio Excelencia Empresarial · Foment del Treball, 2019</p>
+          <a href="nosaltres.html#reconeixements" class="feat-link link-arrow">Conèixer l'empresa <svg width="12" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg></a>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════
+     1. HERO
+═══════════════════════════════════ -->
+<section class="hero rehab-hero">
+  <div class="container">
+    <span class="hero__eyebrow">SUBVENCIONS NEXT GENERATION VIGENTS FINS DESEMBRE 2026</span>
+    <h1 class="hero__title" data-reveal-words>Transformem la seva casa en una vivenda eficient</h1>
+    <p class="hero__subtitle">Gestionem les ajudes Next Generation EU de principi a fi. Vostè decideix; nosaltres tramitem.</p>
+    <div class="hero__actions">
+      <a href="pressupost.html"><button class="btn-accent">Calcular la meva subvenció
+        <svg width="12" height="11" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+      </button></a>
+      <a href="#contacte"><button class="btn-outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4);">Sol·licitar visita tècnica gratuïta</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat__num">fins 80%</div><div class="stat__label">subvenció Next Generation EU · programes 3, 4 i 5 vigents fins desembre 2026</div></div>
+      <div class="stat"><div class="stat__num">fins 70%</div><div class="stat__label">reducció del consum energètic combinant envolupant + instal·lacions</div></div>
+      <div class="stat"><div class="stat__num">0 €</div><div class="stat__label">de gestió burocràtica per vostè · ho tramitem tot nosaltres</div></div>
+      <div class="stat"><div class="stat__num">30 anys</div><div class="stat__label">d'experiència en construcció eficient · l'envolupant la coneixem com a sistema</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
 <section class="section section--light">
   <div class="container">
-    <header class="section-header">
-      <h2 class="section-header__title">Si el seu cas és diferent</h2>
-    </header>
-    <div class="section-body">
-      <p>Vol construir una casa nova en lloc de rehabilitar? → Construcció</p>
-      <p>Vol comprar una casa ja eficient? → Promoció</p>
-      <p>Cerca un soci tècnic per a un projecte d'inversió? → Patrimonis</p>
+    <div class="section-header">
+      <div>
+        <span class="tag-pill tag-pill--light" style="margin-bottom:14px;">Per què rehabilitar ara</span>
+        <h2 class="section-header__title">Tres raons concretes — totes amb dades verificables</h2>
+      </div>
+      <p class="section-header__lead">Una casa mal aïllada perd calor per façanes, coberta i juntes. Resultat: factures inflades, temperatures irregulars i petjada de carboni alta. PAPIK avalua, projecta, subvenciona i executa — sense que el propietari avanci ni un euro.</p>
     </div>
-    <div class="section-body">
-      <h2>Comencem amb una visita tècnica</h2>
-      <p>Sense compromís. Sense cost. Una avaluació honesta del potencial de rehabilitació del seu habitatge i de la subvenció orientativa que podria aplicar.</p>
-      <a class="btn-accent" href="#contacte">Sol·licitar visita tècnica gratuïta <span aria-hidden="true">→</span></a>
-      <a class="btn-outline" href="#main">O calcular subvenció orientativa <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-<section class="article-body">
-  <div class="container">
-    <div class="article-body__content">
-<h2>DISCLAIMER REGULATORI · OBLIGATORI AL PEU</h2>
-<p>```</p>
-<p>Les ajudes Next Generation EU estan subjectes a disponibilitat pressupostària i compliment de requisits per part del beneficiari. Aquesta pàgina és informativa i no constitueix garantia d'aprovació. Cada cas s'avalua individualment durant la fase de diagnòstic. La normativa pot canviar; verifiquem la vigència de cada programa abans de cada projecte. ```</p>
+    <div class="card-grid card-grid--2" style="margin-top:32px;">
+      <div class="card card--icon" data-anim="fade-up"><h3 class="card__title" style="font-size:20px;">Confort immediat</h3><p class="card__excerpt">Temperatures estables tot l'any, sense sorolls ni corrents d'aire.</p></div>
+      <div class="card card--icon" data-anim="fade-up"><h3 class="card__title" style="font-size:20px;">Estalvi econòmic</h3><p class="card__excerpt">Recuperació de la inversió en menys de 5 anys en rehabilitació integral.</p></div>
+      <div class="card card--icon" data-anim="fade-up"><h3 class="card__title" style="font-size:20px;">Petjada reduïda</h3><p class="card__excerpt">Menys consum, menys emissions, certificació energètica real i auditable.</p></div>
+      <div class="card card--icon" data-anim="fade-up"><h3 class="card__title" style="font-size:20px;">Valor de l'immoble</h3><p class="card__excerpt">Edificis amb qualificació A o B es venen fins a un 25% per sobre del mercat.</p></div>
     </div>
   </div>
 </section>
-<section class="block-cta block-cta--closing">
-  <div class="container">
-    <p class="block-cta__label">Tens alguna pregunta?</p>
-    <h2 class="block-cta__title">Parla amb nosaltres sobre el teu projecte</h2>
-    <a class="btn-white" href="#contacte">Contactar <span aria-hidden="true">→</span></a>
-  </div>
-</section>
-</main>
 
+<!-- SERVICES -->
+<section class="section" id="diagnosi">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="tag-pill" style="margin-bottom:14px;">Què cobreix la rehabilitació</span>
+        <h2 class="section-header__title">Quatre àrees d'intervenció · combinables segons el cas</h2>
+      </div>
+    </div>
+
+    <div class="featured-card" data-anim="fade-up">
+      <a class="featured-card__link" href="#contacte">
+        <div class="featured-card__img-wrap"><div class="featured-card__img" style="background:linear-gradient(160deg,#9FA9A3 0%,#0A1B12 100%);"></div></div>
+        <div class="featured-card__content">
+          <div class="featured-card__meta"><span class="featured-card__cat">El punt de partida · 01</span></div>
+          <h3 class="featured-card__title">Diagnosi Energètica Gratuïta</h3>
+          <p class="featured-card__excerpt">Avaluació completa de l'envolupant, instal·lacions i ponts tèrmics. Informe de diagnosi amb qualificació inicial i estimació de subvenció. En 5 dies.</p>
+          <div class="featured-card__cta">
+            <span>Sol·licitar diagnosi</span>
+            <span class="featured-card__cta-arrow"><svg width="14" height="12" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/></svg></span>
+          </div>
+        </div>
+        <div class="featured-card__spotlight"></div>
+      </a>
+    </div>
+
+    <div style="height:28px;"></div>
+
+    <div class="card-grid">
+      <div class="card card--icon" id="envolupant" data-anim="fade-up">
+        <span class="tag-pill" style="margin-bottom:14px;">02 · L'envolupant, primer</span>
+        <h3 class="card__title" style="font-size:22px;">Façana, Coberta i Fusteries</h3>
+        <p class="card__excerpt">Façana ventilada o SATE, substitució de fusteries per triple vidre i coberta amb aïllament SEC. La mesura amb més impacte energètic. Compatible amb Passivhaus EnerPHit.</p>
+      </div>
+      <div class="card card--icon" id="instal-lacions" data-anim="fade-up">
+        <span class="tag-pill" style="margin-bottom:14px;">03 · Les instal·lacions</span>
+        <h3 class="card__title" style="font-size:22px;">Instal·lacions i Renovables</h3>
+        <p class="card__excerpt">MVHR, aerotèrmia i solar fotovoltaica comunitària. Redueix el consum fins al 90% i genera energia pròpia.</p>
+      </div>
+      <div class="card card--icon" id="subvencions" data-anim="fade-up">
+        <span class="tag-pill" style="margin-bottom:14px;">04 · Sense burocràcia</span>
+        <h3 class="card__title" style="font-size:22px;">Gestió de Subvencions</h3>
+        <p class="card__excerpt">Tramitació al 100% davant IDAE i Generalitat. Sol·licitud, seguiment, justificació i cobrament. Si cal, avancem el cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="tag-pill tag-pill--light" style="margin-bottom:14px;">El nostre procés</span>
+        <h2 class="section-header__title">Sis fases · vostè només pren les decisions</h2>
+      </div>
+      <p class="section-header__lead">Procés transparent gestionat per PAPIK des del primer dia. Saps exactament on és el teu expedient.</p>
+    </div>
+    <div class="list list--2col">
+      <div class="list-step" data-anim="fade-up"><div class="list-step__num">01</div><div><h3 class="list-step__title">Diagnosi gratuïta</h3><p class="list-step__text">Visita a l'edifici i anàlisi completa de l'envolupant, instal·lacions i ponts tèrmics. Informe detallat en 5 dies.</p></div></div>
+      <div class="list-step" data-anim="fade-up"><div class="list-step__num">02</div><div><h3 class="list-step__title">Estudi de subvencions</h3><p class="list-step__text">Calculem el màxim de subvenció: programes PREE, PIREP i deduccions IRPF. Presentem el cost net real.</p></div></div>
+      <div class="list-step" data-anim="fade-up"><div class="list-step__num">03</div><div><h3 class="list-step__title">Projecte tècnic i sol·licitud</h3><p class="list-step__text">Redactem el projecte executiu i presentem la sol·licitud davant l'IDAE i la Generalitat. Resolució: 3–6 mesos.</p></div></div>
+      <div class="list-step" data-anim="fade-up"><div class="list-step__num">04</div><div><h3 class="list-step__title">Inici d'obra i finançament pont</h3><p class="list-step__text">Concedida la subvenció, iniciem obres. PAPIK pot avançar el cost: tu no desemboses res fins que la subvenció sigui al teu compte.</p></div></div>
+      <div class="list-step" data-anim="fade-up"><div class="list-step__num">05</div><div><h3 class="list-step__title">Execució de les obres</h3><p class="list-step__text">Obra d'envolupant, instal·lacions o totes dues. Temps mitjà: 6–14 setmanes. Coordinació amb la comunitat.</p></div></div>
+      <div class="list-step" data-anim="fade-up"><div class="list-step__num">06</div><div><h3 class="list-step__title">Certificació i liquidació</h3><p class="list-step__text">Certificació energètica final, justificació, cobrament de la subvenció i liquidació del finançament pont si n'hi ha.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AJUDES -->
+<section class="section" id="nextgen">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="tag-pill" style="margin-bottom:14px;">Next Generation EU · vigent fins desembre 2026</span>
+        <h2 class="section-header__title">Fins al 80% de subvenció · sense límit d'ingressos</h2>
+      </div>
+      <p class="section-header__lead">El PRTR destina 6.820 M€ a rehabilitació d'habitatges. Qualsevol propietari o comunitat pot accedir-hi. PAPIK gestiona tota la tramitació.</p>
+    </div>
+    <div class="ajudes-grid">
+      <div class="ajuda-card" data-anim="fade-up">
+        <div class="ajuda-card__pct">40–65%</div>
+        <p class="ajuda-card__name">Programes PREE i PIREP</p>
+        <p class="ajuda-card__desc">Subvenció directa sobre el cost d'obra. Del 40% (millora del 30% en demanda) al 65% (qualificació A o B).</p>
+      </div>
+      <div class="ajuda-card ajuda-card--hi" data-anim="fade-up">
+        <div class="ajuda-card__pct">80%</div>
+        <p class="ajuda-card__name">Rehabilitació integral</p>
+        <p class="ajuda-card__desc">Màxim legal per a edificis complets amb rehabilitació integral d'envolupant i instal·lacions.</p>
+      </div>
+      <div class="ajuda-card" data-anim="fade-up">
+        <div class="ajuda-card__pct">20–60%</div>
+        <p class="ajuda-card__name">Deduccions fiscals IRPF</p>
+        <p class="ajuda-card__desc">Addicionals a la subvenció. Deducció en IRPF per millores energètiques certificades. Acumulable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS D'ÈXIT -->
+<section class="section section--light" id="projectes">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="tag-pill tag-pill--light" style="margin-bottom:14px;">Casos d'èxit</span>
+        <h2 class="section-header__title">Edificis transformats, factures reduïdes</h2>
+      </div>
+    </div>
+    <div class="card-grid">
+      <div class="card" data-anim="fade-up">
+        <div class="card__img-wrap" style="background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);"></div>
+        <div class="card__body">
+          <span class="card__cat">Cert. A · Sant Cugat 2023</span>
+          <h3 class="card__title">Bloc 12 habitatges, anys 70</h3>
+          <p class="card__excerpt">Rehabilitació integral de façana, coberta i fusteries. Subvenció: 76%. Estalvi: 1.200€/habitatge.</p>
+          <div class="ba-row">
+            <div class="ba"><span class="ba__lbl">Abans</span><span class="ba__val">E</span></div>
+            <div class="ba is-after"><span class="ba__lbl">Després</span><span class="ba__val">A</span></div>
+          </div>
+        </div>
+        <div class="card__spotlight"></div>
+      </div>
+      <div class="card" data-anim="fade-up">
+        <div class="card__img-wrap" style="background:linear-gradient(160deg,#56685E 0%,#0A1B12 100%);"></div>
+        <div class="card__body">
+          <span class="card__cat">EnerPHit · Badalona 2022</span>
+          <h3 class="card__title">Habitatge unifamiliar, 1968</h3>
+          <p class="card__excerpt">Rehabilitació profunda Passivhaus EnerPHit. Envolupant + MVHR + aerotèrmia + solar FV. Calefacció: −90%.</p>
+          <div class="ba-row">
+            <div class="ba"><span class="ba__lbl">Calefacció</span><span class="ba__val" style="font-size:16px;">180 kWh</span></div>
+            <div class="ba is-after"><span class="ba__lbl">Ara</span><span class="ba__val" style="font-size:16px;">18 kWh</span></div>
+          </div>
+        </div>
+        <div class="card__spotlight"></div>
+      </div>
+      <div class="card" data-anim="fade-up">
+        <div class="card__img-wrap" style="background:linear-gradient(160deg,#0A1B12 0%,#56685E 100%);"></div>
+        <div class="card__body">
+          <span class="card__cat">80% subv. · Granollers 2024</span>
+          <h3 class="card__title">Comunitat 24 hab., 1981</h3>
+          <p class="card__excerpt">Rehabilitació de façana, coberta i FV comunitària. Cost net per propietari: 4.800€. Estalvi: 1.400€/any.</p>
+          <div class="ba-row">
+            <div class="ba"><span class="ba__lbl">Cost brut</span><span class="ba__val" style="font-size:15px;">24.000€</span></div>
+            <div class="ba is-after"><span class="ba__lbl">Cost net</span><span class="ba__val" style="font-size:15px;">4.800€</span></div>
+          </div>
+        </div>
+        <div class="card__spotlight"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="tag-pill" style="margin-bottom:14px;">Per què triar PAPIK</span>
+        <h2 class="section-header__title">Quatre raons per confiar-nos la rehabilitació</h2>
+      </div>
+    </div>
+    <div class="card-grid card-grid--4">
+      <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">01</span><h3 class="card__title" style="font-size:18px;">Diagnosi gratuïta</h3><p class="card__excerpt">Anàlisi completa de l'edifici en 5 dies. Auditoria certificada sense cost ni compromís.</p></div>
+      <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">02</span><h3 class="card__title" style="font-size:18px;">Gestió integral</h3><p class="card__excerpt">Tramitem totes les subvencions i deduccions fiscals. Tu no fas cap gestió administrativa.</p></div>
+      <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">03</span><h3 class="card__title" style="font-size:18px;">Finançament pont</h3><p class="card__excerpt">PAPIK avança el cost de les obres. Liquides un cop la subvenció és al teu compte. Sense interessos.</p></div>
+      <div class="card card--icon" data-anim="fade-up"><span class="tag-pill" style="margin-bottom:12px;">04</span><h3 class="card__title" style="font-size:18px;">30 anys</h3><p class="card__excerpt">Pioners en Passivhaus des de 2004. Una empresa, un interlocutor, una responsabilitat.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--light" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="tag-pill tag-pill--light" style="margin-bottom:14px;">Preguntes freqüents</span>
+        <h2 class="section-header__title">Tot el que necessites saber sobre les subvencions</h2>
+      </div>
+      <p class="section-header__lead">Respostes clares sobre les ajudes Next Generation EU, la tramitació i el procés.</p>
+    </div>
+    <div class="faq-list faq-list--2col">
+      <div class="faq-item" data-anim="fade-up"><p class="faq-item__num">01</p><h3 class="faq-item__q">Qui pot sol·licitar les ajudes Next Generation EU?</h3><p class="faq-item__a">Qualsevol propietari o comunitat de propietaris d'un edifici residencial existent pot sol·licitar les ajudes del PRTR. No hi ha límit d'ingressos.</p></div>
+      <div class="faq-item" data-anim="fade-up"><p class="faq-item__num">02</p><h3 class="faq-item__q">He d'avançar diners per les obres?</h3><p class="faq-item__a">No necessàriament. PAPIK ofereix finançament pont: avancem el cost i vosaltres liquideu un cop la subvenció és al vostre compte. Sense interessos.</p></div>
+      <div class="faq-item" data-anim="fade-up"><p class="faq-item__num">03</p><h3 class="faq-item__q">Quant triga el procés de tramitació?</h3><p class="faq-item__a">Sol·licitud a resolució: 3–6 mesos. Procés total des de la primera reunió fins a la certificació final: 10–18 mesos.</p></div>
+      <div class="faq-item" data-anim="fade-up"><p class="faq-item__num">04</p><h3 class="faq-item__q">El meu edifici és massa antic?</h3><p class="faq-item__a">Com més antic, més millora i més subvenció. No hi ha límit d'edat. Cal ús residencial i construcció abans de 2007. Els anys 60–80 obtenen els millors resultats.</p></div>
+      <div class="faq-item" data-anim="fade-up"><p class="faq-item__num">05</p><h3 class="faq-item__q">Quin estalvi real puc esperar?</h3><p class="faq-item__a">Edificis dels anys 70 que passen a A típicament redueixen un 75–90% el consum de calefacció. Rehabilitació parcial: 40–60%. PAPIK presenta sempre estimacions detallades.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="block-cta">
+  <div class="container">
+    <p class="block-cta__label">Comença avui</p>
+    <h2 class="block-cta__title">Diagnòstic gratuït del seu edifici</h2>
+    <p class="block-cta__sub">Sol·licita-la sense cap compromís. T'enviem l'informe en 5 dies amb l'estimació de subvenció.</p>
+    <div style="display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+      <a href="#contacte"><button class="btn-white">Sol·licitar diagnosi
+        <svg width="12" height="11" viewBox="0 0 12.447 10.89" fill="none"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/></svg>
+      </button></a>
+      <a href="pressupost.html"><button class="btn-outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4);">Calculadora pressupost</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
 <footer>
   <div class="container">
     <div class="footer__content__info color-white">
+
       <div class="footer-col">
         <p class="footer__col-title">PAPIK</p>
         <ul>
-          <li><a href="/nosaltres.html">Qui som</a></li>
-          <li><a href="/projectes.html">Projectes</a></li>
-          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="nosaltres.html">Qui som</a></li>
+          <li><a href="projectes.html">Projectes</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="#contacte">Contacte</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <p class="footer__col-title">Serveis</p>
         <ul>
-          <li><a href="/construccio.html">Construcció Residencial</a></li>
-          <li><a href="/promocio.html">Promoció Immobiliària</a></li>
-          <li><a href="/rehabilitacio.html">Rehabilitació Energètica</a></li>
-          <li><a href="/patrimonis.html">Patrimonis · Inversió Conjunta</a></li>
+          <li><a href="construccio.html">Construcció Residencial</a></li>
+          <li><a href="promocio.html">Promoció Immobiliària</a></li>
+          <li><a href="rehabilitacio.html">Rehabilitació Energètica</a></li>
+          <li><a href="patrimonis.html">Patrimonis · Inversió Conjunta</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <p class="footer__col-title">Oficines</p>
         <div class="info-showroom__item">
@@ -577,36 +662,40 @@
           <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
         </div>
       </div>
+
       <div class="footer__newsletter">
         <p class="footer__col-title">Newsletter</p>
-        <p>Segueix les novetats de PAPIK: projectes, rehabilitació energètica i ajudes disponibles.</p>
-        <form class="newsletter-form" action="#" method="post" novalidate>
-          <input type="email" placeholder="El teu email" required>
-          <button type="submit" aria-label="Subscribe">→</button>
-        </form>
+        <p>Segueix les novetats de PAPIK: ajudes, terminis de subvencions i casos d'èxit en rehabilitació.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="El teu email">
+          <button type="submit">
+            <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
+          </button>
+        </div>
         <div class="footer__rrss">
           <p>Segueix-nos</p>
           <div class="rrss__links">
-            <a href="https://www.instagram.com/papikgroup">Instagram</a>
-            <a href="https://www.linkedin.com/company/papik-group">LinkedIn</a>
-            <a href="https://www.youtube.com/@papikgroup">YouTube</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
           </div>
         </div>
       </div>
+
     </div>
     <div class="copyright">
       <p>Copyright © 2025 PAPIK Fusters S.L. – Tots els drets reservats · papik.cat</p>
-      <div class="legal" style="display:flex;gap:20px;">
-        <a href="/avis-legal.html">Avís Legal</a>
-        <a href="/politica-privacitat.html">Política de Privacitat</a>
-        <a href="/politica-cookies.html">Galetes</a>
+      <div style="display:flex;gap:20px;">
+        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Avís Legal</a>
+        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Política de Privacitat</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="js/header.js" defer></script>
 <script src="js/motion.js" defer></script>
-<script src="js/cookie-banner.js" defer></script>
-<script src="js/forms.js" defer></script>
+<script src="cursor.js"></script>
+
 </body>
 </html>

@@ -111,18 +111,8 @@
     setCardState(2, state.completed[2] ? 'done' : (state.completed[1] ? 'unlocked' : 'locked'));
     // Section 3 desbloquejada si 2 done
     setCardState(3, state.completed[3] ? 'done' : (state.completed[2] ? 'unlocked' : 'locked'));
-    // Section 4 visible només si 3 done
-    const sec4 = getSection(4);
-    if (sec4) {
-      if (state.completed[3]) {
-        sec4.style.display = '';
-        sec4.classList.add('panel-active'); // necessari pel fade-in CSS
-        setCardState(4, state.completed[4] ? 'done' : 'unlocked');
-      } else {
-        sec4.style.display = 'none';
-        sec4.classList.remove('panel-active');
-      }
-    }
+    // Section 4 visible des del primer moment, desbloquejada si 3 done
+    setCardState(4, state.completed[4] ? 'done' : (state.completed[3] ? 'unlocked' : 'locked'));
     updateProgress();
   }
 

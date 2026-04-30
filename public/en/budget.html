@@ -3,36 +3,1771 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request a budget · PAPIK Group</title>
-  <meta name="description" content="Tell us about your project and we will reply with a tailored budget proposal.">
-  <link rel="canonical" href="https://papik.cat/en/budget.html">
-  <link rel="alternate" hreflang="ca" href="https://papik.cat/pressupost.html">
-  <link rel="alternate" hreflang="es" href="https://papik.cat/es/presupuesto.html">
-  <link rel="alternate" hreflang="en" href="https://papik.cat/en/budget.html">
-  <link rel="alternate" hreflang="x-default" href="https://papik.cat/pressupost">
+  <title>Budget configurator · PAPIK Group</title>
+  <meta name="description" content="Configuri el seu habitatge en quatre passos i rebi una estimació orientativa del pressupost. Sense compromís ni registre.">
+  <link rel="icon" type="image/png" href="../PAPIK (4).png">
+  <link rel="canonical" href="https://papik.cat/pressupost">
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/pressupost">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/presupuesto">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/budget">
+  <meta property="og:title" content="Configurador de pressupost · PAPIK Group">
+  <meta property="og:description" content="Estimació orientativa en cinc minuts. Sense compromís ni registre.">
+  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
+  <meta property="og:type" content="website">
+
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/footer.css">
+
+<style>
+    /* ═══════════════════════════════════
+       VARIABLES & RESET
+    ═══════════════════════════════════ */
+    :root {
+      --green:       #002819;
+      --accent:      #95BBA5;
+      --green-light: #56685E;
+      --green-dark:  #0A1B12;
+      --bg-light:    rgba(86,104,94,0.14);
+      --bg-section:  rgba(86,104,94,0.14);
+      --text:        #002819;
+      --muted:       #56685E;
+      --muted-light: #9FA9A3;
+      --border:      rgba(86,104,94,0.25);
+      --footer-bg:   #07140D;
+      --warm-1:      rgba(86,104,94,0.22);
+      --warm-2:      #9FA9A3;
+      --conf-bg:     #F5F5F7;
+      --conf-card:   #FFFFFF;
+      --conf-selected: #002819;
+      --conf-hover:  rgba(0,40,25,0.04);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'TT Firs Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      opacity: 0;
+      animation: pageIn .5s ease .1s forwards;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    @keyframes pageIn { to { opacity: 1; } }
+    html { scroll-padding-top: 120px; }
+
+    h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; font-weight: 300; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    a { text-decoration: none; color: inherit; }
+    button, input, select, textarea { font-family: 'TT Firs Neue', -apple-system, sans-serif; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Typography */
+    .t12  { font-size: 12px; line-height: 1.6; }
+    .t14  { font-size: 14px; line-height: 1.6; }
+    .t16  { font-size: 16px; line-height: 1.6; }
+    .t18  { font-size: 18px; line-height: 1.4; }
+    .t24  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.3; }
+    .t42  { font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
+    .t70  { font-size: 70px; line-height: 1.05; }
+    .upper { text-transform: uppercase; }
+    .center { text-align: center; }
+    .color-green  { color: var(--green); }
+    .color-muted { color: var(--muted); }
+    .color-muted-light { color: var(--muted-light); }
+    .color-white { color: #fff; }
+    .opacity { opacity: .75; }
+
+    /* Layout */
+    .container { width: 90.625vw; max-width: 1400px; margin: auto; }
+
+    /* ═══════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════ */
+    button, .btn {
+      height: 42px;
+      background: #fff;
+      border: 1px solid #fff;
+      padding: 0 22px;
+      font-size: 13px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .28s ease;
+      color: var(--green);
+      font-weight: 400;
+    }
+    button:hover, .btn:hover { background: var(--green); color: #fff; border-color: var(--green); }
+    button:hover svg path { fill: #fff; transition: fill .28s ease; }
+
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--green); }
+    .btn-outline:hover { background: var(--green); color: #fff; border-color: var(--green); }
+
+    .btn-outline-white { background: transparent; border: 1px solid rgba(255,255,255,.25); color: #fff; }
+    .btn-outline-white:hover { background: #fff; color: var(--green); }
+    .btn-outline-white:hover svg path { stroke: var(--green); }
+
+    /* ═══════════════════════════════════
+       HEADER (matches rest of site)
+    ═══════════════════════════════════ */
+    .header-logo-layer { height: 72px; }
+
+    header.header-top {
+      position: fixed; width: 100%; background: #fff; top: 0;
+      z-index: 999; transition: top .2s linear;
+    }
+    header.header-top.hidden { top: -72px; }
+
+    .header-logo {
+      width: 100%; position: absolute; padding: 22px 0;
+      z-index: 102; background: #fff; top: 0;
+    }
+
+    .header-logo .container {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .header-logo__content {
+      display: flex; align-items: center;
+    }
+
+    /* Burger menu (mobile) */
+    .menu-btn-wrapper {
+      width: 24px; height: 24px; cursor: pointer; position: relative;
+      display: none; margin-right: 5vw;
+    }
+    .menu-btn__burger { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .menu-btn__burger span { display: block; width: 24px; height: 2px; background: #000; margin-bottom: 5px; }
+    .menu-btn__burger span:last-child { margin-bottom: 0; }
+
+    /* PAPIK Logo */
+    .logo a { display: flex; align-items: center; }
+    .logo svg { display: block; }
+
+    /* Lang selector */
+    .lang select {
+      -webkit-appearance: none; appearance: none; border: 0; background: transparent;
+      font-family: 'TT Firs Neue', sans-serif; font-size: 14px; color: var(--text);
+      cursor: pointer; text-transform: uppercase; padding-right: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23002819'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 0 center;
+    }
+
+    /* ═══════════════════════════════════
+       STICKY BAR
+    ═══════════════════════════════════ */
+    .header-sticky {
+      position: sticky; background: #fff; width: 100%; top: 0;
+      z-index: 100; margin-top: 72px; height: max-content;
+    }
+
+    .header-sticky__bar {
+      border-bottom: 1px solid rgba(86,104,94,0.10);
+      height: 52px; padding: 10px 0; background: #fff;
+      position: relative; z-index: 90;
+    }
+
+    .header-sticky__content {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    nav.menu ul, nav.menu-right ul {
+      display: flex; align-items: center;
+    }
+    nav.menu ul { gap: 30px; }
+    nav.menu-right ul { gap: 20px; }
+    nav.menu li a, nav.menu li span { transition: opacity .2s; cursor: pointer; }
+    nav.menu li:hover > a, nav.menu li:hover > span { opacity: .5; }
+    nav.menu-right li { display: flex; align-items: center; cursor: pointer; }
+    nav.menu-right li:hover { opacity: .5; }
+
+    /* Nav CTA pill (Pressupost) */
+    .nav-cta {
+      background: var(--green); color: #fff !important;
+      padding: 0 15px; height: 28px; border-radius: 14px;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12.5px; font-weight: 500; letter-spacing: .01em;
+      transition: background .2s !important;
+      white-space: nowrap; line-height: 1;
+    }
+    .nav-cta svg { flex-shrink: 0; }
+    .nav-cta:hover { background: var(--green-light) !important; opacity: 1 !important; }
+    nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
+
+    /* Icon wrapper (nav right) */
+    .icon-wrapper {
+      width: 30px; height: 30px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; margin-left: 4px;
+      transition: background .2s;
+    }
+    nav.menu-right li:hover .icon-wrapper { background: #E7E9E8; }
+
+    /* Search form */
+    .form-search-wrapper {
+      position: absolute; width: 90.625vw; top: 0;
+      visibility: hidden; display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .form-search__content {
+      display: flex; margin-left: 55vw; opacity: 0;
+      transition: all .2s linear;
+    }
+    .form-search__content input[type="text"] {
+      -webkit-appearance: none; appearance: none;
+      background: var(--bg-light); height: 40px; border: 0;
+      border-radius: 20px; padding: 0 15px 0 40px;
+      width: 27vw; color: var(--text); font-size: 16px;
+      transition: all .2s linear;
+    }
+    .form-search__content input::placeholder { color: var(--muted-light); }
+    .btn-close-search {
+      margin-left: auto; background: none; border: none; padding: 8px;
+      cursor: pointer; height: auto;
+    }
+    .header-sticky.search-open .form-search-wrapper { visibility: visible; }
+    .header-sticky.search-open .form-search__content { margin-left: 0; opacity: 1; }
+    .header-sticky.search-open .form-search__content input { width: 84vw; }
+
+    /* Submenus */
+    .submenu {
+      position: absolute; top: 100%; left: 0; width: 100%;
+      background: #fff; border-bottom: 1px solid var(--border);
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: all .25s ease;
+    }
+    .submenu.submenu-open {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .submenu__content {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px;
+      padding: 44px 0;
+    }
+    .submenu__col h3 { margin-bottom: 20px; }
+    .submenu__col ul li { margin-bottom: 10px; }
+    .submenu__col ul li a { color: var(--muted); transition: color .2s; }
+    .submenu__col ul li a:hover { color: var(--green); }
+    .submenu__img { margin-top: 24px; height: 100px; border-radius: 4px; overflow: hidden; }
+    .submenu__featured {
+      background: var(--bg-light); padding: 28px; border-radius: 6px;
+    }
+    .submenu__featured h3 {
+      font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted-light); margin-bottom: 14px;
+    }
+    .feat-title { font-size: 18px; line-height: 1.4; margin-bottom: 16px; }
+    .feat-link {
+      font-size: 14px; display: inline-flex; align-items: center; gap: 6px;
+      color: var(--green); font-weight: 400; transition: opacity .2s;
+    }
+    .feat-link:hover { opacity: .65; }
+    .link-arrow svg { transition: transform .2s; }
+    .link-arrow:hover svg { transform: translateX(3px); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      position: fixed; top: 0; left: 0; width: 88vw; max-width: 380px;
+      height: 100vh; background: #fff; z-index: 200;
+      transform: translateX(-100%); transition: transform .35s ease;
+      padding: 32px 28px; overflow-y: auto;
+    }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; }
+    .mobile-nav__close { background: none; border: none; font-size: 22px; cursor: pointer; height: auto; padding: 0; }
+    .mobile-nav ul li { padding: 10px 0; }
+    .mobile-nav .sub-title {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted-light); margin-top: 22px; padding-bottom: 6px;
+    }
+    .fade-bg {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,.4); z-index: 150;
+      opacity: 0; visibility: hidden; transition: all .3s;
+    }
+
+    /* ═══════════════════════════════════
+       CONFIGURADOR - APPLE STYLE
+    ═══════════════════════════════════ */
+    .conf-page {
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .conf-page + footer { margin-top: 0; }
+
+    /* Layout: green banner top + white cards below */
+    .conf-layout {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+    }
+
+    /* Top banner — green horizontal */
+    .conf-hero {
+      background: var(--green);
+      padding: 28px 0;
+    }
+    .conf-hero__inner {
+      width: 90.625vw;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .conf-hero__left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+    .conf-hero__tag {
+      display: none;
+    }
+    .conf-hero h1 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .conf-hero__sep {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,255,255,0.15);
+      flex-shrink: 0;
+    }
+    .conf-hero p {
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1.6;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    /* Cards area — 3 columns */
+    .conf-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      background: #fff;
+      width: 100%;
+      margin: 0;
+    }
+
+    /* ═══════════════════════════════════
+       CARD PANELS (side-by-side)
+    ═══════════════════════════════════ */
+    .conf-section {
+      background: var(--conf-card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    }
+    .conf-result { max-width: 1400px; margin: 24px auto 0; width: 100%; grid-column: 1 / -1; display: none; }
+    .conf-result.active { display: block; }
+
+    /* Card header (always visible) */
+    .panel-header {
+      display: flex;
+      align-items: center;
+      padding: 24px 28px;
+      cursor: pointer;
+      transition: background 0.2s;
+      gap: 14px;
+      user-select: none;
+      border-bottom: 1px solid transparent;
+    }
+    .panel-header:hover { background: rgba(0,40,25,0.02); }
+    .panel-header__num {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 500; flex-shrink: 0;
+      border: 1.5px solid var(--border); color: var(--muted);
+      transition: all 0.3s ease;
+    }
+    .panel-header__title {
+      flex: 1; font-size: 16px; font-weight: 400; color: var(--green);
+      letter-spacing: -0.01em;
+    }
+    .panel-header__status {
+      font-size: 12px; color: var(--muted); margin-left: auto;
+      transition: opacity 0.3s; opacity: 0;
+    }
+    .panel-header__arrow {
+      width: 18px; height: 18px; transition: transform 0.3s ease;
+      color: var(--muted);
+    }
+
+    /* Card body */
+    .panel-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s ease;
+      padding: 0 28px;
+    }
+
+    /* ── Panel States ── */
+    /* LOCKED */
+    .conf-section.panel-locked { opacity: 0.45; }
+    .conf-section.panel-locked .panel-header { cursor: not-allowed; pointer-events: none; }
+    .conf-section.panel-locked .panel-header__num {
+      background: rgba(86,104,94,0.06);
+    }
+    .conf-section.panel-locked .panel-body { pointer-events: none; }
+
+    /* ACTIVE — expanded card */
+    .conf-section.panel-active {
+      border-color: var(--green);
+      z-index: 2;
+      opacity: 1;
+      box-shadow: 0 8px 32px rgba(0,40,25,0.10);
+    }
+    .conf-section.panel-active .panel-header {
+      border-bottom: 1px solid rgba(86,104,94,0.12);
+    }
+    .conf-section.panel-active .panel-header__num {
+      background: var(--green); border-color: var(--green); color: #fff;
+    }
+    .conf-section.panel-active .panel-header__arrow {
+      transform: rotate(180deg);
+    }
+    .conf-section.panel-active .panel-body {
+      max-height: 3000px;
+      padding: 20px 28px 36px;
+      overflow: visible;
+    }
+
+    /* DONE — collapsed with checkmark */
+    .conf-section.panel-done { opacity: 1; cursor: pointer; pointer-events: auto; }
+    .conf-section.panel-done .panel-header__num {
+      background: var(--accent); border-color: var(--accent); color: #fff;
+    }
+    .conf-section.panel-done .panel-header__status { opacity: 1; }
+    .conf-section.panel-done .panel-body { max-height: 0; padding: 0 28px; }
+    .conf-section.panel-done:hover {
+      box-shadow: 0 4px 16px rgba(0,40,25,0.08);
+      border-color: var(--accent);
+    }
+
+    /* Hide old elements */
+    .panel-lock-badge, .panel-check { display: none; }
+
+    /* Step 4 reveal */
+    .conf-section[data-section="4"] {
+      opacity: 0; transform: translateY(20px);
+      pointer-events: none; transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .conf-section[data-section="4"].panel-active {
+      opacity: 1; transform: translateY(0); pointer-events: auto;
+    }
+
+    /* ═══════════════════════════════════
+       HERO PARALLAX
+    ═══════════════════════════════════ */
+    .conf-hero { position: relative; overflow: hidden; perspective: 1000px; }
+    .conf-hero__parallax-layer {
+      position: absolute; border-radius: 50%; will-change: transform; pointer-events: none;
+    }
+
+    /* ═══════════════════════════════════
+       REDUCED MOTION
+    ═══════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      .conf-section, .panel-body, .conf-hero__parallax-layer {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Section title */
+    .conf-section__title {
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 300;
+      color: var(--green);
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+    .conf-section__desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    /* Field group */
+    .conf-field {
+      margin-bottom: 36px;
+    }
+    .conf-field__label {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--green);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .conf-field__hint {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    /* Number input - Apple style */
+    .conf-input {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 15px;
+      font-family: inherit;
+      border: 1px solid rgba(86,104,94,0.2);
+      border-radius: 10px;
+      outline: none;
+      background: #fff;
+      color: var(--green);
+      transition: border-color .25s, box-shadow .25s;
+      -moz-appearance: textfield;
+    }
+    .conf-input::-webkit-outer-spin-button,
+    .conf-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .conf-input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(0,40,25,0.08);
+    }
+    .conf-input::placeholder {
+      color: var(--muted-light);
+      font-weight: 300;
+    }
+
+    /* Select - Apple style */
+    .conf-select {
+      width: 100%;
+      padding: 14px 44px 14px 18px;
+      font-size: 15px;
+      font-family: inherit;
+      border: 1px solid rgba(86,104,94,0.2);
+      border-radius: 10px;
+      outline: none;
+      background: #fff url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2356685E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 18px center;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      color: var(--green);
+      transition: border-color .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .conf-select:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(0,40,25,0.08);
+    }
+
+    /* Radio cards - Apple product selector style */
+    .conf-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .conf-option {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      border: 1.5px solid rgba(86,104,94,0.15);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .2s ease;
+      background: #fff;
+    }
+    .conf-option:hover {
+      border-color: rgba(0,40,25,0.3);
+      background: rgba(0,40,25,0.015);
+    }
+    .conf-option.selected {
+      border-color: var(--green);
+      background: rgba(0,40,25,0.025);
+    }
+    .conf-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .conf-option__radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(86,104,94,0.3);
+      margin-right: 16px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+    .conf-option.selected .conf-option__radio {
+      border-color: var(--green);
+      background: var(--green);
+    }
+    .conf-option.selected .conf-option__radio::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .conf-option__text {
+      flex: 1;
+    }
+    .conf-option__label {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--green);
+      line-height: 1.35;
+    }
+    .conf-option__sublabel {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* Horizontal options for yes/no */
+    .conf-options--inline {
+      flex-direction: row;
+      gap: 12px;
+    }
+    .conf-options--inline .conf-option {
+      flex: 1;
+      justify-content: center;
+      text-align: center;
+      padding: 14px 16px;
+    }
+    .conf-options--inline .conf-option__radio {
+      margin-right: 10px;
+    }
+
+    /* Navigation buttons */
+    .conf-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(86,104,94,0.08);
+    }
+    .conf-btn {
+      height: 48px;
+      padding: 0 32px;
+      font-size: 15px;
+      font-family: inherit;
+      font-weight: 400;
+      letter-spacing: .02em;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .25s ease;
+      text-transform: none;
+    }
+    .conf-btn--back {
+      background: transparent;
+      border: 1px solid rgba(86,104,94,0.2);
+      color: var(--muted);
+    }
+    .conf-btn--back:hover {
+      border-color: var(--green);
+      color: var(--green);
+      background: transparent;
+    }
+    .conf-btn--next {
+      background: var(--green);
+      border: 1px solid var(--green);
+      color: #fff;
+    }
+    .conf-btn--next:hover {
+      background: var(--green-light);
+      border-color: var(--green-light);
+      color: #fff;
+    }
+    .conf-btn--next:disabled {
+      background: rgba(86,104,94,0.15);
+      border-color: rgba(86,104,94,0.15);
+      color: rgba(86,104,94,0.4);
+      cursor: not-allowed;
+    }
+
+    /* ═══════════════════════════════════
+       RESULT PANEL
+    ═══════════════════════════════════ */
+    .conf-result { display: none; }
+    .conf-result.active { display: block; }
+
+    /* Hero (gran número del total) */
+    .conf-result__hero {
+      text-align: center;
+      padding: 48px 24px 40px;
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: 56px;
+    }
+    .conf-result__tag {
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .conf-result__price {
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 300;
+      color: var(--green);
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+    .conf-result__price-label {
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+    .conf-result__perm2 {
+      font-size: 14px;
+      color: var(--muted-light);
+      margin-top: 8px;
+      letter-spacing: .02em;
+    }
+
+    /* Sections */
+    .conf-result__section {
+      max-width: 920px;
+      margin: 0 auto 56px;
+      padding: 0 24px;
+    }
+    .conf-result__section-title {
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: var(--fw-light);
+      color: var(--green);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    /* Resum de la configuració · grid 3 columnes */
+    .conf-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--hairline);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .conf-summary__item {
+      padding: 18px 20px;
+      border-right: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      background: #fff;
+    }
+    .conf-summary__item:nth-child(3n) { border-right: none; }
+    .conf-summary__label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--muted-light);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .conf-summary__value {
+      font-size: 15px;
+      color: var(--green);
+      font-weight: var(--fw-regular);
+      line-height: 1.4;
+      letter-spacing: -0.005em;
+    }
+    @media (max-width: 768px) {
+      .conf-summary { grid-template-columns: 1fr 1fr; }
+      .conf-summary__item:nth-child(3n) { border-right: 1px solid var(--hairline); }
+      .conf-summary__item:nth-child(2n) { border-right: none; }
+    }
+    @media (max-width: 480px) {
+      .conf-summary { grid-template-columns: 1fr; }
+      .conf-summary__item:nth-child(2n) { border-right: none; }
+    }
+
+    /* Breakdown (desglossament) */
+    .conf-breakdown {
+      max-width: 100%;
+      margin: 0;
+    }
+    .conf-pack {
+      margin-bottom: 32px;
+    }
+    .conf-pack__title {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(86,104,94,0.1);
+      margin-bottom: 0;
+    }
+    .conf-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(86,104,94,0.05);
+      font-size: 15px;
+    }
+    .conf-line__label { color: var(--green); }
+    .conf-line__value { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+    .conf-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 20px 0;
+      margin-top: 8px;
+      border-top: 2px solid var(--green);
+    }
+    .conf-total__label {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--green);
+    }
+    .conf-total__value {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--green);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Result actions (legacy, encara s'utilitza en alguns punts) */
+    .conf-result__actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════
+       PANELS · PDF + CHATBOT (resultat)
+    ═══════════════════════════════════ */
+    .conf-result__panels {
+      max-width: 1080px;
+      margin: 0 auto 24px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .conf-result__panel {
+      position: relative;
+      padding: 36px 32px 32px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--hairline);
+      background: #fff;
+      transition: border-color .3s ease, box-shadow .3s ease;
+    }
+    .conf-result__panel--pdf {
+      background: var(--cream, #F4F1ED);
+      border-color: transparent;
+    }
+    .conf-result__panel--chat {
+      background: var(--green);
+      color: #fff;
+      border-color: transparent;
+    }
+    .conf-result__panel-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: var(--green);
+      background: rgba(0,40,25,0.07);
+    }
+    .conf-result__panel--chat .conf-result__panel-icon {
+      background: rgba(255,255,255,0.10);
+      color: var(--accent);
+    }
+    .conf-result__panel-title {
+      font-size: 20px;
+      font-weight: var(--fw-light);
+      letter-spacing: -0.01em;
+      color: var(--green);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .conf-result__panel--chat .conf-result__panel-title { color: #fff; }
+    .conf-result__panel-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted-cream, #6B6A62);
+      margin-bottom: 22px;
+      max-width: 32ch;
+    }
+    .conf-result__panel--chat .conf-result__panel-text {
+      color: rgba(255,255,255,0.7);
+    }
+    .conf-result__panel-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .conf-result__panel-actions .conf-btn {
+      justify-content: center;
+    }
+    .conf-result__panel-badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(149,187,165,0.15);
+      padding: 5px 12px;
+      border-radius: var(--r-pill);
+      margin-top: 16px;
+    }
+
+    /* Chatbot preview (placeholder) */
+    .conf-chat-preview {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--r-md);
+      padding: 16px;
+    }
+    .conf-chat-preview__bubble {
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.85);
+      padding: 10px 14px;
+      border-radius: 12px 12px 12px 4px;
+      font-size: 13px;
+      line-height: 1.5;
+      max-width: 85%;
+      margin-bottom: 14px;
+    }
+    .conf-chat-preview__row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .conf-chat-preview__input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-family: inherit;
+      color: #fff;
+      outline: none;
+      cursor: not-allowed;
+    }
+    .conf-chat-preview__input::placeholder {
+      color: rgba(255,255,255,0.40);
+    }
+    .conf-chat-preview__btn {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      border: none;
+      color: rgba(255,255,255,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      flex-shrink: 0;
+      cursor: not-allowed;
+    }
+    .conf-chat-preview__btn:hover { background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.45); }
+
+    @media (max-width: 768px) {
+      .conf-result__panels { grid-template-columns: 1fr; gap: 16px; padding: 0 16px; }
+      .conf-result__panel { padding: 28px 24px; }
+    }
+
+    /* Disclaimer */
+    .conf-disclaimer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted-light);
+      max-width: 520px;
+      margin: 40px auto 0;
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════
+       PLAN UPLOAD
+    ═══════════════════════════════════ */
+    .plan-upload-section { margin-bottom: 8px; }
+    .plan-dropzone {
+      border: 2px dashed rgba(86,104,94,0.25);
+      border-radius: 14px;
+      padding: 32px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(86,104,94,0.03);
+    }
+    .plan-dropzone:hover,
+    .plan-dropzone.dragover {
+      border-color: var(--green);
+      background: rgba(0,40,25,0.04);
+    }
+    .plan-dropzone.uploading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .plan-dropzone__text {
+      font-size: 14px;
+      color: #56685E;
+      line-height: 1.5;
+    }
+    .plan-dropzone__text strong {
+      color: var(--green);
+      text-decoration: underline;
+    }
+    .plan-file-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .plan-file-tag {
+      display: inline-block;
+      background: var(--conf-bg);
+      color: var(--green);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .plan-status { margin-top: 10px; font-size: 13px; }
+    .plan-loading { color: #56685E; }
+    .plan-loading::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid rgba(86,104,94,0.2);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: planSpin .7s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @keyframes planSpin { to { transform: rotate(360deg); } }
+    .plan-success { color: #1a7a4c; font-weight: 500; }
+    .plan-error { color: #c0392b; }
+    .plan-divider {
+      text-align: center;
+      margin: 24px 0 20px;
+      position: relative;
+    }
+    .plan-divider::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; top: 50%;
+      height: 1px;
+      background: rgba(86,104,94,0.12);
+    }
+    .plan-divider span {
+      position: relative;
+      background: #fff;
+      padding: 0 16px;
+      font-size: 13px;
+      color: #56685E;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ═══════════════════════════════════
+       CHATBOT
+    ═══════════════════════════════════ */
+    .conf-chat-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--green);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,40,25,0.25);
+      z-index: 50;
+      transition: transform .2s, box-shadow .2s;
+      padding: 0;
+    }
+    .conf-chat-toggle:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 28px rgba(0,40,25,0.35);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .conf-chat-panel {
+      position: fixed;
+      bottom: 96px;
+      right: 28px;
+      width: 380px;
+      max-height: 520px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,40,25,0.15);
+      z-index: 50;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .conf-chat-panel.open { display: flex; }
+    .conf-chat__header {
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(86,104,94,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .conf-chat__header h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--green);
+    }
+    .conf-chat__close {
+      background: none; border: none; cursor: pointer; padding: 4px;
+      height: auto;
+    }
+    .conf-chat__close:hover { background: none; }
+    .conf-chat__messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .conf-chat__msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .conf-chat__msg--bot {
+      background: var(--conf-bg);
+      color: var(--green);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    .conf-chat__msg--user {
+      background: var(--green);
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .conf-chat__input-row {
+      padding: 12px 16px;
+      border-top: 1px solid rgba(86,104,94,0.08);
+      display: flex;
+      gap: 8px;
+    }
+    .conf-chat__input {
+      flex: 1;
+      border: 1px solid rgba(86,104,94,0.15);
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      color: var(--green);
+    }
+    .conf-chat__input:focus {
+      border-color: var(--green);
+    }
+    .conf-chat__send {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .conf-chat__send:hover { background: var(--green-light); }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE: Mobile (≤768px)
+    ═══════════════════════════════════ */
+    @media (max-width: 768px) {
+      .conf-hero__inner { flex-direction: column; text-align: center; gap: 12px; padding: 0 20px; }
+      .conf-hero__left { flex-direction: column; gap: 8px; }
+      .conf-hero__sep { display: none; }
+      .conf-hero h1 { white-space: normal; font-size: 20px; }
+      .conf-form { grid-template-columns: 1fr; padding: 24px 16px; }
+      .conf-progress { margin: 8px auto 0; }
+      .panel-header { padding: 16px 18px; }
+      .panel-body { padding: 0 18px; }
+      .conf-section.panel-active .panel-body { padding: 0 18px 24px; }
+      .conf-options--inline { flex-direction: column; }
+    }
+
+    /* ═══════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════ */
+    footer {
+      background: var(--footer-bg);
+      padding: 60px 0 32px;
+    }
+    .footer__content__info { display: grid; grid-template-columns: 1fr 1fr 1fr 1.3fr; gap: 40px; }
+    .footer__col-title {
+      font-size: 12px; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-bottom: 20px; font-weight: 400;
+    }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: rgba(255,255,255,.55); font-size: 13px; transition: color .2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .info-showroom__item { margin-bottom: 18px; }
+    .info-showroom__item h3 {
+      font-size: 12px; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.3); margin-bottom: 6px; font-weight: 400;
+    }
+    .info-showroom__item p { color: rgba(255,255,255,.55); font-size: 13px; line-height: 1.6; }
+    .info-showroom__item a { color: rgba(255,255,255,.55); }
+    .info-showroom__item a:hover { color: #fff; }
+    .footer__newsletter p { color: rgba(255,255,255,.5); font-size: 13px; line-height: 1.6; }
+    .newsletter-form {
+      display: flex; margin-top: 16px; gap: 0;
+      border: 1px solid rgba(255,255,255,.12); border-radius: 0;
+    }
+    .newsletter-form input {
+      flex: 1; background: transparent; border: none; padding: 10px 14px;
+      font-size: 13px; color: #fff; outline: none; font-family: inherit;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,.3); }
+    .newsletter-form button {
+      background: transparent; border: none; padding: 10px 14px; cursor: pointer; height: auto;
+    }
+    .newsletter-form button:hover { background: rgba(255,255,255,.05); }
+    .footer__rrss { margin-top: 18px; }
+    .footer__rrss p { font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 8px; }
+    .rrss__links { display: flex; gap: 16px; }
+    .rrss__links a { font-size: 13px; color: rgba(255,255,255,.5); }
+    .rrss__links a:hover { color: #fff; }
+    .copyright {
+      margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.08);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .copyright p { font-size: 12px; color: rgba(255,255,255,.25); }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .menu-btn-wrapper { display: block; }
+      .header-sticky__content { display: none; }
+      .menu, .menu-right { display: none; }
+      .submenu__content { grid-template-columns: 1fr; gap: 28px; }
+      .footer__content__info { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .conf-hero h1 { font-size: 32px; }
+      /* legacy step labels removed */
+      .conf-options--inline { flex-direction: column; }
+      .conf-result__price { font-size: 36px; }
+      .conf-chat-panel { width: calc(100vw - 32px); right: 16px; bottom: 88px; }
+      .conf-chat-toggle { bottom: 20px; right: 20px; }
+      .footer__content__info { grid-template-columns: 1fr; }
+      .copyright { flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .conf-nav { flex-direction: column; gap: 12px; }
+      .conf-btn { width: 100%; justify-content: center; }
+    }
+
+    /* Hidden utility */
+    .hidden-field { display: none; }
+
+    /* Input error feedback (validació) */
+    .conf-input--error,
+    .conf-input.conf-input--error {
+      border-color: #c0392b !important;
+      box-shadow: 0 0 0 3px rgba(192,57,43,0.10) !important;
+    }
+
+    /* ═══════════════════════════════════
+       PROGRESS BAR (sticky)
+    ═══════════════════════════════════ */
+    .conf-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .conf-progress__inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .conf-progress__bar {
+      width: 120px;
+      height: 3px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .conf-progress__fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .conf-progress__text {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      font-variant-numeric: tabular-nums;
+    }
+    .conf-progress__percent {
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ═══════════════════════════════════
+       CARD COMPACT VIEW — matches index .card pattern
+       (same block as "Quatre divisions, un sol equip")
+    ═══════════════════════════════════ */
+    .conf-form.card-view {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      width: 90.625vw;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+    .conf-form.card-view .conf-section {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: auto;
+      cursor: default;
+      transition: transform .35s var(--ease-bounce),
+                  box-shadow .35s ease,
+                  border-color .3s ease,
+                  opacity .4s ease;
+    }
+    @media (hover: hover) {
+      .conf-form.card-view .conf-section.card-unlocked:hover,
+      .conf-form.card-view .conf-section.card-done:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--sh-card-hover);
+        border-color: transparent;
+      }
+    }
+    /* Image wrap at top of card */
+    .conf-form.card-view .conf-section .conf-card__img-wrap {
+      height: 220px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(160deg, var(--green-light) 0%, var(--green) 100%);
+    }
+    .conf-form.card-view .conf-section .conf-card__img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform .6s var(--ease-img);
+    }
+    .conf-form.card-view .conf-section.card-unlocked:hover .conf-card__img,
+    .conf-form.card-view .conf-section.card-done:hover .conf-card__img {
+      transform: scale(1.08);
+    }
+
+    /* Hide the expanded panel body in card view */
+    .conf-form.card-view .conf-section .panel-body {
+      display: none !important;
+    }
+
+    /* Panel header becomes a number + title row inside the body */
+    .conf-form.card-view .conf-section .panel-header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      width: auto;
+      padding: 18px 22px 6px;
+      gap: 12px;
+      border-bottom: none;
+      margin: 0;
+    }
+    .conf-form.card-view .conf-section .panel-header:hover { background: none; }
+    .conf-form.card-view .conf-section .panel-header__num {
+      width: 30px; height: 30px; font-size: 13px;
+      border: 1.5px solid var(--border);
+    }
+    .conf-form.card-view .conf-section .panel-header__title {
+      font-size: 17px;
+      text-align: left;
+      text-transform: none;
+      letter-spacing: -0.005em;
+      line-height: 1.3;
+      font-weight: var(--fw-regular);
+      color: var(--text);
+    }
+    .conf-form.card-view .conf-section .panel-header__arrow { display: none; }
+    .conf-form.card-view .conf-section .panel-header__status { display: none; }
+
+    /* Card body */
+    .card-body-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      width: auto;
+      text-align: left;
+      padding: 0 22px 22px;
+      margin: 0;
+    }
+    .card-body-preview__desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: none;
+      margin: 0;
+    }
+    .card-body-preview__cta {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-transform: none;
+      height: auto;
+    }
+
+    /* Unlocked */
+    .conf-form.card-view .conf-section.card-unlocked { cursor: pointer; }
+    .conf-form.card-view .conf-section.card-unlocked .panel-header__num {
+      background: var(--green); border-color: var(--green); color: #fff;
+    }
+    .conf-form.card-view .conf-section.card-unlocked .card-body-preview__cta {
+      background: var(--green); color: #fff;
+    }
+    .conf-form.card-view .conf-section.card-unlocked .card-body-preview__cta:hover {
+      background: var(--green-light);
+    }
+    /* Locked */
+    .conf-form.card-view .conf-section.card-locked {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+    .conf-form.card-view .conf-section.card-locked .conf-card__img { filter: grayscale(0.7); }
+    .conf-form.card-view .conf-section.card-locked .panel-header__num {
+      background: rgba(86,104,94,0.06);
+    }
+    .conf-form.card-view .conf-section.card-locked .card-body-preview__cta {
+      background: rgba(86,104,94,0.06); color: var(--muted-light); cursor: not-allowed; pointer-events: none;
+    }
+    /* Done */
+    .conf-form.card-view .conf-section.card-done { cursor: pointer; }
+    .conf-form.card-view .conf-section.card-done .panel-header__num {
+      background: var(--accent); border-color: var(--accent); color: #fff;
+    }
+    .conf-form.card-view .conf-section.card-done .card-body-preview__cta {
+      background: transparent; border: 1px solid var(--accent); color: var(--accent);
+    }
+    .conf-form.card-view .conf-section.card-done .card-body-preview__cta:hover {
+      background: var(--accent-soft);
+    }
+
+    /* Bottom progress line */
+    .conf-progress-line {
+      display: none;
+    }
+    .conf-form { position: relative; }
+    .conf-progress-line__fill {
+      height: 100%;
+      background: var(--green);
+      width: 0%;
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ═══════════════════════════════════
+       OVERLAY (fullscreen form)
+    ═══════════════════════════════════ */
+    .conf-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1000;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .conf-overlay.active {
+      display: flex;
+    }
+    .conf-overlay__backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,12,8,0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 1;
+    }
+    .conf-overlay.active .conf-overlay__backdrop {
+      opacity: 1;
+    }
+    .conf-overlay__content {
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      width: 100%;
+      max-width: 920px;
+      margin: 40px 24px;
+      border-radius: 16px;
+      padding: 0;
+      opacity: 0;
+      transform: translateY(30px) scale(0.97);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 24px 80px rgba(0,20,12,0.35);
+      border: 1px solid rgba(86,104,94,0.08);
+    }
+    .conf-overlay.active .conf-overlay__content {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .conf-overlay__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 36px;
+      background: var(--green);
+      border-radius: 16px 16px 0 0;
+    }
+    .conf-overlay__title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .conf-overlay__title .panel-header__num {
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
+      font-size: 12px;
+    }
+    .conf-overlay__title span:last-child {
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .conf-overlay__step-indicator {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .conf-overlay__close {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .conf-overlay__close:hover {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+    .conf-overlay__close svg path { stroke: #fff; }
+    .conf-overlay__form {
+      padding: 36px 44px 40px;
+    }
+    /* 2-column layout for form fields inside overlay */
+    .conf-overlay__form .conf-options:not(.conf-options--inline) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .conf-overlay__form .conf-options.conf-options--inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    /* Plan upload stays full width */
+    .conf-overlay__form .plan-upload-section,
+    .conf-overlay__form .plan-divider,
+    .conf-overlay__form .conf-section__desc {
+      grid-column: 1 / -1;
+    }
+
+    /* Overlay closing animation */
+    .conf-overlay.closing .conf-overlay__backdrop {
+      opacity: 0;
+    }
+    .conf-overlay.closing .conf-overlay__content {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+
+    /* ═══════════════════════════════════
+       COMPLETION ANIMATIONS
+    ═══════════════════════════════════ */
+    @keyframes checkmarkPop {
+      0% { transform: scale(0) rotate(-45deg); }
+      50% { transform: scale(1.3) rotate(0deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+    @keyframes unlockPulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,40,25,0.2); }
+      50% { transform: scale(1.04); box-shadow: 0 0 0 12px rgba(0,40,25,0); }
+      100% { transform: scale(1); box-shadow: 0 4px 20px rgba(0,40,25,0.08); }
+    }
+    @keyframes confettiFloat {
+      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translateY(-120px) rotate(720deg) scale(0); opacity: 0; }
+    }
+    @keyframes toastSlideIn {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes toastSlideOut {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-20px); opacity: 0; }
+    }
+
+    .card-unlocking {
+      animation: unlockPulse 0.6s ease;
+    }
+    .card-checkmark {
+      display: inline-block;
+      animation: checkmarkPop 0.5s ease forwards;
+    }
+
+    /* Confetti particle */
+    .confetti-particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      animation: confettiFloat 1.2s ease-out forwards;
+      pointer-events: none;
+      z-index: 600;
+    }
+
+    /* Toast notification */
+    .conf-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      z-index: 700;
+      box-shadow: 0 8px 32px rgba(0,40,25,0.25);
+      animation: toastSlideIn 0.4s ease forwards;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+    .conf-toast.hiding {
+      animation: toastSlideOut 0.3s ease forwards;
+    }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE OVERRIDES
+    ═══════════════════════════════════ */
+    @media (max-width: 768px) {
+      .conf-form.card-view { grid-template-columns: 1fr; }
+      .conf-form.card-view .conf-section { min-height: 200px; }
+      .conf-overlay__content { margin: 16px 10px; border-radius: 14px; }
+      .conf-overlay__header { padding: 16px 20px; border-radius: 14px 14px 0 0; }
+      .conf-overlay__form { padding: 20px 20px 28px; }
+      .conf-overlay__form .conf-options:not(.conf-options--inline) { grid-template-columns: 1fr; }
+      .conf-overlay__form .conf-options.conf-options--inline { grid-template-columns: 1fr 1fr; }
+      .conf-progress__text { font-size: 11px; }
+    }
+    @media (max-width: 480px) {
+      .conf-form.card-view .conf-section { min-height: 180px; }
+    }
+  </style>
   <link rel="stylesheet" href="/css/cookie-banner.css">
-  <meta property="og:title" content="Request a budget · PAPIK Group">
-  <meta property="og:description" content="Tell us about your project and we will reply with a tailored budget proposal.">
-  <meta property="og:url" content="https://papik.cat/en/budget">
+
+  
+
+  
+  
+  <meta property="og:title" content="PAPIK | Configurador de Pressupost">
+  <meta property="og:description" content="Configura el teu habitatge i obtén una estimació orientativa del pressupost. Sense compromís.">
+  <meta property="og:url" content="https://papik.cat/pressupost">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale" content="ca_ES">
   <meta property="og:site_name" content="PAPIK Group">
   <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Request a budget · PAPIK Group">
-  <meta name="twitter:description" content="Tell us about your project and we will reply with a tailored budget proposal.">
+  <meta name="twitter:title" content="PAPIK | Configurador de Pressupost">
+  <meta name="twitter:description" content="Configura el teu habitatge i obtén una estimació orientativa del pressupost. Sense compromís.">
   <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
   <meta name="theme-color" content="#002819">
 
   <!-- perf-pass:preload -->
-  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
-
   <link rel="preload" href="../css/tokens.css" as="style">
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
 <!-- schema-enrichment:wave2 -->
 <script type="application/ld+json">
 {
@@ -42,14 +1777,14 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
-      "item": "https://papik.cat/en/"
+      "name": "Inici",
+      "item": "https://papik.cat/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Budget",
-      "item": "https://papik.cat/en/budget"
+      "name": "Pressupost",
+      "item": "https://papik.cat/pressupost"
     }
   ]
 }
@@ -58,9 +1793,9 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Passivhaus budget configurator",
-  "description": "Request and indicative estimate for Passivhaus construction and retrofit projects.",
-  "url": "https://papik.cat/en/budget",
+  "name": "Configurador de pressupost Passivhaus",
+  "description": "Sol·licitud i estimació orientativa de pressupost per a construcció i rehabilitació Passivhaus.",
+  "url": "https://papik.cat/pressupost",
   "provider": {
     "@id": "https://papik.cat/#org",
     "@type": "Organization",
@@ -85,12 +1820,16 @@
     }
   ],
   "serviceType": "Construction budget request",
-  "inLanguage": "en"
+  "inLanguage": "ca"
 }
 </script>
+  <link rel="alternate" hreflang="ca" href="https://papik.cat/pressupost">
+  <link rel="alternate" hreflang="es" href="https://papik.cat/es/presupuesto">
+  <link rel="alternate" hreflang="en" href="https://papik.cat/en/budget">
+  <link rel="alternate" hreflang="x-default" href="https://papik.cat/pressupost">
 </head>
-<body class="page--budget">
-<a href="#main" class="skip-to-content">Skip to content</a>
+<body>
+<a href="#main" class="skip-to-content">Salta al contingut</a>
 <!-- PAPIK · Cookie consent banner snippet
      Inject at the start of <body>. The text shown is a CA fallback;
      cookie-banner.js localises it in place using the page's <html lang>. -->
@@ -115,50 +1854,933 @@
     </div>
   </div>
 </aside>
-  <main id="main" class="page-shell" style="max-width:960px;margin:0 auto;padding:80px 24px;">
-    <h1 style="font-weight:300;font-size:clamp(28px,3vw,44px);color:var(--green,#002819);margin:0 0 24px;">Request a budget</h1>
-    <p style="color:var(--muted,#56685E);max-width:640px;margin:0 0 32px;">
-      Tell us a little about your project and we will get back to you with a tailored proposal.
-    </p>
-  </main>
-  <script src="/js/cookie-banner.js" defer></script>
-  <script src="/js/forms.js" defer></script>
-<section class="papik-form-block" id="budget">
-  <h2 class="papik-form-block__title">Request your budget</h2>
-  <form id="presupuesto-lite-form" class="papik-form" method="post" action="/api/forms/presupuesto-lite" novalidate>
-    <div class="papik-form__row--inline">
-      <div class="papik-form__row">
-        <label for="bd-name">Name</label>
-        <input id="bd-name" name="name" type="text" autocomplete="name" required>
+
+<!-- ═══════════════════════════════════
+     MOBILE NAV OVERLAY
+═══════════════════════════════════ -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__header">
+    <a href="index.html">
+      <svg height="26" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+        <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+        <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+        <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+        <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+        <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+        <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+        <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+        <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+        <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+      </svg>
+    </a>
+    <button class="mobile-nav__close" id="mobileNavClose">&#x2715;</button>
+  </div>
+  <ul class="t18">
+    <li class="sub-title">Serveis</li>
+    <li><a href="construction.html">Construcció</a></li>
+    <li><a href="development.html">Promoció Immobiliària</a></li>
+    <li><a href="retrofit.html">Rehabilitació Energètica</a></li>
+    <li><a href="wealth.html">Patrimonis</a></li>
+    <li class="sub-title">Empresa</li>
+    <li><a href="projects.html">Projectes</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">Nosaltres</a></li>
+    <li><a href="#contacte">Contacte</a></li>
+    <li><a href="budget.html" style="color:var(--green);font-weight:600;">Pressupost</a></li>
+  </ul>
+</nav>
+<div class="fade-bg" id="fadeBg"></div>
+
+<!-- ═══════════════════════════════════
+     HEADER
+═══════════════════════════════════ -->
+<header class="header-top" id="headerTop">
+  <div class="header-logo-layer"></div>
+  <div class="header-logo">
+    <div class="container">
+      <div class="header-logo__content">
+        <div class="menu-btn-wrapper" id="burgerBtn">
+          <div class="menu-btn__burger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="logo">
+          <a href="index.html">
+            <svg height="30" viewBox="155 228 535 140" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+              <path fill="#002819" d="M659.7,243.4c0-7,5.2-12.1,12.2-12.1c7,0,12.2,5.1,12.2,12.1c0,7-5.2,12.1-12.2,12.1 C664.9,255.5,659.7,250.3,659.7,243.4z M681.3,243.4c0-5.7-3.9-9.7-9.4-9.7c-5.6,0-9.4,4-9.4,9.7s3.9,9.7,9.4,9.7 C677.5,253.1,681.3,249.1,681.3,243.4z M667.5,236.9h4.4c3.2,0,5,1.6,5,3.8c0,1.3-0.8,2.4-2.5,3.4l3.2,5.3h-2.9l-3.6-6l1.6-0.8 c1.1-0.6,1.5-1.1,1.5-1.9c0-1.1-0.9-1.6-2.4-1.6H670v10.2h-2.6V236.9z"/>
+              <path fill="#002819" d="M489.9,232.2h26.2V364h-26.2V232.2z"/>
+              <path fill="#002819" d="M533.6,232.2h26.2V364h-26.2V232.2z"/>
+              <polygon fill="#002819" points="318,232.2 290.1,232.2 236.4,364 264.5,364 272.2,344.4 315.7,336.7 306.8,314 282.4,318.2 303.9,262.8 319.8,303.5 319.8,303.5 341,357.6 341,357.6 343.5,364 371.7,364"/>
+              <polygon fill="#002819" points="403.8,302.8 403.8,256.8 403.8,232.2 377.6,232.2 377.6,364 403.8,364 403.8,343.4 403.8,327.7"/>
+              <path fill="#002819" d="M428.4,232.2H417v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C478.6,248.9,458.8,232.2,428.4,232.2z"/>
+              <polygon fill="#002819" points="184.4,302.8 184.4,302.8 184.4,256.8 184.4,256.8 184.4,232.2 158.2,232.2 158.2,364 184.4,364 184.4,327.7 184.4,327.7"/>
+              <path fill="#002819" d="M208.9,232.2h-11.3v24.6h11.7c14.8,0,23.3,7.1,23.3,18.9c0,10.8-7.9,18.9-23.1,22l-11.9,2.4v25l11.7-2.3 c34.3-7,49.9-24.7,49.9-48.2C259.2,248.9,239.4,232.2,208.9,232.2z"/>
+              <path fill="#002819" d="M614.3,297.6c31.3-22.9,33.7-65.3,33.7-65.3h-26.2c0,0-1,34.1-27.1,49.2c0,0-5.5,3.4-10.1,5.4 c-4.6,2.1-13.1,5.1-13.1,5.1v25.1l19.2-7.9l31.5,54.9h29.5L614.3,297.6z"/>
+            </svg>
+          </a>
+        </div>
       </div>
-      <div class="papik-form__row">
-        <label for="bd-email">Email</label>
-        <input id="bd-email" name="email" type="email" autocomplete="email" required>
-      </div>
-    </div>
-    <div class="papik-form__row--inline">
-      <div class="papik-form__row">
-        <label for="bd-phone">Phone</label>
-        <input id="bd-phone" name="phone" type="tel" autocomplete="tel" required>
-      </div>
-      <div class="papik-form__row">
-        <label for="bd-type">Project type</label>
-        <select id="bd-type" name="project_type" required>
-          <option value="" disabled selected>Select…</option>
-          <option value="construction">New construction</option><option value="development">Development</option><option value="retrofit">Retrofit</option><option value="wealth">Wealth management</option>
+      <div class="lang">
+        <select onchange="location=this.value">
+          <option value="pressupost.html" selected>CA</option>
+          <option value="es/pressupost.html">ES</option>
         </select>
       </div>
     </div>
-    <div class="papik-form__row">
-      <label for="bd-desc">Brief description</label>
-      <textarea id="bd-desc" name="description" required></textarea>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════
+     STICKY BAR
+═══════════════════════════════════ -->
+<section class="header-sticky" id="headerSticky">
+  <div class="header-sticky__bar">
+    <div class="container">
+      <div class="header-sticky__content">
+        <nav class="menu t14">
+          <ul>
+            <li><a href="construction.html">Construcció</a></li>
+            <li><a href="development.html">Promoció</a></li>
+            <li><a href="retrofit.html">Rehabilitació</a></li>
+            <li><a href="wealth.html">Patrimonis</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">Nosaltres</a></li>
+          </ul>
+        </nav>
+        <nav class="menu-right t14">
+          <ul>
+            <li>
+              <a href="usuaris.html">Inicia sessió</a>
+              <div class="icon-wrapper">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#002819" stroke-width="1.5"/><path d="M4 20C4 17.3 7.6 14 12 14C16.4 14 20 17.3 20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </li>
+            <li>
+              <span class="nav-cta" style="pointer-events:none;">
+                Pressupost
+                <svg width="11" height="10" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/></svg>
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Search -->
+      <div class="form-search-wrapper" id="searchWrapper">
+        <div class="form-search__content" style="position:relative;">
+          <button class="search-icon-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#002819" stroke-width="1.5"/><path d="M16.5 16.5L20 20" stroke="#002819" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <form action="/" method="get">
+            <input type="text" name="s" placeholder="Cerca...">
+          </form>
+        </div>
+        <button class="btn-close-search" id="searchClose" style="display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
+        </button>
+      </div>
     </div>
-    <label class="papik-form__consent">
-      <input type="checkbox" name="gdpr_consent" required>
-      <span>I have read and accept the <a href="/en/privacy-policy.html">Privacy Policy</a>.</span>
-    </label>
-    <button type="submit" class="papik-form__submit">Request budget</button>
-  </form>
+  </div>
 </section>
+
+<!-- ═══════════════════════════════════
+     CONFIGURADOR
+═══════════════════════════════════ -->
+<main id="main" class="conf-page">
+
+    <!-- Layout: Green left + White right -->
+    <div class="conf-layout" id="confLayout">
+
+    <!-- Hero (green banner) -->
+    <div class="conf-hero" id="confHero">
+      <div class="conf-hero__inner">
+        <div class="conf-hero__left">
+          <h1>Dissenya el teu projecte</h1>
+          <div class="conf-hero__sep"></div>
+          <p>Estimació orientativa del cost de construcció</p>
+        </div>
+
+        <!-- Progress bar (right side of banner) -->
+        <div class="conf-progress" id="confProgress" style="display:none;">
+          <div class="conf-progress__inner">
+            <div class="conf-progress__bar">
+              <div class="conf-progress__fill" id="progressFill"></div>
+            </div>
+            <div class="conf-progress__text">
+              <span class="conf-progress__percent" id="progressPercent">0%</span> · <span id="progressTimer">0:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form: 3-column grid (right column) -->
+    <div class="conf-form card-view" id="confForm">
+
+      <!-- ─── STEP 1: Estructura ─── -->
+      <div class="conf-section card-unlocked" data-section="1">
+        <div class="conf-card__img-wrap">
+          <div class="conf-card__img" style="background-image:url('img/home/llinars-1.jpg');"></div>
+        </div>
+        <div class="panel-header" data-panel="1">
+          <span class="panel-header__num">1</span>
+          <span class="panel-header__title">Estructura i dimensions</span>
+          <span class="panel-header__status"></span>
+          <svg class="panel-header__arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="card-body-preview">
+          <span class="card-body-preview__desc">Defineix la superficie construida, el nombre de plantes i banys, si necessites garatge o porxos, i la distribucio general del teu habitatge.</span>
+          <button class="card-body-preview__cta" data-open="1">Comença</button>
+        </div>
+        <div class="panel-body">
+        <p class="conf-section__desc">Comença definint les mesures bàsiques i la distribució de la teva casa.</p>
+
+        <!-- Upload plànols -->
+        <div class="conf-field plan-upload-section">
+          <label class="conf-field__label">Tens plànols? Puja'ls i omplim el formulari automàticament</label>
+          <span class="conf-field__hint">Acceptem PDF, PNG, JPG o WEBP (màx. 3 fitxers)</span>
+          <div class="plan-dropzone" id="planDropzone">
+            <input type="file" id="planInput" accept=".pdf,.png,.jpg,.jpeg,.webp" multiple hidden>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom:8px">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="#56685E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="plan-dropzone__text">Arrossega els fitxers aquí o <strong>fes clic per seleccionar</strong></span>
+          </div>
+          <div id="planFileList" class="plan-file-list"></div>
+          <div id="planStatus" class="plan-status"></div>
+        </div>
+
+        <div class="plan-divider">
+          <span>o configura manualment</span>
+        </div>
+
+        <!-- m2 -->
+        <div class="conf-field">
+          <label class="conf-field__label" for="f_m2">Superfície construïda</label>
+          <span class="conf-field__hint">Indica els metres quadrats totals (mínim 80 m2)</span>
+          <input type="number" class="conf-input" id="f_m2" min="80" placeholder="Ex: 160" data-field="1" required>
+        </div>
+
+        <!-- Plantes -->
+        <div class="conf-field">
+          <span class="conf-field__label">Nombre de plantes</span>
+          <div class="conf-options" data-field="2">
+            <label class="conf-option">
+              <input type="radio" name="plantes" value="1">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">1 planta</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="plantes" value="2">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">2 plantes</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="plantes" value="3">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Més de 2 plantes</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Banys -->
+        <div class="conf-field">
+          <span class="conf-field__label">Nombre de banys</span>
+          <div class="conf-options" data-field="3">
+            <label class="conf-option">
+              <input type="radio" name="banys" value="1">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">1 bany</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="banys" value="2">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">2 banys</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="banys" value="3">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">3 banys</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="banys" value="4">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">4 o més banys</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Garatge -->
+        <div class="conf-field">
+          <span class="conf-field__label">Garatge</span>
+          <div class="conf-options conf-options--inline" data-field="4">
+            <label class="conf-option">
+              <input type="radio" name="garatge" value="si">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">Sí</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="garatge" value="no">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">No</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- m2 garatge (condicional) -->
+        <div class="conf-field hidden-field" id="field_m2_garatge">
+          <label class="conf-field__label" for="f_m2_garatge">Superfície del garatge</label>
+          <span class="conf-field__hint">Indica els metres quadrats del garatge</span>
+          <input type="number" class="conf-input" id="f_m2_garatge" min="1" placeholder="Ex: 40" data-field="5">
+        </div>
+
+        <!-- m2 porxos -->
+        <div class="conf-field">
+          <label class="conf-field__label" for="f_m2_porxos">Porxos i terrasses cobertes</label>
+          <span class="conf-field__hint">Superfície de zones exteriors cobertes (0 si no n'hi ha)</span>
+          <input type="number" class="conf-input" id="f_m2_porxos" min="0" value="0" placeholder="Ex: 20" data-field="22">
+        </div>
+
+        <!-- Escala (condicional) -->
+        <div class="conf-field hidden-field" id="field_escala">
+          <span class="conf-field__label">Tipus d'escala interior</span>
+          <div class="conf-options" data-field="21">
+            <label class="conf-option">
+              <input type="radio" name="escala" value="fusta">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Fusta estàndard</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="escala" value="metallica">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Metal·lica amb fusta</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="escala" value="no">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">No necessito escala</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="conf-nav">
+          <div></div>
+          <button class="conf-btn conf-btn--next" id="btnNext1">
+            Següent
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5h10M7 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        </div><!-- /panel-body -->
+      </div>
+
+      <!-- ─── STEP 2: Acabats ─── -->
+      <div class="conf-section card-locked" data-section="2">
+        <div class="conf-card__img-wrap">
+          <div class="conf-card__img" style="background-image:url('img/home/mg-3728.jpg');"></div>
+        </div>
+        <div class="panel-header" data-panel="2">
+          <span class="panel-header__num">2</span>
+          <span class="panel-header__title">Materials i acabats</span>
+          <span class="panel-header__status"></span>
+          <svg class="panel-header__arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="card-body-preview">
+          <span class="card-body-preview__desc">Tria el tipus de coberta, el material de la facana exterior, el paviment interior i el nivell de qualitat dels banys i la cuina.</span>
+          <button class="card-body-preview__cta" data-open="2">Bloquejat</button>
+        </div>
+        <div class="panel-body">
+        <p class="conf-section__desc">Tria els acabats exteriors i interiors de la teva casa.</p>
+
+        <!-- Coberta -->
+        <div class="conf-field">
+          <span class="conf-field__label">Tipus de coberta</span>
+          <div class="conf-options" data-field="12">
+            <label class="conf-option">
+              <input type="radio" name="coberta" value="teula">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Inclinada amb teula</span>
+                <span class="conf-option__sublabel">Arab o mixta</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="coberta" value="plana">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Plana</span>
+                <span class="conf-option__sublabel">Grava o transitable</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="coberta" value="xapa">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Xapa metal·lica</span>
+                <span class="conf-option__sublabel">Zinc o galvanitzada</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Façana -->
+        <div class="conf-field">
+          <span class="conf-field__label">Tipus de façana</span>
+          <div class="conf-options" data-field="13">
+            <label class="conf-option">
+              <input type="radio" name="façana" value="sate">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">SATE estàndard</span>
+                <span class="conf-option__sublabel">Arrebossat clàssic</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="façana" value="ventilada">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Façana ventilada</span>
+                <span class="conf-option__sublabel">Llistons de fusta</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="façana" value="suro">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Suro natural</span>
+                <span class="conf-option__sublabel">Material autòcton de Catalunya</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="façana" value="accoya">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Fusta Accoya</span>
+                <span class="conf-option__sublabel">Alta durabilitat i estètica premium</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Paviment -->
+        <div class="conf-field">
+          <span class="conf-field__label">Paviment interior</span>
+          <div class="conf-options" data-field="14">
+            <label class="conf-option">
+              <input type="radio" name="paviment" value="formigo">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Formigó polit</span>
+                <span class="conf-option__sublabel">Microciment</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="paviment" value="ceramic">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Ceràmic</span>
+                <span class="conf-option__sublabel">Gres porcel·lànic</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="paviment" value="parquet">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Parquet</span>
+                <span class="conf-option__sublabel">Fusta natural</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Nivell bany -->
+        <div class="conf-field">
+          <span class="conf-field__label">Nivell de qualitat dels banys</span>
+          <div class="conf-options" data-field="11">
+            <label class="conf-option">
+              <input type="radio" name="nivell_bany" value="estandar">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Estàndard</span>
+                <span class="conf-option__sublabel">Sanitaris Roca bàsics</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="nivell_bany" value="alt">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Alt</span>
+                <span class="conf-option__sublabel">Roca ONA, aixeteria Tres Study</span>
+              </span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="nivell_bany" value="premium">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text">
+                <span class="conf-option__label">Premium</span>
+                <span class="conf-option__sublabel">Disseny exclusiu, banyera exempta</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="conf-nav">
+          <button class="conf-btn conf-btn--back" id="btnBack2">
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M11 5H1M5 1L1 5l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Anterior
+          </button>
+          <button class="conf-btn conf-btn--next" id="btnNext2">
+            Següent
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5h10M7 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        </div><!-- /panel-body -->
+      </div>
+
+      <!-- ─── STEP 3: Equipament ─── -->
+      <div class="conf-section card-locked" data-section="3">
+        <div class="conf-card__img-wrap">
+          <div class="conf-card__img" style="background-image:url('img/home/premia-4.jpg');"></div>
+        </div>
+        <div class="panel-header" data-panel="3">
+          <span class="panel-header__num">3</span>
+          <span class="panel-header__title">Equipament i extras</span>
+          <span class="panel-header__status"></span>
+          <svg class="panel-header__arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="card-body-preview">
+          <span class="card-body-preview__desc">Afegeix plaques solars, persianes motoritzades, sistema de domotica, llar de foc, fan coils o membrana anti-rado segons les teves necessitats.</span>
+          <button class="card-body-preview__cta" data-open="3">Bloquejat</button>
+        </div>
+        <div class="panel-body">
+        <p class="conf-section__desc">Selecciona les instal·lacions i equipaments addicionals.</p>
+
+        <!-- Plaques solars -->
+        <div class="conf-field">
+          <span class="conf-field__label">Plaques solars fotovoltaiques</span>
+          <span class="conf-field__hint">Instal·lació d'autoconsum amb panells al teulat (~4 kWp)</span>
+          <div class="conf-options conf-options--inline" data-field="15">
+            <label class="conf-option">
+              <input type="radio" name="solar" value="si">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">Sí</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="solar" value="no">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">No</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Persianes -->
+        <div class="conf-field">
+          <span class="conf-field__label">Persianes motoritzades</span>
+          <span class="conf-field__hint">Persianes Griesser o similar, motoritzades amb comandament</span>
+          <div class="conf-options conf-options--inline" data-field="16">
+            <label class="conf-option">
+              <input type="radio" name="persianes" value="si">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">Sí</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="persianes" value="no">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">No</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Fan coils -->
+        <div class="conf-field">
+          <span class="conf-field__label">Fan coils</span>
+          <span class="conf-field__hint">Unitats interiors per distribuir calor i fred per conductes</span>
+          <div class="conf-options conf-options--inline" data-field="17">
+            <label class="conf-option">
+              <input type="radio" name="fancoils" value="si">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">Sí</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="fancoils" value="no">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">No</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Llar de foc -->
+        <div class="conf-field">
+          <span class="conf-field__label">Llar de foc</span>
+          <span class="conf-field__hint">Xemeneia de llenya o biomassa com a complement de calefacció</span>
+          <div class="conf-options conf-options--inline" data-field="18">
+            <label class="conf-option">
+              <input type="radio" name="llarfoc" value="si">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">Sí</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="llarfoc" value="no">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">No</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Membrana anti-radó -->
+        <div class="conf-field">
+          <span class="conf-field__label">Membrana anti-radó</span>
+          <span class="conf-field__hint">Obligatoria en zones de risc de radó (zona II o superior)</span>
+          <div class="conf-options conf-options--inline" data-field="19">
+            <label class="conf-option">
+              <input type="radio" name="rado" value="si">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">Sí</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="rado" value="no">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">No / No ho sé</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Domòtica -->
+        <div class="conf-field">
+          <span class="conf-field__label">Domòtica Loxone</span>
+          <span class="conf-field__hint">Sistema de control intel·ligent de llums, persianes, clima i seguretat</span>
+          <div class="conf-options conf-options--inline" data-field="20">
+            <label class="conf-option">
+              <input type="radio" name="domotica" value="si">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">Sí</span></span>
+            </label>
+            <label class="conf-option">
+              <input type="radio" name="domotica" value="no">
+              <span class="conf-option__radio"></span>
+              <span class="conf-option__text"><span class="conf-option__label">No</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="conf-nav">
+          <button class="conf-btn conf-btn--back" id="btnBack3">
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M11 5H1M5 1L1 5l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Anterior
+          </button>
+          <button class="conf-btn conf-btn--next" id="btnNext3">
+            Següent
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5h10M7 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        </div><!-- /panel-body -->
+      </div>
+
+      <!-- ─── STEP 4: Ubicació i contacte ─── -->
+      <div class="conf-section card-locked" data-section="4" style="display:none;">
+        <div class="conf-card__img-wrap">
+          <div class="conf-card__img" style="background-image:url('img/home/mg-3787.jpg');"></div>
+        </div>
+        <div class="panel-header" data-panel="4">
+          <span class="panel-header__num">4</span>
+          <span class="panel-header__title">Ubicació i contacte</span>
+          <span class="panel-header__status"></span>
+          <svg class="panel-header__arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="card-body-preview">
+          <span class="card-body-preview__desc">Indica el municipi on serà l'obra i les teves dades de contacte per rebre el pressupost detallat.</span>
+          <button class="card-body-preview__cta" data-open="4">Bloquejat</button>
+        </div>
+        <div class="panel-body">
+        <p class="conf-section__desc">Indica on serà l'obra i les teves dades per rebre el pressupost detallat.</p>
+
+        <!-- Localitzacio -->
+        <div class="conf-field">
+          <label class="conf-field__label" for="f_ubicacio">Ubicació de l'obra</label>
+          <span class="conf-field__hint">Selecciona el municipi més proper</span>
+          <select class="conf-select" id="f_ubicacio" data-field="7">
+            <option value="">Selecciona...</option>
+            <option value="0">Sant Cugat del Vallès (0 km)</option>
+            <option value="3">Valldoreix (3 km)</option>
+            <option value="8">Rubí (8 km)</option>
+            <option value="9">Cerdanyola del Vallès (9 km)</option>
+            <option value="10">Barberà del Vallès (10 km)</option>
+            <option value="10">Sant Quirze del Vallès (10 km)</option>
+            <option value="13">Ripollet (13 km)</option>
+            <option value="14">Sabadell (14 km)</option>
+            <option value="15">Vallvidrera (15 km)</option>
+            <option value="16">Terrassa (16 km)</option>
+            <option value="19">Barcelona (19 km)</option>
+            <option value="20">L'Hospitalet de Llobregat (20 km)</option>
+            <option value="22">Molins de Rei (22 km)</option>
+            <option value="25">Martorell (25 km)</option>
+            <option value="25">Sant Boi de Llobregat (25 km)</option>
+            <option value="28">Badalona (28 km)</option>
+            <option value="28">Santa Coloma de Gramenet (28 km)</option>
+            <option value="30">Vacarisses (30 km)</option>
+            <option value="31">Begues (31 km)</option>
+            <option value="35">Castelldefels (35 km)</option>
+            <option value="38">Granollers (38 km)</option>
+            <option value="38">Sant Quirze Safaja (38 km)</option>
+            <option value="40">Premià de Dalt (40 km)</option>
+            <option value="42">Sitges (42 km)</option>
+            <option value="45">Vilafranca del Penedès (45 km)</option>
+            <option value="48">Mataró (48 km)</option>
+            <option value="52">Collsuspina (52 km)</option>
+            <option value="55">Manresa (55 km)</option>
+            <option value="60">Igualada (60 km)</option>
+            <option value="67">Vic (67 km)</option>
+            <option value="-1">Altra localització (a consultar)</option>
+          </select>
+        </div>
+
+        <!-- Nom -->
+        <div class="conf-field">
+          <label class="conf-field__label" for="f_nom">Nom i cognoms</label>
+          <input type="text" class="conf-input" id="f_nom" placeholder="El teu nom complet" data-field="8" required>
+        </div>
+
+        <!-- Email -->
+        <div class="conf-field">
+          <label class="conf-field__label" for="f_email">Correu electrònic</label>
+          <input type="email" class="conf-input" id="f_email" placeholder="correu@exemple.com" data-field="9" required>
+        </div>
+
+        <!-- Telèfon -->
+        <div class="conf-field">
+          <label class="conf-field__label" for="f_tel">Telèfon de contacte</label>
+          <span class="conf-field__hint">Opcional</span>
+          <input type="tel" class="conf-input" id="f_tel" placeholder="Ex: 612 345 678" data-field="10">
+        </div>
+
+        <div class="conf-nav">
+          <button class="conf-btn conf-btn--back" id="btnBack4">
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M11 5H1M5 1L1 5l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Anterior
+          </button>
+          <button class="conf-btn conf-btn--next" id="btnCalc">
+            Calcular pressupost
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5h10M7 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        </div><!-- /panel-body -->
+      </div>
+
+      <!-- ─── RESULT ─── -->
+      <div class="conf-result" id="confResult">
+        <!-- Total hero -->
+        <div class="conf-result__hero">
+          <span class="conf-result__tag">Estimació orientativa</span>
+          <div class="conf-result__price" id="resultTotal">--</div>
+          <p class="conf-result__price-label">Pressupost total (IVA inclòs)</p>
+          <p class="conf-result__perm2" id="resultPerM2"></p>
+        </div>
+
+        <!-- Resum de la configuració -->
+        <div class="conf-result__section">
+          <h2 class="conf-result__section-title">La teva configuració</h2>
+          <div class="conf-summary" id="confSummary"></div>
+        </div>
+
+        <!-- Desglossament -->
+        <div class="conf-result__section">
+          <h2 class="conf-result__section-title">Desglossament del pressupost</h2>
+          <div class="conf-breakdown" id="confBreakdown"></div>
+        </div>
+
+        <!-- Panels: PDF + Chatbot -->
+        <div class="conf-result__panels">
+          <!-- PDF panel -->
+          <div class="conf-result__panel conf-result__panel--pdf">
+            <div class="conf-result__panel-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M14 3v5h5M9 13h6M9 17h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="conf-result__panel-title">El teu pressupost en PDF</h3>
+            <p class="conf-result__panel-text">Descarrega el desglossament complet i comparteix-lo amb el teu arquitecte o la teva família.</p>
+            <div class="conf-result__panel-actions">
+              <button class="conf-btn conf-btn--next" id="btnDownloadPdf">
+                Descarregar PDF
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v12M12 15l-4-4M12 15l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="conf-btn conf-btn--back" id="btnRestart">
+                Començar de nou
+              </button>
+            </div>
+          </div>
+
+          <!-- Chatbot panel (placeholder · futura integració) -->
+          <div class="conf-result__panel conf-result__panel--chat">
+            <div class="conf-result__panel-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="conf-result__panel-title">Pregunta'm sobre aquest pressupost</h3>
+            <p class="conf-result__panel-text">L'assistent virtual de Papik podrà respondre dubtes sobre materials, terminis o partides concretes del teu projecte.</p>
+            <div class="conf-chat-preview">
+              <div class="conf-chat-preview__bubble">Ex: «Per què la façana ventilada és més cara?»</div>
+              <div class="conf-chat-preview__row">
+                <input class="conf-chat-preview__input" placeholder="Escriu la teva pregunta…" disabled>
+                <button class="conf-chat-preview__btn" disabled aria-label="Enviar">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+            <span class="conf-result__panel-badge">Aviat disponible</span>
+          </div>
+        </div>
+
+        <p class="conf-disclaimer">
+          Aquesta és una estimació orientativa basada en costos mitjans reals de projectes Papik. El pressupost definitiu pot variar en funció de les condicions del terreny, projecte arquitectònic i preus actualitzats dels materials.
+        </p>
+      </div>
+
+      <!-- Progress line at bottom -->
+      <div class="conf-progress-line" id="confProgressLine">
+        <div class="conf-progress-line__fill" id="progressLineFill"></div>
+      </div>
+    </div><!-- /conf-form -->
+    </div><!-- /conf-layout -->
+</main>
+
+<!-- ═══════════════════════════════════
+     OVERLAY (fullscreen form)
+═══════════════════════════════════ -->
+<div class="conf-overlay" id="confOverlay">
+  <div class="conf-overlay__backdrop" id="overlayBackdrop"></div>
+  <div class="conf-overlay__content">
+    <div class="conf-overlay__header">
+      <div class="conf-overlay__title" id="overlayTitle">
+        <span class="panel-header__num">1</span>
+        <span>ESTRUCTURA I DIMENSIONS</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <span class="conf-overlay__step-indicator" id="overlayStepLabel">Pas 1 de 3</span>
+        <button class="conf-overlay__close" id="overlayClose">
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#fff" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="conf-overlay__form" id="overlayForm">
+      <!-- Form content injected dynamically -->
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     CHATBOT FAB
+═══════════════════════════════════ -->
+<button class="conf-chat-toggle" id="chatToggle" title="Assistent de configuració">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<div class="conf-chat-panel" id="chatPanel">
+  <div class="conf-chat__header">
+    <h2>Guia de configuració</h2>
+    <button class="conf-chat__close" id="chatClose">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="#002819" stroke-width="1.5"/></svg>
+    </button>
+  </div>
+  <div class="conf-chat__messages" id="chatMessages">
+    <div class="conf-chat__msg conf-chat__msg--bot">
+      Hola! Soc l'assistent de configuració de PAPIK. Et puc ajudar amb qualsevol dubte sobre el teu projecte. Pregunta'm!
+    </div>
+  </div>
+  <div class="conf-chat__input-row">
+    <input class="conf-chat__input" id="chatInput" type="text" placeholder="Escriu la teva pregunta...">
+    <button class="conf-chat__send" id="chatSend">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer__content__info color-white">
+      <div class="footer-col">
+        <p class="footer__col-title">PAPIK GROUP</p>
+        <ul>
+          <li><a href="about.html">Qui som</a></li>
+          <li><a href="projects.html">Projectes</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contacte">Contacte</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Serveis</p>
+        <ul>
+          <li><a href="construction.html">Construcció Residencial</a></li>
+          <li><a href="development.html">Promoció Immobiliària</a></li>
+          <li><a href="retrofit.html">Rehabilitació Energètica</a></li>
+          <li><a href="wealth.html">Patrimonis</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer__col-title">Oficines</p>
+        <div class="info-showroom__item">
+          <h3>SEU CENTRAL</h3>
+          <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 93 590 60 74</a></p>
+        </div>
+        <div class="info-showroom__item">
+          <h3>CORREU</h3>
+          <p><a href="mailto:info@papik.cat">info@papik.cat</a></p>
+        </div>
+      </div>
+      <div class="footer__newsletter">
+        <p class="footer__col-title">Newsletter</p>
+        <p>Segueix les novetats de PAPIK Group: projectes, rehabilitació energètica i ajudes disponibles.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="El teu email">
+          <button type="submit">
+            <svg width="18" height="16" viewBox="0 0 12.447 10.89"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="rgba(255,255,255,.8)"/></svg>
+          </button>
+        </div>
+        <div class="footer__rrss">
+          <p>Segueix-nos</p>
+          <div class="rrss__links">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright 2025 PAPIK Real Estate Group S.L.U. - Tots els drets reservats</p>
+      <div style="display:flex;gap:20px;">
+        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Avís Legal</a>
+        <a href="#" style="color:rgba(255,255,255,.35);font-size:12px;">Política de Privacitat</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/header.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/configurador.js" defer></script>
+
+<script src="../cursor.js" defer></script>
+  <script src="/js/cookie-banner.js" defer></script>
+  <script src="/js/forms.js" defer></script>
+
 </body>
 </html>
