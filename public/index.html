@@ -209,98 +209,57 @@
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="home">
 <div id="content-flex">
 
 <!-- ═══════════════════════════════════
-     HERO
+     1 · HERO · editorial split (text + portrait)
 ═══════════════════════════════════ -->
-<section class="block-hero block-hero--dark block-hero--home">
-  <div class="block-hero__media">
-    <img src="/img/fotos/papik-004bv.jpg" alt="Casa Passivhaus construïda per PAPIK a Catalunya" loading="eager" fetchpriority="high" width="1920" height="1080">
-    <div class="ph ph-hero" aria-hidden="true"></div>
-  </div>
-  <div class="block-hero__overlay"></div>
-  <div class="block-hero__content">
-    <span class="block-hero__eyebrow">DES DE 1994</span>
-    <h1 class="block-hero__title">Cases sostenibles,<br>naturalment.</h1>
-    <p class="block-hero__sub">Trenta anys construint a Catalunya. Sistema constructiu propi. Cases pensades per durar un segle.</p>
-    <div class="block-hero__cta">
-      <a href="/pressupost">
-        <button>
-          Configurar el meu pressupost
-          <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" fill="none" aria-hidden="true">
-            <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#002819"/>
-          </svg>
-        </button>
-      </a>
-      <a href="/projectes" class="block-hero__cta-secondary" style="margin-left:14px;color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:4px;">
-        Veure cases construïdes
-        <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" fill="none" aria-hidden="true">
-          <path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="#fff"/>
-        </svg>
-      </a>
+<section class="hero-ed">
+  <div class="container">
+    <div class="hero-ed__grid">
+      <div class="hero-ed__text">
+        <span class="eyebrow">Constructora residencial · des de 1994</span>
+        <h1 class="hero-ed__title">Cases pensades<br>per durar un segle.</h1>
+        <p class="hero-ed__lede">Trenta anys d'arquitectura residencial Passivhaus a Catalunya. Sistema constructiu propi, equip integrat, obres documentades.</p>
+        <div class="hero-ed__cta">
+          <a href="/pressupost" class="btn-ed">Configurar pressupost</a>
+          <a href="/projectes" class="link-ed">Veure cases construïdes</a>
+        </div>
+      </div>
+      <figure class="hero-ed__media">
+        <img src="/img/fotos/papik-004bv.jpg" alt="Interior d'una casa Passivhaus construïda per PAPIK" loading="eager" fetchpriority="high" width="1600" height="2000">
+      </figure>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════
-     INFO REPEATABLE — 2 blocs alternats
+     2 · STATS BAND · 4 numbers tabular
 ═══════════════════════════════════ -->
-<section class="block-info-repeatable" id="construccio">
-  <!-- Bloc 1: Construcció Residencial -->
-  <div class="block-info-repeatable__item bg-warm-1">
-    <div class="item__info">
-      <div class="item__info__text">
-        <p class="tag">Construcció Residencial</p>
-        <h2 class="big-text">Edificis que<br>expliquen una història</h2>
-        <p class="text">La seva casa, dissenyada amb vostè i lliurada clau en mà, amb solar o sense. Construïm habitatges Passivhaus i Eskimohaus® amb rigor tècnic i sensibilitat arquitectònica, des de la fonamentació fins al lliurament de claus.</p>
+<section class="stat-band" aria-label="Xifres PAPIK">
+  <div class="container">
+    <dl class="stat-band__grid">
+      <div class="stat">
+        <dt class="stat__num">30</dt>
+        <dd class="stat__label">anys construint Passivhaus a Catalunya</dd>
       </div>
-      <div class="item__info__link">
-        <a class="link-wrapper" href="/projectes">
-          <div class="link_images">
-            <div><div class="ph ph-warm-4" style="height:100%;border-radius:50%;background:linear-gradient(160deg,#E7E9E8 0%,#9FA9A3 100%);"></div></div>
-            <div><div class="ph ph-warm-5" style="height:100%;border-radius:50%;background:linear-gradient(160deg,#9FA9A3 0%,#56685E 100%);"></div></div>
-            <div><div class="ph ph-stone" style="height:100%;border-radius:50%;background:linear-gradient(160deg,#56685E 0%,#0A1B12 100%);"></div></div>
-          </div>
-          <div style="margin-left:16px;">
-            <p class="t16 color-muted">Veure projectes
-              <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
-              </svg>
-            </p>
-          </div>
-        </a>
+      <div class="stat">
+        <dt class="stat__num">+100</dt>
+        <dd class="stat__label">cases lliurades, certificades i ocupades</dd>
       </div>
-    </div>
-    <div class="item__media">
-      <img src="/img/projects/projecte-k-llavaneres/hero.jpg" alt="K-Llavaneres, primera casa Passivhaus Plus de Catalunya" loading="lazy" width="1200" height="800" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-    </div>
-  </div>
-
-  <!-- Bloc 2: Rehabilitació Energètica -->
-  <div class="block-info-repeatable__item bg-warm-2" id="rehabilitacio">
-    <div class="item__info">
-      <div class="item__info__text">
-        <p class="tag" style="color:var(--muted);">Rehabilitació Energètica</p>
-        <h2 class="big-text">Edificis més eficients,<br>consum responsable</h2>
-        <p class="text">La rehabilitació energètica no és una despesa, és una inversió. Millorem l'envolupant del seu edifici, reduïm el consum i acompanyem en la gestió integral de subvencions Next Generation EU per al seu projecte.</p>
+      <div class="stat">
+        <dt class="stat__num">36</dt>
+        <dd class="stat__label">obres documentades amb fitxa pública</dd>
       </div>
-      <div class="item__info__link" style="margin-top:28px;">
-        <a class="link-wrapper" href="/rehabilitacio">
-          <p class="t16 color-muted">Saber-ne més
-            <svg class="arrow-svg" width="12" height="11" viewBox="0 0 12.447 10.89" aria-hidden="true"><path d="M9.335,3.11V4.666H0V6.222H9.335V7.778H7.78V9.334H6.224V10.89H7.78V9.334H9.335V7.778h1.556V6.222h1.556V4.666H10.891V3.11Zm-1.556,0H9.336V1.554H7.78ZM6.224,1.554H7.78V0H6.224Z" fill="currentColor"/>
-            </svg>
-          </p>
-        </a>
+      <div class="stat">
+        <dt class="stat__num">9</dt>
+        <dd class="stat__label">comarques cobertes · 3 territoris</dd>
       </div>
-    </div>
-    <div class="item__media">
-      <img src="/img/projects/projecte-k-argentona/exterior-01.jpg" alt="Rehabilitació energètica K-Argentona" loading="lazy" width="1200" height="800" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-    </div>
+    </dl>
   </div>
 </section>
 
-<div class="spacing"></div>
 
 <!-- ═══════════════════════════════════
      SERVICES / DIVISIONS
