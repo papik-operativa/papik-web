@@ -1390,24 +1390,34 @@ def _extract_form_from_message(message, step):
 
 @app.route('/')
 def home():
-    # Llegim public/index.html i el retornem com a HTML directament.
-    # NO podem fer redirect('/index.html') perquè cleanUrls:true al
-    # vercel.json fa que '/index.html' redirigeixi a '/' → loop infinit.
-    # NO podem fer send_from_directory('public', 'index.html') perquè
-    # el cwd de Vercel a la function no és l'arrel del repo.
-    # Usem path absolut basat en __file__.
+    # Llegim public/index.html des d'algun path possible.
+    # En Vercel el cwd i __file__ poden no ser l'arrel del repo.
     import os
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    index_path = os.path.join(base_dir, 'public', 'index.html')
-    try:
-        with open(index_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        return Response(content, mimetype='text/html; charset=utf-8')
-    except FileNotFoundError:
-        return Response(
-            '<h1>PAPIK Group</h1><p>Visita <a href="/index.html">la home</a>.</p>',
-            mimetype='text/html', status=200
-        )
+    candidates = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public', 'index.html'),
+        os.path.join(os.getcwd(), 'public', 'index.html'),
+        '/var/task/public/index.html',
+        '/vercel/path0/public/index.html',
+        'public/index.html',
+    ]
+    for path in candidates:
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                return Response(f.read(), mimetype='text/html; charset=utf-8')
+        except (FileNotFoundError, IsADirectoryError, PermissionError):
+            continue
+    # Fallback: pàgina de diagnòstic (mostra paths intentats)
+    debug_info = '\n'.join([
+        f'  cwd: {os.getcwd()}',
+        f'  __file__: {__file__}',
+        f'  abspath(__file__): {os.path.abspath(__file__)}',
+        f'  Paths intentats: {candidates}',
+        f'  Listing dir: {os.listdir(os.getcwd())[:20]}',
+    ])
+    return Response(
+        f'<h1>PAPIK Group</h1><p>Visita <a href="/index.html">la home</a>.</p><pre>{debug_info}</pre>',
+        mimetype='text/html', status=200
+    )
 
 
 @app.route('/municipis')
