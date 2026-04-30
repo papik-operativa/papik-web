@@ -1388,10 +1388,10 @@ def _extract_form_from_message(message, step):
     return updates
 
 
-@app.route('/')
-def home():
-    return redirect('/index.html')
-
+# NOTA: la ruta '/' s'ha eliminat aquí perquè a Vercel xocava amb cleanUrls:true
+# i creava un loop de redireccions. Vercel serveix /public/index.html
+# directament com a estàtic en localhost del dev_server.py també funciona
+# perquè dev_server.py té el seu propi handler.
 
 @app.route('/municipis')
 def municipis():
