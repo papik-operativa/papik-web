@@ -1390,7 +1390,24 @@ def _extract_form_from_message(message, step):
 
 @app.route('/')
 def home():
-    return redirect('/index.html')
+    # Llegim public/index.html i el retornem com a HTML directament.
+    # NO podem fer redirect('/index.html') perquè cleanUrls:true al
+    # vercel.json fa que '/index.html' redirigeixi a '/' → loop infinit.
+    # NO podem fer send_from_directory('public', 'index.html') perquè
+    # el cwd de Vercel a la function no és l'arrel del repo.
+    # Usem path absolut basat en __file__.
+    import os
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    index_path = os.path.join(base_dir, 'public', 'index.html')
+    try:
+        with open(index_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        return Response(content, mimetype='text/html; charset=utf-8')
+    except FileNotFoundError:
+        return Response(
+            '<h1>PAPIK Group</h1><p>Visita <a href="/index.html">la home</a>.</p>',
+            mimetype='text/html', status=200
+        )
 
 
 @app.route('/municipis')
