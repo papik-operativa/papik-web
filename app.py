@@ -1388,12 +1388,10 @@ def _extract_form_from_message(message, step):
     return updates
 
 
-@app.route('/')
-def home():
-    # IMPORTANT: serveix el fitxer directament en lloc de redirect('/index.html').
-    # cleanUrls:true al vercel.json fa que '/index.html' redirigeixi a '/' →
-    # redirect('/index.html') aquí provocava un loop infinit en producció.
-    return send_from_directory('public', 'index.html')
+# NOTA: la ruta '/' s'ha eliminat per evitar el loop de redireccions amb
+# cleanUrls:true. A producció Vercel serveix /public/index.html com a
+# estàtic directament. A development local, dev_server.py té la seva
+# pròpia lògica de servir public/.
 
 
 @app.route('/municipis')
