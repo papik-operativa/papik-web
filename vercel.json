@@ -1556,6 +1556,11 @@
       "destination": "/_seo/comment-block-not-served"
     }
   ],
+  "functions": {
+    "app.py": {
+      "includeFiles": "public/**"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
