@@ -1,0 +1,10 @@
+# Carpeta legacy: scripts Flask/Python d'una versió antiga.
+# Es manté al repo per història però no s'ha de desplegar.
+_legacy/
+
+# Dev local
+dev_server.py
+
+# Cache
+__pycache__/
+*.pyc
