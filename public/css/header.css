@@ -39,7 +39,7 @@ header.header-top.hidden { top: -72px; }
   display: none; margin-right: 5vw;
 }
 .menu-btn__burger { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-.menu-btn__burger span { display: block; width: 24px; height: 2px; background: var(--green); margin-bottom: 5px; }
+.menu-btn__burger span { display: block; width: 24px; height: 2px; background: #000; margin-bottom: 5px; }
 .menu-btn__burger span:last-child { margin-bottom: 0; }
 
 /* PAPIK Logo */
@@ -76,34 +76,25 @@ nav.menu li:hover > a, nav.menu li:hover > span { opacity: .5; }
 nav.menu-right li { display: flex; align-items: center; cursor: pointer; }
 nav.menu-right li:hover { opacity: .5; }
 
-/* ─── Nav CTA (Pressupost) — compact variant of the unified button ───
-   Same criteria as site-wide CTAs: square (radius 0), TT Firs Neue,
-   500 weight, .02em tracking, filled green. Size reduced to fit the
-   52px sticky bar. Mirrors .btn-accent visually. */
+/* ─── Nav CTA pill (Pressupost) ─── */
 .nav-cta {
-  display: inline-flex; align-items: center; gap: 8px;
   background: var(--green); color: #fff !important;
-  border: 1px solid var(--green);
-  padding: 9px 18px; border-radius: 0;
-  font-family: var(--ff-sans);
-  font-size: 13px; font-weight: 500; letter-spacing: .02em;
-  line-height: 1; white-space: nowrap; text-decoration: none;
-  transition: background .3s var(--ease-paper),
-              border-color .3s var(--ease-paper),
-              transform .3s var(--ease-paper);
+  padding: 0 15px; height: 28px; border-radius: 14px;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12.5px; font-weight: 500; letter-spacing: .01em;
+  transition: background .2s !important, transform 0.18s ease, box-shadow 0.18s ease, color 0.22s ease !important;
+  white-space: nowrap; line-height: 1;
 }
-.nav-cta svg { flex-shrink: 0; transition: transform .3s var(--ease-paper); }
+.nav-cta svg { flex-shrink: 0; }
 .nav-cta:hover {
-  background: var(--green-dark) !important;
-  border-color: var(--green-dark);
-  opacity: 1 !important;
-  transform: translateY(-1px);
+  background: var(--green-light) !important; opacity: 1 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0,40,25,.20) !important;
 }
-.nav-cta:hover svg { transform: translateX(4px); }
 nav.menu-right li:has(.nav-cta):hover { opacity: 1; }
 
 /* Active nav link */
-nav.menu li a.active { font-weight: var(--fw-medium); }
+nav.menu li a.active { font-weight: 500; }
 
 /* ─── Icon wrapper (nav right) ─── */
 .icon-wrapper {

@@ -68,91 +68,9 @@
 
   
   <!-- PAPIK:SHARED-HEADER-CSS -->
-  <link rel="stylesheet" href="/css/cookie-banner.css">
   
-  <meta property="og:title" content="Accés Clients | PAPIK · Construcció · Promoció · Rehabilitació">
-  <meta property="og:description" content="Accedeix al teu espai de client PAPIK: seguiment de projectes, documentació i comunicació directa amb l">
-  <meta property="og:url" content="https://papik.cat/usuaris">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ca_ES">
-  <meta property="og:site_name" content="PAPIK Group">
-  <meta property="og:image" content="https://papik.cat/img/og/og-default.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Accés Clients | PAPIK · Construcció · Promoció · Rehabilitació">
-  <meta name="twitter:description" content="Accedeix al teu espai de client PAPIK: seguiment de projectes, documentació i comunicació directa amb l">
-  <meta name="twitter:image" content="https://papik.cat/img/og/og-default.jpg">
-  <meta name="theme-color" content="#002819">
-
-  <!-- perf-pass:preload -->
-  <link rel="preload" href="css/tokens.css" as="style">
-  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- perf-pass:dns -->
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-<!-- schema-enrichment:wave2 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Inici",
-      "item": "https://papik.cat/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Usuaris",
-      "item": "https://papik.cat/usuaris"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Àrea d'usuaris · PAPIK Group",
-  "description": "Accés privat per a clients i col·laboradors de PAPIK Group.",
-  "url": "https://papik.cat/usuaris",
-  "inLanguage": "ca",
-  "isPartOf": {
-    "@id": "https://papik.cat/#website"
-  },
-  "robots": "noindex,follow"
-}
-</script>
-  <link rel="alternate" hreflang="ca" href="https://papik.cat/usuaris">
-  <link rel="alternate" hreflang="es" href="https://papik.cat/es/usuaris">
-  <link rel="alternate" hreflang="x-default" href="https://papik.cat/usuaris">
 </head>
 <body>
-<a href="#main" class="skip-to-content">Salta al contingut</a>
-<!-- PAPIK · Cookie consent banner snippet
-     Inject at the start of <body>. The text shown is a CA fallback;
-     cookie-banner.js localises it in place using the page's <html lang>. -->
-<aside id="papik-cc-banner"
-       class="papik-cc"
-       role="region"
-       aria-label="Avís de galetes"
-       hidden>
-  <div class="papik-cc-inner">
-    <div class="papik-cc-copy">
-      <h2 data-cc-text="title">Aquesta web utilitza galetes</h2>
-      <p data-cc-text="body">
-        Utilitzem galetes pròpies i de tercers per analitzar el nostre servei i mostrar-te
-        publicitat relacionada amb les teves preferències. Pots acceptar-les totes,
-        rebutjar-les totes o configurar-les.
-      </p>
-    </div>
-    <div class="papik-cc-actions">
-      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="reject">Rebutjar tot</button>
-      <button type="button" class="papik-cc-btn papik-cc-btn--ghost" data-cc-action="configure">Configurar</button>
-      <button type="button" class="papik-cc-btn papik-cc-btn--primary" data-cc-action="accept">Acceptar tot</button>
-    </div>
-  </div>
-</aside>
 
 <!-- ═══════════════════════════════════
      MOBILE NAV OVERLAY
@@ -495,7 +413,7 @@
           </svg>
         </div>
         <div class="account-feature__text">
-          <h3>Seguiment en temps real</h3>
+          <h4>Seguiment en temps real</h4>
           <p>Estat actualitzat de cada fase de l'obra</p>
         </div>
       </div>
@@ -649,7 +567,7 @@
       <div class="footer-col">
         <p class="footer__col-title">Oficines</p>
         <div class="info-showroom__item">
-          <h2>SEU CENTRAL</h2>
+          <h3>SEU CENTRAL</h3>
           <p>Carrer de la Sort, 34<br>08172 Sant Cugat del Vallès<br><a href="tel:935906074">T 935 90 60 74</a></p>
         </div>
         <div class="info-showroom__item">
@@ -716,10 +634,8 @@
 })();
 </script>
 
-<script src="js/vendor/supabase.js" defer></script>
-<script src="supabase-auth.js" defer></script>
-  <script src="/js/cookie-banner.js" defer></script>
-  <script src="/js/forms.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-auth.js"></script>
 
 </body>
 </html>
