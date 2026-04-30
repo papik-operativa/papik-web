@@ -7,7 +7,7 @@ try:
     HAS_PDF2IMAGE = True
 except ImportError:
     HAS_PDF2IMAGE = False
-from flask import Flask, request, jsonify, Response, redirect, send_from_directory
+from flask import Flask, request, jsonify, Response, redirect
 from datetime import date, timedelta
 from generate_pdf import generar_pdf
 
@@ -1388,10 +1388,9 @@ def _extract_form_from_message(message, step):
     return updates
 
 
-# NOTA: la ruta '/' s'ha eliminat per evitar el loop de redireccions amb
-# cleanUrls:true. A producció Vercel serveix /public/index.html com a
-# estàtic directament. A development local, dev_server.py té la seva
-# pròpia lògica de servir public/.
+@app.route('/')
+def home():
+    return redirect('/index.html')
 
 
 @app.route('/municipis')

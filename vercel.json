@@ -1554,22 +1554,8 @@
     {
       "source": "/_seo/comment",
       "destination": "/_seo/comment-block-not-served"
-    },
-    {
-      "source": "/",
-      "destination": "/index.html"
     }
   ],
-  "functions": {
-    "api/calcular.py": {
-      "memory": 1024,
-      "maxDuration": 30
-    },
-    "api/download-pdf.py": {
-      "memory": 1024,
-      "maxDuration": 30
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
