@@ -708,40 +708,101 @@
     .conf-result { display: none; }
     .conf-result.active { display: block; }
 
-    .conf-result__header {
+    /* Hero (gran número del total) */
+    .conf-result__hero {
       text-align: center;
-      margin-bottom: 48px;
+      padding: 48px 24px 40px;
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: 56px;
     }
     .conf-result__tag {
       font-size: 11px;
       letter-spacing: .22em;
       text-transform: uppercase;
       color: var(--muted-light);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: block;
     }
     .conf-result__price {
-      font-size: clamp(40px, 5vw, 64px);
+      font-size: clamp(44px, 6vw, 80px);
       font-weight: 300;
       color: var(--green);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+      letter-spacing: -0.025em;
+      line-height: 1;
     }
     .conf-result__price-label {
       font-size: 16px;
       color: var(--muted);
-      margin-top: 8px;
+      margin-top: 14px;
     }
     .conf-result__perm2 {
-      font-size: 18px;
-      color: var(--muted);
+      font-size: 14px;
+      color: var(--muted-light);
       margin-top: 8px;
+      letter-spacing: .02em;
     }
 
-    /* Breakdown */
+    /* Sections */
+    .conf-result__section {
+      max-width: 920px;
+      margin: 0 auto 56px;
+      padding: 0 24px;
+    }
+    .conf-result__section-title {
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: var(--fw-light);
+      color: var(--green);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    /* Resum de la configuració · grid 3 columnes */
+    .conf-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--hairline);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .conf-summary__item {
+      padding: 18px 20px;
+      border-right: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      background: #fff;
+    }
+    .conf-summary__item:nth-child(3n) { border-right: none; }
+    .conf-summary__label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--muted-light);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .conf-summary__value {
+      font-size: 15px;
+      color: var(--green);
+      font-weight: var(--fw-regular);
+      line-height: 1.4;
+      letter-spacing: -0.005em;
+    }
+    @media (max-width: 768px) {
+      .conf-summary { grid-template-columns: 1fr 1fr; }
+      .conf-summary__item:nth-child(3n) { border-right: 1px solid var(--hairline); }
+      .conf-summary__item:nth-child(2n) { border-right: none; }
+    }
+    @media (max-width: 480px) {
+      .conf-summary { grid-template-columns: 1fr; }
+      .conf-summary__item:nth-child(2n) { border-right: none; }
+    }
+
+    /* Breakdown (desglossament) */
     .conf-breakdown {
-      max-width: 640px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
     }
     .conf-pack {
       margin-bottom: 32px;
@@ -787,13 +848,153 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* Result actions */
+    /* Result actions (legacy, encara s'utilitza en alguns punts) */
     .conf-result__actions {
       display: flex;
       gap: 16px;
       justify-content: center;
       margin-top: 40px;
       flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════
+       PANELS · PDF + CHATBOT (resultat)
+    ═══════════════════════════════════ */
+    .conf-result__panels {
+      max-width: 1080px;
+      margin: 0 auto 24px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .conf-result__panel {
+      position: relative;
+      padding: 36px 32px 32px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--hairline);
+      background: #fff;
+      transition: border-color .3s ease, box-shadow .3s ease;
+    }
+    .conf-result__panel--pdf {
+      background: var(--cream, #F4F1ED);
+      border-color: transparent;
+    }
+    .conf-result__panel--chat {
+      background: var(--green);
+      color: #fff;
+      border-color: transparent;
+    }
+    .conf-result__panel-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: var(--green);
+      background: rgba(0,40,25,0.07);
+    }
+    .conf-result__panel--chat .conf-result__panel-icon {
+      background: rgba(255,255,255,0.10);
+      color: var(--accent);
+    }
+    .conf-result__panel-title {
+      font-size: 20px;
+      font-weight: var(--fw-light);
+      letter-spacing: -0.01em;
+      color: var(--green);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .conf-result__panel--chat .conf-result__panel-title { color: #fff; }
+    .conf-result__panel-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted-cream, #6B6A62);
+      margin-bottom: 22px;
+      max-width: 32ch;
+    }
+    .conf-result__panel--chat .conf-result__panel-text {
+      color: rgba(255,255,255,0.7);
+    }
+    .conf-result__panel-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .conf-result__panel-actions .conf-btn {
+      justify-content: center;
+    }
+    .conf-result__panel-badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(149,187,165,0.15);
+      padding: 5px 12px;
+      border-radius: var(--r-pill);
+      margin-top: 16px;
+    }
+
+    /* Chatbot preview (placeholder) */
+    .conf-chat-preview {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--r-md);
+      padding: 16px;
+    }
+    .conf-chat-preview__bubble {
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.85);
+      padding: 10px 14px;
+      border-radius: 12px 12px 12px 4px;
+      font-size: 13px;
+      line-height: 1.5;
+      max-width: 85%;
+      margin-bottom: 14px;
+    }
+    .conf-chat-preview__row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .conf-chat-preview__input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-family: inherit;
+      color: #fff;
+      outline: none;
+      cursor: not-allowed;
+    }
+    .conf-chat-preview__input::placeholder {
+      color: rgba(255,255,255,0.40);
+    }
+    .conf-chat-preview__btn {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      border: none;
+      color: rgba(255,255,255,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      flex-shrink: 0;
+      cursor: not-allowed;
+    }
+    .conf-chat-preview__btn:hover { background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.45); }
+
+    @media (max-width: 768px) {
+      .conf-result__panels { grid-template-columns: 1fr; gap: 16px; padding: 0 16px; }
+      .conf-result__panel { padding: 28px 24px; }
     }
 
     /* Disclaimer */
@@ -1106,6 +1307,13 @@
     /* Hidden utility */
     .hidden-field { display: none; }
 
+    /* Input error feedback (validació) */
+    .conf-input--error,
+    .conf-input.conf-input--error {
+      border-color: #c0392b !important;
+      box-shadow: 0 0 0 3px rgba(192,57,43,0.10) !important;
+    }
+
     /* ═══════════════════════════════════
        PROGRESS BAR (sticky)
     ═══════════════════════════════════ */
@@ -1151,10 +1359,10 @@
        (same block as "Quatre divisions, un sol equip")
     ═══════════════════════════════════ */
     .conf-form.card-view {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
       width: 90.625vw;
-      max-width: 1400px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 56px 0;
     }
@@ -1187,7 +1395,7 @@
     }
     /* Image wrap at top of card */
     .conf-form.card-view .conf-section .conf-card__img-wrap {
-      height: 180px;
+      height: 220px;
       width: 100%;
       overflow: hidden;
       position: relative;
@@ -2271,12 +2479,19 @@
       </div>
 
       <!-- ─── STEP 4: Ubicació i contacte ─── -->
-      <div class="conf-section" data-section="4" style="display:none;">
+      <div class="conf-section card-locked" data-section="4" style="display:none;">
+        <div class="conf-card__img-wrap">
+          <div class="conf-card__img" style="background-image:url('img/home/mg-3787.jpg');"></div>
+        </div>
         <div class="panel-header" data-panel="4">
           <span class="panel-header__num">4</span>
           <span class="panel-header__title">Ubicació i contacte</span>
           <span class="panel-header__status"></span>
           <svg class="panel-header__arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="card-body-preview">
+          <span class="card-body-preview__desc">Indica el municipi on serà l'obra i les teves dades de contacte per rebre el pressupost detallat.</span>
+          <button class="card-body-preview__cta" data-open="4">Bloquejat</button>
         </div>
         <div class="panel-body">
         <p class="conf-section__desc">Indica on serà l'obra i les teves dades per rebre el pressupost detallat.</p>
@@ -2355,25 +2570,69 @@
 
       <!-- ─── RESULT ─── -->
       <div class="conf-result" id="confResult">
-        <div class="conf-result__header">
+        <!-- Total hero -->
+        <div class="conf-result__hero">
           <span class="conf-result__tag">Estimació orientativa</span>
           <div class="conf-result__price" id="resultTotal">--</div>
           <p class="conf-result__price-label">Pressupost total (IVA inclòs)</p>
           <p class="conf-result__perm2" id="resultPerM2"></p>
         </div>
 
-        <div class="conf-breakdown" id="confBreakdown">
-          <!-- Filled dynamically -->
+        <!-- Resum de la configuració -->
+        <div class="conf-result__section">
+          <h2 class="conf-result__section-title">La teva configuració</h2>
+          <div class="conf-summary" id="confSummary"></div>
         </div>
 
-        <div class="conf-result__actions">
-          <button class="conf-btn conf-btn--next" id="btnDownloadPdf">
-            Descarregar PDF
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v12M12 15l-4-4M12 15l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="conf-btn conf-btn--back" id="btnRestart">
-            Nova configuració
-          </button>
+        <!-- Desglossament -->
+        <div class="conf-result__section">
+          <h2 class="conf-result__section-title">Desglossament del pressupost</h2>
+          <div class="conf-breakdown" id="confBreakdown"></div>
+        </div>
+
+        <!-- Panels: PDF + Chatbot -->
+        <div class="conf-result__panels">
+          <!-- PDF panel -->
+          <div class="conf-result__panel conf-result__panel--pdf">
+            <div class="conf-result__panel-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M14 3v5h5M9 13h6M9 17h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="conf-result__panel-title">El teu pressupost en PDF</h3>
+            <p class="conf-result__panel-text">Descarrega el desglossament complet i comparteix-lo amb el teu arquitecte o la teva família.</p>
+            <div class="conf-result__panel-actions">
+              <button class="conf-btn conf-btn--next" id="btnDownloadPdf">
+                Descarregar PDF
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v12M12 15l-4-4M12 15l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="conf-btn conf-btn--back" id="btnRestart">
+                Començar de nou
+              </button>
+            </div>
+          </div>
+
+          <!-- Chatbot panel (placeholder · futura integració) -->
+          <div class="conf-result__panel conf-result__panel--chat">
+            <div class="conf-result__panel-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="conf-result__panel-title">Pregunta'm sobre aquest pressupost</h3>
+            <p class="conf-result__panel-text">L'assistent virtual de Papik podrà respondre dubtes sobre materials, terminis o partides concretes del teu projecte.</p>
+            <div class="conf-chat-preview">
+              <div class="conf-chat-preview__bubble">Ex: «Per què la façana ventilada és més cara?»</div>
+              <div class="conf-chat-preview__row">
+                <input class="conf-chat-preview__input" placeholder="Escriu la teva pregunta…" disabled>
+                <button class="conf-chat-preview__btn" disabled aria-label="Enviar">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+            <span class="conf-result__panel-badge">Aviat disponible</span>
+          </div>
         </div>
 
         <p class="conf-disclaimer">
@@ -2445,43 +2704,6 @@
 <!-- ═══════════════════════════════════
      FOOTER
 ═══════════════════════════════════ -->
-<section class="papik-form-block" id="budget">
-  <h2 class="papik-form-block__title">Demana el teu pressupost</h2>
-  <form id="presupuesto-lite-form" class="papik-form" method="post" action="/api/forms/presupuesto-lite" novalidate>
-    <div class="papik-form__row--inline">
-      <div class="papik-form__row">
-        <label for="bd-name">Nom</label>
-        <input id="bd-name" name="name" type="text" autocomplete="name" required>
-      </div>
-      <div class="papik-form__row">
-        <label for="bd-email">Correu electrònic</label>
-        <input id="bd-email" name="email" type="email" autocomplete="email" required>
-      </div>
-    </div>
-    <div class="papik-form__row--inline">
-      <div class="papik-form__row">
-        <label for="bd-phone">Telèfon</label>
-        <input id="bd-phone" name="phone" type="tel" autocomplete="tel" required>
-      </div>
-      <div class="papik-form__row">
-        <label for="bd-type">Tipus de projecte</label>
-        <select id="bd-type" name="project_type" required>
-          <option value="" disabled selected>Selecciona…</option>
-          <option value="construction">Construcció nova</option><option value="development">Promoció</option><option value="retrofit">Rehabilitació</option><option value="wealth">Patrimoni</option>
-        </select>
-      </div>
-    </div>
-    <div class="papik-form__row">
-      <label for="bd-desc">Descripció breu</label>
-      <textarea id="bd-desc" name="description" required></textarea>
-    </div>
-    <label class="papik-form__consent">
-      <input type="checkbox" name="gdpr_consent" required>
-      <span>He llegit i accepto la <a href="/politica-privacitat.html">Política de Privacitat</a>.</span>
-    </label>
-    <button type="submit" class="papik-form__submit">Sol·licitar pressupost</button>
-  </form>
-</section>
 <footer>
   <div class="container">
     <div class="footer__content__info color-white">
@@ -2545,6 +2767,7 @@
 
 <script src="js/header.js" defer></script>
 <script src="js/motion.js" defer></script>
+<script src="js/configurador.js" defer></script>
 
 <script src="cursor.js" defer></script>
   <script src="/js/cookie-banner.js" defer></script>
