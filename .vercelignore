@@ -1,0 +1,11 @@
+# Scripts legacy de Flask: només per a development local. No desplegar.
+_legacy/
+
+# Cache Python (no s'haurien de commitejar però per si)
+__pycache__/
+*.pyc
+
+# Documentació interna no desplegable
+seo-internal/
+.impeccable.md
+CLAUDE.md
