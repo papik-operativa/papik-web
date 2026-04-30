@@ -7,7 +7,7 @@ try:
     HAS_PDF2IMAGE = True
 except ImportError:
     HAS_PDF2IMAGE = False
-from flask import Flask, request, jsonify, Response, redirect
+from flask import Flask, request, jsonify, Response, redirect, send_from_directory
 from datetime import date, timedelta
 from generate_pdf import generar_pdf
 
@@ -1388,10 +1388,13 @@ def _extract_form_from_message(message, step):
     return updates
 
 
-# NOTA: la ruta '/' s'ha eliminat aquí perquè a Vercel xocava amb cleanUrls:true
-# i creava un loop de redireccions. Vercel serveix /public/index.html
-# directament com a estàtic en localhost del dev_server.py també funciona
-# perquè dev_server.py té el seu propi handler.
+@app.route('/')
+def home():
+    # IMPORTANT: serveix el fitxer directament en lloc de redirect('/index.html').
+    # cleanUrls:true al vercel.json fa que '/index.html' redirigeixi a '/' →
+    # redirect('/index.html') aquí provocava un loop infinit en producció.
+    return send_from_directory('public', 'index.html')
+
 
 @app.route('/municipis')
 def municipis():
