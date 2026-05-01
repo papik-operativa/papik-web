@@ -25,6 +25,9 @@ venv/
 # Backups (local snapshots, don't push)
 BACKUPS/
 
+# SEO inventory output (regenerable from inventory_gap.py)
+inventory-gap.csv
+
 # Local dev scripts (keep out of repo)
 serve.py
 serve_dev.py
