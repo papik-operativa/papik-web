@@ -65,6 +65,7 @@ HERE     = os.path.dirname(os.path.abspath(__file__))
 ASSETS   = os.path.join(HERE, '_assets')
 TEMPLATE = os.path.join(ASSETS, 'plantilla.pdf')
 FONTS    = os.path.join(ASSETS, 'fonts')
+LOGO     = os.path.join(ASSETS, 'logo.png')
 
 
 # ── Font registration (TT Firs Neue corporate family) ───────────────────────
@@ -92,6 +93,32 @@ def _register_fonts():
 FONT_LIGHT  = 'TTFirs-Light'
 FONT_REG    = 'TTFirs'
 FONT_MEDIUM = 'TTFirs-Medium'
+
+
+# ── Official logo: load + crop transparency once per cold start ─────────────
+_LOGO_IMG = None
+_LOGO_RATIO = 1.0  # width / height of the cropped logo
+
+def _get_logo():
+    """Return an ImageReader for the corporate PAPIK logo with the
+    transparent padding cropped away, plus the width/height aspect
+    ratio so the caller can size it correctly. Cached per cold start."""
+    global _LOGO_IMG, _LOGO_RATIO
+    if _LOGO_IMG is not None:
+        return _LOGO_IMG, _LOGO_RATIO
+    try:
+        from PIL import Image as PILImage
+        from reportlab.lib.utils import ImageReader
+        img = PILImage.open(LOGO).convert('RGBA')
+        bbox = img.getbbox()                       # tight bbox of non-transparent area
+        if bbox:
+            img = img.crop(bbox)
+        _LOGO_RATIO = img.width / img.height
+        _LOGO_IMG = ImageReader(img)
+    except Exception:
+        _LOGO_IMG = None
+        _LOGO_RATIO = 1.0
+    return _LOGO_IMG, _LOGO_RATIO
 
 
 # ── Helpers ─────────────────────────────────────────────────────────────────
@@ -128,12 +155,25 @@ def _draw_chrome(canvas, doc):
     """Header (PAPIK logo + tagline) and footer. Page number is added
     later in a post-process pass once we know the final total."""
     canvas.saveState()
-    # Header: PAPIK wordmark (left)
-    canvas.setFont(FONT_MEDIUM, 16)
-    canvas.setFillColor(GREEN)
-    canvas.drawString(ML, H - 60, 'PAPIK')
-    canvas.setFont(FONT_REG, 6)
-    canvas.drawString(ML + 56, H - 53, '®')
+    # Header: official PAPIK logo (left). Falls back to text rendering
+    # if the PNG is missing or PIL isn't available at runtime.
+    logo_img, ratio = _get_logo()
+    if logo_img is not None:
+        target_h = 26
+        target_w = target_h * ratio
+        canvas.drawImage(
+            logo_img,
+            ML, H - 80,
+            width=target_w, height=target_h,
+            mask='auto',
+            preserveAspectRatio=True,
+        )
+    else:
+        canvas.setFont(FONT_MEDIUM, 16)
+        canvas.setFillColor(GREEN)
+        canvas.drawString(ML, H - 60, 'PAPIK')
+        canvas.setFont(FONT_REG, 6)
+        canvas.drawString(ML + 56, H - 53, '®')
 
     # Header: tagline (right, two lines)
     canvas.setFont(FONT_MEDIUM, 10.5)
@@ -141,9 +181,6 @@ def _draw_chrome(canvas, doc):
     canvas.drawRightString(W - MR, H - 56, 'Casas sostenibles,')
     canvas.drawRightString(W - MR, H - 70, 'naturalmente')
 
-    # Footer placeholder marker — actual "Página X de N" comes later in
-    # the overlay pass. We still leave a small reservation so reportlab
-    # doesn't drop content onto it.
     canvas.restoreState()
 
 
@@ -236,7 +273,8 @@ def _build_summary_lines(payload, result):
 
 
 def _summary_table(rows):
-    """Two-column table styled like the template's body lists."""
+    """Two-column table styled like the template's body lists, with
+    fixed widths so it can be centered horizontally on the page."""
     data = []
     for label, value in rows:
         data.append([
@@ -246,7 +284,10 @@ def _summary_table(rows):
                       _sty('s-v', fontName=FONT_MEDIUM, fontSize=10,
                            alignment=TA_RIGHT, textColor=GREEN)),
         ])
-    t = Table(data, colWidths=[None, 6 * cm])
+    label_w = 8.5 * cm
+    value_w = 5.5 * cm
+    t = Table(data, colWidths=[label_w, value_w])
+    t.hAlign = 'CENTER'
     t.setStyle(TableStyle([
         ('VALIGN',       (0, 0), (-1, -1), 'MIDDLE'),
         ('LEFTPADDING',  (0, 0), (-1, -1), 0),
@@ -332,14 +373,14 @@ def _pack_table(pack_data, lines, subtotal_label):
         ('VALIGN',       (0, 0), (-1, -1), 'MIDDLE'),
         ('LEFTPADDING',  (0, 0), (-1, -1), 0),
         ('RIGHTPADDING', (0, 0), (-1, -1), 0),
-        ('TOPPADDING',   (0, 0), (-1, -1), 4),
-        ('BOTTOMPADDING',(0, 0), (-1, -1), 4),
+        ('TOPPADDING',   (0, 0), (-1, -1), 3),
+        ('BOTTOMPADDING',(0, 0), (-1, -1), 3),
         # subtle dotted-look hairline between items
         ('LINEBELOW',    (0, 0), (-1, -2), 0.25, colors.HexColor('#e2dfd6')),
         # solid line above subtotal
         ('LINEABOVE',    (0, -1), (-1, -1), 0.6, HAIRLINE),
-        ('TOPPADDING',   (0, -1), (-1, -1), 8),
-        ('BOTTOMPADDING',(0, -1), (-1, -1), 8),
+        ('TOPPADDING',   (0, -1), (-1, -1), 6),
+        ('BOTTOMPADDING',(0, -1), (-1, -1), 6),
     ]
     t.setStyle(TableStyle(style))
     return t
@@ -387,18 +428,19 @@ def _build_story(payload, result):
     story.append(hero)
     story.append(Spacer(1, 4))
 
-    # Configuration summary
+    # Configuration summary (centered)
     story.append(_section_title('RESUM DE LA CONFIGURACIÓ'))
-    story.append(_indented_body(_summary_table(_build_summary_lines(payload, result))))
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 12))
+    story.append(_summary_table(_build_summary_lines(payload, result)))
+    story.append(Spacer(1, 6))
 
-    # Force a new page for the breakdown so each pack stays readable
+    # Force a new page for the breakdown
     from reportlab.platypus import PageBreak
     story.append(PageBreak())
 
-    # ── Page 2: breakdown packs + totals ─────────────────────────────
+    # ── Page 2+: breakdown packs + totals (compact spacing to fit 3 pages) ──
     story.append(_section_title('DESGLOSSAMENT PER PARTIDES'))
-    story.append(Spacer(1, 14))
+    story.append(Spacer(1, 10))
 
     for title, key, lines in PACKS:
         data = result.get(key) or {}
@@ -407,13 +449,15 @@ def _build_story(payload, result):
             continue
         story.append(KeepTogether([
             Paragraph(title,
-                      _sty('pack-title', fontName=FONT_MEDIUM, fontSize=10,
-                           leading=12, textColor=GREEN_SOFT, spaceAfter=4)),
-            _indented_body(tbl, indent=20),
+                      _sty('pack-title', fontName=FONT_MEDIUM, fontSize=9.5,
+                           leading=11, textColor=GREEN_SOFT, spaceAfter=2)),
+            tbl,
         ]))
-        story.append(Spacer(1, 6))
+        story.append(Spacer(1, 4))
 
-    # Altres conceptes
+    # ── Altres conceptes + TOTAL kept together so they never get orphaned ──
+    tail = []
+
     rows_extra = []
     if transport:
         km = v.get('km_transport', 0)
@@ -425,10 +469,10 @@ def _build_story(payload, result):
     if ce.get('fonamentacio'):
         rows_extra.append(('Fonamentació', ce['fonamentacio']))
     if rows_extra:
-        story.append(Paragraph(
+        tail.append(Paragraph(
             'ALTRES CONCEPTES',
-            _sty('pack-title', fontName=FONT_MEDIUM, fontSize=10, leading=12,
-                 textColor=GREEN_SOFT, spaceAfter=4)))
+            _sty('pack-title', fontName=FONT_MEDIUM, fontSize=9.5, leading=11,
+                 textColor=GREEN_SOFT, spaceAfter=2)))
         extra_rows = [[
             Paragraph(lbl, _sty('p-l', fontSize=9.5, textColor=GREEN)),
             Paragraph(_fmt_eur(vv),
@@ -439,12 +483,12 @@ def _build_story(payload, result):
             ('VALIGN',       (0, 0), (-1, -1), 'MIDDLE'),
             ('LEFTPADDING',  (0, 0), (-1, -1), 0),
             ('RIGHTPADDING', (0, 0), (-1, -1), 0),
-            ('TOPPADDING',   (0, 0), (-1, -1), 4),
-            ('BOTTOMPADDING',(0, 0), (-1, -1), 4),
+            ('TOPPADDING',   (0, 0), (-1, -1), 3),
+            ('BOTTOMPADDING',(0, 0), (-1, -1), 3),
             ('LINEBELOW',    (0, 0), (-1, -1), 0.25, colors.HexColor('#e2dfd6')),
         ]))
-        story.append(_indented_body(et, indent=20))
-        story.append(Spacer(1, 12))
+        tail.append(et)
+        tail.append(Spacer(1, 10))
 
     # Total final block — coloured strip, like a final emphasis
     total_table = Table(
@@ -470,25 +514,27 @@ def _build_story(payload, result):
         ('VALIGN',       (0, 0), (-1, -1), 'MIDDLE'),
         ('LEFTPADDING',  (0, 0), (-1, -1), 14),
         ('RIGHTPADDING', (0, 0), (-1, -1), 14),
-        ('TOPPADDING',   (0, 0), (0, 1), 6),
-        ('BOTTOMPADDING',(0, 0), (0, 1), 6),
-        ('TOPPADDING',   (0, -1), (-1, -1), 14),
-        ('BOTTOMPADDING',(0, -1), (-1, -1), 14),
+        ('TOPPADDING',   (0, 0), (0, 1), 5),
+        ('BOTTOMPADDING',(0, 0), (0, 1), 5),
+        ('TOPPADDING',   (0, -1), (-1, -1), 12),
+        ('BOTTOMPADDING',(0, -1), (-1, -1), 12),
         ('LINEBELOW',    (0, 0), (-1, -2), 0.4, colors.HexColor('#e2dfd6')),
         ('LINEABOVE',    (0, -1), (-1, -1), 1.0, GREEN),
         ('LINEBELOW',    (0, -1), (-1, -1), 1.0, GREEN),
         ('BACKGROUND',   (0, -1), (-1, -1), BG_BAND),
     ]))
-    story.append(_indented_body(total_table, indent=20))
-    story.append(Spacer(1, 8))
-
-    # Disclaimer
-    story.append(Paragraph(
+    tail.append(total_table)
+    tail.append(Spacer(1, 8))
+    tail.append(Paragraph(
         'Estimació orientativa basada en costos mitjans reals de projectes PAPIK Group. '
         'El pressupost definitiu pot variar segons les condicions del terreny, '
         'el projecte arquitectònic i els preus actualitzats dels materials. '
         f'Vàlid fins el {result.get("data_validesa") or "—"}.',
         _sty('disclaimer', fontSize=8, leading=11, alignment=TA_LEFT, textColor=GREEN_SOFT)))
+
+    # Glue ALTRES CONCEPTES + TOTAL + disclaimer onto the same page so the
+    # final summary never gets orphaned on a near-empty last page.
+    story.append(KeepTogether(tail))
 
     return story
 
