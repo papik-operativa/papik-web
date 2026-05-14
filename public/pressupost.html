@@ -3415,6 +3415,14 @@
     if (data.garatge === true)  setRadio('garatge', 'si');
     if (data.garatge === false) setRadio('garatge', 'no');
 
+    // When the plan implies > 1 floor, also pre-select a sensible
+    // escala default (fusta) — otherwise validation on "Següent"
+    // would block the user with a toast they may not see in time.
+    if (data.plantes != null && parseInt(data.plantes, 10) > 1) {
+      const existing = document.querySelector('input[name="escala"]:checked');
+      if (!existing) setRadio('escala', 'fusta');
+    }
+
     return any;
   }
 })();
@@ -3503,6 +3511,13 @@
     // ── radios ──
     if (updates.garatge === 'si' || updates.garatge === true)  setRadio('garatge', 'si', 'Garatge');
     if (updates.garatge === 'no' || updates.garatge === false) setRadio('garatge', 'no', 'Garatge');
+
+    // Pre-select a fusta escala when the user implies multi-storey
+    // so the conditional escala selector doesn't block validation.
+    if (updates.plantes != null && parseInt(updates.plantes, 10) > 1) {
+      const existing = document.querySelector('input[name="escala"]:checked');
+      if (!existing) setRadio('escala', 'fusta', 'Escala (fusta · valor per defecte)');
+    }
 
     return applied;
   }
