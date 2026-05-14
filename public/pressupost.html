@@ -2377,57 +2377,18 @@
 
         <!-- Plantes -->
         <div class="conf-field">
-          <span class="conf-field__label">Nombre de plantes</span>
-          <div class="conf-options" data-field="2">
-            <label class="conf-option">
-              <input type="radio" name="plantes" value="1">
-              <span class="conf-option__radio"></span>
-              <span class="conf-option__text">
-                <span class="conf-option__label">1 planta</span>
-              </span>
-            </label>
-            <label class="conf-option">
-              <input type="radio" name="plantes" value="2">
-              <span class="conf-option__radio"></span>
-              <span class="conf-option__text">
-                <span class="conf-option__label">2 plantes</span>
-              </span>
-            </label>
-            <label class="conf-option">
-              <input type="radio" name="plantes" value="3">
-              <span class="conf-option__radio"></span>
-              <span class="conf-option__text">
-                <span class="conf-option__label">Més de 2 plantes</span>
-              </span>
-            </label>
-          </div>
+          <label class="conf-field__label" for="f_plantes">Nombre de plantes</label>
+          <span class="conf-field__hint">Inclou plantes habitables (PB, P1, P2…). Soterranis només si són habitables.</span>
+          <input type="number" class="conf-input" id="f_plantes" name="plantes"
+                 min="1" max="6" step="1" placeholder="Ex: 2" data-field="2" required>
         </div>
 
         <!-- Banys -->
         <div class="conf-field">
-          <span class="conf-field__label">Nombre de banys</span>
-          <div class="conf-options" data-field="3">
-            <label class="conf-option">
-              <input type="radio" name="banys" value="1">
-              <span class="conf-option__radio"></span>
-              <span class="conf-option__text"><span class="conf-option__label">1 bany</span></span>
-            </label>
-            <label class="conf-option">
-              <input type="radio" name="banys" value="2">
-              <span class="conf-option__radio"></span>
-              <span class="conf-option__text"><span class="conf-option__label">2 banys</span></span>
-            </label>
-            <label class="conf-option">
-              <input type="radio" name="banys" value="3">
-              <span class="conf-option__radio"></span>
-              <span class="conf-option__text"><span class="conf-option__label">3 banys</span></span>
-            </label>
-            <label class="conf-option">
-              <input type="radio" name="banys" value="4">
-              <span class="conf-option__radio"></span>
-              <span class="conf-option__text"><span class="conf-option__label">4 o més banys</span></span>
-            </label>
-          </div>
+          <label class="conf-field__label" for="f_banys">Nombre de banys</label>
+          <span class="conf-field__hint">Compta cada espai amb wc/dutxa/banyera (incloent lavabos i banys en suite).</span>
+          <input type="number" class="conf-input" id="f_banys" name="banys"
+                 min="1" max="10" step="1" placeholder="Ex: 2" data-field="3" required>
         </div>
 
         <!-- Garatge -->
@@ -3292,10 +3253,12 @@
   async function pdfToJpegs(file) {
     const buf = await file.arrayBuffer();
     const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
-    const total = pdf.numPages;
-    const indices = pickPages(total, MAX_PDF_PAGES);
+    const indices = await pickBestPages(pdf, MAX_PDF_PAGES);
     const out = [];
+    let n = 0;
     for (const idx of indices) {
+      n++;
+      setStatus(`Renderitzant pàgina ${n}/${indices.length}…`, 'plan-loading');
       const page = await pdf.getPage(idx);
       const viewport = page.getViewport({ scale: PDF_RENDER_SCALE });
       const canvas = document.createElement('canvas');
@@ -3315,20 +3278,88 @@
     return out;
   }
 
-  // Choose which pages to render. For short docs (<= max) we take them
-  // all. For longer ones we skip the first page (usually a cover) and
-  // sample evenly from the rest so we get a representative mix.
-  function pickPages(total, max) {
-    if (total <= max) return Array.from({ length: total }, (_, i) => i + 1);
-    const start = 2;
-    const end = total;
-    const step = Math.max(1, Math.floor((end - start) / (max - 1)));
-    const picks = [];
-    for (let i = 0; i < max; i++) {
-      picks.push(Math.min(end, start + i * step));
+  // Heuristic score: identifies floor-plan pages by keywords (rooms,
+  // surface labels, dimensions) and penalises non-plan pages (covers,
+  // section drawings, regulatory text). Mirrors the Python
+  // _score_pdf_page from the legacy Flask backend.
+  function scorePdfPage(text) {
+    let s = 0;
+    const t = (text || '').toLowerCase();
+
+    const floorKws = ['planta baixa', 'planta primera', 'planta segona', 'planta segunda',
+                      'planta pis', 'ground floor', 'first floor', 'second floor',
+                      'floor plan', 'plante'];
+    if (floorKws.some(k => t.includes(k))) s += 6;
+    if (t.includes('acotada') || t.includes('cotat') || t.includes('dimensioned')) s += 10;
+
+    const areaKws = ['superfície', 'superficie', 'àrea', ' area ', 'm²', ' m2 ',
+                     ' sf ', 'sq ft', 'sqft', 'square fe',
+                     'habitable', 'construïda', 'construida', 'útil', ' util '];
+    if (areaKws.some(k => t.includes(k))) s += 6;
+
+    // Numeric "X m²" / "X m2" pattern is the strongest plan signal
+    if (/\d+[.,]?\d*\s*m[²2]/.test(t)) s += 12;
+
+    const rooms = ['bany', ' wc', 'lavabo', 'toilet', 'bathroom',
+                   'garatge', 'garaje', 'garage', 'parking',
+                   'porxo', 'porche', 'porch', 'terrassa', 'terraza',
+                   'dormitori', 'habitació', 'habitacio', 'bedroom',
+                   'cuina', 'kitchen', 'estudi', 'menjador', 'sala'];
+    s += Math.min(2 * rooms.filter(k => t.includes(k)).length, 14);
+
+    // Dimensioned cotes (e.g. 3,45 / 4.20)
+    const dims = (t.match(/\b\d+[.,]\d{2}\b/g) || []).length;
+    s += Math.min(Math.floor(dims / 2), 10);
+
+    // Penalise non-plan pages (covers, regulatory annexes, sections, indices)
+    const penalty = ['elevation', 'alçat', 'alzat', 'façana', 'fachada',
+                     'section', 'secció', 'seccion',
+                     'cover', 'portada', 'index', 'índex', 'índice',
+                     'notes', 'specifications', 'normativa', 'cte ',
+                     'memòria', 'memoria', 'annex', 'codi tècnic'];
+    for (const k of penalty) if (t.includes(k)) s -= 3;
+    return s;
+  }
+
+  // For long PDFs (project docs of 100-200 pages with floor plans
+  // hidden somewhere in the middle), iterate all pages, score each
+  // one by its extracted text, and pick the highest-scoring ones.
+  // For short docs (<= max) we render them all.
+  async function pickBestPages(pdf, maxPages) {
+    const total = pdf.numPages;
+    if (total <= maxPages) {
+      return Array.from({ length: total }, (_, i) => i + 1);
     }
-    // Deduplicate while preserving order
-    return [...new Set(picks)];
+
+    setStatus(`Analitzant ${total} pàgines del PDF…`, 'plan-loading');
+
+    const CHUNK = 16;
+    const results = [];
+    for (let start = 1; start <= total; start += CHUNK) {
+      const end = Math.min(start + CHUNK - 1, total);
+      const batch = [];
+      for (let i = start; i <= end; i++) {
+        batch.push((async () => {
+          try {
+            const page = await pdf.getPage(i);
+            const content = await page.getTextContent();
+            const text = (content.items || []).map(it => it.str).join(' ');
+            return { page: i, score: scorePdfPage(text) };
+          } catch (e) {
+            return { page: i, score: -100 };
+          }
+        })());
+      }
+      const batchResults = await Promise.all(batch);
+      results.push(...batchResults);
+      setStatus(`Analitzant pàgines del PDF (${results.length}/${total})…`, 'plan-loading');
+    }
+
+    // Pick the highest-scoring pages, then sort back to reading order
+    results.sort((a, b) => b.score - a.score);
+    const top = results.slice(0, maxPages);
+    top.sort((a, b) => a.page - b.page);
+    return top.map(x => x.page);
   }
 
   function fileToBase64(file) {
@@ -3373,30 +3404,16 @@
       any = true;
     };
 
-    // m²
-    if (data.m2 != null) setNumber('f_m2', data.m2);
+    // m² + free-text number fields
+    if (data.m2 != null)         setNumber('f_m2',         data.m2);
+    if (data.plantes != null)    setNumber('f_plantes',    data.plantes);
+    if (data.num_banys != null)  setNumber('f_banys',      data.num_banys);
+    if (data.m2_garatge != null) setNumber('f_m2_garatge', data.m2_garatge);
+    if (data.m2_porxos != null)  setNumber('f_m2_porxos',  data.m2_porxos);
 
-    // plantes — el formulari té 1 / 2 / 3; agrupa floors >= 3
-    if (data.plantes != null) {
-      const p = parseInt(data.plantes, 10);
-      const val = p >= 3 ? '3' : String(p);
-      setRadio('plantes', val);
-    }
-
-    // banys — agrupa 4+ a "4"
-    if (data.num_banys != null) {
-      const b = parseInt(data.num_banys, 10);
-      const val = b >= 4 ? '4' : String(b);
-      setRadio('banys', val);
-    }
-
-    // garatge (true / false)
+    // garatge (true / false) — still a radio
     if (data.garatge === true)  setRadio('garatge', 'si');
     if (data.garatge === false) setRadio('garatge', 'no');
-    if (data.m2_garatge != null) setNumber('f_m2_garatge', data.m2_garatge);
-
-    // porxos · només omplim el m²; el camp boolean és inferit en el càlcul
-    if (data.m2_porxos != null) setNumber('f_m2_porxos', data.m2_porxos);
 
     return any;
   }
@@ -3478,20 +3495,12 @@
 
     // ── numerics ──
     if (updates.m2 != null)         setNumber('f_m2',          updates.m2,         'Superfície');
+    if (updates.plantes != null)    setNumber('f_plantes',     updates.plantes,    'Plantes');
+    if (updates.num_banys != null)  setNumber('f_banys',       updates.num_banys,  'Banys');
     if (updates.m2_garatge != null) setNumber('f_m2_garatge',  updates.m2_garatge, 'Garatge (m²)');
     if (updates.m2_porxos != null)  setNumber('f_m2_porxos',   updates.m2_porxos,  'Pòrxos (m²)');
 
     // ── radios ──
-    if (updates.plantes != null) {
-      const p = parseInt(updates.plantes, 10);
-      const val = p >= 3 ? '3' : String(p);
-      setRadio('plantes', val, 'Plantes');
-    }
-    if (updates.num_banys != null) {
-      const b = parseInt(updates.num_banys, 10);
-      const val = b >= 4 ? '4' : String(b);
-      setRadio('banys', val, 'Banys');
-    }
     if (updates.garatge === 'si' || updates.garatge === true)  setRadio('garatge', 'si', 'Garatge');
     if (updates.garatge === 'no' || updates.garatge === false) setRadio('garatge', 'no', 'Garatge');
 

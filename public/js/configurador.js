@@ -56,13 +56,14 @@
 
   function collectAllFormValues() {
     const values = {};
-    // Inputs amb id
-    ['f_m2', 'f_m2_garatge', 'f_m2_porxos', 'f_ubicacio', 'f_nom', 'f_email', 'f_tel'].forEach((id) => {
+    // Inputs amb id (text/number)
+    ['f_m2', 'f_plantes', 'f_banys', 'f_m2_garatge', 'f_m2_porxos',
+     'f_ubicacio', 'f_nom', 'f_email', 'f_tel'].forEach((id) => {
       const el = document.getElementById(id);
       if (el) values[id] = el.value;
     });
-    // Radios checked
-    ['plantes', 'banys', 'garatge', 'escala', 'coberta', 'façana', 'paviment', 'nivell_bany',
+    // Radios checked (plantes + banys are now free-text number inputs above)
+    ['garatge', 'escala', 'coberta', 'façana', 'paviment', 'nivell_bany',
      'solar', 'persianes', 'fancoils', 'llarfoc', 'rado', 'domotica'].forEach((name) => {
       const checked = document.querySelector(`input[name="${name}"]:checked`);
       if (checked) values[`r_${name}`] = checked.value;
@@ -136,11 +137,12 @@
       const show = garatge && garatge.value === 'si';
       fieldGaratge.classList.toggle('hidden-field', !show);
     }
-    // Escala → si plantes != 1
-    const plantes = document.querySelector('input[name="plantes"]:checked');
+    // Escala → si plantes > 1
+    const plantesEl = document.getElementById('f_plantes');
     const fieldEscala = document.getElementById('field_escala');
     if (fieldEscala) {
-      const show = plantes && plantes.value !== '1';
+      const n = parseInt((plantesEl && plantesEl.value) || '0', 10);
+      const show = n > 1;
       fieldEscala.classList.toggle('hidden-field', !show);
     }
   }
@@ -226,15 +228,17 @@
     if (n === 1) {
       const m2 = parseFloat(document.getElementById('f_m2').value);
       if (!m2 || m2 < 80) return { field: 'f_m2', msg: 'Indica una superfície mínima de 80 m²' };
-      if (!getRadio('plantes')) return { field: null, msg: 'Selecciona el nombre de plantes' };
-      if (!getRadio('banys')) return { field: null, msg: 'Selecciona el nombre de banys' };
+      const plantes = parseInt(document.getElementById('f_plantes').value, 10);
+      if (!plantes || plantes < 1) return { field: 'f_plantes', msg: 'Indica el nombre de plantes' };
+      const banys = parseInt(document.getElementById('f_banys').value, 10);
+      if (!banys || banys < 1) return { field: 'f_banys', msg: 'Indica el nombre de banys' };
       const garatge = getRadio('garatge');
       if (!garatge) return { field: null, msg: 'Indica si vol garatge' };
       if (garatge === 'si') {
         const mg = parseFloat(document.getElementById('f_m2_garatge').value);
         if (!mg || mg < 1) return { field: 'f_m2_garatge', msg: 'Indica la superfície del garatge' };
       }
-      if (getRadio('plantes') !== '1' && !getRadio('escala')) {
+      if (plantes > 1 && !getRadio('escala')) {
         return { field: null, msg: "Selecciona el tipus d'escala" };
       }
     }
@@ -332,8 +336,8 @@
     }
     return {
       m2: parseFloat(document.getElementById('f_m2').value || 0),
-      plantes: getRadio('plantes') || '2',
-      num_banys: parseInt(getRadio('banys') || '2', 10),
+      plantes: String(parseInt(document.getElementById('f_plantes').value, 10) || 2),
+      num_banys: parseInt(document.getElementById('f_banys').value, 10) || 2,
       garatge: getRadio('garatge') || 'no',
       m2_garatge: parseFloat(document.getElementById('f_m2_garatge').value || 0),
       m2_porxos: parseFloat(document.getElementById('f_m2_porxos').value || 0),
@@ -398,7 +402,6 @@
     // Etiquetes humanes per a cada valor
     const labelize = (key, val) => {
       const map = {
-        plantes: { '1': '1 planta', '2': '2 plantes', '3': 'Més de 2 plantes' },
         garatge: { si: 'Sí', no: 'No' },
         tipus_escala: { fusta: 'Escala fusta', metallica: 'Escala metàl·lica', no: 'Sense escala' },
         plaques_solars: { si: 'Sí', no: 'No' },
@@ -411,16 +414,19 @@
       return map[key]?.[val] || val || '—';
     };
 
+    const plantesNum = parseInt(payload.plantes, 10) || 0;
+    const plantesLabel = plantesNum === 1 ? '1 planta' : (plantesNum > 0 ? `${plantesNum} plantes` : '—');
+
     const items = [
       { label: 'Superfície', value: `${fmtNum(payload.m2)} m²` },
-      { label: 'Plantes', value: labelize('plantes', payload.plantes) },
+      { label: 'Plantes', value: plantesLabel },
       { label: 'Banys', value: `${payload.num_banys} banys` },
       { label: 'Garatge', value: payload.garatge === 'si' ? `Sí (${fmtNum(payload.m2_garatge)} m²)` : 'No' },
     ];
     if (payload.m2_porxos > 0) {
       items.push({ label: 'Pòrxos / terrasses', value: `${fmtNum(payload.m2_porxos)} m²` });
     }
-    if (payload.plantes !== '1' && payload.tipus_escala && payload.tipus_escala !== 'no') {
+    if (plantesNum > 1 && payload.tipus_escala && payload.tipus_escala !== 'no') {
       items.push({ label: 'Escala', value: labelize('tipus_escala', payload.tipus_escala) });
     }
     items.push(
@@ -639,9 +645,18 @@
         applyConditionals();
         saveState();
       } else if (e.target.matches('input, select, textarea')) {
+        // Free-text number inputs (#f_plantes specifically) drive the
+        // visibility of conditional fields like #field_escala — re-run
+        // applyConditionals so the staircase selector shows/hides as
+        // the user types or as autofill writes to the field.
+        if (e.target.id === 'f_plantes') applyConditionals();
         saveState();
       }
     });
+
+    // Also react to live typing (input event), not just blur (change).
+    const plantesLive = document.getElementById('f_plantes');
+    if (plantesLive) plantesLive.addEventListener('input', applyConditionals);
 
     // ESC tanca overlay
     document.addEventListener('keydown', (e) => {
