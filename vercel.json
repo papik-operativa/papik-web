@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/download-pdf.py":      { "maxDuration": 60 },
+    "api/analitzar-plans.py":   { "maxDuration": 60 },
+    "api/chat-configurador.py": { "maxDuration": 60 },
+    "api/chat-pressupost.py":   { "maxDuration": 60 }
+  },
   "redirects": [
     {
       "source": "/",

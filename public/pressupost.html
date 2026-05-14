@@ -3641,17 +3641,44 @@
     // Reset chat conversation for the new budget
     resCid = null;
 
-    if (pdfLoading) pdfLoading.classList.remove('hidden');
+    if (pdfLoading) {
+      pdfLoading.classList.remove('hidden');
+      pdfLoading.innerHTML =
+        '<div class="conf-result__pdfchat-spinner" aria-hidden="true"></div>' +
+        '<span id="pdfLoadingMsg">Generant el teu pressupost en PDF…</span>';
+    }
     pdfFrame.style.display = 'none';
     if (pdfDownload) pdfDownload.style.display = 'none';
+
+    // Status timers — keep the user informed when cold-start makes the
+    // first request take a while. Vercel cold-start for this function
+    // can be 15-30 s; we cap the experience at "still working" instead
+    // of letting them stare at an unchanging spinner.
+    const startedAt = Date.now();
+    const msgEl = () => document.getElementById('pdfLoadingMsg');
+    const tHints = [
+      setTimeout(() => { const m = msgEl(); if (m) m.textContent =
+        'Generant el teu pressupost… (compilant la plantilla corporativa)'; }, 8000),
+      setTimeout(() => { const m = msgEl(); if (m) m.textContent =
+        'Quasi a punt… (primera generació de la sessió, pot trigar fins a 30 s)'; }, 20000),
+    ];
+    const cleanupHints = () => tHints.forEach(clearTimeout);
+
+    // Hard timeout to avoid an infinite spinner if Vercel hangs.
+    const abort = new AbortController();
+    const killer = setTimeout(() => abort.abort(), 75000);
 
     fetch('/api/download-pdf', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ payload, result }),
+      signal:  abort.signal,
     })
       .then((r) => {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
+        if (!r.ok) {
+          // Try to extract a server-side error message for the user
+          return r.text().then((txt) => { throw new Error(txt || ('HTTP ' + r.status)); });
+        }
         return r.blob();
       })
       .then((blob) => {
@@ -3664,10 +3691,22 @@
           pdfDownload.href = lastPdfUrl;
           pdfDownload.style.display = 'inline-flex';
         }
+        const elapsed = ((Date.now() - startedAt) / 1000).toFixed(1);
+        console.log('[PDF] ready in', elapsed, 's');
       })
-      .catch(() => {
-        if (pdfLoading) pdfLoading.innerHTML =
-          '<span style="color:#c0392b;">No s\'ha pogut generar el PDF. Torna a calcular el pressupost.</span>';
+      .catch((err) => {
+        const elapsed = ((Date.now() - startedAt) / 1000).toFixed(1);
+        console.warn('[PDF] error after', elapsed, 's:', err);
+        if (pdfLoading) {
+          const reason = (err && err.name === 'AbortError')
+            ? "El servidor està trigant massa. Torna-ho a provar en un moment (la primera vegada el cold-start pot fallar)."
+            : "No s'ha pogut generar el PDF. Torna a calcular el pressupost.";
+          pdfLoading.innerHTML = '<span style="color:#c0392b;">' + reason + '</span>';
+        }
+      })
+      .finally(() => {
+        cleanupHints();
+        clearTimeout(killer);
       });
   });
 })();

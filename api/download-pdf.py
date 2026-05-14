@@ -556,14 +556,29 @@ def _make_footer_overlay(page_num, total):
 TEMPLATE_PAGES_WITH_FOOTER = {2, 6, 7, 8, 9, 10}
 
 
+# Cache the template bytes once per cold start. Reading the 8MB file
+# from disk + parsing it with pypdf takes ~0.5–1 s; on a warm Vercel
+# function the cached bytes make subsequent requests negligibly fast.
+# We can't cache the PdfReader itself because page.merge_page() mutates
+# the page objects, so we re-parse from the cached bytes each call.
+_TEMPLATE_BYTES = None
+
+def _template_bytes():
+    global _TEMPLATE_BYTES
+    if _TEMPLATE_BYTES is None:
+        with open(TEMPLATE, 'rb') as f:
+            _TEMPLATE_BYTES = f.read()
+    return _TEMPLATE_BYTES
+
+
 def generate_pdf(payload, result):
     # 1. Generate the budget pages
     budget_bytes = _render_budget_pages(payload, result)
     budget_reader = PdfReader(BytesIO(budget_bytes))
     n_budget = len(budget_reader.pages)
 
-    # 2. Open the template
-    template_reader = PdfReader(TEMPLATE)
+    # 2. Open the template (from in-memory cached bytes after cold start)
+    template_reader = PdfReader(BytesIO(_template_bytes()))
     n_template = len(template_reader.pages)
     split = min(6, n_template)
 
