@@ -2798,6 +2798,184 @@
   <script src="/js/forms.js" defer></script>
 
 <!-- ═══════════════════════════════════
+     PLAN UPLOAD WIRING · /api/analitzar-plans (OpenAI Vision)
+═══════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  const dz       = document.getElementById('planDropzone');
+  const inp      = document.getElementById('planInput');
+  const fileList = document.getElementById('planFileList');
+  const statusEl = document.getElementById('planStatus');
+  if (!dz || !inp) return;
+
+  const MAX_FILES = 3;
+  const MAX_MB    = 8;                 // límit per fitxer abans de pujar
+  const ACCEPT_RE = /\.(pdf|png|jpe?g|webp)$/i;
+
+  // ── helpers UI ─────────────────────────────────────────────
+  const setStatus = (text, cls) => {
+    statusEl.className = 'plan-status' + (cls ? ' ' + cls : '');
+    statusEl.textContent = text || '';
+  };
+  const renderTags = (files) => {
+    fileList.innerHTML = '';
+    files.forEach((f) => {
+      const tag = document.createElement('span');
+      tag.className = 'plan-file-tag';
+      tag.textContent = f.name;
+      fileList.appendChild(tag);
+    });
+  };
+
+  // ── click → file picker ────────────────────────────────────
+  dz.addEventListener('click', () => inp.click());
+
+  // ── drag & drop ────────────────────────────────────────────
+  ['dragenter', 'dragover'].forEach((ev) => {
+    dz.addEventListener(ev, (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dz.classList.add('dragover');
+    });
+  });
+  ['dragleave', 'drop'].forEach((ev) => {
+    dz.addEventListener(ev, (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dz.classList.remove('dragover');
+    });
+  });
+  dz.addEventListener('drop', (e) => {
+    const files = Array.from((e.dataTransfer && e.dataTransfer.files) || []);
+    if (files.length) handleFiles(files);
+  });
+
+  inp.addEventListener('change', () => {
+    if (inp.files && inp.files.length) handleFiles(Array.from(inp.files));
+  });
+
+  // ── pipeline ───────────────────────────────────────────────
+  function handleFiles(files) {
+    const valid = files
+      .filter((f) => ACCEPT_RE.test(f.name))
+      .slice(0, MAX_FILES);
+
+    if (!valid.length) {
+      setStatus('Format no acceptat. Puja PDF, PNG, JPG o WEBP.', 'plan-error');
+      return;
+    }
+
+    const oversized = valid.find((f) => f.size > MAX_MB * 1024 * 1024);
+    if (oversized) {
+      setStatus(`«${oversized.name}» supera ${MAX_MB} MB. Comprimeix el fitxer i torna-ho a provar.`, 'plan-error');
+      return;
+    }
+
+    renderTags(valid);
+    setStatus('Analitzant plànols amb IA…', 'plan-loading');
+    dz.classList.add('uploading');
+
+    Promise.all(valid.map(fileToBase64))
+      .then((encoded) => fetch('/api/analitzar-plans', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ files: encoded }),
+      }))
+      .then((r) => r.json().then((data) => ({ ok: r.ok, data })))
+      .then(({ ok, data }) => {
+        dz.classList.remove('uploading');
+        if (!ok || data.error) {
+          setStatus(data.error || 'No s\'han pogut analitzar els plànols.', 'plan-error');
+          return;
+        }
+        const filled = applyExtraction(data);
+        const conf = typeof data.confidence === 'number' ? ` (confiança ${Math.round(data.confidence * 100)}%)` : '';
+        setStatus(filled
+          ? `Camps autocompletats${conf}. Revisa-ho abans de continuar.`
+          : 'No s\'ha pogut extreure cap valor concloent. Omple el formulari manualment.',
+          filled ? 'plan-success' : 'plan-error');
+      })
+      .catch(() => {
+        dz.classList.remove('uploading');
+        setStatus('Error de connexió. Torna-ho a provar.', 'plan-error');
+      });
+  }
+
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fr = new FileReader();
+      fr.onload = () => {
+        const result = String(fr.result || '');
+        const comma  = result.indexOf(',');
+        resolve({
+          name:     file.name,
+          mime:     file.type || '',
+          data_b64: comma >= 0 ? result.slice(comma + 1) : result,
+        });
+      };
+      fr.onerror = () => reject(fr.error);
+      fr.readAsDataURL(file);
+    });
+  }
+
+  // Apply extracted fields to the form. Returns true if at least one field
+  // was filled in (so we can show a meaningful status message).
+  function applyExtraction(data) {
+    let any = false;
+
+    const setNumber = (id, v) => {
+      if (v == null) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.value = Math.round(parseFloat(v));
+      el.dispatchEvent(new Event('input',  { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      any = true;
+    };
+
+    const setRadio = (name, value) => {
+      if (value == null) return;
+      const el = document.querySelector(`input[name="${name}"][value="${value}"]`);
+      if (!el) return;
+      el.checked = true;
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      el.dispatchEvent(new Event('click',  { bubbles: true }));
+      any = true;
+    };
+
+    // m²
+    if (data.m2 != null) setNumber('f_m2', data.m2);
+
+    // plantes — el formulari té 1 / 2 / 3; agrupa floors >= 3
+    if (data.plantes != null) {
+      const p = parseInt(data.plantes, 10);
+      const val = p >= 3 ? '3' : String(p);
+      setRadio('plantes', val);
+    }
+
+    // banys — agrupa 4+ a "4"
+    if (data.num_banys != null) {
+      const b = parseInt(data.num_banys, 10);
+      const val = b >= 4 ? '4' : String(b);
+      setRadio('banys', val);
+    }
+
+    // garatge (true / false)
+    if (data.garatge === true)  setRadio('garatge', 'si');
+    if (data.garatge === false) setRadio('garatge', 'no');
+    if (data.m2_garatge != null) setNumber('f_m2_garatge', data.m2_garatge);
+
+    // porxos · només omplim el m²; el camp boolean és inferit en el càlcul
+    if (data.m2_porxos != null) setNumber('f_m2_porxos', data.m2_porxos);
+
+    return any;
+  }
+})();
+</script>
+
+<!-- ═══════════════════════════════════
      CHATBOT WIRING · DocsGPT
      · FAB → /api/chat-configurador (Guia de configuració)
      · Result panel input → /api/chat-pressupost (Assessor post-pressupost)
