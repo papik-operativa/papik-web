@@ -421,7 +421,11 @@ def _analyse(files):
     content_images = []
     all_page_texts = []
 
-    for f in files[:3]:
+    # A single PDF uploaded from the browser is now pre-rasterised into
+    # up to 4 JPEG pages by PDF.js, so we may legitimately receive
+    # several "files" per request. Cap generously so a couple of PDFs
+    # can be processed in one shot without exploding the OpenAI bill.
+    for f in files[:8]:
         name = (f.get('name') or '').lower()
         mime = (f.get('mime') or '').lower()
         b64 = f.get('data_b64') or ''

@@ -3136,7 +3136,17 @@
 
 <!-- ═══════════════════════════════════
      PLAN UPLOAD WIRING · /api/analitzar-plans (OpenAI Vision)
+     PDFs are rasterised to JPEG client-side via PDF.js so we never
+     hit Vercel's 4.5 MB serverless body limit, regardless of how big
+     the source PDF is.
 ═══════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+</script>
 <script>
 (function () {
   'use strict';
@@ -3147,9 +3157,12 @@
   const statusEl = document.getElementById('planStatus');
   if (!dz || !inp) return;
 
-  const MAX_FILES = 3;
-  const MAX_MB    = 8;                 // límit per fitxer abans de pujar
-  const ACCEPT_RE = /\.(pdf|png|jpe?g|webp)$/i;
+  const MAX_FILES        = 3;     // user-visible file count
+  const MAX_MB           = 40;    // PDF size cap (browser RAM, not Vercel)
+  const MAX_PDF_PAGES    = 4;     // rasterise at most this many PDF pages
+  const PDF_RENDER_SCALE = 2.2;   // ~200 dpi equivalent
+  const JPEG_QUALITY     = 0.82;  // quality vs payload trade-off
+  const ACCEPT_RE        = /\.(pdf|png|jpe?g|webp)$/i;
 
   // ── helpers UI ─────────────────────────────────────────────
   const setStatus = (text, cls) => {
@@ -3194,7 +3207,7 @@
   });
 
   // ── pipeline ───────────────────────────────────────────────
-  function handleFiles(files) {
+  async function handleFiles(files) {
     const valid = files
       .filter((f) => ACCEPT_RE.test(f.name))
       .slice(0, MAX_FILES);
@@ -3206,38 +3219,108 @@
 
     const oversized = valid.find((f) => f.size > MAX_MB * 1024 * 1024);
     if (oversized) {
-      setStatus(`«${oversized.name}» supera ${MAX_MB} MB. Comprimeix el fitxer i torna-ho a provar.`, 'plan-error');
+      setStatus(`«${oversized.name}» supera ${MAX_MB} MB. Si pots, comprimeix-lo i torna-ho a provar.`, 'plan-error');
       return;
     }
 
     renderTags(valid);
-    setStatus('Analitzant plànols amb IA…', 'plan-loading');
     dz.classList.add('uploading');
 
-    Promise.all(valid.map(fileToBase64))
-      .then((encoded) => fetch('/api/analitzar-plans', {
+    let expanded = [];
+    try {
+      for (const f of valid) {
+        const isPdf = /\.pdf$/i.test(f.name) || f.type === 'application/pdf';
+        if (isPdf) {
+          if (!window.pdfjsLib) {
+            throw new Error('PDF.js no està disponible.');
+          }
+          setStatus('Preparant pàgines del PDF…', 'plan-loading');
+          const pages = await pdfToJpegs(f);
+          if (!pages.length) {
+            throw new Error(`No s'ha pogut renderitzar «${f.name}».`);
+          }
+          expanded.push(...pages);
+        } else {
+          expanded.push(f);
+        }
+      }
+    } catch (err) {
+      dz.classList.remove('uploading');
+      setStatus(err.message || 'Error preparant els fitxers.', 'plan-error');
+      return;
+    }
+
+    setStatus('Analitzant plànols amb IA…', 'plan-loading');
+
+    try {
+      const encoded = await Promise.all(expanded.map(fileToBase64));
+      const resp = await fetch('/api/analitzar-plans', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ files: encoded }),
-      }))
-      .then((r) => r.json().then((data) => ({ ok: r.ok, data })))
-      .then(({ ok, data }) => {
-        dz.classList.remove('uploading');
-        if (!ok || data.error) {
-          setStatus(data.error || 'No s\'han pogut analitzar els plànols.', 'plan-error');
-          return;
-        }
-        const filled = applyExtraction(data);
-        const conf = typeof data.confidence === 'number' ? ` (confiança ${Math.round(data.confidence * 100)}%)` : '';
-        setStatus(filled
-          ? `Camps autocompletats${conf}. Revisa-ho abans de continuar.`
-          : 'No s\'ha pogut extreure cap valor concloent. Omple el formulari manualment.',
-          filled ? 'plan-success' : 'plan-error');
-      })
-      .catch(() => {
-        dz.classList.remove('uploading');
-        setStatus('Error de connexió. Torna-ho a provar.', 'plan-error');
       });
+      const data = await resp.json();
+      dz.classList.remove('uploading');
+      if (!resp.ok || data.error) {
+        setStatus(data.error || 'No s\'han pogut analitzar els plànols.', 'plan-error');
+        return;
+      }
+      const filled = applyExtraction(data);
+      const conf = typeof data.confidence === 'number'
+        ? ` (confiança ${Math.round(data.confidence * 100)}%)` : '';
+      setStatus(filled
+        ? `Camps autocompletats${conf}. Revisa-ho abans de continuar.`
+        : 'No s\'ha pogut extreure cap valor concloent. Omple el formulari manualment.',
+        filled ? 'plan-success' : 'plan-error');
+    } catch (err) {
+      dz.classList.remove('uploading');
+      setStatus('Error de connexió. Torna-ho a provar.', 'plan-error');
+    }
+  }
+
+  // Render up to MAX_PDF_PAGES pages of a PDF to JPEG Files using
+  // PDF.js. This keeps the upload payload tiny no matter how big the
+  // source PDF is, and bypasses Vercel's 4.5 MB serverless body limit.
+  async function pdfToJpegs(file) {
+    const buf = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+    const total = pdf.numPages;
+    const indices = pickPages(total, MAX_PDF_PAGES);
+    const out = [];
+    for (const idx of indices) {
+      const page = await pdf.getPage(idx);
+      const viewport = page.getViewport({ scale: PDF_RENDER_SCALE });
+      const canvas = document.createElement('canvas');
+      canvas.width  = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext('2d');
+      // White background for transparent PDFs (e.g. CAD exports)
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      const blob = await new Promise((res) =>
+        canvas.toBlob(res, 'image/jpeg', JPEG_QUALITY));
+      if (!blob) continue;
+      const base = file.name.replace(/\.pdf$/i, '');
+      out.push(new File([blob], `${base}-p${idx}.jpg`, { type: 'image/jpeg' }));
+    }
+    return out;
+  }
+
+  // Choose which pages to render. For short docs (<= max) we take them
+  // all. For longer ones we skip the first page (usually a cover) and
+  // sample evenly from the rest so we get a representative mix.
+  function pickPages(total, max) {
+    if (total <= max) return Array.from({ length: total }, (_, i) => i + 1);
+    const start = 2;
+    const end = total;
+    const step = Math.max(1, Math.floor((end - start) / (max - 1)));
+    const picks = [];
+    for (let i = 0; i < max; i++) {
+      picks.push(Math.min(end, start + i * step));
+    }
+    // Deduplicate while preserving order
+    return [...new Set(picks)];
   }
 
   function fileToBase64(file) {
