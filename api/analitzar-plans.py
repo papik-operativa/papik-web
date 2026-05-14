@@ -4,14 +4,12 @@ Vercel Python Serverless Function · POST /api/analitzar-plans
 Analitza plànols arquitectònics (PDF + imatges) amb GPT-4o Vision i
 retorna els camps del configurador (m², plantes, banys, garatge…).
 
-Diferències respecte la versió Flask de app.py:
-- Aquesta funció rep JSON amb fitxers codificats en base64 en lloc de
-  multipart/form-data — així evitem haver de parsejar multipart al
-  serverless (BaseHTTPRequestHandler no en sap).
-- Per als PDFs només s'extreu text (pdfplumber). El binari poppler no
-  està disponible al runtime de Vercel, així que no podem rasteritzar
-  pàgines de PDF a imatges. Si el client puja imatges (PNG/JPG/WEBP)
-  passen directament per GPT-4o Vision.
+Per als PDFs fem rasterització a PNG amb PyMuPDF (fitz). Així GPT-4o
+Vision rep imatges reals del plànol enlloc de només el text extret,
+que en plànols CAD és pràcticament inservible (cotes soltes, etiquetes
+disperses). Això recupera la capacitat del sistema Flask original
+que feia servir pdf2image (Poppler), no disponible al runtime de
+Vercel — PyMuPDF du la seva pròpia llibreria MuPDF dins del wheel.
 
 API key: variable d'entorn `OPENAI_API_KEY` configurada a Vercel.
 
@@ -35,8 +33,17 @@ OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
 SQ_FT_TO_M2 = 0.09290304
 
 PROMPT_PLANS = """You are an expert residential architectural plan reader.
-You receive 1–4 images and/or extracted text from the SAME single-family house project.
-Your task: extract technical data and return ONLY a valid JSON object. No explanations, no markdown.
+
+You receive 1–4 HIGH-RESOLUTION images of pages from the SAME single-family
+house project (floor plans, sections, elevations, title blocks, area
+schedules). For PDF inputs the pages have been rasterised to PNG so you
+can READ THE DRAWING VISUALLY just like a human architect would. You
+may also receive extracted text from the source PDF as supplementary
+context, but the IMAGES ARE YOUR PRIMARY SOURCE — read dimensions,
+room layouts and labels off the actual drawing.
+
+Your task: extract technical data and return ONLY a valid JSON object.
+No explanations, no markdown.
 
 ═══ EXTRACTION RULES ═══
 
@@ -158,20 +165,105 @@ def _best_area_from_texts(page_texts):
     return max(candidates, key=lambda c: c['value_m2']) if candidates else None
 
 
-def _pdf_extract_text(raw_bytes, max_pages=6):
-    """Extreu text net dels PDFs (sense rasteritzar imatges)."""
+def _score_pdf_page(text):
+    """Heuristic relevance score for a PDF page based on its text.
+    Higher score = more likely to be a floor plan with measurable data."""
+    score = 0
+    t = (text or '').lower()
+
+    # Floor plan keywords (CA / ES / EN)
+    floor_kws = ['planta baixa', 'planta primera', 'planta segunda', 'planta pis',
+                 'ground floor', 'first floor', 'second floor', 'floor plan',
+                 'pb', 'p1', 'p2', 'plano', 'plante']
+    if any(kw in t for kw in floor_kws):
+        score += 6
+    if 'acotada' in t or 'dimensioned' in t or 'cotat' in t:
+        score += 10
+
+    # Area / surface mentions
+    area_kws = ['superfície', 'superficie', 'àrea', 'area', 'm²', 'm2',
+                'sq ft', 'sqft', 'square feet', 'square foot',
+                'habitable', 'construïda', 'construida', 'útil']
+    if any(kw in t for kw in area_kws):
+        score += 6
+    if _extract_areas_from_text(t):
+        score += 12
+
+    # Rooms / spaces
+    rooms = ['bany', 'wc', 'lavabo', 'toilet', 'bathroom', 'bath',
+             'garatge', 'garaje', 'garage', 'parking',
+             'porxo', 'porche', 'porch', 'terrassa', 'terraza',
+             'dormitori', 'habitació', 'bedroom', 'living', 'cuina', 'kitchen']
+    score += min(2 * sum(1 for kw in rooms if kw in t), 14)
+
+    # Numeric dimensions (e.g. 3.50 / 4,20)
+    dim_count = len(re.findall(r'\b\d+[.,]\d{2}\b', t))
+    score += min(dim_count // 2, 10)
+
+    # Penalise non-plan pages
+    for kw in ['elevation', 'alçat', 'façana', 'fachada', 'section', 'secció',
+               'cover', 'portada', 'index', 'notes', 'specifications']:
+        if kw in t:
+            score -= 3
+    return score
+
+
+def _pdf_pages_to_images_and_text(raw_bytes, max_pages=4, dpi=144):
+    """Render the most relevant pages of a PDF as PNG + extract their
+    text using PyMuPDF (fitz). PyMuPDF ships its own MuPDF binary in
+    the wheel, so it works on the Vercel runtime without Poppler.
+
+    Returns (list_of_b64_pngs, list_of_text_per_page) for up to
+    `max_pages` pages ordered by descending relevance score."""
+    images, texts = [], []
     try:
-        import pdfplumber
+        import fitz  # PyMuPDF
     except ImportError:
-        return []
-    texts = []
+        return images, texts
+
     try:
-        with pdfplumber.open(io.BytesIO(raw_bytes)) as pdf:
-            for i, page in enumerate(pdf.pages[:max_pages]):
-                texts.append(_clean_pdf_text(page.extract_text() or ''))
+        doc = fitz.open(stream=raw_bytes, filetype='pdf')
     except Exception:
-        pass
-    return texts
+        return images, texts
+
+    try:
+        total = doc.page_count
+        # Score every page; if the document only has a few pages we
+        # still want them all (a single-page residential floor plan is
+        # very common, e.g. the Pellaires-31 test case).
+        scored = []
+        for i in range(total):
+            try:
+                txt = _clean_pdf_text(doc[i].get_text('text') or '')
+            except Exception:
+                txt = ''
+            scored.append((_score_pdf_page(txt), i, txt))
+
+        if total <= max_pages:
+            chosen = sorted(range(total))           # keep original order
+            chosen = [(scored[i][1], scored[i][2]) for i in chosen]
+        else:
+            scored.sort(reverse=True)
+            top = scored[:max_pages]
+            top.sort(key=lambda x: x[1])             # restore reading order
+            chosen = [(idx, txt) for _, idx, txt in top]
+
+        for idx, txt in chosen:
+            try:
+                page = doc[idx]
+                # 144 DPI = good legibility for cotes without bloating
+                # the payload (Vercel body limit is 4.5 MB on Hobby).
+                pix = page.get_pixmap(dpi=dpi, alpha=False)
+                png_bytes = pix.tobytes('png')
+                images.append(base64.b64encode(png_bytes).decode('ascii'))
+                texts.append(txt)
+            except Exception:
+                # Skip the offending page but keep going
+                pass
+    finally:
+        doc.close()
+
+    return images, texts
 
 
 # ── Validació post-extracció ────────────────────────────────────────────────
@@ -281,7 +373,19 @@ def _analyse(files):
         )
 
         if is_pdf:
-            all_page_texts.extend(_pdf_extract_text(raw))
+            # Rasterise the most relevant pages to PNG so Vision can
+            # actually SEE the drawing (text-only extraction on a CAD
+            # plan returns just dimension numbers with no context).
+            pdf_imgs, pdf_texts = _pdf_pages_to_images_and_text(raw, max_pages=4)
+            for png_b64 in pdf_imgs:
+                content_images.append({
+                    'type': 'image_url',
+                    'image_url': {
+                        'url': f'data:image/png;base64,{png_b64}',
+                        'detail': 'high',
+                    },
+                })
+            all_page_texts.extend(pdf_texts)
         elif is_img:
             data_url = f'data:{mime or "image/png"};base64,{b64}'
             content_images.append({
