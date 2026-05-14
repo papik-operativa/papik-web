@@ -47,11 +47,37 @@ No explanations, no markdown.
 
 ═══ EXTRACTION RULES ═══
 
-1. TOTAL AREA (m²) — use this priority:
-   a. Explicit total built / gross / living area in title blocks or area schedule tables.
-   b. Sum of per-floor areas if listed.
-   c. Visual estimate from exterior dimensions × number of habitable floors.
-   → If area is given in sq ft or SF, convert: 1 sq ft = 0.092903 m². Return ONLY m².
+1. TOTAL AREA (m²) — CRITICAL: this field MUST be a number for any legible
+   architectural plan. NEVER return null unless the plan is genuinely unreadable.
+   Use this priority, falling through if a higher option is unavailable:
+
+   a. EXPLICIT total: look in title blocks, area schedules, summary tables
+      for "Superfície", "Superficie", "Area", "Built area", "Living area",
+      "Construïda", "Útil", "m²", "m2", "sqft", "SF". Take the largest
+      reasonable value.
+
+   b. SUM of per-floor areas if a table lists them (e.g. PB: 80 m², P1: 75 m²
+      → total 155 m²).
+
+   c. VISUAL ESTIMATE — this is the most common path for CAD plans without
+      explicit area labels. ALGORITHM:
+       1. Identify the OVERALL EXTERIOR rectangle of the building footprint
+          (the outermost outline of one floor plan).
+       2. Read the largest LONGITUDINAL dimension off the cotes (typical
+          residential: 8–25 m).
+       3. Read the largest TRANSVERSE dimension off the cotes (typical
+          residential: 4–15 m).
+       4. Compute footprint_m² = longitudinal × transverse.
+       5. total_m² = footprint_m² × number_of_habitable_floors × 0.92
+          (the 0.92 factor accounts for wall thickness + stair voids).
+       6. Return that number. Use confidence 0.4–0.6 for estimates this way.
+
+   Examples: cotes "12,76" and "5,69" with 3 floors → 12.76 × 5.69 × 3 × 0.92
+   ≈ 200 m². Cotes "9,50" and "8,20" with 2 floors → 9.5 × 8.2 × 2 × 0.92
+   ≈ 143 m².
+
+   If the area is given in sq ft / SF, convert: 1 sq ft = 0.092903 m².
+   Return ONLY m².
 
 2. HABITABLE FLOORS — count only livable floors:
    ✔ Ground / first floor (Planta Baixa / PB) / second floor / basement (if habitable)
@@ -165,6 +191,34 @@ def _best_area_from_texts(page_texts):
     return max(candidates, key=lambda c: c['value_m2']) if candidates else None
 
 
+def _estimate_m2_from_cotes(page_texts, floors):
+    """Last-resort estimator: scan all cota-style numbers (e.g. 12,76)
+    and assume the two largest plausible dimensions are the exterior
+    bounding box. Multiply by the floor count and a 0.92 wall/voids
+    factor. Returns {'m2', 'a', 'b', 'floors'} or None if implausible."""
+    candidates = []
+    for txt in page_texts:
+        # Match numbers with at least one decimal: 12,76 / 12.76 / 5,69 …
+        for m in re.finditer(r'\b(\d{1,2}[.,]\d{1,2})\b', txt or ''):
+            try:
+                v = float(m.group(1).replace(',', '.'))
+            except ValueError:
+                continue
+            # Realistic exterior dimension range for residential (in metres).
+            # Anything below 3 m is a room dimension, above 30 m is a parcel.
+            if 3.0 <= v <= 30.0:
+                candidates.append(v)
+    if len(candidates) < 2:
+        return None
+    candidates.sort(reverse=True)
+    a, b = candidates[0], candidates[1]
+    f = max(1, int(floors or 1))
+    estimated = a * b * f * 0.92
+    if 50 <= estimated <= 800:
+        return {'m2': round(estimated), 'a': a, 'b': b, 'floors': f}
+    return None
+
+
 def _score_pdf_page(text):
     """Heuristic relevance score for a PDF page based on its text.
     Higher score = more likely to be a floor plan with measurable data."""
@@ -208,7 +262,7 @@ def _score_pdf_page(text):
     return score
 
 
-def _pdf_pages_to_images_and_text(raw_bytes, max_pages=4, dpi=144):
+def _pdf_pages_to_images_and_text(raw_bytes, max_pages=4, dpi=200):
     """Render the most relevant pages of a PDF as PNG + extract their
     text using PyMuPDF (fitz). PyMuPDF ships its own MuPDF binary in
     the wheel, so it works on the Vercel runtime without Poppler.
@@ -320,6 +374,19 @@ def _validate_extraction(extracted, page_texts=None):
             )
             confidence = max(0.3, confidence - 0.05)
             issues.append('m2_from_text_fallback')
+        else:
+            # Last-ditch heuristic: scan the cotes (numbers like 12,76)
+            # and assume the two largest plausible dimensions are the
+            # exterior bounding box. Multiply by the floor count.
+            est = _estimate_m2_from_cotes(page_texts, extracted.get('floors'))
+            if est:
+                extracted['m2'] = est['m2']
+                extracted['_cotes_fallback'] = (
+                    f"m² estimat de cotes: {est['a']:.2f}×{est['b']:.2f} "
+                    f"× {est['floors']} plantes"
+                )
+                confidence = max(0.3, confidence - 0.20)
+                issues.append('m2_from_cotes_fallback')
 
     extracted['confidence'] = round(max(0.0, min(1.0, confidence)), 2)
     if issues:
