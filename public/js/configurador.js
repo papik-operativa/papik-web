@@ -369,6 +369,10 @@
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const result = await res.json();
       state.result = result;
+      // Expose payload + result globally so the post-budget chatbot
+      // (/api/chat-pressupost) can include them as conversation context.
+      window._confData = payload;
+      window._confResult = result;
       renderResult(result, payload);
     } catch (err) {
       console.error('Calc error:', err);

@@ -2797,5 +2797,136 @@
   <script src="/js/cookie-banner.js" defer></script>
   <script src="/js/forms.js" defer></script>
 
+<!-- ═══════════════════════════════════
+     CHATBOT WIRING · DocsGPT
+     · FAB → /api/chat-configurador (Guia de configuració)
+     · Result panel input → /api/chat-pressupost (Assessor post-pressupost)
+═══════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  // ─── Guia de configuració (FAB) ───────────────────────────
+  const fabBtn   = document.getElementById('chatToggle');
+  const fabPanel = document.getElementById('chatPanel');
+  const fabClose = document.getElementById('chatClose');
+  const fabInput = document.getElementById('chatInput');
+  const fabSend  = document.getElementById('chatSend');
+  const fabMsgs  = document.getElementById('chatMessages');
+
+  if (fabBtn && fabPanel && fabInput && fabSend && fabMsgs) {
+    let fabCid = null;
+
+    fabBtn.addEventListener('click', () => fabPanel.classList.toggle('open'));
+    if (fabClose) fabClose.addEventListener('click', () => fabPanel.classList.remove('open'));
+
+    const addFabMsg = (text, isUser) => {
+      const div = document.createElement('div');
+      div.className = 'conf-chat__msg conf-chat__msg--' + (isUser ? 'user' : 'bot');
+      div.textContent = text;
+      fabMsgs.appendChild(div);
+      fabMsgs.scrollTop = fabMsgs.scrollHeight;
+    };
+
+    const sendFab = () => {
+      const msg = (fabInput.value || '').trim();
+      if (!msg) return;
+      addFabMsg(msg, true);
+      fabInput.value = '';
+
+      // Snapshot mínim de l'estat dels inputs visibles (no crític si està buit)
+      const configState = {};
+      ['f_m2', 'f_m2_garatge', 'f_m2_porxos', 'f_ubicacio'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && el.value) configState[id.replace(/^f_/, '')] = el.value;
+      });
+
+      fetch('/api/chat-configurador', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({
+          message:         msg,
+          conversation_id: fabCid,
+          step:            1,
+          config_state:    configState,
+        }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.answer) addFabMsg(data.answer, false);
+          if (data.conversation_id) fabCid = data.conversation_id;
+          if (data.error) addFabMsg("Ho sento, no he pogut respondre ara mateix.", false);
+        })
+        .catch(() => addFabMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false));
+    };
+
+    fabSend.addEventListener('click', sendFab);
+    fabInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendFab(); });
+  }
+
+  // ─── Assessor post-pressupost (panel del resultat) ────────
+  const resPanel = document.querySelector('.conf-chat-preview');
+  if (resPanel) {
+    const resInput = resPanel.querySelector('.conf-chat-preview__input');
+    const resBtn   = resPanel.querySelector('.conf-chat-preview__btn');
+    const resBubble = resPanel.querySelector('.conf-chat-preview__bubble');
+
+    if (resInput && resBtn) {
+      resInput.disabled = false;
+      resBtn.disabled   = false;
+
+      // Hide the "Aviat disponible" badge sibling, if any
+      const badge = resPanel.parentElement && resPanel.parentElement.querySelector('.conf-result__panel-badge');
+      if (badge) badge.style.display = 'none';
+
+      let resCid = null;
+      const log = document.createElement('div');
+      log.className = 'conf-chat-preview__log';
+      log.style.cssText = 'margin-top:12px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.5;max-height:240px;overflow-y:auto;';
+      resPanel.appendChild(log);
+
+      const addResMsg = (text, isUser) => {
+        const div = document.createElement('div');
+        div.style.cssText = isUser
+          ? 'align-self:flex-end;background:#002819;color:#fff;padding:8px 12px;border-radius:12px;max-width:85%;'
+          : 'align-self:flex-start;background:rgba(86,104,94,.14);color:#002819;padding:8px 12px;border-radius:12px;max-width:85%;';
+        div.textContent = text;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+      };
+
+      const sendRes = () => {
+        const msg = (resInput.value || '').trim();
+        if (!msg) return;
+        if (resBubble) resBubble.style.display = 'none';
+        addResMsg(msg, true);
+        resInput.value = '';
+
+        fetch('/api/chat-pressupost', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({
+            message:         msg,
+            conversation_id: resCid,
+            budget_input:    window._confData || {},
+            budget_result:   window._confResult || {},
+          }),
+        })
+          .then((r) => r.json())
+          .then((data) => {
+            if (data.answer) addResMsg(data.answer, false);
+            if (data.conversation_id) resCid = data.conversation_id;
+            if (data.error) addResMsg("Ho sento, no he pogut respondre ara mateix.", false);
+          })
+          .catch(() => addResMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false));
+      };
+
+      resBtn.addEventListener('click', sendRes);
+      resInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendRes(); });
+    }
+  }
+})();
+</script>
+
 </body>
 </html>
