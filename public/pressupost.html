@@ -886,7 +886,9 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
-      min-height: 700px;
+      /* Fixed height so the chat panel scrolls internally instead of
+         growing the whole section every time the user sends a message. */
+      height: clamp(620px, 78vh, 820px);
     }
     .conf-result__pdfchat-pdf {
       display: flex;
@@ -896,7 +898,8 @@
       background: var(--cream, #F4F1ED);
       border-radius: 16px;
       padding: 16px;
-      min-height: 700px;
+      height: 100%;
+      min-height: 0;
     }
     .conf-result__pdfchat-pdf iframe {
       flex: 1 1 auto;
@@ -953,7 +956,8 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       overflow: hidden;
-      min-height: 700px;
+      height: 100%;
+      min-height: 0;
     }
     .conf-result__pdfchat-chat-header {
       padding: 22px 24px 16px;
@@ -976,6 +980,7 @@
     }
     .conf-result__pdfchat-chat-messages {
       flex: 1 1 auto;
+      min-height: 0;        /* flex children need this to actually scroll */
       overflow-y: auto;
       padding: 20px 24px;
       display: flex;
@@ -1106,10 +1111,13 @@
     @media (max-width: 900px) {
       .conf-result__pdfchat {
         grid-template-columns: 1fr;
-        min-height: auto;
+        height: auto;       /* let panels stack naturally on mobile */
       }
       .conf-result__pdfchat-pdf,
-      .conf-result__pdfchat-chat { min-height: 500px; }
+      .conf-result__pdfchat-chat {
+        height: auto;
+        min-height: 500px;
+      }
       .conf-result__pdfchat-pdf iframe { min-height: 420px; }
     }
 
@@ -2914,7 +2922,7 @@
             </div>
             <iframe id="resultPdfFrame" title="Pressupost PAPIK" style="display:none;"></iframe>
             <div class="conf-result__pdfchat-pdf-actions">
-              <a id="resultPdfDownload" class="conf-btn conf-btn--ghost" download="pressupost-papik.pdf" style="display:none;">
+              <a id="resultPdfDownload" class="conf-btn conf-btn--ghost" download="Pressupost-PAPIK Group.pdf" style="display:none;">
                 Descarregar PDF
               </a>
               <button class="conf-btn conf-btn--ghost" id="btnRestartTop" type="button">
@@ -3692,14 +3700,15 @@
   if (resSend)  resSend.addEventListener('click', sendRes);
   if (resInput) resInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendRes(); });
 
-  // Suggested-question chips: click → send immediately, then hide the row.
+  // Suggested-question chips: click → send the question, BUT keep the
+  // chips visible so the user can keep using them throughout the
+  // conversation (they're useful prompts, not a one-shot tutorial).
   const resSuggestions = document.getElementById('resultChatSuggestions');
   if (resSuggestions && resInput) {
     resSuggestions.addEventListener('click', (e) => {
       const btn = e.target.closest('.conf-result__pdfchat-suggestion');
       if (!btn) return;
       resInput.value = btn.getAttribute('data-q') || btn.textContent || '';
-      resSuggestions.classList.add('hidden');
       sendRes();
     });
   }
@@ -3771,6 +3780,9 @@
         pdfFrame.style.display = 'block';
         if (pdfLoading) pdfLoading.classList.add('hidden');
         if (pdfDownload) {
+          // Filename pattern: "Pressupost-PAPIK Group-YYYY-MM-DD.pdf"
+          const today = new Date().toISOString().slice(0, 10);
+          pdfDownload.download = `Pressupost-PAPIK Group-${today}.pdf`;
           pdfDownload.href = lastPdfUrl;
           pdfDownload.style.display = 'inline-flex';
         }
