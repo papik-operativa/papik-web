@@ -877,7 +877,175 @@
     }
 
     /* ═══════════════════════════════════
-       PANELS · PDF + CHATBOT (resultat)
+       PDF EMBEDDED + CHAT side-by-side (post-budget UX)
+    ═══════════════════════════════════ */
+    .conf-result__pdfchat {
+      max-width: 1400px;
+      margin: 24px auto 32px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      min-height: 700px;
+    }
+    .conf-result__pdfchat-pdf {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      background: var(--cream, #F4F1ED);
+      border-radius: 16px;
+      padding: 16px;
+      min-height: 700px;
+    }
+    .conf-result__pdfchat-pdf iframe {
+      flex: 1 1 auto;
+      width: 100%;
+      min-height: 600px;
+      border: 0;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .conf-result__pdfchat-pdf-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 600px;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .conf-result__pdfchat-pdf-loading.hidden { display: none; }
+    .conf-result__pdfchat-spinner {
+      width: 28px;
+      height: 28px;
+      border: 3px solid rgba(86,104,94,0.2);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: planSpin .7s linear infinite;
+    }
+    .conf-result__pdfchat-pdf-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .conf-btn--ghost {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--green);
+      padding: 0 18px;
+      height: 40px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .conf-btn--ghost:hover { background: var(--green); color: #fff; border-color: var(--green); }
+    .conf-result__pdfchat-chat {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 700px;
+    }
+    .conf-result__pdfchat-chat-header {
+      padding: 22px 24px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--green);
+      color: #fff;
+    }
+    .conf-result__pdfchat-chat-header h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 6px;
+      color: #fff;
+    }
+    .conf-result__pdfchat-chat-header p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255,255,255,.78);
+      margin: 0;
+      font-weight: 300;
+    }
+    .conf-result__pdfchat-chat-messages {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #FAFAFA;
+    }
+    .conf-result__pdfchat-chat-messages .conf-chat__msg {
+      max-width: 88%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+    .conf-result__pdfchat-chat-messages .conf-chat__msg--user {
+      align-self: flex-end;
+      background: var(--green);
+      color: #fff;
+    }
+    .conf-result__pdfchat-chat-messages .conf-chat__msg--bot {
+      align-self: flex-start;
+      background: rgba(86,104,94,.14);
+      color: var(--green);
+    }
+    .conf-result__pdfchat-chat-input {
+      display: flex;
+      gap: 10px;
+      padding: 14px 16px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    .conf-result__pdfchat-chat-input input {
+      flex: 1 1 auto;
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0 16px;
+      height: 40px;
+      font-size: 14px;
+      outline: none;
+      background: #fff;
+      color: var(--text);
+    }
+    .conf-result__pdfchat-chat-input input:focus { border-color: var(--green); }
+    .conf-result__pdfchat-chat-input button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--green);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .conf-result__pdfchat-chat-input button:hover { background: var(--green-dark); }
+    @media (max-width: 900px) {
+      .conf-result__pdfchat {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .conf-result__pdfchat-pdf,
+      .conf-result__pdfchat-chat { min-height: 500px; }
+      .conf-result__pdfchat-pdf iframe { min-height: 420px; }
+    }
+
+    /* ═══════════════════════════════════
+       PANELS · PDF + CHATBOT (resultat — legacy, hidden)
     ═══════════════════════════════════ */
     .conf-result__panels {
       max-width: 1080px;
@@ -2614,8 +2782,43 @@
           <div class="conf-breakdown" id="confBreakdown"></div>
         </div>
 
-        <!-- Panels: PDF + Chatbot -->
-        <div class="conf-result__panels">
+        <!-- ── PDF embedded + Chat side-by-side (post-budget experience) ── -->
+        <div class="conf-result__pdfchat" id="resultPdfChat">
+          <div class="conf-result__pdfchat-pdf">
+            <div class="conf-result__pdfchat-pdf-loading" id="pdfLoading">
+              <div class="conf-result__pdfchat-spinner" aria-hidden="true"></div>
+              <span>Generant el teu pressupost en PDF…</span>
+            </div>
+            <iframe id="resultPdfFrame" title="Pressupost PAPIK" style="display:none;"></iframe>
+            <div class="conf-result__pdfchat-pdf-actions">
+              <a id="resultPdfDownload" class="conf-btn conf-btn--ghost" download="pressupost-papik.pdf" style="display:none;">
+                Descarregar PDF
+              </a>
+              <button class="conf-btn conf-btn--ghost" id="btnRestartTop" type="button">
+                Començar de nou
+              </button>
+            </div>
+          </div>
+
+          <div class="conf-result__pdfchat-chat">
+            <div class="conf-result__pdfchat-chat-header">
+              <h3>Pregunta'm sobre el teu pressupost</h3>
+              <p>Soc l'Assessor Virtual PAPIK. Conec tots els detalls del teu pressupost i puc resoldre dubtes sobre materials, partides, terminis o decisions tècniques.</p>
+            </div>
+            <div class="conf-result__pdfchat-chat-messages" id="resultChatMessages">
+              <div class="conf-chat__msg conf-chat__msg--bot">Hola! Ja tinc el teu pressupost. Pregunta'm el que vulguis: materials, terminis, alternatives, com s'ha calculat alguna partida…</div>
+            </div>
+            <div class="conf-result__pdfchat-chat-input">
+              <input id="resultChatInput" type="text" placeholder="Escriu la teva pregunta…" autocomplete="off">
+              <button id="resultChatSend" type="button" aria-label="Enviar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Old panels block (hidden — replaced by .conf-result__pdfchat above) -->
+        <div class="conf-result__panels" style="display:none;">
           <!-- PDF panel -->
           <div class="conf-result__panel conf-result__panel--pdf">
             <div class="conf-result__panel-icon" aria-hidden="true">
@@ -2984,7 +3187,96 @@
 (function () {
   'use strict';
 
-  // ─── Guia de configuració (FAB) ───────────────────────────
+  // ═══════════════════════════════════════════════════════════
+  // SHARED HELPERS
+  // ═══════════════════════════════════════════════════════════
+
+  // Build a complete config_state snapshot from the live form so the chat
+  // backend can give context-aware answers. Falls back gracefully if
+  // configurador.js hasn't exposed papikBuildPayload yet.
+  function snapshotConfigState() {
+    if (typeof window.papikBuildPayload === 'function') {
+      const p = window.papikBuildPayload() || {};
+      return p;
+    }
+    const fallback = {};
+    ['f_m2', 'f_m2_garatge', 'f_m2_porxos', 'f_ubicacio'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el && el.value) fallback[id.replace(/^f_/, '')] = el.value;
+    });
+    return fallback;
+  }
+
+  // Apply the chat backend's `form_updates` block to the actual form.
+  // Returns the list of human-readable labels for the fields it touched.
+  function applyFormUpdates(updates) {
+    if (!updates || typeof updates !== 'object') return [];
+    const applied = [];
+
+    const setNumber = (id, v, label) => {
+      if (v == null) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.value = Math.round(parseFloat(v));
+      el.dispatchEvent(new Event('input',  { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      applied.push(label);
+    };
+
+    const setRadio = (name, value, label) => {
+      if (value == null) return;
+      const el = document.querySelector(`input[name="${name}"][value="${value}"]`);
+      if (!el) return;
+      el.checked = true;
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      el.dispatchEvent(new Event('click',  { bubbles: true }));
+      applied.push(label);
+    };
+
+    // ── municipi (select #f_ubicacio) ──
+    if (updates.municipi) {
+      const select = document.getElementById('f_ubicacio');
+      if (select) {
+        const target = String(updates.municipi).toLowerCase();
+        let matched = -1;
+        for (let i = 0; i < select.options.length; i++) {
+          const txt = (select.options[i].text || '').toLowerCase();
+          if (txt.startsWith(target) || txt.includes(target)) { matched = i; break; }
+        }
+        if (matched >= 0) {
+          select.selectedIndex = matched;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+          applied.push('Ubicació');
+        }
+      }
+    }
+
+    // ── numerics ──
+    if (updates.m2 != null)         setNumber('f_m2',          updates.m2,         'Superfície');
+    if (updates.m2_garatge != null) setNumber('f_m2_garatge',  updates.m2_garatge, 'Garatge (m²)');
+    if (updates.m2_porxos != null)  setNumber('f_m2_porxos',   updates.m2_porxos,  'Pòrxos (m²)');
+
+    // ── radios ──
+    if (updates.plantes != null) {
+      const p = parseInt(updates.plantes, 10);
+      const val = p >= 3 ? '3' : String(p);
+      setRadio('plantes', val, 'Plantes');
+    }
+    if (updates.num_banys != null) {
+      const b = parseInt(updates.num_banys, 10);
+      const val = b >= 4 ? '4' : String(b);
+      setRadio('banys', val, 'Banys');
+    }
+    if (updates.garatge === 'si' || updates.garatge === true)  setRadio('garatge', 'si', 'Garatge');
+    if (updates.garatge === 'no' || updates.garatge === false) setRadio('garatge', 'no', 'Garatge');
+
+    return applied;
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // FAB · Guia de configuració → /api/chat-configurador
+  // ═══════════════════════════════════════════════════════════
+
   const fabBtn   = document.getElementById('chatToggle');
   const fabPanel = document.getElementById('chatPanel');
   const fabClose = document.getElementById('chatClose');
@@ -3012,13 +3304,6 @@
       addFabMsg(msg, true);
       fabInput.value = '';
 
-      // Snapshot mínim de l'estat dels inputs visibles (no crític si està buit)
-      const configState = {};
-      ['f_m2', 'f_m2_garatge', 'f_m2_porxos', 'f_ubicacio'].forEach((id) => {
-        const el = document.getElementById(id);
-        if (el && el.value) configState[id.replace(/^f_/, '')] = el.value;
-      });
-
       fetch('/api/chat-configurador', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -3026,7 +3311,7 @@
           message:         msg,
           conversation_id: fabCid,
           step:            1,
-          config_state:    configState,
+          config_state:    snapshotConfigState(),
         }),
       })
         .then((r) => r.json())
@@ -3034,6 +3319,11 @@
           if (data.answer) addFabMsg(data.answer, false);
           if (data.conversation_id) fabCid = data.conversation_id;
           if (data.error) addFabMsg("Ho sento, no he pogut respondre ara mateix.", false);
+          // Auto-fill form fields if the chat extracted any
+          const filled = applyFormUpdates(data.form_updates);
+          if (filled && filled.length) {
+            addFabMsg('✓ He omplert: ' + filled.join(', ') + '. Pots revisar-ho al formulari.', false);
+          }
         })
         .catch(() => addFabMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false));
     };
@@ -3042,67 +3332,108 @@
     fabInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendFab(); });
   }
 
-  // ─── Assessor post-pressupost (panel del resultat) ────────
-  const resPanel = document.querySelector('.conf-chat-preview');
-  if (resPanel) {
-    const resInput = resPanel.querySelector('.conf-chat-preview__input');
-    const resBtn   = resPanel.querySelector('.conf-chat-preview__btn');
-    const resBubble = resPanel.querySelector('.conf-chat-preview__bubble');
+  // ═══════════════════════════════════════════════════════════
+  // RESULT VIEW · PDF iframe + Chat → /api/chat-pressupost
+  // ═══════════════════════════════════════════════════════════
 
-    if (resInput && resBtn) {
-      resInput.disabled = false;
-      resBtn.disabled   = false;
+  const pdfFrame    = document.getElementById('resultPdfFrame');
+  const pdfLoading  = document.getElementById('pdfLoading');
+  const pdfDownload = document.getElementById('resultPdfDownload');
+  const resMsgs     = document.getElementById('resultChatMessages');
+  const resInput    = document.getElementById('resultChatInput');
+  const resSend     = document.getElementById('resultChatSend');
+  const btnRestartTop = document.getElementById('btnRestartTop');
 
-      // Hide the "Aviat disponible" badge sibling, if any
-      const badge = resPanel.parentElement && resPanel.parentElement.querySelector('.conf-result__panel-badge');
-      if (badge) badge.style.display = 'none';
+  let resCid = null;
+  let lastPdfUrl = null;
 
-      let resCid = null;
-      const log = document.createElement('div');
-      log.className = 'conf-chat-preview__log';
-      log.style.cssText = 'margin-top:12px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.5;max-height:240px;overflow-y:auto;';
-      resPanel.appendChild(log);
+  const addResMsg = (text, isUser) => {
+    if (!resMsgs) return;
+    const div = document.createElement('div');
+    div.className = 'conf-chat__msg conf-chat__msg--' + (isUser ? 'user' : 'bot');
+    div.textContent = text;
+    resMsgs.appendChild(div);
+    resMsgs.scrollTop = resMsgs.scrollHeight;
+  };
 
-      const addResMsg = (text, isUser) => {
-        const div = document.createElement('div');
-        div.style.cssText = isUser
-          ? 'align-self:flex-end;background:#002819;color:#fff;padding:8px 12px;border-radius:12px;max-width:85%;'
-          : 'align-self:flex-start;background:rgba(86,104,94,.14);color:#002819;padding:8px 12px;border-radius:12px;max-width:85%;';
-        div.textContent = text;
-        log.appendChild(div);
-        log.scrollTop = log.scrollHeight;
-      };
+  const sendRes = () => {
+    if (!resInput) return;
+    const msg = (resInput.value || '').trim();
+    if (!msg) return;
+    addResMsg(msg, true);
+    resInput.value = '';
 
-      const sendRes = () => {
-        const msg = (resInput.value || '').trim();
-        if (!msg) return;
-        if (resBubble) resBubble.style.display = 'none';
-        addResMsg(msg, true);
-        resInput.value = '';
+    fetch('/api/chat-pressupost', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({
+        message:         msg,
+        conversation_id: resCid,
+        budget_input:    window._confData   || {},
+        budget_result:   window._confResult || {},
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.answer) addResMsg(data.answer, false);
+        if (data.conversation_id) resCid = data.conversation_id;
+        if (data.error) addResMsg("Ho sento, no he pogut respondre ara mateix.", false);
+      })
+      .catch(() => addResMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false));
+  };
 
-        fetch('/api/chat-pressupost', {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({
-            message:         msg,
-            conversation_id: resCid,
-            budget_input:    window._confData || {},
-            budget_result:   window._confResult || {},
-          }),
-        })
-          .then((r) => r.json())
-          .then((data) => {
-            if (data.answer) addResMsg(data.answer, false);
-            if (data.conversation_id) resCid = data.conversation_id;
-            if (data.error) addResMsg("Ho sento, no he pogut respondre ara mateix.", false);
-          })
-          .catch(() => addResMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false));
-      };
+  if (resSend)  resSend.addEventListener('click', sendRes);
+  if (resInput) resInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendRes(); });
 
-      resBtn.addEventListener('click', sendRes);
-      resInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendRes(); });
-    }
+  // "Començar de nou" button inside the new PDF panel — defers to the
+  // legacy #btnRestart handler if it exists (configurador.js owns the reset).
+  if (btnRestartTop) {
+    btnRestartTop.addEventListener('click', () => {
+      const legacy = document.getElementById('btnRestart');
+      if (legacy) legacy.click();
+    });
   }
+
+  // Generate the PDF as soon as configurador.js fires papik:result and
+  // embed it in the iframe. Also wires the "Descarregar PDF" link.
+  document.addEventListener('papik:result', (ev) => {
+    if (!pdfFrame) return;
+    const detail = ev.detail || {};
+    const payload = detail.payload || window._confData || {};
+    const result  = detail.result  || window._confResult || {};
+
+    // Reset chat conversation for the new budget
+    resCid = null;
+
+    if (pdfLoading) pdfLoading.classList.remove('hidden');
+    pdfFrame.style.display = 'none';
+    if (pdfDownload) pdfDownload.style.display = 'none';
+
+    fetch('/api/download-pdf', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ payload, result }),
+    })
+      .then((r) => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.blob();
+      })
+      .then((blob) => {
+        if (lastPdfUrl) URL.revokeObjectURL(lastPdfUrl);
+        lastPdfUrl = URL.createObjectURL(blob);
+        pdfFrame.src = lastPdfUrl + '#zoom=page-fit&toolbar=1';
+        pdfFrame.style.display = 'block';
+        if (pdfLoading) pdfLoading.classList.add('hidden');
+        if (pdfDownload) {
+          pdfDownload.href = lastPdfUrl;
+          pdfDownload.style.display = 'inline-flex';
+        }
+      })
+      .catch(() => {
+        if (pdfLoading) pdfLoading.innerHTML =
+          '<span style="color:#c0392b;">No s\'ha pogut generar el PDF. Torna a calcular el pressupost.</span>';
+      });
+  });
 })();
 </script>
 

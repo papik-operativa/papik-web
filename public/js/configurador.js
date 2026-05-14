@@ -374,6 +374,12 @@
       window._confData = payload;
       window._confResult = result;
       renderResult(result, payload);
+      // Notify external scripts (chat, embedded PDF…) that we have a result.
+      try {
+        document.dispatchEvent(new CustomEvent('papik:result', {
+          detail: { payload, result },
+        }));
+      } catch (e) { /* CustomEvent unsupported (IE) */ }
     } catch (err) {
       console.error('Calc error:', err);
       showToast('No s\'ha pogut calcular. Torna a provar en uns moments.');
@@ -657,4 +663,11 @@
   } else {
     init();
   }
+
+  // ── Exposat per a scripts externs (chats, PDF embed, debug) ──
+  // Snapshot complet de l'estat del configurador. Es construeix a partir
+  // del DOM, no del localStorage, així sempre reflecteix el que veu l'usuari.
+  window.papikBuildPayload = function () {
+    try { return buildPayload(); } catch (e) { return {}; }
+  };
 })();
