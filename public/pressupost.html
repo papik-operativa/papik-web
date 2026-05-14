@@ -1001,6 +1001,32 @@
       background: rgba(86,104,94,.14);
       color: var(--green);
     }
+    /* Typing indicator (3 bouncing dots) — shared by FAB chat and result chat */
+    .conf-chat__typing {
+      align-self: flex-start;
+      background: rgba(86,104,94,.14);
+      color: var(--green);
+      padding: 12px 16px;
+      border-radius: 14px;
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+      max-width: fit-content;
+    }
+    .conf-chat__typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: .35;
+      animation: chatDot 1.2s infinite ease-in-out;
+    }
+    .conf-chat__typing span:nth-child(2) { animation-delay: .15s; }
+    .conf-chat__typing span:nth-child(3) { animation-delay: .30s; }
+    @keyframes chatDot {
+      0%, 60%, 100% { opacity: .25; transform: translateY(0); }
+      30%           { opacity: 1;   transform: translateY(-3px); }
+    }
     .conf-result__pdfchat-chat-input {
       display: flex;
       gap: 10px;
@@ -3273,6 +3299,20 @@
     return applied;
   }
 
+  // Add an animated "typing…" bubble to a chat-messages container and
+  // return a function that removes it. Caller is responsible for calling
+  // the returned function once the network round-trip is over.
+  function showTyping(container) {
+    if (!container) return () => {};
+    const bubble = document.createElement('div');
+    bubble.className = 'conf-chat__typing';
+    bubble.setAttribute('aria-label', 'Escrivint…');
+    bubble.innerHTML = '<span></span><span></span><span></span>';
+    container.appendChild(bubble);
+    container.scrollTop = container.scrollHeight;
+    return () => { if (bubble.parentNode) bubble.parentNode.removeChild(bubble); };
+  }
+
   // ═══════════════════════════════════════════════════════════
   // FAB · Guia de configuració → /api/chat-configurador
   // ═══════════════════════════════════════════════════════════
@@ -3286,6 +3326,7 @@
 
   if (fabBtn && fabPanel && fabInput && fabSend && fabMsgs) {
     let fabCid = null;
+    let fabBusy = false;
 
     fabBtn.addEventListener('click', () => fabPanel.classList.toggle('open'));
     if (fabClose) fabClose.addEventListener('click', () => fabPanel.classList.remove('open'));
@@ -3298,11 +3339,22 @@
       fabMsgs.scrollTop = fabMsgs.scrollHeight;
     };
 
+    const setBusy = (busy) => {
+      fabBusy = busy;
+      fabInput.disabled = busy;
+      fabSend.disabled  = busy;
+      fabSend.style.opacity = busy ? '0.5' : '';
+    };
+
     const sendFab = () => {
+      if (fabBusy) return;
       const msg = (fabInput.value || '').trim();
       if (!msg) return;
       addFabMsg(msg, true);
       fabInput.value = '';
+
+      setBusy(true);
+      const stopTyping = showTyping(fabMsgs);
 
       fetch('/api/chat-configurador', {
         method:  'POST',
@@ -3316,16 +3368,23 @@
       })
         .then((r) => r.json())
         .then((data) => {
+          stopTyping();
           if (data.answer) addFabMsg(data.answer, false);
           if (data.conversation_id) fabCid = data.conversation_id;
           if (data.error) addFabMsg("Ho sento, no he pogut respondre ara mateix.", false);
-          // Auto-fill form fields if the chat extracted any
           const filled = applyFormUpdates(data.form_updates);
           if (filled && filled.length) {
             addFabMsg('✓ He omplert: ' + filled.join(', ') + '. Pots revisar-ho al formulari.', false);
           }
         })
-        .catch(() => addFabMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false));
+        .catch(() => {
+          stopTyping();
+          addFabMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false);
+        })
+        .finally(() => {
+          setBusy(false);
+          fabInput.focus();
+        });
     };
 
     fabSend.addEventListener('click', sendFab);
@@ -3345,6 +3404,7 @@
   const btnRestartTop = document.getElementById('btnRestartTop');
 
   let resCid = null;
+  let resBusy = false;
   let lastPdfUrl = null;
 
   const addResMsg = (text, isUser) => {
@@ -3356,12 +3416,21 @@
     resMsgs.scrollTop = resMsgs.scrollHeight;
   };
 
+  const setResBusy = (busy) => {
+    resBusy = busy;
+    if (resInput) resInput.disabled = busy;
+    if (resSend)  { resSend.disabled = busy; resSend.style.opacity = busy ? '0.5' : ''; }
+  };
+
   const sendRes = () => {
-    if (!resInput) return;
+    if (!resInput || resBusy) return;
     const msg = (resInput.value || '').trim();
     if (!msg) return;
     addResMsg(msg, true);
     resInput.value = '';
+
+    setResBusy(true);
+    const stopTyping = showTyping(resMsgs);
 
     fetch('/api/chat-pressupost', {
       method:  'POST',
@@ -3375,11 +3444,19 @@
     })
       .then((r) => r.json())
       .then((data) => {
+        stopTyping();
         if (data.answer) addResMsg(data.answer, false);
         if (data.conversation_id) resCid = data.conversation_id;
         if (data.error) addResMsg("Ho sento, no he pogut respondre ara mateix.", false);
       })
-      .catch(() => addResMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false));
+      .catch(() => {
+        stopTyping();
+        addResMsg("Ho sento, no he pogut connectar. Torna-ho a intentar.", false);
+      })
+      .finally(() => {
+        setResBusy(false);
+        if (resInput) resInput.focus();
+      });
   };
 
   if (resSend)  resSend.addEventListener('click', sendRes);

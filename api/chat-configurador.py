@@ -79,65 +79,50 @@ def _match_municipi(message):
 
 
 def _format_config_context(step, config_state):
+    """Context prefix sent ONCE on the first message of a conversation.
+
+    Keep this lean: do NOT try to redefine the agent persona here — that
+    lives in the DocsGPT agent prompt. We only feed live form state and
+    a short, focused instruction about the FORM-update marker.
+    """
     step_names = {1: 'Parcel·la', 2: "L'Habitatge", 3: 'Confort', 4: 'Acabats'}
     step_name = step_names.get(step, f'Pas {step}')
 
     d = config_state or {}
-
     lines = [
-        "Ets el Guia Virtual de PAPIK, l'empresa que dissenya i construeix cases "
-        "sostenibles de fusta. Acompanyes l'usuari mentre configura la seva futura llar.",
-        "Personalitat: amable, calmat, intel·ligent, respostes curtes (2-4 frases). "
-        "No siguis intrusiu. Si la pregunta és tècnica, explica de forma senzilla sense tecnicismes.",
-        "",
-        f"Pas actual de la configuració: {step} — {step_name}",
-        "",
-        "── Dades configurades fins ara (live snapshot del formulari) ──",
+        f"[ESTAT ACTUAL DEL CONFIGURADOR · Pas {step} — {step_name}]",
     ]
 
     def val(key, label):
         v = d.get(key)
         if v in (None, '', 0):
-            lines.append(f"{label}: (pendent)")
+            lines.append(f"  · {label}: (pendent)")
         else:
-            lines.append(f"{label}: {v}")
+            lines.append(f"  · {label}: {v}")
 
     val('municipi',       'Municipi')
     val('m2',             'Superfície (m²)')
     val('plantes',        'Plantes')
     val('num_banys',      'Banys')
     val('garatge',        'Garatge')
-    val('m2_garatge',     'Superfície garatge (m²)')
-    val('m2_porxos',      'Superfície pòrxos (m²)')
-    val('tipus_coberta',  'Tipus de coberta')
-    val('tipus_facana',   'Tipus de façana')
+    val('m2_garatge',     'Garatge (m²)')
+    val('m2_porxos',      'Pòrxos (m²)')
+    val('tipus_coberta',  'Coberta')
+    val('tipus_facana',   'Façana')
     val('tipus_paviment', 'Paviment')
     val('nivell_bany',    'Nivell de bany')
-    val('plaques_solars', 'Plaques solars')
-    val('persianes',      'Persianes')
-    val('domotica',       'Domòtica')
 
     lines.append("")
-    lines.append(f"L'usuari es troba al Pas {step} ({step_name}). Respon SEMPRE en català.")
-    lines.append("")
     lines.append(
-        "INSTRUCCIÓ DE FORMULARI AUTOMÀTIC: "
-        "Si el missatge de l'usuari conté informació que correspon a un camp "
-        "del formulari (per exemple «vull una casa a Bellaterra de 120 m² amb "
-        "garatge de 40 m²»), afegeix AL FINAL absolut de la teva resposta —després "
-        "d'una línia en blanc— un bloc amb aquest format exacte (sense espais "
-        "addicionals, una sola línia):\n"
-        "<!--FORM:{\"municipi\":\"Bellaterra\",\"m2\":120,\"garatge\":\"si\",\"m2_garatge\":40}-->\n"
-        "Camps possibles i els seus valors:\n"
-        "  · municipi (nom exacte d'un municipi de Catalunya, p.ex. \"Bellaterra\")\n"
-        "  · m2 (enter entre 80 i 800)\n"
-        "  · plantes (\"1\", \"2\" o \"3\")\n"
-        "  · num_banys (enter 1-4)\n"
-        "  · garatge (\"si\" o \"no\")\n"
-        "  · m2_garatge (enter, només si garatge=si)\n"
-        "  · m2_porxos (enter, m² de pòrxos/terrasses cobertes)\n"
-        "El bloc NO ha de ser visible per a l'usuari (el frontend el filtrarà). "
-        "Si no hi ha cap dada concreta de formulari, NO incloguis el bloc."
+        "[INSTRUCCIÓ TÈCNICA · només per al sistema, no per a l'usuari] "
+        "Quan el missatge de l'usuari contingui dades que encaixin amb un camp "
+        "del formulari (municipi, m2, plantes, num_banys, garatge, m2_garatge, "
+        "m2_porxos), afegeix una ÚLTIMA línia separada de la resposta amb el "
+        "format exacte: <!--FORM:{\"camp\":valor}-->  "
+        "Valors acceptats: municipi=nom de municipi català · m2=enter 80-800 · "
+        "plantes=\"1\"|\"2\"|\"3\" · num_banys=enter 1-4 · garatge=\"si\"|\"no\" · "
+        "m2_garatge=enter · m2_porxos=enter. "
+        "Si no hi ha cap dada nova, no incloguis aquest bloc."
     )
 
     return '\n'.join(lines)
