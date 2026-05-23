@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier · PAPIK</title>
+  <meta name="description" content="Configura el teu projecte Passivhaus amb Papik.">
+  <meta name="theme-color" content="#F4F1ED">
+  <meta name="robots" content="noindex,nofollow">
+
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/img/home/llinars-1.jpg" as="image">
+  <link rel="stylesheet" href="/css/atelier.css">
+</head>
+<body class="atelier" data-stage="estructura">
+
+  <!-- Background photos (cross-fade per section) -->
+  <div class="atelier-bg" aria-hidden="true">
+    <div class="atelier-bg__image atelier-bg__image--active" data-stage="estructura" style="background-image: url('/img/home/llinars-1.jpg');"></div>
+    <div class="atelier-bg__image" data-stage="materials"  style="background-image: url('/img/home/casa-premia-02.jpg');"></div>
+    <div class="atelier-bg__image" data-stage="equipament" style="background-image: url('/img/home/premia-4.jpg');"></div>
+    <div class="atelier-bg__image" data-stage="lloc"       style="background-image: url('/img/home/llinars-2.jpg');"></div>
+    <div class="atelier-bg__veil"></div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="atelier-bar">
+    <a href="/" class="atelier-bar__brand">
+      <span class="atelier-bar__mark">PAPIK</span>
+      <span class="atelier-bar__sep" aria-hidden="true">·</span>
+      <span class="atelier-bar__name">Atelier</span>
+    </a>
+
+    <nav class="atelier-bar__nav" aria-label="Pas del configurador">
+      <span class="atelier-bar__step-eyebrow">Pas</span>
+      <span class="atelier-bar__step-current" id="stepCurrent">01</span>
+      <span class="atelier-bar__step-sep">/</span>
+      <span class="atelier-bar__step-total" id="stepTotal">13</span>
+    </nav>
+
+    <a href="/" class="atelier-bar__exit">
+      <span>Sortir</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M3 3l8 8M11 3L3 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </header>
+
+  <!-- Main stage -->
+  <main class="atelier-stage">
+    <div class="atelier-stage__tags" aria-hidden="true">
+      <span class="atelier-tag">Passivhaus</span>
+      <span class="atelier-tag">Eskimohaus®</span>
+      <span class="atelier-tag">30 anys</span>
+    </div>
+
+    <div class="atelier-stage__title">
+      <h1 id="stageTitle">Configura la teva casa.<br>Coneix el pressupost real.</h1>
+      <p class="atelier-stage__sub" id="stageSub">
+        Respon les preguntes i descobreix el cost de la teva casa Passivhaus,
+        amb la precisió de trenta anys de projectes Papik.
+      </p>
+    </div>
+
+    <!-- Question card — content is injected by atelier.js render(step) -->
+    <section class="atelier-card atelier-card--question" id="stepContainer" aria-live="polite"></section>
+  </main>
+
+  <!-- Footer summary + nav -->
+  <footer class="atelier-footer">
+    <button class="atelier-back" id="btnBack" type="button" aria-label="Pas anterior" hidden>
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+        <path d="M15 6H1M5 1L1 6l4 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Anterior</span>
+    </button>
+
+    <div class="atelier-summary" id="atelierSummary" role="list"></div>
+
+    <button class="atelier-cta" id="btnNext" type="button">
+      <span id="btnNextLabel">Continuar</span>
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
+        <path d="M1 6h15M12 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Chat · floating assistant
+       Connects to /api/chat-configurador while configuring
+       and to /api/chat-pressupost once the budget is revealed.
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="atelier-chat-greet" id="chatGreet" hidden>
+    <button class="atelier-chat-greet__close" type="button" aria-label="Tancar">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+        <path d="M2 2l6 6M8 2l-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <span class="atelier-chat-greet__text">Tens algun dubte? Pregunta-me'l.</span>
+    <span class="atelier-chat-greet__arrow" aria-hidden="true"></span>
+  </div>
+
+  <button class="atelier-fab" id="chatFab" type="button" aria-label="Obrir guia virtual">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M21 11.5a8.5 8.5 0 0 1-15.4 4.95L3 17l1.05-2.6A8.5 8.5 0 1 1 21 11.5Z"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="atelier-fab__pulse" aria-hidden="true"></span>
+  </button>
+
+  <aside class="atelier-chat" id="chatPanel" aria-label="Guia virtual de PAPIK">
+    <header class="atelier-chat__header">
+      <div class="atelier-chat__head-text">
+        <span class="atelier-chat__eyebrow">Guia virtual</span>
+        <h3 class="atelier-chat__title">Pregunta el que vulguis</h3>
+      </div>
+      <button class="atelier-chat__close" id="chatClose" type="button" aria-label="Tancar guia">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3 3l8 8M11 3L3 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="atelier-chat__messages" id="chatMessages" role="log" aria-live="polite">
+      <div class="atelier-chat__msg atelier-chat__msg--bot">
+        Hola, sóc la guia virtual de PAPIK. Pots preguntar-me sobre les preguntes, materials o trasllats. També puc omplir camps per tu (ex: «vull 200 m² a Sant Cugat»).
+      </div>
+    </div>
+
+    <form class="atelier-chat__input-row" id="chatForm">
+      <input type="text" class="atelier-chat__input" id="chatInput"
+             placeholder="Escriu la teva pregunta…" autocomplete="off" spellcheck="false">
+      <button type="submit" class="atelier-chat__send" aria-label="Enviar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12l14-7-7 18-3-7-4-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+  </aside>
+
+  <!-- PDF.js · used to rasterise uploaded architectural PDFs to JPEG in
+       the browser before sending to /api/analitzar-plans. Same pattern as
+       the legacy configurador (bypasses Vercel's 4.5 MB body limit). -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="/js/atelier.js"></script>
+</body>
+</html>

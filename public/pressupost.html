@@ -2057,6 +2057,318 @@
     @media (max-width: 480px) {
       .conf-form.card-view .conf-section { min-height: 180px; }
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       HITO 1 · Atelier PAPIK
+       Hero v2 + Progress rail persistent + SVG casa
+       Sobrescriu les regles legacy (.conf-hero, .conf-progress)
+       que ja no tenen markup associat.
+    ═══════════════════════════════════════════════════════════ */
+
+    /* ── Hero v2 ─────────────────────────────────────────────── */
+    .conf-hero-v2 {
+      position: relative;
+      background: #002819;
+      color: #F4F1ED;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .conf-hero-v2::before {
+      /* Light vignette anchored to top-right, sets the atmospheric tone */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 80% 30%, rgba(149,187,165,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 20% 90%, rgba(0,0,0,0.30) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .conf-hero-v2__inner {
+      position: relative;
+      z-index: 1;
+      width: 90.625vw;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: clamp(72px, 9vw, 128px) 0 clamp(64px, 7vw, 104px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center;
+    }
+    .conf-hero-v2__copy { position: relative; z-index: 2; }
+    .conf-hero-v2__eyebrow {
+      display: inline-block;
+      font-family: var(--ff-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: clamp(24px, 3vw, 36px);
+    }
+    .conf-hero-v2__title {
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      font-size: clamp(40px, 6vw, 92px);
+      line-height: 1.04;
+      letter-spacing: -0.018em;
+      color: #F4F1ED;
+      margin: 0 0 clamp(20px, 2.4vw, 32px);
+    }
+    .conf-hero-v2__sub {
+      font-family: var(--ff-sans);
+      font-size: clamp(16px, 1.25vw, 19px);
+      line-height: 1.55;
+      color: rgba(244,241,237,0.7);
+      max-width: 520px;
+      margin: 0 0 clamp(32px, 3.5vw, 44px);
+      font-weight: 300;
+    }
+    .conf-hero-v2__ctas {
+      display: flex;
+      gap: clamp(20px, 2.2vw, 32px);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .conf-cta-primary {
+      background: var(--accent);
+      color: #002819;
+      border: none;
+      padding: 17px 38px;
+      font-family: var(--ff-sans);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0;
+      transition: transform 0.28s var(--ease-anim), background 0.28s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+    }
+    .conf-cta-primary:hover {
+      background: #a8c8b6;
+      transform: translateY(-1px);
+    }
+    .conf-cta-primary:active { transform: translateY(0); }
+    .conf-cta-secondary {
+      background: none;
+      color: rgba(244,241,237,0.78);
+      border: none;
+      padding: 14px 0;
+      font-family: var(--ff-sans);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.22s ease;
+      border-bottom: 1px solid rgba(244,241,237,0.18);
+    }
+    .conf-cta-secondary:hover {
+      color: #F4F1ED;
+      border-bottom-color: rgba(244,241,237,0.5);
+    }
+    .conf-cta-secondary svg { transition: transform 0.22s var(--ease-anim); }
+    .conf-cta-secondary:hover svg { transform: translateX(4px); }
+
+    .conf-hero-v2__stage {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .papik-house {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      display: block;
+      opacity: 0.92;
+      filter: drop-shadow(0 24px 40px rgba(0,0,0,0.25));
+    }
+
+    /* Responsive · Hero v2 */
+    @media (max-width: 960px) {
+      .conf-hero-v2__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 64px 0 56px;
+        text-align: left;
+      }
+      .conf-hero-v2__stage {
+        order: -1;
+        max-width: 360px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .papik-house { max-width: 320px; }
+    }
+    @media (max-width: 600px) {
+      .conf-hero-v2__title { font-size: clamp(36px, 9vw, 48px); }
+      .conf-hero-v2__sub { font-size: 15px; margin-bottom: 28px; }
+      .conf-hero-v2__ctas {
+        gap: 14px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .conf-cta-primary { width: 100%; padding: 16px 24px; min-width: 0; }
+      .conf-cta-secondary { justify-content: flex-start; }
+      .papik-house { max-width: 280px; }
+    }
+
+    /* ── Progress rail persistent ───────────────────────────── */
+    .conf-progress-rail {
+      background: #F8F6F1;
+      border-bottom: 1px solid rgba(86,104,94,0.14);
+      position: sticky;
+      top: 72px;
+      z-index: 60;
+      display: block !important;     /* override del legacy display:none */
+      width: 100%;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .conf-progress-rail__inner {
+      width: 90.625vw;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2vw, 32px);
+      height: 64px;
+    }
+    .conf-progress-rail__brand {
+      font-family: var(--ff-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      flex-shrink: 0;
+    }
+    .conf-progress-rail__steps {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex: 1;
+      justify-content: center;
+    }
+    .conf-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      transition: all 0.35s var(--ease-anim);
+    }
+    .conf-step__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(86,104,94,0.35);
+      background: transparent;
+      transition: all 0.35s var(--ease-anim);
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+    .conf-step__label {
+      font-family: var(--ff-sans);
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      transition: color 0.35s ease;
+      white-space: nowrap;
+    }
+    .conf-step--active .conf-step__dot {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.25);
+      box-shadow: 0 0 0 4px rgba(149,187,165,0.18);
+    }
+    .conf-step--active .conf-step__label {
+      color: var(--green);
+      font-weight: 500;
+    }
+    .conf-step--done .conf-step__dot {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .conf-step--done .conf-step__label { color: var(--green-light); }
+    .conf-step__connector {
+      width: clamp(28px, 4vw, 72px);
+      height: 1px;
+      background: rgba(86,104,94,0.22);
+      margin: 0 clamp(8px, 1vw, 18px);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 1;
+    }
+    .conf-step__connector::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.55s var(--ease-anim);
+    }
+    .conf-step__connector--filled::after { transform: scaleX(1); }
+
+    .conf-progress-rail__percent {
+      font-family: var(--ff-sans);
+      font-size: 13px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+      flex-shrink: 0;
+      min-width: 38px;
+      text-align: right;
+    }
+    .conf-progress-rail__percent #progressPercent { color: var(--green); font-weight: 500; }
+
+    /* Barra invisible · contracte amb el JS legacy */
+    .conf-progress-rail__legacy {
+      position: absolute;
+      left: 0; right: 0; bottom: -1px;
+      height: 2px;
+      background: rgba(86,104,94,0.05);
+      pointer-events: none;
+    }
+    .conf-progress-rail__legacy #progressFill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.6s var(--ease-anim);
+    }
+
+    /* Responsive · progress rail */
+    @media (max-width: 768px) {
+      .conf-progress-rail { top: 60px; }
+      .conf-progress-rail__inner {
+        height: 56px;
+        gap: 12px;
+        padding: 0 16px;
+      }
+      .conf-progress-rail__brand { display: none; }
+      .conf-step__label { display: none; }
+      .conf-step__connector {
+        width: 16px;
+        margin: 0 4px;
+      }
+      .conf-progress-rail__steps {
+        gap: 0;
+        justify-content: flex-start;
+        flex: 1;
+      }
+    }
+    @media (max-width: 480px) {
+      .conf-progress-rail__inner { padding: 0 14px; }
+    }
   </style>
   <link rel="stylesheet" href="/css/cookie-banner.css">
 
@@ -2308,25 +2620,155 @@
     <!-- Layout: Green left + White right -->
     <div class="conf-layout" id="confLayout">
 
-    <!-- Hero (green banner) -->
-    <div class="conf-hero" id="confHero">
-      <div class="conf-hero__inner">
-        <div class="conf-hero__left">
-          <h1>Dissenya el teu projecte</h1>
-          <div class="conf-hero__sep"></div>
-          <p>Estimació orientativa del cost de construcció</p>
+    <!-- ═══════════════════════════════════
+         HERO · Atelier PAPIK (HITO 1)
+         Nueva tipografía, doble CTA, SVG base de la casa.
+    ═══════════════════════════════════ -->
+    <section class="conf-hero-v2" id="confHero">
+      <div class="conf-hero-v2__inner">
+        <div class="conf-hero-v2__copy">
+          <span class="conf-hero-v2__eyebrow">Atelier · Pressupost guiat</span>
+          <h1 class="conf-hero-v2__title">El cost real<br>de la teva casa<br>Passivhaus.</h1>
+          <p class="conf-hero-v2__sub">Onze preguntes. Cinc minuts. Un pressupost basat en trenta anys de projectes Papik.</p>
+          <div class="conf-hero-v2__ctas">
+            <button type="button" class="conf-cta-primary" id="heroBtnStart">
+              <span>Començar</span>
+            </button>
+            <button type="button" class="conf-cta-secondary" id="heroBtnExample">
+              <span>Veure exemple de pressupost</span>
+              <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
+                <path d="M1 6h16M13 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <!-- Progress bar (right side of banner) -->
-        <div class="conf-progress" id="confProgress" style="display:none;">
-          <div class="conf-progress__inner">
-            <div class="conf-progress__bar">
-              <div class="conf-progress__fill" id="progressFill"></div>
-            </div>
-            <div class="conf-progress__text">
-              <span class="conf-progress__percent" id="progressPercent">0%</span> · <span id="progressTimer">0:00</span>
-            </div>
+        <div class="conf-hero-v2__stage" aria-hidden="true">
+          <!-- SVG base de la casa · HITO 1 (estàtica, sense animacions).
+               Els grups estan nomenats i preparats per a futures animacions
+               (volume-main, roof-*, windows, door, chimney, solar, light, garage). -->
+          <svg class="papik-house" viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="papHouseFront" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F4F1ED" stop-opacity="0.10"/>
+                <stop offset="100%" stop-color="#F4F1ED" stop-opacity="0.02"/>
+              </linearGradient>
+              <linearGradient id="papHouseSide" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F4F1ED" stop-opacity="0.05"/>
+                <stop offset="100%" stop-color="#F4F1ED" stop-opacity="0.01"/>
+              </linearGradient>
+              <linearGradient id="papHouseRoof" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F4F1ED" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="#F4F1ED" stop-opacity="0.06"/>
+              </linearGradient>
+            </defs>
+
+            <g id="ground">
+              <ellipse cx="240" cy="372" rx="190" ry="10" fill="#000" fill-opacity="0.24"/>
+              <line x1="40" y1="372" x2="440" y2="372" stroke="#F4F1ED" stroke-width="0.6" stroke-opacity="0.22"/>
+            </g>
+
+            <g id="volume-garage" style="display:none">
+              <path d="M 50 350 L 50 280 L 130 280 L 130 350 Z" fill="url(#papHouseFront)" stroke="#F4F1ED" stroke-width="1.2"/>
+              <path d="M 130 280 L 130 350 L 152 338 L 152 268 Z" fill="url(#papHouseSide)" stroke="#F4F1ED" stroke-width="1.2"/>
+              <path d="M 50 280 L 130 280 L 152 268 L 72 268 Z" fill="#F4F1ED" fill-opacity="0.1" stroke="#F4F1ED" stroke-width="1.2"/>
+            </g>
+
+            <g id="volume-main">
+              <path d="M 320 350 L 320 180 L 372 150 L 372 320 Z" fill="url(#papHouseSide)" stroke="#F4F1ED" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M 130 350 L 130 180 L 320 180 L 320 350 Z" fill="url(#papHouseFront)" stroke="#F4F1ED" stroke-width="1.2" stroke-linejoin="round"/>
+            </g>
+
+            <g id="roof-teula">
+              <path d="M 320 180 L 225 120 L 277 90 L 372 150 Z" fill="url(#papHouseRoof)" stroke="#F4F1ED" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M 130 180 L 225 120 L 320 180 Z" fill="#F4F1ED" fill-opacity="0.10" stroke="#F4F1ED" stroke-width="1.2" stroke-linejoin="round"/>
+            </g>
+
+            <g id="roof-plana" style="display:none">
+              <path d="M 130 180 L 320 180 L 372 150 L 182 150 Z" fill="url(#papHouseRoof)" stroke="#F4F1ED" stroke-width="1.2" stroke-linejoin="round"/>
+            </g>
+            <g id="roof-xapa" style="display:none">
+              <path d="M 320 180 L 225 130 L 277 100 L 372 150 Z" fill="url(#papHouseRoof)" stroke="#F4F1ED" stroke-width="1.2"/>
+              <path d="M 130 180 L 225 130 L 320 180 Z" fill="#F4F1ED" fill-opacity="0.10" stroke="#F4F1ED" stroke-width="1.2"/>
+            </g>
+
+            <g id="windows" stroke="#F4F1ED" stroke-width="0.9" stroke-opacity="0.7" fill="none">
+              <rect x="155" y="210" width="36" height="44"/>
+              <line x1="173" y1="210" x2="173" y2="254" stroke-opacity="0.35"/>
+              <rect x="208" y="210" width="36" height="44"/>
+              <line x1="226" y1="210" x2="226" y2="254" stroke-opacity="0.35"/>
+              <rect x="261" y="210" width="36" height="44"/>
+              <line x1="279" y1="210" x2="279" y2="254" stroke-opacity="0.35"/>
+              <rect x="155" y="280" width="36" height="50"/>
+              <rect x="261" y="280" width="36" height="50"/>
+            </g>
+
+            <g id="door">
+              <rect x="216" y="265" width="28" height="85" fill="#F4F1ED" fill-opacity="0.20" stroke="#F4F1ED" stroke-width="1.2"/>
+              <circle cx="237" cy="310" r="1.2" fill="#F4F1ED" fill-opacity="0.8"/>
+            </g>
+
+            <g id="windows-side" stroke="#F4F1ED" stroke-width="0.9" stroke-opacity="0.55" fill="none">
+              <path d="M 333 217 L 348 209 L 348 254 L 333 262 Z"/>
+              <path d="M 355 204 L 368 197 L 368 242 L 355 250 Z"/>
+            </g>
+
+            <g id="chimney" style="display:none">
+              <path d="M 248 100 L 248 78 L 262 70 L 262 92 Z" fill="#F4F1ED" fill-opacity="0.22" stroke="#F4F1ED" stroke-width="1.2"/>
+            </g>
+
+            <g id="solar" style="display:none">
+              <path d="M 245 145 L 295 130 L 325 152 L 275 168 Z" fill="#002819" fill-opacity="0.55" stroke="#95BBA5" stroke-width="0.8"/>
+            </g>
+
+            <g id="window-light" style="display:none">
+              <rect x="155" y="280" width="36" height="50" fill="#95BBA5" fill-opacity="0.35"/>
+              <rect x="261" y="280" width="36" height="50" fill="#95BBA5" fill-opacity="0.35"/>
+              <rect x="216" y="265" width="28" height="85" fill="#95BBA5" fill-opacity="0.30"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         Progress rail · persistente (HITO 1)
+         Always visible from above the form, sticky bajo el header.
+         IDs `confProgress`, `progressFill` y `progressPercent` preservats
+         per a compatibilitat amb configurador.js.
+    ═══════════════════════════════════ -->
+    <div class="conf-progress-rail" id="confProgress">
+      <div class="conf-progress-rail__inner">
+        <span class="conf-progress-rail__brand">Atelier</span>
+        <div class="conf-progress-rail__steps" role="list">
+          <div class="conf-step conf-step--active" data-step="1" role="listitem">
+            <span class="conf-step__dot"></span>
+            <span class="conf-step__label">Estructura</span>
           </div>
+          <div class="conf-step__connector" data-connector="1"></div>
+          <div class="conf-step" data-step="2" role="listitem">
+            <span class="conf-step__dot"></span>
+            <span class="conf-step__label">Materials</span>
+          </div>
+          <div class="conf-step__connector" data-connector="2"></div>
+          <div class="conf-step" data-step="3" role="listitem">
+            <span class="conf-step__dot"></span>
+            <span class="conf-step__label">Equipament</span>
+          </div>
+          <div class="conf-step__connector" data-connector="3"></div>
+          <div class="conf-step" data-step="4" role="listitem">
+            <span class="conf-step__dot"></span>
+            <span class="conf-step__label">Lloc</span>
+          </div>
+        </div>
+        <span class="conf-progress-rail__percent" aria-hidden="false">
+          <span id="progressPercent">0%</span>
+        </span>
+        <!-- Barra fina compatible amb el JS legacy. Ja no s'utilitza visualment
+             (els dots i connectors fan la feina) però la conservem per al
+             contracte amb configurador.js → updateProgress(). -->
+        <div class="conf-progress-rail__legacy" aria-hidden="true">
+          <div id="progressFill"></div>
         </div>
       </div>
     </div>

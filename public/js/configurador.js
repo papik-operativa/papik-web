@@ -122,10 +122,24 @@
     const pct = Math.round((done / TOTAL_SECTIONS) * 100);
     const fill = document.getElementById('progressFill');
     const txt = document.getElementById('progressPercent');
-    const wrap = document.getElementById('confProgress');
     if (fill) fill.style.width = pct + '%';
     if (txt) txt.textContent = pct + '%';
-    if (wrap) wrap.style.display = done > 0 && !state.result ? 'flex' : 'none';
+
+    // HITO 1 · Atelier rail · update dot/connector states.
+    // The legacy `#confProgress` wrapper stays in the DOM permanently
+    // (CSS forces `display:block`), so we don't toggle its visibility here.
+    const dots = document.querySelectorAll('.conf-progress-rail .conf-step');
+    const conns = document.querySelectorAll('.conf-progress-rail .conf-step__connector');
+    const active = done < TOTAL_SECTIONS ? done + 1 : TOTAL_SECTIONS;
+    dots.forEach((el) => {
+      const step = parseInt(el.dataset.step || '0', 10);
+      el.classList.toggle('conf-step--done', step <= done);
+      el.classList.toggle('conf-step--active', !state.result && step === active);
+    });
+    conns.forEach((el) => {
+      const idx = parseInt(el.dataset.connector || '0', 10);
+      el.classList.toggle('conf-step__connector--filled', idx <= done);
+    });
   }
 
   // ── Conditionals (mostrem/amaguem camps segons valors) ─────
@@ -675,6 +689,19 @@
     refreshAllRadioSelections();
     applyConditionals();
     bindEvents();
+
+    // HITO 1 · Hero v2 — CTAs both scroll the user toward the form section.
+    // The primary CTA ("Començar") and secondary CTA ("Veure exemple…") share
+    // the same target for now; the secondary will be wired to a sample PDF
+    // in a later hito.
+    const scrollToForm = () => {
+      const target = document.getElementById('confForm');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    const startBtn = document.getElementById('heroBtnStart');
+    const exampleBtn = document.getElementById('heroBtnExample');
+    if (startBtn) startBtn.addEventListener('click', scrollToForm);
+    if (exampleBtn) exampleBtn.addEventListener('click', scrollToForm);
   }
 
   if (document.readyState === 'loading') {
