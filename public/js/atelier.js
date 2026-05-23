@@ -7,6 +7,25 @@
 (function () {
   'use strict';
 
+  // ═══════════════════════════════════════════════════════════
+  // BOOKING · Cal.com (cal.eu, instància EU) routing per m²
+  // ───────────────────────────────────────────────────────────
+  // Cases sota 150 m² → l'equip operatiu d'habitatges petits.
+  // Cases de 150 m² o més → l'equip operatiu de projectes grans.
+  // Per canviar les URLs (o el llindar), edita només aquestes constants.
+  // ═══════════════════════════════════════════════════════════
+  // calLink = el username + slug de l'event type, sense domini.
+  // El widget s'encarrega d'apuntar a app.cal.eu (l'embed.js oficial
+  // gestiona la X-Frame-Options que el domini públic cal.eu bloqueja).
+  const CAL_LINK_SMALL    = 'operativa-papik/visita-comercial-per-a-l-analisi-del-pressupost-menys-150';
+  const CAL_LINK_LARGE    = 'operativa-papik/visita-comercial-per-a-l-analisi-del-pressupost-mes-150';
+  // Cal redirects cal.eu → www.cal.eu, so we tell the embed to use the
+  // canonical origin directly. Otherwise the postMessage handshake
+  // ('linkReady') fails and the iframe stays hidden forever.
+  const CAL_EMBED_JS      = 'https://app.cal.eu/embed/embed.js';
+  const CAL_EMBED_ORIGIN  = 'https://www.cal.eu';
+  const CAL_THRESHOLD_M2  = 150;
+
   // ── State (mirrors the backend's expected payload) ──────────
   // Defaults are intentionally empty/0. Each step applies its
   // `default` when the user lands on it for the first time, so
@@ -1086,53 +1105,51 @@
     const newLayout = layoutForStep(newStep);
     const layoutChanged = oldLayout !== newLayout;
 
-    if (!window.gsap) {
-      currentIdx = newIdx;
-      renderStep(currentIdx);
-      return;
-    }
-
     const dir = direction === 'back' ? -1 : 1;
 
-    // FIRST: capture current box BEFORE any change.
+    // Kill any pending tweens on the container. The entry animation in
+    // particular leaves a `.from()` queued that, if it gets choked by other
+    // GSAP work, can leave the container stuck at opacity 0 forever.
+    if (window.gsap) {
+      window.gsap.killTweensOf(container);
+      window.gsap.set(container, { opacity: 1, clearProps: 'transform' });
+    }
+
+    // FIRST: capture the CURRENT geometry so we can FLIP-animate from it.
     const firstRect = container.getBoundingClientRect();
 
-    // Fade out current content.
-    window.gsap.to(container, {
-      opacity: 0,
-      scale: 0.97,
-      duration: 0.26,
-      ease: 'power2.in',
-      onComplete: () => {
-        // Swap layout class + content while invisible.
-        currentIdx = newIdx;
-        renderStep(currentIdx);  // also sets document.body.dataset.layout
+    // ── Synchronous swap ────────────────────────────────────────────
+    // The state and DOM update happen *immediately*, not inside a GSAP
+    // onComplete callback. This way the configurator keeps working even
+    // if the GSAP animation later fails (which we've seen happen when
+    // the global ticker is saturated with leftover tweens).
+    currentIdx = newIdx;
+    renderStep(currentIdx);
 
-        // LAST: read the new box AFTER layout/content changed.
-        // Force a layout flush by reading offsetWidth.
-        container.offsetWidth; // eslint-disable-line no-unused-expressions
-        const lastRect = container.getBoundingClientRect();
+    if (!window.gsap) return;
 
-        const dx = firstRect.left - lastRect.left;
-        const dy = firstRect.top  - lastRect.top;
-        const sx = firstRect.width  / Math.max(1, lastRect.width);
-        const sy = firstRect.height / Math.max(1, lastRect.height);
+    // LAST: re-read the geometry after layout settled.
+    container.offsetWidth; // force a layout flush
+    const lastRect = container.getBoundingClientRect();
 
-        // PLAY: start from the FIRST geometry, animate to identity.
-        // We only morph scale/translate when the layout actually changed; for
-        // same-layout transitions we keep the slide-from-side feel.
-        if (layoutChanged) {
-          window.gsap.fromTo(container,
-            { x: dx, y: dy, scaleX: sx, scaleY: sy, opacity: 0, transformOrigin: 'top left' },
-            { x: 0, y: 0, scaleX: 1, scaleY: 1, opacity: 1,
-              duration: 0.72, ease: 'power3.inOut' });
-        } else {
-          window.gsap.fromTo(container,
-            { opacity: 0, x: 16 * dir, scale: 0.97 },
-            { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: 'power3.out' });
-        }
-      },
-    });
+    const dx = firstRect.left - lastRect.left;
+    const dy = firstRect.top  - lastRect.top;
+    const sx = firstRect.width  / Math.max(1, lastRect.width);
+    const sy = firstRect.height / Math.max(1, lastRect.height);
+
+    // PLAY: animate from the old geometry to identity. We only morph
+    // scale/translate when the layout actually changed; for same-layout
+    // transitions we keep a quick slide-from-side feel.
+    if (layoutChanged) {
+      window.gsap.fromTo(container,
+        { x: dx, y: dy, scaleX: sx, scaleY: sy, opacity: 0, transformOrigin: 'top left' },
+        { x: 0, y: 0, scaleX: 1, scaleY: 1, opacity: 1,
+          duration: 0.6, ease: 'power3.out', overwrite: 'auto' });
+    } else {
+      window.gsap.fromTo(container,
+        { opacity: 0, x: 16 * dir, scale: 0.97 },
+        { opacity: 1, x: 0, scale: 1, duration: 0.45, ease: 'power3.out', overwrite: 'auto' });
+    }
   }
 
   function nextActiveFrom (idx, direction) {
@@ -1288,12 +1305,55 @@
           `).join('')}
         </div>
 
+        <!-- Inline post-budget chat · wired to /api/chat-pressupost -->
+        <section class="atelier-reveal-chat" aria-label="Guia virtual del pressupost">
+          <header class="atelier-reveal-chat__head">
+            <span class="atelier-pill atelier-pill--accent">Guia virtual</span>
+            <h3 class="atelier-reveal-chat__title">Tens algun dubte sobre el pressupost?</h3>
+            <p class="atelier-reveal-chat__sub">La guia coneix el desglossament d'aquest pressupost i pot explicar-te qualsevol partida o suggerir alternatives.</p>
+          </header>
+
+          <div class="atelier-reveal-chat__messages" id="revealChatMessages" role="log" aria-live="polite">
+            <div class="atelier-chat__msg atelier-chat__msg--bot">
+              Hola. El teu pressupost ja és aquí. Pregunta'm el que vulguis: per què costa això, com canviaria si triessis altres materials, quant duraria l'obra…
+            </div>
+          </div>
+
+          <div class="atelier-reveal-chat__suggestions" id="revealChatSuggestions">
+            <button type="button" class="atelier-reveal-chat__chip" data-q="Per què la façana de suro natural és més cara que el SATE estàndard?">
+              Per què la façana de suro és més cara?
+            </button>
+            <button type="button" class="atelier-reveal-chat__chip" data-q="Quant temps duraria l'obra d'aquesta casa, aproximadament?">
+              Quant duraria l'obra?
+            </button>
+            <button type="button" class="atelier-reveal-chat__chip" data-q="Quins materials o partides podria canviar per reduir el pressupost sense perdre la certificació Passivhaus?">
+              Com puc reduir el pressupost?
+            </button>
+          </div>
+
+          <form class="atelier-reveal-chat__input-row" id="revealChatForm">
+            <input type="text" class="atelier-chat__input" id="revealChatInput"
+                   placeholder="Escriu la teva pregunta…" autocomplete="off" spellcheck="false">
+            <button type="submit" class="atelier-chat__send" aria-label="Enviar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12l14-7-7 18-3-7-4-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </section>
+
         <p class="atelier-reveal__note">
           Pressupost orientatiu basat en ràtios de catorze projectes Papik reals (2024-2025). Vàlid fins ${data.data_validesa || '—'}.
         </p>
 
         <div class="atelier-reveal__actions">
-          <button class="atelier-cta" id="btnDownloadPdf" type="button">
+          <button class="atelier-cta" id="btnBooking" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Agendar visita comercial</span>
+          </button>
+          <button class="atelier-cta atelier-cta--outline" id="btnDownloadPdf" type="button">
             <span>Descarregar PDF</span>
             <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
               <path d="M9 1v9M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1310,6 +1370,9 @@
     document.querySelector('.atelier-footer')?.setAttribute('hidden', '');
     document.querySelector('.atelier-bar__nav')?.setAttribute('hidden', '');
     document.body.dataset.stage = 'reveal';
+
+    // Wire the inline post-budget chat
+    wireRevealChat();
 
     // Entry animation: number counts up
     if (window.gsap) {
@@ -1329,6 +1392,226 @@
       location.reload();
     });
     document.getElementById('btnDownloadPdf')?.addEventListener('click', downloadPdf);
+    document.getElementById('btnBooking')?.addEventListener('click', openBookingModal);
+  }
+
+  // ── Inline reveal chat · standalone module, /api/chat-pressupost only
+  // Lives inside the reveal card. Shares no state with the floating FAB
+  // chat (different conversation_id) so the user can ask post-budget
+  // questions in either place without context bleed.
+  function wireRevealChat () {
+    const msgs = document.getElementById('revealChatMessages');
+    const input = document.getElementById('revealChatInput');
+    const form  = document.getElementById('revealChatForm');
+    const sugg  = document.getElementById('revealChatSuggestions');
+    if (!msgs || !input || !form) return;
+
+    let convId = null;
+    let busy = false;
+
+    const append = (text, kind) => {
+      const el = document.createElement('div');
+      el.className = `atelier-chat__msg atelier-chat__msg--${kind}`;
+      el.textContent = text;
+      msgs.appendChild(el);
+      msgs.scrollTop = msgs.scrollHeight;
+      return el;
+    };
+    const appendTyping = () => {
+      const el = document.createElement('div');
+      el.className = 'atelier-chat__msg atelier-chat__msg--bot atelier-chat__typing';
+      el.innerHTML = '<span></span><span></span><span></span>';
+      msgs.appendChild(el);
+      msgs.scrollTop = msgs.scrollHeight;
+      return el;
+    };
+
+    async function send (text) {
+      const q = (text || '').trim();
+      if (!q || busy) return;
+      append(q, 'user');
+      input.value = '';
+      busy = true;
+      input.disabled = true;
+      const typing = appendTyping();
+      try {
+        const res = await fetch('/api/chat-pressupost', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({
+            message:         q,
+            conversation_id: convId,
+            budget_input:    window._confData   || buildPayload(),
+            budget_result:   window._confResult || lastResult,
+          }),
+        });
+        const data = await res.json();
+        if (typing && typing.parentNode) typing.parentNode.removeChild(typing);
+        if (!res.ok || data.error) {
+          append(data?.error || 'No he pogut respondre ara mateix.', 'bot');
+        } else {
+          if (data.answer) append(data.answer, 'bot');
+          if (data.conversation_id) convId = data.conversation_id;
+        }
+      } catch (err) {
+        if (typing && typing.parentNode) typing.parentNode.removeChild(typing);
+        append("No he pogut connectar amb la guia ara mateix. Torna-ho a provar en uns segons.", 'bot');
+      } finally {
+        busy = false;
+        input.disabled = false;
+        input.focus({ preventScroll: true });
+      }
+    }
+
+    form.addEventListener('submit', (e) => { e.preventDefault(); send(input.value); });
+    if (sugg) sugg.addEventListener('click', (e) => {
+      const btn = e.target.closest('.atelier-reveal-chat__chip');
+      if (!btn) return;
+      const q = btn.dataset.q || btn.textContent || '';
+      input.value = q;
+      send(q);
+    });
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // BOOKING MODAL · official Cal.com embed.js
+  // ───────────────────────────────────────────────────────────
+  // We mount Cal's inline widget inside #bookingInline. The embed.js
+  // bootstrapping snippet sets up window.Cal as a queue API, loads the
+  // real script async, and replays queued calls when it's ready.
+  // Reference: https://cal.com/docs/embed/embed-inline
+  // ═══════════════════════════════════════════════════════════
+
+  // Standard Cal embed bootstrapper. Copies the official one from their docs
+  // verbatim (only the script URL is the EU instance). Sets up `window.Cal`.
+  function loadCalEmbed () {
+    if (window.Cal && window.Cal.loaded) return;
+    (function (C, A, L) {
+      var p = function (a, ar) { a.q.push(ar); };
+      var d = C.document;
+      C.Cal = C.Cal || function () {
+        var cal = C.Cal;
+        var ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement('script')).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          var api = function () { p(api, arguments); };
+          var namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === 'string') {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ['initNamespace', namespace]);
+          } else { p(cal, ar); }
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, CAL_EMBED_JS, 'init');
+    window.Cal('init', { origin: CAL_EMBED_ORIGIN });
+  }
+
+  function pickCalLink () {
+    const m2 = state.m2 || 0;
+    return m2 < CAL_THRESHOLD_M2 ? CAL_LINK_SMALL : CAL_LINK_LARGE;
+  }
+
+  function buildCalConfig () {
+    const notesParts = [];
+    if (state.m2)        notesParts.push(`Superfície ${fmtNum(state.m2)} m²`);
+    if (state.plantes)   notesParts.push(state.plantes === '1' ? '1 planta' : `${state.plantes} plantes`);
+    if (state.num_banys) notesParts.push(`${state.num_banys} bany${state.num_banys === 1 ? '' : 's'}`);
+    if (state.municipi)  notesParts.push(`Lloc: ${state.municipi}`);
+    if (lastResult?.total_pressupost) {
+      notesParts.push(`Pressupost estimat ${fmtEur(lastResult.total_pressupost)}`);
+    }
+    return {
+      layout: 'month_view',
+      theme:  'light',
+      name:   state.nom   || '',
+      email:  state.email || '',
+      notes:  notesParts.join(' · '),
+    };
+  }
+
+  let calMounted = false;
+
+  function mountCalInline () {
+    if (!window.Cal) return;
+    const calLink = pickCalLink();
+    const config  = buildCalConfig();
+    // Clear any previous embed (e.g. if the user reopens after a m² change
+    // that should route to the other commercial).
+    const host = document.getElementById('bookingInline');
+    if (host) host.innerHTML = '';
+    window.Cal('inline', {
+      elementOrSelector: '#bookingInline',
+      calLink,
+      config,
+    });
+    // Apply UI options after mount (theme + brand colour to match PAPIK)
+    window.Cal('ui', {
+      theme: 'light',
+      cssVarsPerTheme: { light: { 'cal-brand': '#002819' } },
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+    });
+    calMounted = true;
+  }
+
+  function openBookingModal () {
+    const modal   = document.getElementById('bookingModal');
+    const sub     = document.getElementById('bookingSub');
+    const loading = document.getElementById('bookingLoading');
+    if (!modal) return;
+
+    // Routed sub-copy: tell the user which team will attend
+    const m2 = state.m2 || 0;
+    if (sub) {
+      const equip = m2 < CAL_THRESHOLD_M2
+        ? "l'equip comercial d'habitatges fins a 150 m²"
+        : "l'equip comercial de projectes a partir de 150 m²";
+      sub.textContent = `Tria un dia i hora per a la visita amb ${equip}. Ja sabran el detall del teu pressupost.`;
+    }
+
+    // Bootstrap Cal embed (idempotent) and mount the inline widget.
+    // Hide the spinner once the iframe Cal creates has loaded; we listen
+    // for the global `linkReady` event Cal dispatches via postMessage.
+    if (loading) loading.style.display = 'flex';
+    loadCalEmbed();
+    mountCalInline();
+
+    // Safety timeout in case the iframe load event is missed
+    setTimeout(() => { if (loading) loading.style.display = 'none'; }, 2500);
+
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('atelier-modal-open');
+  }
+
+  function closeBookingModal () {
+    const modal = document.getElementById('bookingModal');
+    if (!modal) return;
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('atelier-modal-open');
+    // Clear the embed host so a subsequent open re-mounts fresh
+    // (with the right routing if m² changed in between).
+    const host = document.getElementById('bookingInline');
+    if (host) setTimeout(() => { host.innerHTML = ''; calMounted = false; }, 300);
+  }
+
+  function wireBookingModal () {
+    document.getElementById('bookingClose')?.addEventListener('click', closeBookingModal);
+    document.getElementById('bookingBackdrop')?.addEventListener('click', closeBookingModal);
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('bookingModal');
+      if (e.key === 'Escape' && modal && !modal.hidden) closeBookingModal();
+    });
   }
 
   async function downloadPdf () {
@@ -1600,11 +1883,16 @@
   }
 
   function init () {
-    if (btnNext) btnNext.addEventListener('click', onNext);
-    if (btnBack) btnBack.addEventListener('click', onBack);
+    // Mark elements so we can diagnose mis-bindings via dev tools.
+    if (btnNext) { btnNext.addEventListener('click', onNext); btnNext.dataset.bound = '1'; }
+    if (btnBack) { btnBack.addEventListener('click', onBack); btnBack.dataset.bound = '1'; }
     renderStep(0);
     entryAnimation();
     chatInit();
+    wireBookingModal();
+    if (typeof window !== 'undefined') {
+      window.__atelierInit = { btnNextExists: !!btnNext, btnBackExists: !!btnBack, ts: Date.now() };
+    }
   }
 
   if (document.readyState === 'loading') {

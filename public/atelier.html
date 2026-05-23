@@ -140,6 +140,38 @@
     </form>
   </aside>
 
+  <!-- ═══════════════════════════════════════════════════════════
+       Booking modal · Cal.com iframe routed by m²
+       URLs lliures de canviar a atelier.js (CAL_URL_SMALL / CAL_URL_LARGE).
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="atelier-modal" id="bookingModal" hidden aria-hidden="true">
+    <div class="atelier-modal__backdrop" id="bookingBackdrop"></div>
+    <div class="atelier-modal__panel" role="dialog" aria-modal="true" aria-label="Agendar visita comercial">
+      <header class="atelier-modal__head">
+        <div class="atelier-modal__head-text">
+          <span class="atelier-pill atelier-pill--accent">Agendar visita</span>
+          <h3 class="atelier-modal__title">Quan vols que en parlem?</h3>
+          <p class="atelier-modal__sub" id="bookingSub">
+            Tria un dia i hora per a la visita amb l'equip comercial de Papik.
+          </p>
+        </div>
+        <button class="atelier-modal__close" id="bookingClose" type="button" aria-label="Tancar">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 3l8 8M11 3L3 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </header>
+      <div class="atelier-modal__body">
+        <div class="atelier-modal__loading" id="bookingLoading" aria-hidden="true">
+          <span class="atelier-modal__spinner"></span>
+          <span>Carregant calendari…</span>
+        </div>
+        <!-- Cal embed mounts the iframe inside this div via embed.js -->
+        <div id="bookingInline" class="atelier-modal__inline"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- PDF.js · used to rasterise uploaded architectural PDFs to JPEG in
        the browser before sending to /api/analitzar-plans. Same pattern as
        the legacy configurador (bypasses Vercel's 4.5 MB body limit). -->

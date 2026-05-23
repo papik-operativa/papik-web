@@ -898,6 +898,114 @@ button { font: inherit; cursor: pointer; }
   color: var(--pp-ink);
 }
 
+/* Outline variant · same shape as primary but secondary visual weight */
+.atelier-cta--outline {
+  background: var(--pp-white);
+  color: var(--pp-green);
+  border: 1.5px solid var(--pp-green);
+}
+.atelier-cta--outline:hover {
+  background: var(--pp-accent-soft);
+  border-color: var(--pp-green-deep);
+  color: var(--pp-green-deep);
+  box-shadow: none;
+}
+
+/* ─── Inline reveal chat ──────────────────────────────────── */
+.atelier-reveal-chat {
+  margin: clamp(24px, 3vw, 36px) 0 24px;
+  padding: clamp(24px, 3vw, 32px) clamp(20px, 2.4vw, 28px);
+  background: var(--pp-paper);
+  border-radius: var(--pp-radius);
+  border: 1px solid var(--pp-line);
+  text-align: left;
+}
+.atelier-reveal-chat__head {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.atelier-reveal-chat__head .atelier-pill {
+  margin-bottom: 14px;
+  display: inline-flex;
+}
+.atelier-reveal-chat__title {
+  font-family: 'TT Firs Neue', sans-serif;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 500;
+  color: var(--pp-ink);
+  letter-spacing: -0.008em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.atelier-reveal-chat__sub {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--pp-ink-soft);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.atelier-reveal-chat__messages {
+  background: var(--pp-white);
+  border-radius: var(--pp-radius-sm);
+  padding: 16px;
+  max-height: 280px;
+  min-height: 88px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0 14px;
+  border: 1px solid var(--pp-line);
+  scrollbar-width: thin;
+  scrollbar-color: var(--pp-line-strong) transparent;
+}
+.atelier-reveal-chat__messages::-webkit-scrollbar { width: 6px; }
+.atelier-reveal-chat__messages::-webkit-scrollbar-thumb {
+  background: var(--pp-line-strong);
+  border-radius: 3px;
+}
+
+.atelier-reveal-chat__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+  justify-content: center;
+}
+.atelier-reveal-chat__chip {
+  background: var(--pp-white);
+  color: var(--pp-ink-soft);
+  border: 1px solid var(--pp-line);
+  border-radius: var(--pp-radius-pill);
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+  letter-spacing: 0.005em;
+  transition: all 0.22s var(--pp-ease);
+  font-family: 'TT Firs Neue', sans-serif;
+}
+.atelier-reveal-chat__chip:hover {
+  border-color: var(--pp-green);
+  color: var(--pp-ink);
+  background: var(--pp-paper);
+}
+
+.atelier-reveal-chat__input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.atelier-reveal-chat__input-row .atelier-chat__input { background: var(--pp-white); }
+.atelier-reveal-chat__input-row .atelier-chat__input:focus { background: var(--pp-white); }
+
+@media (max-width: 640px) {
+  .atelier-reveal-chat { padding: 22px 18px; }
+  .atelier-reveal-chat__suggestions { justify-content: stretch; }
+  .atelier-reveal-chat__chip { flex: 1 1 auto; text-align: center; }
+}
+
 /* Reveal loading state */
 .atelier-reveal--loading {
   padding: 40px 0;
@@ -920,7 +1028,10 @@ button { font: inherit; cursor: pointer; }
   margin: 0 auto;
 }
 
-/* When reveal is active, hide footer + step counter + tags + title */
+/* When reveal is active, hide footer + step counter + tags + title.
+   Also hide the floating FAB chat and greet bubble — the reveal screen
+   has its own inline chat (.atelier-reveal-chat) so there should not
+   be two chat surfaces visible at the same time. */
 body[data-stage="reveal"] .atelier-stage {
   grid-template-columns: 1fr;
   align-items: start;
@@ -929,7 +1040,10 @@ body[data-stage="reveal"] .atelier-stage {
 body[data-stage="reveal"] .atelier-stage__tags,
 body[data-stage="reveal"] .atelier-stage__title,
 body[data-stage="reveal"] .atelier-footer,
-body[data-stage="reveal"] .atelier-bar__nav {
+body[data-stage="reveal"] .atelier-bar__nav,
+body[data-stage="reveal"] .atelier-fab,
+body[data-stage="reveal"] .atelier-chat,
+body[data-stage="reveal"] .atelier-chat-greet {
   display: none !important;
 }
 body[data-stage="reveal"] .atelier-card {
@@ -1630,6 +1744,151 @@ body[data-stage="reveal"] {
 }
 @media (max-width: 640px) {
   .atelier-fab { width: 44px; height: 44px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BOOKING MODAL · Cal.com iframe overlay
+═══════════════════════════════════════════════════════════ */
+.atelier-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 3vw, 32px);
+}
+.atelier-modal[hidden] { display: none; }
+.atelier-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 21, 16, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: atModalBackdropIn 0.3s ease;
+}
+@keyframes atModalBackdropIn { from { opacity: 0; } to { opacity: 1; } }
+
+.atelier-modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  background: var(--pp-white);
+  border-radius: var(--pp-radius);
+  box-shadow: 0 40px 100px rgba(0, 21, 16, 0.35),
+              0 12px 28px rgba(0, 21, 16, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: atModalIn 0.38s var(--pp-ease);
+}
+@keyframes atModalIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.atelier-modal__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 20px;
+  border-bottom: 1px solid var(--pp-line);
+  background: var(--pp-paper);
+  flex-shrink: 0;
+}
+.atelier-modal__head-text { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.atelier-modal__head-text .atelier-pill { align-self: flex-start; }
+.atelier-modal__title {
+  font-family: 'TT Firs Neue', sans-serif;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 500;
+  color: var(--pp-ink);
+  letter-spacing: -0.008em;
+  line-height: 1.2;
+}
+.atelier-modal__sub {
+  font-size: 13px;
+  color: var(--pp-ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+.atelier-modal__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--pp-line);
+  background: var(--pp-white);
+  color: var(--pp-ink-soft);
+  cursor: pointer;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.atelier-modal__close:hover {
+  background: var(--pp-paper);
+  border-color: var(--pp-line-strong);
+  color: var(--pp-ink);
+}
+
+.atelier-modal__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  background: var(--pp-paper);
+  position: relative;
+  /* Cal embed auto-resizes its iframe to fit the full calendar + time
+     picker (~1500 px), which is taller than our modal. Let the body
+     scroll so the user can reach the time slots. */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.atelier-modal__iframe,
+.atelier-modal__inline {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  border: 0;
+  display: block;
+  background: var(--pp-white);
+}
+/* Cal embed.js creates an iframe inside our host div */
+.atelier-modal__inline iframe { width: 100%; height: 100%; min-height: 560px; border: 0; display: block; }
+.atelier-modal__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--pp-ink-soft);
+  pointer-events: none;
+  background: var(--pp-paper);
+}
+.atelier-modal__spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--pp-line);
+  border-top-color: var(--pp-green);
+  border-radius: 50%;
+  animation: atSpin 0.85s linear infinite;
+}
+
+body.atelier-modal-open { overflow: hidden; }
+
+@media (max-width: 640px) {
+  .atelier-modal { padding: 0; align-items: stretch; }
+  .atelier-modal__panel {
+    max-width: 100%;
+    max-height: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .atelier-modal__iframe { min-height: 0; height: 100%; }
 }
 
 /* Reduced motion */
