@@ -57,7 +57,7 @@
   function collectAllFormValues() {
     const values = {};
     // Inputs amb id (text/number)
-    ['f_m2', 'f_plantes', 'f_banys', 'f_m2_garatge', 'f_m2_porxos',
+    ['f_m2', 'f_plantes', 'f_banys', 'f_habitacions', 'f_m2_garatge', 'f_m2_porxos',
      'f_ubicacio', 'f_nom', 'f_email', 'f_tel'].forEach((id) => {
       const el = document.getElementById(id);
       if (el) values[id] = el.value;
@@ -232,6 +232,8 @@
       if (!plantes || plantes < 1) return { field: 'f_plantes', msg: 'Indica el nombre de plantes' };
       const banys = parseInt(document.getElementById('f_banys').value, 10);
       if (!banys || banys < 1) return { field: 'f_banys', msg: 'Indica el nombre de banys' };
+      const habitacions = parseInt(document.getElementById('f_habitacions').value, 10);
+      if (!habitacions || habitacions < 1) return { field: 'f_habitacions', msg: "Indica el nombre d'habitacions" };
       const garatge = getRadio('garatge');
       if (!garatge) return { field: null, msg: 'Indica si vol garatge' };
       if (garatge === 'si') {
@@ -338,6 +340,7 @@
       m2: parseFloat(document.getElementById('f_m2').value || 0),
       plantes: String(parseInt(document.getElementById('f_plantes').value, 10) || 2),
       num_banys: parseInt(document.getElementById('f_banys').value, 10) || 2,
+      num_habitacions: parseInt(document.getElementById('f_habitacions').value, 10) || 3,
       garatge: getRadio('garatge') || 'no',
       m2_garatge: parseFloat(document.getElementById('f_m2_garatge').value || 0),
       m2_porxos: parseFloat(document.getElementById('f_m2_porxos').value || 0),
@@ -421,6 +424,7 @@
       { label: 'Superfície', value: `${fmtNum(payload.m2)} m²` },
       { label: 'Plantes', value: plantesLabel },
       { label: 'Banys', value: `${payload.num_banys} banys` },
+      { label: 'Habitacions', value: `${payload.num_habitacions} habitacions` },
       { label: 'Garatge', value: payload.garatge === 'si' ? `Sí (${fmtNum(payload.m2_garatge)} m²)` : 'No' },
     ];
     if (payload.m2_porxos > 0) {

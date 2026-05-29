@@ -90,6 +90,7 @@ def derivar_variables(data):
     m2 = float(data.get('m2', 160))
     plantes = str(data.get('plantes', '2'))
     banys = int(data.get('num_banys', 2))
+    habitacions = int(data.get('num_habitacions', max(1, banys + 1)))
 
     m2_paviment = round(m2 * 0.91)
     num_portes = max(4, round(m2 / 22)) + banys
@@ -136,6 +137,7 @@ def derivar_variables(data):
 
     return dict(
         m2=m2, plantes=plantes, num_banys=banys,
+        num_habitacions=habitacions,
         m2_paviment=m2_paviment, num_portes=num_portes,
         m2_fonamentacio=m2_fonamentacio, escala=escala,
         tipus_escala=tipus_escala,
@@ -161,6 +163,7 @@ def calculate_budget(data):
     m2 = v['m2']
     plantes = v['plantes']
     num_banys = v['num_banys']
+    num_habitacions = v['num_habitacions']
     m2_paviment = v['m2_paviment']
     num_portes = v['num_portes']
     m2_fonamentacio = v['m2_fonamentacio']
@@ -197,7 +200,7 @@ def calculate_budget(data):
     rate = {'1': 820.0, '2': 984.4}.get(plantes, 1050.0)
     m2_finestres = m2 * 0.109
     suplement_finestres = (preu_finestres - preu_base_finestres) * m2_finestres
-    cost_porta_entrada = 2245.00
+    cost_porta_entrada = 3445.45
     cost_grua = min(900.0, max(450.0, 450.0 + (m2 - 120) * 2.5))
     base_variable = rate * m2
     cost_estructura = base_variable * 0.503
@@ -211,6 +214,11 @@ def calculate_budget(data):
     }.get(tipus_coberta, 0.0)
     cost_coberta += increment_coberta
 
+    # Ajust equip (29-05-2026): +18,5 % estructura, +9 % coberta, +18,3 % finestres.
+    cost_estructura *= 1.185
+    cost_coberta *= 1.09
+    cost_finestres *= 1.183
+
     increment_facana = {
         'sate': 0.0,
         'ventilada': 28.0 * m2,
@@ -222,12 +230,13 @@ def calculate_budget(data):
                       + cost_porta_entrada + cost_grua + increment_facana)
 
     # ── PACK INSTAL·LACIONS ──────────────────────────────────────────────────
-    cost_teleco = 1989.00
-    cost_sanejament = 1621.00
+    # Ajust equip (29-05-2026): telecos, sanejament i ventilació passen a €/m².
+    cost_teleco = 18.9 * m2
+    cost_sanejament = 18.7 * m2
     cost_electricitat = 48.0 * m2
     cost_agua = 37.5 * m2
     cost_escomeses = 8578.00
-    cost_ventilacio = 1985.00
+    cost_ventilacio = 14.2 * m2
 
     if zehnder:
         cost_zehnder = 8910.00 if m2 <= 180 else 9639.00
@@ -236,7 +245,8 @@ def calculate_budget(data):
 
     cost_aerotermia = {'acs': 2870.00, 'acs_calefaccio': 10976.00}.get(aerotermia, 0.0)
 
-    num_fan_coils = max(2, round(m2 / 40)) if vol_fan_coils else 0
+    # Ajust equip (29-05-2026): nº fan coils = nº habitacions + 2.
+    num_fan_coils = (num_habitacions + 2) if vol_fan_coils else 0
     cost_fan_coils = 996.0 * num_fan_coils
 
     cost_llar_foc = 3200.0 if vol_llar_foc else 0.0
@@ -290,8 +300,9 @@ def calculate_budget(data):
 
     # ── TOTALS ───────────────────────────────────────────────────────────────
     total_construccio = pack_envolvent + pack_installacions + pack_parking + pack_acabats + cost_transport
-    cost_projecte = 0.0 if data.get('te_projecte') else total_construccio * 0.105
-    cost_seguretat = total_construccio * 0.0175
+    # Ajust equip (29-05-2026): projecte 198,60 €/m²; seguretat 2 % del total construcció.
+    cost_projecte = 0.0 if data.get('te_projecte') else 198.60 * m2
+    cost_seguretat = total_construccio * 0.02
     cost_fonamentacio = 396.0 * m2_fonamentacio
     total_contractacio = cost_projecte + cost_seguretat + cost_fonamentacio
     total_sense_iva = total_construccio + total_contractacio
@@ -332,6 +343,7 @@ def calculate_budget(data):
             'paviment_label': paviment_labels.get(tipus_paviment, tipus_paviment),
             'bany_label': bany_labels.get(nivell_bany, nivell_bany),
             'num_finestres': num_finestres,
+            'num_habitacions': num_habitacions,
             'num_fan_coils': num_fan_coils,
         },
         'pack_envolvent': {

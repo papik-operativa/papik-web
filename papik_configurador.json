@@ -35,6 +35,20 @@
       ]
     },
     {
+      "id": "23",
+      "type": "radio",
+      "label": "Quantes habitacions té la casa?",
+      "description": "Determina el nombre de fan coils necessaris (habitacions + 2)",
+      "required": "1",
+      "choices": [
+        { "label": "1 habitació", "value": "1" },
+        { "label": "2 habitacions", "value": "2" },
+        { "label": "3 habitacions", "value": "3" },
+        { "label": "4 habitacions", "value": "4" },
+        { "label": "5 o més habitacions", "value": "5" }
+      ]
+    },
+    {
       "id": "11",
       "type": "radio",
       "label": "Quin nivell de bany prefereix?",

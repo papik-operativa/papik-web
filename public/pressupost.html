@@ -2391,6 +2391,14 @@
                  min="1" max="10" step="1" placeholder="Ex: 2" data-field="3" required>
         </div>
 
+        <!-- Habitacions -->
+        <div class="conf-field">
+          <label class="conf-field__label" for="f_habitacions">Nombre d'habitacions</label>
+          <span class="conf-field__hint">Compta dormitoris i sales independents (no banys ni cuina). Determina els fan coils.</span>
+          <input type="number" class="conf-input" id="f_habitacions" name="habitacions"
+                 min="1" max="10" step="1" placeholder="Ex: 3" data-field="23" required>
+        </div>
+
         <!-- Garatge -->
         <div class="conf-field">
           <span class="conf-field__label">Garatge</span>
@@ -3408,6 +3416,7 @@
     if (data.m2 != null)         setNumber('f_m2',         data.m2);
     if (data.plantes != null)    setNumber('f_plantes',    data.plantes);
     if (data.num_banys != null)  setNumber('f_banys',      data.num_banys);
+    if (data.num_habitacions != null) setNumber('f_habitacions', data.num_habitacions);
     if (data.m2_garatge != null) setNumber('f_m2_garatge', data.m2_garatge);
     if (data.m2_porxos != null)  setNumber('f_m2_porxos',  data.m2_porxos);
 
@@ -3505,6 +3514,7 @@
     if (updates.m2 != null)         setNumber('f_m2',          updates.m2,         'Superfície');
     if (updates.plantes != null)    setNumber('f_plantes',     updates.plantes,    'Plantes');
     if (updates.num_banys != null)  setNumber('f_banys',       updates.num_banys,  'Banys');
+    if (updates.num_habitacions != null) setNumber('f_habitacions', updates.num_habitacions, 'Habitacions');
     if (updates.m2_garatge != null) setNumber('f_m2_garatge',  updates.m2_garatge, 'Garatge (m²)');
     if (updates.m2_porxos != null)  setNumber('f_m2_porxos',   updates.m2_porxos,  'Pòrxos (m²)');
 
