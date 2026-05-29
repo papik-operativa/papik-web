@@ -189,35 +189,30 @@ def calculate_budget(data):
     vol_domotica = v['vol_domotica']
     num_finestres = v['num_finestres']
 
-    # Preus finestres (€/m² de finestra)
-    preu_finestres = {
-        'ecovenS70': 18.53, 'ecovenS82': 22.00,
-        'ventaclimVMM74': 28.00, 'ventaclimSupercomfort': 35.00,
-    }.get(finestres, 18.53)
-    preu_base_finestres = 18.53
-
     # ── PACK ENVOLVENT TÈRMIC ────────────────────────────────────────────────
-    rate = {'1': 820.0, '2': 984.4}.get(plantes, 1050.0)
-    m2_finestres = m2 * 0.109
-    suplement_finestres = (preu_finestres - preu_base_finestres) * m2_finestres
+    # Calibrat (30-05-2026) amb 3 propostes oficials PAPIK:
+    #   Cas 1 (140 m², 2P): env. 164.990 €  · Cas 2 (160 m², 2P): env. 187.491 €
+    #   Cas 3 (200 m², 3P): env. 223.044 €
+    rate_estructura = {'1': 480.0, '2': 555.0, '3': 555.0}.get(plantes, 555.0)
+    rate_coberta_plana = {'1': 290.0, '2': 332.0, '3': 303.0}.get(plantes, 320.0)
+    rate_finestres_base = 222.0  # €/m² base S-72 PVC
+    suplement_finestres_tipus = {
+        'ecovenS70': 0.0,
+        'ecovenS82': 5.0,
+        'ventaclimVMM74': 25.0,
+        'ventaclimSupercomfort': 50.0,
+    }.get(finestres, 5.0)
+
+    cost_estructura = rate_estructura * m2
+    if tipus_coberta == 'plana':
+        cost_coberta = rate_coberta_plana * m2
+    elif tipus_coberta == 'teula':
+        cost_coberta = rate_coberta_plana * 0.95 * m2
+    else:  # xapa
+        cost_coberta = rate_coberta_plana * 0.85 * m2
+    cost_finestres = (rate_finestres_base + suplement_finestres_tipus) * m2
     cost_porta_entrada = 3445.45
-    cost_grua = min(900.0, max(450.0, 450.0 + (m2 - 120) * 2.5))
-    base_variable = rate * m2
-    cost_estructura = base_variable * 0.503
-    cost_coberta = base_variable * 0.294
-    cost_finestres = base_variable * 0.178 + suplement_finestres
-
-    increment_coberta = {
-        'teula': 0.0,
-        'plana': base_variable * 0.015,
-        'xapa': base_variable * -0.020,
-    }.get(tipus_coberta, 0.0)
-    cost_coberta += increment_coberta
-
-    # Ajust equip (29-05-2026): +18,5 % estructura, +9 % coberta, +18,3 % finestres.
-    cost_estructura *= 1.185
-    cost_coberta *= 1.09
-    cost_finestres *= 1.183
+    cost_grua = 858.00  # FIX (confirmat als 3 casos oficials)
 
     increment_facana = {
         'sate': 0.0,
@@ -230,22 +225,29 @@ def calculate_budget(data):
                       + cost_porta_entrada + cost_grua + increment_facana)
 
     # ── PACK INSTAL·LACIONS ──────────────────────────────────────────────────
-    # Ajust equip (29-05-2026): telecos, sanejament i ventilació passen a €/m².
-    cost_teleco = 18.9 * m2
-    cost_sanejament = 18.7 * m2
-    cost_electricitat = 48.0 * m2
-    cost_agua = 37.5 * m2
+    # Conceptes fixos (segons memòria qualitats adjunta — iguals als 3 casos):
+    cost_teleco = 2423.55
+    cost_sanejament = 2851.63
     cost_escomeses = 8578.00
-    cost_ventilacio = 14.2 * m2
+    cost_ventilacio = 2345.00
+    # Variables proporcionals al Pack Envolvent (calibrat amb cas 1):
+    cost_electricitat = pack_envolvent * 0.0615
+    cost_agua = pack_envolvent * 0.0498
 
     if zehnder:
-        cost_zehnder = 8910.00 if m2 <= 180 else 9639.00
+        cost_zehnder = 8910.00
     else:
         cost_zehnder = 0.0
 
-    cost_aerotermia = {'acs': 2870.00, 'acs_calefaccio': 10976.00}.get(aerotermia, 0.0)
+    # Aerotèrmia: si l'usuari demana fan coils → es força la completa
+    # (ACS + calefacció + refrigeració). Sense fan coils, només ACS.
+    if vol_fan_coils:
+        cost_aerotermia = 10976.00
+        aerotermia = 'acs_calefaccio'
+    else:
+        cost_aerotermia = 2870.00
+        aerotermia = 'acs'
 
-    # Ajust equip (29-05-2026): nº fan coils = nº habitacions + 2.
     num_fan_coils = (num_habitacions + 2) if vol_fan_coils else 0
     cost_fan_coils = 996.0 * num_fan_coils
 
@@ -262,33 +264,39 @@ def calculate_budget(data):
 
     # ── PACK PARKING I EXTERIORS ─────────────────────────────────────────────
     cost_porta_peatonal = 544.00 if garatge else 0.0
-    cost_porta_motoritzada = 2450.00 if garatge else 0.0
+    cost_porta_motoritzada = 3345.76 if garatge else 0.0  # NOU (oficial PAPIK)
     cost_garatge_estructura = 998.0 * m2_garatge
     cost_porxos_calc = 577.0 * m2_porxos
     pack_parking = (cost_porta_peatonal + cost_porta_motoritzada
                     + cost_garatge_estructura + cost_porxos_calc)
 
     # ── PACK ACABATS INTERIORS ───────────────────────────────────────────────
-    cost_pintura = 19.5 * m2
-    cost_pladur = 99.0 * m2
+    # Pintura i Pladur = % del Pack Envolvent Tèrmic (calibrat amb 3 casos).
+    cost_pintura = pack_envolvent * 0.0295
+    cost_pladur = pack_envolvent * 0.1205
 
     acabats_cuina = data.get('estil_acabats', 'alta_qualitat')
     cost_cuina = {
         'funcional': 10500.00,
         'alta_qualitat': 13234.00,
-        'exclusiu': 16500.00,
+        'exclusiu': 17174.43,  # NOU (cuina oficial casa Krona)
     }.get(acabats_cuina, 13234.00)
 
-    preu_paviment = {'formigo': 42.0, 'ceramic': 49.0, 'parquet': 68.0}.get(tipus_paviment, 49.0)
+    # Paviments: laminat 51,21 €/m² · ceràmic 49 · formigó 42 · parquet 68.
+    preu_paviment = {'formigo': 42.0, 'ceramic': 49.0, 'parquet': 51.21}.get(tipus_paviment, 51.21)
     cost_paviments = preu_paviment * m2_paviment
     cost_portes_interiors = 495.0 * num_portes
     cost_krona = 245.0 * num_portes if krona else 0.0
 
-    preu_bany = {'estandar': 2800.00, 'alt': 4500.00, 'premium': 7500.00}.get(nivell_bany, 4500.00)
+    # Banys (preus oficials PAPIK):
+    preu_bany = {'estandar': 4322.50, 'alt': 5500.00, 'premium': 8500.00}.get(nivell_bany, 4322.50)
     cost_banys = preu_bany * num_banys
 
     if escala:
-        cost_escala = {'fusta': 3423.0, 'metallica': 4800.0}.get(tipus_escala, 3423.0)
+        plantes_num = {'1': 1, '2': 2, '3': 3}.get(plantes, 2)
+        num_escales = max(1, plantes_num - 1)
+        preu_escala = {'fusta': 3638.40, 'metallica': 5000.0}.get(tipus_escala, 3638.40)
+        cost_escala = preu_escala * num_escales
     else:
         cost_escala = 0.0
 
@@ -296,14 +304,18 @@ def calculate_budget(data):
                     + cost_portes_interiors + cost_krona + cost_banys + cost_escala)
 
     # ── TRANSPORT ────────────────────────────────────────────────────────────
-    cost_transport = 95.0 * km
+    cost_transport = 97.0 * km  # NOU: 97 €/km (no 95)
 
     # ── TOTALS ───────────────────────────────────────────────────────────────
     total_construccio = pack_envolvent + pack_installacions + pack_parking + pack_acabats + cost_transport
-    # Ajust equip (29-05-2026): projecte 198,60 €/m²; seguretat 2 % del total construcció.
-    cost_projecte = 0.0 if data.get('te_projecte') else 198.60 * m2
+    # Projecte arquitectònic: 0 si client porta projecte. Mitjana 187 €/m².
+    cost_projecte = 0.0 if data.get('te_projecte') else 187.0 * m2
     cost_seguretat = total_construccio * 0.02
-    cost_fonamentacio = 396.0 * m2_fonamentacio
+    # Fonamentació: NO s'inclou al càlcul (l'oficial PAPIK la marca sempre
+    # "pendent de valorar" — varia entre 0 € i ~52.000 € segons terreny).
+    # Si el client vol estimació, s'usa 300 €/m² com a referència informativa.
+    cost_fonamentacio_estimat = 300.0 * m2_fonamentacio  # informatiu, NO sumat
+    cost_fonamentacio = 0.0
     total_contractacio = cost_projecte + cost_seguretat + cost_fonamentacio
     total_sense_iva = total_construccio + total_contractacio
     iva = total_sense_iva * 0.10
@@ -396,6 +408,7 @@ def calculate_budget(data):
             'projecte_arquitectonic': r(cost_projecte),
             'seguretat_salut': r(cost_seguretat),
             'fonamentacio': r(cost_fonamentacio),
+            'fonamentacio_estimat_pendent': r(cost_fonamentacio_estimat),
             'total': r(total_contractacio),
         },
         'total_sense_iva': r(total_sense_iva),
