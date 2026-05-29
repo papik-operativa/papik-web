@@ -548,7 +548,7 @@
       <div class="conf-line"><span class="conf-line__label">Transport (${result.variables_derivades?.km_transport || 0} km)</span><span class="conf-line__value">${fmtEur(result.transport)}</span></div>
       <div class="conf-line"><span class="conf-line__label">Projecte arquitectònic</span><span class="conf-line__value">${fmtEur(result.contractacio_externa?.projecte_arquitectonic)}</span></div>
       <div class="conf-line"><span class="conf-line__label">Seguretat i salut</span><span class="conf-line__value">${fmtEur(result.contractacio_externa?.seguretat_salut)}</span></div>
-      <div class="conf-line"><span class="conf-line__label">Fonamentació</span><span class="conf-line__value">${fmtEur(result.contractacio_externa?.fonamentacio)}</span></div>
+      <div class="conf-line conf-line--pending"><span class="conf-line__label">Fonamentació <em>· pendent de valorar</em></span><span class="conf-line__value">~ ${fmtEur(result.contractacio_externa?.fonamentacio_estimat_pendent)}</span></div>
       <div class="conf-line"><span class="conf-line__label">IVA (10%)</span><span class="conf-line__value">${fmtEur(result.iva)}</span></div>
     `;
     breakdown.appendChild(extra);
