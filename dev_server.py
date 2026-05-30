@@ -42,6 +42,13 @@ _cc_spec = importlib.util.spec_from_file_location(
 _cc = importlib.util.module_from_spec(_cc_spec)
 _cc_spec.loader.exec_module(_cc)
 
+# Carregar notificar-equip.py (avisos Telegram a l'equip comercial)
+_ne_spec = importlib.util.spec_from_file_location(
+    'notificar_equip', os.path.join(API_DIR, 'notificar-equip.py')
+)
+_ne = importlib.util.module_from_spec(_ne_spec)
+_ne_spec.loader.exec_module(_ne)
+
 app = Flask(__name__, static_folder=None)
 
 
@@ -131,6 +138,13 @@ def api_chat_pressupost():
 @app.route('/api/chat-configurador', methods=['POST'])
 def api_chat_configurador():
     return _proxy_chat_endpoint(_cc)
+
+
+@app.route('/api/notificar-equip', methods=['POST'])
+def api_notificar_equip():
+    payload = request.get_json(silent=True) or {}
+    status, body = _ne.notify(payload)
+    return jsonify(body), status
 
 
 @app.route('/api/download-pdf', methods=['POST'])

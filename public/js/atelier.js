@@ -26,6 +26,26 @@
   const CAL_EMBED_ORIGIN  = 'https://www.cal.eu';
   const CAL_THRESHOLD_M2  = 150;
 
+  // ═══════════════════════════════════════════════════════════
+  // AVISOS A L'EQUIP · Telegram (api/notificar-equip.py)
+  // ───────────────────────────────────────────────────────────
+  // Quan un client acaba el pressupost ('lead') o reserva visita
+  // ('reserva'), enviem un avís al mòbil del cap amb resum + una
+  // etiqueta de PRIORITAT. La prioritat surt de tres senyals; per
+  // afinar-la, edita només aquestes constants (el backend no en sap
+  // res, només formata el que el frontend li passa).
+  //   · Pressupost alt   → total amb IVA ≥ PRIORITY_BUDGET_HIGH
+  //   · Superfície gran  → m² ≥ PRIORITY_M2_LARGE
+  //   · Municipi objectiu→ coincideix amb PRIORITY_MUNICIPIS
+  // Nivell: 2+ senyals = alta · 1 senyal = mitjana · 0 = baixa.
+  // ═══════════════════════════════════════════════════════════
+  const NOTIFY_ENDPOINT     = '/api/notificar-equip';
+  const PRIORITY_BUDGET_HIGH = 500000;   // € · llindar orientatiu, calibra'l amb dades reals
+  const PRIORITY_M2_LARGE    = CAL_THRESHOLD_M2;  // mateix llindar que el routing de Cal
+  // Noms normalitzats (minúscules, sense accents). `includes` sobre el
+  // municipi triat, així "sant cugat del valles" cau dins "sant cugat".
+  const PRIORITY_MUNICIPIS   = ['bellaterra', 'sant cugat', 'matadepera', 'sant quirze del valles'];
+
   // ── State (mirrors the backend's expected payload) ──────────
   // Defaults are intentionally empty/0. Each step applies its
   // `default` when the user lands on it for the first time, so
@@ -1621,6 +1641,13 @@
 
     // Nudge: surface the chat after 20s if the user has done nothing.
     scheduleRevealNudge();
+
+    // Avisa l'equip que hi ha un nou lead amb pressupost configurat.
+    // Un sol cop per sessió (els re-render del chat no el repeteixen).
+    if (!leadNotified) {
+      leadNotified = true;
+      notifyTeam('lead');
+    }
   }
 
   // ── Inline reveal chat · standalone module, /api/chat-pressupost only
@@ -1862,6 +1889,22 @@
       };
     })(window, CAL_EMBED_JS, 'init');
     window.Cal('init', { origin: CAL_EMBED_ORIGIN });
+
+    // Quan el client confirma la reserva dins l'iframe de Cal, Cal dispara
+    // `bookingSuccessful`. Ho aprofitem per avisar l'equip al moment (push
+    // de Telegram) amb la franja triada, a banda de l'avís propi de Cal.
+    // loadCalEmbed és idempotent (guard a dalt), així el handler es
+    // registra un sol cop.
+    try {
+      window.Cal('on', {
+        action: 'bookingSuccessful',
+        callback: (e) => {
+          const d = (e && e.detail && e.detail.data) || {};
+          const slot = d.date || d.startTime || (d.booking && d.booking.startTime) || '';
+          notifyTeam('reserva', slot ? { slot } : {});
+        },
+      });
+    } catch (_) { /* si l'API on no existeix, l'avís de 'lead' ja ha anat */ }
   }
 
   function pickCalLink () {
@@ -1869,8 +1912,78 @@
     return m2 < CAL_THRESHOLD_M2 ? CAL_LINK_SMALL : CAL_LINK_LARGE;
   }
 
+  // ───────────────────────────────────────────────────────────
+  // PRIORITAT DEL LEAD + AVÍS A L'EQUIP (Telegram)
+  // ───────────────────────────────────────────────────────────
+  function _norm (s) {
+    return (s || '').toString().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  }
+
+  // Calcula la prioritat a partir de tres senyals (pressupost · m² ·
+  // municipi). Retorna nivell + motius llegibles per posar-los tant a
+  // l'avís de Telegram com a les notes de la reserva de Cal.
+  function computeLeadPriority () {
+    const total = lastResult?.total_pressupost || 0;
+    const m2    = state.m2 || 0;
+    const muni  = _norm(state.municipi);
+    const reasons = [];
+    let score = 0;
+    if (total >= PRIORITY_BUDGET_HIGH) { score++; reasons.push(`Pressupost alt (${fmtEur(total)})`); }
+    if (m2 >= PRIORITY_M2_LARGE)       { score++; reasons.push(`Superfície gran (${fmtNum(m2)} m²)`); }
+    if (muni && PRIORITY_MUNICIPIS.some(t => muni.includes(t))) {
+      score++; reasons.push(`Municipi objectiu (${state.municipi})`);
+    }
+    const level = score >= 2 ? 'alta' : score === 1 ? 'mitjana' : 'baixa';
+    return { level, score, reasons };
+  }
+
+  // Evita duplicar l'avís de 'lead' si el reveal es torna a renderitzar.
+  let leadNotified = false;
+
+  // Fire-and-forget: mai bloqueja la UI ni propaga errors. `keepalive`
+  // perquè l'avís de 'reserva' sobrevisqui si Cal navega tot seguit.
+  function notifyTeam (event, extra) {
+    try {
+      const body = {
+        event,
+        priority: computeLeadPriority(),
+        lead: {
+          nom:     state.nom     || '',
+          email:   state.email   || '',
+          telefon: state.telefon || '',
+        },
+        summary: {
+          m2:              state.m2 || 0,
+          plantes:         state.plantes || '',
+          num_banys:       state.num_banys || 0,
+          num_habitacions: state.num_habitacions || 0,
+          garatge:         state.garatge || '',
+          m2_garatge:      state.m2_garatge || 0,
+          municipi:        state.municipi || '',
+          total:           lastResult?.total_pressupost || 0,
+        },
+        ...(extra || {}),
+      };
+      fetch(NOTIFY_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        keepalive: true,
+      }).catch(() => {});
+    } catch (_) { /* mai trenquem el flux del client per un avís */ }
+  }
+
   function buildCalConfig () {
     const notesParts = [];
+    // Etiqueta de prioritat al davant perquè el cap la vegi a la nota de
+    // la reserva de Cal (a banda del push de Telegram).
+    const prio = computeLeadPriority();
+    const prioLabel = prio.level === 'alta' ? 'PRIORITAT ALTA'
+                    : prio.level === 'mitjana' ? 'Prioritat mitjana'
+                    : 'Prioritat baixa';
+    notesParts.push(prio.reasons.length ? `[${prioLabel} · ${prio.reasons.join(', ')}]` : `[${prioLabel}]`);
+    if (state.telefon)   notesParts.push(`Tel: ${state.telefon}`);
     if (state.m2)        notesParts.push(`Superfície ${fmtNum(state.m2)} m²`);
     if (state.plantes)   notesParts.push(state.plantes === '1' ? '1 planta' : `${state.plantes} plantes`);
     if (state.num_banys) notesParts.push(`${state.num_banys} bany${state.num_banys === 1 ? '' : 's'}`);
