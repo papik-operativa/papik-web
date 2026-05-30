@@ -1277,77 +1277,233 @@
     if (btnNext) { btnNext.disabled = false; btnNextLabel.textContent = 'Veure el pressupost'; }
   }
 
+  // ── Reveal renderers ─────────────────────────────────────────
+  // The left pane embeds the actual corporate PDF (same one users
+  // download) inside an iframe. We do NOT regenerate it on every chat
+  // change because that's 2-3 seconds per call; instead we mark it as
+  // "stale" with an overlay showing the new total, and let the user
+  // refresh on demand. The right pane is the conversational guide.
+
+  // Tracks the latest blob URL so we can revoke the previous one when
+  // a new PDF is generated (prevents memory leaks).
+  let revealPdfBlobUrl = null;
+  let revealPdfBusy    = false;
+
+  async function fetchPdfBlobUrl (payload, result) {
+    const res = await fetch('/api/download-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ payload, result }),
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const blob = await res.blob();
+    return URL.createObjectURL(blob);
+  }
+
+  async function mountRevealPdf (payload, result) {
+    if (revealPdfBusy) return;
+    revealPdfBusy = true;
+    const wrap    = document.getElementById('revealPdfWrap');
+    const loading = document.getElementById('revealPdfLoading');
+    const frame   = document.getElementById('revealPdfFrame');
+    if (!wrap || !loading || !frame) { revealPdfBusy = false; return; }
+
+    // Show loading state
+    loading.hidden = false;
+    frame.classList.remove('atelier-reveal__pdf-frame--ready');
+
+    try {
+      const url = await fetchPdfBlobUrl(payload, result);
+      // Swap in the new blob URL and revoke the previous one (if any)
+      const previous = revealPdfBlobUrl;
+      revealPdfBlobUrl = url;
+      // Append #toolbar=0 to hide native PDF toolbar in Chromium where supported.
+      // Note: not all browsers honor this hash; we accept the toolbar elsewhere.
+      frame.src = url + '#toolbar=0&navpanes=0&view=FitH';
+      // Wait for the iframe to actually paint before hiding the spinner.
+      const onload = () => {
+        frame.classList.add('atelier-reveal__pdf-frame--ready');
+        loading.hidden = true;
+        frame.removeEventListener('load', onload);
+      };
+      frame.addEventListener('load', onload);
+      // Defensive: hide the spinner after 1.2s even if the load event is
+      // unreliable (some browsers don't fire it for same-origin blob URLs).
+      setTimeout(onload, 1200);
+      if (previous) URL.revokeObjectURL(previous);
+    } catch (err) {
+      console.error('PDF preview error:', err);
+      loading.hidden = true;
+      const errEl = document.getElementById('revealPdfError');
+      if (errEl) errEl.hidden = false;
+    } finally {
+      revealPdfBusy = false;
+    }
+  }
+
+  function updateRevealHero (data, payload) {
+    const priceEl  = document.getElementById('revealPrice');
+    const perm2El  = document.getElementById('revealPerm2Val');
+    const m2El     = document.getElementById('revealM2Val');
+    if (!priceEl) return;
+    const newTotal = data.total_pressupost || 0;
+    const m2       = data.variables_derivades?.m2 || payload.m2 || 1;
+    const fromVal  = parseFloat(priceEl.dataset.target || '0') || 0;
+    priceEl.dataset.target = String(newTotal);
+    if (m2El)    m2El.textContent    = fmtNum(m2);
+    if (perm2El) perm2El.textContent = fmtEur(newTotal / m2);
+
+    if (window.gsap) {
+      const obj = { v: fromVal };
+      priceEl.classList.add('atelier-reveal__hero-price--bumping');
+      window.gsap.to(obj, {
+        v: newTotal,
+        duration: 0.9,
+        ease: 'power2.out',
+        onUpdate: () => { priceEl.textContent = fmtEur(obj.v); },
+        onComplete: () => {
+          priceEl.textContent = fmtEur(newTotal);
+          priceEl.classList.remove('atelier-reveal__hero-price--bumping');
+        },
+      });
+    } else {
+      priceEl.textContent = fmtEur(newTotal);
+    }
+  }
+
+  function markRevealPdfStale (newTotal) {
+    const stale = document.getElementById('revealPdfStale');
+    const totalEl = document.getElementById('revealPdfStaleTotal');
+    if (!stale) return;
+    if (totalEl) totalEl.textContent = fmtEur(newTotal);
+    stale.hidden = false;
+    if (window.gsap) {
+      window.gsap.fromTo(stale,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, ease: 'power3.out' });
+    }
+  }
+
+  function clearRevealPdfStale () {
+    const stale = document.getElementById('revealPdfStale');
+    if (stale && !stale.hidden) {
+      if (window.gsap) {
+        window.gsap.to(stale, {
+          y: 12, opacity: 0, duration: 0.25, ease: 'power2.in',
+          onComplete: () => { stale.hidden = true; },
+        });
+      } else {
+        stale.hidden = true;
+      }
+    }
+  }
+
+  async function refreshRevealPdf () {
+    const payload = window._confData   || buildPayload();
+    const result  = window._confResult || lastResult;
+    if (!payload || !result) return;
+    await mountRevealPdf(payload, result);
+    clearRevealPdfStale();
+  }
+
   function renderReveal (data, payload) {
-    const total = data.total_pressupost || 0;
-    const m2 = data.variables_derivades?.m2 || payload.m2 || 1;
-    const perM2 = total / m2;
+    const total    = data.total_pressupost || 0;
+    const m2       = data.variables_derivades?.m2 || payload.m2 || 1;
+    const perM2    = total / m2;
     const municipi = payload.municipi || data.variables_derivades?.municipi || '';
 
     container.innerHTML = `
       <div class="atelier-reveal">
-        <span class="atelier-pill atelier-pill--accent">Pressupost estimat · ${data.data_emissio || ''}</span>
-        <p class="atelier-reveal__intro">La teva casa Passivhaus${municipi ? ` a <strong>${municipi}</strong>` : ''}.</p>
-        <h2 class="atelier-reveal__price" id="revealPrice">${fmtEur(total)}</h2>
-        <p class="atelier-reveal__perm2">≈ ${fmtEur(perM2)}/m² · ${fmtNum(m2)} m² construïts · IVA inclòs</p>
 
-        <div class="atelier-reveal__packs">
-          ${[
-            ['Envolvent tèrmic',     data.pack_envolvent?.total],
-            ['Instal·lacions',       data.pack_installacions?.total],
-            ['Parking i exteriors',  data.pack_parking?.total],
-            ['Acabats interiors',    data.pack_acabats?.total],
-            ['Honoraris i gestió',   data.contractacio_externa?.total],
-          ].map(([label, value]) => `
-            <div class="atelier-reveal__pack">
-              <span class="atelier-reveal__pack-label">${label}</span>
-              <span class="atelier-reveal__pack-value">${fmtEur(value)}</span>
+        <!-- HERO · the big number stays above the PDF + chat, updates live -->
+        <header class="atelier-reveal__hero">
+          <span class="atelier-pill atelier-pill--accent">Pressupost estimat · ${data.data_emissio || ''}</span>
+          <p class="atelier-reveal__hero-intro">La teva casa Passivhaus${municipi ? ` a <strong>${municipi}</strong>` : ''}.</p>
+          <h2 class="atelier-reveal__hero-price" id="revealPrice" data-target="${total}">${fmtEur(total)}</h2>
+          <p class="atelier-reveal__hero-perm2" id="revealPerm2">
+            ≈ <span id="revealPerm2Val">${fmtEur(perM2)}</span>/m² ·
+            <span id="revealM2Val">${fmtNum(m2)}</span> m² construïts · IVA inclòs
+          </p>
+        </header>
+
+        <div class="atelier-reveal__layout">
+
+          <!-- LEFT · the actual corporate PDF (iframe) -->
+          <article class="atelier-reveal__pdf-wrap" id="revealPdfWrap" aria-label="Vista prèvia del pressupost">
+            <div class="atelier-reveal__pdf-loading" id="revealPdfLoading">
+              <div class="atelier-reveal__spinner" aria-hidden="true"></div>
+              <p>Generant la teva proposta corporativa…</p>
+              <small>Tipografia, color i estructura oficials de PAPIK</small>
             </div>
-          `).join('')}
+            <div class="atelier-reveal__pdf-error" id="revealPdfError" hidden>
+              <p>No s'ha pogut generar la previsualització.</p>
+              <button type="button" class="atelier-cta atelier-cta--ghost" id="revealPdfRetry">Tornar a provar</button>
+            </div>
+            <iframe class="atelier-reveal__pdf-frame" id="revealPdfFrame"
+                    title="Vista prèvia del pressupost" loading="lazy"></iframe>
+
+            <!-- Stale overlay: appears after the chat modifies the budget -->
+            <div class="atelier-reveal__pdf-stale" id="revealPdfStale" hidden>
+              <div class="atelier-reveal__pdf-stale-text">
+                <span class="atelier-reveal__pdf-stale-eyebrow">Nou pressupost</span>
+                <span class="atelier-reveal__pdf-stale-total" id="revealPdfStaleTotal">—</span>
+                <span class="atelier-reveal__pdf-stale-hint">El document encara mostra la versió anterior.</span>
+              </div>
+              <button type="button" class="atelier-reveal__pdf-stale-btn" id="revealPdfRefresh">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Actualitzar PDF</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- RIGHT · the conversational guide -->
+          <section class="atelier-reveal__chat-wrap atelier-reveal-chat" aria-label="Guia virtual del pressupost">
+            <header class="atelier-reveal-chat__head">
+              <span class="atelier-pill atelier-pill--accent">Guia virtual</span>
+              <h3 class="atelier-reveal-chat__title">Revisem el pressupost junts</h3>
+              <p class="atelier-reveal-chat__sub">Pots fer canvis (treure piscina, més banys, façana ventilada…) i ho actualitzo a l'instant. No hi ha res definitiu fins que tu ho diguis.</p>
+            </header>
+
+            <div class="atelier-reveal-chat__messages" id="revealChatMessages" role="log" aria-live="polite">
+              <div class="atelier-chat__msg atelier-chat__msg--bot">
+                Hola. El teu pressupost ja és aquí. Demana'm canvis (ex: «treu la piscina», «vull 3 banys», «façana ventilada»…) o pregunta pel detall de qualsevol partida.
+              </div>
+            </div>
+
+            <div class="atelier-reveal-chat__suggestions" id="revealChatSuggestions">
+              <button type="button" class="atelier-reveal-chat__chip" data-q="Com puc reduir el pressupost sense perdre la certificació Passivhaus?">
+                Com puc reduir el pressupost?
+              </button>
+              <button type="button" class="atelier-reveal-chat__chip" data-q="Treu les plaques solars del pressupost.">
+                Treu les plaques solars
+              </button>
+              <button type="button" class="atelier-reveal-chat__chip" data-q="Què passaria si triés façana ventilada de fusta?">
+                Què passa amb façana ventilada?
+              </button>
+            </div>
+
+            <form class="atelier-reveal-chat__input-row" id="revealChatForm">
+              <input type="text" class="atelier-chat__input" id="revealChatInput"
+                     placeholder="Escriu un canvi o una pregunta…" autocomplete="off" spellcheck="false">
+              <button type="submit" class="atelier-chat__send" aria-label="Enviar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12l14-7-7 18-3-7-4-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </form>
+          </section>
         </div>
 
-        <!-- Inline post-budget chat · wired to /api/chat-pressupost -->
-        <section class="atelier-reveal-chat" aria-label="Guia virtual del pressupost">
-          <header class="atelier-reveal-chat__head">
-            <span class="atelier-pill atelier-pill--accent">Guia virtual</span>
-            <h3 class="atelier-reveal-chat__title">Tens algun dubte sobre el pressupost?</h3>
-            <p class="atelier-reveal-chat__sub">La guia coneix el desglossament d'aquest pressupost i pot explicar-te qualsevol partida o suggerir alternatives.</p>
-          </header>
-
-          <div class="atelier-reveal-chat__messages" id="revealChatMessages" role="log" aria-live="polite">
-            <div class="atelier-chat__msg atelier-chat__msg--bot">
-              Hola. El teu pressupost ja és aquí. Pregunta'm el que vulguis: per què costa això, com canviaria si triessis altres materials, quant duraria l'obra…
-            </div>
-          </div>
-
-          <div class="atelier-reveal-chat__suggestions" id="revealChatSuggestions">
-            <button type="button" class="atelier-reveal-chat__chip" data-q="Per què la façana de suro natural és més cara que el SATE estàndard?">
-              Per què la façana de suro és més cara?
-            </button>
-            <button type="button" class="atelier-reveal-chat__chip" data-q="Quant temps duraria l'obra d'aquesta casa, aproximadament?">
-              Quant duraria l'obra?
-            </button>
-            <button type="button" class="atelier-reveal-chat__chip" data-q="Quins materials o partides podria canviar per reduir el pressupost sense perdre la certificació Passivhaus?">
-              Com puc reduir el pressupost?
-            </button>
-          </div>
-
-          <form class="atelier-reveal-chat__input-row" id="revealChatForm">
-            <input type="text" class="atelier-chat__input" id="revealChatInput"
-                   placeholder="Escriu la teva pregunta…" autocomplete="off" spellcheck="false">
-            <button type="submit" class="atelier-chat__send" aria-label="Enviar">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12l14-7-7 18-3-7-4-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </form>
-        </section>
-
-        <p class="atelier-reveal__note">
-          Pressupost orientatiu basat en ràtios de catorze projectes Papik reals (2024-2025). Vàlid fins ${data.data_validesa || '—'}.
-        </p>
-
         <div class="atelier-reveal__actions">
-          <button class="atelier-cta" id="btnBooking" type="button">
+          <button class="atelier-cta" id="btnFinalize" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Aquest és el meu pressupost · envia-me'l per email</span>
+          </button>
+          <button class="atelier-cta atelier-cta--outline" id="btnBooking" type="button">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -1364,41 +1520,88 @@
           </button>
         </div>
       </div>
+
+      <!-- Nudge popup · fires after 20s of inactivity on the reveal -->
+      <div class="atelier-nudge" id="revealNudge" hidden role="dialog" aria-modal="false" aria-labelledby="revealNudgeTitle">
+        <button class="atelier-nudge__close" id="revealNudgeClose" type="button" aria-label="Tancar">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <span class="atelier-nudge__eyebrow">Guia virtual</span>
+        <h4 class="atelier-nudge__title" id="revealNudgeTitle">Revisem el pressupost?</h4>
+        <p class="atelier-nudge__text">Pots demanar canvis a la guia (treure piscina, més habitacions, façana ventilada…) i ho actualitzo a l'instant. No hi ha res definitiu fins que tu ho diguis.</p>
+        <button class="atelier-nudge__cta" type="button" id="revealNudgeFocus">D'acord, parlem-ne</button>
+      </div>
+
+      <!-- Finalize confirmation toast -->
+      <div class="atelier-finalized" id="revealFinalized" hidden role="status" aria-live="polite">
+        <div class="atelier-finalized__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4 class="atelier-finalized__title">Perfecte, pressupost confirmat</h4>
+        <p class="atelier-finalized__text">L'equip de PAPIK rebrà aquest pressupost al teu nom. Aviat habilitarem l'enviament directe per email; mentrestant, pots descarregar el PDF o agendar visita.</p>
+      </div>
     `;
 
     // Hide top-bar nav + footer
     document.querySelector('.atelier-footer')?.setAttribute('hidden', '');
     document.querySelector('.atelier-bar__nav')?.setAttribute('hidden', '');
     document.body.dataset.stage = 'reveal';
+    // Override the per-step layout so .atelier-card can expand to ~1180px
+    // for the 2-column document + chat composition.
+    document.body.dataset.layout = 'reveal';
 
-    // Wire the inline post-budget chat
+    // Wire the inline post-budget chat (handles form_updates → mark stale)
     wireRevealChat();
 
-    // Entry animation: number counts up
+    // Entry animation: fade in the reveal + count the price up
     if (window.gsap) {
-      const priceEl = document.getElementById('revealPrice');
-      const obj = { v: 0 };
       window.gsap.fromTo('.atelier-reveal', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' });
-      window.gsap.to(obj, {
-        v: total,
-        duration: 1.6,
-        ease: 'power2.out',
-        delay: 0.25,
-        onUpdate: () => { if (priceEl) priceEl.textContent = fmtEur(obj.v); },
-      });
+      const priceEl = document.getElementById('revealPrice');
+      if (priceEl) {
+        const obj = { v: 0 };
+        window.gsap.to(obj, {
+          v: total,
+          duration: 1.4,
+          ease: 'power2.out',
+          delay: 0.2,
+          onUpdate: () => { priceEl.textContent = fmtEur(obj.v); },
+          onComplete: () => { priceEl.textContent = fmtEur(total); },
+        });
+      }
     }
 
+    // Kick off the PDF generation in the background. Spinner is already
+    // shown by the loading state inside the wrap until the iframe paints.
+    mountRevealPdf(payload, data);
+
     document.getElementById('btnRestart')?.addEventListener('click', () => {
+      // Clean up the blob URL before unloading the page
+      if (revealPdfBlobUrl) URL.revokeObjectURL(revealPdfBlobUrl);
       location.reload();
     });
     document.getElementById('btnDownloadPdf')?.addEventListener('click', downloadPdf);
     document.getElementById('btnBooking')?.addEventListener('click', openBookingModal);
+    document.getElementById('btnFinalize')?.addEventListener('click', finalizeBudget);
+    document.getElementById('revealPdfRefresh')?.addEventListener('click', refreshRevealPdf);
+    document.getElementById('revealPdfRetry')?.addEventListener('click', () => {
+      const errEl = document.getElementById('revealPdfError');
+      if (errEl) errEl.hidden = true;
+      mountRevealPdf(payload, data);
+    });
+
+    // Nudge: surface the chat after 20s if the user has done nothing.
+    scheduleRevealNudge();
   }
 
   // ── Inline reveal chat · standalone module, /api/chat-pressupost only
-  // Lives inside the reveal card. Shares no state with the floating FAB
-  // chat (different conversation_id) so the user can ask post-budget
-  // questions in either place without context bleed.
+  // Lives inside the reveal card. Beyond Q&A it can MODIFY the budget:
+  // when the backend returns form_updates, we apply them to state, ping
+  // /api/calcular and re-render only the document subtree so the price
+  // animates to its new value without resetting the conversation.
   function wireRevealChat () {
     const msgs = document.getElementById('revealChatMessages');
     const input = document.getElementById('revealChatInput');
@@ -1426,9 +1629,40 @@
       return el;
     };
 
+    async function recalcAndRefresh (updates) {
+      // Apply updates to state, recalc the budget, mark the embedded PDF
+      // as stale (with the new total shown over the iframe). The actual
+      // PDF is NOT regenerated automatically — the user clicks "Actualitzar
+      // PDF" when ready. Cheap, snappy, no flicker.
+      const applied = chatApplyFormUpdates(updates);
+      if (!applied.length) return { ok: false, applied: [] };
+      const newPayload = buildPayload();
+      try {
+        const res = await fetch('/api/calcular', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newPayload),
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        lastResult = data;
+        window._confData = newPayload;
+        window._confResult = data;
+        const newTotal = data.total_pressupost || 0;
+        updateRevealHero(data, newPayload);
+        markRevealPdfStale(newTotal);
+        return { ok: true, applied, total: newTotal };
+      } catch (err) {
+        console.error('Reveal recalc error:', err);
+        return { ok: false, applied };
+      }
+    }
+
     async function send (text) {
       const q = (text || '').trim();
       if (!q || busy) return;
+      // Any interaction cancels the pending nudge popup.
+      cancelRevealNudge();
       append(q, 'user');
       input.value = '';
       busy = true;
@@ -1452,6 +1686,16 @@
         } else {
           if (data.answer) append(data.answer, 'bot');
           if (data.conversation_id) convId = data.conversation_id;
+          if (data.form_updates && Object.keys(data.form_updates).length) {
+            const recalc = await recalcAndRefresh(data.form_updates);
+            if (recalc.ok) {
+              const toast = chatFormatAppliedToast(recalc.applied);
+              if (toast) append(toast, 'bot-note');
+              append(`Nou pressupost: ${fmtEur(recalc.total)} (IVA inclòs).`, 'bot-note');
+            } else if (recalc.applied.length) {
+              append("He aplicat els canvis però no he pogut recalcular ara mateix. Torna-ho a intentar.", 'bot-note');
+            }
+          }
         }
       } catch (err) {
         if (typing && typing.parentNode) typing.parentNode.removeChild(typing);
@@ -1471,6 +1715,85 @@
       input.value = q;
       send(q);
     });
+    // Cancel the nudge as soon as the user types or focuses the input.
+    input.addEventListener('focus', cancelRevealNudge, { once: true });
+    input.addEventListener('input', cancelRevealNudge, { once: true });
+  }
+
+  // ── Finalize budget · CTA placeholder (email pipeline lands in Fase 2)
+  function finalizeBudget () {
+    cancelRevealNudge();
+    const toast = document.getElementById('revealFinalized');
+    const btn   = document.getElementById('btnFinalize');
+    if (btn) {
+      btn.disabled = true;
+      btn.classList.add('atelier-cta--success');
+    }
+    if (toast) {
+      toast.hidden = false;
+      if (window.gsap) {
+        window.gsap.fromTo(toast,
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' });
+      }
+      toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // ── Nudge popup · surfaces the chat after 20s of inactivity ─────
+  let revealNudgeTimer = null;
+  let revealNudgeShown = false;
+
+  function scheduleRevealNudge () {
+    cancelRevealNudge();
+    revealNudgeShown = false;
+    revealNudgeTimer = setTimeout(showRevealNudge, 20000);
+
+    const close = document.getElementById('revealNudgeClose');
+    const focusBtn = document.getElementById('revealNudgeFocus');
+    if (close) close.addEventListener('click', hideRevealNudge);
+    if (focusBtn) focusBtn.addEventListener('click', () => {
+      hideRevealNudge();
+      const input = document.getElementById('revealChatInput');
+      if (input) {
+        input.focus({ preventScroll: false });
+        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+
+  function showRevealNudge () {
+    if (revealNudgeShown) return;
+    const el = document.getElementById('revealNudge');
+    if (!el) return;
+    el.hidden = false;
+    revealNudgeShown = true;
+    if (window.gsap) {
+      window.gsap.fromTo(el,
+        { opacity: 0, y: 14, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power3.out' });
+    }
+  }
+
+  function hideRevealNudge () {
+    const el = document.getElementById('revealNudge');
+    if (!el || el.hidden) return;
+    if (window.gsap) {
+      window.gsap.to(el, {
+        opacity: 0, y: 8, duration: 0.28, ease: 'power2.in',
+        onComplete: () => { el.hidden = true; },
+      });
+    } else {
+      el.hidden = true;
+    }
+  }
+
+  function cancelRevealNudge () {
+    if (revealNudgeTimer) {
+      clearTimeout(revealNudgeTimer);
+      revealNudgeTimer = null;
+    }
+    hideRevealNudge();
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -1719,41 +2042,80 @@
 
   // Apply form_updates returned by the chat backend to the live state and
   // re-render the current step if its key changed.
+  // Catalog must mirror api/chat-pressupost.py sanitizer + state schema.
+  const CHAT_INT_FIELDS = new Set(['m2', 'num_banys', 'm2_garatge', 'm2_porxos']);
+  const CHAT_CANONICAL_FIELDS = new Set([
+    'm2', 'plantes', 'num_banys',
+    'garatge', 'm2_garatge', 'm2_porxos',
+    'tipus_escala', 'tipus_coberta', 'tipus_facana', 'tipus_paviment',
+    'nivell_bany',
+    'plaques_solars', 'persianes', 'fan_coils', 'llar_foc',
+    'membrana_rado', 'domotica',
+    'energia_prioritat', 'climatitzacio', 'qualitat_aire', 'estil_acabats',
+    'municipi',
+  ]);
+
+  // Pretty Catalan labels for the inline confirmation toast.
+  const CHAT_FIELD_LABELS = {
+    m2: 'superfície', plantes: 'plantes', num_banys: 'banys',
+    garatge: 'garatge', m2_garatge: 'm² de garatge', m2_porxos: 'm² de pòrxos',
+    tipus_escala: 'escala', tipus_coberta: 'coberta', tipus_facana: 'façana',
+    tipus_paviment: 'paviment', nivell_bany: 'nivell de bany',
+    plaques_solars: 'plaques solars', persianes: 'persianes',
+    fan_coils: 'fan coils', llar_foc: 'llar de foc',
+    membrana_rado: 'membrana radó', domotica: 'domòtica',
+    energia_prioritat: 'prioritat energètica', climatitzacio: 'climatització',
+    qualitat_aire: "qualitat de l'aire", estil_acabats: 'estil d\'acabats',
+    municipi: 'municipi',
+  };
+
   function chatApplyFormUpdates (updates) {
     if (!updates || typeof updates !== 'object') return [];
     const applied = [];
-    const map = {
-      municipi:    'municipi',
-      m2:          'm2',
-      plantes:     'plantes',
-      num_banys:   'num_banys',
-      garatge:     'garatge',
-      m2_garatge:  'm2_garatge',
-      m2_porxos:   'm2_porxos',
-    };
     let touchesCurrent = false;
     Object.keys(updates).forEach((k) => {
-      const target = map[k];
-      if (!target) return;
+      if (!CHAT_CANONICAL_FIELDS.has(k)) return;
       let v = updates[k];
-      if (target === 'm2' || target === 'm2_garatge' || target === 'm2_porxos' || target === 'num_banys') {
+      if (CHAT_INT_FIELDS.has(k)) {
         v = parseInt(v, 10);
         if (isNaN(v)) return;
       }
-      state[target] = v;
-      applied.push(target);
+      state[k] = v;
+      applied.push(k);
       const stepKey = STEPS[currentIdx]?.stateKey;
-      if (stepKey === target) touchesCurrent = true;
-      // Some downstream steps depend on this value (e.g. escala if plantes>1).
-      if (target === 'plantes' && (v === '2' || v === '3') && (!state.tipus_escala || state.tipus_escala === 'no')) {
-        // Leave decision to user; just unset stale 'no' default.
-      }
+      if (stepKey === k) touchesCurrent = true;
     });
+
+    // Downstream consistency: if plantes drops to 1, force escala="no"; if it
+    // rises above 1 and escala was "no", clear it so the user picks one
+    // (or the chat sets it explicitly on the same turn).
+    if ('plantes' in updates) {
+      if (state.plantes === '1') state.tipus_escala = 'no';
+      else if (state.tipus_escala === 'no') state.tipus_escala = '';
+    }
+    // If garatge becomes "no", zero out m² of garatge.
+    if (updates.garatge === 'no') state.m2_garatge = 0;
+
     // Re-render current step if its field was touched
     if (touchesCurrent) renderStep(currentIdx);
     // Refresh summary
     updateSummary();
     return applied;
+  }
+
+  function chatFormatAppliedToast (applied) {
+    if (!applied.length) return '';
+    const parts = applied.map((k) => {
+      const label = CHAT_FIELD_LABELS[k] || k;
+      const v = state[k];
+      if (k === 'm2' || k === 'm2_garatge' || k === 'm2_porxos') {
+        return `${label}: ${fmtNum(v)} m²`;
+      }
+      if (k === 'num_banys') return `${label}: ${v}`;
+      if (k === 'municipi') return `${label}: ${v}`;
+      return `${label}: ${v}`;
+    });
+    return '✓ Actualitzat · ' + parts.join(' · ');
   }
 
   async function chatSend (text) {
