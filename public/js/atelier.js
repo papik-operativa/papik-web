@@ -1112,6 +1112,213 @@
         </div>`;
     }).join('');
     summaryEl.innerHTML = html;
+    updatePlanta();
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // PLANTA VIVA · esquema 2D que es dibuixa sol amb la config
+  // ───────────────────────────────────────────────────────────
+  // SVG generat per codi des de `state`. NO és el plànol
+  // definitiu: és un esquema il·lustratiu (cap distribució real
+  // es deriva només de m² + nº d'estances). Es redibuixa a cada
+  // updateSummary() i s'anima amb GSAP.
+  // ═══════════════════════════════════════════════════════════
+  let plantaFloor = 0;     // pis actiu a les pestanyes
+  let plantaOpen  = true;  // panell desplegat?
+
+  // Reparteix un rectangle entre estances (treemap binari simple).
+  function plantaTreemap (rect, items) {
+    const total = items.reduce((s, it) => s + it.weight, 0) || 1;
+    function split (r, list, sum) {
+      if (list.length === 1) {
+        list[0].x = r.x; list[0].y = r.y; list[0].w = r.w; list[0].h = r.h; return;
+      }
+      let acc = 0, i = 0; const half = sum / 2;
+      while (i < list.length - 1 && acc + list[i].weight < half) { acc += list[i].weight; i++; }
+      const a = list.slice(0, i + 1), b = list.slice(i + 1);
+      const aSum = a.reduce((s, it) => s + it.weight, 0);
+      const bSum = sum - aSum;
+      if (r.w >= r.h) {
+        const wa = r.w * (aSum / sum);
+        split({ x: r.x, y: r.y, w: wa, h: r.h }, a, aSum);
+        split({ x: r.x + wa, y: r.y, w: r.w - wa, h: r.h }, b, bSum);
+      } else {
+        const ha = r.h * (aSum / sum);
+        split({ x: r.x, y: r.y, w: r.w, h: ha }, a, aSum);
+        split({ x: r.x, y: r.y + ha, w: r.w, h: r.h - ha }, b, bSum);
+      }
+    }
+    split(rect, items, total);
+    return items;
+  }
+
+  // Llista d'estances per a un pis donat (esquemàtic, honest).
+  function plantaRooms (floor) {
+    const banys = Math.max(0, parseInt(state.num_banys || 0, 10) || 0);
+    const habs  = Math.max(0, parseInt(state.num_habitacions || 0, 10) || 0);
+    const plantes = parseInt(state.plantes || '1', 10) || 1;
+    const rooms = [];
+    const R = (label, weight, cls) => rooms.push({ label, weight, cls });
+    if (plantes <= 1) {
+      R('Sala-menjador', 3, 'sala');
+      R('Cuina', 1.6, 'cuina');
+      for (let i = 0; i < habs; i++) R('Dormitori', 1.7, 'dorm');
+      for (let i = 0; i < banys; i++) R('Bany', 0.9, 'bany');
+    } else if (floor === 0) {
+      R('Sala-menjador', 3, 'sala');
+      R('Cuina', 1.6, 'cuina');
+      R('Bany', 0.9, 'bany');
+      R('Escala', 0.7, 'escala');
+    } else {
+      const uppers = plantes - 1;
+      const habsUp = Math.ceil(habs / uppers) || 0;
+      const start = (floor - 1) * habsUp;
+      const thisHabs = Math.max(0, Math.min(habsUp, habs - start));
+      for (let i = 0; i < thisHabs; i++) R('Dormitori', 1.7, 'dorm');
+      const banysUp = Math.max(0, banys - 1);
+      const banysPerUp = Math.ceil(banysUp / uppers) || 0;
+      const bStart = (floor - 1) * banysPerUp;
+      const thisBanys = Math.max(0, Math.min(banysPerUp, banysUp - bStart));
+      for (let i = 0; i < thisBanys; i++) R('Bany', 0.9, 'bany');
+      R('Escala', 0.7, 'escala');
+    }
+    if (!rooms.length) R('Estança', 1, 'sala');
+    return rooms;
+  }
+
+  // Etiqueta d'estança (s'amaga si l'estança és massa petita).
+  function plantaLabel (cx, cy, name, sub, w, h) {
+    if (w < 34 || h < 22) return '';
+    const ny = sub ? cy - 4 : cy;
+    const nameT = `<text class="planta-room__name" x="${cx.toFixed(1)}" y="${ny.toFixed(1)}" text-anchor="middle" dominant-baseline="middle">${name}</text>`;
+    const subT = sub ? `<text class="planta-room__sub" x="${cx.toFixed(1)}" y="${(cy + 9).toFixed(1)}" text-anchor="middle" dominant-baseline="middle">${sub}</text>` : '';
+    return nameT + subT;
+  }
+
+  // Construeix l'SVG d'una planta concreta.
+  function buildPlantaSVG (floor) {
+    const VW = 360, VH = 280, pad = 26;
+    const m2 = Math.max(0, parseFloat(state.m2 || 0) || 0);
+    if (!m2) return '';
+
+    const plantes = parseInt(state.plantes || '1', 10) || 1;
+    const footM2 = m2 / plantes;
+    const wM = Math.sqrt(footM2 * 4 / 3);
+    const hM = footM2 / wM;
+
+    const hasGar = state.garatge === 'si' && (parseFloat(state.m2_garatge || 0) || 0) > 0;
+    const garM2  = hasGar ? parseFloat(state.m2_garatge) : 0;
+    const garWM  = hasGar ? Math.min(wM, Math.sqrt(garM2 * 1.2)) : 0;
+    const garHM  = hasGar ? garM2 / Math.max(1, garWM) : 0;
+    const hasPor = (parseFloat(state.m2_porxos || 0) || 0) > 0;
+    const porM2  = hasPor ? parseFloat(state.m2_porxos) : 0;
+
+    const showGar = hasGar && floor === 0;
+    const showPor = hasPor && floor === 0;
+
+    const totalWM = wM + (showGar ? garWM + 1.0 : 0);
+    const totalHM = Math.max(hM, showGar ? garHM : 0);
+    const porBand = showPor ? 2.2 : 0;
+    const scale = Math.min((VW - 2 * pad) / totalWM, (VH - 2 * pad) / (totalHM + porBand));
+    const ox = pad + ((VW - 2 * pad) - totalWM * scale) / 2;
+    const oy = pad + ((VH - 2 * pad) - (totalHM + porBand) * scale) / 2;
+    const px = (mx) => ox + mx * scale;
+    const py = (my) => oy + my * scale;
+
+    let svg = '';
+    const houseX0 = showGar ? garWM + 1.0 : 0;
+
+    if (showGar) {
+      const gx = px(0), gy = py((hM - garHM) / 2), gw = garWM * scale, gh = garHM * scale;
+      svg += `<g class="planta-room planta-room--garatge"><rect x="${gx.toFixed(1)}" y="${gy.toFixed(1)}" width="${gw.toFixed(1)}" height="${gh.toFixed(1)}" rx="2"/>` +
+             plantaLabel(gx + gw / 2, gy + gh / 2, 'Garatge', Math.round(garM2) + ' m²', gw, gh) + `</g>`;
+    }
+
+    const hx = px(houseX0), hy = py(0), hw = wM * scale, hh = hM * scale;
+    const rooms = plantaTreemap({ x: hx + 3, y: hy + 3, w: hw - 6, h: hh - 6 }, plantaRooms(floor));
+    rooms.forEach((r) => {
+      svg += `<g class="planta-room planta-room--${r.cls}">` +
+             `<rect x="${r.x.toFixed(1)}" y="${r.y.toFixed(1)}" width="${r.w.toFixed(1)}" height="${r.h.toFixed(1)}"/>` +
+             plantaLabel(r.x + r.w / 2, r.y + r.h / 2, r.label, '', r.w, r.h) + `</g>`;
+    });
+
+    svg += `<rect class="planta-wall" x="${hx.toFixed(1)}" y="${hy.toFixed(1)}" width="${hw.toFixed(1)}" height="${hh.toFixed(1)}" rx="2"/>`;
+
+    if (showPor) {
+      const pY = hy + hh + 6, ph = 2.0 * scale;
+      svg += `<g class="planta-room planta-room--porxo"><rect x="${hx.toFixed(1)}" y="${pY.toFixed(1)}" width="${hw.toFixed(1)}" height="${ph.toFixed(1)}" rx="2"/>` +
+             plantaLabel(hx + hw / 2, pY + ph / 2, 'Pòrxo', Math.round(porM2) + ' m²', hw, ph) + `</g>`;
+    }
+
+    const dimY = hy + hh + (showPor ? 2.0 * scale + 16 : 12);
+    svg += `<text class="planta-dim" x="${(hx + hw / 2).toFixed(1)}" y="${dimY.toFixed(1)}" text-anchor="middle">${wM.toFixed(1)} × ${hM.toFixed(1)} m · ${Math.round(footM2)} m²</text>`;
+
+    return `<svg viewBox="0 0 ${VW} ${VH}" class="planta-svg" role="img" aria-label="Esquema de la planta">${svg}</svg>`;
+  }
+
+  // Redibuixa el panell (pestanyes + SVG) i anima amb GSAP.
+  function updatePlanta () {
+    const panel = document.getElementById('plantaPanel');
+    if (!panel) return;
+    const wrap = document.getElementById('plantaSvgWrap');
+    const tabsEl = document.getElementById('plantaTabs');
+    const plantes = parseInt(state.plantes || '1', 10) || 1;
+
+    if (plantaFloor > plantes - 1) plantaFloor = plantes - 1;
+    if (plantaFloor < 0) plantaFloor = 0;
+
+    if (tabsEl) {
+      if (plantes <= 1) {
+        tabsEl.innerHTML = ''; tabsEl.hidden = true;
+      } else {
+        tabsEl.hidden = false;
+        let t = '';
+        for (let f = 0; f < plantes; f++) {
+          const label = f === 0 ? 'Planta baixa' : ('Planta ' + f);
+          t += `<button type="button" class="planta-tab${f === plantaFloor ? ' is-active' : ''}" data-floor="${f}">${label}</button>`;
+        }
+        tabsEl.innerHTML = t;
+      }
+    }
+
+    if (wrap) {
+      if (!parseFloat(state.m2 || 0)) {
+        wrap.innerHTML = '<div class="planta-empty">Respon les primeres preguntes i veuràs la teva planta dibuixar-se aquí.</div>';
+      } else {
+        wrap.innerHTML = buildPlantaSVG(plantaFloor);
+        if (window.gsap) {
+          window.gsap.from(wrap.querySelectorAll('.planta-room rect, .planta-wall'), {
+            opacity: 0, duration: 0.4, stagger: 0.03, ease: 'power2.out'
+          });
+          window.gsap.from(wrap.querySelectorAll('text'), { opacity: 0, duration: 0.3, delay: 0.18 });
+        }
+      }
+    }
+  }
+
+  // Lliga toggle + pestanyes del panell de planta.
+  function wirePlanta () {
+    const panel = document.getElementById('plantaPanel');
+    if (!panel) return;
+    const toggle = document.getElementById('plantaToggle');
+    const tabsEl = document.getElementById('plantaTabs');
+    plantaOpen = window.matchMedia('(min-width: 1024px)').matches;
+    panel.classList.toggle('is-open', plantaOpen);
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', String(plantaOpen));
+      toggle.addEventListener('click', () => {
+        plantaOpen = !plantaOpen;
+        panel.classList.toggle('is-open', plantaOpen);
+        toggle.setAttribute('aria-expanded', String(plantaOpen));
+      });
+    }
+    if (tabsEl) tabsEl.addEventListener('click', (e) => {
+      const b = e.target.closest('.planta-tab');
+      if (!b) return;
+      plantaFloor = parseInt(b.dataset.floor, 10) || 0;
+      updatePlanta();
+    });
+    updatePlanta();
   }
 
   // ── Feedback
@@ -2393,6 +2600,7 @@
     entryAnimation();
     chatInit();
     wireBookingModal();
+    wirePlanta();
     if (typeof window !== 'undefined') {
       window.__atelierInit = { btnNextExists: !!btnNext, btnBackExists: !!btnBack, ts: Date.now() };
     }

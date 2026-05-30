@@ -1412,7 +1412,8 @@ body[data-stage="reveal"] .atelier-footer,
 body[data-stage="reveal"] .atelier-bar__nav,
 body[data-stage="reveal"] .atelier-fab,
 body[data-stage="reveal"] .atelier-chat,
-body[data-stage="reveal"] .atelier-chat-greet {
+body[data-stage="reveal"] .atelier-chat-greet,
+body[data-stage="reveal"] .atelier-planta {
   display: none !important;
 }
 body[data-stage="reveal"] .atelier-card,
@@ -2278,4 +2279,162 @@ body.atelier-modal-open { overflow: hidden; }
   }
   .atelier-bg__image { animation: none; }
   .atelier-fab__pulse { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PLANTA VIVA · panell flotant amb l'esquema 2D de la planta
+   ═══════════════════════════════════════════════════════════ */
+.atelier-planta {
+  position: fixed;
+  top: 84px;
+  right: 24px;
+  z-index: 30;
+  width: min(340px, calc(100vw - 32px));
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 40, 25, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(0, 40, 25, 0.16);
+  overflow: hidden;
+  font-family: inherit;
+}
+.atelier-planta__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  cursor: default;
+  background: var(--green, #002819);
+  color: #fff;
+}
+.atelier-planta__titles { display: flex; flex-direction: column; line-height: 1.15; }
+.atelier-planta__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.atelier-planta__hint {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+.atelier-planta__toggle {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.3s ease;
+}
+.atelier-planta__toggle:hover { background: rgba(255, 255, 255, 0.22); }
+.atelier-planta.is-open .atelier-planta__toggle { transform: rotate(180deg); }
+
+.atelier-planta__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.atelier-planta.is-open .atelier-planta__body { max-height: 72vh; }
+
+.atelier-planta__tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 12px 14px 0;
+}
+.atelier-planta__tabs[hidden] { display: none; }
+.planta-tab {
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 40, 25, 0.16);
+  background: transparent;
+  color: var(--green-light, #56685E);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.planta-tab:hover { border-color: var(--accent, #95BBA5); }
+.planta-tab.is-active {
+  background: var(--green, #002819);
+  border-color: var(--green, #002819);
+  color: #fff;
+}
+
+.atelier-planta__svg {
+  padding: 8px 12px 4px;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+}
+.planta-svg { width: 100%; height: auto; display: block; }
+.planta-empty {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--green-light, #56685E);
+  text-align: center;
+  padding: 36px 18px;
+}
+
+/* SVG · murs i estances */
+.planta-wall {
+  fill: none;
+  stroke: var(--green, #002819);
+  stroke-width: 2.4;
+}
+.planta-room rect {
+  stroke: rgba(0, 40, 25, 0.30);
+  stroke-width: 0.8;
+}
+.planta-room--sala rect   { fill: rgba(149, 187, 165, 0.30); }
+.planta-room--cuina rect  { fill: rgba(149, 187, 165, 0.18); }
+.planta-room--dorm rect   { fill: rgba(86, 104, 94, 0.14); }
+.planta-room--bany rect   { fill: rgba(86, 104, 94, 0.22); }
+.planta-room--escala rect { fill: rgba(0, 40, 25, 0.07); }
+.planta-room--garatge rect{ fill: rgba(0, 40, 25, 0.05); stroke-dasharray: 3 2; }
+.planta-room--porxo rect  { fill: rgba(149, 187, 165, 0.10); stroke-dasharray: 4 3; }
+.planta-room__name {
+  font-size: 9.5px;
+  font-weight: 600;
+  fill: var(--green, #002819);
+  pointer-events: none;
+}
+.planta-room__sub {
+  font-size: 8px;
+  fill: var(--green-light, #56685E);
+  pointer-events: none;
+}
+.planta-dim {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  fill: var(--green-light, #56685E);
+}
+.atelier-planta__foot {
+  margin: 0;
+  padding: 4px 14px 14px;
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: var(--green-light, #56685E);
+  opacity: 0.8;
+}
+
+/* Mòbil · no tapar la targeta; per defecte plegat, ample complet a baix */
+@media (max-width: 1023px) {
+  .atelier-planta {
+    top: auto;
+    bottom: 88px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+  .atelier-planta.is-open .atelier-planta__body { max-height: 60vh; overflow-y: auto; }
 }
