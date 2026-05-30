@@ -34,6 +34,7 @@
     m2: 0,
     plantes: '',
     num_banys: 0,
+    num_habitacions: 0,
     garatge: '',
     m2_garatge: 0,
     m2_porxos: 0,
@@ -127,6 +128,18 @@
       validate: (v) => (!v || v < 1) ? 'Cal almenys un bany.' : null,
       summary: { key: 'banys', label: 'Banys',
                  format: (v) => v ? `${v} bany${v === 1 ? '' : 's'}` : '—' },
+    },
+    {
+      id: 'habitacions', stage: 'estructura',
+      eyebrow: 'Estructura',
+      title: "Quantes habitacions té la casa?",
+      hint: "Compta dormitoris i sales independents (no banys ni cuina). Determina el nombre de fan coils.",
+      type: 'number', stateKey: 'num_habitacions', unit: '',
+      min: 1, max: 10, default: 3,
+      chips: [2, 3, 4, 5, 6],
+      validate: (v) => (!v || v < 1) ? "Indica el nombre d'habitacions." : null,
+      summary: { key: 'habitacions', label: 'Habitacions',
+                 format: (v) => v ? `${v} hab.` : '—' },
     },
     {
       id: 'nivell_bany', stage: 'estructura',
@@ -288,6 +301,7 @@
     { key: 'm2',         label: 'Superfície' },
     { key: 'plantes',    label: 'Plantes' },
     { key: 'banys',      label: 'Banys' },
+    { key: 'habitacions',label: 'Habitacions' },
     { key: 'nivell_bany',label: 'Nivell bany' },
     { key: 'coberta',    label: 'Coberta' },
     { key: 'facana',     label: 'Façana' },
@@ -1202,6 +1216,7 @@
       m2: state.m2,
       plantes: state.plantes || '2',
       num_banys: state.num_banys || 2,
+      num_habitacions: state.num_habitacions || 3,
       garatge: state.garatge || 'no',
       m2_garatge: state.m2_garatge || 0,
       m2_porxos: state.m2_porxos || 0,
@@ -1342,9 +1357,10 @@
   }
 
   function updateRevealHero (data, payload) {
-    const priceEl  = document.getElementById('revealPrice');
-    const perm2El  = document.getElementById('revealPerm2Val');
-    const m2El     = document.getElementById('revealM2Val');
+    const priceEl   = document.getElementById('revealPrice');
+    const perm2El   = document.getElementById('revealPerm2Val');
+    const m2El      = document.getElementById('revealM2Val');
+    const pendingEl = document.getElementById('revealPendingFonamentacioVal');
     if (!priceEl) return;
     const newTotal = data.total_pressupost || 0;
     const m2       = data.variables_derivades?.m2 || payload.m2 || 1;
@@ -1352,6 +1368,9 @@
     priceEl.dataset.target = String(newTotal);
     if (m2El)    m2El.textContent    = fmtNum(m2);
     if (perm2El) perm2El.textContent = fmtEur(newTotal / m2);
+    if (pendingEl) {
+      pendingEl.textContent = '~ ' + fmtEur(data.contractacio_externa?.fonamentacio_estimat_pendent || 0);
+    }
 
     if (window.gsap) {
       const obj = { v: fromVal };
@@ -1423,6 +1442,13 @@
           <p class="atelier-reveal__hero-perm2" id="revealPerm2">
             ≈ <span id="revealPerm2Val">${fmtEur(perM2)}</span>/m² ·
             <span id="revealM2Val">${fmtNum(m2)}</span> m² construïts · IVA inclòs
+          </p>
+          <!-- Fonamentació es factura a part (PAPIK la marca cas per cas, 0 € a
+               52.000 €). Mostrem una estimació informativa ~ 300 €/m² perquè
+               el client sàpiga que el preu final inclourà aquesta partida. -->
+          <p class="atelier-reveal__hero-pending" id="revealPendingFonamentacio">
+            + Fonamentació pendent de valorar
+            <span id="revealPendingFonamentacioVal">~ ${fmtEur(data.contractacio_externa?.fonamentacio_estimat_pendent || 0)}</span>
           </p>
         </header>
 
@@ -2004,6 +2030,7 @@
       m2:             state.m2 || 0,
       plantes:        state.plantes || '',
       num_banys:      state.num_banys || 0,
+      num_habitacions: state.num_habitacions || 0,
       garatge:        state.garatge || '',
       m2_garatge:     state.m2_garatge || 0,
       m2_porxos:      state.m2_porxos || 0,
@@ -2043,9 +2070,9 @@
   // Apply form_updates returned by the chat backend to the live state and
   // re-render the current step if its key changed.
   // Catalog must mirror api/chat-pressupost.py sanitizer + state schema.
-  const CHAT_INT_FIELDS = new Set(['m2', 'num_banys', 'm2_garatge', 'm2_porxos']);
+  const CHAT_INT_FIELDS = new Set(['m2', 'num_banys', 'num_habitacions', 'm2_garatge', 'm2_porxos']);
   const CHAT_CANONICAL_FIELDS = new Set([
-    'm2', 'plantes', 'num_banys',
+    'm2', 'plantes', 'num_banys', 'num_habitacions',
     'garatge', 'm2_garatge', 'm2_porxos',
     'tipus_escala', 'tipus_coberta', 'tipus_facana', 'tipus_paviment',
     'nivell_bany',
@@ -2058,6 +2085,7 @@
   // Pretty Catalan labels for the inline confirmation toast.
   const CHAT_FIELD_LABELS = {
     m2: 'superfície', plantes: 'plantes', num_banys: 'banys',
+    num_habitacions: 'habitacions',
     garatge: 'garatge', m2_garatge: 'm² de garatge', m2_porxos: 'm² de pòrxos',
     tipus_escala: 'escala', tipus_coberta: 'coberta', tipus_facana: 'façana',
     tipus_paviment: 'paviment', nivell_bany: 'nivell de bany',
