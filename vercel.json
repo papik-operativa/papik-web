@@ -16,7 +16,7 @@
       "permanent": false
     },
     {
-      "source": "/((?!pressupost|api|css|js|fonts|img|PAPIK|cursor\\.js|robots\\.txt|favicon).*)",
+      "source": "/((?!pressupost|atelier|api|css|js|fonts|img|PAPIK|cursor\\.js|robots\\.txt|favicon).*)",
       "destination": "/pressupost",
       "permanent": false
     }
