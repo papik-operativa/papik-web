@@ -7,8 +7,12 @@
     "api/analitzar-plans.py":   { "maxDuration": 60 },
     "api/chat-configurador.py": { "maxDuration": 60 },
     "api/chat-pressupost.py":   { "maxDuration": 60 },
-    "api/notificar-equip.py":   { "maxDuration": 15 }
+    "api/notificar-equip.py":   { "maxDuration": 15 },
+    "api/resum-setmanal.py":    { "maxDuration": 30 }
   },
+  "crons": [
+    { "path": "/api/resum-setmanal", "schedule": "0 6 * * 1" }
+  ],
   "redirects": [
     {
       "source": "/",

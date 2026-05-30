@@ -49,6 +49,13 @@ _ne_spec = importlib.util.spec_from_file_location(
 _ne = importlib.util.module_from_spec(_ne_spec)
 _ne_spec.loader.exec_module(_ne)
 
+# Carregar resum-setmanal.py (resum setmanal al cap, via cron a producció)
+_rs_spec = importlib.util.spec_from_file_location(
+    'resum_setmanal', os.path.join(API_DIR, 'resum-setmanal.py')
+)
+_rs = importlib.util.module_from_spec(_rs_spec)
+_rs_spec.loader.exec_module(_rs)
+
 app = Flask(__name__, static_folder=None)
 
 
@@ -144,6 +151,17 @@ def api_chat_configurador():
 def api_notificar_equip():
     payload = request.get_json(silent=True) or {}
     status, body = _ne.notify(payload)
+    return jsonify(body), status
+
+
+@app.route('/api/resum-setmanal', methods=['GET', 'POST'])
+def api_resum_setmanal():
+    try:
+        days = int(request.args.get('days', 7))
+    except (TypeError, ValueError):
+        days = 7
+    days = max(1, min(days, 90))
+    status, body = _rs.run(days)
     return jsonify(body), status
 
 

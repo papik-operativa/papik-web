@@ -33,6 +33,11 @@ TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID   = os.environ.get('TELEGRAM_CHAT_ID', '')
 TELEGRAM_API       = 'https://api.telegram.org'
 
+# Persistencia opcional a Supabase (font del resum setmanal). Si no hi ha
+# credencials, l'esdeveniment no es desa pero l'avis de Telegram segueix.
+SUPABASE_URL         = os.environ.get('SUPABASE_URL', '').rstrip('/')
+SUPABASE_SERVICE_KEY = os.environ.get('SUPABASE_SERVICE_KEY', '')
+
 
 # ── Etiquetes ───────────────────────────────────────────────────────────────
 PRIORITY_BADGE = {
@@ -139,6 +144,70 @@ def _format_message(payload):
     return '\n'.join(lines)
 
 
+def _as_num(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _as_int(v):
+    try:
+        return int(round(float(v)))
+    except (TypeError, ValueError):
+        return None
+
+
+def _store_supabase(payload):
+    """Desa l'esdeveniment a la taula atelier_events via PostgREST amb la
+    service_role key. Best-effort: torna False si no esta configurat o si
+    falla, sense propagar mai l'error (no ha de tombar l'avis de Telegram)."""
+    if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
+        return False
+    event = (payload.get('event') or 'lead').strip().lower()
+    if event not in ('lead', 'reserva'):
+        event = 'lead'
+    pr   = payload.get('priority') or {}
+    lead = payload.get('lead') or {}
+    s    = payload.get('summary') or {}
+    reasons = [r for r in (pr.get('reasons') or []) if r]
+
+    row = {
+        'event':            event,
+        'priority_level':   (pr.get('level') or None),
+        'priority_reasons': reasons or None,
+        'nom':              (lead.get('nom') or None),
+        'email':            (lead.get('email') or None),
+        'telefon':          (lead.get('telefon') or None),
+        'municipi':         (s.get('municipi') or None),
+        'm2':               _as_num(s.get('m2')),
+        'plantes':          (str(s.get('plantes')) if s.get('plantes') is not None else None),
+        'num_banys':        _as_int(s.get('num_banys')),
+        'num_habitacions':  _as_int(s.get('num_habitacions')),
+        'garatge':          (s.get('garatge') or None),
+        'm2_garatge':       _as_num(s.get('m2_garatge')),
+        'total':            _as_num(s.get('total')),
+        'slot':             (payload.get('slot') or None),
+        'raw':              payload,
+    }
+    try:
+        req = urllib.request.Request(
+            f"{SUPABASE_URL}/rest/v1/atelier_events",
+            data=json.dumps(row).encode('utf-8'),
+            headers={
+                'Content-Type': 'application/json',
+                'apikey': SUPABASE_SERVICE_KEY,
+                'Authorization': f'Bearer {SUPABASE_SERVICE_KEY}',
+                'Prefer': 'return=minimal',
+            },
+            method='POST',
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            return 200 <= resp.status < 300
+    except Exception:
+        return False
+
+
 def _send_telegram(text):
     """Envia el missatge a Telegram. Retorna el dict de resposta de l'API.
     Llança RuntimeError si no hi ha token/chat configurats."""
@@ -167,6 +236,8 @@ def notify(payload):
     skipped) perquè el frontend és fire-and-forget."""
     if not isinstance(payload, dict):
         return 400, {'ok': False, 'error': 'invalid_input'}
+    # Persistencia best-effort (resum setmanal). No bloqueja l'avis.
+    _store_supabase(payload)
     text = _format_message(payload)
     try:
         result = _send_telegram(text)
