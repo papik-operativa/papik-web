@@ -1195,9 +1195,193 @@
     return nameT + subT;
   }
 
-  // Construeix l'SVG d'una planta concreta.
+  // ── Helpers de dibuix arquitectònic (línia fina, símbols escalats) ──
+  function F (n) { return Math.round(n * 10) / 10; }
+
+  // Mobiliari segons el tipus d'estança, encaixat dins el rectangle.
+  function furnish (cls, r) {
+    const pad = Math.min(r.w, r.h) * 0.14;
+    const x = r.x + pad, y = r.y + pad, w = r.w - 2 * pad, h = r.h - 2 * pad;
+    if (w < 14 || h < 14) return '';
+    const cx = x + w / 2;
+    let s = '';
+    if (cls === 'sala') {
+      const sw = Math.min(w * 0.62, w), sh = Math.min(h * 0.26, 16);
+      const sx = cx - sw / 2, sy = y + h - sh;
+      s += `<rect class="planta-fx" x="${F(sx)}" y="${F(sy)}" width="${F(sw)}" height="${F(sh)}" rx="2"/>`;
+      s += `<line class="planta-fx" x1="${F(sx)}" y1="${F(sy + sh * 0.42)}" x2="${F(sx + sw)}" y2="${F(sy + sh * 0.42)}"/>`;
+      const tw = sw * 0.5, th = Math.min(sh * 0.6, 8);
+      s += `<rect class="planta-fx" x="${F(cx - tw / 2)}" y="${F(sy - th - 5)}" width="${F(tw)}" height="${F(th)}" rx="1"/>`;
+    } else if (cls === 'cuina') {
+      const d = Math.min(h * 0.24, 11);
+      s += `<rect class="planta-fx" x="${F(x)}" y="${F(y)}" width="${F(w)}" height="${F(d)}"/>`;
+      s += `<rect class="planta-fx" x="${F(x)}" y="${F(y)}" width="${F(d)}" height="${F(h)}"/>`;
+      s += `<circle class="planta-fx" cx="${F(x + w * 0.6)}" cy="${F(y + d / 2)}" r="${F(d * 0.28)}"/>`;
+      const bx = x + w * 0.85, by = y + d / 2, br = d * 0.16;
+      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([dx, dy]) => {
+        s += `<circle class="planta-fx" cx="${F(bx + dx * br * 1.5)}" cy="${F(by + dy * br * 1.2)}" r="${F(br)}"/>`;
+      });
+    } else if (cls === 'dorm') {
+      const bw = Math.min(w * 0.62, 42), bh = Math.min(h * 0.72, 48);
+      const bx = cx - bw / 2, by = y;
+      s += `<rect class="planta-fx" x="${F(bx)}" y="${F(by)}" width="${F(bw)}" height="${F(bh)}" rx="2"/>`;
+      s += `<line class="planta-fx" x1="${F(bx)}" y1="${F(by + bh * 0.26)}" x2="${F(bx + bw)}" y2="${F(by + bh * 0.26)}"/>`;
+      s += `<rect class="planta-fx" x="${F(bx + bw * 0.1)}" y="${F(by + 3)}" width="${F(bw * 0.34)}" height="${F(bh * 0.15)}" rx="1"/>`;
+      s += `<rect class="planta-fx" x="${F(bx + bw * 0.56)}" y="${F(by + 3)}" width="${F(bw * 0.34)}" height="${F(bh * 0.15)}" rx="1"/>`;
+    } else if (cls === 'bany') {
+      const tw = Math.min(w * 0.9, w), th = Math.min(h * 0.32, 14);
+      s += `<rect class="planta-fx" x="${F(x)}" y="${F(y)}" width="${F(tw)}" height="${F(th)}" rx="3"/>`;
+      s += `<circle class="planta-fx" cx="${F(x + tw * 0.85)}" cy="${F(y + th / 2)}" r="${F(th * 0.18)}"/>`;
+      s += `<rect class="planta-fx" x="${F(x)}" y="${F(y + h - 11)}" width="13" height="9" rx="2"/>`;
+      s += `<ellipse class="planta-fx" cx="${F(x + w - 7)}" cy="${F(y + h - 8)}" rx="5" ry="6"/>`;
+    } else if (cls === 'escala') {
+      const steps = Math.max(4, Math.round(h / 7));
+      for (let i = 0; i <= steps; i++) {
+        const yy = y + (h / steps) * i;
+        s += `<line class="planta-fx" x1="${F(x)}" y1="${F(yy)}" x2="${F(x + w)}" y2="${F(yy)}"/>`;
+      }
+      s += `<line class="planta-fx" x1="${F(cx)}" y1="${F(y)}" x2="${F(cx)}" y2="${F(y + h)}"/>`;
+    }
+    return s;
+  }
+
+  // Cotxe esquemàtic per al garatge.
+  function fxCar (r) {
+    const bw = Math.min(r.w * 0.5, 42), bh = Math.min(r.h * 0.78, 72);
+    const bx = r.x + (r.w - bw) / 2, by = r.y + (r.h - bh) / 2;
+    return `<rect class="planta-fx" x="${F(bx)}" y="${F(by)}" width="${F(bw)}" height="${F(bh)}" rx="6"/>` +
+           `<rect class="planta-fx" x="${F(bx + bw * 0.18)}" y="${F(by + bh * 0.12)}" width="${F(bw * 0.64)}" height="${F(bh * 0.3)}" rx="3"/>`;
+  }
+
+  // Porta amb buit + arc d'obertura sobre una aresta (vertical o horitzontal).
+  function doorOnEdge (ex, ey, vertical, length, intoPositive) {
+    const dw = Math.min(Math.max(length * 0.45, 8), 16);
+    let s = '';
+    if (vertical) {
+      const my = ey + (length - dw) / 2, dir = intoPositive ? 1 : -1;
+      s += `<line class="planta-door-cut" x1="${F(ex)}" y1="${F(my)}" x2="${F(ex)}" y2="${F(my + dw)}"/>`;
+      s += `<line class="planta-door" x1="${F(ex)}" y1="${F(my)}" x2="${F(ex + dir * dw)}" y2="${F(my)}"/>`;
+      s += `<path class="planta-door" d="M ${F(ex + dir * dw)} ${F(my)} A ${F(dw)} ${F(dw)} 0 0 ${dir > 0 ? 1 : 0} ${F(ex)} ${F(my + dw)}"/>`;
+    } else {
+      const mx = ex + (length - dw) / 2, dir = intoPositive ? 1 : -1;
+      s += `<line class="planta-door-cut" x1="${F(mx)}" y1="${F(ey)}" x2="${F(mx + dw)}" y2="${F(ey)}"/>`;
+      s += `<line class="planta-door" x1="${F(mx)}" y1="${F(ey)}" x2="${F(mx)}" y2="${F(ey + dir * dw)}"/>`;
+      s += `<path class="planta-door" d="M ${F(mx)} ${F(ey + dir * dw)} A ${F(dw)} ${F(dw)} 0 0 ${dir > 0 ? 0 : 1} ${F(mx + dw)} ${F(ey)}"/>`;
+    }
+    return s;
+  }
+
+  // Finestra: buit blanc dins la banda de mur + línia de vidre.
+  function windowBand (bx, by, len, t, vertical) {
+    const ww = Math.min(len * 0.5, 22);
+    if (ww < 6) return '';
+    if (vertical) {
+      const my = by + (len - ww) / 2;
+      return `<rect class="planta-win-gap" x="${F(bx)}" y="${F(my)}" width="${F(t)}" height="${F(ww)}"/>` +
+             `<line class="planta-window" x1="${F(bx + t / 2)}" y1="${F(my)}" x2="${F(bx + t / 2)}" y2="${F(my + ww)}"/>`;
+    }
+    const mx = bx + (len - ww) / 2;
+    return `<rect class="planta-win-gap" x="${F(mx)}" y="${F(by)}" width="${F(ww)}" height="${F(t)}"/>` +
+           `<line class="planta-window" x1="${F(mx)}" y1="${F(by + t / 2)}" x2="${F(mx + ww)}" y2="${F(by + t / 2)}"/>`;
+  }
+
+  // Línia de cota amb marques i etiqueta.
+  function dimLine (x, y, len, vertical, label) {
+    let s = '';
+    if (vertical) {
+      s += `<line class="planta-dimline" x1="${F(x)}" y1="${F(y)}" x2="${F(x)}" y2="${F(y + len)}"/>`;
+      s += `<line class="planta-dimline" x1="${F(x - 3)}" y1="${F(y)}" x2="${F(x + 3)}" y2="${F(y)}"/>`;
+      s += `<line class="planta-dimline" x1="${F(x - 3)}" y1="${F(y + len)}" x2="${F(x + 3)}" y2="${F(y + len)}"/>`;
+      s += `<text class="planta-dim" x="${F(x - 5)}" y="${F(y + len / 2)}" text-anchor="middle" transform="rotate(-90 ${F(x - 5)} ${F(y + len / 2)})">${label}</text>`;
+    } else {
+      s += `<line class="planta-dimline" x1="${F(x)}" y1="${F(y)}" x2="${F(x + len)}" y2="${F(y)}"/>`;
+      s += `<line class="planta-dimline" x1="${F(x)}" y1="${F(y - 3)}" x2="${F(x)}" y2="${F(y + 3)}"/>`;
+      s += `<line class="planta-dimline" x1="${F(x + len)}" y1="${F(y - 3)}" x2="${F(x + len)}" y2="${F(y + 3)}"/>`;
+      s += `<text class="planta-dim" x="${F(x + len / 2)}" y="${F(y + 11)}" text-anchor="middle">${label}</text>`;
+    }
+    return s;
+  }
+
+  // Distribució realista: estances a banda i banda d'un distribuïdor
+  // central, amb porta de cada estança cap al passadís i columna d'escala
+  // a un extrem. NO canvia quines/quantes estances hi ha (això ve de
+  // plantaRooms); només com es col·loquen a l'espai.
+  function layoutPlanta (roomsIn, X0, Y0, X1, Y1, scale) {
+    const W = X1 - X0, H = Y1 - Y0;
+    const rooms = roomsIn.map((r) => Object.assign({}, r));
+    const out = { rooms: [], corridor: null };
+
+    if (rooms.length === 1) {
+      const r = rooms[0];
+      r.x = X0; r.y = Y0; r.w = W; r.h = H;
+      r.exposed = { t: 1, b: 1, l: 1, r: 1 }; r.door = null;
+      out.rooms.push(r); return out;
+    }
+    if (rooms.length === 2) {
+      const tot = (rooms[0].weight + rooms[1].weight) || 1;
+      const w0 = W * rooms[0].weight / tot;
+      rooms[0].x = X0;      rooms[0].y = Y0; rooms[0].w = w0;     rooms[0].h = H;
+      rooms[1].x = X0 + w0; rooms[1].y = Y0; rooms[1].w = W - w0; rooms[1].h = H;
+      rooms[0].door = { edge: 'R' }; rooms[1].door = null;
+      rooms[0].exposed = { t: 1, b: 1, l: 1, r: 0 };
+      rooms[1].exposed = { t: 1, b: 1, l: 0, r: 1 };
+      out.rooms.push(rooms[0], rooms[1]); return out;
+    }
+
+    // 3+ estances: distribuïdor horitzontal + columna d'escala a la dreta
+    let usableX1 = X1, stair = null;
+    const stIdx = rooms.findIndex((r) => r.cls === 'escala');
+    if (stIdx >= 0) {
+      const stW = Math.min(Math.max(scale * 2.4, 26), W * 0.26);
+      stair = rooms.splice(stIdx, 1)[0];
+      usableX1 = X1 - stW;
+      stair.x = usableX1; stair.y = Y0; stair.w = stW; stair.h = H;
+      stair.exposed = { t: 0, b: 0, l: 0, r: 1 };
+    }
+    const Wu = usableX1 - X0;
+    const corridorH = Math.min(Math.max(scale * 1.25, 13), H * 0.22);
+
+    const sorted = rooms.slice().sort((a, b) => b.weight - a.weight);
+    const top = [], bot = []; let wt = 0, wb = 0;
+    sorted.forEach((r) => { if (wt <= wb) { top.push(r); wt += r.weight; } else { bot.push(r); wb += r.weight; } });
+
+    const zoneH = H - corridorH;
+    let topH = zoneH * (wt / (wt + wb || 1));
+    topH = Math.max(zoneH * 0.38, Math.min(zoneH * 0.62, topH));
+    const corrY = Y0 + topH;
+
+    function placeRow (list, y, h, edge) {
+      const tw = list.reduce((s, r) => s + r.weight, 0) || 1;
+      let x = X0;
+      list.forEach((r, i) => {
+        const last = i === list.length - 1;
+        const w = last ? (usableX1 - x) : Wu * (r.weight / tw);
+        r.x = x; r.y = y; r.w = w; r.h = h;
+        r.door = { edge };
+        r.exposed = {
+          t: edge === 'B' ? 1 : 0,
+          b: edge === 'T' ? 1 : 0,
+          l: i === 0 ? 1 : 0,
+          r: (last && !stair) ? 1 : 0,
+        };
+        x += w;
+        out.rooms.push(r);
+      });
+    }
+    placeRow(top, Y0, topH, 'B');
+    placeRow(bot, corrY + corridorH, zoneH - topH, 'T');
+
+    if (stair) {
+      stair.door = { edge: 'L', atY: corrY, len: corridorH };
+      out.rooms.push(stair);
+    }
+    out.corridor = { x: X0, y: corrY, w: Wu, h: corridorH };
+    return out;
+  }
+
+  // Construeix l'SVG d'una planta concreta (estil plànol arquitectònic).
   function buildPlantaSVG (floor) {
-    const VW = 360, VH = 280, pad = 26;
+    const VW = 420, VH = 320, pad = 40;
     const m2 = Math.max(0, parseFloat(state.m2 || 0) || 0);
     if (!m2) return '';
 
@@ -1218,42 +1402,78 @@
 
     const totalWM = wM + (showGar ? garWM + 1.0 : 0);
     const totalHM = Math.max(hM, showGar ? garHM : 0);
-    const porBand = showPor ? 2.2 : 0;
+    const porBand = showPor ? 2.4 : 0;
     const scale = Math.min((VW - 2 * pad) / totalWM, (VH - 2 * pad) / (totalHM + porBand));
     const ox = pad + ((VW - 2 * pad) - totalWM * scale) / 2;
     const oy = pad + ((VH - 2 * pad) - (totalHM + porBand) * scale) / 2;
     const px = (mx) => ox + mx * scale;
     const py = (my) => oy + my * scale;
-
-    let svg = '';
     const houseX0 = showGar ? garWM + 1.0 : 0;
 
+    const hx = px(houseX0), hy = py(0), hw = wM * scale, hh = hM * scale;
+    const wallT = Math.max(3, Math.min(6, hw * 0.022));
+
+    let walls = '', fx = '', doors = '', wins = '', labels = '';
+
+    // Garatge (caixa amb mur i cotxe)
     if (showGar) {
       const gx = px(0), gy = py((hM - garHM) / 2), gw = garWM * scale, gh = garHM * scale;
-      svg += `<g class="planta-room planta-room--garatge"><rect x="${gx.toFixed(1)}" y="${gy.toFixed(1)}" width="${gw.toFixed(1)}" height="${gh.toFixed(1)}" rx="2"/>` +
-             plantaLabel(gx + gw / 2, gy + gh / 2, 'Garatge', Math.round(garM2) + ' m²', gw, gh) + `</g>`;
+      walls += `<rect class="planta-wall-fill" x="${F(gx)}" y="${F(gy)}" width="${F(gw)}" height="${F(gh)}"/>`;
+      walls += `<rect class="planta-room-fill" x="${F(gx + wallT)}" y="${F(gy + wallT)}" width="${F(gw - 2 * wallT)}" height="${F(gh - 2 * wallT)}"/>`;
+      fx += fxCar({ x: gx + wallT, y: gy + wallT, w: gw - 2 * wallT, h: gh - 2 * wallT });
+      labels += plantaLabel(gx + gw / 2, gy + gh - 8, 'Garatge', '', gw, gh);
     }
 
-    const hx = px(houseX0), hy = py(0), hw = wM * scale, hh = hM * scale;
-    const rooms = plantaTreemap({ x: hx + 3, y: hy + 3, w: hw - 6, h: hh - 6 }, plantaRooms(floor));
-    rooms.forEach((r) => {
-      svg += `<g class="planta-room planta-room--${r.cls}">` +
-             `<rect x="${r.x.toFixed(1)}" y="${r.y.toFixed(1)}" width="${r.w.toFixed(1)}" height="${r.h.toFixed(1)}"/>` +
-             plantaLabel(r.x + r.w / 2, r.y + r.h / 2, r.label, '', r.w, r.h) + `</g>`;
+    // Casa: poché del mur exterior
+    walls += `<rect class="planta-wall-fill" x="${F(hx)}" y="${F(hy)}" width="${F(hw)}" height="${F(hh)}"/>`;
+    walls += `<rect class="planta-room-fill" x="${F(hx + wallT)}" y="${F(hy + wallT)}" width="${F(hw - 2 * wallT)}" height="${F(hh - 2 * wallT)}"/>`;
+
+    const inX0 = hx + wallT, inY0 = hy + wallT, inX1 = hx + hw - wallT, inY1 = hy + hh - wallT;
+    const layout = layoutPlanta(plantaRooms(floor), inX0, inY0, inX1, inY1, scale);
+
+    layout.rooms.forEach((r) => {
+      walls += `<rect class="planta-partition" x="${F(r.x)}" y="${F(r.y)}" width="${F(r.w)}" height="${F(r.h)}"/>`;
+      fx += furnish(r.cls, r);
+      labels += plantaLabel(r.x + r.w / 2, r.y + 9, r.label, '', r.w, r.h);
+
+      // Porta cap al distribuïdor segons la posició de l'estança
+      if (r.door) {
+        const d = r.door;
+        if (d.edge === 'B')      doors += doorOnEdge(r.x, r.y + r.h, false, r.w, false);
+        else if (d.edge === 'T') doors += doorOnEdge(r.x, r.y, false, r.w, true);
+        else if (d.edge === 'R') doors += doorOnEdge(r.x + r.w, r.y, true, r.h, false);
+        else if (d.edge === 'L') doors += doorOnEdge(r.x, d.atY != null ? d.atY : r.y, true, d.len != null ? d.len : r.h, true);
+      }
+
+      // Finestres a les parets exteriors que toca l'estança
+      const ex = r.exposed || {};
+      if (ex.t) wins += windowBand(r.x, hy, r.w, wallT, false);
+      if (ex.b) wins += windowBand(r.x, hy + hh - wallT, r.w, wallT, false);
+      if (ex.l) wins += windowBand(hx, r.y, r.h, wallT, true);
+      if (ex.r) wins += windowBand(hx + hw - wallT, r.y, r.h, wallT, true);
     });
 
-    svg += `<rect class="planta-wall" x="${hx.toFixed(1)}" y="${hy.toFixed(1)}" width="${hw.toFixed(1)}" height="${hh.toFixed(1)}" rx="2"/>`;
-
-    if (showPor) {
-      const pY = hy + hh + 6, ph = 2.0 * scale;
-      svg += `<g class="planta-room planta-room--porxo"><rect x="${hx.toFixed(1)}" y="${pY.toFixed(1)}" width="${hw.toFixed(1)}" height="${ph.toFixed(1)}" rx="2"/>` +
-             plantaLabel(hx + hw / 2, pY + ph / 2, 'Pòrxo', Math.round(porM2) + ' m²', hw, ph) + `</g>`;
+    // Porta d'entrada (planta baixa) al distribuïdor, a la paret esquerra
+    if (floor === 0 && layout.corridor) {
+      doors += doorOnEdge(hx + wallT, layout.corridor.y, true, layout.corridor.h, true);
     }
 
-    const dimY = hy + hh + (showPor ? 2.0 * scale + 16 : 12);
-    svg += `<text class="planta-dim" x="${(hx + hw / 2).toFixed(1)}" y="${dimY.toFixed(1)}" text-anchor="middle">${wM.toFixed(1)} × ${hM.toFixed(1)} m · ${Math.round(footM2)} m²</text>`;
+    // Pòrxo (llosa exterior puntejada)
+    let porBottom = hy + hh;
+    if (showPor) {
+      const pY = hy + hh + 6, ph = 2.0 * scale;
+      walls += `<rect class="planta-porch" x="${F(hx)}" y="${F(pY)}" width="${F(hw)}" height="${F(ph)}"/>`;
+      labels += plantaLabel(hx + hw / 2, pY + ph / 2, 'Pòrxo', Math.round(porM2) + ' m²', hw, ph);
+      porBottom = pY + ph;
+    }
 
-    return `<svg viewBox="0 0 ${VW} ${VH}" class="planta-svg" role="img" aria-label="Esquema de la planta">${svg}</svg>`;
+    // Cotes (amplada a sota, fons a l'esquerra) + àrea
+    const dims = dimLine(hx, porBottom + 14, hw, false, F(wM) + ' m') +
+                 dimLine(hx - 14, hy, hh, true, F(hM) + ' m');
+    labels += `<text class="planta-area" x="${F(hx + hw / 2)}" y="${F(porBottom + 30)}" text-anchor="middle">${Math.round(footM2)} m² · planta</text>`;
+
+    return `<svg viewBox="0 0 ${VW} ${VH}" class="planta-svg" role="img" aria-label="Plànol esquemàtic de la planta">` +
+           walls + wins + doors + fx + dims + labels + `</svg>`;
   }
 
   // Redibuixa el panell (pestanyes + SVG) i anima amb GSAP.
@@ -1287,10 +1507,13 @@
       } else {
         wrap.innerHTML = buildPlantaSVG(plantaFloor);
         if (window.gsap) {
-          window.gsap.from(wrap.querySelectorAll('.planta-room rect, .planta-wall'), {
-            opacity: 0, duration: 0.4, stagger: 0.03, ease: 'power2.out'
+          window.gsap.from(wrap.querySelectorAll('.planta-wall-fill, .planta-room-fill, .planta-partition'), {
+            opacity: 0, duration: 0.4, stagger: 0.04, ease: 'power2.out'
           });
-          window.gsap.from(wrap.querySelectorAll('text'), { opacity: 0, duration: 0.3, delay: 0.18 });
+          window.gsap.from(wrap.querySelectorAll('.planta-fx, .planta-door, .planta-window'), {
+            opacity: 0, duration: 0.35, stagger: 0.015, delay: 0.2, ease: 'power1.out'
+          });
+          window.gsap.from(wrap.querySelectorAll('text'), { opacity: 0, duration: 0.3, delay: 0.3 });
         }
       }
     }

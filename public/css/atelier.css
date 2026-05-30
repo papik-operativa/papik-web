@@ -2384,39 +2384,72 @@ body.atelier-modal-open { overflow: hidden; }
   padding: 36px 18px;
 }
 
-/* SVG · murs i estances */
-.planta-wall {
+/* SVG · plànol arquitectònic (murs poché, tabics, mobiliari, portes) */
+.planta-wall-fill { fill: var(--green, #002819); }          /* mur exterior (poché) */
+.planta-room-fill { fill: #fff; }                            /* interior de l'estança */
+.planta-partition {
   fill: none;
   stroke: var(--green, #002819);
-  stroke-width: 2.4;
+  stroke-width: 1.4;
 }
-.planta-room rect {
-  stroke: rgba(0, 40, 25, 0.30);
-  stroke-width: 0.8;
+/* mobiliari i sanitaris · línia fina */
+.planta-fx {
+  fill: none;
+  stroke: #6a7d72;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
-.planta-room--sala rect   { fill: rgba(149, 187, 165, 0.30); }
-.planta-room--cuina rect  { fill: rgba(149, 187, 165, 0.18); }
-.planta-room--dorm rect   { fill: rgba(86, 104, 94, 0.14); }
-.planta-room--bany rect   { fill: rgba(86, 104, 94, 0.22); }
-.planta-room--escala rect { fill: rgba(0, 40, 25, 0.07); }
-.planta-room--garatge rect{ fill: rgba(0, 40, 25, 0.05); stroke-dasharray: 3 2; }
-.planta-room--porxo rect  { fill: rgba(149, 187, 165, 0.10); stroke-dasharray: 4 3; }
-.planta-room__name {
-  font-size: 9.5px;
-  font-weight: 600;
-  fill: var(--green, #002819);
-  pointer-events: none;
+/* portes · fulla + arc d'obertura, amb buit blanc al tabic */
+.planta-door {
+  fill: none;
+  stroke: rgba(0, 40, 25, 0.55);
+  stroke-width: 1;
 }
-.planta-room__sub {
-  font-size: 8px;
-  fill: var(--green-light, #56685E);
-  pointer-events: none;
+.planta-door-cut { stroke: #fff; stroke-width: 3.2; }
+/* finestres · buit al mur + vidre */
+.planta-win-gap { fill: #fff; }
+.planta-window {
+  stroke: var(--accent, #95BBA5);
+  stroke-width: 1.4;
 }
+/* pòrxo · llosa exterior puntejada */
+.planta-porch {
+  fill: rgba(149, 187, 165, 0.12);
+  stroke: var(--green, #002819);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+/* cotes */
+.planta-dimline { stroke: rgba(0, 40, 25, 0.40); stroke-width: 0.8; }
 .planta-dim {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.02em;
   fill: var(--green-light, #56685E);
+}
+.planta-area {
+  font-size: 8.5px;
+  font-weight: 600;
+  fill: var(--green-light, #56685E);
+}
+.planta-room__name {
+  font-size: 9px;
+  font-weight: 600;
+  fill: var(--green, #002819);
+  pointer-events: none;
+  paint-order: stroke;       /* halo blanc per llegir sobre el mobiliari */
+  stroke: #fff;
+  stroke-width: 2.4px;
+  stroke-linejoin: round;
+}
+.planta-room__sub {
+  font-size: 8px;
+  fill: var(--green-light, #56685E);
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: #fff;
+  stroke-width: 2px;
 }
 .atelier-planta__foot {
   margin: 0;
