@@ -1,0 +1,122 @@
+/* ============================================================
+   PAPIK · Configurador de plànols (pàgina separada)
+   Reutilitza tokens i classes planta-* d'atelier.css.
+   ============================================================ */
+.planols {
+  margin: 0;
+  background: #F4F1ED;
+  color: var(--green, #002819);
+  font-family: 'TT Firs Neue', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.pl-bar__cta {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--green, #002819);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid rgba(0, 40, 25, 0.18);
+  border-radius: 999px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.pl-bar__cta:hover { background: var(--accent-soft, rgba(149, 187, 165, 0.14)); border-color: var(--accent, #95BBA5); }
+
+.pl-stage { max-width: 1200px; margin: 0 auto; padding: 28px 24px 64px; }
+
+.pl-intro { margin-bottom: 22px; }
+.pl-title { font-size: clamp(26px, 4vw, 40px); font-weight: 500; margin: 0 0 8px; letter-spacing: -0.01em; }
+.pl-lead { font-size: 16px; line-height: 1.5; color: var(--green-light, #56685E); margin: 0; max-width: 56ch; }
+
+.pl-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ── Llenç del plànol ── */
+.pl-canvas {
+  background: #fff;
+  border: 1px solid rgba(0, 40, 25, 0.10);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 14px 40px rgba(0, 40, 25, 0.07);
+  position: sticky;
+  top: 88px;
+}
+.pl-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.pl-tab {
+  font: inherit; font-size: 13px; font-weight: 500;
+  padding: 7px 14px; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(0, 40, 25, 0.16); background: transparent;
+  color: var(--green-light, #56685E);
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: all 0.18s ease;
+}
+.pl-tab:hover { border-color: var(--accent, #95BBA5); }
+.pl-tab.is-active { background: var(--green, #002819); border-color: var(--green, #002819); color: #fff; }
+.pl-tab__n {
+  font-size: 11px; font-weight: 600; min-width: 18px; height: 18px;
+  display: inline-grid; place-items: center; border-radius: 9px;
+  background: rgba(0, 40, 25, 0.08); color: inherit;
+}
+.pl-tab.is-active .pl-tab__n { background: rgba(255, 255, 255, 0.2); }
+
+.pl-plan { display: grid; place-items: center; min-height: 320px; }
+.pl-plan .planta-svg { width: 100%; max-width: 560px; height: auto; }
+.pl-disclaimer { margin: 12px 2px 0; font-size: 11px; line-height: 1.45; color: var(--green-light, #56685E); opacity: 0.8; }
+
+/* ── Panell de controls ── */
+.pl-panel {
+  background: #fff;
+  border: 1px solid rgba(0, 40, 25, 0.10);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 14px 40px rgba(0, 40, 25, 0.07);
+}
+.pl-field { margin-bottom: 22px; }
+.pl-field:last-child { margin-bottom: 0; }
+.pl-field__label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 9px; color: var(--green, #002819); }
+.pl-field__hint { margin: 8px 0 0; font-size: 12px; color: var(--green-light, #56685E); }
+
+.pl-seg-group { display: inline-flex; border: 1px solid rgba(0, 40, 25, 0.16); border-radius: 999px; overflow: hidden; }
+.pl-seg {
+  font: inherit; font-size: 13px; font-weight: 500; padding: 8px 16px;
+  border: 0; background: transparent; color: var(--green-light, #56685E); cursor: pointer;
+  transition: all 0.16s ease;
+}
+.pl-seg + .pl-seg { border-left: 1px solid rgba(0, 40, 25, 0.12); }
+.pl-seg.is-active { background: var(--green, #002819); color: #fff; }
+
+.pl-m2 { display: inline-flex; align-items: center; gap: 8px; }
+.pl-m2 input {
+  font: inherit; font-size: 15px; width: 110px; padding: 9px 12px;
+  border: 1px solid rgba(0, 40, 25, 0.18); border-radius: 10px; background: #fff; color: inherit;
+}
+.pl-m2 input:focus { outline: none; border-color: var(--accent, #95BBA5); box-shadow: 0 0 0 3px var(--accent-soft, rgba(149, 187, 165, 0.16)); }
+.pl-m2 span { font-size: 14px; color: var(--green-light, #56685E); }
+
+.pl-rooms { display: flex; flex-direction: column; gap: 2px; }
+.pl-room {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 10px; border-radius: 10px; transition: background 0.16s ease;
+}
+.pl-room.is-on { background: var(--accent-soft, rgba(149, 187, 165, 0.13)); }
+.pl-room__label { font-size: 14px; }
+.pl-stepper { display: inline-flex; align-items: center; gap: 4px; }
+.pl-step {
+  font: inherit; width: 28px; height: 28px; border-radius: 8px; cursor: pointer;
+  border: 1px solid rgba(0, 40, 25, 0.18); background: #fff; color: var(--green, #002819);
+  font-size: 17px; line-height: 1; display: grid; place-items: center;
+  transition: all 0.14s ease;
+}
+.pl-step:hover { border-color: var(--accent, #95BBA5); background: var(--accent-soft, rgba(149, 187, 165, 0.14)); }
+.pl-step__n { min-width: 22px; text-align: center; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pl-grid { grid-template-columns: 1fr; }
+  .pl-canvas { position: static; order: -1; }
+}

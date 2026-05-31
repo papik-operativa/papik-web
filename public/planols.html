@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurador de plànols · PAPIK</title>
+  <meta name="description" content="Dissenya un esquema de la distribució del teu projecte Passivhaus amb PAPIK.">
+  <meta name="theme-color" content="#F4F1ED">
+  <meta name="robots" content="noindex,nofollow">
+
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/TT_Firs_Neue_Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/atelier.css">
+  <link rel="stylesheet" href="/css/planols.css">
+</head>
+<body class="planols">
+
+  <header class="atelier-bar">
+    <a href="/" class="atelier-bar__brand">
+      <span class="atelier-bar__mark">PAPIK</span>
+      <span class="atelier-bar__sep" aria-hidden="true">·</span>
+      <span class="atelier-bar__name">Plànols</span>
+    </a>
+    <a class="pl-bar__cta" href="/atelier">Calcular pressupost →</a>
+  </header>
+
+  <main class="pl-stage">
+    <section class="pl-intro">
+      <h1 class="pl-title">Dissenya la teva distribució</h1>
+      <p class="pl-lead">Tria les plantes i col·loca les estances on les vols. El plànol es dibuixa sol a mesura que el configures.</p>
+    </section>
+
+    <div class="pl-grid">
+      <!-- Plànol -->
+      <div class="pl-canvas">
+        <div class="pl-tabs" id="plTabs" role="tablist"></div>
+        <div class="pl-plan" id="plPlan"></div>
+        <p class="pl-disclaimer">Esquema il·lustratiu de distribució. No és el plànol definitiu: el projecte executiu el signa l'equip tècnic de PAPIK.</p>
+      </div>
+
+      <!-- Controls -->
+      <aside class="pl-panel" id="plControls" aria-label="Opcions de la planta"></aside>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="/js/planols.js"></script>
+</body>
+</html>
