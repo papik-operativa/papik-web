@@ -2815,10 +2815,31 @@
     tl.from('.atelier-fab',          { opacity: 0, scale: 0.7, duration: 0.5, ease: 'back.out(1.7)' }, 1.1);
   }
 
+  // Pre-omple el configurador amb les variables que venen del Configurador
+  // de plànols (/planols). Opt-in: només actua si hi ha dades a sessionStorage.
+  // No altera cap càlcul; només deixa respostes ja escrites a l'state.
+  function applyPlanolPrefill () {
+    let pf = null;
+    try { pf = JSON.parse(sessionStorage.getItem('papik_planol_prefill') || 'null'); } catch (e) {}
+    if (!pf || typeof pf !== 'object') return;
+    ['m2', 'plantes', 'num_banys', 'num_habitacions', 'garatge', 'm2_garatge'].forEach((k) => {
+      if (pf[k] != null && pf[k] !== '') state[k] = pf[k];
+    });
+    try { sessionStorage.removeItem('papik_planol_prefill'); } catch (e) {}
+    const note = document.createElement('div');
+    note.className = 'atelier-prefill-note';
+    note.innerHTML = 'Hem importat <b>m², plantes, banys, habitacions i garatge</b> del teu plànol. Revisa-ho i continua.' +
+      '<button type="button" class="atelier-prefill-note__x" aria-label="Tancar">&times;</button>';
+    document.body.appendChild(note);
+    note.querySelector('.atelier-prefill-note__x').addEventListener('click', () => note.remove());
+    setTimeout(() => { note.classList.add('is-leaving'); setTimeout(() => note.remove(), 400); }, 9000);
+  }
+
   function init () {
     // Mark elements so we can diagnose mis-bindings via dev tools.
     if (btnNext) { btnNext.addEventListener('click', onNext); btnNext.dataset.bound = '1'; }
     if (btnBack) { btnBack.addEventListener('click', onBack); btnBack.dataset.bound = '1'; }
+    applyPlanolPrefill();
     renderStep(0);
     entryAnimation();
     chatInit();

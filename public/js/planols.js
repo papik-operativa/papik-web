@@ -493,9 +493,34 @@
   }
   function onUp () { drag = null; }
 
+  // Deriva les variables del plànol i les passa al configurador de pressupost.
+  function finishToBudget () {
+    if (!reqAllOk()) return;
+    let m2 = 0, banys = 0, dorms = 0, garM2 = 0, hasGar = false, floorsUsed = 0;
+    state.floors.forEach((f) => {
+      if (f.rooms.length) floorsUsed++;
+      f.rooms.forEach((o) => {
+        const a = o.cw * o.ch * CELL_M * CELL_M;
+        if (o.cls === 'garatge') { hasGar = true; garM2 += a; }
+        else { m2 += a; if (o.cls === 'bany') banys++; else if (o.cls === 'dorm') dorms++; }
+      });
+    });
+    const prefill = {
+      m2: Math.round(m2),
+      plantes: String(Math.min(3, Math.max(1, floorsUsed || state.plantes))),
+      num_banys: banys,
+      num_habitacions: dorms,
+      garatge: hasGar ? 'si' : 'no',
+      m2_garatge: Math.round(garM2),
+      _origen: 'planol',
+    };
+    try { sessionStorage.setItem('papik_planol_prefill', JSON.stringify(prefill)); } catch (e) {}
+    window.location.href = '/atelier';
+  }
+
   function onClick (e) {
     const fin = e.target.closest('[data-finish]');
-    if (fin) { if (reqAllOk()) window.location.href = '/atelier'; return; }
+    if (fin) { finishToBudget(); return; }
     const mode = e.target.closest('.pl-mode');
     if (mode) { state.mode = mode.dataset.mode; state.selRoom = null; state.selFurn = null; renderModes(); renderPanel(); draw(); return; }
     const tab = e.target.closest('.pl-tab');
