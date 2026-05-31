@@ -39,6 +39,19 @@
   padding: 16px;
   box-shadow: 0 14px 40px rgba(0, 40, 25, 0.07);
 }
+/* modes d'edició */
+.pl-modes { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 14px; background: rgba(0, 40, 25, 0.05); border-radius: 12px; }
+.pl-mode {
+  font: inherit; font-size: 13px; font-weight: 600; padding: 8px 18px; border: 0; border-radius: 9px; cursor: pointer;
+  background: transparent; color: var(--green-light, #56685E); transition: all 0.16s ease; display: inline-flex; align-items: center; gap: 6px;
+}
+.pl-mode:hover { color: var(--green, #002819); }
+.pl-mode.is-active { background: #fff; color: var(--green, #002819); box-shadow: 0 2px 8px rgba(0, 40, 25, 0.08); }
+.pl-soon { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; background: var(--accent, #95BBA5); color: #fff; padding: 1px 5px; border-radius: 5px; }
+.pl-soon-box { padding: 16px; background: rgba(0, 40, 25, 0.04); border-radius: 12px; }
+.pl-soon-box b { font-size: 14px; }
+.pl-soon-box p { margin: 6px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--green-light, #56685E); }
+
 .pl-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
 .pl-tab {
   font: inherit; font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 999px; cursor: pointer;
@@ -66,6 +79,16 @@
 .pl-del { cursor: pointer; }
 .pl-del circle { fill: #b23b3b; }
 .pl-del line { stroke: #fff; stroke-width: 1.5; stroke-linecap: round; }
+
+/* mobiliari */
+.pl-furn__hit { fill: transparent; cursor: grab; }
+.pl-furn.is-sel .pl-furn__hit { cursor: grabbing; }
+.pl-furn--lock { pointer-events: none; opacity: 0.92; }
+.pl-furn__sel { fill: none; stroke: var(--accent, #95BBA5); stroke-width: 1.5; stroke-dasharray: 4 2; pointer-events: none; }
+.pl-rot { cursor: pointer; }
+.pl-rot circle { fill: var(--green, #002819); }
+.pl-rot path { stroke: #fff; stroke-width: 1.2; }
+.pl-rot path[fill="none"] { fill: none; }
 
 /* ── Paleta + info ── */
 .pl-panel {
