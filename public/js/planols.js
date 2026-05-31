@@ -35,22 +35,36 @@
     { key: 'garatge',  cls: 'garatge',  label: 'Garatge',       w: 6, h: 6 },
   ];
 
-  // Mobles (mida en cel·les; dibuix per tipus). w/h en cel·les de 0,5 m.
+  // Mobles per categoria (mida en cel·les de 0,5 m; 'd' = símbol a dibuixar).
   const FURN = [
-    { key: 'llitDoble', label: 'Llit doble',     w: 3, h: 4, d: 'bed' },
-    { key: 'llitIndiv', label: 'Llit individual', w: 2, h: 4, d: 'bed' },
-    { key: 'sofa',      label: 'Sofà',           w: 4, h: 2, d: 'sofa' },
-    { key: 'taula',     label: 'Taula menjador',  w: 3, h: 2, d: 'table' },
-    { key: 'cuina',     label: 'Cuina (bancada)', w: 5, h: 1, d: 'kitchen' },
-    { key: 'illa',      label: 'Illa',           w: 3, h: 2, d: 'island' },
-    { key: 'nevera',    label: 'Nevera',         w: 2, h: 2, d: 'fridge' },
-    { key: 'desk',      label: 'Taula despatx',   w: 3, h: 2, d: 'desk' },
-    { key: 'armari',    label: 'Armari',         w: 3, h: 1, d: 'wardrobe' },
-    { key: 'wc',        label: 'WC',             w: 1, h: 2, d: 'wc' },
-    { key: 'sink',      label: 'Lavabo',         w: 2, h: 1, d: 'sink' },
-    { key: 'dutxa',     label: 'Dutxa',          w: 2, h: 2, d: 'shower' },
-    { key: 'banyera',   label: 'Banyera',        w: 4, h: 2, d: 'bath' },
+    // Cuina
+    { key: 'encimera',  cat: 'Cuina',     label: 'Encimera',        w: 5, h: 1, d: 'counter' },
+    { key: 'encimeraL', cat: 'Cuina',     label: 'Encimera en L',   w: 4, h: 4, d: 'counterL' },
+    { key: 'illa',      cat: 'Cuina',     label: 'Illa',            w: 3, h: 2, d: 'island' },
+    { key: 'fogons',    cat: 'Cuina',     label: 'Fogons',          w: 2, h: 1, d: 'hob' },
+    { key: 'pica',      cat: 'Cuina',     label: 'Pica',            w: 2, h: 1, d: 'ksink' },
+    { key: 'forn',      cat: 'Cuina',     label: 'Forn',            w: 1, h: 1, d: 'oven' },
+    { key: 'nevera',    cat: 'Cuina',     label: 'Nevera',          w: 2, h: 2, d: 'fridge' },
+    // Sala-menjador
+    { key: 'sofa',      cat: 'Sala',      label: 'Sofà',            w: 4, h: 2, d: 'sofa' },
+    { key: 'butaca',    cat: 'Sala',      label: 'Butaca',          w: 2, h: 2, d: 'armchair' },
+    { key: 'taula',     cat: 'Sala',      label: 'Taula menjador',  w: 3, h: 2, d: 'table' },
+    { key: 'tv',        cat: 'Sala',      label: 'Moble TV',        w: 3, h: 1, d: 'tv' },
+    // Dormitori
+    { key: 'llitDoble', cat: 'Dormitori', label: 'Llit doble',      w: 3, h: 4, d: 'bed' },
+    { key: 'llitIndiv', cat: 'Dormitori', label: 'Llit individual', w: 2, h: 4, d: 'bed' },
+    { key: 'armari',    cat: 'Dormitori', label: 'Armari',          w: 3, h: 1, d: 'wardrobe' },
+    { key: 'tauleta',   cat: 'Dormitori', label: 'Tauleta',         w: 1, h: 1, d: 'nightstand' },
+    // Bany
+    { key: 'wc',        cat: 'Bany',      label: 'WC',              w: 1, h: 2, d: 'wc' },
+    { key: 'sink',      cat: 'Bany',      label: 'Lavabo',          w: 2, h: 1, d: 'sink' },
+    { key: 'dutxa',     cat: 'Bany',      label: 'Dutxa',           w: 2, h: 2, d: 'shower' },
+    { key: 'banyera',   cat: 'Bany',      label: 'Banyera',         w: 4, h: 2, d: 'bath' },
+    // Treball i altres
+    { key: 'desk',      cat: 'Altres',    label: 'Taula despatx',   w: 3, h: 2, d: 'desk' },
+    { key: 'prestatge', cat: 'Altres',    label: 'Prestatgeria',    w: 3, h: 1, d: 'shelf' },
   ];
+  const FURN_CATS = ['Cuina', 'Sala', 'Dormitori', 'Bany', 'Altres'];
 
   const MODES = [
     { key: 'forma', label: 'Forma' },
@@ -196,6 +210,27 @@
       s += R(0, 0, W, H); s += L(0, 0, W, H); s += L(W, 0, 0, H); s += C(W * 0.5, H * 0.5, 1.6);
     } else if (kind === 'bath') {
       s += R(0, 0, W, H, 4); s += E(W * 0.46, H * 0.5, W * 0.36, H * 0.32); s += C(W * 0.85, H * 0.5, 1.6);
+    } else if (kind === 'counter') {
+      s += R(0, 0, W, H); s += L(0, H * 0.26, W, H * 0.26);
+    } else if (kind === 'counterL') {
+      const dp = Math.min(W, H) * 0.34;
+      s += `<path class="planta-fx" d="M 0 0 L ${F(dp)} 0 L ${F(dp)} ${F(H - dp)} L ${F(W)} ${F(H - dp)} L ${F(W)} ${F(H)} L 0 ${F(H)} Z"/>`;
+      s += L(dp * 0.5, 0, dp * 0.5, H - dp); s += L(dp, H - dp * 0.5, W, H - dp * 0.5);
+    } else if (kind === 'hob') {
+      s += R(0, 0, W, H);
+      [[0.28, 0.32], [0.72, 0.32], [0.28, 0.7], [0.72, 0.7]].forEach(([px, py]) => { s += C(W * px, H * py, Math.min(W, H) * 0.16); });
+    } else if (kind === 'ksink') {
+      s += R(0, 0, W, H); s += R(W * 0.1, H * 0.2, W * 0.55, H * 0.6, 2); s += C(W * 0.82, H * 0.3, 1.4);
+    } else if (kind === 'oven') {
+      s += R(0, 0, W, H, 1); s += R(W * 0.12, H * 0.28, W * 0.76, H * 0.6, 1); s += L(W * 0.12, H * 0.16, W * 0.88, H * 0.16);
+    } else if (kind === 'nightstand') {
+      s += R(0, 0, W, H, 1); s += L(0, H * 0.5, W, H * 0.5);
+    } else if (kind === 'armchair') {
+      s += R(0, 0, W, H, 3); s += R(0, 0, W, H * 0.3, 2); s += R(0, 0, W * 0.18, H, 2); s += R(W * 0.82, 0, W * 0.18, H, 2);
+    } else if (kind === 'tv') {
+      s += R(0, H * 0.55, W, H * 0.42, 1); s += R(W * 0.2, 0, W * 0.6, H * 0.16, 1); s += L(W * 0.5, H * 0.16, W * 0.5, H * 0.55);
+    } else if (kind === 'shelf') {
+      s += R(0, 0, W, H); s += L(W / 3, 0, W / 3, H); s += L(2 * W / 3, 0, 2 * W / 3, H);
     }
     return s;
   }
@@ -303,9 +338,14 @@
         `<div class="pl-field"><div class="pl-info" id="plInfo"></div></div>` +
         `<p class="pl-help">Arrossega per moure · tira de la cantonada per redimensionar · ✕ per esborrar. Col·loca-les com vulguis (fins i tot en L).</p>`;
     } else if (state.mode === 'moble') {
-      const chips = FURN.map((it) => `<button type="button" class="pl-chip" data-furn-add="${it.key}">+ ${it.label}</button>`).join('');
+      const groups = FURN_CATS.map((cat) => {
+        const items = FURN.filter((it) => it.cat === cat);
+        if (!items.length) return '';
+        const chips = items.map((it) => `<button type="button" class="pl-chip" data-furn-add="${it.key}">+ ${it.label}</button>`).join('');
+        return `<div class="pl-catgroup"><div class="pl-cat">${cat}</div><div class="pl-chips">${chips}</div></div>`;
+      }).join('');
       elPanel.innerHTML = plantesField +
-        `<div class="pl-field"><label class="pl-field__label">Afegeix mobles</label><div class="pl-chips">${chips}</div></div>` +
+        `<div class="pl-field"><label class="pl-field__label">Afegeix mobles</label>${groups}</div>` +
         `<div class="pl-field"><div class="pl-info" id="plInfo"></div></div>` +
         `<p class="pl-help">Arrossega els mobles per col·locar-los · ↻ per girar · ✕ per esborrar. Compon cada estança com vulguis.</p>`;
     } else {
@@ -350,7 +390,9 @@
   }
   function addFurn (key) {
     const it = FURN.find((p) => p.key === key); if (!it) return;
-    const c = Math.round(COLS / 2 - it.w / 2), r = Math.round(ROWS / 2 - it.h / 2);
+    const off = furns().length % 7;
+    const c = Math.min(COLS - it.w, Math.round(COLS / 2 - it.w / 2) + off);
+    const r = Math.min(ROWS - it.h, Math.round(ROWS / 2 - it.h / 2) + off);
     furns().push({ id: state.nextFurn++, d: it.d, label: it.label, c: c, r: r, w: it.w, h: it.h, rot: 0 });
     state.selFurn = state.nextFurn - 1; draw();
   }

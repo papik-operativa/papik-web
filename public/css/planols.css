@@ -109,6 +109,9 @@
 .pl-seg + .pl-seg { border-left: 1px solid rgba(0, 40, 25, 0.12); }
 .pl-seg.is-active { background: var(--green, #002819); color: #fff; }
 
+.pl-catgroup { margin-top: 12px; }
+.pl-catgroup:first-child { margin-top: 4px; }
+.pl-cat { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green-light, #56685E); margin-bottom: 7px; }
 .pl-chips { display: flex; flex-wrap: wrap; gap: 7px; }
 .pl-chip {
   font: inherit; font-size: 12.5px; font-weight: 500; padding: 7px 12px; border-radius: 999px; cursor: pointer;
