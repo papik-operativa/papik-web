@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configurador de plànols · PAPIK</title>
-  <meta name="description" content="Dissenya un esquema de la distribució del teu projecte Passivhaus amb PAPIK.">
+  <title>Editor de plànols · PAPIK</title>
+  <meta name="description" content="Dissenya la distribució del teu projecte Passivhaus amb PAPIK: col·loca les estances on vulguis.">
   <meta name="theme-color" content="#F4F1ED">
   <meta name="robots" content="noindex,nofollow">
 
@@ -28,23 +28,24 @@
   <main class="pl-stage">
     <section class="pl-intro">
       <h1 class="pl-title">Dissenya la teva distribució</h1>
-      <p class="pl-lead">Tria les plantes i col·loca les estances on les vols. El plànol es dibuixa sol a mesura que el configures.</p>
+      <p class="pl-lead">Afegeix estances i col·loca-les on vulguis: arrossega-les, redimensiona-les i dona-li la forma que t'imaginis, fins i tot en L.</p>
     </section>
 
     <div class="pl-grid">
-      <!-- Plànol -->
+      <!-- Llenç editable -->
       <div class="pl-canvas">
         <div class="pl-tabs" id="plTabs" role="tablist"></div>
-        <div class="pl-plan" id="plPlan"></div>
+        <div class="pl-plan">
+          <svg id="plSvg" class="planta-svg pl-svg" role="application" aria-label="Editor de la planta"></svg>
+        </div>
         <p class="pl-disclaimer">Esquema il·lustratiu de distribució. No és el plànol definitiu: el projecte executiu el signa l'equip tècnic de PAPIK.</p>
       </div>
 
-      <!-- Controls -->
-      <aside class="pl-panel" id="plControls" aria-label="Opcions de la planta"></aside>
+      <!-- Paleta + info -->
+      <aside class="pl-panel" id="plPalette" aria-label="Paleta d'estances"></aside>
     </div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="/js/planols.js"></script>
 </body>
 </html>
