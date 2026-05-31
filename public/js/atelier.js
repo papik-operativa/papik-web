@@ -2392,7 +2392,7 @@
     let pf = null;
     try { pf = JSON.parse(sessionStorage.getItem('papik_planol_prefill') || 'null'); } catch (e) {}
     if (!pf || typeof pf !== 'object') return;
-    ['m2', 'plantes', 'num_banys', 'num_habitacions', 'garatge', 'm2_garatge'].forEach((k) => {
+    ['m2', 'plantes', 'num_banys', 'num_habitacions', 'garatge', 'm2_garatge', 'm2_porxos'].forEach((k) => {
       if (pf[k] != null && pf[k] !== '') state[k] = pf[k];
     });
     try { sessionStorage.removeItem('papik_planol_prefill'); } catch (e) {}

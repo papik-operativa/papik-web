@@ -147,3 +147,28 @@
   .pl-grid { grid-template-columns: 1fr; }
   .pl-panel { position: static; order: -1; }
 }
+
+/* ============================================================
+   Render del plànol (SVG) · abans vivien a atelier.css.
+   Ara són propis de l'editor de plànols.
+   ============================================================ */
+.planta-wall-fill { fill: var(--green, #002819); }
+.planta-room-fill { fill: #fff; }
+.planta-room-fill--terrassa { fill: rgba(149, 187, 165, 0.20); }
+.planta-fx { fill: none; stroke: #6a7d72; stroke-width: 1; stroke-linejoin: round; stroke-linecap: round; }
+.planta-door { fill: none; stroke: rgba(0, 40, 25, 0.55); stroke-width: 1; }
+.planta-door-cut { stroke: #fff; stroke-width: 3.2; }
+.planta-win-gap { fill: #fff; }
+.planta-window { stroke: var(--accent, #95BBA5); stroke-width: 1.4; }
+.planta-room__name {
+  font-size: 9px; font-weight: 600; fill: var(--green, #002819); pointer-events: none;
+  paint-order: stroke; stroke: #fff; stroke-width: 2.4px; stroke-linejoin: round;
+}
+.planta-room__sub {
+  font-size: 8px; fill: var(--green-light, #56685E); pointer-events: none;
+  paint-order: stroke; stroke: #fff; stroke-width: 2px;
+}
+
+/* chips amb icona (paleta d'estances) */
+.pl-chip--icon { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px 6px 9px; }
+.pl-chip__icon { width: 16px; height: 16px; flex: 0 0 auto; }

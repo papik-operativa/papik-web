@@ -33,6 +33,7 @@
     { key: 'rebost',   cls: 'servei',   label: 'Rebost',        w: 3, h: 2 },
     { key: 'escala',   cls: 'escala',   label: 'Escala',        w: 3, h: 5 },
     { key: 'garatge',  cls: 'garatge',  label: 'Garatge',       w: 6, h: 6 },
+    { key: 'terrassa', cls: 'terrassa', label: 'Terrassa',      w: 6, h: 4 },
   ];
 
   // Mobles per categoria (mida en cel·les de 0,5 m; 'd' = símbol a dibuixar).
@@ -68,9 +69,30 @@
 
   const MODES = [
     { key: 'forma', label: 'Forma' },
-    { key: 'moble', label: 'Mobiliari' },
     { key: 'obre',  label: 'Obertures' },
+    { key: 'moble', label: 'Mobiliari' },
   ];
+
+  // Icones per a les estances (glifs SVG senzills per a la paleta).
+  const ROOM_ICONS = {
+    sala: '<path d="M4 13V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M3 13h18v5H3z"/><path d="M6 18v2M18 18v2"/>',
+    cuina: '<rect x="4" y="4" width="16" height="16" rx="1"/><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><line x1="4" y1="13" x2="20" y2="13"/>',
+    dorm: '<path d="M3 18v-6h13a4 4 0 0 1 4 4v2"/><path d="M3 12V7h6v5"/><line x1="3" y1="18" x2="3" y2="20"/><line x1="20" y1="18" x2="20" y2="20"/>',
+    suite: '<path d="M3 18v-6h13a4 4 0 0 1 4 4v2"/><path d="M3 12V7h6v5"/><line x1="3" y1="18" x2="3" y2="20"/><line x1="20" y1="18" x2="20" y2="20"/>',
+    bany: '<path d="M6 12V5a2 2 0 0 1 4 0"/><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><line x1="7" y1="19" x2="6" y2="21"/><line x1="17" y1="19" x2="18" y2="21"/>',
+    lavabo: '<path d="M6 12V5a2 2 0 0 1 4 0"/><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><line x1="7" y1="19" x2="6" y2="21"/><line x1="17" y1="19" x2="18" y2="21"/>',
+    despatx: '<rect x="4" y="6" width="16" height="10" rx="1"/><line x1="2" y1="19" x2="22" y2="19"/>',
+    vestidor: '<path d="M12 6a2 2 0 1 1 1.6 3.2L20 14H4l6.4-4.8"/>',
+    servei: '<rect x="5" y="3" width="14" height="18" rx="1"/><circle cx="12" cy="13" r="4"/><circle cx="8" cy="6" r="0.6"/>',
+    escala: '<path d="M3 21h4v-4h4v-4h4v-4h4V5"/>',
+    garatge: '<path d="M5 13l1.5-5h11L19 13"/><path d="M3 13h18v5H3z"/><circle cx="7.5" cy="15.5" r="1"/><circle cx="16.5" cy="15.5" r="1"/>',
+    terrassa: '<circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/>',
+  };
+  function roomIcon (key) {
+    const it = ROOMS.find((r) => r.key === key);
+    const paths = ROOM_ICONS[key] || (it && ROOM_ICONS[it.cls]) || '';
+    return `<svg class="pl-chip__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+  }
 
   // Estances mínimes per donar la casa per acabada (compta totes les plantes).
   const REQUIRED = [
@@ -141,6 +163,21 @@
   }
 
   function F (n) { return Math.round(n * 10) / 10; }
+
+  // Símbol d'escala dins una estança: graons + fletxa de pujada.
+  function drawStairs (x, y, w, h) {
+    const pad = Math.min(w, h) * 0.16;
+    const ix = x + pad, iy = y + pad, iw = w - 2 * pad, ih = h - 2 * pad;
+    if (iw < 8 || ih < 12) return '';
+    let s = '';
+    const steps = Math.max(4, Math.round(ih / 7));
+    for (let i = 0; i <= steps; i++) { const yy = iy + (ih / steps) * i; s += `<line class="planta-fx" x1="${F(ix)}" y1="${F(yy)}" x2="${F(ix + iw)}" y2="${F(yy)}"/>`; }
+    const cx = ix + iw / 2;
+    s += `<line class="planta-fx" x1="${F(cx)}" y1="${F(iy + ih - 2)}" x2="${F(cx)}" y2="${F(iy + 4)}"/>`;
+    s += `<line class="planta-fx" x1="${F(cx)}" y1="${F(iy + 4)}" x2="${F(cx - 3)}" y2="${F(iy + 9)}"/>`;
+    s += `<line class="planta-fx" x1="${F(cx)}" y1="${F(iy + 4)}" x2="${F(cx + 3)}" y2="${F(iy + 9)}"/>`;
+    return s;
+  }
 
   // Dibuixa una obertura (porta/finestra/pas) sobre una vora de paret.
   function drawOpening (op, own) {
@@ -257,14 +294,16 @@
     const occ = occSet();
     const own = ownerMap();
     let base = `<g class="pl-gridlayer">${gridSVG()}</g>`;
-    let poche = '', inners = '', labels = '';
+    let poche = '', inners = '', labels = '', roomFx = '';
 
     rooms().forEach((o) => {
       const x = o.c * CPX, y = o.r * CPX, w = o.cw * CPX, h = o.ch * CPX;
       poche += `<rect class="planta-wall-fill" x="${F(x)}" y="${F(y)}" width="${F(w)}" height="${F(h)}"/>`;
       const iL = sideExterior(o, 'L', occ) ? WALL : WALL / 2, iR = sideExterior(o, 'R', occ) ? WALL : WALL / 2;
       const iT = sideExterior(o, 'T', occ) ? WALL : WALL / 2, iB = sideExterior(o, 'B', occ) ? WALL : WALL / 2;
-      inners += `<rect class="planta-room-fill" x="${F(x + iL)}" y="${F(y + iT)}" width="${F(w - iL - iR)}" height="${F(h - iT - iB)}"/>`;
+      const ix = x + iL, iy = y + iT, iw = w - iL - iR, ih = h - iT - iB;
+      inners += `<rect class="planta-room-fill${o.cls === 'terrassa' ? ' planta-room-fill--terrassa' : ''}" x="${F(ix)}" y="${F(iy)}" width="${F(iw)}" height="${F(ih)}"/>`;
+      if (o.cls === 'escala') roomFx += drawStairs(ix, iy, iw, ih);
       const m2 = o.cw * o.ch * CELL_M * CELL_M;
       if (w > 44 && h > 30) {
         labels += `<text class="planta-room__name" x="${F(x + w / 2)}" y="${F(y + h / 2 - 4)}" text-anchor="middle" dominant-baseline="middle">${o.label}</text>`;
@@ -317,7 +356,7 @@
       });
     }
 
-    svg.innerHTML = base + poche + inners + labels + openSVG + furnSVG + overlay;
+    svg.innerHTML = base + poche + inners + roomFx + labels + openSVG + furnSVG + overlay;
     renderInfo();
     refreshReq();
   }
@@ -341,7 +380,7 @@
     const plantesField = `<div class="pl-field"><label class="pl-field__label">Plantes</label><div class="pl-seg-group">${plantes}</div></div>`;
 
     if (state.mode === 'forma') {
-      const chips = ROOMS.map((it) => `<button type="button" class="pl-chip" data-add="${it.key}">+ ${it.label}</button>`).join('');
+      const chips = ROOMS.map((it) => `<button type="button" class="pl-chip pl-chip--icon" data-add="${it.key}">${roomIcon(it.key)}<span>${it.label}</span></button>`).join('');
       elPanel.innerHTML = plantesField +
         `<div class="pl-field"><label class="pl-field__label">Afegeix estances</label><div class="pl-chips">${chips}</div></div>` +
         `<div class="pl-field"><div class="pl-info" id="plInfo"></div></div>` +
@@ -382,10 +421,14 @@
     const allOk = st.every((s) => s.ok);
     const missing = st.filter((s) => !s.ok).map((s) => s.label);
     const items = st.map((s) => `<li class="pl-req__item${s.ok ? ' is-ok' : ''}"><span class="pl-req__mark">${s.ok ? '✓' : '○'}</span>${s.label}</li>`).join('');
+    const next = state.mode === 'forma' ? { a: 'go-obre',  l: 'Continuar a Obertures →' }
+               : state.mode === 'obre'  ? { a: 'go-moble', l: 'Continuar a Mobiliari →' }
+               :                          { a: 'finish',   l: 'Casa completa · continuar →' };
+    const label = allOk ? next.l : 'Falta: ' + missing.join(', ');
     return `<div class="pl-req">
       <div class="pl-req__title">Per completar la casa</div>
       <ul class="pl-req__list">${items}</ul>
-      <button type="button" class="pl-finish" data-finish="1"${allOk ? '' : ' disabled'}>${allOk ? 'Casa completa · continuar →' : 'Falta: ' + missing.join(', ')}</button>
+      <button type="button" class="pl-finish" data-step="${next.a}"${allOk ? '' : ' disabled'}>${label}</button>
     </div>`;
   }
 
@@ -422,6 +465,20 @@
     const s = freeSpot(it.w, it.h);
     rooms().push({ id: state.nextId++, cls: it.cls, label: it.label, c: s.c, r: s.r, cw: it.w, ch: it.h });
     state.selRoom = state.nextId - 1; renderTabs(); draw();
+  }
+  // En cases de més d'una planta, cada planta té escala (s'afegeix sola).
+  function ensureStairs () {
+    if (state.plantes <= 1) return;
+    const it = ROOMS.find((p) => p.key === 'escala');
+    const saved = state.floor;
+    for (let f = 0; f < state.plantes; f++) {
+      const fl = state.floors[f]; if (!fl) continue;
+      if (fl.rooms.some((o) => o.cls === 'escala')) continue;
+      state.floor = f;
+      const s = freeSpot(it.w, it.h);
+      fl.rooms.push({ id: state.nextId++, cls: 'escala', label: 'Escala', c: s.c, r: s.r, cw: it.w, ch: it.h });
+    }
+    state.floor = saved;
   }
   function addFurn (key) {
     const it = FURN.find((p) => p.key === key); if (!it) return;
@@ -496,12 +553,13 @@
   // Deriva les variables del plànol i les passa al configurador de pressupost.
   function finishToBudget () {
     if (!reqAllOk()) return;
-    let m2 = 0, banys = 0, dorms = 0, garM2 = 0, hasGar = false, floorsUsed = 0;
+    let m2 = 0, banys = 0, dorms = 0, garM2 = 0, porM2 = 0, hasGar = false, floorsUsed = 0;
     state.floors.forEach((f) => {
       if (f.rooms.length) floorsUsed++;
       f.rooms.forEach((o) => {
         const a = o.cw * o.ch * CELL_M * CELL_M;
         if (o.cls === 'garatge') { hasGar = true; garM2 += a; }
+        else if (o.cls === 'terrassa') { porM2 += a; }
         else { m2 += a; if (o.cls === 'bany') banys++; else if (o.cls === 'dorm') dorms++; }
       });
     });
@@ -512,23 +570,36 @@
       num_habitacions: dorms,
       garatge: hasGar ? 'si' : 'no',
       m2_garatge: Math.round(garM2),
+      m2_porxos: Math.round(porM2),
       _origen: 'planol',
     };
     try { sessionStorage.setItem('papik_planol_prefill', JSON.stringify(prefill)); } catch (e) {}
     window.location.href = '/atelier';
   }
 
+  function setMode (m) {
+    state.mode = m; state.selRoom = null; state.selFurn = null;
+    renderModes(); renderPanel(); draw();
+  }
+
   function onClick (e) {
-    const fin = e.target.closest('[data-finish]');
-    if (fin) { finishToBudget(); return; }
+    const step = e.target.closest('[data-step]');
+    if (step) {
+      if (step.disabled) return;
+      const a = step.dataset.step;
+      if (a === 'go-obre') setMode('obre');
+      else if (a === 'go-moble') setMode('moble');
+      else finishToBudget();
+      return;
+    }
     const mode = e.target.closest('.pl-mode');
-    if (mode) { state.mode = mode.dataset.mode; state.selRoom = null; state.selFurn = null; renderModes(); renderPanel(); draw(); return; }
+    if (mode) { setMode(mode.dataset.mode); return; }
     const tab = e.target.closest('.pl-tab');
     if (tab) { state.floor = +tab.dataset.floor || 0; state.selRoom = null; state.selFurn = null; renderTabs(); draw(); return; }
     const tool = e.target.closest('[data-tool]');
     if (tool) { state.tool = tool.dataset.tool; renderPanel(); draw(); return; }
     const seg = e.target.closest('.pl-seg');
-    if (seg) { state.plantes = +seg.dataset.plantes || 1; ensureFloors(); renderPanel(); renderTabs(); draw(); return; }
+    if (seg) { state.plantes = +seg.dataset.plantes || 1; ensureFloors(); ensureStairs(); renderPanel(); renderTabs(); draw(); return; }
     const add = e.target.closest('[data-add]');
     if (add) { addRoom(add.dataset.add); return; }
     const fadd = e.target.closest('[data-furn-add]');
