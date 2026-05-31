@@ -55,21 +55,22 @@
   const MODES = [
     { key: 'forma', label: 'Forma' },
     { key: 'moble', label: 'Mobiliari' },
-    { key: 'obre',  label: 'Obertures', soon: true },
+    { key: 'obre',  label: 'Obertures' },
   ];
 
   const state = {
-    plantes: 1, floor: 0, mode: 'forma',
-    floors: [{ rooms: [], furn: [] }],
-    selRoom: null, selFurn: null, nextId: 1, nextFurn: 1,
+    plantes: 1, floor: 0, mode: 'forma', tool: 'door',
+    floors: [{ rooms: [], furn: [], openings: [] }],
+    selRoom: null, selFurn: null, nextId: 1, nextFurn: 1, nextOpen: 1,
   };
 
   function flo () { return state.floors[state.floor]; }
   function rooms () { return flo().rooms; }
   function furns () { return flo().furn; }
+  function opens () { return flo().openings || (flo().openings = []); }
 
   function ensureFloors () {
-    while (state.floors.length < state.plantes) state.floors.push({ rooms: [], furn: [] });
+    while (state.floors.length < state.plantes) state.floors.push({ rooms: [], furn: [], openings: [] });
     state.floors.length = state.plantes;
     state.floor = Math.max(0, Math.min(state.floor, state.plantes - 1));
   }
@@ -90,7 +91,72 @@
     for (let c = room.c; c < room.c + room.cw; c++) if (!occ.has(c + ',' + (room.r + room.ch))) return true; return false;
   }
 
+  // ── Parets (vores de graella) i obertures ──
+  function ownerMap () {
+    const m = new Map();
+    rooms().forEach((o) => { for (let c = o.c; c < o.c + o.cw; c++) for (let r = o.r; r < o.r + o.ch; r++) m.set(c + ',' + r, o.id); });
+    return m;
+  }
+  // Tipus de paret en una vora: 'ext', 'int' o null (no hi ha paret).
+  function edgeWall (orient, c, r, own) {
+    let a, b;
+    if (orient === 'V') { a = own.get((c - 1) + ',' + r); b = own.get(c + ',' + r); }
+    else { a = own.get(c + ',' + (r - 1)); b = own.get(c + ',' + r); }
+    if (a == null && b == null) return null;
+    if (a != null && b != null) return a === b ? null : 'int';
+    return 'ext';
+  }
+  function wallEdges (own) {
+    const seen = new Set(), list = [];
+    own.forEach((id, key) => {
+      const p = key.split(','), c = +p[0], r = +p[1];
+      [['V', c, r], ['V', c + 1, r], ['H', c, r], ['H', c, r + 1]].forEach((e) => {
+        const k = e[0] + ',' + e[1] + ',' + e[2]; if (seen.has(k)) return; seen.add(k);
+        const t = edgeWall(e[0], e[1], e[2], own); if (t) list.push({ orient: e[0], c: e[1], r: e[2], type: t });
+      });
+    });
+    return list;
+  }
+
   function F (n) { return Math.round(n * 10) / 10; }
+
+  // Dibuixa una obertura (porta/finestra/pas) sobre una vora de paret.
+  function drawOpening (op, own) {
+    const t = edgeWall(op.orient, op.c, op.r, own) || 'ext';
+    let s = '';
+    if (op.orient === 'V') {
+      const xl = op.c * CPX, y0 = op.r * CPX, y1 = y0 + CPX;
+      const leftOcc = own.get((op.c - 1) + ',' + op.r) != null;
+      let g0, g1;
+      if (t === 'int') { g0 = xl - WALL / 2; g1 = xl + WALL / 2; }
+      else if (leftOcc) { g0 = xl - WALL; g1 = xl; }
+      else { g0 = xl; g1 = xl + WALL; }
+      s += `<rect class="planta-win-gap" x="${F(g0)}" y="${F(y0)}" width="${F(g1 - g0)}" height="${CPX}"/>`;
+      if (op.type === 'door') {
+        const dir = leftOcc ? -1 : 1;
+        s += `<line class="planta-door" x1="${F(xl)}" y1="${F(y0)}" x2="${F(xl + dir * CPX)}" y2="${F(y0)}"/>`;
+        s += `<path class="planta-door" d="M ${F(xl + dir * CPX)} ${F(y0)} A ${CPX} ${CPX} 0 0 ${dir > 0 ? 1 : 0} ${F(xl)} ${F(y1)}"/>`;
+      } else if (op.type === 'window') {
+        s += `<line class="planta-window" x1="${F(xl)}" y1="${F(y0)}" x2="${F(xl)}" y2="${F(y1)}"/>`;
+      }
+    } else {
+      const yl = op.r * CPX, x0 = op.c * CPX, x1 = x0 + CPX;
+      const topOcc = own.get(op.c + ',' + (op.r - 1)) != null;
+      let g0, g1;
+      if (t === 'int') { g0 = yl - WALL / 2; g1 = yl + WALL / 2; }
+      else if (topOcc) { g0 = yl - WALL; g1 = yl; }
+      else { g0 = yl; g1 = yl + WALL; }
+      s += `<rect class="planta-win-gap" x="${F(x0)}" y="${F(g0)}" width="${CPX}" height="${F(g1 - g0)}"/>`;
+      if (op.type === 'door') {
+        const dir = topOcc ? -1 : 1;
+        s += `<line class="planta-door" x1="${F(x0)}" y1="${F(yl)}" x2="${F(x0)}" y2="${F(yl + dir * CPX)}"/>`;
+        s += `<path class="planta-door" d="M ${F(x0)} ${F(yl + dir * CPX)} A ${CPX} ${CPX} 0 0 ${dir > 0 ? 0 : 1} ${F(x1)} ${F(yl)}"/>`;
+      } else if (op.type === 'window') {
+        s += `<line class="planta-window" x1="${F(x0)}" y1="${F(yl)}" x2="${F(x1)}" y2="${F(yl)}"/>`;
+      }
+    }
+    return s;
+  }
 
   // ── Símbols de mobiliari (coords locals 0..W,0..H en px) ──
   function drawFurn (kind, W, H) {
@@ -146,6 +212,7 @@
 
   function draw () {
     const occ = occSet();
+    const own = ownerMap();
     let base = `<g class="pl-gridlayer">${gridSVG()}</g>`;
     let poche = '', inners = '', labels = '';
 
@@ -179,8 +246,19 @@
       furnSVG += `</g>`;
     });
 
+    // Obertures (sempre visibles; s'amaguen si ja no toquen cap paret)
+    let openSVG = '';
+    opens().forEach((op) => { if (edgeWall(op.orient, op.c, op.r, own)) openSVG += drawOpening(op, own); });
+
     // Capa d'interacció d'estances (només mode 'forma')
     let overlay = '';
+    if (state.mode === 'obre') {
+      const HS = 7;
+      wallEdges(own).forEach((e) => {
+        if (e.orient === 'V') overlay += `<rect class="pl-hot" data-edge="V,${e.c},${e.r}" x="${F(e.c * CPX - HS / 2)}" y="${F(e.r * CPX)}" width="${HS}" height="${CPX}"/>`;
+        else overlay += `<rect class="pl-hot" data-edge="H,${e.c},${e.r}" x="${F(e.c * CPX)}" y="${F(e.r * CPX - HS / 2)}" width="${CPX}" height="${HS}"/>`;
+      });
+    }
     if (state.mode === 'forma') {
       rooms().forEach((o) => {
         const x = o.c * CPX, y = o.r * CPX, w = o.cw * CPX, h = o.ch * CPX;
@@ -196,7 +274,7 @@
       });
     }
 
-    svg.innerHTML = base + poche + inners + labels + furnSVG + overlay;
+    svg.innerHTML = base + poche + inners + labels + openSVG + furnSVG + overlay;
     renderInfo();
   }
 
@@ -231,8 +309,12 @@
         `<div class="pl-field"><div class="pl-info" id="plInfo"></div></div>` +
         `<p class="pl-help">Arrossega els mobles per col·locar-los · ↻ per girar · ✕ per esborrar. Compon cada estança com vulguis.</p>`;
     } else {
+      const tools = [['door', 'Porta'], ['window', 'Finestra'], ['open', 'Pas obert']]
+        .map(([k, l]) => `<button type="button" class="pl-seg${state.tool === k ? ' is-active' : ''}" data-tool="${k}">${l}</button>`).join('');
       elPanel.innerHTML = plantesField +
-        `<div class="pl-field"><div class="pl-soon-box"><b>Portes i finestres</b><p>Properament: podràs clicar a les parets per posar portes i finestres on vulguis.</p></div></div>`;
+        `<div class="pl-field"><label class="pl-field__label">Eina</label><div class="pl-seg-group pl-seg-group--wrap">${tools}</div></div>` +
+        `<div class="pl-field"><div class="pl-info" id="plInfo"></div></div>` +
+        `<p class="pl-help">Clica un tram de paret per posar-hi l'element triat. Torna a clicar-lo per treure'l. El <b>pas obert</b> serveix per obrir la cuina a la sala. Crea primer la forma al mode Forma.</p>`;
     }
     elInfo = document.getElementById('plInfo');
   }
@@ -247,6 +329,10 @@
       if (sel) h += `<div class="pl-info__row pl-info__row--sel"><span>${sel.label}</span><b>${(sel.cw * CELL_M).toFixed(1)} × ${(sel.ch * CELL_M).toFixed(1)} m</b></div>`;
     } else if (state.mode === 'moble') {
       h += `<div class="pl-info__row"><span>Mobles</span><b>${furns().length}</b></div>`;
+    } else if (state.mode === 'obre') {
+      const o = opens();
+      h += `<div class="pl-info__row"><span>Portes</span><b>${o.filter((x) => x.type === 'door').length}</b></div>`;
+      h += `<div class="pl-info__row"><span>Finestres</span><b>${o.filter((x) => x.type === 'window').length}</b></div>`;
     }
     elInfo.innerHTML = h;
   }
@@ -294,6 +380,16 @@
       const fg = e.target.closest('.pl-furn');
       if (fg) { const o = furns().find((x) => x.id === +fg.dataset.furn); state.selFurn = o.id; const cl = evCell(e); drag = { mode: 'furn', id: o.id, offC: cl.c - o.c, offR: cl.r - o.r }; try { svg.setPointerCapture(e.pointerId); } catch (x) {} draw(); e.preventDefault(); return; }
       if (state.selFurn != null) { state.selFurn = null; draw(); }
+    } else if (state.mode === 'obre') {
+      const hot = e.target.closest('.pl-hot');
+      if (hot) {
+        const p = hot.dataset.edge.split(','), orient = p[0], c = +p[1], r = +p[2];
+        const arr = opens();
+        const i = arr.findIndex((o) => o.orient === orient && o.c === c && o.r === r);
+        if (i >= 0) { if (arr[i].type === state.tool) arr.splice(i, 1); else arr[i].type = state.tool; }
+        else arr.push({ id: state.nextOpen++, orient, c, r, type: state.tool });
+        draw();
+      }
     }
   }
 
@@ -325,6 +421,8 @@
     if (mode) { state.mode = mode.dataset.mode; state.selRoom = null; state.selFurn = null; renderModes(); renderPanel(); draw(); return; }
     const tab = e.target.closest('.pl-tab');
     if (tab) { state.floor = +tab.dataset.floor || 0; state.selRoom = null; state.selFurn = null; renderTabs(); draw(); return; }
+    const tool = e.target.closest('[data-tool]');
+    if (tool) { state.tool = tool.dataset.tool; renderPanel(); draw(); return; }
     const seg = e.target.closest('.pl-seg');
     if (seg) { state.plantes = +seg.dataset.plantes || 1; ensureFloors(); renderPanel(); renderTabs(); draw(); return; }
     const add = e.target.closest('[data-add]');

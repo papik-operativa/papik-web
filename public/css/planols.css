@@ -80,6 +80,11 @@
 .pl-del circle { fill: #b23b3b; }
 .pl-del line { stroke: #fff; stroke-width: 1.5; stroke-linecap: round; }
 
+/* obertures · trams de paret clicables */
+.pl-hot { fill: rgba(149, 187, 165, 0.35); cursor: pointer; transition: fill 0.12s ease; }
+.pl-hot:hover { fill: rgba(0, 40, 25, 0.55); }
+.pl-seg-group--wrap { flex-wrap: wrap; border-radius: 12px; }
+
 /* mobiliari */
 .pl-furn__hit { fill: transparent; cursor: grab; }
 .pl-furn.is-sel .pl-furn__hit { cursor: grabbing; }
