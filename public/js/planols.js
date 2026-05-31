@@ -72,6 +72,14 @@
     { key: 'obre',  label: 'Obertures' },
   ];
 
+  // Estances mínimes per donar la casa per acabada (compta totes les plantes).
+  const REQUIRED = [
+    { cls: 'cuina', label: 'Cuina' },
+    { cls: 'sala',  label: 'Sala-menjador' },
+    { cls: 'bany',  label: 'Bany' },
+    { cls: 'dorm',  label: 'Dormitori' },
+  ];
+
   const state = {
     plantes: 1, floor: 0, mode: 'forma', tool: 'door',
     floors: [{ rooms: [], furn: [], openings: [] }],
@@ -311,6 +319,7 @@
 
     svg.innerHTML = base + poche + inners + labels + openSVG + furnSVG + overlay;
     renderInfo();
+    refreshReq();
   }
 
   function renderModes () {
@@ -356,7 +365,33 @@
         `<div class="pl-field"><div class="pl-info" id="plInfo"></div></div>` +
         `<p class="pl-help">Clica un tram de paret per posar-hi l'element triat. Torna a clicar-lo per treure'l. El <b>pas obert</b> serveix per obrir la cuina a la sala. Crea primer la forma al mode Forma.</p>`;
     }
+    elPanel.insertAdjacentHTML('beforeend', reqBlock());
     elInfo = document.getElementById('plInfo');
+  }
+
+  // Estat dels requisits mínims (sumant totes les plantes).
+  function reqStatus () {
+    const total = {};
+    state.floors.forEach((f) => f.rooms.forEach((o) => { total[o.cls] = (total[o.cls] || 0) + 1; }));
+    return REQUIRED.map((r) => ({ label: r.label, ok: (total[r.cls] || 0) > 0 }));
+  }
+  function reqAllOk () { return reqStatus().every((s) => s.ok); }
+
+  function reqBlock () {
+    const st = reqStatus();
+    const allOk = st.every((s) => s.ok);
+    const missing = st.filter((s) => !s.ok).map((s) => s.label);
+    const items = st.map((s) => `<li class="pl-req__item${s.ok ? ' is-ok' : ''}"><span class="pl-req__mark">${s.ok ? '✓' : '○'}</span>${s.label}</li>`).join('');
+    return `<div class="pl-req">
+      <div class="pl-req__title">Per completar la casa</div>
+      <ul class="pl-req__list">${items}</ul>
+      <button type="button" class="pl-finish" data-finish="1"${allOk ? '' : ' disabled'}>${allOk ? 'Casa completa · continuar →' : 'Falta: ' + missing.join(', ')}</button>
+    </div>`;
+  }
+
+  function refreshReq () {
+    const el = elPanel && elPanel.querySelector('.pl-req');
+    if (el) el.outerHTML = reqBlock();
   }
 
   function renderInfo () {
@@ -459,6 +494,8 @@
   function onUp () { drag = null; }
 
   function onClick (e) {
+    const fin = e.target.closest('[data-finish]');
+    if (fin) { if (reqAllOk()) window.location.href = '/atelier'; return; }
     const mode = e.target.closest('.pl-mode');
     if (mode) { state.mode = mode.dataset.mode; state.selRoom = null; state.selFurn = null; renderModes(); renderPanel(); draw(); return; }
     const tab = e.target.closest('.pl-tab');
