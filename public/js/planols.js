@@ -165,17 +165,47 @@
   function F (n) { return Math.round(n * 10) / 10; }
 
   // Símbol d'escala dins una estança: graons + fletxa de pujada.
-  function drawStairs (x, y, w, h) {
-    const pad = Math.min(w, h) * 0.16;
-    const ix = x + pad, iy = y + pad, iw = w - 2 * pad, ih = h - 2 * pad;
-    if (iw < 8 || ih < 12) return '';
+  function fxLine (x1, y1, x2, y2) { return `<line class="planta-fx" x1="${F(x1)}" y1="${F(y1)}" x2="${F(x2)}" y2="${F(y2)}"/>`; }
+  function fxArrow (x1, y1, x2, y2) {
+    const a = Math.atan2(y2 - y1, x2 - x1), ah = 4;
+    return fxLine(x1, y1, x2, y2) +
+      fxLine(x2, y2, x2 - ah * Math.cos(a - 0.5), y2 - ah * Math.sin(a - 0.5)) +
+      fxLine(x2, y2, x2 - ah * Math.cos(a + 0.5), y2 - ah * Math.sin(a + 0.5));
+  }
+  // Escala en L (gir de 90°): tram que puja + replà + tram que gira.
+  function drawStairsL (ix, iy, iw, ih) {
+    const land = Math.min(iw, ih) * 0.5;
     let s = '';
-    const steps = Math.max(4, Math.round(ih / 7));
-    for (let i = 0; i <= steps; i++) { const yy = iy + (ih / steps) * i; s += `<line class="planta-fx" x1="${F(ix)}" y1="${F(yy)}" x2="${F(ix + iw)}" y2="${F(yy)}"/>`; }
-    const cx = ix + iw / 2;
-    s += `<line class="planta-fx" x1="${F(cx)}" y1="${F(iy + ih - 2)}" x2="${F(cx)}" y2="${F(iy + 4)}"/>`;
-    s += `<line class="planta-fx" x1="${F(cx)}" y1="${F(iy + 4)}" x2="${F(cx - 3)}" y2="${F(iy + 9)}"/>`;
-    s += `<line class="planta-fx" x1="${F(cx)}" y1="${F(iy + 4)}" x2="${F(cx + 3)}" y2="${F(iy + 9)}"/>`;
+    const colBot = iy + ih - land, stepsV = Math.max(3, Math.round((colBot - iy) / 7));
+    for (let i = 0; i <= stepsV; i++) { const yy = iy + ((colBot - iy) / stepsV) * i; s += fxLine(ix, yy, ix + land, yy); }
+    const rowL = ix + land, rowR = ix + iw, stepsH = Math.max(3, Math.round((rowR - rowL) / 7));
+    for (let i = 0; i <= stepsH; i++) { const xx = rowL + ((rowR - rowL) / stepsH) * i; s += fxLine(xx, iy + ih - land, xx, iy + ih); }
+    s += `<rect class="planta-fx" x="${F(ix)}" y="${F(iy + ih - land)}" width="${F(land)}" height="${F(land)}"/>`;
+    s += fxArrow(ix + land / 2, colBot - 1, ix + land / 2, iy + 3);
+    s += fxArrow(rowL + 1, iy + ih - land / 2, rowR - 3, iy + ih - land / 2);
+    return s;
+  }
+  // Escala: graons + fletxa de pujada. dir = direcció (0/90/180/270), shape 'straight'|'L'.
+  function drawStairs (x, y, w, h, dir, shape) {
+    dir = ((dir || 0) % 360 + 360) % 360;
+    const pad = Math.min(w, h) * 0.14;
+    const ix = x + pad, iy = y + pad, iw = w - 2 * pad, ih = h - 2 * pad;
+    if (iw < 8 || ih < 10) return '';
+    if (shape === 'L') {
+      const inner = drawStairsL(ix, iy, iw, ih);
+      return dir ? `<g transform="rotate(${dir} ${F(ix + iw / 2)} ${F(iy + ih / 2)})">${inner}</g>` : inner;
+    }
+    let s = '';
+    const cx = ix + iw / 2, cy = iy + ih / 2;
+    if (dir % 180 === 0) {
+      const steps = Math.max(4, Math.round(ih / 7));
+      for (let i = 0; i <= steps; i++) { const yy = iy + (ih / steps) * i; s += fxLine(ix, yy, ix + iw, yy); }
+      s += dir === 0 ? fxArrow(cx, iy + ih - 2, cx, iy + 3) : fxArrow(cx, iy + 2, cx, iy + ih - 3);
+    } else {
+      const steps = Math.max(4, Math.round(iw / 7));
+      for (let i = 0; i <= steps; i++) { const xx = ix + (iw / steps) * i; s += fxLine(xx, iy, xx, iy + ih); }
+      s += dir === 90 ? fxArrow(ix + 2, cy, ix + iw - 3, cy) : fxArrow(ix + iw - 2, cy, ix + 3, cy);
+    }
     return s;
   }
 
@@ -196,7 +226,12 @@
         s += `<line class="planta-door" x1="${F(xl)}" y1="${F(y0)}" x2="${F(xl + dir * CPX)}" y2="${F(y0)}"/>`;
         s += `<path class="planta-door" d="M ${F(xl + dir * CPX)} ${F(y0)} A ${CPX} ${CPX} 0 0 ${dir > 0 ? 1 : 0} ${F(xl)} ${F(y1)}"/>`;
       } else if (op.type === 'window') {
-        s += `<line class="planta-window" x1="${F(xl)}" y1="${F(y0)}" x2="${F(xl)}" y2="${F(y1)}"/>`;
+        const gm = (g0 + g1) / 2;
+        s += `<line class="planta-window" x1="${F(g0)}" y1="${F(y0)}" x2="${F(g0)}" y2="${F(y1)}"/>`;
+        s += `<line class="planta-window" x1="${F(gm)}" y1="${F(y0)}" x2="${F(gm)}" y2="${F(y1)}"/>`;
+        s += `<line class="planta-window" x1="${F(g1)}" y1="${F(y0)}" x2="${F(g1)}" y2="${F(y1)}"/>`;
+        s += `<line class="planta-window" x1="${F(g0)}" y1="${F(y0)}" x2="${F(g1)}" y2="${F(y0)}"/>`;
+        s += `<line class="planta-window" x1="${F(g0)}" y1="${F(y1)}" x2="${F(g1)}" y2="${F(y1)}"/>`;
       }
     } else {
       const yl = op.r * CPX, x0 = op.c * CPX, x1 = x0 + CPX;
@@ -211,7 +246,12 @@
         s += `<line class="planta-door" x1="${F(x0)}" y1="${F(yl)}" x2="${F(x0)}" y2="${F(yl + dir * CPX)}"/>`;
         s += `<path class="planta-door" d="M ${F(x0)} ${F(yl + dir * CPX)} A ${CPX} ${CPX} 0 0 ${dir > 0 ? 0 : 1} ${F(x1)} ${F(yl)}"/>`;
       } else if (op.type === 'window') {
-        s += `<line class="planta-window" x1="${F(x0)}" y1="${F(yl)}" x2="${F(x1)}" y2="${F(yl)}"/>`;
+        const gm = (g0 + g1) / 2;
+        s += `<line class="planta-window" x1="${F(x0)}" y1="${F(g0)}" x2="${F(x1)}" y2="${F(g0)}"/>`;
+        s += `<line class="planta-window" x1="${F(x0)}" y1="${F(gm)}" x2="${F(x1)}" y2="${F(gm)}"/>`;
+        s += `<line class="planta-window" x1="${F(x0)}" y1="${F(g1)}" x2="${F(x1)}" y2="${F(g1)}"/>`;
+        s += `<line class="planta-window" x1="${F(x0)}" y1="${F(g0)}" x2="${F(x0)}" y2="${F(g1)}"/>`;
+        s += `<line class="planta-window" x1="${F(x1)}" y1="${F(g0)}" x2="${F(x1)}" y2="${F(g1)}"/>`;
       }
     }
     return s;
@@ -303,7 +343,7 @@
       const iT = sideExterior(o, 'T', occ) ? WALL : WALL / 2, iB = sideExterior(o, 'B', occ) ? WALL : WALL / 2;
       const ix = x + iL, iy = y + iT, iw = w - iL - iR, ih = h - iT - iB;
       inners += `<rect class="planta-room-fill${o.cls === 'terrassa' ? ' planta-room-fill--terrassa' : ''}" x="${F(ix)}" y="${F(iy)}" width="${F(iw)}" height="${F(ih)}"/>`;
-      if (o.cls === 'escala') roomFx += drawStairs(ix, iy, iw, ih);
+      if (o.cls === 'escala') roomFx += drawStairs(ix, iy, iw, ih, o.dir, o.shape);
       const m2 = o.cw * o.ch * CELL_M * CELL_M;
       if (w > 44 && h > 30) {
         labels += `<text class="planta-room__name" x="${F(x + w / 2)}" y="${F(y + h / 2 - 4)}" text-anchor="middle" dominant-baseline="middle">${o.label}</text>`;
@@ -351,6 +391,10 @@
           overlay += `<rect class="pl-room__sel" x="${F(x)}" y="${F(y)}" width="${F(w)}" height="${F(h)}"/>`;
           overlay += `<rect class="pl-handle" data-role="resize" data-id="${o.id}" x="${F(x + w - 9)}" y="${F(y + h - 9)}" width="14" height="14" rx="2"/>`;
           overlay += `<g class="pl-del" data-role="del" data-id="${o.id}"><circle cx="${F(x + w - 2)}" cy="${F(y + 2)}" r="8"/><line x1="${F(x + w - 5)}" y1="${F(y - 1)}" x2="${F(x + w + 1)}" y2="${F(y + 5)}"/><line x1="${F(x + w + 1)}" y1="${F(y - 1)}" x2="${F(x + w - 5)}" y2="${F(y + 5)}"/></g>`;
+          if (o.cls === 'escala') {
+            overlay += `<g class="pl-rot" data-role="rotstair" data-id="${o.id}"><circle cx="${F(x + 2)}" cy="${F(y + 2)}" r="8"/><path d="M ${F(x - 1)} ${F(y + 1)} A 3 3 0 1 1 ${F(x + 1)} ${F(y + 4)}" fill="none"/><path d="M ${F(x - 1)} ${F(y - 1)} L ${F(x - 1)} ${F(y + 1.5)} L ${F(x + 1.5)} ${F(y + 0.5)} Z"/></g>`;
+            overlay += `<g class="pl-shapebtn" data-role="lstair" data-id="${o.id}"><circle cx="${F(x + 20)}" cy="${F(y + 2)}" r="8"/><text x="${F(x + 20)}" y="${F(y + 5)}" text-anchor="middle">${o.shape === 'L' ? 'I' : 'L'}</text></g>`;
+          }
         }
         overlay += `</g>`;
       });
@@ -501,6 +545,10 @@
     if (state.mode === 'forma') {
       const del = e.target.closest('[data-role="del"]');
       if (del) { const a = rooms(), i = a.findIndex((o) => o.id === +del.dataset.id); if (i >= 0) a.splice(i, 1); state.selRoom = null; renderTabs(); draw(); return; }
+      const rst = e.target.closest('[data-role="rotstair"]');
+      if (rst) { const o = rooms().find((x) => x.id === +rst.dataset.id); if (o) { o.dir = ((o.dir || 0) + 90) % 360; draw(); } return; }
+      const lst = e.target.closest('[data-role="lstair"]');
+      if (lst) { const o = rooms().find((x) => x.id === +lst.dataset.id); if (o) { o.shape = o.shape === 'L' ? 'straight' : 'L'; draw(); } return; }
       const hz = e.target.closest('[data-role="resize"]');
       if (hz) { const o = rooms().find((x) => x.id === +hz.dataset.id); state.selRoom = o.id; drag = { mode: 'resize', id: o.id }; try { svg.setPointerCapture(e.pointerId); } catch (x) {} draw(); e.preventDefault(); return; }
       const rm = e.target.closest('.pl-room');
