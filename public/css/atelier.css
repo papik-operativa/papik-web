@@ -183,6 +183,33 @@ button { font: inherit; cursor: pointer; }
   border-color: var(--pp-line-strong);
   background: var(--pp-paper);
 }
+.atelier-bar__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.atelier-bar__plans {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pp-ink, #002819);
+  padding: 10px 16px;
+  border-radius: var(--pp-radius-pill);
+  border: 1px solid rgba(149, 187, 165, 0.55);
+  background: rgba(149, 187, 165, 0.16);
+  transition: all 0.22s var(--pp-ease);
+}
+.atelier-bar__plans:hover {
+  border-color: rgba(149, 187, 165, 0.9);
+  background: rgba(149, 187, 165, 0.28);
+}
+.atelier-bar__plans svg { flex: 0 0 auto; }
+@media (max-width: 560px) {
+  .atelier-bar__plans span { display: none; }
+  .atelier-bar__plans { padding: 10px 12px; }
+}
 
 /* ═══════════════════════════════════════════════════════════
    STAGE · 2-column area over the photo
